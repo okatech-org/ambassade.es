@@ -26,14 +26,18 @@ export default function AppClerkProvider({
       publishableKey={PUBLISHABLE_KEY}
       afterSignOutUrl="/"
       localization={localization}
-      signInUrl="/sign-in"
-      signUpUrl="/sign-up"
+      signInUrl="/admin"
       appearance={{
         layout: {
           socialButtonsVariant: 'iconButton',
         },
         variables: {
           colorPrimary: '#015FC6',
+        },
+        elements: {
+          // Hide signup link in sign-in modal
+          footerActionLink: { display: 'none' },
+          footerActionText: { display: 'none' },
         },
       }}
     >

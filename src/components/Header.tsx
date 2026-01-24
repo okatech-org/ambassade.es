@@ -1,6 +1,5 @@
 import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
-import ClerkHeader from '../integrations/clerk/header-user.tsx'
 import { useState } from 'react'
 import {
   BookOpen,
@@ -124,55 +123,51 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Button
-                key={link.label}
-                asChild
-                variant="ghost"
-                size="sm"
-                className="font-medium"
-              >
-                <Link
-                  to={link.href}
-                  activeProps={{
-                    className: 'bg-primary text-white hover:bg-primary/90 hover:text-white',
-                  }}
+          {/* Right Side: Navigation + Mobile Menu */}
+          <div className="flex items-center gap-3">
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-1">
+              {navLinks.map((link) => (
+                <Button
+                  key={link.label}
+                  asChild
+                  variant="ghost"
+                  size="sm"
+                  className="font-medium"
                 >
-                  {link.label}
-                </Link>
-              </Button>
-            ))}
-            
-            {/* Services Dropdown */}
-            <div className="relative group">
-              <Button variant="ghost" size="sm" className="font-medium">
-                {t('header.nav.services')}
-                <ChevronDown className="w-4 h-4 ml-1" />
-              </Button>
-              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                <div className="bg-card rounded-xl shadow-xl border border-border p-2 min-w-[220px]">
-                  {serviceLinks.map((link) => (
-                    <Link
-                      key={link.label}
-                      to={link.href}
-                      className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-secondary transition-colors"
-                    >
-                      <link.icon className="w-5 h-5 text-primary" />
-                      <span className="text-sm font-medium text-foreground">{link.label}</span>
-                    </Link>
-                  ))}
+                  <Link
+                    to={link.href}
+                    activeProps={{
+                      className: 'bg-primary text-white hover:bg-primary/90 hover:text-white',
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                </Button>
+              ))}
+              
+              {/* Services Dropdown */}
+              <div className="relative group">
+                <Button variant="ghost" size="sm" className="font-medium">
+                  {t('header.nav.services')}
+                  <ChevronDown className="w-4 h-4 ml-1" />
+                </Button>
+                <div className="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                  <div className="bg-card rounded-xl shadow-xl border border-border p-2 min-w-[220px]">
+                    {serviceLinks.map((link) => (
+                      <Link
+                        key={link.label}
+                        to={link.href}
+                        className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-secondary transition-colors"
+                      >
+                        <link.icon className="w-5 h-5 text-primary" />
+                        <span className="text-sm font-medium text-foreground">{link.label}</span>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          </nav>
-
-          {/* Right Side */}
-          <div className="flex items-center gap-3">
-            <div className="hidden sm:block">
-              <ClerkHeader />
-            </div>
+            </nav>
 
             {/* Mobile Menu Button */}
             <Button
@@ -296,10 +291,10 @@ export default function Header() {
         </nav>
 
         {/* Sidebar Footer */}
-        <div className="p-4 border-t border-border space-y-3">
-          <div className="sm:hidden">
-            <ClerkHeader />
-          </div>
+        <div className="p-4 border-t border-border">
+          <p className="text-xs text-muted-foreground text-center">
+            © {new Date().getFullYear()} Consulat.ga
+          </p>
         </div>
       </aside>
     </>
