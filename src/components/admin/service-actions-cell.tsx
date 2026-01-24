@@ -31,7 +31,7 @@ export function ServiceActionsCell({ service }: ServiceActionsCellProps) {
 
   const handleToggleStatus = async () => {
     try {
-      await toggleService({ serviceId: service._id, isActive: !service.isActive })
+      await toggleService({ id: service._id, isActive: !service.isActive })
       toast.success(service.isActive 
         ? t("superadmin.services.actions.disabled") 
         : t("superadmin.services.actions.enabled")

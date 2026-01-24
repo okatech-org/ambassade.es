@@ -19,7 +19,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Footer } from '@/components/Footer'
+
 import { ConsulMessage } from '@/components/about/ConsulMessage'
 import { TeamMemberCard } from '@/components/about/TeamMemberCard'
 
@@ -124,7 +124,7 @@ function LeConsulatPage() {
                   {/* Main image placeholder with gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl overflow-hidden">
                     <img 
-                      src="/hero-background.png" 
+                      src="/banner-gabon-france.jpeg" 
                       alt="Consulat du Gabon"
                       className="w-full h-full object-cover opacity-80"
                     />
@@ -362,7 +362,7 @@ function LeConsulatPage() {
         </section>
       </div>
 
-      <Footer />
+
     </div>
   )
 }

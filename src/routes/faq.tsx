@@ -1,19 +1,19 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { useTranslation } from 'react-i18next'
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { Footer } from '@/components/Footer'
+
 
 export const Route = createFileRoute('/faq')({
   component: FAQPage,
 })
 
 function FAQPage() {
-  const { t } = useTranslation()
+
 
   const faqItems = [
     {
@@ -63,7 +63,7 @@ function FAQPage() {
           </Accordion>
         </div>
       </main>
-      <Footer />
+
     </div>
   )
 }

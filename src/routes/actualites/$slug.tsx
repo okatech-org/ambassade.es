@@ -7,7 +7,7 @@ import { api } from '@convex/_generated/api'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
-import { Footer } from '@/components/Footer'
+
 import { RelatedPosts } from '@/components/posts/RelatedPosts'
 import { EventSidebar } from '@/components/posts/EventSidebar'
 import { CommuniqueHeader, CommuniqueFooter } from '@/components/posts/CommuniqueHeader'
@@ -93,7 +93,7 @@ function ActualiteDetailPage() {
             </Button>
           </div>
         </div>
-        <Footer />
+  
       </div>
     )
   }
@@ -223,7 +223,7 @@ function ActualiteDetailPage() {
         <RelatedPosts currentSlug={post.slug} category={post.category} />
       </div>
 
-      <Footer />
+
     </div>
   )
 }

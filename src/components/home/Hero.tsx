@@ -19,7 +19,7 @@ export function Hero() {
       {/* Background Image with Gradient Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/hero-background.png"
+          src="/banner-gabon-france.jpeg"
           alt="Gabon cityscape"
           className="w-full h-full object-cover"
         />
