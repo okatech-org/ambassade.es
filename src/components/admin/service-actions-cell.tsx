@@ -54,7 +54,7 @@ export function ServiceActionsCell({ service }: ServiceActionsCellProps) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="min-w-max" align="end">
-        <DropdownMenuLabel>{service.name.fr}</DropdownMenuLabel>
+        <DropdownMenuLabel>{service.title}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={handleEdit}>
           <Edit className="mr-2 h-4 w-4" />

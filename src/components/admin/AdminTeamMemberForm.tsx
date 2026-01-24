@@ -1,7 +1,5 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useMutation } from 'convex/react'
-import { api } from '@convex/_generated/api'
 import { Link } from '@tanstack/react-router'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -9,9 +7,10 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Loader2, Upload, Trash2, User, Crown } from 'lucide-react'
+
+import { Loader2, User, Crown } from 'lucide-react'
 import { toast } from 'sonner'
+import { FileUploader } from '@/components/common/FileUploader'
 
 interface TeamMemberFormData {
   firstName: string
@@ -33,11 +32,8 @@ interface AdminTeamMemberFormProps {
 
 export function AdminTeamMemberForm({ onSubmit, initialData }: AdminTeamMemberFormProps) {
   const { t } = useTranslation()
-  const fileInputRef = useRef<HTMLInputElement>(null)
-  const generateUploadUrl = useMutation(api.functions.teamMembers.generateUploadUrl)
   
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isUploading, setIsUploading] = useState(false)
   
   const [formData, setFormData] = useState<TeamMemberFormData>({
     firstName: initialData?.firstName || '',
@@ -56,61 +52,18 @@ export function AdminTeamMemberForm({ onSubmit, initialData }: AdminTeamMemberFo
     setFormData(prev => ({ ...prev, [field]: value }))
   }
 
-  const handlePhotoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (!file) return
-
-    // Validate file type
-    if (!file.type.startsWith('image/')) {
-      toast.error(t('admin.team.invalidFileType', 'Veuillez sélectionner une image'))
-      return
-    }
-
-    // Validate file size (max 5MB)
-    if (file.size > 5 * 1024 * 1024) {
-      toast.error(t('admin.team.fileTooLarge', 'L\'image ne doit pas dépasser 5 Mo'))
-      return
-    }
-
-    setIsUploading(true)
-    try {
-      // Get upload URL
-      const uploadUrl = await generateUploadUrl()
-      
-      // Upload file
-      const response = await fetch(uploadUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': file.type },
-        body: file,
-      })
-      
-      if (!response.ok) throw new Error('Upload failed')
-      
-      const { storageId } = await response.json()
-      
-      // Create preview URL
-      const previewUrl = URL.createObjectURL(file)
-      
-      setFormData(prev => ({
-        ...prev,
-        photoStorageId: storageId,
-        photoUrl: previewUrl,
-      }))
-      
-      toast.success(t('admin.team.photoUploaded', 'Photo téléchargée'))
-    } catch (error) {
-      console.error('Upload error:', error)
-      toast.error(t('admin.team.uploadError', 'Erreur lors du téléchargement'))
-    } finally {
-      setIsUploading(false)
-    }
-  }
-
-  const handleRemovePhoto = () => {
+  const handleUploadComplete = (storageId: string) => {
     setFormData(prev => ({
       ...prev,
-      photoStorageId: undefined,
-      photoUrl: undefined,
+      photoStorageId: storageId,
+      // We don't have the temporary URL easily without extra work, but FileUploader shows preview.
+      // However, the parent form might need it? 
+      // Actually `photoUrl` in formData is used for preview in this component itself.
+      // FileUploader manages its own preview, so we might not need to set photoUrl here *unless* we want to persist it or show it in the avatar fallback?
+      // Let's rely on FileUploader's preview. But wait, this form has a big Avatar at top.
+      // FileUploader has a preview. Maybe we can rely on that or hide the big avatar if using FileUploader?
+      // Or better: The big avatar IS the preview area.
+      // Let's replace the custom Avatar upload card with just the FileUploader which has a nice preview.
     }))
   }
 
@@ -134,9 +87,7 @@ export function AdminTeamMemberForm({ onSubmit, initialData }: AdminTeamMemberFo
     }
   }
 
-  const initials = formData.firstName && formData.lastName 
-    ? `${formData.firstName.charAt(0)}${formData.lastName.charAt(0)}`
-    : ''
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -150,52 +101,12 @@ export function AdminTeamMemberForm({ onSubmit, initialData }: AdminTeamMemberFo
             </CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col items-center gap-4">
-            <Avatar className="w-32 h-32">
-              <AvatarImage src={formData.photoUrl} alt="Photo" />
-              <AvatarFallback className="text-3xl bg-primary/10 text-primary">
-                {initials || <User className="h-12 w-12" />}
-              </AvatarFallback>
-            </Avatar>
-            
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept="image/*"
-              onChange={handlePhotoUpload}
-              className="hidden"
-            />
-            
-            <div className="flex gap-2">
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                onClick={() => fileInputRef.current?.click()}
-                disabled={isUploading}
-              >
-                {isUploading ? (
-                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                ) : (
-                  <Upload className="h-4 w-4 mr-2" />
-                )}
-                {t('admin.team.uploadPhoto', 'Télécharger')}
-              </Button>
-              
-              {formData.photoUrl && (
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  onClick={handleRemovePhoto}
-                >
-                  <Trash2 className="h-4 w-4" />
-                </Button>
-              )}
-            </div>
-            
-            <p className="text-xs text-muted-foreground text-center">
-              {t('admin.team.photoHint', 'Format JPG ou PNG, max 5 Mo')}
-            </p>
+             <FileUploader
+                label={t('admin.team.uploadPhoto', 'Télécharger une photo')}
+                currentUrl={formData.photoUrl}
+                onUploadComplete={handleUploadComplete}
+                onRemove={() => setFormData(prev => ({ ...prev, photoStorageId: undefined, photoUrl: undefined }))}
+             />
           </CardContent>
         </Card>
 

@@ -19,6 +19,7 @@ import {
 import { ArrowLeft, Save, Calendar, MapPin, Ticket, FileText } from 'lucide-react'
 import { toast } from 'sonner'
 import { Link } from '@tanstack/react-router'
+import { FileUploader } from '@/components/common/FileUploader'
 
 export const Route = createFileRoute('/admin/posts/new')({
   component: NewPostPage,
@@ -39,6 +40,7 @@ interface PostFormData {
   excerpt: string
   content: string
   coverImage: string
+  coverImageStorageId?: string
   category: 'actualite' | 'evenement' | 'communique'
   status: 'draft' | 'published'
   // Event fields
@@ -52,6 +54,7 @@ interface PostFormData {
   ticketPrice: string
   // Communiqué fields
   documentUrl: string
+  documentStorageId?: string
   documentName: string
   referenceNumber: string
 }
@@ -68,6 +71,7 @@ function NewPostPage() {
     excerpt: '',
     content: '',
     coverImage: '',
+    coverImageStorageId: undefined,
     category: 'actualite',
     status: 'draft',
     // Event fields
@@ -81,6 +85,7 @@ function NewPostPage() {
     ticketPrice: '',
     // Communiqué fields
     documentUrl: '',
+    documentStorageId: undefined,
     documentName: '',
     referenceNumber: '',
   })
@@ -109,6 +114,7 @@ function NewPostPage() {
         excerpt: formData.excerpt,
         content: formData.content,
         coverImage: formData.coverImage || undefined,
+        coverImageStorageId: formData.coverImageStorageId ? (formData.coverImageStorageId as any) : undefined,
         category: formData.category,
         status: formData.status,
         publishedAt: formData.status === 'published' ? Date.now() : undefined,
@@ -126,6 +132,7 @@ function NewPostPage() {
         // Communiqué fields (only if category is communique)
         ...(formData.category === 'communique' && {
           documentUrl: formData.documentUrl || undefined,
+          documentStorageId: formData.documentStorageId ? (formData.documentStorageId as any) : undefined,
           documentName: formData.documentName || undefined,
           referenceNumber: formData.referenceNumber || undefined,
         }),
@@ -221,13 +228,17 @@ function NewPostPage() {
                 </Select>
               </div>
               <div className="space-y-2">
+              <div className="space-y-2">
                 <Label htmlFor="coverImage">Image de couverture</Label>
-                <Input
-                  id="coverImage"
-                  value={formData.coverImage}
-                  onChange={(e) => setFormData(prev => ({ ...prev, coverImage: e.target.value }))}
-                  placeholder="https://..."
-                />
+                <div className="flex gap-2">
+                  <FileUploader
+                    label="Choisir une image"
+                    currentUrl={formData.coverImage}
+                    onUploadComplete={(storageId) => setFormData(prev => ({ ...prev, coverImageStorageId: storageId }))}
+                    onRemove={() => setFormData(prev => ({ ...prev, coverImage: '', coverImageStorageId: undefined }))}
+                  />
+                </div>
+              </div>
               </div>
             </div>
 
@@ -391,13 +402,16 @@ function NewPostPage() {
 
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-2">
-                  <Label htmlFor="documentUrl">URL du document PDF</Label>
-                  <Input
-                    id="documentUrl"
-                    value={formData.documentUrl}
-                    onChange={(e) => setFormData(prev => ({ ...prev, documentUrl: e.target.value }))}
-                    placeholder="https://..."
+                <div className="space-y-2">
+                  <Label htmlFor="documentUrl">Document PDF</Label>
+                  <FileUploader
+                    label="Choisir un PDF"
+                    accept="application/pdf"
+                    currentUrl={formData.documentUrl}
+                    onUploadComplete={(storageId) => setFormData(prev => ({ ...prev, documentStorageId: storageId, documentUrl: "" }))} // Clear URL if direct upload
+                    onRemove={() => setFormData(prev => ({ ...prev, documentUrl: '', documentStorageId: undefined }))}
                   />
+                </div>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="documentName">Nom du fichier</Label>

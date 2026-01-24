@@ -28,8 +28,12 @@ export const postsTable = defineTable({
   
   // === Champs spécifiques COMMUNIQUÉ ===
   documentUrl: v.optional(v.string()),      // URL du PDF officiel
+  documentStorageId: v.optional(v.id("_storage")),
   documentName: v.optional(v.string()),     // Nom du fichier
   referenceNumber: v.optional(v.string()),  // N° de référence officiel
+  
+  // Storage IDs (Future migration)
+  coverImageStorageId: v.optional(v.id("_storage")),
 })
   .index("by_slug", ["slug"])
   .index("by_status_date", ["status", "publishedAt"])

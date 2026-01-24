@@ -29,7 +29,7 @@ export const columns: ColumnDef<CommonService>[] = [
       <DataTableColumnHeader column={column} title="Name" />
     ),
     cell: ({ row }) => (
-      <span className="font-medium">{row.original.name.fr}</span>
+      <span className="font-medium">{row.original.title}</span>
     ),
   },
   {
@@ -62,7 +62,7 @@ export const columns: ColumnDef<CommonService>[] = [
   },
   {
     id: "documents",
-    accessorFn: (row) => row.defaults?.requiredDocuments?.length ?? 0,
+    accessorFn: (row) => row.requirements.length ?? 0,
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Documents" />
     ),
@@ -70,7 +70,7 @@ export const columns: ColumnDef<CommonService>[] = [
       const count = row.getValue("documents") as number
       return (
         <Badge variant="outline">
-          {count} required
+          {count} requis
         </Badge>
       )
     },

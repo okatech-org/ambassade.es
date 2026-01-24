@@ -10,17 +10,10 @@ export function useUserData() {
     isAuthenticated ? {} : "skip"
   );
 
-  const { data: memberships, isPending: membershipsPending } = useConvexQuery(
-    api.functions.memberships.listMyMemberships,
-    isAuthenticated ? {} : "skip"
-  );
-
   return {
     userData,
-    memberships,
-    isAgent: Boolean(memberships && memberships.length > 0),
     isSuperAdmin: Boolean(userData?.isSuperadmin),
-    isPending: isLoading || userPending || membershipsPending,
+    isPending: isLoading || userPending,
     error,
   };
 }

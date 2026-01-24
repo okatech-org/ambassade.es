@@ -18,7 +18,23 @@ export const getBySlug = query({
     if (!post || post.status !== "published") {
       return null;
     }
-    return post;
+    
+    // Resolve storage URLs
+    let coverImage = post.coverImage;
+    if (post.coverImageStorageId) {
+      coverImage = (await ctx.storage.getUrl(post.coverImageStorageId)) ?? undefined;
+    }
+    
+    let documentUrl = post.documentUrl;
+    if (post.documentStorageId) {
+      documentUrl = (await ctx.storage.getUrl(post.documentStorageId)) ?? undefined;
+    }
+
+    return {
+      ...post,
+      coverImage,
+      documentUrl,
+    };
   },
 });
 
@@ -27,10 +43,29 @@ export const adminGetBySlug = query({
   args: { slug: v.string() },
   handler: async (ctx, args) => {
     await requireSuperadmin(ctx);
-    return await ctx.db
+    const post = await ctx.db
       .query("posts")
       .withIndex("by_slug", (q) => q.eq("slug", args.slug))
       .unique();
+      
+    if (!post) return null;
+
+    // Resolve storage URLs
+    let coverImage = post.coverImage;
+    if (post.coverImageStorageId) {
+      coverImage = (await ctx.storage.getUrl(post.coverImageStorageId)) ?? undefined;
+    }
+    
+    let documentUrl = post.documentUrl;
+    if (post.documentStorageId) {
+      documentUrl = (await ctx.storage.getUrl(post.documentStorageId)) ?? undefined;
+    }
+
+    return {
+      ...post,
+      coverImage,
+      documentUrl,
+    };
   },
 });
 
@@ -51,7 +86,18 @@ export const list = query({
       q = q.filter((q) => q.eq(q.field("category"), args.category));
     }
 
-    return await q.order("desc").paginate(args.paginationOpts);
+    const posts = await q.order("desc").paginate(args.paginationOpts);
+    
+    // Map over page to resolve URLs
+    const pageWithUrls = await Promise.all(posts.page.map(async (post) => {
+      let coverImage = post.coverImage;
+      if (post.coverImageStorageId) {
+        coverImage = (await ctx.storage.getUrl(post.coverImageStorageId)) ?? undefined;
+      }
+      return { ...post, coverImage };
+    }));
+
+    return { ...posts, page: pageWithUrls };
   },
 });
 
@@ -61,7 +107,19 @@ export const listAll = query({
   handler: async (ctx) => {
     await requireSuperadmin(ctx);
     const posts = await ctx.db.query("posts").order("desc").collect();
-    return posts;
+    
+    // Resolve URLs
+    return await Promise.all(posts.map(async (post) => {
+      let coverImage = post.coverImage;
+      if (post.coverImageStorageId) {
+        coverImage = (await ctx.storage.getUrl(post.coverImageStorageId)) ?? undefined;
+      }
+      let documentUrl = post.documentUrl;
+      if (post.documentStorageId) {
+        documentUrl = (await ctx.storage.getUrl(post.documentStorageId)) ?? undefined;
+      }
+      return { ...post, coverImage, documentUrl };
+    }));
   },
 });
 
@@ -73,6 +131,7 @@ export const create = mutation({
     excerpt: v.string(),
     content: v.string(),
     coverImage: v.optional(v.string()),
+    coverImageStorageId: v.optional(v.id("_storage")),
     category: v.union(v.literal("actualite"), v.literal("evenement"), v.literal("communique")),
     status: v.union(v.literal("draft"), v.literal("published")),
     publishedAt: v.optional(v.number()),
@@ -87,6 +146,7 @@ export const create = mutation({
     ticketPrice: v.optional(v.string()),
     // Communiqué fields
     documentUrl: v.optional(v.string()),
+    documentStorageId: v.optional(v.id("_storage")),
     documentName: v.optional(v.string()),
     referenceNumber: v.optional(v.string()),
   },
@@ -120,6 +180,7 @@ export const update = mutation({
     excerpt: v.string(),
     content: v.string(),
     coverImage: v.optional(v.string()),
+    coverImageStorageId: v.optional(v.id("_storage")),
     category: v.union(v.literal("actualite"), v.literal("evenement"), v.literal("communique")),
     status: v.union(v.literal("draft"), v.literal("published")),
     publishedAt: v.optional(v.number()),
@@ -134,6 +195,7 @@ export const update = mutation({
     ticketPrice: v.optional(v.string()),
     // Communiqué fields
     documentUrl: v.optional(v.string()),
+    documentStorageId: v.optional(v.id("_storage")),
     documentName: v.optional(v.string()),
     referenceNumber: v.optional(v.string()),
   },
@@ -188,7 +250,13 @@ export const getRelated = query({
       .order("desc")
       .take(limit);
     
-    return posts;
+    return await Promise.all(posts.map(async (post) => {
+      let coverImage = post.coverImage;
+      if (post.coverImageStorageId) {
+        coverImage = (await ctx.storage.getUrl(post.coverImageStorageId)) ?? undefined;
+      }
+      return { ...post, coverImage };
+    }));
   },
 });
 

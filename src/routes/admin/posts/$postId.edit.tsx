@@ -21,6 +21,7 @@ import {
 import { ArrowLeft, Save, Calendar, MapPin, Ticket, FileText } from 'lucide-react'
 import { toast } from 'sonner'
 import { Link } from '@tanstack/react-router'
+import { FileUploader } from '@/components/common/FileUploader'
 
 export const Route = createFileRoute('/admin/posts/$postId/edit')({
   component: EditPostPage,
@@ -32,6 +33,7 @@ interface PostFormData {
   excerpt: string
   content: string
   coverImage: string
+  coverImageStorageId?: string
   category: 'actualite' | 'evenement' | 'communique'
   status: 'draft' | 'published'
   publishedAt: number | undefined
@@ -46,6 +48,7 @@ interface PostFormData {
   ticketPrice: string
   // Communiqué fields
   documentUrl: string
+  documentStorageId?: string
   documentName: string
   referenceNumber: string
 }
@@ -71,6 +74,7 @@ function EditPostPage() {
     excerpt: '',
     content: '',
     coverImage: '',
+    coverImageStorageId: undefined,
     category: 'actualite',
     status: 'draft',
     publishedAt: undefined,
@@ -85,6 +89,7 @@ function EditPostPage() {
     ticketPrice: '',
     // Communiqué fields
     documentUrl: '',
+    documentStorageId: undefined,
     documentName: '',
     referenceNumber: '',
   })
@@ -97,6 +102,7 @@ function EditPostPage() {
         excerpt: post.excerpt,
         content: post.content,
         coverImage: post.coverImage || '',
+        coverImageStorageId: post.coverImageStorageId || undefined,
         category: post.category,
         status: post.status,
         publishedAt: post.publishedAt,
@@ -111,6 +117,7 @@ function EditPostPage() {
         ticketPrice: post.ticketPrice || '',
         // Communiqué fields
         documentUrl: post.documentUrl || '',
+        documentStorageId: post.documentStorageId || undefined,
         documentName: post.documentName || '',
         referenceNumber: post.referenceNumber || '',
       })
@@ -136,6 +143,7 @@ function EditPostPage() {
         excerpt: formData.excerpt,
         content: formData.content,
         coverImage: formData.coverImage || undefined,
+        coverImageStorageId: formData.coverImageStorageId ? (formData.coverImageStorageId as any) : undefined,
         category: formData.category,
         status: formData.status,
         publishedAt: formData.status === 'published' && !formData.publishedAt 
@@ -155,6 +163,7 @@ function EditPostPage() {
         // Communiqué fields (only if category is communique)
         ...(formData.category === 'communique' && {
           documentUrl: formData.documentUrl || undefined,
+          documentStorageId: formData.documentStorageId ? (formData.documentStorageId as any) : undefined,
           documentName: formData.documentName || undefined,
           referenceNumber: formData.referenceNumber || undefined,
         }),
@@ -275,14 +284,19 @@ function EditPostPage() {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="coverImage">Image de couverture</Label>
-                <Input
-                  id="coverImage"
-                  value={formData.coverImage}
-                  onChange={(e) => setFormData(prev => ({ ...prev, coverImage: e.target.value }))}
-                  placeholder="https://..."
-                />
+                <div className="flex gap-2">
+                  <FileUploader
+                    label="Choisir une image"
+                    currentUrl={formData.coverImage}
+                    onUploadComplete={(storageId) => setFormData(prev => ({ ...prev, coverImageStorageId: storageId }))}
+                    onRemove={() => setFormData(prev => ({ ...prev, coverImage: '', coverImageStorageId: undefined }))}
+                  />
+                  {/* Keep URL input as fallback or read-only if needed? For now replace completely or side-by-side? 
+                      Plan says "Replace", so let's stick to Uploader.
+                      However, FileUploader handles preview. */}
+                </div>
               </div>
-            </div>
+              </div>
 
             <div className="space-y-2">
               <Label htmlFor="excerpt">{t('admin.posts.form.excerpt', 'Résumé')} *</Label>
@@ -444,12 +458,13 @@ function EditPostPage() {
 
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-2">
-                  <Label htmlFor="documentUrl">URL du document PDF</Label>
-                  <Input
-                    id="documentUrl"
-                    value={formData.documentUrl}
-                    onChange={(e) => setFormData(prev => ({ ...prev, documentUrl: e.target.value }))}
-                    placeholder="https://..."
+                  <Label htmlFor="documentUrl">Document PDF</Label>
+                  <FileUploader
+                    label="Choisir un PDF"
+                    accept="application/pdf"
+                    currentUrl={formData.documentUrl}
+                    onUploadComplete={(storageId) => setFormData(prev => ({ ...prev, documentStorageId: storageId, documentUrl: "" }))}
+                    onRemove={() => setFormData(prev => ({ ...prev, documentUrl: '', documentStorageId: undefined }))}
                   />
                 </div>
                 <div className="space-y-2">
