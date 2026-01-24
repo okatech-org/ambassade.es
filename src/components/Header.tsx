@@ -5,6 +5,7 @@ import { useState } from 'react'
 import {
   BookOpen,
   BookOpenCheck,
+  Building,
   Calendar,
   Check,
   ChevronDown,
@@ -47,6 +48,7 @@ export default function Header() {
   const navLinks = [
     { label: t('header.nav.home'), href: '/', icon: Home },
     { label: t('header.nav.news'), href: '/actualites', icon: Newspaper },
+    { label: t('header.nav.consulat', 'Le Consulat'), href: '/le-consulat', icon: Building },
     { label: t('header.nav.contact'), href: '/contact', icon: MapPin },
   ]
 

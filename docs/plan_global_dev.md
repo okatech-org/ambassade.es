@@ -1,61 +1,59 @@
-# Plan Global de Développement
+# Plan Global de Développement : Site du Consulat du Gabon en France
 
-## Phase 1 : Initialisation et Nettoyage
+> Dernière mise à jour : 24/01/2026
 
-_Objectif : Préparer la base de code saine._
+## Phase 1 : Nettoyage et Configuration ✅
 
-- [ ] Suppression des routes et composants obsolètes (Authentification publique, My Space, anciens formulaires).
-- [ ] Mise à jour de la configuration du projet (Métadonnées, Titre, Favicon).
-- [ ] Setup de la structure de dossiers `docs/` et `resources/`.
+- [x] Supprimer les routes inutiles (`my-space`, `orgs`, `sign-in`, `sign-up`, `dashboard`, etc.)
+- [x] Nettoyer les composants non utilisés (`NearbyOrgs.tsx`, `org/`, `profile/`, etc.)
+- [x] Mettre à jour `package.json` et métadonnées globales
 
-## Phase 2 : Backend (Convex)
+## Phase 2 : Backend (Convex) ✅
 
-_Objectif : Mettre en place la structure de données._
+- [x] Définir le schéma (`posts`, `services`, `announcements`)
+- [x] Nettoyage des fonctions et schémas obsolètes
+- [x] Implémenter les fonctions CRUD pour posts, services, announcements
+- [x] Script de Seed pour les données de référence
+- [x] Refonte des fonctions d'administration
 
-- [ ] Implémentation du Schema (`convex/schema.ts`) : Tables Services, Posts, Announcements.
-- [ ] Création des fonctions API (`convex/services.ts`, `convex/posts.ts`) :
-  - [ ] Queries publiques (listAll, getBySlug).
-  - [ ] Mutations protégées (create, update, delete).
-- [ ] Script de "Seed" : Peupler la base avec les données récupérées du site actuel (Passeport, Visa, Transcription...).
+## Phase 3 : Frontend - Socle Public ✅
 
-## Phase 3 : Frontend - Socle Public
+- [x] Refonte Navigation (Header/Footer) avec liens institutionnels
+- [x] Page d'Accueil (Hero, Services, Localisations, CitizenCTA)
+- [x] Page Contact avec infos et map
+- [x] Mise à jour Design System (couleurs nationales)
+- [x] Restriction HeaderUser (Admin uniquement)
 
-_Objectif : Rendre le site visible et navigable._
+## Phase 4 : Frontend - Fonctionnalités Métier ✅
 
-- [ ] **Design System** : Ajustement du thème (Couleurs, Typographie).
-- [ ] **Développement du Layout** :
-  - [ ] Navbar (Logo, Menu Navigation).
-  - [ ] Footer (Liens légaux, Réseaux sociaux).
-- [ ] **Page d'Accueil** (`index.tsx`) :
-  - [ ] Hero Section.
-  - [ ] Quick Links.
-  - [ ] Latest News (Placeholder).
-- [ ] **Page Contact** : Intégration Map et Infos.
+### 4.1 Catalogue des Services ✅
 
-## Phase 4 : Frontend - Fonctionnalités Métier
+- [x] Corriger `/services/$slug.tsx` (adapter au schéma Convex actuel)
+- [x] Page liste `/services/index.tsx` - vérifier intégration données
+- [x] Affichage des tarifs, délais, documents requis
 
-- [ ] **Catalogue Services** :
-  - [ ] Page Liste (`services/index.tsx`).
-  - [ ] Composant Carte.
-  - [ ] Page Détail / Modale avec toutes les infos (Tarifs, Pièces).
-- [ ] **Section Institutionnelle** :
-  - [ ] Page "Le Consulat" (Contenu statique).
-- [ ] **Actualités** :
-  - [ ] Page Liste Blog.
-  - [ ] Page Article individuel.
+### 4.2 Page Institutionnelle "Le Consulat" ✅
+
+- [x] Créer route `/le-consulat.tsx`
+- [x] Contenu : Missions du Consulat (source: `resources/consulat_info.md`)
+- [x] Section contacts (adresse, téléphones, email)
+
+### 4.3 Blog Actualités ✅
+
+- [x] Page liste `/actualites/index.tsx`
+- [x] Page article `/actualites/$slug.tsx`
+- [x] Intégration avec `posts` Convex
 
 ## Phase 5 : Administration (CMS)
 
-_Objectif : Rendre le client autonome._
+- [ ] Dashboard Admin simplifié
+- [ ] CRUD Actualités (formulaire de rédaction)
+- [ ] CRUD Services (mise à jour tarifs/délais)
+- [ ] Toggle annonces urgentes
 
-- [ ] Sécurisation de la route `/admin` avec Clerk.
-- [ ] Dashboard d'accueil.
-- [ ] CRUD Services : Interface pour modifier les tarifs/délais.
-- [ ] CRUD Actualités : Interface de rédaction simple.
+## Phase 6 : Finalisation
 
-## Phase 6 : Recette et Déploiement
-
-- [ ] Vérification du contenu (Orthographe, Exactitude des tarifs).
-- [ ] Tests responsive (Mobile/Tablette).
-- [ ] SEO (Sitemap, Meta tags dynamiques).
-- [ ] Mise en production (Netlify/Vercel).
+- [ ] Optimisation SEO (Meta tags dynamiques)
+- [ ] Tests responsive (Mobile/Tablette)
+- [ ] Vérification accessibilité
+- [ ] Déploiement production

@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
+import { Route as LeConsulatRouteImport } from './routes/le-consulat'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
@@ -18,7 +19,9 @@ import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as ActualitesIndexRouteImport } from './routes/actualites/index'
 import { Route as ServicesSlugRouteImport } from './routes/services/$slug'
+import { Route as ActualitesSlugRouteImport } from './routes/actualites/$slug'
 import { Route as AdminUsersIndexRouteImport } from './routes/admin/users/index'
 import { Route as AdminSettingsIndexRouteImport } from './routes/admin/settings/index'
 import { Route as AdminServicesIndexRouteImport } from './routes/admin/services/index'
@@ -34,6 +37,11 @@ import { Route as AdminOrgsOrgIdEditRouteImport } from './routes/admin/orgs/$org
 const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
   id: '/mentions-legales',
   path: '/mentions-legales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeConsulatRoute = LeConsulatRouteImport.update({
+  id: '/le-consulat',
+  path: '/le-consulat',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -76,9 +84,19 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRouteRoute,
 } as any)
+const ActualitesIndexRoute = ActualitesIndexRouteImport.update({
+  id: '/actualites/',
+  path: '/actualites/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
   id: '/services/$slug',
   path: '/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActualitesSlugRoute = ActualitesSlugRouteImport.update({
+  id: '/actualites/$slug',
+  path: '/actualites/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminUsersIndexRoute = AdminUsersIndexRouteImport.update({
@@ -145,8 +163,11 @@ export interface FileRoutesByFullPath {
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/le-consulat': typeof LeConsulatRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/actualites/$slug': typeof ActualitesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/actualites': typeof ActualitesIndexRoute
   '/admin/': typeof AdminIndexRoute
   '/services': typeof ServicesIndexRoute
   '/admin/orgs/$orgId': typeof AdminOrgsOrgIdRoute
@@ -167,8 +188,11 @@ export interface FileRoutesByTo {
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/le-consulat': typeof LeConsulatRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/actualites/$slug': typeof ActualitesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/actualites': typeof ActualitesIndexRoute
   '/admin': typeof AdminIndexRoute
   '/services': typeof ServicesIndexRoute
   '/admin/orgs/$orgId': typeof AdminOrgsOrgIdRoute
@@ -191,8 +215,11 @@ export interface FileRoutesById {
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/le-consulat': typeof LeConsulatRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/actualites/$slug': typeof ActualitesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/actualites/': typeof ActualitesIndexRoute
   '/admin/': typeof AdminIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/admin/orgs/$orgId': typeof AdminOrgsOrgIdRoute
@@ -216,8 +243,11 @@ export interface FileRouteTypes {
     | '/confidentialite'
     | '/contact'
     | '/faq'
+    | '/le-consulat'
     | '/mentions-legales'
+    | '/actualites/$slug'
     | '/services/$slug'
+    | '/actualites'
     | '/admin/'
     | '/services'
     | '/admin/orgs/$orgId'
@@ -238,8 +268,11 @@ export interface FileRouteTypes {
     | '/confidentialite'
     | '/contact'
     | '/faq'
+    | '/le-consulat'
     | '/mentions-legales'
+    | '/actualites/$slug'
     | '/services/$slug'
+    | '/actualites'
     | '/admin'
     | '/services'
     | '/admin/orgs/$orgId'
@@ -261,8 +294,11 @@ export interface FileRouteTypes {
     | '/confidentialite'
     | '/contact'
     | '/faq'
+    | '/le-consulat'
     | '/mentions-legales'
+    | '/actualites/$slug'
     | '/services/$slug'
+    | '/actualites/'
     | '/admin/'
     | '/services/'
     | '/admin/orgs/$orgId'
@@ -285,8 +321,11 @@ export interface RootRouteChildren {
   ConfidentialiteRoute: typeof ConfidentialiteRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
+  LeConsulatRoute: typeof LeConsulatRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
+  ActualitesSlugRoute: typeof ActualitesSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
+  ActualitesIndexRoute: typeof ActualitesIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
@@ -297,6 +336,13 @@ declare module '@tanstack/react-router' {
       path: '/mentions-legales'
       fullPath: '/mentions-legales'
       preLoaderRoute: typeof MentionsLegalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/le-consulat': {
+      id: '/le-consulat'
+      path: '/le-consulat'
+      fullPath: '/le-consulat'
+      preLoaderRoute: typeof LeConsulatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -355,11 +401,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRouteRoute
     }
+    '/actualites/': {
+      id: '/actualites/'
+      path: '/actualites'
+      fullPath: '/actualites'
+      preLoaderRoute: typeof ActualitesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/$slug': {
       id: '/services/$slug'
       path: '/services/$slug'
       fullPath: '/services/$slug'
       preLoaderRoute: typeof ServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/actualites/$slug': {
+      id: '/actualites/$slug'
+      path: '/actualites/$slug'
+      fullPath: '/actualites/$slug'
+      preLoaderRoute: typeof ActualitesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/users/': {
@@ -483,8 +543,11 @@ const rootRouteChildren: RootRouteChildren = {
   ConfidentialiteRoute: ConfidentialiteRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
+  LeConsulatRoute: LeConsulatRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
+  ActualitesSlugRoute: ActualitesSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
+  ActualitesIndexRoute: ActualitesIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport

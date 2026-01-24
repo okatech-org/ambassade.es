@@ -8,12 +8,12 @@ import {
   Fingerprint,
   Scroll,
   type LucideIcon,
-  BookUser
+  BookUser,
+  ArrowRight
 } from 'lucide-react'
 import { api } from '@convex/_generated/api'
 import { ServiceCard } from './ServiceCard'
 import { Button } from '../ui/button'
-import { Badge } from '../ui/badge'
 import { Skeleton } from '../ui/skeleton'
 
 
@@ -65,16 +65,16 @@ export function ServicesSection() {
     <section className="py-16 px-6 bg-secondary/30" id="services">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-3 bg-primary/10 text-primary">
-            {t('services.badge')}
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-            {t('services.title')}
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+            {t('services.homeTitle', 'Services et démarches à la une')}
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            {t('services.description')}
-          </p>
+          <Button asChild variant="ghost" className="group">
+            <Link to="/services">
+              {t('services.viewAll')}
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </Button>
         </div>
 
         {/* Services Grid */}
@@ -93,7 +93,7 @@ export function ServicesSection() {
               {t('services.empty', 'Aucun service disponible pour le moment.')}
             </div>
           ) : (
-            services.slice(0, 6).map((service) => {
+            services.slice(0, 3).map((service) => {
               const config = categoryConfig[service.category] || categoryConfig["default"]
               return (
                 <ServiceCard
@@ -101,7 +101,7 @@ export function ServicesSection() {
                   icon={config.icon}
                   title={service.title}
                   description={service.description}
-                  href={`/services/${service.slug}`} // Will update this route later
+                  href={`/services/${service.slug}`}
                   color={config.color}
                   price={service.price}
                   delay={service.delay}
@@ -109,15 +109,6 @@ export function ServicesSection() {
               )
             })
           )}
-        </div>
-
-        {/* View All Link */}
-        <div className="text-center mt-12">
-          <Button asChild size="lg" className="h-12 px-8 rounded-xl shadow-lg shadow-primary/20">
-            <Link to="/services">
-              {t('services.viewAll')}
-            </Link>
-          </Button>
         </div>
       </div>
     </section>

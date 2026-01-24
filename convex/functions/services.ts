@@ -25,6 +25,17 @@ export const list = query({
   },
 });
 
+// Alias for /services page
+export const listCatalog = query({
+  args: {},
+  handler: async (ctx) => {
+    const services = await ctx.db.query("services")
+      .filter((q) => q.eq(q.field("isActive"), true))
+      .collect();
+    return services.sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+  },
+});
+
 export const getBySlug = query({
   args: { slug: v.string() },
   handler: async (ctx, args) => {

@@ -20,13 +20,14 @@ import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 
 import { Footer } from '@/components/Footer'
-import { getLocalizedValue } from '@/lib/i18n-utils'
 
 export const Route = createFileRoute('/services/$slug')({
   component: ServiceDetailPage,
 })
 
+// Category configuration - supports both enum values and French category strings
 const categoryConfig: Record<string, { icon: LucideIcon; color: string; bgColor: string }> = {
+  // Enum-based keys
   [ServiceCategory.Identity]: {
     icon: BookOpenCheck,
     color: 'text-blue-600 dark:text-blue-400',
@@ -62,6 +63,32 @@ const categoryConfig: Record<string, { icon: LucideIcon; color: string; bgColor:
     color: 'text-gray-600 dark:text-gray-400',
     bgColor: 'bg-gray-500/10',
   },
+  // French string-based keys (from seed data)
+  'Identité': {
+    icon: BookOpenCheck,
+    color: 'text-blue-600 dark:text-blue-400',
+    bgColor: 'bg-blue-500/10',
+  },
+  'Visa': {
+    icon: Globe,
+    color: 'text-green-600 dark:text-green-400',
+    bgColor: 'bg-green-500/10',
+  },
+  'État Civil': {
+    icon: FileText,
+    color: 'text-yellow-600 dark:text-yellow-400',
+    bgColor: 'bg-yellow-500/10',
+  },
+  'Immatriculation': {
+    icon: BookOpen,
+    color: 'text-purple-600 dark:text-purple-400',
+    bgColor: 'bg-purple-500/10',
+  },
+  'Documents': {
+    icon: FileCheck,
+    color: 'text-orange-600 dark:text-orange-400',
+    bgColor: 'bg-orange-500/10',
+  },
 }
 
 const categoryLabels: Record<string, string> = {
@@ -75,7 +102,7 @@ const categoryLabels: Record<string, string> = {
 }
 
 function ServiceDetailPage() {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const { slug } = Route.useParams()
   const service = useQuery(api.functions.services.getBySlug, { slug })
 
@@ -127,8 +154,9 @@ function ServiceDetailPage() {
   const config = categoryConfig[service.category] || categoryConfig[ServiceCategory.Other]
   const Icon = config.icon
   const categoryLabel = categoryLabels[service.category] || service.category
-  const serviceName = getLocalizedValue(service.name, i18n.language)
-  const serviceDescription = getLocalizedValue(service.description, i18n.language)
+  // Use direct string fields from simplified schema
+  const serviceName = service.title
+  const serviceDescription = service.description
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -173,7 +201,7 @@ function ServiceDetailPage() {
             </Card>
 
             {/* Required Documents */}
-            {service.defaults?.requiredDocuments && service.defaults.requiredDocuments.length > 0 && (
+            {service.requirements && service.requirements.length > 0 && (
               <Card>
                 <CardHeader>
                   <CardTitle>{t('services.requiredDocuments', 'Documents requis')}</CardTitle>
@@ -183,22 +211,36 @@ function ServiceDetailPage() {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3">
-                    {service.defaults.requiredDocuments.map((doc, index) => (
+                    {service.requirements.map((doc, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <FileText className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                        <div>
-                          <p className="font-medium text-foreground">
-                            {doc.label}
-                            {doc.required && (
-                              <Badge variant="destructive" className="ml-2 text-xs">
-                                {t('services.required', 'Obligatoire')}
-                              </Badge>
-                            )}
-                          </p>
-                        </div>
+                        <p className="font-medium text-foreground">{doc}</p>
                       </li>
                     ))}
                   </ul>
+                </CardContent>
+              </Card>
+            )}
+
+            {/* Price and Delay Info */}
+            {(service.price || service.delay) && (
+              <Card>
+                <CardHeader>
+                  <CardTitle>{t('services.practicalInfo', 'Informations pratiques')}</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {service.price && (
+                    <div className="flex items-center gap-3">
+                      <Badge variant="secondary" className="text-sm">
+                        {service.price === 'Gratuit' ? t('services.free', 'Gratuit') : service.price}
+                      </Badge>
+                    </div>
+                  )}
+                  {service.delay && (
+                    <p className="text-muted-foreground">
+                      {t('services.delay', 'Délai')}: {service.delay}
+                    </p>
+                  )}
                 </CardContent>
               </Card>
             )}

@@ -2,22 +2,16 @@ import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 
 import {
-  Calendar,
   FileText,
-  HelpCircle,
   MapPin,
+  Building2,
   Phone,
-  UserPlus,
 } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Badge } from '../ui/badge'
 import { Card, CardContent } from '../ui/card'
 
-interface HeroProps {
-  onServiceClick?: () => void
-}
-
-export function Hero({ onServiceClick }: HeroProps) {
+export function Hero() {
   const { t } = useTranslation()
 
   return (
@@ -39,47 +33,37 @@ export function Hero({ onServiceClick }: HeroProps) {
           {/* Badge */}
           <Badge variant="secondary" className="mb-6 bg-white/10 backdrop-blur-sm border-white/20 text-white/90 h-auto py-2 px-4 text-sm">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse mr-2" />
-            {t('hero.badge')}
+            {t('hero.badge', 'Site Officiel')}
           </Badge>
 
           {/* Heading */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-            {t('hero.title')}{' '}
-            <span className="text-[oklch(0.85_0.16_90)]">{t('hero.titleHighlight')}</span>
+            {t('hero.title', 'Consulat Général du Gabon')}{' '}
+            <span className="text-[oklch(0.85_0.16_90)]">{t('hero.titleHighlight', 'en France')}</span>
           </h1>
 
           {/* Subheading */}
           <p className="text-xl md:text-2xl text-white/80 mb-4 font-light">
-            {t('hero.subtitle')}
+            {t('hero.subtitle', 'Votre représentation officielle à Paris')}
           </p>
           <p className="text-lg text-white/60 mb-8 max-w-2xl">
-            {t('hero.description')}
+            {t('hero.description', 'Retrouvez toutes les informations sur les démarches consulaires, les actualités officielles et les événements de la communauté gabonaise en France.')}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4 mb-12">
-            {/* Primary CTA - Changes based on auth state */}
             <Button asChild size="lg" className="h-12 px-6 rounded-xl shadow-lg shadow-primary/30">
-              <a href="https://www.consulatgabonfrance.com/demande-de-carte-consulaire/" target="_blank" rel="noopener noreferrer">
-                <UserPlus className="w-5 h-5 mr-2" />
-                {t('hero.register', 'Inscription Consulaire')}
-              </a>
+              <Link to="/services">
+                <FileText className="w-5 h-5 mr-2" />
+                {t('hero.services', 'Nos Services')}
+              </Link>
             </Button>
 
             <Button asChild size="lg" variant="outline" className="h-12 px-6 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border-white/20 hover:text-white">
-              <Link to="/">
-                <Calendar className="w-5 h-5 mr-2" />
-                {t('hero.bookAppointment')}
+              <Link to="/contact">
+                <MapPin className="w-5 h-5 mr-2" />
+                {t('hero.contact', 'Nous Contacter')}
               </Link>
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              onClick={onServiceClick}
-              className="h-12 px-6 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border-white/20 hover:text-white"
-            >
-              <FileText className="w-5 h-5 mr-2" />
-              {t('hero.ourServices')}
             </Button>
           </div>
 
@@ -88,8 +72,8 @@ export function Hero({ onServiceClick }: HeroProps) {
             <CardContent className="flex items-center gap-3 p-0">
               <Phone className="w-5 h-5 text-red-400" />
               <div>
-                <p className="text-white/60 text-sm">{t('hero.emergencyLabel')}</p>
-                <p className="text-white font-semibold">+33 1 XX XX XX XX</p>
+                <p className="text-white/60 text-sm">{t('hero.emergencyLabel', 'Urgence Consulaire')}</p>
+                <p className="text-white font-semibold">+33 1 42 99 68 57</p>
               </div>
             </CardContent>
           </Card>
@@ -102,31 +86,33 @@ export function Hero({ onServiceClick }: HeroProps) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <QuickAccessCard
               icon={<FileText className="w-6 h-6" />}
-              title={t('hero.quickAccess.news')}
-              description={t('hero.quickAccess.newsDesc')}
+              title={t('hero.quickAccess.news', 'Actualités')}
+              description={t('hero.quickAccess.newsDesc', 'Dernières infos')}
+              to="/actualites"
               color="bg-blue-500/20"
               iconColor="text-blue-400"
             />
             <QuickAccessCard
-              icon={<Calendar className="w-6 h-6" />}
-              title={t('hero.quickAccess.services')}
-              description={t('hero.quickAccess.servicesDesc')}
+              icon={<FileText className="w-6 h-6" />}
+              title={t('hero.quickAccess.services', 'Services')}
+              description={t('hero.quickAccess.servicesDesc', 'Nos démarches')}
               to="/services"
               color="bg-green-500/20"
               iconColor="text-green-400"
             />
             <QuickAccessCard
               icon={<MapPin className="w-6 h-6" />}
-              title={t('hero.quickAccess.contact', 'Contact & Accès')}
+              title={t('hero.quickAccess.contact', 'Contact')}
               description={t('hero.quickAccess.contactDesc', 'Horaires et plan')}
               to="/contact"
               color="bg-yellow-500/20"
               iconColor="text-yellow-400"
             />
             <QuickAccessCard
-              icon={<HelpCircle className="w-6 h-6" />}
-              title={t('hero.quickAccess.faq')}
-              description={t('hero.quickAccess.faqDesc')}
+              icon={<Building2 className="w-6 h-6" />}
+              title={t('hero.quickAccess.consulat', 'Le Consulat')}
+              description={t('hero.quickAccess.consulatDesc', 'Nos missions')}
+              to="/le-consulat"
               color="bg-purple-500/20"
               iconColor="text-purple-400"
             />
@@ -141,12 +127,12 @@ interface QuickAccessCardProps {
   icon: React.ReactNode
   title: string
   description: string
-  to?: string
+  to: string
   color: string
   iconColor: string
 }
 
-function QuickAccessCard({ icon, title, description, to = "/", color, iconColor }: QuickAccessCardProps) {
+function QuickAccessCard({ icon, title, description, to, color, iconColor }: QuickAccessCardProps) {
   return (
     <Link to={to} className="block">
       <Card className="group flex items-center gap-4 p-4 hover:shadow-2xl transition-all hover:-translate-y-1 cursor-pointer">

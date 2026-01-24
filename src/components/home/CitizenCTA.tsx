@@ -1,11 +1,10 @@
 import { useTranslation } from 'react-i18next'
-import { SignedOut } from '@clerk/clerk-react'
 import {
   CheckCircle2,
-  Clock,
-  FileText,
   Shield,
-  UserPlus,
+  Bell,
+  Vote,
+  ExternalLink,
 } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Badge } from '../ui/badge'
@@ -16,113 +15,95 @@ export function CitizenCTA() {
 
   const benefits = [
     {
-      icon: Clock,
-      title: t('citizenCta.benefits.tracking.title'),
-      description: t('citizenCta.benefits.tracking.description'),
-    },
-    {
-      icon: FileText,
-      title: t('citizenCta.benefits.documents.title'),
-      description: t('citizenCta.benefits.documents.description'),
-    },
-    {
       icon: Shield,
-      title: t('citizenCta.benefits.payment.title'),
-      description: t('citizenCta.benefits.payment.description'),
+      title: t('citizenCta.benefits.protection.title', 'Protection consulaire'),
+      description: t('citizenCta.benefits.protection.description', 'Bénéficiez de l\'assistance en cas de difficulté'),
     },
     {
       icon: CheckCircle2,
-      title: t('citizenCta.benefits.appointments.title'),
-      description: t('citizenCta.benefits.appointments.description'),
+      title: t('citizenCta.benefits.documents.title', 'Renouvellement facilité'),
+      description: t('citizenCta.benefits.documents.description', 'Simplifiez vos démarches de documents'),
+    },
+    {
+      icon: Bell,
+      title: t('citizenCta.benefits.info.title', 'Informations officielles'),
+      description: t('citizenCta.benefits.info.description', 'Recevez les communications du consulat'),
+    },
+    {
+      icon: Vote,
+      title: t('citizenCta.benefits.vote.title', 'Participation électorale'),
+      description: t('citizenCta.benefits.vote.description', 'Exercez votre droit de vote depuis la France'),
     },
   ]
 
   return (
-    <SignedOut>
-      <section className="py-20 px-6 bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Content */}
-            <div>
-              <Badge variant="secondary" className="mb-4 bg-primary/20 text-primary">
-                {t('citizenCta.badge')}
-              </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                {t('citizenCta.title')}
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                {t('citizenCta.description')}
-              </p>
+    <section className="py-20 px-6 bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Content */}
+          <div>
+            <Badge variant="secondary" className="mb-4 bg-primary/20 text-primary">
+              {t('citizenCta.badge', 'Inscription Consulaire')}
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              {t('citizenCta.title', 'Inscrivez-vous au Registre Consulaire')}
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              {t('citizenCta.description', 'L\'inscription au registre des Gabonais de l\'étranger vous permet de bénéficier de la protection consulaire et facilite vos démarches administratives. Cette procédure s\'effectue en ligne sur le portail officiel.')}
+            </p>
 
-              {/* Benefits Grid */}
-              <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                {benefits.map((benefit) => (
-                  <div key={benefit.title} className="flex items-start gap-3">
-                    <div className="p-2 rounded-lg bg-primary/10 text-primary shrink-0">
-                      <benefit.icon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground text-sm">
-                        {benefit.title}
-                      </h3>
-                      <p className="text-muted-foreground text-sm">
-                        {benefit.description}
-                      </p>
-                    </div>
+            {/* Benefits Grid */}
+            <div className="grid sm:grid-cols-2 gap-4 mb-8">
+              {benefits.map((benefit) => (
+                <div key={benefit.title} className="flex items-start gap-3">
+                  <div className="p-2 rounded-lg bg-primary/10 text-primary shrink-0">
+                    <benefit.icon className="w-5 h-5" />
                   </div>
-                ))}
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4">
-                <Button asChild size="lg" className="h-12 px-6 rounded-xl shadow-lg shadow-primary/20">
-                  <a href="https://www.consulatgabonfrance.com/demande-de-carte-consulaire/" target="_blank" rel="noopener noreferrer">
-                    <UserPlus className="w-5 h-5 mr-2" />
-                    {t('citizenCta.createAccount', 'Demander ma Carte Consulaire')}
-                  </a>
-                </Button>
-              </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground text-sm">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      {benefit.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            {/* Illustration / Stats Card */}
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-3xl" />
-              <Card className="relative p-8 shadow-2xl rounded-3xl">
-                <CardContent className="p-0">
-                  {/* Stats */}
-                  <div className="grid grid-cols-2 gap-6 mb-8">
-                    <div className="text-center p-4 rounded-2xl bg-primary/5">
-                      <div className="text-4xl font-bold text-primary mb-1">50K+</div>
-                      <div className="text-sm text-muted-foreground">{t('citizenCta.stats.citizens')}</div>
-                    </div>
-                    <div className="text-center p-4 rounded-2xl bg-accent/10">
-                      <div className="text-4xl font-bold text-accent-foreground mb-1">15+</div>
-                      <div className="text-sm text-muted-foreground">{t('citizenCta.stats.consulates')}</div>
-                    </div>
-                    <div className="text-center p-4 rounded-2xl bg-green-500/10">
-                      <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-1">98%</div>
-                      <div className="text-sm text-muted-foreground">{t('citizenCta.stats.satisfaction')}</div>
-                    </div>
-                    <div className="text-center p-4 rounded-2xl bg-blue-500/10">
-                      <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-1">24/7</div>
-                      <div className="text-sm text-muted-foreground">{t('citizenCta.stats.availability')}</div>
-                    </div>
-                  </div>
+            {/* CTA Button */}
+            <Button asChild size="lg" className="h-12 px-6 rounded-xl shadow-lg shadow-primary/20">
+              <a href="https://www.consulatgabonfrance.com/demande-de-carte-consulaire/" target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="w-5 h-5 mr-2" />
+                {t('citizenCta.cta', 'S\'inscrire sur consulat.ga')}
+              </a>
+            </Button>
+          </div>
 
-                  {/* Testimonial */}
-                  <blockquote className="border-l-4 border-primary pl-4 italic text-muted-foreground">
-                    "{t('citizenCta.testimonial')}"
-                    <footer className="mt-2 text-sm font-medium text-foreground not-italic">
-                      — {t('citizenCta.testimonialAuthor')}
-                    </footer>
-                  </blockquote>
-                </CardContent>
-              </Card>
-            </div>
+          {/* Illustration Card */}
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-3xl" />
+            <Card className="relative p-8 shadow-2xl rounded-3xl">
+              <CardContent className="p-0 text-center">
+                <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Shield className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2">
+                  {t('citizenCta.cardTitle', 'Carte Consulaire')}
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  {t('citizenCta.cardDescription', 'Document officiel attestant de votre immatriculation auprès du Consulat Général du Gabon en France.')}
+                </p>
+                <div className="flex items-center justify-center gap-2 text-sm text-primary font-medium">
+                  <CheckCircle2 className="w-4 h-4" />
+                  {t('citizenCta.cardNote', 'Démarche gratuite')}
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
-      </section>
-    </SignedOut>
+      </div>
+    </section>
   )
 }
 

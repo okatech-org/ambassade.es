@@ -1,39 +1,37 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { useRef } from 'react'
 
+import { AlertBanner } from '../components/home/AlertBanner'
 import { Hero } from '../components/home/Hero'
+import { NewsSection } from '../components/home/NewsSection'
 import { ServicesSection } from '../components/home/ServicesSection'
-import { ConsulateLocations } from '../components/home/ConsulateLocations'
 import { CitizenCTA } from '../components/home/CitizenCTA'
+import { ConsulateLocations } from '../components/home/ConsulateLocations'
 
 export const Route = createFileRoute('/')({ component: App })
 
 function App() {
-  const servicesRef = useRef<HTMLDivElement>(null)
-
-  const scrollToServices = () => {
-    servicesRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
     <div className="min-h-screen bg-background">
+      {/* Alert Banner */}
+      <AlertBanner />
+
       {/* Hero Section */}
-      <Hero onServiceClick={scrollToServices} />
+      <Hero />
 
       {/* Spacer for Quick Access Cards overlap */}
       <div className="h-32 md:h-24" />
 
+      {/* Latest News */}
+      <NewsSection />
+
       {/* Services Section */}
-      <div ref={servicesRef}>
-        <ServicesSection />
-      </div>
+      <ServicesSection />
+
+      {/* Inscription Consulaire CTA */}
+      <CitizenCTA />
 
       {/* Consulate Locations */}
       <ConsulateLocations />
-
-      {/* Citizen Account CTA */}
-      <CitizenCTA />
-
     </div>
   )
 }

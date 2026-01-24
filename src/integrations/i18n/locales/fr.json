@@ -1,25 +1,22 @@
 {
   "hero": {
-    "badge": "Plateforme Officielle",
-    "title": "Services Consulaires de la",
-    "titleHighlight": "République Gabonaise",
-    "subtitle": "Votre consulat, où que vous soyez dans le monde",
-    "description": "Accédez à tous vos services consulaires en ligne : passeport, visa, état civil, inscription consulaire et bien plus encore.",
-    "bookAppointment": "Prendre Rendez-vous",
-    "ourServices": "Nos Services",
-    "trackApplication": "Suivi de Dossier",
-    "createSpace": "Créer mon espace consulaire",
-    "accessSpace": "Accéder à mon espace",
-    "emergencyLabel": "Urgence Consulaire 24h/24",
+    "badge": "Site Officiel",
+    "title": "Consulat Général du Gabon",
+    "titleHighlight": "en France",
+    "subtitle": "Votre représentation officielle à Paris",
+    "description": "Retrouvez toutes les informations sur les démarches consulaires, les actualités officielles et les événements de la communauté gabonaise en France.",
+    "services": "Nos Services",
+    "contact": "Nous Contacter",
+    "emergencyLabel": "Urgence Consulaire",
     "quickAccess": {
       "news": "Actualités",
-      "newsDesc": "Dernières informations",
+      "newsDesc": "Dernières infos",
       "services": "Services",
-      "servicesDesc": "Tous nos services",
-      "directory": "Annuaire",
-      "directoryDesc": "Nos consulats",
-      "faq": "FAQ",
-      "faqDesc": "Questions fréquentes"
+      "servicesDesc": "Nos démarches",
+      "contact": "Contact",
+      "contactDesc": "Horaires et plan",
+      "consulat": "Le Consulat",
+      "consulatDesc": "Nos missions"
     }
   },
   "services": {
@@ -45,7 +42,12 @@
       "transcript": "Transcription",
       "travel_document": "Titre de Voyage",
       "emergency": "Assistance d'Urgence",
-      "other": "Autre"
+      "other": "Autre",
+      "Identité": "Identité",
+      "État Civil": "État Civil",
+      "Immatriculation": "Immatriculation",
+      "Visa": "Visa",
+      "Documents": "Documents"
     },
     "modal": {
       "eligibleBeneficiaries": "Bénéficiaires éligibles",
