@@ -49,12 +49,12 @@ function FeaturedSkeleton() {
 function SecondarySkeleton() {
   return (
     <div className="flex items-start gap-4 p-5 border-b last:border-b-0">
+      <Skeleton className="w-24 h-24 rounded-lg shrink-0" />
       <div className="flex-1 space-y-2">
         <Skeleton className="h-4 w-20" />
         <Skeleton className="h-5 w-full" />
         <Skeleton className="h-3 w-28" />
       </div>
-      <Skeleton className="w-5 h-5" />
     </div>
   )
 }
@@ -164,9 +164,24 @@ export function NewsSection() {
                         params={{ slug: post.slug }}
                         className="group block p-6 hover:bg-muted/50 transition-colors h-1/3"
                       >
-                        <div className="flex items-start justify-between gap-4 h-full">
+                        <div className="flex gap-6 h-full items-center">
+                          {/* Square Thumbnail Image */}
+                          <div className="w-24 h-24 shrink-0 rounded-lg overflow-hidden bg-muted">
+                            {post.coverImage ? (
+                              <img 
+                                src={post.coverImage} 
+                                alt={post.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
+                            ) : (
+                              <div className="w-full h-full bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+                                <Calendar className="w-8 h-8 text-primary/30" />
+                              </div>
+                            )}
+                          </div>
+                          
                           <div className="flex-1 min-w-0 flex flex-col justify-center h-full">
-                            <Badge className={`mb-3 w-fit text-xs ${config.color} border-0`}>
+                            <Badge className={`mb-2 w-fit text-xs ${config.color} border-0`}>
                               {config.label}
                             </Badge>
                             <h4 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2">
@@ -176,6 +191,7 @@ export function NewsSection() {
                               {formatDate(post.publishedAt)}
                             </p>
                           </div>
+                          
                           <div className="h-full flex items-center">
                             <ArrowRight className="w-5 h-5 text-muted-foreground/50 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                           </div>
