@@ -4,7 +4,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
 } from '@/components/ui/dialog'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -21,11 +20,10 @@ import {
   BookOpen,
   FileCheck,
   ShieldAlert,
+  ExternalLink,
   type LucideIcon,
 } from 'lucide-react'
-import { toast } from 'sonner'
 import { useTranslation } from 'react-i18next'
-import { getLocalizedValue } from '@/lib/i18n-utils'
 
 const CATEGORY_CONFIG: Record<string, { icon: LucideIcon; color: string }> = {
   [ServiceCategory.Identity]: { icon: BookOpenCheck, color: 'bg-blue-500' },
@@ -37,46 +35,36 @@ const CATEGORY_CONFIG: Record<string, { icon: LucideIcon; color: string }> = {
   [ServiceCategory.Other]: { icon: FileText, color: 'bg-gray-500' },
 }
 
-
-
-interface RequiredDocument {
-  type: string
-  label: string
-  required: boolean
-}
-
+// Simplified service interface matching the new schema
 interface ServiceInfo {
   _id: string
-  name: { fr: string; en?: string } | string
+  title: string
   slug: string
-  description: { fr: string; en?: string } | string
+  description: string
+  content?: string
   category: string
-  defaults?: {
-    estimatedDays: number
-    requiresAppointment: boolean
-    requiredDocuments: RequiredDocument[]
-  }
+  price?: string
+  delay?: string
+  requirements: string[]
+  actionLink?: string
+  isOnline: boolean
 }
 
 interface ServiceDetailModalProps {
   service: ServiceInfo | null
   open: boolean
   onOpenChange: (open: boolean) => void
-  onCreateRequest?: (service: ServiceInfo) => void
 }
 
 export function ServiceDetailModal({
   service,
   open,
   onOpenChange,
-  onCreateRequest,
 }: ServiceDetailModalProps) {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   
   if (!service) return null
 
-  // Handle potential case sensitivity or string vs enum issues by checking both original and mapped
-  // Using explicit ServiceCategory enum values for safety
   const categoryKey = Object.values(ServiceCategory).includes(service.category as any) 
     ? service.category 
     : ServiceCategory.Other
@@ -84,30 +72,7 @@ export function ServiceDetailModal({
   const categoryConfig = CATEGORY_CONFIG[categoryKey] || CATEGORY_CONFIG[ServiceCategory.Other]
   const CategoryIcon = categoryConfig.icon
   
-  const suffix = service.category === ServiceCategory.Identity ? 'passport' :
-               service.category === ServiceCategory.Certification ? 'legalization' :
-               service.category === ServiceCategory.Assistance ? 'emergency' :
-               service.category;
-  const categoryLabel = t(`services.categoriesMap.${suffix}`)
-  
-  // Handle localized strings vs plain strings
-  const serviceName = getLocalizedValue(service.name, i18n.language)
-  const serviceDescription = getLocalizedValue(service.description, i18n.language)
-  
-  const defaults = service.defaults
-
-  const handleDownloadForm = () => {
-    toast.success(t('services.modal.formDownloaded'), {
-      description: t('services.modal.formDownloadedDesc', { serviceName }),
-    })
-  }
-
-  const handleCreateRequest = () => {
-    if (onCreateRequest) {
-      onCreateRequest(service)
-    }
-    onOpenChange(false)
-  }
+  const categoryLabel = t(`services.categoriesMap.${service.category}`)
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -118,12 +83,10 @@ export function ServiceDetailModal({
               <CategoryIcon className={`h-8 w-8 text-${categoryConfig.color.replace('bg-', '')}`} />
             </div>
             <div className="flex-1">
-              <DialogTitle className="text-2xl">{serviceName}</DialogTitle>
-              <div className="mt-2 text-muted-foreground prose prose-sm dark:prose-invert max-w-none">
-                 <ReactMarkdown>
-                  {serviceDescription}
-                </ReactMarkdown>
-              </div>
+              <DialogTitle className="text-2xl">{service.title}</DialogTitle>
+              <p className="mt-2 text-muted-foreground">
+                {service.description}
+              </p>
             </div>
           </div>
         </DialogHeader>
@@ -135,14 +98,30 @@ export function ServiceDetailModal({
               <CategoryIcon className="h-3 w-3" />
               {categoryLabel}
             </Badge>
-            {!!defaults?.estimatedDays && (
+            {service.delay && (
               <Badge variant="outline" className="gap-1">
                 <Clock className="h-3 w-3" />
-                {defaults.estimatedDays} {t('services.days', { count: defaults.estimatedDays })}
+                {service.delay}
               </Badge>
             )}
-            {/* Pricing removed as it is not in the schema */}
+            {service.price && (
+              <Badge variant="outline" className="gap-1">
+                {service.price}
+              </Badge>
+            )}
           </div>
+
+          {/* Detailed content (markdown) */}
+          {service.content && (
+            <>
+              <Separator />
+              <div className="prose prose-sm dark:prose-invert max-w-none">
+                <ReactMarkdown>
+                  {service.content}
+                </ReactMarkdown>
+              </div>
+            </>
+          )}
 
           {/* Bénéficiaires éligibles */}
           <div>
@@ -165,14 +144,14 @@ export function ServiceDetailModal({
           <Separator />
 
           {/* Documents requis */}
-          {defaults?.requiredDocuments && defaults.requiredDocuments.length > 0 && (
+          {service.requirements.length > 0 && (
             <div>
               <h4 className="font-semibold mb-3 flex items-center gap-2">
                 <FileText className="h-4 w-4 text-muted-foreground" />
-                {t('services.modal.requiredDocuments')} ({defaults.requiredDocuments.length})
+                {t('services.modal.requiredDocuments')} ({service.requirements.length})
               </h4>
               <ul className="space-y-2">
-                {defaults.requiredDocuments.map((doc, index) => (
+                {service.requirements.map((doc, index) => (
                   <li
                     key={index}
                     className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg"
@@ -180,26 +159,43 @@ export function ServiceDetailModal({
                     <div className="h-6 w-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-medium">
                       {index + 1}
                     </div>
-                    <span className="text-sm">{doc.label}</span>
+                    <span className="text-sm">{doc}</span>
                   </li>
                 ))}
               </ul>
             </div>
           )}
 
-          {defaults?.requiredDocuments && defaults.requiredDocuments.length > 0 && <Separator />}
+          {service.requirements.length > 0 && <Separator />}
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-3">
-            <Button
-              variant="outline"
-              className="flex-1 gap-2"
-              onClick={handleDownloadForm}
+            {service.actionLink && (
+              <Button
+                variant="outline"
+                className="flex-1 gap-2"
+                asChild
+              >
+                <a href={service.actionLink} target="_blank" rel="noopener noreferrer">
+                  {service.actionLink.endsWith('.pdf') ? (
+                    <>
+                      <Download className="h-4 w-4" />
+                      {t('services.modal.downloadForm')}
+                    </>
+                  ) : (
+                    <>
+                      <ExternalLink className="h-4 w-4" />
+                      {t('services.modal.accessService', 'Accéder au service')}
+                    </>
+                  )}
+                </a>
+              </Button>
+            )}
+            <Button 
+              className="flex-1 gap-2" 
+              disabled
+              title={t('services.modal.requestDisabled', 'Les demandes en ligne seront bientôt disponibles')}
             >
-              <Download className="h-4 w-4" />
-              {t('services.modal.downloadForm')}
-            </Button>
-            <Button className="flex-1 gap-2" onClick={handleCreateRequest}>
               <FileText className="h-4 w-4" />
               {t('services.modal.createRequest')}
             </Button>
@@ -219,3 +215,4 @@ export function ServiceDetailModal({
     </Dialog>
   )
 }
+

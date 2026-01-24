@@ -31,17 +31,31 @@ function formatDate(timestamp: number) {
   }).format(new Date(timestamp))
 }
 
-function NewsSkeleton() {
+function FeaturedSkeleton() {
   return (
-    <Card className="overflow-hidden">
-      <Skeleton className="h-40 w-full rounded-none" />
-      <CardContent className="p-4 space-y-3">
+    <div className="rounded-xl overflow-hidden border bg-card">
+      <Skeleton className="h-64 w-full rounded-none" />
+      <div className="p-0 space-y-3 p-6">
+        <Skeleton className="h-5 w-24" />
+        <Skeleton className="h-7 w-full" />
+        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-4 w-3/4" />
+        <Skeleton className="h-3 w-32 mt-4" />
+      </div>
+    </div>
+  )
+}
+
+function SecondarySkeleton() {
+  return (
+    <div className="flex items-start gap-4 p-5 border-b last:border-b-0">
+      <div className="flex-1 space-y-2">
         <Skeleton className="h-4 w-20" />
         <Skeleton className="h-5 w-full" />
-        <Skeleton className="h-4 w-3/4" />
-        <Skeleton className="h-3 w-24" />
-      </CardContent>
-    </Card>
+        <Skeleton className="h-3 w-28" />
+      </div>
+      <Skeleton className="w-5 h-5" />
+    </div>
   )
 }
 
@@ -53,8 +67,12 @@ export function NewsSection() {
 
   const isLoading = posts === undefined
 
+  // Split posts: first one is featured, rest are secondary
+  const featuredPost = posts?.page[0]
+  const secondaryPosts = posts?.page.slice(1) || []
+
   return (
-    <section className="py-16 px-6">
+    <section className="py-16 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
@@ -69,53 +87,106 @@ export function NewsSection() {
           </Button>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {isLoading ? (
-            <>
-              <NewsSkeleton />
-              <NewsSkeleton />
-              <NewsSkeleton />
-              <NewsSkeleton />
-            </>
-          ) : posts.page.length === 0 ? (
-            <div className="col-span-full text-center py-12 text-muted-foreground">
-              {t('news.empty', 'Aucune actualité pour le moment.')}
-            </div>
-          ) : (
-            posts.page.map((post) => {
-              const config = categoryConfig[post.category] || categoryConfig.actualite
-              return (
-                <Link
-                  key={post._id}
-                  to="/actualites/$slug"
-                  params={{ slug: post.slug }}
-                  className="group block"
-                >
-                  <Card className="overflow-hidden h-full hover:shadow-lg transition-shadow">
-                    {/* Placeholder image */}
-                    <div className="h-40 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                      <Calendar className="w-12 h-12 text-primary/30" />
+        {/* Featured + Secondary Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          {/* Featured Post - Left Side (1/2 width) */}
+          <div className="h-full">
+            {isLoading ? (
+              <FeaturedSkeleton />
+            ) : !featuredPost ? (
+              <div className="h-full flex items-center justify-center text-muted-foreground py-12 border rounded-xl">
+                {t('news.empty', 'Aucune actualité pour le moment.')}
+              </div>
+            ) : (
+              <Link
+                to="/actualites/$slug"
+                params={{ slug: featuredPost.slug }}
+                className="group block h-full"
+              >
+                <div className="rounded-xl overflow-hidden border bg-card hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                  {/* Featured Image */}
+                  {featuredPost.coverImage ? (
+                    <img 
+                      src={featuredPost.coverImage} 
+                      alt={featuredPost.title}
+                      className="w-full h-64 object-cover"
+                    />
+                  ) : (
+                    <div className="h-64 bg-gradient-to-br from-primary/20 via-primary/10 to-primary/5 flex items-center justify-center shrink-0">
+                      <Calendar className="w-16 h-16 text-primary/30" />
                     </div>
-                    <CardContent className="p-4">
-                      <Badge className={`mb-2 ${config.color} border-0`}>
-                        {config.label}
+                  )}
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex-1">
+                      <Badge className={`mb-4 ${categoryConfig[featuredPost.category]?.color || categoryConfig.actualite.color} border-0`}>
+                        {categoryConfig[featuredPost.category]?.label || 'Actualité'}
                       </Badge>
-                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2">
-                        {post.title}
+                      <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors mb-3 line-clamp-3">
+                        {featuredPost.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
-                        {post.excerpt}
+                      <p className="text-muted-foreground line-clamp-3 mb-6">
+                        {featuredPost.excerpt}
                       </p>
-                      <p className="text-xs text-muted-foreground">
-                        {formatDate(post.publishedAt)}
+                    </div>
+                    <div className="flex items-center justify-between mt-auto pt-4 border-t">
+                      <p className="text-sm text-muted-foreground font-medium">
+                        {formatDate(featuredPost.publishedAt)}
                       </p>
-                    </CardContent>
-                  </Card>
-                </Link>
-              )
-            })
-          )}
+                      <ArrowRight className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            )}
+          </div>
+
+          {/* Secondary Posts - Right Side (1/2 width) */}
+          <div className="h-full">
+            <div className="h-full rounded-xl border bg-card overflow-hidden flex flex-col">
+              <div className="flex-1 divide-y">
+                {isLoading ? (
+                  <>
+                    <SecondarySkeleton />
+                    <SecondarySkeleton />
+                    <SecondarySkeleton />
+                  </>
+                ) : secondaryPosts.length === 0 ? (
+                  <div className="p-6 text-center text-muted-foreground h-full flex items-center justify-center">
+                    {t('news.noMore', 'Pas d\'autres actualités')}
+                  </div>
+                ) : (
+                  secondaryPosts.map((post) => {
+                    const config = categoryConfig[post.category] || categoryConfig.actualite
+                    return (
+                      <Link
+                        key={post._id}
+                        to="/actualites/$slug"
+                        params={{ slug: post.slug }}
+                        className="group block p-6 hover:bg-muted/50 transition-colors h-1/3"
+                      >
+                        <div className="flex items-start justify-between gap-4 h-full">
+                          <div className="flex-1 min-w-0 flex flex-col justify-center h-full">
+                            <Badge className={`mb-3 w-fit text-xs ${config.color} border-0`}>
+                              {config.label}
+                            </Badge>
+                            <h4 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2">
+                              {post.title}
+                            </h4>
+                            <p className="text-sm text-muted-foreground mt-auto">
+                              {formatDate(post.publishedAt)}
+                            </p>
+                          </div>
+                          <div className="h-full flex items-center">
+                            <ArrowRight className="w-5 h-5 text-muted-foreground/50 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                          </div>
+                        </div>
+                      </Link>
+                    )
+                  })
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

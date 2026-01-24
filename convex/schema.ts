@@ -4,6 +4,7 @@ import {
   servicesTable,
   postsTable,
   announcementsTable,
+  teamMembersTable,
 } from "./schemas";
 
 export default defineSchema({
@@ -11,4 +12,5 @@ export default defineSchema({
   services: servicesTable,
   posts: postsTable,
   announcements: announcementsTable,
+  teamMembers: teamMembersTable,
 });

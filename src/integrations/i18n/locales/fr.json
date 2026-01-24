@@ -34,13 +34,16 @@
     "days_other": "jours",
     "categories": "Catégories",
     "categoriesMap": {
+      "identity": "Identité",
       "passport": "Passeport",
       "visa": "Visa",
       "civil_status": "État Civil",
       "registration": "Inscription Consulaire",
+      "certification": "Légalisation",
       "legalization": "Légalisation",
       "transcript": "Transcription",
       "travel_document": "Titre de Voyage",
+      "assistance": "Assistance d'Urgence",
       "emergency": "Assistance d'Urgence",
       "other": "Autre",
       "Identité": "Identité",
@@ -740,16 +743,6 @@
         "description": "Gérer les politiques de sécurité et les contrôles d'accès"
       }
     },
-    "table": {
-      "logo": "Logo",
-      "location": "Lieu",
-      "contact": "Contact",
-      "status": "Statut",
-      "created": "Créé le",
-      "actions": "Actions",
-      "avatar": "Avatar",
-      "phone": "Téléphone"
-    },
     "types": {
       "consulate": "Consulat",
       "general_consulate": "Consulat Général",
@@ -789,6 +782,14 @@
       "no": "Non"
     },
     "table": {
+      "logo": "Logo",
+      "location": "Lieu",
+      "contact": "Contact",
+      "status": "Statut",
+      "created": "Créé le",
+      "actions": "Actions",
+      "avatar": "Avatar",
+      "phone": "Téléphone",
       "rowsPerPage": "Lignes par page",
       "page": "Page",
       "of": "sur",

@@ -96,11 +96,11 @@ function ActualitesPage() {
                     params={{ slug: post.slug }}
                     className="group block"
                   >
-                    <Card className="overflow-hidden h-full hover:shadow-lg transition-shadow">
+                    <Card className="py-0 overflow-hidden h-full hover:shadow-lg transition-shadow">
                       <div className="h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
                         <Calendar className="w-16 h-16 text-primary/30" />
                       </div>
-                      <CardContent className="p-6">
+                      <CardContent className="p-6 pt-0">
                         <Badge className={`mb-3 ${config.color} border-0`}>
                           {config.label}
                         </Badge>

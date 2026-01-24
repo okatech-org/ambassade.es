@@ -26,7 +26,6 @@ import { ServiceCard } from '@/components/home/ServiceCard'
 import { ServiceDetailModal } from '@/components/services/ServiceDetailModal'
 import { z } from 'zod'
 import { useState, useEffect, useMemo } from 'react'
-import { getLocalizedValue } from '@/lib/i18n-utils'
 
 const servicesSearchSchema = z.object({
   query: z.string().optional(),
@@ -98,7 +97,7 @@ function ServiceCardSkeleton() {
 }
 
 function ServicesPage() {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const navigate = useNavigate({ from: Route.fullPath })
   const search = Route.useSearch()
   const services = useQuery(api.functions.services.listCatalog, {})
@@ -155,11 +154,9 @@ function ServicesPage() {
   const isLoading = services === undefined
 
   const filteredServices = services?.filter(service => {
-    const serviceName = getLocalizedValue(service.name, i18n.language)
-    const serviceDesc = getLocalizedValue(service.description, i18n.language)
     const matchesQuery = !search.query || 
-      serviceName.toLowerCase().includes(search.query.toLowerCase()) ||
-      serviceDesc.toLowerCase().includes(search.query.toLowerCase())
+      service.title.toLowerCase().includes(search.query.toLowerCase()) ||
+      service.description.toLowerCase().includes(search.query.toLowerCase())
     
     const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(service.category)
 
@@ -232,12 +229,7 @@ function ServicesPage() {
                   </div>
                   <div className="space-y-3">
                     {Object.values(ServiceCategory).map((category) => {
-                      const suffix = category === ServiceCategory.Identity ? 'passport' :
-                                   category === ServiceCategory.Certification ? 'legalization' :
-                                   category === ServiceCategory.Assistance ? 'emergency' :
-                                   category; // identity->passport, certification->legalization, assistance->emergency, others match enum value
-                      
-                      const label = t(`services.categoriesMap.${suffix}`)
+                      const label = t(`services.categoriesMap.${category}`)
                       const config = categoryConfig[category] || categoryConfig[ServiceCategory.Other]
                       const Icon = config.icon
                       const isSelected = selectedCategories.includes(category)
@@ -294,25 +286,18 @@ function ServicesPage() {
                  ) : (
                    filteredServices?.map((service) => {
                      const config = categoryConfig[service.category] || categoryConfig[ServiceCategory.Other]
-                     const suffix = service.category === ServiceCategory.Identity ? 'passport' :
-                                  service.category === ServiceCategory.Certification ? 'legalization' :
-                                  service.category === ServiceCategory.Assistance ? 'emergency' :
-                                  service.category;
-                     const categoryLabel = t(`services.categoriesMap.${suffix}`)
-                     const defaults = service.defaults
-                     const serviceName = getLocalizedValue(service.name, i18n.language)
-                     const serviceDesc = getLocalizedValue(service.description, i18n.language)
+                     const categoryLabel = t(`services.categoriesMap.${service.category}`)
 
                      return (
                        <ServiceCard
                          key={service._id}
                          icon={config.icon}
-                         title={serviceName}
-                         description={serviceDesc}
+                         title={service.title}
+                         description={service.description}
                          color={config.color}
                          badge={categoryLabel}
-                         price={t('services.free', 'Gratuit')}
-                         delay={defaults?.estimatedDays ? `${defaults.estimatedDays} ${t('services.days', { count: defaults.estimatedDays, defaultValue: 'jour(s)' })}` : undefined}
+                         price={service.price || t('services.free', 'Gratuit')}
+                         delay={service.delay}
                          onClick={() => handleServiceClick(service.slug)}
                        />
                      )

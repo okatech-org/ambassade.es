@@ -15,6 +15,7 @@ import type * as functions_announcements from "../functions/announcements.js";
 import type * as functions_posts from "../functions/posts.js";
 import type * as functions_seed from "../functions/seed.js";
 import type * as functions_services from "../functions/services.js";
+import type * as functions_teamMembers from "../functions/teamMembers.js";
 import type * as functions_users from "../functions/users.js";
 import type * as http from "../http.js";
 import type * as lib_auth from "../lib/auth.js";
@@ -35,6 +36,7 @@ import type * as schemas_posts from "../schemas/posts.js";
 import type * as schemas_profiles from "../schemas/profiles.js";
 import type * as schemas_requests from "../schemas/requests.js";
 import type * as schemas_services from "../schemas/services.js";
+import type * as schemas_teamMembers from "../schemas/teamMembers.js";
 import type * as schemas_users from "../schemas/users.js";
 
 import type {
@@ -51,6 +53,7 @@ declare const fullApi: ApiFromModules<{
   "functions/posts": typeof functions_posts;
   "functions/seed": typeof functions_seed;
   "functions/services": typeof functions_services;
+  "functions/teamMembers": typeof functions_teamMembers;
   "functions/users": typeof functions_users;
   http: typeof http;
   "lib/auth": typeof lib_auth;
@@ -71,6 +74,7 @@ declare const fullApi: ApiFromModules<{
   "schemas/profiles": typeof schemas_profiles;
   "schemas/requests": typeof schemas_requests;
   "schemas/services": typeof schemas_services;
+  "schemas/teamMembers": typeof schemas_teamMembers;
   "schemas/users": typeof schemas_users;
 }>;
 

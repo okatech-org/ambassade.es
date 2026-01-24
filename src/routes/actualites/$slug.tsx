@@ -1,29 +1,36 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { useQuery } from 'convex/react'
-import { ArrowLeft, Calendar } from 'lucide-react'
+import { ArrowLeft, Calendar, Clock } from 'lucide-react'
+import ReactMarkdown from 'react-markdown'
 import { api } from '@convex/_generated/api'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Footer } from '@/components/Footer'
+import { RelatedPosts } from '@/components/posts/RelatedPosts'
+import { EventSidebar } from '@/components/posts/EventSidebar'
+import { CommuniqueHeader, CommuniqueFooter } from '@/components/posts/CommuniqueHeader'
 
 export const Route = createFileRoute('/actualites/$slug')({
   component: ActualiteDetailPage,
 })
 
-const categoryConfig: Record<string, { label: string; color: string }> = {
+const categoryConfig: Record<string, { label: string; color: string; bgColor: string }> = {
   communique: {
     label: 'Communiqué',
-    color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300',
+    color: 'text-blue-700 dark:text-blue-300',
+    bgColor: 'bg-blue-100 dark:bg-blue-900/50',
   },
   evenement: {
     label: 'Événement',
-    color: 'bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300',
+    color: 'text-green-700 dark:text-green-300',
+    bgColor: 'bg-green-100 dark:bg-green-900/50',
   },
   actualite: {
     label: 'Actualité',
-    color: 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300',
+    color: 'text-gray-700 dark:text-gray-300',
+    bgColor: 'bg-gray-100 dark:bg-gray-800',
   },
 }
 
@@ -33,6 +40,12 @@ function formatDate(timestamp: number) {
     month: 'long',
     year: 'numeric',
   }).format(new Date(timestamp))
+}
+
+function estimateReadingTime(content: string): number {
+  const wordsPerMinute = 200
+  const words = content.trim().split(/\s+/).length
+  return Math.ceil(words / wordsPerMinute)
 }
 
 function ActualiteDetailPage() {
@@ -46,10 +59,10 @@ function ActualiteDetailPage() {
     return (
       <div className="min-h-screen bg-background">
         <div className="max-w-4xl mx-auto px-6 py-12">
-          <Skeleton className="h-8 w-32 mb-8" />
-          <Skeleton className="h-10 w-3/4 mb-4" />
+          <Skeleton className="h-6 w-32 mb-4" />
+          <Skeleton className="h-12 w-3/4 mb-4" />
           <Skeleton className="h-4 w-48 mb-8" />
-          <Skeleton className="h-64 w-full mb-8" />
+          <Skeleton className="h-64 w-full rounded-xl mb-8" />
           <div className="space-y-4">
             <Skeleton className="h-4 w-full" />
             <Skeleton className="h-4 w-full" />
@@ -86,45 +99,128 @@ function ActualiteDetailPage() {
   }
 
   const config = categoryConfig[post.category] || categoryConfig.actualite
+  const readingTime = estimateReadingTime(post.content)
+  const isEvent = post.category === 'evenement'
+  const isCommunique = post.category === 'communique'
+  
+  // Check if event has actual data to show sidebar
+  const hasEventData = isEvent && (post.eventDate || post.eventLocation || post.ticketLink)
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <div className="flex-1">
-        {/* Header */}
-        <section className="bg-gradient-to-b from-primary/10 to-background py-12 px-6">
+        {/* Hero Header */}
+        <header className="bg-gradient-to-b from-muted/50 to-background pt-8 pb-12 px-6">
           <div className="max-w-4xl mx-auto">
-            <Button asChild variant="ghost" size="sm" className="mb-6">
+            {/* Breadcrumb */}
+            <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
+              <Link to="/" className="hover:text-foreground">Accueil</Link>
+              <span>/</span>
+              <Link to="/actualites" className="hover:text-foreground">Actualités</Link>
+              <span>/</span>
+              <span className={config.color}>{config.label}</span>
+            </nav>
+            
+            {/* Back button */}
+            <Button asChild variant="ghost" size="sm" className="mb-6 -ml-2">
               <Link to="/actualites">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 {t('news.backToList', 'Retour aux actualités')}
               </Link>
             </Button>
 
-            <Badge className={`mb-4 ${config.color} border-0`}>
+            {/* Category Badge */}
+            <Badge className={`mb-4 ${config.bgColor} ${config.color} border-0`}>
               {config.label}
             </Badge>
 
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            {/* Title */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
               {post.title}
             </h1>
 
-            <p className="text-muted-foreground">
-              {formatDate(post.publishedAt)}
-            </p>
+            {/* Meta info */}
+            <div className="flex flex-wrap items-center gap-4 text-muted-foreground">
+              <time className="flex items-center gap-2">
+                <Calendar className="w-4 h-4" />
+                {formatDate(post.publishedAt)}
+              </time>
+              <span className="flex items-center gap-2">
+                <Clock className="w-4 h-4" />
+                {readingTime} min de lecture
+              </span>
+            </div>
+          </div>
+        </header>
+
+        {/* Cover Image */}
+        {post.coverImage && (
+          <div className="px-6 -mt-4 mb-8">
+            <div className="max-w-5xl mx-auto">
+              <img 
+                src={post.coverImage} 
+                alt={post.title}
+                className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Content Area */}
+        <section className="py-8 px-6">
+          <div className={`max-w-6xl mx-auto ${hasEventData ? 'flex flex-col lg:flex-row gap-8' : ''}`}>
+            {/* Main Content */}
+            <article className={`${hasEventData ? 'flex-1 lg:max-w-3xl' : 'max-w-3xl mx-auto'}`}>
+              {/* Communiqué Header */}
+              {isCommunique && (
+                <CommuniqueHeader
+                  referenceNumber={post.referenceNumber}
+                  documentUrl={post.documentUrl}
+                  documentName={post.documentName}
+                />
+              )}
+
+              {/* Excerpt */}
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                {post.excerpt}
+              </p>
+
+              {/* Content */}
+              <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground/80 prose-a:text-primary prose-img:rounded-xl">
+                <ReactMarkdown>
+                  {post.content}
+                </ReactMarkdown>
+              </div>
+
+              {/* Communiqué Footer */}
+              {isCommunique && (
+                <CommuniqueFooter
+                  documentUrl={post.documentUrl}
+                  documentName={post.documentName}
+                />
+              )}
+            </article>
+
+            {/* Event Sidebar - only shown when event has data */}
+            {hasEventData && (
+              <aside className="lg:w-80">
+                <EventSidebar
+                  eventDate={post.eventDate}
+                  eventEndDate={post.eventEndDate}
+                  eventTime={post.eventTime}
+                  eventLocation={post.eventLocation}
+                  eventAddress={post.eventAddress}
+                  eventMapLink={post.eventMapLink}
+                  ticketLink={post.ticketLink}
+                  ticketPrice={post.ticketPrice}
+                />
+              </aside>
+            )}
           </div>
         </section>
 
-        {/* Content */}
-        <section className="py-12 px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="prose prose-lg dark:prose-invert max-w-none">
-              <p className="lead text-xl text-muted-foreground mb-8">
-                {post.excerpt}
-              </p>
-              <div dangerouslySetInnerHTML={{ __html: post.content }} />
-            </div>
-          </div>
-        </section>
+        {/* Related Posts */}
+        <RelatedPosts currentSlug={post.slug} category={post.category} />
       </div>
 
       <Footer />

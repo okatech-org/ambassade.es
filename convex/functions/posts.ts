@@ -72,9 +72,23 @@ export const create = mutation({
     slug: v.string(),
     excerpt: v.string(),
     content: v.string(),
+    coverImage: v.optional(v.string()),
     category: v.union(v.literal("actualite"), v.literal("evenement"), v.literal("communique")),
     status: v.union(v.literal("draft"), v.literal("published")),
     publishedAt: v.optional(v.number()),
+    // Event fields
+    eventDate: v.optional(v.number()),
+    eventEndDate: v.optional(v.number()),
+    eventTime: v.optional(v.string()),
+    eventLocation: v.optional(v.string()),
+    eventAddress: v.optional(v.string()),
+    eventMapLink: v.optional(v.string()),
+    ticketLink: v.optional(v.string()),
+    ticketPrice: v.optional(v.string()),
+    // Communiqué fields
+    documentUrl: v.optional(v.string()),
+    documentName: v.optional(v.string()),
+    referenceNumber: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     await requireSuperadmin(ctx);
@@ -89,9 +103,10 @@ export const create = mutation({
       throw new Error("Slug already exists");
     }
 
+    const { publishedAt, ...rest } = args;
     return await ctx.db.insert("posts", {
-      ...args,
-      publishedAt: args.publishedAt ?? Date.now(),
+      ...rest,
+      publishedAt: publishedAt ?? Date.now(),
     });
   },
 });
@@ -104,9 +119,23 @@ export const update = mutation({
     slug: v.string(),
     excerpt: v.string(),
     content: v.string(),
+    coverImage: v.optional(v.string()),
     category: v.union(v.literal("actualite"), v.literal("evenement"), v.literal("communique")),
     status: v.union(v.literal("draft"), v.literal("published")),
     publishedAt: v.optional(v.number()),
+    // Event fields
+    eventDate: v.optional(v.number()),
+    eventEndDate: v.optional(v.number()),
+    eventTime: v.optional(v.string()),
+    eventLocation: v.optional(v.string()),
+    eventAddress: v.optional(v.string()),
+    eventMapLink: v.optional(v.string()),
+    ticketLink: v.optional(v.string()),
+    ticketPrice: v.optional(v.string()),
+    // Communiqué fields
+    documentUrl: v.optional(v.string()),
+    documentName: v.optional(v.string()),
+    referenceNumber: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     await requireSuperadmin(ctx);
@@ -136,3 +165,30 @@ export const remove = mutation({
     await ctx.db.delete(args.id);
   },
 });
+
+// Public: Get related posts by category (for "Voir aussi" section)
+export const getRelated = query({
+  args: { 
+    currentSlug: v.string(),
+    category: v.string(),
+    limit: v.optional(v.number()),
+  },
+  handler: async (ctx, args) => {
+    const limit = args.limit ?? 3;
+    
+    const posts = await ctx.db
+      .query("posts")
+      .withIndex("by_status_date", (q) => q.eq("status", "published"))
+      .filter((q) => 
+        q.and(
+          q.eq(q.field("category"), args.category),
+          q.neq(q.field("slug"), args.currentSlug)
+        )
+      )
+      .order("desc")
+      .take(limit);
+    
+    return posts;
+  },
+});
+
