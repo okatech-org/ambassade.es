@@ -18,9 +18,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
-import { Separator } from '@/components/ui/separator'
+
 import { Footer } from '@/components/Footer'
-import { NearbyOrgs } from '@/components/NearbyOrgs'
 import { getLocalizedValue } from '@/lib/i18n-utils'
 
 export const Route = createFileRoute('/services/$slug')({
@@ -204,10 +203,7 @@ function ServiceDetailPage() {
               </Card>
             )}
 
-            <Separator />
 
-            {/* Nearby Orgs */}
-            <NearbyOrgs />
           </div>
         </section>
       </div>

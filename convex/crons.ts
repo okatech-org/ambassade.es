@@ -3,13 +3,6 @@ import { internal } from "./_generated/api";
 
 const crons = cronJobs();
 
-// Refresh org stats every hour
-crons.interval(
-  "refresh-org-stats",
-  { minutes: 60 },
-  internal.crons.statsRefresh.refreshAll
-);
-
 // Check for expiring documents daily
 crons.daily(
   "check-expiring-documents",

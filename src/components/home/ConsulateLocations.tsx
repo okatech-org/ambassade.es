@@ -1,155 +1,98 @@
-import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
-import { useQuery } from 'convex/react'
 import { MapPin, ArrowRight } from 'lucide-react'
-import { api } from '@convex/_generated/api'
-import { OrgType } from '@convex/lib/validators'
-import { Card, CardContent, CardFooter, CardHeader } from '../ui/card'
+import { Card, CardContent } from '../ui/card'
 import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
-import { Skeleton } from '../ui/skeleton'
 
 
-const countryNames: Record<string, string> = {
-  FR: 'France',
-  BE: 'Belgique',
-  US: 'États-Unis',
-  GB: 'Royaume-Uni',
-  DE: 'Allemagne',
-  ES: 'Espagne',
-  IT: 'Italie',
-  CH: 'Suisse',
-  CA: 'Canada',
-  GA: 'Gabon',
-}
 
-function formatAddress(address: { street: string; city: string; postalCode: string; country: string }) {
-  return `${address.street}, ${address.postalCode} ${address.city}`
-}
-
-
-function OrgCardSkeleton() {
-  return (
-    <Card className="relative">
-      <CardHeader className="pb-2">
-        <div className="flex items-start gap-4">
-          <Skeleton className="h-12 w-12 rounded-xl" />
-          <div className="space-y-2">
-            <Skeleton className="h-5 w-32" />
-            <Skeleton className="h-4 w-24" />
-          </div>
-        </div>
-      </CardHeader>
-      <CardContent className="space-y-3">
-        <Skeleton className="h-4 w-full" />
-        <Skeleton className="h-4 w-32" />
-        <Skeleton className="h-4 w-40" />
-      </CardContent>
-    </Card>
-  )
-}
 
 export function ConsulateLocations() {
   const { t } = useTranslation()
-  const orgs = useQuery(api.functions.orgs.list, {})
-
-  const isLoading = orgs === undefined
 
   return (
-    <section className="py-16 px-6">
+    <section className="py-16 px-6 bg-muted/20">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
         <div className="text-center mb-12">
           <Badge variant="secondary" className="mb-3 bg-primary/10 text-primary">
-            {t('consulates.badge')}
+            {t('locations.badge', 'Localisation')}
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-            {t('consulates.title')}
+          <h2 className="text-3xl md:text-3xl font-bold text-foreground mb-3">
+            {t('locations.title', 'Nous trouver')}
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            {t('consulates.description')}
-          </p>
         </div>
 
-        {/* Orgs Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
-          {isLoading ? (
-            <>
-              <OrgCardSkeleton />
-              <OrgCardSkeleton />
-              <OrgCardSkeleton />
-            </>
-          ) : orgs.length === 0 ? (
-            <div className="col-span-full py-12 text-center rounded-xl bg-muted/30 border-2 border-dashed">
-              <p className="text-muted-foreground">{t('consulates.empty', 'Aucune représentation disponible.')}</p>
-            </div>
-          ) : (
-            orgs.slice(0, 6).map((org) => {
-              const isPrimary = org.type === OrgType.EMBASSY || org.type === OrgType.CONSULATE_GENERAL
-              const countryName = countryNames[org.address.country] || org.address.country
-              
-              return (
-                <Card
-                  key={org._id}
-                  className="group hover:shadow-lg hover:border-primary/40 transition-all duration-200"
-                >
-                  <CardContent>
-                    {/* Header Row */}
-                    <div className="flex items-start gap-3">
-                      <div className={`p-2.5 rounded-lg shrink-0 ${isPrimary ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground'}`}>
-                        <MapPin className="w-5 h-5" />
-                      </div>
-                      
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className={`fi fi-${org.address.country.toLowerCase()} rounded-sm`}></span>
-                          <span className="text-xs font-medium text-muted-foreground uppercase">
-                            {org.address.country}
-                          </span>
-                          {isPrimary && (
-                            <Badge variant="outline" className="h-5 text-[10px] px-1.5 border-primary/30 text-primary ml-auto">
-                              Siège
-                            </Badge>
-                          )}
-                        </div>
-                        
-                        <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors">
-                          {org.address.city}
-                        </h3>
-                      </div>
-                    </div>
+        <div className="flex flex-col md:flex-row gap-8 items-stretch justify-center">
+          {/* Card Info */}
+          <Card className="flex-1 max-w-md">
+            <CardContent className="p-8 space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-primary/10 text-primary rounded-xl">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-foreground">Consulat Général du Gabon</h3>
+                  <p className="text-muted-foreground">26 bis Avenue Raphaël</p>
+                  <p className="text-muted-foreground">75016 Paris, France</p>
+                </div>
+              </div>
 
-                    {/* Address */}
-                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                      {formatAddress(org.address)}
-                    </p>
+               <div className="space-y-4">
+                <div className="flex items-center gap-3 text-sm text-foreground">
+                    <span className="font-semibold w-24">Métro:</span>
+                    <span>Ranelagh (Ligne 9)</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm text-foreground">
+                    <span className="font-semibold w-24">Bus:</span>
+                    <span>Lignes 22, 52 (Arrêt Ranelagh)</span>
+                </div>
+               </div>
 
-                   
-                  </CardContent>
-                  <CardFooter>
-                     <Link
-                      to="/orgs/$slug"
-                      params={{ slug: org.slug }}
-                      className="inline-flex items-center gap-2 text-primary font-medium text-sm hover:gap-3 transition-all"
-                    >
-                      {t('consulates.viewDetails')}
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </CardFooter>
-                </Card>
-              )
-            })
-          )}
-        </div>
+               <div className="pt-4">
+                    <Button asChild className="w-full">
+                        <a href="https://goo.gl/maps/example" target="_blank" rel="noopener noreferrer">
+                            Voir sur la carte
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                        </a>
+                    </Button>
+               </div>
+            </CardContent>
+          </Card>
 
-        {/* View All Button */}
-        <div className="text-center">
-          <Button asChild variant="outline" size="lg" className="border-primary/30 hover:bg-primary hover:text-white hover:border-primary">
-            <Link to="/orgs" search={{ view: 'grid' }}>
-              <MapPin className="w-4 h-4 mr-2" />
-              {t('consulates.viewAll')}
-            </Link>
-          </Button>
+           {/* Card Info Visa (Antenne DGDI) - IMPORTANT */}
+          <Card className="flex-1 max-w-md border-orange-200 bg-orange-50/50 dark:bg-orange-950/10 dark:border-orange-900">
+            <CardContent className="p-8 space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-orange-100 text-orange-600 rounded-xl">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-foreground">Antenne DGDI (Passeports/Visas)</h3>
+                  <p className="text-muted-foreground">26 bis Avenue Raphaël</p>
+                  <p className="text-muted-foreground">75016 Paris, France</p>
+                </div>
+              </div>
+
+               <div className="space-y-4">
+                 <p className="text-sm italic text-muted-foreground">
+                    Pour les demandes de passeport et de visa exclusivement.
+                 </p>
+                <div className="flex items-center gap-3 text-sm text-foreground">
+                    <span className="font-semibold w-24">Métro:</span>
+                    <span>Ranelagh (Ligne 9)</span>
+                </div>
+               </div>
+
+               <div className="pt-4">
+                    <Button asChild variant="outline" className="w-full border-orange-200 text-orange-700 hover:bg-orange-50 hover:text-orange-800 dark:border-orange-800 dark:text-orange-400">
+                        <a href="https://goo.gl/maps/abc" target="_blank" rel="noopener noreferrer">
+                            Voir sur la carte
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                        </a>
+                    </Button>
+               </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>

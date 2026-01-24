@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
-import { SignedIn, SignedOut, SignUpButton } from '@clerk/clerk-react'
+
 import {
   Calendar,
   FileText,
@@ -59,22 +59,12 @@ export function Hero({ onServiceClick }: HeroProps) {
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4 mb-12">
             {/* Primary CTA - Changes based on auth state */}
-            <SignedOut>
-              <SignUpButton mode="modal" forceRedirectUrl="/my-space">
-                <Button size="lg" className="h-12 px-6 rounded-xl shadow-lg shadow-primary/30">
-                  <UserPlus className="w-5 h-5 mr-2" />
-                  {t('hero.createSpace', 'Créer mon espace consulaire')}
-                </Button>
-              </SignUpButton>
-            </SignedOut>
-            <SignedIn>
-              <Button asChild size="lg" className="h-12 px-6 rounded-xl shadow-lg shadow-primary/30">
-                <Link to="/my-space">
-                  <UserPlus className="w-5 h-5 mr-2" />
-                  {t('hero.accessSpace', 'Accéder à mon espace')}
-                </Link>
-              </Button>
-            </SignedIn>
+            <Button asChild size="lg" className="h-12 px-6 rounded-xl shadow-lg shadow-primary/30">
+              <a href="https://www.consulatgabonfrance.com/demande-de-carte-consulaire/" target="_blank" rel="noopener noreferrer">
+                <UserPlus className="w-5 h-5 mr-2" />
+                {t('hero.register', 'Inscription Consulaire')}
+              </a>
+            </Button>
 
             <Button asChild size="lg" variant="outline" className="h-12 px-6 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border-white/20 hover:text-white">
               <Link to="/">
@@ -127,9 +117,9 @@ export function Hero({ onServiceClick }: HeroProps) {
             />
             <QuickAccessCard
               icon={<MapPin className="w-6 h-6" />}
-              title={t('hero.quickAccess.directory')}
-              description={t('hero.quickAccess.directoryDesc')}
-              to="/orgs"
+              title={t('hero.quickAccess.contact', 'Contact & Accès')}
+              description={t('hero.quickAccess.contactDesc', 'Horaires et plan')}
+              to="/contact"
               color="bg-yellow-500/20"
               iconColor="text-yellow-400"
             />

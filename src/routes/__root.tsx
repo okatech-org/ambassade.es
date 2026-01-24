@@ -10,6 +10,7 @@ import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 import ClerkProvider from '../integrations/clerk/provider'
 
@@ -40,19 +41,19 @@ export const Route = createRootRouteWithContext<MyRouterContext>()(({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Consulat.ga - Services Consulaires Digitalisés | République Gabonaise',
+        title: 'Consulat Général du Gabon en France - Site Officiel',
       },
       {
         name: 'description',
-        content: 'Plateforme officielle des services consulaires de la République Gabonaise. Demandes de passeport, visa, état civil, inscription consulaire et légalisation de documents en ligne.',
+        content: 'Site officiel d\'information du Consulat Général du Gabon en France. Retrouvez toutes les démarches consulaires, actualités, et informations pratiques.',
       },
       {
         property: 'og:title',
-        content: 'Consulat.ga - Services Consulaires Digitalisés',
+        content: 'Consulat Général du Gabon en France',
       },
       {
         property: 'og:description',
-        content: 'Plateforme officielle des services consulaires de la République Gabonaise pour les citoyens à l\'étranger.',
+        content: 'Site officiel d\'information du Consulat Général du Gabon en France.',
       },
       {
         property: 'og:type',
@@ -60,7 +61,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()(({
       },
       {
         name: 'theme-color',
-        content: '#3b82f6',
+        content: '#009E60', // Gabon Green
       },
     ],
     links: [
@@ -76,7 +77,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()(({
 }))
 
 
-const routesWithOwnLayout = ['/admin', '/sign-in', '/sign-up', '/dashboard']
+const routesWithOwnLayout = ['/admin']
 
 function RootLayout() {
   const matches = useMatches()
@@ -130,6 +131,7 @@ function RootLayout() {
         }}
       >
         <Outlet />
+        {!hasOwnLayout && <Footer />}
       </main>
     </>
   )

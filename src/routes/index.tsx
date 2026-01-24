@@ -5,7 +5,6 @@ import { Hero } from '../components/home/Hero'
 import { ServicesSection } from '../components/home/ServicesSection'
 import { ConsulateLocations } from '../components/home/ConsulateLocations'
 import { CitizenCTA } from '../components/home/CitizenCTA'
-import { Footer } from '../components/Footer'
 
 export const Route = createFileRoute('/')({ component: App })
 
@@ -35,8 +34,6 @@ function App() {
       {/* Citizen Account CTA */}
       <CitizenCTA />
 
-      {/* Footer */}
-      <Footer />
     </div>
   )
 }

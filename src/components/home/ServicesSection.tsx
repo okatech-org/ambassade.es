@@ -2,49 +2,43 @@ import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { useQuery } from 'convex/react'
 import {
-  BookOpen,
-  BookOpenCheck,
-  FileCheck,
   FileText,
   Globe,
-  ShieldAlert,
+  Plane,
+  Fingerprint,
+  Scroll,
   type LucideIcon,
+  BookUser
 } from 'lucide-react'
 import { api } from '@convex/_generated/api'
-import { ServiceCategory } from '@convex/lib/validators'
 import { ServiceCard } from './ServiceCard'
 import { Button } from '../ui/button'
 import { Badge } from '../ui/badge'
 import { Skeleton } from '../ui/skeleton'
-import { getLocalizedValue } from '@/lib/i18n-utils'
 
 
 const categoryConfig: Record<string, { icon: LucideIcon; color: string }> = {
-  [ServiceCategory.Identity]: {
-    icon: BookOpenCheck,
+  "Identité": {
+    icon: Fingerprint,
     color: 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
   },
-  [ServiceCategory.Visa]: {
+  "Visa": {
     icon: Globe,
     color: 'bg-green-500/10 text-green-600 dark:text-green-400',
   },
-  [ServiceCategory.CivilStatus]: {
-    icon: FileText,
+  "Etat Civil": {
+    icon: Scroll,
     color: 'bg-yellow-500/10 text-yellow-600 dark:text-yellow-400',
   },
-  [ServiceCategory.Registration]: {
-    icon: BookOpen,
+  "Immatriculation": {
+    icon: BookUser,
     color: 'bg-purple-500/10 text-purple-600 dark:text-purple-400',
   },
-  [ServiceCategory.Certification]: {
-    icon: FileCheck,
+  "Voyage": {
+    icon: Plane,
     color: 'bg-orange-500/10 text-orange-600 dark:text-orange-400',
   },
-  [ServiceCategory.Assistance]: {
-    icon: ShieldAlert,
-    color: 'bg-red-500/10 text-red-600 dark:text-red-400',
-  },
-  [ServiceCategory.Other]: {
+  "default": {
     icon: FileText,
     color: 'bg-gray-500/10 text-gray-600 dark:text-gray-400',
   },
@@ -62,13 +56,13 @@ function ServiceSkeleton() {
 }
 
 export function ServicesSection() {
-  const { t, i18n } = useTranslation()
-  const services = useQuery(api.functions.services.listCatalog, {})
+  const { t } = useTranslation()
+  const services = useQuery(api.functions.services.list, {})
 
   const isLoading = services === undefined
 
   return (
-    <section className="py-16 px-6 bg-secondary/30">
+    <section className="py-16 px-6 bg-secondary/30" id="services">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -100,15 +94,17 @@ export function ServicesSection() {
             </div>
           ) : (
             services.slice(0, 6).map((service) => {
-              const config = categoryConfig[service.category] || categoryConfig[ServiceCategory.Other]
+              const config = categoryConfig[service.category] || categoryConfig["default"]
               return (
                 <ServiceCard
                   key={service._id}
                   icon={config.icon}
-                  title={getLocalizedValue(service.name, i18n.language)}
-                  description={getLocalizedValue(service.description, i18n.language)}
-                  href={`/services/${service.slug}`}
+                  title={service.title}
+                  description={service.description}
+                  href={`/services/${service.slug}`} // Will update this route later
                   color={config.color}
+                  price={service.price}
+                  delay={service.delay}
                 />
               )
             })

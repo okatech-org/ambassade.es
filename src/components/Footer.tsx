@@ -36,11 +36,9 @@ export function Footer() {
   ]
 
   const resourceLinks = [
-    { label: t('footer.links.faq'), href: '/faq' },
-    { label: t('footer.links.fees'), href: '/tarifs' },
-    { label: t('footer.links.forms'), href: '/formulaires' },
-    { label: t('footer.links.news'), href: '/actualites' },
-    { label: t('footer.links.directory'), href: '/orgs' },
+    { label: t('footer.links.faq', 'FAQ'), href: '/faq' },
+    { label: t('footer.links.news', 'Actualités'), href: '/actualites' },
+    { label: t('footer.links.contact', 'Contact'), href: '/contact' },
   ]
 
   const legalLinks = [
@@ -105,7 +103,7 @@ export function Footer() {
                </p>
                <p className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <a href="mailto:contact@consulat.ga" className="hover:text-primary">contact@consulat.ga</a>
+                  <a href="mailto:consulatgeneral@ambagabon.org" className="hover:text-primary">consulatgeneral@ambagabon.org</a>
                </p>
             </div>
           </div>

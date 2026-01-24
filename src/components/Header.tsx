@@ -47,8 +47,7 @@ export default function Header() {
   const navLinks = [
     { label: t('header.nav.home'), href: '/', icon: Home },
     { label: t('header.nav.news'), href: '/actualites', icon: Newspaper },
-    { label: t('header.nav.consulates'), href: '/orgs', icon: MapPin },
-    
+    { label: t('header.nav.contact'), href: '/contact', icon: MapPin },
   ]
 
   const serviceLinks = [
@@ -118,8 +117,8 @@ export default function Header() {
               <span className="text-white font-bold text-lg">GA</span>
             </div>
             <div className="hidden sm:block">
-              <div className="font-bold text-lg text-foreground leading-tight">Consulat.ga</div>
-              <div className="text-xs text-muted-foreground">{t('header.country')}</div>
+              <div className="font-bold text-lg text-foreground leading-tight">Consulat Général</div>
+              <div className="text-xs text-muted-foreground">Gabon en France</div>
             </div>
           </Link>
 

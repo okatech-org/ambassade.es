@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { SignedOut, SignUpButton } from '@clerk/clerk-react'
+import { SignedOut } from '@clerk/clerk-react'
 import {
   CheckCircle2,
   Clock,
@@ -75,12 +75,12 @@ export function CitizenCTA() {
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-4">
-                <SignUpButton mode="modal" forceRedirectUrl="/my-space">
-                  <Button size="lg" className="h-12 px-6 rounded-xl shadow-lg shadow-primary/20">
+                <Button asChild size="lg" className="h-12 px-6 rounded-xl shadow-lg shadow-primary/20">
+                  <a href="https://www.consulatgabonfrance.com/demande-de-carte-consulaire/" target="_blank" rel="noopener noreferrer">
                     <UserPlus className="w-5 h-5 mr-2" />
-                    {t('citizenCta.createAccount')}
-                  </Button>
-                </SignUpButton>
+                    {t('citizenCta.createAccount', 'Demander ma Carte Consulaire')}
+                  </a>
+                </Button>
               </div>
             </div>
 

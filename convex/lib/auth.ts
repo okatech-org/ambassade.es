@@ -1,7 +1,5 @@
 import { QueryCtx, MutationCtx, ActionCtx } from "../_generated/server";
-import { Id } from "../_generated/dataModel";
 import { error, ErrorCode } from "./errors";
-import { MemberRole } from "./validators";
 
 type AuthContext = QueryCtx | MutationCtx;
 
@@ -51,70 +49,6 @@ export async function requireAuth(ctx: AuthContext) {
   }
 
   return user;
-}
-
-/**
- * Check if user has membership in an org
- */
-export async function getMembership(
-  ctx: AuthContext,
-  userId: Id<"users">,
-  orgId: Id<"orgs">
-) {
-  return await ctx.db
-    .query("memberships")
-    .withIndex("by_user_org", (q) => q.eq("userId", userId).eq("orgId", orgId))
-    .filter((q) => q.eq(q.field("deletedAt"), undefined))
-    .unique();
-}
-
-/**
- * Require user to have a specific role in an org
- */
-export async function requireOrgRole(
-  ctx: AuthContext,
-  orgId: Id<"orgs">,
-  allowedRoles: (typeof MemberRole)[keyof typeof MemberRole][]
-) {
-  const user = await requireAuth(ctx);
-
-  // Superadmin bypass
-  if (user.isSuperadmin) {
-    return { user, membership: null };
-  }
-
-  const membership = await getMembership(ctx, user._id, orgId);
-
-  if (!membership || !allowedRoles.includes(membership.role)) {
-    throw error(ErrorCode.INSUFFICIENT_PERMISSIONS);
-  }
-
-  return { user, membership };
-}
-
-/**
- * Require org admin role
- */
-export async function requireOrgAdmin(ctx: AuthContext, orgId: Id<"orgs">) {
-  return requireOrgRole(ctx, orgId, [MemberRole.Admin]);
-}
-
-/**
- * Require org agent role (admin or agent)
- */
-export async function requireOrgAgent(ctx: AuthContext, orgId: Id<"orgs">) {
-  return requireOrgRole(ctx, orgId, [MemberRole.Admin, MemberRole.Agent]);
-}
-
-/**
- * Require org member role (any role)
- */
-export async function requireOrgMember(ctx: AuthContext, orgId: Id<"orgs">) {
-  return requireOrgRole(ctx, orgId, [
-    MemberRole.Admin,
-    MemberRole.Agent,
-    MemberRole.Viewer,
-  ]);
 }
 
 /**

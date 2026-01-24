@@ -1,36 +1,27 @@
 import { defineTable } from "convex/server";
 import { v } from "convex/values";
-import {
-  serviceCategoryValidator,
-  localizedStringValidator,
-  serviceDefaultsValidator,
-} from "../lib/validators";
 
-/**
- * Services table - global catalog (read-only for orgs)
- * Managed by superadmins
- */
 export const servicesTable = defineTable({
-  slug: v.string(),
-  code: v.string(), // ex: "PASSPORT_NEW", "CONSULAR_CARD"
-
-  // Localized content
-  name: localizedStringValidator,
-  description: localizedStringValidator,
-
-  category: serviceCategoryValidator,
-  icon: v.optional(v.string()),
-
-  // Default configuration
-  defaults: serviceDefaultsValidator,
-
-  // Form schema (JSON Schema or custom)
-  formSchema: v.optional(v.any()),
-
-  // Status
+  title: v.string(),
+  slug: v.string(), 
+  description: v.string(),
+  content: v.optional(v.string()), // Detailed content if needed
+  
+  category: v.string(), // "Identité", "Etat Civil", etc.
+  
+  // Info fields
+  price: v.optional(v.string()),
+  delay: v.optional(v.string()),
+  
+  // Lists
+  requirements: v.array(v.string()), // List of required documents/steps
+  
+  // Action
+  actionLink: v.optional(v.string()),
+  isOnline: v.boolean(),
+  
   isActive: v.boolean(),
-  updatedAt: v.optional(v.number()),
+  order: v.optional(v.number()), // For sorting
 })
   .index("by_slug", ["slug"])
-  .index("by_code", ["code"])
-  .index("by_category_active", ["category", "isActive"]);
+  .index("by_category", ["category", "isActive"]);

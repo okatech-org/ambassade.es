@@ -12,23 +12,24 @@ import { useUserData } from '@/hooks/use-user-data'
 
 export default function HeaderUser() {
   const { t } = useTranslation()
-  const { isAgent, isSuperAdmin } = useUserData()
+  const { isSuperAdmin } = useUserData()
 
   function getMySpacePath() {
     if (isSuperAdmin) return '/admin'
-    if (isAgent) return '/dashboard'
-    return '/my-space'
+    return null
   }
   
   return (
     <div className="flex items-center gap-2">
       <SignedIn>
-        <Button asChild variant="ghost" size="sm">
-          <Link to={getMySpacePath()}>
-            <User className="w-4 h-4 mr-2" />
-            {t('header.nav.mySpace')}
-          </Link>
-        </Button>
+        {getMySpacePath() && (
+          <Button asChild variant="ghost" size="sm">
+            <Link to={getMySpacePath()!}>
+              <User className="w-4 h-4 mr-2" />
+              {t('header.nav.mySpace')}
+            </Link>
+          </Button>
+        )}
         <UserButton />
       </SignedIn>
       <SignedOut>
