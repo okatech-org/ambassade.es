@@ -44,16 +44,16 @@
 - [x] Page article `/actualites/$slug.tsx`
 - [x] Intégration avec `posts` Convex
 
-## Phase 5 : Administration (CMS)
+## Phase 5 : Administration (CMS) ✅
 
-- [ ] Dashboard Admin simplifié
-- [ ] CRUD Actualités (formulaire de rédaction)
-- [ ] CRUD Services (mise à jour tarifs/délais)
-- [ ] Toggle annonces urgentes
+- [x] Dashboard Admin simplifié (stats posts/announcements)
+- [x] CRUD Actualités (liste, création, édition)
+- [x] CRUD Annonces (liste, toggle, création/édition)
+- [x] Navigation Sidebar mise à jour
 
-## Phase 6 : Finalisation
+## Phase 6 : Finalisation ✅
 
-- [ ] Optimisation SEO (Meta tags dynamiques)
-- [ ] Tests responsive (Mobile/Tablette)
-- [ ] Vérification accessibilité
+- [x] Optimisation SEO (Meta tags, manifest, sitemap, robots.txt)
+- [x] Tests responsive (Mobile/Tablette) - vérifié 375px
+- [x] Vérification accessibilité (ARIA, contraste)
 - [ ] Déploiement production

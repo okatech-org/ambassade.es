@@ -25,13 +25,17 @@ import { Route as ActualitesSlugRouteImport } from './routes/actualites/$slug'
 import { Route as AdminUsersIndexRouteImport } from './routes/admin/users/index'
 import { Route as AdminSettingsIndexRouteImport } from './routes/admin/settings/index'
 import { Route as AdminServicesIndexRouteImport } from './routes/admin/services/index'
+import { Route as AdminPostsIndexRouteImport } from './routes/admin/posts/index'
 import { Route as AdminOrgsIndexRouteImport } from './routes/admin/orgs/index'
 import { Route as AdminAuditLogsIndexRouteImport } from './routes/admin/audit-logs/index'
+import { Route as AdminAnnouncementsIndexRouteImport } from './routes/admin/announcements/index'
 import { Route as AdminUsersUserIdRouteImport } from './routes/admin/users/$userId'
 import { Route as AdminServicesNewRouteImport } from './routes/admin/services/new'
+import { Route as AdminPostsNewRouteImport } from './routes/admin/posts/new'
 import { Route as AdminOrgsNewRouteImport } from './routes/admin/orgs/new'
 import { Route as AdminOrgsOrgIdRouteImport } from './routes/admin/orgs/$orgId'
 import { Route as AdminServicesServiceIdEditRouteImport } from './routes/admin/services/$serviceId_.edit'
+import { Route as AdminPostsPostIdEditRouteImport } from './routes/admin/posts/$postId.edit'
 import { Route as AdminOrgsOrgIdEditRouteImport } from './routes/admin/orgs/$orgId_.edit'
 
 const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
@@ -114,6 +118,11 @@ const AdminServicesIndexRoute = AdminServicesIndexRouteImport.update({
   path: '/services/',
   getParentRoute: () => AdminRouteRoute,
 } as any)
+const AdminPostsIndexRoute = AdminPostsIndexRouteImport.update({
+  id: '/posts/',
+  path: '/posts/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
 const AdminOrgsIndexRoute = AdminOrgsIndexRouteImport.update({
   id: '/orgs/',
   path: '/orgs/',
@@ -124,6 +133,11 @@ const AdminAuditLogsIndexRoute = AdminAuditLogsIndexRouteImport.update({
   path: '/audit-logs/',
   getParentRoute: () => AdminRouteRoute,
 } as any)
+const AdminAnnouncementsIndexRoute = AdminAnnouncementsIndexRouteImport.update({
+  id: '/announcements/',
+  path: '/announcements/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
 const AdminUsersUserIdRoute = AdminUsersUserIdRouteImport.update({
   id: '/users/$userId',
   path: '/users/$userId',
@@ -132,6 +146,11 @@ const AdminUsersUserIdRoute = AdminUsersUserIdRouteImport.update({
 const AdminServicesNewRoute = AdminServicesNewRouteImport.update({
   id: '/services/new',
   path: '/services/new',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminPostsNewRoute = AdminPostsNewRouteImport.update({
+  id: '/posts/new',
+  path: '/posts/new',
   getParentRoute: () => AdminRouteRoute,
 } as any)
 const AdminOrgsNewRoute = AdminOrgsNewRouteImport.update({
@@ -150,6 +169,11 @@ const AdminServicesServiceIdEditRoute =
     path: '/services/$serviceId/edit',
     getParentRoute: () => AdminRouteRoute,
   } as any)
+const AdminPostsPostIdEditRoute = AdminPostsPostIdEditRouteImport.update({
+  id: '/posts/$postId/edit',
+  path: '/posts/$postId/edit',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
 const AdminOrgsOrgIdEditRoute = AdminOrgsOrgIdEditRouteImport.update({
   id: '/orgs/$orgId_/edit',
   path: '/orgs/$orgId/edit',
@@ -172,14 +196,18 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesIndexRoute
   '/admin/orgs/$orgId': typeof AdminOrgsOrgIdRoute
   '/admin/orgs/new': typeof AdminOrgsNewRoute
+  '/admin/posts/new': typeof AdminPostsNewRoute
   '/admin/services/new': typeof AdminServicesNewRoute
   '/admin/users/$userId': typeof AdminUsersUserIdRoute
+  '/admin/announcements': typeof AdminAnnouncementsIndexRoute
   '/admin/audit-logs': typeof AdminAuditLogsIndexRoute
   '/admin/orgs': typeof AdminOrgsIndexRoute
+  '/admin/posts': typeof AdminPostsIndexRoute
   '/admin/services': typeof AdminServicesIndexRoute
   '/admin/settings': typeof AdminSettingsIndexRoute
   '/admin/users': typeof AdminUsersIndexRoute
   '/admin/orgs/$orgId/edit': typeof AdminOrgsOrgIdEditRoute
+  '/admin/posts/$postId/edit': typeof AdminPostsPostIdEditRoute
   '/admin/services/$serviceId/edit': typeof AdminServicesServiceIdEditRoute
 }
 export interface FileRoutesByTo {
@@ -197,14 +225,18 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesIndexRoute
   '/admin/orgs/$orgId': typeof AdminOrgsOrgIdRoute
   '/admin/orgs/new': typeof AdminOrgsNewRoute
+  '/admin/posts/new': typeof AdminPostsNewRoute
   '/admin/services/new': typeof AdminServicesNewRoute
   '/admin/users/$userId': typeof AdminUsersUserIdRoute
+  '/admin/announcements': typeof AdminAnnouncementsIndexRoute
   '/admin/audit-logs': typeof AdminAuditLogsIndexRoute
   '/admin/orgs': typeof AdminOrgsIndexRoute
+  '/admin/posts': typeof AdminPostsIndexRoute
   '/admin/services': typeof AdminServicesIndexRoute
   '/admin/settings': typeof AdminSettingsIndexRoute
   '/admin/users': typeof AdminUsersIndexRoute
   '/admin/orgs/$orgId/edit': typeof AdminOrgsOrgIdEditRoute
+  '/admin/posts/$postId/edit': typeof AdminPostsPostIdEditRoute
   '/admin/services/$serviceId/edit': typeof AdminServicesServiceIdEditRoute
 }
 export interface FileRoutesById {
@@ -224,14 +256,18 @@ export interface FileRoutesById {
   '/services/': typeof ServicesIndexRoute
   '/admin/orgs/$orgId': typeof AdminOrgsOrgIdRoute
   '/admin/orgs/new': typeof AdminOrgsNewRoute
+  '/admin/posts/new': typeof AdminPostsNewRoute
   '/admin/services/new': typeof AdminServicesNewRoute
   '/admin/users/$userId': typeof AdminUsersUserIdRoute
+  '/admin/announcements/': typeof AdminAnnouncementsIndexRoute
   '/admin/audit-logs/': typeof AdminAuditLogsIndexRoute
   '/admin/orgs/': typeof AdminOrgsIndexRoute
+  '/admin/posts/': typeof AdminPostsIndexRoute
   '/admin/services/': typeof AdminServicesIndexRoute
   '/admin/settings/': typeof AdminSettingsIndexRoute
   '/admin/users/': typeof AdminUsersIndexRoute
   '/admin/orgs/$orgId_/edit': typeof AdminOrgsOrgIdEditRoute
+  '/admin/posts/$postId/edit': typeof AdminPostsPostIdEditRoute
   '/admin/services/$serviceId_/edit': typeof AdminServicesServiceIdEditRoute
 }
 export interface FileRouteTypes {
@@ -252,14 +288,18 @@ export interface FileRouteTypes {
     | '/services'
     | '/admin/orgs/$orgId'
     | '/admin/orgs/new'
+    | '/admin/posts/new'
     | '/admin/services/new'
     | '/admin/users/$userId'
+    | '/admin/announcements'
     | '/admin/audit-logs'
     | '/admin/orgs'
+    | '/admin/posts'
     | '/admin/services'
     | '/admin/settings'
     | '/admin/users'
     | '/admin/orgs/$orgId/edit'
+    | '/admin/posts/$postId/edit'
     | '/admin/services/$serviceId/edit'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -277,14 +317,18 @@ export interface FileRouteTypes {
     | '/services'
     | '/admin/orgs/$orgId'
     | '/admin/orgs/new'
+    | '/admin/posts/new'
     | '/admin/services/new'
     | '/admin/users/$userId'
+    | '/admin/announcements'
     | '/admin/audit-logs'
     | '/admin/orgs'
+    | '/admin/posts'
     | '/admin/services'
     | '/admin/settings'
     | '/admin/users'
     | '/admin/orgs/$orgId/edit'
+    | '/admin/posts/$postId/edit'
     | '/admin/services/$serviceId/edit'
   id:
     | '__root__'
@@ -303,14 +347,18 @@ export interface FileRouteTypes {
     | '/services/'
     | '/admin/orgs/$orgId'
     | '/admin/orgs/new'
+    | '/admin/posts/new'
     | '/admin/services/new'
     | '/admin/users/$userId'
+    | '/admin/announcements/'
     | '/admin/audit-logs/'
     | '/admin/orgs/'
+    | '/admin/posts/'
     | '/admin/services/'
     | '/admin/settings/'
     | '/admin/users/'
     | '/admin/orgs/$orgId_/edit'
+    | '/admin/posts/$postId/edit'
     | '/admin/services/$serviceId_/edit'
   fileRoutesById: FileRoutesById
 }
@@ -443,6 +491,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminServicesIndexRouteImport
       parentRoute: typeof AdminRouteRoute
     }
+    '/admin/posts/': {
+      id: '/admin/posts/'
+      path: '/posts'
+      fullPath: '/admin/posts'
+      preLoaderRoute: typeof AdminPostsIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
     '/admin/orgs/': {
       id: '/admin/orgs/'
       path: '/orgs'
@@ -457,6 +512,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAuditLogsIndexRouteImport
       parentRoute: typeof AdminRouteRoute
     }
+    '/admin/announcements/': {
+      id: '/admin/announcements/'
+      path: '/announcements'
+      fullPath: '/admin/announcements'
+      preLoaderRoute: typeof AdminAnnouncementsIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
     '/admin/users/$userId': {
       id: '/admin/users/$userId'
       path: '/users/$userId'
@@ -469,6 +531,13 @@ declare module '@tanstack/react-router' {
       path: '/services/new'
       fullPath: '/admin/services/new'
       preLoaderRoute: typeof AdminServicesNewRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/posts/new': {
+      id: '/admin/posts/new'
+      path: '/posts/new'
+      fullPath: '/admin/posts/new'
+      preLoaderRoute: typeof AdminPostsNewRouteImport
       parentRoute: typeof AdminRouteRoute
     }
     '/admin/orgs/new': {
@@ -492,6 +561,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminServicesServiceIdEditRouteImport
       parentRoute: typeof AdminRouteRoute
     }
+    '/admin/posts/$postId/edit': {
+      id: '/admin/posts/$postId/edit'
+      path: '/posts/$postId/edit'
+      fullPath: '/admin/posts/$postId/edit'
+      preLoaderRoute: typeof AdminPostsPostIdEditRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
     '/admin/orgs/$orgId_/edit': {
       id: '/admin/orgs/$orgId_/edit'
       path: '/orgs/$orgId/edit'
@@ -506,14 +582,18 @@ interface AdminRouteRouteChildren {
   AdminIndexRoute: typeof AdminIndexRoute
   AdminOrgsOrgIdRoute: typeof AdminOrgsOrgIdRoute
   AdminOrgsNewRoute: typeof AdminOrgsNewRoute
+  AdminPostsNewRoute: typeof AdminPostsNewRoute
   AdminServicesNewRoute: typeof AdminServicesNewRoute
   AdminUsersUserIdRoute: typeof AdminUsersUserIdRoute
+  AdminAnnouncementsIndexRoute: typeof AdminAnnouncementsIndexRoute
   AdminAuditLogsIndexRoute: typeof AdminAuditLogsIndexRoute
   AdminOrgsIndexRoute: typeof AdminOrgsIndexRoute
+  AdminPostsIndexRoute: typeof AdminPostsIndexRoute
   AdminServicesIndexRoute: typeof AdminServicesIndexRoute
   AdminSettingsIndexRoute: typeof AdminSettingsIndexRoute
   AdminUsersIndexRoute: typeof AdminUsersIndexRoute
   AdminOrgsOrgIdEditRoute: typeof AdminOrgsOrgIdEditRoute
+  AdminPostsPostIdEditRoute: typeof AdminPostsPostIdEditRoute
   AdminServicesServiceIdEditRoute: typeof AdminServicesServiceIdEditRoute
 }
 
@@ -521,14 +601,18 @@ const AdminRouteRouteChildren: AdminRouteRouteChildren = {
   AdminIndexRoute: AdminIndexRoute,
   AdminOrgsOrgIdRoute: AdminOrgsOrgIdRoute,
   AdminOrgsNewRoute: AdminOrgsNewRoute,
+  AdminPostsNewRoute: AdminPostsNewRoute,
   AdminServicesNewRoute: AdminServicesNewRoute,
   AdminUsersUserIdRoute: AdminUsersUserIdRoute,
+  AdminAnnouncementsIndexRoute: AdminAnnouncementsIndexRoute,
   AdminAuditLogsIndexRoute: AdminAuditLogsIndexRoute,
   AdminOrgsIndexRoute: AdminOrgsIndexRoute,
+  AdminPostsIndexRoute: AdminPostsIndexRoute,
   AdminServicesIndexRoute: AdminServicesIndexRoute,
   AdminSettingsIndexRoute: AdminSettingsIndexRoute,
   AdminUsersIndexRoute: AdminUsersIndexRoute,
   AdminOrgsOrgIdEditRoute: AdminOrgsOrgIdEditRoute,
+  AdminPostsPostIdEditRoute: AdminPostsPostIdEditRoute,
   AdminServicesServiceIdEditRoute: AdminServicesServiceIdEditRoute,
 }
 

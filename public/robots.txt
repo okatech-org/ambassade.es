@@ -1,3 +1,12 @@
+# Robots.txt pour le Consulat Général du Gabon en France
 # https://www.robotstxt.org/robotstxt.html
+
 User-agent: *
-Disallow:
+Allow: /
+
+# Disallow admin area
+Disallow: /admin
+Disallow: /admin/*
+
+# Sitemap
+Sitemap: https://consulat.ga/sitemap.xml

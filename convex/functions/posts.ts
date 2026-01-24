@@ -55,6 +55,16 @@ export const list = query({
   },
 });
 
+// Admin: List all posts (including drafts)
+export const listAll = query({
+  args: {},
+  handler: async (ctx) => {
+    await requireSuperadmin(ctx);
+    const posts = await ctx.db.query("posts").order("desc").collect();
+    return posts;
+  },
+});
+
 // Admin: Create Post
 export const create = mutation({
   args: {

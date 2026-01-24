@@ -28,16 +28,18 @@ export const getUser = superadminQuery({
 export const getStats = superadminQuery({
   args: {},
   handler: async (ctx) => {
-    const [users, services, posts] = await Promise.all([
+    const [users, services, posts, announcements] = await Promise.all([
       ctx.db.query("users").collect(),
       ctx.db.query("services").filter(q => q.eq(q.field("isActive"), true)).collect(),
       ctx.db.query("posts").filter(q => q.eq(q.field("status"), "published")).collect(),
+      ctx.db.query("announcements").filter(q => q.eq(q.field("isActive"), true)).collect(),
     ]);
 
     return {
       users: { total: users.length },
       services: { active: services.length },
       posts: { published: posts.length },
+      announcements: { active: announcements.length },
     };
   },
 });

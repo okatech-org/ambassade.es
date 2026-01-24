@@ -2,9 +2,10 @@
 
 import * as React from "react"
 import {
-  Building2,
+  Bell,
   FileText,
   LayoutDashboard,
+  Newspaper,
   Settings,
   Shield,
   Users,
@@ -28,7 +29,7 @@ import {
 
 export function SuperadminSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { t } = useTranslation()
-  const user = useUserData()
+  const userDataHook = useUserData()
   
 
   const superadminNavItems = [
@@ -39,20 +40,12 @@ export function SuperadminSidebar({ ...props }: React.ComponentProps<typeof Side
       isActive: true,
     },
     {
-      title: t("superadmin.nav.users"),
-      url: "/admin/users",
-      icon: Users,
+      title: t("superadmin.nav.posts", "Actualités"),
+      url: "/admin/posts",
+      icon: Newspaper,
       items: [
-        { title: t("superadmin.nav.allUsers"), url: "/admin/users" },
-      ],
-    },
-    {
-      title: t("superadmin.nav.organizations"),
-      url: "/admin/orgs",
-      icon: Building2,
-      items: [
-        { title: t("superadmin.nav.allOrganizations"), url: "/admin/orgs" },
-        { title: t("superadmin.nav.newOrganization"), url: "/admin/orgs/new" },
+        { title: t("superadmin.nav.allPosts", "Tous les articles"), url: "/admin/posts" },
+        { title: t("superadmin.nav.newPost", "Nouvel article"), url: "/admin/posts/new" },
       ],
     },
     {
@@ -64,9 +57,17 @@ export function SuperadminSidebar({ ...props }: React.ComponentProps<typeof Side
       ],
     },
     {
-      title: t("superadmin.nav.auditLogs"),
-      url: "/admin/audit-logs",
-      icon: Shield,
+      title: t("superadmin.nav.announcements", "Annonces"),
+      url: "/admin/announcements",
+      icon: Bell,
+    },
+    {
+      title: t("superadmin.nav.users"),
+      url: "/admin/users",
+      icon: Users,
+      items: [
+        { title: t("superadmin.nav.allUsers"), url: "/admin/users" },
+      ],
     },
     {
       title: t("superadmin.nav.settings"),
@@ -75,14 +76,14 @@ export function SuperadminSidebar({ ...props }: React.ComponentProps<typeof Side
     },
   ]
 
-
+  const user = userDataHook.userData
   const userData = {
-    name: user.firstName && user.lastName 
+    name: user?.firstName && user?.lastName 
       ? `${user.firstName} ${user.lastName}` 
-      : user.firstName || "Superadmin",
-    email: user.email || "",
-    avatar: user.profileImageUrl || "/avatars/default.jpg",
-    isPending: user.isPending,
+      : user?.firstName || "Superadmin",
+    email: user?.email || "",
+    avatar: user?.avatarUrl || "/avatars/default.jpg",
+    isPending: userDataHook.isPending,
   }
 
   return (
