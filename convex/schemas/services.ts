@@ -1,5 +1,6 @@
 import { defineTable } from "convex/server";
 import { v } from "convex/values";
+import { serviceCategoryValidator } from "../lib/validators";
 
 export const servicesTable = defineTable({
   title: v.string(), // FR (default)
@@ -9,7 +10,7 @@ export const servicesTable = defineTable({
   descriptionEn: v.optional(v.string()), // EN
   content: v.optional(v.string()), // Detailed content if needed
   
-  category: v.string(), // "Identité", "Etat Civil", etc.
+  category: serviceCategoryValidator, // "Identité", "Etat Civil", etc.
   icon: v.optional(v.string()), // Lucide icon name or URL
 
   // Info fields

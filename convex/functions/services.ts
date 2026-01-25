@@ -1,18 +1,19 @@
 import { v } from "convex/values";
 import { query, mutation } from "../_generated/server";
 import { requireSuperadmin } from "../lib/auth";
+import { serviceCategoryValidator } from "../lib/validators";
 
 // Public: List all active services
 export const list = query({
   args: {
-    category: v.optional(v.string()),
+    category: v.optional(serviceCategoryValidator),
   },
   handler: async (ctx, args) => {
     let services;
     if (args.category) {
       services = await ctx.db.query("services")
         .withIndex("by_category", (q) => 
-          q.eq("category", args.category as string).eq("isActive", true)
+          q.eq("category", args.category!).eq("isActive", true)
         )
         .collect();
     } else {
@@ -64,7 +65,7 @@ export const update = mutation({
     description: v.optional(v.string()), // FR
     descriptionEn: v.optional(v.string()), // EN
     content: v.optional(v.string()),
-    category: v.optional(v.string()),
+    category: v.optional(serviceCategoryValidator),
     icon: v.optional(v.string()),
     price: v.optional(v.string()),
     delay: v.optional(v.string()),
@@ -96,7 +97,7 @@ export const create = mutation({
     description: v.string(), // FR
     descriptionEn: v.optional(v.string()), // EN
     content: v.optional(v.string()),
-    category: v.string(),
+    category: serviceCategoryValidator,
     icon: v.optional(v.string()),
     price: v.optional(v.string()),
     delay: v.optional(v.string()),

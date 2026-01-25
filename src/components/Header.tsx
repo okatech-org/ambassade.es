@@ -132,7 +132,7 @@ export default function Header() {
             <img 
               src="/logo-gabon-consul.jpg" 
               alt="Logo Consulat Gabon" 
-              className="h-10 w-auto rounded-lg bg-white" 
+              className="h-10 w-auto rounded-sm bg-white" 
             />
             <div className="hidden sm:block">
               <div className="font-bold text-lg text-foreground leading-tight">Consulat Général</div>

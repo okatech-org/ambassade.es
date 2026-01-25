@@ -1,4 +1,5 @@
 import { mutation } from "../_generated/server";
+import { ServiceCategory } from "../lib/constants";
 
 export const run = mutation({
   args: {},
@@ -19,7 +20,7 @@ export const run = mutation({
         title: "Passeport Biométrique",
         slug: "passeport",
         description: "Demande ou renouvellement de passeport ordinaire pour les ressortissants gabonais.",
-        category: "Identité",
+        category: ServiceCategory.Identity,
         requirements: [
           "Formulaire NDP dûment rempli",
           "Ancien passeport (original + copie)",
@@ -39,7 +40,7 @@ export const run = mutation({
         title: "Visa d'entrée au Gabon",
         slug: "visa",
         description: "Demande de visa d'entrée au Gabon pour les ressortissants étrangers (Tourisme, Affaires, Visite familiale).",
-        category: "Visa",
+        category: ServiceCategory.Visa,
         requirements: [
           "Passeport en cours de validité (> 6 mois)",
           "Formulaire de demande de visa complété",
@@ -60,7 +61,7 @@ export const run = mutation({
         title: "Carte Consulaire",
         slug: "carte-consulaire",
         description: "Immatriculation consulaire obligatoire pour tout ressortissant gabonais résidant en France.",
-        category: "Immatriculation",
+        category: ServiceCategory.Registration,
         requirements: [
           "Passeport gabonais valide",
           "Justificatif de domicile en France (< 3 mois)",
@@ -78,7 +79,7 @@ export const run = mutation({
         title: "Célébration de Mariage",
         slug: "mariage",
         description: "Célébration de mariage entre ressortissants gabonais ou mariage mixte au Consulat.",
-        category: "État Civil",
+        category: ServiceCategory.CivilStatus,
         requirements: [
           "Demande manuscrite adressée au Consul Général",
           "Actes de naissance des époux (< 3 mois, légalisés)",
@@ -98,7 +99,7 @@ export const run = mutation({
         title: "Transcription de Naissance",
         slug: "transcription-naissance",
         description: "Transcription d'un acte de naissance établi en France dans les registres d'état civil gabonais.",
-        category: "État Civil",
+        category: ServiceCategory.CivilStatus,
         requirements: [
           "Formulaire de demande complété",
           "Copie intégrale de l'acte de naissance français (< 3 mois)",
@@ -116,7 +117,7 @@ export const run = mutation({
         title: "Laissez-passer / Tenant Lieu",
         slug: "laissez-passer",
         description: "Document de voyage provisoire en cas d'urgence ou de perte/vol de passeport.",
-        category: "Identité",
+        category: ServiceCategory.Identity,
         requirements: [
           "Déclaration de perte ou de vol (commissariat)",
           "Copie pièce d'identité ou acte de naissance",
@@ -133,7 +134,7 @@ export const run = mutation({
         title: "Légalisation de Documents",
         slug: "legalisation",
         description: "Authentification de documents gabonais ou étrangers pour usage au Gabon.",
-        category: "Documents",
+        category: ServiceCategory.Other, // Documents -> Other
         requirements: [
           "Document original à légaliser",
           "Copie du document",
@@ -149,7 +150,7 @@ export const run = mutation({
         title: "Attestation Patronymique",
         slug: "attestation-patronymique",
         description: "Attestation officielle pour le choix du nom de famille de l'enfant conformément au Code Civil Gabonais.",
-        category: "État Civil",
+        category: ServiceCategory.CivilStatus,
         requirements: [
           "Pièces d'identité des deux parents",
           "Acte de mariage (si applicable)",
@@ -165,7 +166,8 @@ export const run = mutation({
         title: "Certificat de Vie",
         slug: "certificat-vie",
         description: "Attestation de vie pour les pensionnés et retraités gabonais résidant en France.",
-        category: "Documents",
+        category: ServiceCategory.Certification,
+
         requirements: [
           "Pièce d'identité valide",
           "Carte consulaire",
@@ -181,7 +183,7 @@ export const run = mutation({
         title: "Procuration",
         slug: "procuration",
         description: "Établissement de procurations pour diverses démarches au Gabon.",
-        category: "Documents",
+        category: ServiceCategory.Certification,
         requirements: [
           "Pièce d'identité du mandant",
           "Informations complètes du mandataire",

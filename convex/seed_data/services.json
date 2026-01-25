@@ -1,0 +1,127 @@
+[
+  {
+    "title": "Passeport Biométrique",
+    "slug": "passeport",
+    "description": "Demande et renouvellement de passeport biométrique pour les ressortissants gabonais en France.",
+    "content": "Les compatriotes gabonais présents sur le territoire français peuvent renouveler leur passeport dans les locaux du Consulat Général sis au 26 bis Avenue Raphaël 75016 Paris.\n\nCette démarche n’est pas du ressort du Consulat mais de l’Antenne extérieure de la DGDI à Paris dont les services sont ouverts du lundi au vendredi.\n\n### Contact Service Visa et Passeport\n- **Courriel** : aedgdi.fr@gmail.com\n- **Téléphone** : +33 6 08 03 20 29 (Permanence téléphonique tous les jours ouvrés de 09h à 10h et de 15h à 16h15 ou par SMS).\n\n### Horaires et Accès\n- **Dépôt des dossiers** : Du lundi au jeudi de 9h à 11h30.\n- **Retrait de passeports** : Du lundi au vendredi de 15h à 16h15.\n- **Adresse** : 26 bis Avenue Raphaël, 75016 Paris.\n\n> **Note** : Aucun dossier transmis par voie postale ne sera pris en compte.\n\n### Prise de Rendez-vous\nLa prise de rendez-vous est **obligatoire**. Envoyez par SMS ou par courriel les noms, prénoms de l’usager et la date souhaitée au +33 6 08 03 20 29. Si vous ne recevez aucun accusé de réception, votre date est retenue.\n\n### Processus\n1. Prendre un rendez-vous en ligne : [Plateforme de Rendez-vous](https://ae.dgdifrance.fr/booking)\n2. Télécharger le formulaire : [Formulaire NDP (PDF)](https://dgdi.ga/wp-content/uploads/2015/05/NDP.pdf)\n3. Consulter la liste des pièces à fournir : [Formalités Passeports](https://amba-france.ga/formalites-passeports/)",
+    "category": "identity",
+    "requirements": [
+      "Prise de rendez-vous obligatoire",
+      "Présence physique requise",
+      "Formulaire NDP dûment rempli",
+      "Pièces justificatives (voir site ambassade)"
+    ],
+    "actionLink": "https://ae.dgdifrance.fr/rendez-vous",
+    "isOnline": true,
+    "isActive": true,
+    "order": 1
+  },
+  {
+    "title": "Carte Consulaire",
+    "slug": "carte-consulaire",
+    "description": "L'immatriculation consulaire est obligatoire pour tout Gabonais résidant en France.",
+    "content": "Tout Gabonais résidant en France doit avoir le réflexe de requérir une immatriculation au niveau du Consulat.\n\n### Pourquoi demander la Carte Consulaire ?\n- **Protection** : Bénéficier de la protection de la Mission Diplomatique et Consulaire.\n- **Facilitation** : Accès simplifié aux services consulaires (Passeport, État civil, etc.).\n- **Recensement** : Permet de connaître le maillage de la communauté gabonaise en France.\n\n### Procédure\nLa demande est **gratuite**. Elle se fait en ligne sur le site du Consulat.\n\nVotre carte sera produite une fois vos documents transmis et validés par le Consul Général, puis envoyée par voie postale.",
+    "category": "registration",
+    "requirements": [
+      "Justificatif de domicile",
+      "Justificatif d'identité",
+      "Photo d'identité"
+    ],
+    "actionLink": "https://www.consulat.ga/sign-up",
+    "isOnline": true,
+    "isActive": true,
+    "order": 2
+  },
+  {
+    "title": "Mariage",
+    "slug": "mariage",
+    "description": "Formalités pour les mariages célébrés au Consulat ou en Mairie française.",
+    "content": "Un mariage ne peut être contracté devant les autorités consulaires que si les **futurs époux sont tous les deux de nationalité gabonaise**.\n\n### 1. Mariage célébré au Consulat (Deux époux gabonais)\n**Pièces à fournir :**\n- Demande manuscrite de chaque conjoint adressée au Consul Général.\n- [Formulaire de régime matrimonial](http://www.consulat-france.ga/object.getObject.do?id=385)\n- [Formulaire de demande de mariage](http://www.consulat-france.ga/object.getObject.do?id=385)\n- Photocopie des pièces d'identité.\n- Actes de naissance.\n- Certificats médicaux (< 3 mois).\n- Certificat de célibat (si régime monogamique).\n\n**Frais :**\n- Dossier et célébration : **250 €**\n- Déplacement (si hors locaux) : 500 € (Île-de-France) / 1000 € (Province).\n\n**Délai :** 10 jours de publication de bans.\n\n### 2. Mariage Mixte ou Double Nationalité (Mairie Française)\nSi l'un des époux a la nationalité française ou est étranger, le mariage doit être célébré en **Mairie française**.\n\n- Le ressortissant gabonais doit demander au Consulat un **certificat de célibat** et un **certificat de coutume**.\n- Après le mariage, une copie intégrale de l'acte doit être remise au Consulat pour transcription.",
+    "category": "civil_status",
+    "price": "250€",
+    "delay": "10 jours (bans)",
+    "requirements": [
+      "Nationalité gabonaise des deux époux (pour mariage au Consulat)",
+      "Publication des bans (10 jours)",
+      "Certificat médical",
+      "Certificat de célibat"
+    ],
+    "isOnline": false,
+    "isActive": true,
+    "order": 3
+  },
+  {
+    "title": "Transcription de Naissance",
+    "slug": "transcription-naissance",
+    "description": "Enregistrement des naissances survenues en France sur les registres d'état civil gabonais.",
+    "content": "Toute naissance survenue en France doit être déclarée aux autorités locales (Mairie) dans les 3 jours. Elle doit ensuite être transcrite au Consulat pour l'obtention de l'acte de naissance gabonais.\n\n### Délais\nIl n'y a pas de délai strict, mais il est recommandé de le faire dans l'année de naissance.\n\n### Pièces à fournir\n- [Formulaire de demande de transcription](http://www.consulat-france.ga/object.getObject.do?id=383)\n- Acte de naissance établi par la Mairie française.\n- Copies des pièces d'identité des parents.\n\n### Démarche en ligne\nDepuis janvier 2024, vous pouvez effectuer cette démarche en ligne.",
+    "category": "civil_status",
+    "requirements": [
+      "Acte de naissance français",
+      "Pièces d'identité des parents",
+      "Formulaire de transcription"
+    ],
+    "isOnline": true,
+    "isActive": true,
+    "order": 4
+  },
+  {
+    "title": "Tenant lieu de passeport",
+    "slug": "tenant-lieu-passeport",
+    "description": "Document de voyage provisoire en cas de perte ou d'absence de passeport valide.",
+    "content": "Le **Tenant Lieu de Passeport** permet aux Gabonais ne disposant pas de passeport valide de voyager pour régulariser leur situation.\n\n### Validité\n1 an.\n\n### Coût\n**55 €** (espèces).\n\n### Pièces à fournir\n- Formulaire de demande.\n- Copie de l'ancien passeport (si disponible).\n- Copie de l'acte de naissance.\n- Déclaration de perte (si applicable).\n- Titre de séjour.\n- Justificatif (professionnel, scolaire, familial).\n- 2 photos d'identité.\n\n**Pour les mineurs** : Autorisation parentale du parent ne voyageant pas.",
+    "category": "identity",
+    "price": "55€",
+    "delay": "Immédiat",
+    "requirements": [
+      "Présence physique",
+      "Paiement en espèces",
+      "Photos d'identité",
+      "Justificatif de voyage/situation"
+    ],
+    "isOnline": false,
+    "isActive": true,
+    "order": 5
+  },
+  {
+    "title": "Attestation Patronymique",
+    "slug": "attestation-patronymique",
+    "description": "Permet d'attribuer un nom de famille différent (ex: nom de jeune fille, homonyme) à l'enfant à naître.",
+    "content": "Ce document permet aux parents gabonais d'exercer leur droit (art. 93-94 Code Civil Gabonais) de choisir le nom de l'enfant (différent de celui du père ou de la mère).\n\n**Important** : Ce document doit être établi **avant** la déclaration de naissance à la Mairie française, de préférence à partir du 6ème mois de grossesse.\n\n### Pièces à fournir\n- Copies signées des pièces d'identité des deux parents.\n- Accord des parents sur le nom choisit.",
+    "category": "civil_status",
+    "requirements": [
+      "Accord des deux parents",
+      "Pièces d'identité",
+      "Avant la naissance"
+    ],
+    "isOnline": false,
+    "isActive": true,
+    "order": 6
+  },
+  {
+    "title": "PACS",
+    "slug": "pacs",
+    "description": "Informations sur le Pacte Civil de Solidarité pour les Gabonais en France.",
+    "content": "Le PACS n'est **pas reconnu par la loi gabonaise**. Il peut cependant être contracté en France par des ressortissants gabonais.\n\n### Enregistrement\n- **En France** : Tribunal d'instance ou notaire.\n- **À l'étranger** : Consulat de France (si au moins un partenaire est Français).\n\nPour les documents nécessaires (certificats de coutume/célibat), se rapprocher du Consulat.",
+    "category": "civil_status",
+    "requirements": [
+      "Résidence commune",
+      "Majorité légale"
+    ],
+    "actionLink": "https://www.service-public.fr/particuliers/vosdroits/F1618",
+    "isOnline": false,
+    "isActive": true,
+    "order": 7
+  },
+  {
+    "title": "Divorce",
+    "slug": "divorce",
+    "description": "Informations sur la procédure de divorce.",
+    "content": "Le jugement de divorce prononcé par un tribunal français doit faire l'objet d'une **exequatur** au Gabon pour être reconnu.\n\nIl est conseillé de se rapprocher d'un avocat pour cette procédure.",
+    "category": "civil_status",
+    "requirements": [],
+    "isOnline": false,
+    "isActive": true,
+    "order": 8
+  }
+]
