@@ -99,11 +99,11 @@ export function Footer() {
                </p>
                <p className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  <a href="tel:+33142996868" className="hover:text-primary">+33 1 42 99 68 68</a>
+                  <a href="tel:+33189719298" className="hover:text-primary">+33 1 89 71 92 98</a>
                </p>
                <p className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <a href="mailto:consulatgeneral@ambagabon.org" className="hover:text-primary">consulatgeneral@ambagabon.org</a>
+                  <a href="mailto:contact@consulatdugabon.fr" className="hover:text-primary">contact@consulatdugabon.fr</a>
                </p>
             </div>
           </div>

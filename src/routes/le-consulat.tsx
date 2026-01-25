@@ -263,9 +263,9 @@ function LeConsulatPage() {
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="rounded-xl bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-                <a href="tel:+33142996868">
+                <a href="tel:+33189719298">
                   <Phone className="w-4 h-4 mr-2" />
-                  +33 1 42 99 68 68
+                  +33 1 89 71 92 98
                 </a>
               </Button>
             </div>
@@ -330,18 +330,27 @@ function LeConsulatPage() {
                     <div className="flex items-start gap-3">
                       <Phone className="w-4 h-4 text-primary mt-1" />
                       <div>
-                        <p className="text-sm text-muted-foreground">Téléphone principal</p>
-                        <a href="tel:+33142996868" className="font-medium text-foreground hover:text-primary transition-colors">
-                          +33 1 42 99 68 68
+                        <p className="text-sm text-muted-foreground">Cabinet du Consul Général</p>
+                        <a href="tel:+33189718243" className="font-medium text-foreground hover:text-primary transition-colors">
+                          +33 1 89 71 82 43
                         </a>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <Phone className="w-4 h-4 text-primary mt-1" />
                       <div>
-                        <p className="text-sm text-muted-foreground">Consulat direct</p>
-                        <a href="tel:+33142996857" className="font-medium text-foreground hover:text-primary transition-colors">
-                          +33 1 42 99 68 57/58
+                        <p className="text-sm text-muted-foreground">Standard</p>
+                        <a href="tel:+33189719298" className="font-medium text-foreground hover:text-primary transition-colors">
+                          +33 1 89 71 92 98
+                        </a>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Phone className="w-4 h-4 text-primary mt-1" />
+                      <div>
+                        <p className="text-sm text-muted-foreground">Urgences</p>
+                        <a href="tel:+33189719299" className="font-medium text-foreground hover:text-primary transition-colors">
+                          +33 1 89 71 92 99
                         </a>
                       </div>
                     </div>
@@ -349,8 +358,8 @@ function LeConsulatPage() {
                       <Mail className="w-4 h-4 text-primary mt-1" />
                       <div>
                         <p className="text-sm text-muted-foreground">Email</p>
-                        <a href="mailto:consulatgeneral@ambagabon.org" className="font-medium text-foreground hover:text-primary transition-colors">
-                          consulatgeneral@ambagabon.org
+                        <a href="mailto:contact@consulatdugabon.fr" className="font-medium text-foreground hover:text-primary transition-colors">
+                          contact@consulatdugabon.fr
                         </a>
                       </div>
                     </div>

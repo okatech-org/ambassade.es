@@ -51,13 +51,26 @@ function ContactPage() {
                                             <p>75016 Paris, France</p>
                                         </div>
                                     </div>
-                                    <div className="flex items-center gap-3 text-muted-foreground">
-                                        <Phone className="w-5 h-5 text-primary" />
-                                        <a href="tel:+33142996857" className="hover:text-primary transition-colors">+33 1 42 99 68 57</a>
+                                    <div className="flex items-start gap-3 text-muted-foreground">
+                                        <Phone className="w-5 h-5 mt-0.5 text-primary" />
+                                        <div className="space-y-1">
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-xs font-medium text-muted-foreground w-16">Cabinet:</span>
+                                                <a href="tel:+33189718243" className="text-foreground hover:text-primary transition-colors">+33 1 89 71 82 43</a>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-xs font-medium text-muted-foreground w-16">Standard:</span>
+                                                <a href="tel:+33189719298" className="text-foreground hover:text-primary transition-colors">+33 1 89 71 92 98</a>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-xs font-medium text-red-500 w-16">Urgences:</span>
+                                                <a href="tel:+33189719299" className="text-foreground hover:text-primary transition-colors">+33 1 89 71 92 99</a>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div className="flex items-center gap-3 text-muted-foreground">
                                         <Mail className="w-5 h-5 text-primary" />
-                                        <a href="mailto:consulatgeneral@ambagabon.org" className="hover:text-primary transition-colors break-all">consulatgeneral@ambagabon.org</a>
+                                        <a href="mailto:contact@consulatdugabon.fr" className="hover:text-primary transition-colors break-all">contact@consulatdugabon.fr</a>
                                     </div>
                                 </div>
                             </div>

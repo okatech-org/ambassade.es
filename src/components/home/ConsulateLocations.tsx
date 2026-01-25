@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { MapPin, ArrowRight } from 'lucide-react'
+import { MapPin, ArrowRight, Phone } from 'lucide-react'
 import { Card, CardContent } from '../ui/card'
 import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
@@ -37,6 +37,20 @@ export function ConsulateLocations() {
                 </div>
               </div>
 
+              {/* Phone numbers */}
+              <div className="space-y-2 border-t border-border pt-4">
+                <div className="flex items-center gap-3 text-sm">
+                  <Phone className="w-4 h-4 text-primary" />
+                  <span className="font-semibold w-20">Standard:</span>
+                  <a href="tel:+33189719298" className="text-foreground hover:text-primary transition-colors">+33 1 89 71 92 98</a>
+                </div>
+                <div className="flex items-center gap-3 text-sm">
+                  <Phone className="w-4 h-4 text-red-500" />
+                  <span className="font-semibold w-20">Urgences:</span>
+                  <a href="tel:+33189719299" className="text-foreground hover:text-primary transition-colors">+33 1 89 71 92 99</a>
+                </div>
+              </div>
+
                <div className="space-y-4">
                 <div className="flex items-center gap-3 text-sm text-foreground">
                     <span className="font-semibold w-24">Métro:</span>
@@ -50,7 +64,7 @@ export function ConsulateLocations() {
 
                <div className="pt-4">
                     <Button asChild className="w-full">
-                        <a href="https://goo.gl/maps/example" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.google.com/maps/search/?api=1&query=26+bis+Avenue+Raphaël+75016+Paris" target="_blank" rel="noopener noreferrer">
                             Voir sur la carte
                             <ArrowRight className="w-4 h-4 ml-2" />
                         </a>
@@ -85,7 +99,7 @@ export function ConsulateLocations() {
 
                <div className="pt-4">
                     <Button asChild variant="outline" className="w-full border-orange-200 text-orange-700 hover:bg-orange-50 hover:text-orange-800 dark:border-orange-800 dark:text-orange-400">
-                        <a href="https://goo.gl/maps/abc" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.google.com/maps/search/?api=1&query=26+bis+Avenue+Raphaël+75016+Paris" target="_blank" rel="noopener noreferrer">
                             Voir sur la carte
                             <ArrowRight className="w-4 h-4 ml-2" />
                         </a>

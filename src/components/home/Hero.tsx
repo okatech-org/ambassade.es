@@ -73,7 +73,7 @@ export function Hero() {
               <Phone className="w-5 h-5 text-red-400" />
               <div>
                 <p className="text-white/60 text-sm">{t('hero.emergencyLabel', 'Urgence Consulaire')}</p>
-                <p className="text-white font-semibold">+33 1 42 99 68 57</p>
+                <p className="text-white font-semibold">+33 1 89 71 92 99</p>
               </div>
             </CardContent>
           </Card>
