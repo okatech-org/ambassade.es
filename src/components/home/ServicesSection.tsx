@@ -15,25 +15,35 @@ import { api } from '@convex/_generated/api'
 import { ServiceCard } from './ServiceCard'
 import { Button } from '../ui/button'
 import { Skeleton } from '../ui/skeleton'
+import { useState } from 'react'
+import { ServiceDetailModal } from '../services/ServiceDetailModal'
+import { ServiceCategory } from '@convex/lib/validators'
 
+// IMPORTANT: Define this interface locally or import it if shared to avoid type errors
+// Matching the ServiceDetailModal expectation (it expects ServiceInfo)
+// But useQuery returns Doc<"services">. We might need to cast or ensure types match.
+// ServiceDetailModal expects: _id, title, slug, description, content?, category, price?, delay?, requirements, actionLink?, isOnline(boolean)
+// The useQuery result has these fields.
 
 const categoryConfig: Record<string, { icon: LucideIcon; color: string }> = {
-  "Identité": {
+  // Use enum values
+  [ServiceCategory.Identity]: {
     icon: Fingerprint,
     color: 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
   },
-  "Visa": {
+  [ServiceCategory.Visa]: {
     icon: Globe,
     color: 'bg-green-500/10 text-green-600 dark:text-green-400',
   },
-  "Etat Civil": {
+  [ServiceCategory.CivilStatus]: {
     icon: Scroll,
     color: 'bg-yellow-500/10 text-yellow-600 dark:text-yellow-400',
   },
-  "Immatriculation": {
+  [ServiceCategory.Registration]: {
     icon: BookUser,
     color: 'bg-purple-500/10 text-purple-600 dark:text-purple-400',
   },
+  // Fallback string keys
   "Voyage": {
     icon: Plane,
     color: 'bg-orange-500/10 text-orange-600 dark:text-orange-400',
@@ -58,8 +68,15 @@ function ServiceSkeleton() {
 export function ServicesSection() {
   const { t } = useTranslation()
   const services = useQuery(api.functions.services.list, {})
+  const [selectedService, setSelectedService] = useState<any>(null)
+  const [modalOpen, setModalOpen] = useState(false)
 
   const isLoading = services === undefined
+
+  const handleServiceClick = (service: any) => {
+    setSelectedService(service)
+    setModalOpen(true)
+  }
 
   return (
     <section className="py-16 px-6 bg-secondary/30" id="services">
@@ -96,12 +113,12 @@ export function ServicesSection() {
             services.slice(0, 3).map((service) => {
               const config = categoryConfig[service.category] || categoryConfig["default"]
               return (
-                <ServiceCard
+                 <ServiceCard
                   key={service._id}
                   icon={config.icon}
                   title={service.title}
                   description={service.description}
-                  href={`/services/${service.slug}`}
+                  onClick={() => handleServiceClick(service)}
                   color={config.color}
                   price={service.price}
                   delay={service.delay}
@@ -111,6 +128,12 @@ export function ServicesSection() {
           )}
         </div>
       </div>
+
+       <ServiceDetailModal
+        service={selectedService}
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+      />
     </section>
   )
 }

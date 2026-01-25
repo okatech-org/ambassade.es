@@ -44,6 +44,7 @@ function NewServicePage() {
 
   const form = useForm({
     defaultValues: {
+      slug: "",
       nameFr: "",
       nameEn: "",
       descriptionFr: "",
@@ -270,7 +271,7 @@ function NewServicePage() {
                   return (
                     <Field data-invalid={isInvalid}>
                       <FieldLabel htmlFor={field.name}>
-                        {t("superadmin.services.form.description")} (FR)
+                        {t("superadmin.services.form.description")} (FR) - <span className="text-xs font-normal text-muted-foreground">Supporte le Markdown (gras, liens, listes...)</span>
                       </FieldLabel>
                       <Textarea
                         id={field.name}

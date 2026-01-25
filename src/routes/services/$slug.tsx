@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import ReactMarkdown from 'react-markdown'
 import { useTranslation } from 'react-i18next'
 import { useQuery } from 'convex/react'
 import {
@@ -196,7 +197,9 @@ function ServiceDetailPage() {
                 <CardTitle>{t('services.descriptionTitle', 'Description')}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-foreground leading-relaxed">{serviceDescription}</p>
+                <div className="prose dark:prose-invert max-w-none text-foreground">
+                  <ReactMarkdown>{serviceDescription}</ReactMarkdown>
+                </div>
               </CardContent>
             </Card>
 

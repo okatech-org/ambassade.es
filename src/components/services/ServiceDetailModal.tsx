@@ -76,7 +76,7 @@ export function ServiceDetailModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="md:min-w-[700px] max-h-[70vh] overflow-y-auto">
+      <DialogContent className="max-w-3xl lg:max-w-4xl w-[90vw] max-h-[85vh] overflow-y-auto">
         <DialogHeader>
           <div className="flex items-start gap-4">
             <div className={`p-3 rounded-xl ${categoryConfig.color}/10`}>
@@ -84,14 +84,16 @@ export function ServiceDetailModal({
             </div>
             <div className="flex-1">
               <DialogTitle className="text-2xl">{service.title}</DialogTitle>
-              <p className="mt-2 text-muted-foreground">
-                {service.description}
-              </p>
             </div>
           </div>
         </DialogHeader>
 
         <div className="space-y-6 mt-4">
+          {/* Description principale (moved from header) */}
+          <div className="text-muted-foreground prose dark:prose-invert max-w-none">
+            <ReactMarkdown>{service.description}</ReactMarkdown>
+          </div>
+
           {/* Info badges */}
           <div className="flex flex-wrap gap-2">
             <Badge variant="outline" className="gap-1">

@@ -97,8 +97,18 @@ function ActualitesPage() {
                     className="group block"
                   >
                     <Card className="py-0 overflow-hidden h-full hover:shadow-lg transition-shadow">
-                      <div className="h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                        <Calendar className="w-16 h-16 text-primary/30" />
+                      <div className="h-48 flex items-center justify-center overflow-hidden bg-muted">
+                        {post.coverImage ? (
+                          <img 
+                            src={post.coverImage} 
+                            alt={post.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        ) : (
+                          <div className="h-full w-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                            <Calendar className="w-16 h-16 text-primary/30" />
+                          </div>
+                        )}
                       </div>
                       <CardContent className="p-6 pt-0">
                         <Badge className={`mb-3 ${config.color} border-0`}>
