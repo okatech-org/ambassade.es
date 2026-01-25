@@ -2,21 +2,24 @@ import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { useState } from 'react'
 import {
+  BadgeCheck,
   BookOpen,
-  BookOpenCheck,
   Building,
   Calendar,
+  CardSimIcon,
   Check,
   ChevronDown,
-  FileCheck,
   FileText,
+  FolderCheck,
   Globe,
+  HelpCircle,
   Home,
+  LucideIcon,
   MapPin,
   Menu,
   Newspaper,
   Phone,
-  ShieldAlert,
+  PlaneIcon,
   X,
 } from 'lucide-react'
 import { Button } from './ui/button'
@@ -27,6 +30,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
+import { ServiceCategory } from '@convex/lib/constants'
 
 const languages = [
   { code: 'fr', label: 'Français', flag: '🇫🇷' },
@@ -51,15 +55,26 @@ export default function Header() {
     { label: t('header.nav.contact'), href: '/contact', icon: MapPin },
   ]
 
-  const serviceLinks = [
-    { label: t('services.passport.title'), href: '/services?category=passport', icon: BookOpenCheck },
-    { label: t('services.visa.title'), href: '/services?category=visa', icon: Globe },
-    { label: t('services.civilStatus.title'), href: '/services?category=civil_status', icon: FileText },
-    { label: t('services.registration.title'), href: '/services?category=registration', icon: BookOpen },
-    { label: t('services.legalization.title'), href: '/services?category=legalization', icon: FileCheck },
-    { label: t('services.emergency.title'), href: '/services?category=emergency', icon: ShieldAlert },
-  ]
+  const iconsMaps: Record<ServiceCategory, LucideIcon> = {
+    [ServiceCategory.Identity]: CardSimIcon,
+    [ServiceCategory.Visa]: Globe,
+    [ServiceCategory.CivilStatus]: FileText,
+    [ServiceCategory.Registration]: BookOpen,
+    [ServiceCategory.Assistance]: HelpCircle,
+    [ServiceCategory.TravelDocument]: PlaneIcon,
+    [ServiceCategory.Other]: CardSimIcon,
+    [ServiceCategory.Certification]: BadgeCheck,
+    [ServiceCategory.Transcript]: FolderCheck,
+    
+  }
 
+  const serviceLinks = Object.values(ServiceCategory).map((category) => {
+    return {
+      label: t(`services.categoriesMap.${category}`),
+      href: `/services?category=${category}`,
+      icon: iconsMaps[category],
+    }
+  })
   return (
     <>
       <div className="fixed top-0 left-0 right-0 z-50">
@@ -153,7 +168,7 @@ export default function Header() {
                   <ChevronDown className="w-4 h-4 ml-1" />
                 </Button>
                 <div className="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                  <div className="bg-card rounded-xl shadow-xl border border-border p-2 min-w-[220px]">
+                  <div className="bg-card rounded-xl shadow-xl border border-border p-2 min-w-max">
                     {serviceLinks.map((link) => (
                       <Link
                         key={link.label}
