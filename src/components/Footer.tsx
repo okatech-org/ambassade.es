@@ -8,6 +8,7 @@ import {
 import { Button } from './ui/button'
 import { Separator } from './ui/separator'
 import { ModeToggle } from './mode-toggle'
+import { ServiceCategory } from '@convex/lib/constants'
 
 // Custom TikTok icon since lucide-react doesn't have it
 const TikTokIcon = ({ className }: { className?: string }) => (
@@ -24,14 +25,10 @@ export function Footer() {
   const { t } = useTranslation()
   const currentYear = new Date().getFullYear()
 
-  const quickLinks = [
-    { label: t('footer.links.passport'), href: '/services?category=passport' },
-    { label: t('footer.links.visa'), href: '/services?category=visa' },
-    { label: t('footer.links.civilStatus'), href: '/services?category=civil_status' },
-    { label: t('footer.links.registration'), href: '/services?category=registration' },
-    { label: t('footer.links.legalization'), href: '/services?category=legalization' },
-    { label: t('footer.links.appointment'), href: '/rendez-vous' },
-  ]
+  const quickLinks = Object.values(ServiceCategory).slice(0, 6).map((category) => ({
+    label: t(`services.categoriesMap.${category}`),
+    href: `/services?category=${category}`,
+  }))
 
   const resourceLinks = [
     { label: t('footer.links.faq', 'FAQ'), href: '/faq' },
@@ -55,9 +52,11 @@ export function Footer() {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               {/* Gabonese Emblem Placeholder */}
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                <span className="text-white font-bold text-sm">GA</span>
-              </div>
+              <img 
+                src="/logo-gabon-consul.jpg" 
+                alt="Logo Consulat Gabon" 
+                className="h-10 w-auto rounded-lg bg-white" 
+              />
               <div>
                 <div className="font-bold text-lg text-foreground">{t('footer.brand.name')}</div>
                 <div className="text-sm text-muted-foreground">{t('footer.brand.country')}</div>

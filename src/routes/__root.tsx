@@ -4,6 +4,7 @@ import {
   Scripts,
   createRootRouteWithContext,
   useMatches,
+  useLocation,
 } from '@tanstack/react-router'
 import { useEffect, useRef } from 'react'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
@@ -81,12 +82,20 @@ const routesWithOwnLayout = ['/admin']
 
 function RootLayout() {
   const matches = useMatches()
+  const location = useLocation()
   
   const hasOwnLayout = matches.some(match => 
     routesWithOwnLayout.some(route => match.fullPath.startsWith(route))
   )
 
   const mainRef = useRef<HTMLElement>(null)
+
+  // Scroll to top on route change
+  useEffect(() => {
+    if (mainRef.current) {
+      mainRef.current.scrollTop = 0
+    }
+  }, [location.pathname])
 
   useEffect(() => {
     if (hasOwnLayout) return
@@ -136,6 +145,7 @@ function RootLayout() {
     </>
   )
 }
+
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (

@@ -45,7 +45,7 @@ interface ServiceInfo {
   category: string
   price?: string
   delay?: string
-  requirements: string[]
+  requirements?: string[]
   actionLink?: string
   isOnline: boolean
 }
@@ -146,14 +146,14 @@ export function ServiceDetailModal({
           <Separator />
 
           {/* Documents requis */}
-          {service.requirements.length > 0 && (
+          {(service.requirements?.length ?? 0) > 0 && (
             <div>
               <h4 className="font-semibold mb-3 flex items-center gap-2">
                 <FileText className="h-4 w-4 text-muted-foreground" />
-                {t('services.modal.requiredDocuments')} ({service.requirements.length})
+                {t('services.modal.requiredDocuments')} ({service.requirements?.length})
               </h4>
               <ul className="space-y-2">
-                {service.requirements.map((doc, index) => (
+                {service.requirements?.map((doc, index) => (
                   <li
                     key={index}
                     className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg"
@@ -168,7 +168,7 @@ export function ServiceDetailModal({
             </div>
           )}
 
-          {service.requirements.length > 0 && <Separator />}
+          {(service.requirements?.length ?? 0) > 0 && <Separator />}
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-3">

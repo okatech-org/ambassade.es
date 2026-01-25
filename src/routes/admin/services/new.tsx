@@ -78,17 +78,19 @@ function NewServicePage() {
       try {
         await createService({
           slug: value.slug,
-          code: value.slug.toUpperCase(),
-          name: { fr: value.nameFr, en: value.nameEn || undefined },
-          description: { fr: value.descriptionFr, en: value.descriptionEn || undefined },
-          category: value.category as any,
+          // code: value.slug.toUpperCase(), // Removed as not in schema
+          title: value.nameFr,
+          titleEn: value.nameEn || undefined,
+          description: value.descriptionFr,
+          descriptionEn: value.descriptionEn || undefined,
+          category: value.category as string,
           icon: value.icon || undefined,
           formSchema: parsedSchema,
-          defaults: {
-            estimatedDays: 7,
-            requiresAppointment: true,
-            requiredDocuments: documents,
-          },
+          requiredDocuments: documents,
+          requirements: documents.map((d) => d.label), // Legacy support
+          delay: "7 jours", // Default
+          isOnline: true,
+          isActive: true,
         })
         toast.success(t("superadmin.services.form.success"))
         navigate({ to: "/admin/services" })

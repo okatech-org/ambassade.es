@@ -59,13 +59,22 @@ export const listAll = query({
 export const update = mutation({
   args: {
     id: v.id("services"),
-    title: v.optional(v.string()),
-    description: v.optional(v.string()),
+    title: v.optional(v.string()), // FR
+    titleEn: v.optional(v.string()), // EN
+    description: v.optional(v.string()), // FR
+    descriptionEn: v.optional(v.string()), // EN
     content: v.optional(v.string()),
     category: v.optional(v.string()),
+    icon: v.optional(v.string()),
     price: v.optional(v.string()),
     delay: v.optional(v.string()),
     requirements: v.optional(v.array(v.string())),
+    requiredDocuments: v.optional(v.array(v.object({
+      type: v.string(),
+      label: v.string(),
+      required: v.boolean()
+    }))),
+    formSchema: v.optional(v.any()),
     actionLink: v.optional(v.string()),
     isOnline: v.optional(v.boolean()),
     isActive: v.optional(v.boolean()),
@@ -81,14 +90,23 @@ export const update = mutation({
 // Seed/Create (Admin)
 export const create = mutation({
   args: {
-    title: v.string(),
+    title: v.string(), // FR
+    titleEn: v.optional(v.string()), // EN
     slug: v.string(),
-    description: v.string(),
+    description: v.string(), // FR
+    descriptionEn: v.optional(v.string()), // EN
     content: v.optional(v.string()),
     category: v.string(),
+    icon: v.optional(v.string()),
     price: v.optional(v.string()),
     delay: v.optional(v.string()),
-    requirements: v.array(v.string()),
+    requirements: v.optional(v.array(v.string())),
+    requiredDocuments: v.optional(v.array(v.object({
+      type: v.string(),
+      label: v.string(),
+      required: v.boolean()
+    }))),
+    formSchema: v.optional(v.any()),
     actionLink: v.optional(v.string()),
     isOnline: v.boolean(),
     isActive: v.boolean(),

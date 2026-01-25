@@ -129,9 +129,11 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-white font-bold text-lg">GA</span>
-            </div>
+            <img 
+              src="/logo-gabon-consul.jpg" 
+              alt="Logo Consulat Gabon" 
+              className="h-10 w-auto rounded-lg bg-white" 
+            />
             <div className="hidden sm:block">
               <div className="font-bold text-lg text-foreground leading-tight">Consulat Général</div>
               <div className="text-xs text-muted-foreground">Gabon en France</div>
@@ -216,9 +218,11 @@ export default function Header() {
         {/* Sidebar Header */}
         <div className="flex items-center justify-between p-4 border-b border-border">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-white font-bold text-lg">GA</span>
-            </div>
+            <img 
+              src="/logo-gabon-consul.jpg" 
+              alt="Logo Consulat Gabon" 
+              className="h-10 w-auto rounded-lg bg-white" 
+            />
             <div>
               <div className="font-bold text-foreground">Consulat.ga</div>
               <div className="text-xs text-muted-foreground">{t('header.country')}</div>

@@ -73,7 +73,7 @@ export function CitizenCTA() {
 
             {/* CTA Button */}
             <Button asChild size="lg" className="h-12 px-6 rounded-xl shadow-lg shadow-primary/20">
-              <a href="https://www.consulatgabonfrance.com/demande-de-carte-consulaire/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.consulat.ga/sign-up" target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="w-5 h-5 mr-2" />
                 {t('citizenCta.cta', 'S\'inscrire sur consulat.ga')}
               </a>
