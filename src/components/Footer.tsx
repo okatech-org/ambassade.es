@@ -53,7 +53,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               {/* Gabonese Emblem Placeholder */}
               <img 
-                src="/logo-gabon-consul.jpg" 
+                src="/logo-gabon-consul.png" 
                 alt="Logo Consulat Gabon" 
                 className="h-10 w-auto rounded-sm bg-white" 
               />
