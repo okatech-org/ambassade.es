@@ -127,7 +127,7 @@ function LeConsulatPage() {
         )}
 
         {/* Missions Section */}
-        <section className="py-24 px-6 bg-muted/20">
+        <section className="py-12 md:py-24 px-4 md:px-6 bg-muted/20">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <Badge variant="outline" className="mb-4 bg-background/50 backdrop-blur-sm">
@@ -145,7 +145,7 @@ function LeConsulatPage() {
               {missions.map((mission, index) => {
                 const Icon = mission.icon
                 return (
-                  <div key={index} className="group glass-card rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300">
+                  <div key={index} className="group glass-card rounded-2xl p-5 md:p-8 hover:-translate-y-2 transition-all duration-300">
                     <div className="flex items-center gap-4 mb-6">
                       <div className="p-3.5 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
                         <Icon className="w-6 h-6 text-primary" />
@@ -162,7 +162,7 @@ function LeConsulatPage() {
 
         {/* Team Section */}
         {otherMembers.length > 0 && (
-          <section className="py-16 px-6">
+          <section className="py-12 md:py-16 px-4 md:px-6">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 <Badge variant="outline" className="mb-4">
@@ -195,14 +195,14 @@ function LeConsulatPage() {
         )}
 
         {/* CTA Section - Dark background like reference */}
-        <section className="py-24 px-6 relative overflow-hidden">
+        <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-hidden">
           {/* Background gradient/image replacement for solid primary */}
           <div className="absolute inset-0 bg-primary/5 dark:bg-primary/10" />
           <div className="absolute top-0 right-0 w-96 h-96 bg-gabon-blue/20 rounded-full blur-[100px] animate-pulse-glow" />
            <div className="absolute bottom-0 left-0 w-96 h-96 bg-gabon-green/20 rounded-full blur-[100px] animate-pulse-glow" style={{ animationDelay: '2s' }} />
 
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <div className="glass-panel p-10 md:p-16 rounded-3xl border-primary/20 shadow-2xl shadow-primary/5">
+            <div className="glass-panel p-6 md:p-10 lg:p-16 rounded-3xl border-primary/20 shadow-2xl shadow-primary/5">
               <h2 className="text-3xl md:text-5xl font-bold mb-6 text-foreground">
                 {t('leConsulat.ctaTitle', 'Besoin d\'assistance ?')}
               </h2>
@@ -228,7 +228,7 @@ function LeConsulatPage() {
         </section>
 
         {/* Contact Information Section */}
-        <section className="py-24 px-6 bg-background">
+        <section className="py-12 md:py-24 px-4 md:px-6 bg-background">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">

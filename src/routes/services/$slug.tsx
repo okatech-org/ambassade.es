@@ -93,12 +93,14 @@ const categoryConfig: Record<string, { icon: LucideIcon; color: string; bgColor:
 }
 
 const categoryLabels: Record<string, string> = {
-  [ServiceCategory.Identity]: 'Passeport',
+  [ServiceCategory.Identity]: 'Identité',
   [ServiceCategory.Visa]: 'Visa',
   [ServiceCategory.CivilStatus]: 'État Civil',
   [ServiceCategory.Registration]: 'Inscription Consulaire',
-  [ServiceCategory.Certification]: 'Légalisation',
-  [ServiceCategory.Assistance]: 'Assistance d\'Urgence',
+  [ServiceCategory.Certification]: 'Certification & Légalisation',
+  [ServiceCategory.Assistance]: 'Assistance Consulaire',
+  [ServiceCategory.TravelDocument]: 'Titre de Voyage',
+  [ServiceCategory.Transcript]: 'Transcription',
   [ServiceCategory.Other]: 'Autre',
 }
 

@@ -84,7 +84,7 @@ export function FAQSection() {
   const { t } = useTranslation()
 
   return (
-    <section className="py-24 px-6 glass-section">
+    <section className="py-12 md:py-24 px-4 md:px-6 glass-section">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">

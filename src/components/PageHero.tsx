@@ -26,10 +26,10 @@ export function PageHero({
     <section
       className={`relative overflow-hidden ${className}`}
     >
-      <div className="flex flex-col md:flex-row items-stretch min-h-[320px] md:min-h-[360px]">
+      <div className="flex flex-col md:flex-row items-stretch min-h-[280px] md:min-h-[360px]">
         
         {/* Text Side */}
-        <div className="relative md:w-1/2 flex flex-col justify-center px-8 md:px-12 lg:px-16 py-6 md:py-8 bg-background">
+        <div className="relative md:w-1/2 flex flex-col justify-center px-5 md:px-12 lg:px-16 py-6 md:py-8 bg-background">
           {/* Decorative gradient orbs (subtle) */}
           <div className="absolute top-10 right-10 w-72 h-72 bg-primary/8 rounded-full blur-3xl animate-pulse-glow pointer-events-none" />
           <div

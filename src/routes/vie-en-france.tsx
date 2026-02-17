@@ -283,7 +283,12 @@ const guideSections: GuideSection[] = [
       {
         title: 'Titre de séjour',
         detail:
-          "Le VLS-TS (Visa Long Séjour valant Titre de Séjour) doit être validé en ligne sur administration-etrangers-en-france.interieur.gouv.fr dans les 3 mois suivant votre arrivée. Le renouvellement se fait 2 à 4 mois avant expiration sur la même plateforme.",
+          "Le VLS-TS (Visa Long Séjour valant Titre de Séjour) doit être validé en ligne sur administration-etrangers-en-france.interieur.gouv.fr dans les 3 mois suivant votre arrivée. Le renouvellement se fait 2 mois avant expiration sur la même plateforme.",
+      },
+      {
+        title: 'Le récépissé — Attention',
+        detail:
+          "⚠️ Le récépissé de première demande de carte de séjour ne permet PAS de quitter la France et d'y revenir. Seul le titre de séjour définitif ou le VLS-TS validé le permet. Le récépissé de renouvellement, en revanche, fait office de titre de séjour provisoire pendant l'instruction de votre dossier.",
       },
       {
         title: 'Carte de séjour pluriannuelle',
@@ -301,14 +306,14 @@ const guideSections: GuideSection[] = [
           "Plusieurs voies de régularisation existent : admission exceptionnelle au séjour (circulaire Valls 2012), régularisation par le travail (promesse d'embauche ou contrat), motif familial (parent d'enfant français, conjoint de Français), raisons médicales, ou protection internationale (OFPRA). Dossier à déposer en préfecture avec preuves d'ancienneté de séjour et d'insertion.",
       },
       {
-        title: 'Document de circulation pour mineur (DCME)',
+        title: 'Document de circulation pour mineur (DCM)',
         detail:
-          "Les mineurs étrangers résidant en France, dont les parents sont en situation régulière ou dont l'un des parents est français, peuvent obtenir un DCME à la préfecture. Ce document leur permet de voyager à l'étranger et de revenir en France sans visa. Prévoir : acte de naissance, passeport de l'enfant, titre de séjour des parents, certificat de scolarité.",
+          "Les mineurs étrangers résidant en France, dont les parents sont en situation régulière ou dont l'un des parents est français, peuvent obtenir un DCM à la préfecture. Validité : 5 ans, renouvelable jusqu'aux 18 ans de l'enfant. Ce document permet au mineur de voyager à l'étranger et de revenir en France sans visa. Documents : acte de naissance, passeport de l'enfant, titre de séjour des parents, certificat de scolarité, photos d'identité. ⚠️ À 18 ans, le jeune doit obligatoirement demander un titre de séjour propre (mention 'étudiant' ou 'vie privée et familiale' selon sa situation).",
       },
       {
         title: 'Binationaux (Franco-Gabonais)',
         detail:
-          "Le Gabon ne reconnaît pas officiellement la double nationalité (sauf exceptions), mais en pratique de nombreux Gabonais possèdent les deux nationalités. Un visa est nécessaire pour entrer au Gabon avec un passeport français (e-Visa sur evisa.dgdi.ga). Conseil : entrez et sortez de France avec votre passeport français, et entrez au Gabon avec votre passeport gabonais.",
+          "Le Gabon ne reconnaît pas officiellement la double nationalité (sauf exceptions), mais en pratique de nombreux Gabonais possèdent les deux nationalités. Un visa est obligatoire pour entrer au Gabon avec un passeport français — il s'obtient au Consulat Général du Gabon à Paris (26 bis avenue Raphaël, 75016). Délai : 3 jours ouvrés. La présence physique est requise, pas de visa express. Documents : passeport français, acte de naissance gabonais, photos, formulaire de visa, justificatif du motif du voyage. Conseil : entrez en France avec le passeport français, au Gabon avec le passeport gabonais.",
       },
       {
         title: 'Regroupement familial',
@@ -333,12 +338,13 @@ const guideSections: GuideSection[] = [
       "En cas de contrôle d'identité, vous devez présenter votre titre de séjour ou récépissé",
       "Tout changement d'adresse doit être signalé dans les 3 mois — l'oubli peut coûter cher",
       "Les binationaux doivent toujours voyager avec le passeport du pays dans lequel ils entrent",
+      "Un récépissé de première demande ne permet PAS de quitter la France — seul le titre définitif ou le VLS-TS validé le permet",
     ],
     links: [
       { label: 'ANEF - Étrangers en France', url: 'https://administration-etrangers-en-france.interieur.gouv.fr', description: 'Démarches de titre de séjour en ligne' },
       { label: 'Défenseur des droits', url: 'https://www.defenseurdesdroits.fr', description: 'Recours gratuit en cas de discrimination' },
       { label: 'CIMADE', url: 'https://www.lacimade.org', description: 'Accompagnement juridique gratuit' },
-      { label: 'e-Visa Gabon', url: 'https://evisa.dgdi.ga', description: 'Visa en ligne pour le Gabon' },
+      { label: 'Consulat du Gabon', url: 'https://consulat.ga', description: 'Visa pour le Gabon — 26 bis av. Raphaël, Paris 16e' },
       { label: 'Service-public.fr — DCME', url: 'https://www.service-public.fr/particuliers/vosdroits/F2710', description: 'Document de circulation pour mineur' },
     ],
   },
@@ -410,17 +416,17 @@ const guideSections: GuideSection[] = [
       {
         title: 'Première carte de séjour — Procédure OFII',
         detail:
-          "À votre arrivée avec un VLS-TS : 1) Validez le visa sur le site de l'OFII dans les 3 mois. 2) Payez la taxe OFII (200 € à 400 €). 3) Passez la visite médicale obligatoire. 4) Signez le Contrat d'Intégration Républicaine (CIR) qui comprend une formation civique et linguistique. Documents : passeport, formulaire cerfa n°15614, justificatif de domicile, photos, timbre fiscal.",
+          "À votre arrivée avec un VLS-TS : 1) Validez le visa sur le site de l'OFII dans les 3 mois. 2) Payez la taxe OFII (200 € à 400 €). 3) Passez la visite médicale obligatoire. 4) Signez le Contrat d'Intégration Républicaine (CIR) qui comprend une formation civique et linguistique. Documents : passeport, formulaire cerfa n°15614, justificatif de domicile, photos, timbre fiscal. ⚠️ Le récépissé de première demande ne permet PAS de quitter la France et d'y revenir.",
       },
       {
         title: 'Renouvellement de carte de séjour',
         detail:
-          "Anticipez : déposez votre demande 2 à 4 mois avant expiration, en ligne sur le portail ANEF ou en préfecture. Un récépissé vous sera délivré en attendant la nouvelle carte — il vaut titre de séjour provisoire. Documents : carte en cours/expirée, passeport valide, justificatifs de domicile récents, justificatifs selon le motif, timbres fiscaux, photos.",
+          "Anticipez : déposez votre demande 2 mois avant expiration, en ligne sur le portail ANEF ou en préfecture. Un récépissé de renouvellement vous sera délivré (valable 3 mois) en attendant la nouvelle carte. Documents : carte en cours/expirée, passeport valide, justificatifs de domicile récents, justificatifs selon le motif, timbres fiscaux, photos.",
       },
       {
-        title: 'APS pour diplômés (Master)',
+        title: 'APS pour diplômés (Master) — Accord franco-gabonais',
         detail:
-          "L'Autorisation Provisoire de Séjour est accordée pour 12 mois (non renouvelable) aux diplômés de niveau Master. Elle permet de chercher un emploi ou créer une entreprise en lien avec le diplôme. Droit de travailler à temps plein. Important : faites la demande AVANT l'expiration de votre titre étudiant. Documents : titre étudiant, diplôme Master, justificatif de domicile.",
+          "Base juridique : accord franco-gabonais du 5 juillet 2007. L'APS est accordée pour 9 mois, renouvelable une fois (18 mois maximum) aux diplômés de niveau Master. Elle permet de chercher un emploi ou créer une entreprise en lien avec le diplôme. Droit de travailler à temps plein. Important : faites la demande 2 à 4 mois AVANT l'expiration de votre titre étudiant. Documents : titre étudiant, diplôme Master, justificatif de domicile.",
       },
       {
         title: 'Changement de statut : étudiant → salarié',
@@ -428,9 +434,9 @@ const guideSections: GuideSection[] = [
           "Conditions : emploi en rapport avec le diplôme, rémunération ≥ 1,5x SMIC (1x SMIC pour les métiers en tension). Procédure : 1) L'employeur dépose la demande d'autorisation de travail sur la plateforme du ministère. 2) Vous déposez la demande de changement de statut en préfecture (cerfa n°15187). 3) Instruction : 2 à 4 mois. 4) Délivrance d'un titre \"salarié\" ou \"travailleur temporaire\".",
       },
       {
-        title: 'Document de circulation pour mineur (DCME)',
+        title: 'Document de circulation pour mineur (DCM)',
         detail:
-          "Destiné aux mineurs étrangers résidant en France dont les parents sont en situation régulière ou dont l'un est français. Le DCME permet au mineur de voyager à l'étranger et de revenir en France sans visa. Documents : acte de naissance, passeport de l'enfant, titre de séjour des parents, justificatif de domicile, certificat de scolarité, photos. Délai : 1 à 2 mois.",
+          "Destiné aux mineurs étrangers résidant en France dont les parents sont en situation régulière ou dont l'un est français. Le DCM permet au mineur de voyager à l'étranger et de revenir en France sans visa. Validité : 5 ans, renouvelable jusqu'aux 18 ans. Documents : acte de naissance, passeport de l'enfant, titre de séjour des parents, justificatif de domicile, certificat de scolarité, photos. ⚠️ À 18 ans, le jeune doit demander un titre de séjour propre.",
       },
       {
         title: 'Déclaration de perte de documents',
@@ -445,7 +451,7 @@ const guideSections: GuideSection[] = [
       {
         title: 'Visa binationaux (Franco-Gabonais)',
         detail:
-          "Le Gabon ne reconnaît pas officiellement la double nationalité (sauf exceptions), mais en pratique de nombreux Gabonais possèdent les deux nationalités. Un visa est nécessaire pour entrer au Gabon avec un passeport français — obtenez-le en e-Visa sur evisa.dgdi.ga ou au consulat. Conseil : entrez et sortez de France avec le passeport français, entrez au Gabon avec le passeport gabonais.",
+          "Un visa est obligatoire pour entrer au Gabon avec un passeport français. Il s'obtient uniquement au Consulat Général du Gabon à Paris (26 bis avenue Raphaël, 75016). Délai : 3 jours ouvrés. Présence physique requise, pas de visa express. Documents : passeport français valide, acte de naissance gabonais, photos aux normes, formulaire de visa, justificatif du motif du voyage. Pour les mineurs binationaux : mêmes documents + autorisation de sortie du territoire signée par les deux parents. Conseil : entrez en France avec le passeport français, au Gabon avec le passeport gabonais.",
       },
       {
         title: 'Assistance en cas d\'arrestation',
@@ -454,19 +460,20 @@ const guideSections: GuideSection[] = [
       },
     ],
     tips: [
-      'Anticipez toujours le renouvellement de votre titre de séjour — 2 à 4 mois avant expiration',
+      'Anticipez toujours le renouvellement de votre titre de séjour — 2 mois avant expiration',
       'Conservez des copies numériques de TOUS vos documents dans un cloud sécurisé',
       'Le portail ANEF est l\'outil central pour la plupart des démarches de séjour en ligne',
       'En cas d\'arrestation, demandez immédiatement à contacter le consulat',
       'Les étudiants doivent demander l\'APS AVANT l\'expiration de leur titre étudiant',
       'Tout changement d\'adresse doit être déclaré dans les 3 mois — sous peine d\'amende',
+      'Un récépissé de première demande ne permet PAS de quitter la France — seul le titre définitif ou le VLS-TS le permet',
     ],
     links: [
       { label: 'Portail ANEF', url: 'https://administration-etrangers-en-france.interieur.gouv.fr', description: 'Démarches de titre de séjour en ligne' },
       { label: 'OFII', url: 'https://www.ofii.fr', description: 'Office Français de l\'Immigration et de l\'Intégration' },
       { label: 'Service-public.fr', url: 'https://www.service-public.fr/particuliers/vosdroits/N19804', description: 'Droits des étrangers en France' },
       { label: 'CIMADE', url: 'https://www.lacimade.org', description: 'Accompagnement juridique gratuit' },
-      { label: 'e-Visa Gabon', url: 'https://evisa.dgdi.ga', description: 'Visa en ligne pour le Gabon' },
+      { label: 'Consulat du Gabon', url: 'https://consulat.ga', description: 'Visa pour le Gabon — 26 bis av. Raphaël, Paris 16e' },
       { label: 'Consulat.ga', url: 'https://consulat.ga', description: 'Site officiel du Consulat du Gabon' },
     ],
   },
@@ -543,7 +550,7 @@ const guideSections: GuideSection[] = [
       {
         title: 'APS — Autorisation Provisoire de Séjour (diplômés)',
         detail:
-          "Après obtention d'un diplôme de niveau Master ou équivalent en France, vous pouvez demander une APS de 12 mois (non renouvelable). Elle vous permet de rechercher un emploi ou créer une entreprise en lien avec votre diplôme, avec droit de travailler à temps plein.",
+          "Base juridique : accord franco-gabonais du 5 juillet 2007. Après obtention d'un diplôme de niveau Master ou équivalent en France, vous pouvez demander une APS de 9 mois, renouvelable une fois (18 mois maximum). Elle permet de rechercher un emploi ou créer une entreprise en lien avec le diplôme, avec droit de travailler à temps plein. Demande à déposer 2 à 4 mois avant l'expiration du titre étudiant.",
       },
       {
         title: 'Changement de statut : étudiant → salarié',
@@ -552,7 +559,7 @@ const guideSections: GuideSection[] = [
       },
     ],
     tips: [
-      'Demandez l\'APS AVANT l\'expiration de votre titre de séjour étudiant',
+      'L\'APS dure 9 mois (renouvelable une fois) — demandez-la AVANT l\'expiration de votre titre étudiant',
       'Les 964 heures de travail autorisées se calculent sur l\'année civile du titre de séjour',
       'Le changement de statut étudiant → salarié nécessite un contrat ou une promesse d\'embauche',
       'Conservez vos diplômes, relevés de notes et attestations — ils seront exigés pour le changement de statut',
@@ -580,14 +587,24 @@ const guideSections: GuideSection[] = [
           "C'est une décision administrative enjoignant un étranger à quitter la France dans un délai de 30 jours (ou sans délai dans certains cas). Motifs : séjour irrégulier, refus de renouvellement de titre, refus de demande d'asile, menace à l'ordre public.",
       },
       {
-        title: 'Recours possibles',
+        title: '1. Recours gracieux — auprès du Préfet',
         detail:
-          "Recours gracieux auprès du préfet (dans les 30 jours). Recours contentieux devant le tribunal administratif (30 jours, ou 48h si OQTF sans délai). Le recours est suspensif — l'exécution de l'OQTF est suspendue pendant l'examen. L'aide juridictionnelle est accessible.",
+          "Délai : 2 mois à compter de la notification. Envoi par lettre recommandée avec accusé de réception. ⚠️ Ce recours NE SUSPEND PAS l'exécution de l'OQTF.",
       },
       {
-        title: 'Rôle du consulat',
+        title: '2. Recours hiérarchique — auprès du Ministre de l\'Intérieur',
         detail:
-          "Le consulat peut vous accompagner en vous informant sur vos droits et en vous orientant vers une aide juridique. Le consulat NE PEUT PAS s'opposer juridiquement à une OQTF. Contactez-le pour un accompagnement et une mise en relation avec un avocat spécialisé.",
+          "Délai : 2 mois à compter de la notification. Envoi par lettre recommandée avec accusé de réception. ⚠️ Ce recours NE SUSPEND PAS l'exécution de l'OQTF.",
+      },
+      {
+        title: '3. Recours contentieux — devant le Tribunal Administratif',
+        detail:
+          "Délai : 30 jours à compter de la notification (ou 48h si OQTF sans délai de départ). ✅ C'est le SEUL recours qui SUSPEND l'exécution de l'OQTF. L'aide juridictionnelle est accessible.",
+      },
+      {
+        title: 'Saisir le Consul Général',
+        detail:
+          "Si tous les recours échouent, le ressortissant peut saisir le Consul Général du Gabon avec : copie de l'OQTF, copies des recours effectués et décisions rendues, pièce d'identité (passeport ou carte consulaire), tout document utile à la défense. Le consulat peut accompagner et orienter vers une aide juridique, mais NE PEUT PAS s'opposer juridiquement à une OQTF.",
       },
       {
         title: 'Régularisation administrative',
@@ -603,8 +620,9 @@ const guideSections: GuideSection[] = [
     tips: [
       'NE JAMAIS ignorer une OQTF — elle ne disparaît pas si vous ne faites rien',
       'Consultez IMMÉDIATEMENT un avocat spécialisé en droit des étrangers',
+      'Privilégiez le recours contentieux (tribunal administratif) : c\'est le SEUL qui suspend l\'exécution de l\'OQTF',
       'Rassemblez tous les documents prouvant votre ancienneté de séjour et votre insertion en France',
-      'Le dépôt du dossier de régularisation se fait à la préfecture ou en ligne sur administration-etrangers-en-france.interieur.gouv.fr',
+      'Le dépôt du dossier de régularisation se fait à la préfecture ou en ligne sur le portail ANEF',
     ],
     links: [
       { label: 'CIMADE', url: 'https://www.lacimade.org', description: 'Accompagnement juridique gratuit pour étrangers' },
@@ -845,7 +863,7 @@ function VieEnFrancePage() {
       </PageHero>
 
       {/* Mobile Section Navigation */}
-      <div className="lg:hidden sticky top-16 z-30 bg-background/80 backdrop-blur-md border-b border-border/50 px-4 py-3">
+      <div className="lg:hidden sticky top-16 z-40 bg-background/80 backdrop-blur-md border-b border-border/50 px-4 py-3">
         <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
           {guideSections.map((section) => {
             const Icon = section.icon
@@ -934,9 +952,9 @@ function VieEnFrancePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 px-6">
+      <section className="py-12 md:py-24 px-4 md:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="p-8 md:p-14 rounded-3xl glass-panel relative overflow-hidden">
+          <div className="p-6 md:p-8 lg:p-14 rounded-3xl glass-panel relative overflow-hidden">
              {/* Gradient glow */}
              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />

@@ -7,105 +7,133 @@
 
 /* ─────────── 🎨 DIGITALIUM DESIGN TOKENS — Light Theme ─────────── */
 :root {
-    /* Gabonese Government Colors (brand accents) */
-    --gabon-green: oklch(0.55 0.18 145);
-    --gabon-yellow: oklch(0.85 0.16 90);
-    --gabon-blue: oklch(0.50 0.18 255);
-    
-    /* Core Semantic Tokens — Light */
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 217 91% 60%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 263 70% 50.4%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 217 91% 60%;
-    --chart-1: 217 91% 60%;
-    --chart-2: 263 70% 50.4%;
-    --chart-3: 160 60% 45%;
-    --chart-4: 43 96% 56%;
-    --chart-5: 0 84% 60%;
-    --radius: 0.75rem;
-    --sidebar: 0 0% 98.5%;
-    --sidebar-foreground: 222.2 84% 4.9%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 210 40% 96.1%;
-    --sidebar-accent-foreground: 222.2 47.4% 11.2%;
-    --sidebar-border: 214.3 31.8% 91.4%;
-    --sidebar-ring: 217 91% 60%;
+    /* ── Google Material Design — Light Theme ── */
+    --background: hsl(0 0% 100%);
+    --foreground: hsl(220 14% 13%); /* #202124 */
 
-    /* Layout & Glass Tokens — Light */
-    --layout-bg: #fcfcfc;
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(220 14% 13%);
+
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(220 14% 13%);
+
+    --primary: hsl(217 89% 50%); /* Google Blue #1a73e8 */
+    --primary-foreground: hsl(0 0% 100%);
+
+    --secondary: hsl(210 29% 97%); /* #f1f3f4 */
+    --secondary-foreground: hsl(220 14% 13%);
+
+    --muted: hsl(210 29% 97%);
+    --muted-foreground: hsl(215 4% 39%); /* #5f6368 */
+
+    --accent: hsl(210 29% 97%);
+    --accent-foreground: hsl(220 14% 13%);
+
+    --destructive: hsl(4 78% 56%); /* Google Red #ea4335 */
+    --destructive-foreground: hsl(0 0% 100%);
+
+    --border: hsl(214 10% 88%); /* #dadce0 */
+    --input: hsl(214 10% 88%);
+    --ring: hsl(217 89% 50%);
+
+    --chart-1: hsl(217 89% 50%); /* Blue */
+    --chart-2: hsl(4 78% 56%);   /* Red */
+    --chart-3: hsl(44 98% 50%);  /* Yellow #fbbc04 */
+    --chart-4: hsl(137 54% 43%); /* Green #34a853 */
+    --chart-5: hsl(263 70% 50%); /* Purple */
+
+    --radius: 1.5rem; /* 24px — Google Bento rounded */
+
+    --sidebar: hsl(210 29% 97%);
+    --sidebar-foreground: hsl(220 14% 13%);
+    --sidebar-primary: hsl(217 89% 50%);
+    --sidebar-primary-foreground: hsl(0 0% 100%);
+    --sidebar-accent: hsl(220 14% 93%);
+    --sidebar-accent-foreground: hsl(220 14% 13%);
+    --sidebar-border: hsl(220 13% 91%);
+    --sidebar-ring: hsl(217 89% 50%);
+
+    /* Layout & Glass */
+    --layout-bg: #ffffff;
     --glass-bg: rgba(255,255,255,0.95);
-    --glass-bg-hover: #f4f4f5;
-    --glass-border: #e4e4e7;
-    --glass-border-hover: #d4d4d8;
-    --glass-subtle: #f4f4f5;
+    --glass-bg-hover: #f1f3f4;
+    --glass-border: #dadce0;
+    --glass-border-hover: #bdc1c6;
+    --glass-subtle: #f1f3f4;
     --glass-panel-bg: #ffffff;
-    --glass-panel-border: #e4e4e7;
+    --glass-panel-border: #dadce0;
     --shimmer-color: rgba(0,0,0,0.04);
-    --grid-line: #f4f4f5;
+    --grid-line: #f1f3f4;
+
+    /* Pastel Backgrounds for Bento Blocks */
+    --google-blue-bg: #e8f0fe;
+    --google-green-bg: #ceead6;
+    --google-yellow-bg: #feefc3;
+    --google-red-bg: #fce8e6;
 }
 
-/* ─────────── 🌙 DIGITALIUM DESIGN TOKENS — Dark Theme ─────────── */
+/* ─────────── 🌙 Dark Theme ─────────── */
 .dark {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
-    --card: 224 71% 4%;
-    --card-foreground: 213 31% 91%;
-    --popover: 224 71% 4%;
-    --popover-foreground: 213 31% 91%;
-    --primary: 217 91% 60%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 222 47% 11%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 56.9%;
-    --accent: 263 70% 50.4%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
-    --ring: 263 70% 50.4%;
-    --chart-1: 217 91% 60%;
-    --chart-2: 263 70% 50.4%;
-    --chart-3: 160 60% 45%;
-    --chart-4: 43 96% 56%;
-    --chart-5: 0 84% 60%;
-    --sidebar: 224 71% 6%;
-    --sidebar-foreground: 213 31% 91%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 222 47% 11%;
-    --sidebar-accent-foreground: 213 31% 91%;
-    --sidebar-border: 216 34% 17%;
-    --sidebar-ring: 263 70% 50.4%;
+    --background: hsl(220 0% 12%); /* #202124 */
+    --foreground: hsl(220 10% 90%); /* #e8eaed */
 
-    /* Layout & Glass Tokens — Dark */
-    --layout-bg: #09090b;
-    --glass-bg: #18181b;
-    --glass-bg-hover: #27272a;
-    --glass-border: #27272a;
-    --glass-border-hover: #3f3f46;
-    --glass-subtle: #18181b;
-    --glass-panel-bg: #0c0c0e;
-    --glass-panel-border: #27272a;
+    --card: hsl(220 0% 18%); /* #292a2d */
+    --card-foreground: hsl(220 10% 90%);
+
+    --popover: hsl(220 0% 18%);
+    --popover-foreground: hsl(220 10% 90%);
+
+    --primary: hsl(217 89% 75%); /* #8ab4f8 */
+    --primary-foreground: hsl(220 0% 12%);
+
+    --secondary: hsl(216 12% 16%); /* #3c4043 */
+    --secondary-foreground: hsl(220 10% 90%);
+
+    --muted: hsl(216 12% 16%);
+    --muted-foreground: hsl(215 10% 65%); /* #9aa0a6 */
+
+    --accent: hsl(216 12% 16%);
+    --accent-foreground: hsl(220 10% 90%);
+
+    --destructive: hsl(4 78% 65%); /* #f28b82 */
+    --destructive-foreground: hsl(220 0% 12%);
+
+    --border: hsl(220 0% 25%); /* #5f6368 */
+    --input: hsl(220 0% 25%);
+    --ring: hsl(217 89% 75%);
+
+    --chart-1: hsl(217 89% 75%);
+    --chart-2: hsl(4 78% 65%);
+    --chart-3: hsl(44 98% 60%);
+    --chart-4: hsl(137 54% 53%);
+    --chart-5: hsl(263 70% 60%);
+
+    --sidebar: hsl(220 0% 10%);
+    --sidebar-foreground: hsl(220 10% 90%);
+    --sidebar-primary: hsl(217 89% 75%);
+    --sidebar-primary-foreground: hsl(220 0% 12%);
+    --sidebar-accent: hsl(220 0% 18%);
+    --sidebar-accent-foreground: hsl(220 10% 90%);
+    --sidebar-border: hsl(220 0% 25%);
+    --sidebar-ring: hsl(217 89% 75%);
+
+    /* Layout & Glass — Dark */
+    --layout-bg: #202124;
+    --glass-bg: rgba(41,42,45,0.95);
+    --glass-bg-hover: #303134;
+    --glass-border: #5f6368;
+    --glass-border-hover: #70757a;
+    --glass-subtle: #292a2d;
+    --glass-panel-bg: #292a2d;
+    --glass-panel-border: #3c4043;
     --shimmer-color: rgba(255,255,255,0.05);
-    --grid-line: #18181b;
+    --grid-line: #3c4043;
+
+    /* Dark Pastel Backgrounds */
+    --google-blue-bg: rgba(66, 133, 244, 0.2);
+    --google-green-bg: rgba(52, 168, 83, 0.2);
+    --google-yellow-bg: rgba(251, 188, 4, 0.2);
+    --google-red-bg: rgba(234, 67, 53, 0.2);
 }
 
 @theme inline {
@@ -149,19 +177,25 @@
     --radius-3xl: calc(var(--radius) + 12px);
     --radius-4xl: calc(var(--radius) + 16px);
 
-    /* Digitalium Brand Colors */
-    --color-digitalium-blue: #3B82F6;
-    --color-digitalium-violet: #8B5CF6;
-    --color-digitalium-blue-light: #60A5FA;
-    --color-digitalium-violet-light: #A78BFA;
-    --color-digitalium-blue-dark: #2563EB;
-    --color-digitalium-violet-dark: #7C3AED;
+    /* Google-Inspired Brand Colors */
+    --color-digitalium-blue: #1a5dab;
+    --color-digitalium-violet: #1967d2;
+    --color-digitalium-blue-light: #4285f4;
+    --color-digitalium-violet-light: #518ef8;
+    --color-digitalium-blue-dark: #174ea6;
+    --color-digitalium-violet-dark: #1558b0;
 
     /* Animation Keyframes */
     --animate-gradient-shift: gradient-shift 6s ease infinite;
     --animate-float: float 3s ease-in-out infinite;
     --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
     --animate-shimmer: shimmer 2s linear infinite;
+
+    /* Google Pastel Backgrounds */
+    --color-google-red-bg: var(--google-red-bg);
+    --color-google-yellow-bg: var(--google-yellow-bg);
+    --color-google-green-bg: var(--google-green-bg);
+    --color-google-blue-bg: var(--google-blue-bg);
 }
 
 @layer base {
@@ -187,7 +221,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary));
+    background: var(--primary);
     border-radius: 9999px;
     opacity: 0.7;
   }
@@ -199,7 +233,7 @@
   /* Firefox */
   * {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--primary)) transparent;
+    scrollbar-color: var(--primary) transparent;
   }
 }
 
@@ -253,7 +287,7 @@
 
 /* ─────────── ✨ GRADIENT TEXT ─────────── */
 .text-gradient {
-  background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #3B82F6 100%);
+  background: linear-gradient(135deg, #1a5dab 0%, #4285f4 50%, #1a5dab 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -262,7 +296,7 @@
 }
 
 .gradient-text-accent {
-  background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
+  background: linear-gradient(135deg, #1a5dab 0%, #34a853 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -304,18 +338,18 @@
 
 /* ─────────── 🏛️ DGDI SERVICE BANNER ─────────── */
 .dgdi-banner {
-  background: linear-gradient(145deg, #1a0e05 0%, #0d0704 40%, #120a03 100%);
+  background: linear-gradient(145deg, #F5D992 0%, #F0D080 40%, #F5D992 100%);
   box-shadow:
-    0 0 0 1px rgba(249, 115, 22, 0.08),
-    0 4px 24px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(249, 115, 22, 0.06);
+    0 0 0 1px rgba(200, 160, 50, 0.2),
+    0 4px 24px rgba(200, 160, 50, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .dgdi-schedule-card {
   backdrop-filter: blur(8px);
 }
 .dgdi-schedule-card:hover {
-  background: rgba(249, 115, 22, 0.08);
+  background: rgba(200, 160, 50, 0.12);
   transform: translateY(-1px);
 }
 
@@ -340,3 +374,26 @@
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
+
+/* ─────────── 📱 MOBILE RESPONSIVENESS HELPERS ─────────── */
+
+/* Prevent horizontal overflow on all pages */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar for horizontal scroll containers (e.g. mobile pill nav) */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Safe area padding for fixed elements on notched devices */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+

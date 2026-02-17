@@ -33,19 +33,19 @@ export function ConsulMessage({
   )
 
   return (
-    <section className="py-16 md:py-24 px-6 relative overflow-hidden">
+    <section className="py-12 md:py-16 lg:py-24 px-4 md:px-6 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-br from-primary/5 via-background to-accent/5 blur-3xl -z-20" />
       
       <div className="max-w-6xl mx-auto">
-        <div className="glass-panel p-8 md:p-12 rounded-3xl border-primary/10 shadow-xl relative overflow-hidden">
+        <div className="glass-panel p-6 md:p-8 lg:p-12 rounded-3xl border-primary/10 shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10" />
 
             <div className="grid md:grid-cols-[280px,1fr] gap-10 lg:gap-16 items-start md:items-center">
             {/* Photo side */}
             <div className="flex flex-col items-center">
                 <div className="relative group">
-                <Avatar className="w-56 h-56 ring-4 ring-background shadow-2xl transition-transform duration-500 group-hover:scale-105">
+                <Avatar className="w-40 h-40 md:w-56 md:h-56 ring-4 ring-background shadow-2xl transition-transform duration-500 group-hover:scale-105">
                     <AvatarImage src={photoUrl || undefined} alt={fullName} className="object-cover" />
                     <AvatarFallback className="text-5xl font-bold bg-gradient-to-br from-primary/20 to-primary/10 text-primary">
                     {initials}
@@ -93,7 +93,7 @@ export function ConsulMessage({
                     {t('leConsulat.consulMessageTitle', 'Mot du Consul Général')}
                 </h2>
                 
-                <blockquote className="text-xl md:text-2xl text-muted-foreground leading-relaxed italic font-light">
+                <blockquote className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed italic font-light">
                     "{message || defaultMessage}"
                 </blockquote>
                 

@@ -7,7 +7,7 @@ export function ConsulateLocations() {
   const { t } = useTranslation()
 
   return (
-    <section className="py-24 px-6">
+    <section className="py-12 md:py-24 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-primary/20">

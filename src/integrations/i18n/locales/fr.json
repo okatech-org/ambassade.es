@@ -168,11 +168,11 @@
       "visa": "Visa",
       "civil_status": "État Civil",
       "registration": "Inscription Consulaire",
-      "certification": "Légalisation",
+      "certification": "Certification & Légalisation",
       "legalization": "Légalisation",
       "transcript": "Transcription",
       "travel_document": "Titre de Voyage",
-      "assistance": "Assistance d'Urgence",
+      "assistance": "Assistance Consulaire",
       "emergency": "Assistance d'Urgence",
       "other": "Autre",
       "Identité": "Identité",
@@ -230,6 +230,27 @@
     "emergency": {
       "title": "Assistance d'Urgence",
       "description": "Aide consulaire en cas d'urgence : perte de documents, difficultés à l'étranger."
+    },
+    "urgentBadge": "Urgent",
+    "validity": "Validité",
+    "contactConsulate": "Contacter le consulat",
+    "viewFiche": "Voir la fiche",
+    "noteImportante": "Note importante",
+    "tarifs": {
+      "badge": "Grille tarifaire",
+      "title": "Tarifs des services consulaires",
+      "description": "Récapitulatif des tarifs en vigueur au Consulat Général du Gabon en France.",
+      "service": "Service",
+      "tarif": "Tarif",
+      "validite": "Validité",
+      "autresActes": "Autres actes consulaires",
+      "tarifConsulaire": "Tarif consulaire en vigueur"
+    },
+    "crossLinks": {
+      "integration": "Guide d'intégration",
+      "integrationDesc": "Conseils pratiques pour vivre en France",
+      "vieFrance": "Vie en France",
+      "vieFranceDesc": "Démarches préfectorales et administratives"
     }
   },
   "consulates": {

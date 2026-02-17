@@ -195,13 +195,16 @@
     "days_other": "days",
     "categories": "Categories",
     "categoriesMap": {
+      "identity": "Identity",
       "passport": "Passport",
       "visa": "Visa",
       "civil_status": "Civil Status",
       "registration": "Consular Registration",
+      "certification": "Certification & Legalization",
       "legalization": "Legalization",
       "transcript": "Transcript",
       "travel_document": "Travel Document",
+      "assistance": "Consular Assistance",
       "emergency": "Emergency Assistance",
       "other": "Other"
     },
@@ -245,6 +248,27 @@
     "emergency": {
       "title": "Emergency Assistance",
       "description": "Consular assistance in emergencies: lost documents, difficulties abroad."
+    },
+    "urgentBadge": "Urgent",
+    "validity": "Validity",
+    "contactConsulate": "Contact the consulate",
+    "viewFiche": "View details",
+    "noteImportante": "Important note",
+    "tarifs": {
+      "badge": "Fee schedule",
+      "title": "Consular service fees",
+      "description": "Summary of current fees at the General Consulate of Gabon in France.",
+      "service": "Service",
+      "tarif": "Fee",
+      "validite": "Validity",
+      "autresActes": "Other consular acts",
+      "tarifConsulaire": "Current consular fee"
+    },
+    "crossLinks": {
+      "integration": "Integration guide",
+      "integrationDesc": "Practical tips for living in France",
+      "vieFrance": "Life in France",
+      "vieFranceDesc": "Prefecture and administrative procedures"
     }
   },
   "consulates": {

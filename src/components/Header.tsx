@@ -112,11 +112,12 @@ export default function Header() {
             <img 
               src="/sceau_gabon.png" 
               alt="Logo Consulat Gabon" 
-              className="h-20 w-auto relative -my-5" 
+              className="h-[5.75rem] w-auto relative -mb-6 origin-top" 
             />
             <div className="hidden sm:block">
-              <div className="font-bold text-lg text-foreground leading-tight tracking-tight">Consulat Général</div>
-              <div className="text-xs text-muted-foreground">Gabon en France</div>
+              <div className="font-bold text-base md:text-lg text-foreground leading-tight tracking-wide uppercase">CONSULAT GÉNÉRAL</div>
+              <div className="font-bold text-sm text-foreground/90 leading-snug">Du Gabon en France</div>
+              <div className="text-xs text-muted-foreground italic leading-snug">Union - Travail - Justice</div>
             </div>
           </Link>
 
@@ -185,8 +186,9 @@ export default function Header() {
               className="h-20 w-auto" 
             />
             <div>
-              <div className="font-bold text-foreground tracking-tight">Consulat.ga</div>
-              <div className="text-xs text-muted-foreground">{t('header.country')}</div>
+              <div className="font-bold text-sm text-foreground tracking-wide uppercase">CONSULAT GÉNÉRAL</div>
+              <div className="font-bold text-xs text-foreground/90">Du Gabon en France</div>
+              <div className="text-[10px] text-muted-foreground italic">Union - Travail - Justice</div>
             </div>
           </div>
           <Button

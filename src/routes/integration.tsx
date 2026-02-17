@@ -16,6 +16,7 @@ import {
   Users,
   ChevronDown,
   Phone,
+  Mail,
   MapPin,
   Lightbulb,
   CheckCircle2,
@@ -188,7 +189,7 @@ const guideSections: GuideSection[] = [
       },
       {
         title: 'Recours OQTF — Vos droits',
-        detail: 'Si vous recevez une OQTF, ne l\'ignorez JAMAIS. Recours gracieux auprès du préfet (30 jours) ou recours contentieux devant le tribunal administratif (30 jours, ou 48h si OQTF sans délai). Le recours est suspensif : l\'exécution est suspendue pendant l\'examen. L\'aide juridictionnelle est possible. Consultez immédiatement un avocat spécialisé en droit des étrangers.',
+        detail: 'Si vous recevez une OQTF, ne l\'ignorez JAMAIS. Trois recours existent : 1) Recours gracieux auprès du Préfet (2 mois, NE suspend PAS l\'OQTF). 2) Recours hiérarchique auprès du Ministre de l\'Intérieur (2 mois, NE suspend PAS l\'OQTF). 3) Recours contentieux devant le Tribunal Administratif (30 jours, ou 48h si OQTF sans délai) — c\'est le SEUL recours qui SUSPEND l\'exécution de l\'OQTF. L\'aide juridictionnelle est accessible. Consultez immédiatement un avocat spécialisé.',
       },
       {
         title: 'Régularisation de séjour',
@@ -196,7 +197,7 @@ const guideSections: GuideSection[] = [
       },
       {
         title: 'Droit au travail étudiant (964 h/an)',
-        detail: 'Les étudiants étrangers avec un VLS-TS mention "étudiant" sont autorisés à travailler 964 heures/an (60% de la durée légale) sans autorisation supplémentaire. Pour la carte pluriannuelle étudiant : assiduité requise + ressources min. 615 €/mois. L\'APS après un Master donne droit au travail à temps plein pendant 12 mois.',
+        detail: 'Les étudiants étrangers avec un VLS-TS mention "étudiant" sont autorisés à travailler 964 heures/an (60% de la durée légale) sans autorisation supplémentaire. Pour la carte pluriannuelle étudiant : assiduité requise + ressources min. 615 €/mois. L\'APS après un Master (accord franco-gabonais du 5 juillet 2007) donne droit au travail à temps plein pendant 9 mois, renouvelable une fois (18 mois maximum).',
       },
       {
         title: 'Changement d\'adresse (obligatoire)',
@@ -204,7 +205,7 @@ const guideSections: GuideSection[] = [
       },
       {
         title: 'Binationaux (Franco-Gabonais)',
-        detail: 'Le Gabon ne reconnaît pas officiellement la double nationalité, mais elle est tolérée en pratique. Un visa est nécessaire pour entrer au Gabon avec un passeport français (e-Visa sur evisa.dgdi.ga). Conseil : entrez en France avec le passeport français, au Gabon avec le passeport gabonais.',
+        detail: 'Le Gabon ne reconnaît pas officiellement la double nationalité, mais elle est tolérée en pratique. Un visa est obligatoire pour entrer au Gabon avec un passeport français — il s\'obtient uniquement au Consulat Général du Gabon à Paris (26 bis avenue Raphaël, 75016), délai 3 jours ouvrés, présence physique requise. Conseil : entrez en France avec le passeport français, au Gabon avec le passeport gabonais.',
       },
       {
         title: 'Regroupement familial',
@@ -223,8 +224,9 @@ const guideSections: GuideSection[] = [
       'Gardez toujours une copie numérique de vos documents (passeport, titre de séjour, bail) dans un cloud sécurisé',
       'Ne laissez jamais votre titre de séjour expirer — même en cas de retard de la préfecture, conservez votre récépissé',
       'Les associations comme la CIMADE, le GISTI ou la Ligue des droits de l\'Homme peuvent vous aider gratuitement',
-      'Ne jamais ignorer une OQTF — vous avez des droits de recours, exercez-les dans les délais',
+      'Ne jamais ignorer une OQTF — privilégiez le recours contentieux (tribunal administratif), c\'est le SEUL suspensif',
       'Les étudiants doivent respecter le plafond de 964h/an sous peine de refus de renouvellement',
+      'Un récépissé de première demande ne permet PAS de quitter la France — seul le titre définitif le permet',
     ],
   },
   {
@@ -329,7 +331,15 @@ const erreursCourantes = [
   },
   {
     erreur: 'Ignorer une OQTF',
-    conseil: 'Une OQTF ne disparaît pas si vous ne faites rien. Consultez immédiatement un avocat spécialisé en droit des étrangers. Le recours est suspensif et doit être déposé dans les 30 jours (ou 48h si sans délai).',
+    conseil: 'Une OQTF ne disparaît pas si vous ne faites rien. Consultez immédiatement un avocat spécialisé en droit des étrangers. Trois recours existent : gracieux (2 mois), hiérarchique (2 mois), et contentieux (30 jours) — seul le contentieux SUSPEND l\'exécution de l\'OQTF.',
+  },
+  {
+    erreur: 'Voyager avec un simple récépissé de première demande',
+    conseil: 'Le récépissé de PREMIÈRE DEMANDE de carte de séjour ne permet PAS de quitter la France et d\'y revenir. Seul le titre de séjour définitif ou le VLS-TS validé le permet. Le récépissé de renouvellement, en revanche, fait office de titre provisoire.',
+  },
+  {
+    erreur: 'Signer des documents sans les lire (garde à vue)',
+    conseil: 'En cas de garde à vue, ne signez AUCUN document sans avoir lu et compris. Demandez un avocat (commis d\'office si nécessaire), un interprète si besoin, et exigez que le consulat soit informé (Convention de Vienne, art. 36).',
   },
   {
     erreur: 'Oublier de signaler un changement d\'adresse',
@@ -348,6 +358,8 @@ const erreursCourantes = [
 // ─── Numéros utiles ──────────────────────────────────────────────────────────
 
 const numerosUtiles = [
+  { label: 'Consul Général du Gabon', number: '26 bis av. Raphaël, 75016', color: 'bg-emerald-500/10 text-emerald-600' },
+  { label: 'Email Consulat', number: 'consulatgeneralgabon@yahoo.fr', color: 'bg-emerald-500/10 text-emerald-600' },
   { label: 'Urgence consulaire Gabon', number: '07 44 23 95 84', color: 'bg-green-500/10 text-green-600' },
   { label: 'SAMU (urgences médicales)', number: '15', color: 'bg-red-500/10 text-red-600' },
   { label: 'Police / Gendarmerie', number: '17', color: 'bg-blue-500/10 text-blue-600' },
@@ -580,15 +592,18 @@ function IntegrationPage() {
             </div>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {numerosUtiles.map((n, idx) => (
+              {numerosUtiles.map((n, idx) => {
+                const isEmail = n.number.includes('@')
+                return (
                 <div key={idx} className="glass-card rounded-2xl p-6 text-center hover:-translate-y-1 transition-transform duration-300">
                   <div className={`w-14 h-14 rounded-full ${n.color} flex items-center justify-center mx-auto mb-4`}>
-                    <Phone className="w-6 h-6" />
+                    {isEmail ? <Mail className="w-6 h-6" /> : n.number.includes('av.') ? <MapPin className="w-6 h-6" /> : <Phone className="w-6 h-6" />}
                   </div>
-                  <p className="text-xl font-bold text-foreground mb-1 tracking-tight">{n.number}</p>
+                  <p className="text-xl font-bold text-foreground mb-1 tracking-tight">{isEmail ? <a href={`mailto:${n.number}`} className="hover:text-primary transition-colors text-sm">{n.number}</a> : n.number}</p>
                   <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{n.label}</p>
                 </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </section>

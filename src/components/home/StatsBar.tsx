@@ -8,7 +8,7 @@ const stats = [
     labelKey: 'statsBar.diaspora.label',
     defaultValue: '30 000+',
     defaultLabel: 'Gabonais en France',
-    color: 'text-green-500',
+    color: 'text-[#34a853]',
   },
   {
     icon: Globe,
@@ -16,7 +16,7 @@ const stats = [
     labelKey: 'statsBar.services.label',
     defaultValue: '9',
     defaultLabel: 'Catégories de services',
-    color: 'text-blue-500',
+    color: 'text-[#1a5dab]',
   },
   {
     icon: Shield,
@@ -24,7 +24,7 @@ const stats = [
     labelKey: 'statsBar.protection.label',
     defaultValue: '24/7',
     defaultLabel: 'Assistance consulaire',
-    color: 'text-yellow-500',
+    color: 'text-[#f9ab00]',
   },
   {
     icon: Clock,
@@ -32,7 +32,7 @@ const stats = [
     labelKey: 'statsBar.horaires.label',
     defaultValue: 'Lun-Ven',
     defaultLabel: '9h00 - 16h00',
-    color: 'text-purple-500',
+    color: 'text-[#ea4335]',
   },
 ]
 

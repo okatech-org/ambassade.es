@@ -1,4 +1,4 @@
-import { Clock, type LucideIcon } from 'lucide-react'
+import { Clock, type LucideIcon, AlertTriangle, Banknote, CalendarCheck } from 'lucide-react'
 import { Badge } from '../ui/badge'
 
 interface ServiceCardProps {
@@ -8,6 +8,9 @@ interface ServiceCardProps {
   color?: string
   badge?: string
   delay?: string
+  price?: string
+  validity?: string
+  isUrgent?: boolean
   onInfoClick?: () => void
 } 
 
@@ -18,21 +21,32 @@ export function ServiceCard({
   color = 'bg-primary/10 text-primary',
   badge,
   delay,
+  price,
+  validity,
+  isUrgent,
   onInfoClick,
 }: ServiceCardProps) {
 
   return (
-    <div className="glass-card p-6 h-full flex flex-col group hover:border-primary/30 transition-all duration-300">
-        {/* Header with icon and badge */}
+    <div className={`glass-card p-6 h-full flex flex-col group hover:border-primary/30 transition-all duration-300 ${isUrgent ? 'border-red-500/30 hover:border-red-500/50' : ''}`}>
+        {/* Header with icon and badges */}
         <div className="flex items-start justify-between mb-4">
           <div className={`w-12 h-12 rounded-[14px] flex items-center justify-center ${color}`}>
             <Icon className="w-6 h-6" />
           </div>
-          {badge && (
-            <Badge variant="outline" className="text-xs bg-background/50 backdrop-blur-sm border-border/50">
-              {badge}
-            </Badge>
-          )}
+          <div className="flex gap-2 flex-wrap justify-end">
+            {isUrgent && (
+              <Badge variant="destructive" className="text-xs gap-1 animate-pulse">
+                <AlertTriangle className="w-3 h-3" />
+                Urgent
+              </Badge>
+            )}
+            {badge && (
+              <Badge variant="outline" className="text-xs bg-background/50 backdrop-blur-sm border-border/50">
+                {badge}
+              </Badge>
+            )}
+          </div>
         </div>
 
         {/* Title */}
@@ -41,9 +55,27 @@ export function ServiceCard({
         </h3>
 
         {/* Description */}
-        <p className="text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-2 flex-1">
+        <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-2 flex-1">
           {description}
         </p>
+
+        {/* Price & Validity row */}
+        {(price || validity) && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {price && (
+              <div className="flex items-center gap-1.5 text-sm font-semibold text-primary">
+                <Banknote className="w-4 h-4" />
+                <span>{price}</span>
+              </div>
+            )}
+            {validity && (
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                <CalendarCheck className="w-3.5 h-3.5" />
+                <span>Validité : {validity}</span>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Footer with delay and buttons */}
         <div className="mt-auto space-y-4 pt-4 border-t border-border/30">
@@ -59,15 +91,13 @@ export function ServiceCard({
               onClick={onInfoClick}
               className="flex items-center justify-center px-3 py-2 text-sm font-medium text-foreground bg-secondary/50 hover:bg-secondary rounded-lg transition-colors"
             >
-              Information
+              📋 Voir la fiche
             </button>
             <a 
-              href="https://consulat.ga" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="mailto:consulatgeneralgabon@yahoo.fr?subject=Demande de renseignement" 
               className="flex items-center justify-center px-3 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors text-center"
             >
-              Faire la demande
+              📝 Contacter
             </a>
           </div>
         </div>
@@ -76,3 +106,4 @@ export function ServiceCard({
 }
 
 export default ServiceCard
+

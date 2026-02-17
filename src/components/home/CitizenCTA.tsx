@@ -48,13 +48,13 @@ export function CitizenCTA() {
   ]
 
   return (
-    <section className="py-24 px-6">
+    <section className="py-12 md:py-24 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
         {/* Main CTA Card */}
         <div className="relative overflow-hidden rounded-3xl glass-card border-border/50">
           {/* Decorative glow orbs */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-digitalium-blue/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 animate-float" />
-          <div className="absolute bottom-0 left-0 w-72 h-72 bg-digitalium-violet/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 animate-float" style={{ animationDelay: '1.5s' }} />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#1a5dab]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 animate-float" />
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#34a853]/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 animate-float" style={{ animationDelay: '1.5s' }} />
 
           <div className="relative grid lg:grid-cols-2 gap-0 items-stretch">
             {/* Image Side */}
@@ -78,12 +78,12 @@ export function CitizenCTA() {
             </div>
 
             {/* Content Side */}
-            <div className="relative p-8 md:p-12 lg:p-14 flex flex-col items-center justify-center text-center">
+            <div className="relative p-6 md:p-10 lg:p-14 flex flex-col items-center justify-center text-center">
               <Badge className="mb-6 w-fit bg-primary/10 text-primary border-primary/20 backdrop-blur-sm">
                 {t('citizenCta.badge', 'Application Consulat.ga')}
               </Badge>
 
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight whitespace-nowrap">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
                 {t('citizenCta.titlePart1', 'Votre consulat,')}{' '}
                 <span className="text-gradient">
                   {t('citizenCta.titleHighlight', 'dans votre poche')}
@@ -98,7 +98,7 @@ export function CitizenCTA() {
               </p>
 
               {/* Advantages Grid */}
-              <div className="grid sm:grid-cols-2 gap-4 mb-8 w-full" style={{ transform: 'scaleX(1.15)', transformOrigin: 'center' }}>
+              <div className="grid sm:grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8 w-full md:scale-x-[1.15] md:origin-center">
                 {advantages.map((advantage) => (
                   <div
                     key={advantage.title}
@@ -116,11 +116,11 @@ export function CitizenCTA() {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 md:mb-8">
                 <Button
                   asChild
                   size="lg"
-                  className="h-14 px-8 rounded-xl shadow-lg shadow-primary/20 bg-gradient-to-r from-digitalium-blue to-digitalium-violet hover:opacity-90 transition-all text-base"
+                  className="h-12 sm:h-14 px-6 sm:px-8 rounded-full shadow-lg shadow-[#1a5dab]/20 bg-[#1a5dab] hover:bg-[#174ea6] text-white transition-all text-sm sm:text-base font-semibold w-full sm:w-auto"
                 >
                   <a
                     href="https://www.consulat.ga/sign-up"
@@ -137,7 +137,7 @@ export function CitizenCTA() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="h-14 px-8 rounded-xl text-base border-border/50 hover:bg-accent/10"
+                  className="h-12 sm:h-14 px-6 sm:px-8 rounded-full text-sm sm:text-base border-[#1a5dab]/30 text-[#1a5dab] dark:text-[#8ab4f8] dark:border-[#8ab4f8]/30 hover:bg-[#1a5dab]/5 font-semibold w-full sm:w-auto"
                 >
                   <a
                     href="https://www.consulat.ga"

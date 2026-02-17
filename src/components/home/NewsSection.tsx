@@ -10,17 +10,17 @@ import { Skeleton } from '../ui/skeleton'
 const categoryConfig: Record<string, { label: string; color: string; fallbackImage: string }> = {
   communique: {
     label: 'Communiqué',
-    color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300',
+    color: 'bg-[#1a5dab]/10 text-[#1a5dab] dark:bg-[#1a5dab]/20 dark:text-[#8ab4f8]',
     fallbackImage: '/images/heroes/hero-consulat.png',
   },
   evenement: {
     label: 'Événement',
-    color: 'bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300',
+    color: 'bg-[#34a853]/10 text-[#34a853] dark:bg-[#34a853]/20 dark:text-[#81c995]',
     fallbackImage: '/images/heroes/hero-integration.png',
   },
   actualite: {
     label: 'Actualité',
-    color: 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300',
+    color: 'bg-[#f9ab00]/10 text-[#e37400] dark:bg-[#f9ab00]/20 dark:text-[#fdd663]',
     fallbackImage: '/images/heroes/hero-services.png',
   },
 }
@@ -74,7 +74,7 @@ export function NewsSection() {
   const secondaryPosts = posts?.page.slice(1) || []
 
   return (
-    <section className="py-24 px-6 bg-background">
+    <section className="py-12 md:py-24 px-4 md:px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -91,7 +91,7 @@ export function NewsSection() {
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-6">
             {t('news.description', 'Communiqués officiels, événements communautaires et informations pratiques du consulat.')}
           </p>
-          <Button asChild variant="outline" size="sm" className="rounded-full">
+          <Button asChild variant="outline" size="sm" className="rounded-full border-[#1a5dab]/30 text-[#1a5dab] hover:bg-[#1a5dab]/5">
             <Link to="/actualites">
               {t('news.viewAll', 'Voir toutes les actualités')}
               <ArrowRight className="w-4 h-4 ml-2" />

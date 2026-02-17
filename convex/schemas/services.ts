@@ -16,6 +16,9 @@ export const servicesTable = defineTable({
   // Info fields
   price: v.optional(v.string()),
   delay: v.optional(v.string()),
+  validity: v.optional(v.string()),  // e.g. "1 an", "30 jours"
+  isUrgent: v.optional(v.boolean()), // For urgent badge display
+  notes: v.optional(v.string()),     // Important notes about the service
   
   // Lists
   requirements: v.optional(v.array(v.string())), // Legacy list of required documents/steps

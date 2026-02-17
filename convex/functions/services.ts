@@ -69,6 +69,9 @@ export const update = mutation({
     icon: v.optional(v.string()),
     price: v.optional(v.string()),
     delay: v.optional(v.string()),
+    validity: v.optional(v.string()),
+    isUrgent: v.optional(v.boolean()),
+    notes: v.optional(v.string()),
     requirements: v.optional(v.array(v.string())),
     requiredDocuments: v.optional(v.array(v.object({
       type: v.string(),
@@ -101,6 +104,9 @@ export const create = mutation({
     icon: v.optional(v.string()),
     price: v.optional(v.string()),
     delay: v.optional(v.string()),
+    validity: v.optional(v.string()),
+    isUrgent: v.optional(v.boolean()),
+    notes: v.optional(v.string()),
     requirements: v.optional(v.array(v.string())),
     requiredDocuments: v.optional(v.array(v.object({
       type: v.string(),

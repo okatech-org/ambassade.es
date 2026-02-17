@@ -22,9 +22,9 @@ const guides = [
     defaultTitle: 'Logement',
     defaultDesc:
       'Trouver un logement, aides au logement (APL/ALS), droits des locataires et démarches administratives.',
-    color: 'text-blue-500',
-    bg: 'bg-blue-500/10',
-    border: 'border-blue-500/20',
+    color: 'text-[#1a5dab]',
+    bg: 'bg-[#1a5dab]/10',
+    border: 'border-[#1a5dab]/20',
     tag: 'Vie quotidienne',
     anchor: 'logement',
     features: ['Recherche de logement', 'APL / ALS', 'Garantie Visale'],
@@ -37,9 +37,9 @@ const guides = [
     defaultTitle: 'Santé & Protection sociale',
     defaultDesc:
       'Inscription à la Sécurité sociale, mutuelle, accès aux soins et droits à la couverture maladie.',
-    color: 'text-red-500',
-    bg: 'bg-red-500/10',
-    border: 'border-red-500/20',
+    color: 'text-[#ea4335]',
+    bg: 'bg-[#ea4335]/10',
+    border: 'border-[#ea4335]/20',
     tag: 'Santé',
     anchor: 'sante',
     features: ['Sécurité sociale', 'Mutuelle', 'CMU-C / ACS'],
@@ -52,9 +52,9 @@ const guides = [
     defaultTitle: 'Éducation & Formation',
     defaultDesc:
       "Inscription scolaire, bourses d'études, reconnaissance des diplômes gabonais et formation professionnelle.",
-    color: 'text-emerald-500',
-    bg: 'bg-emerald-500/10',
-    border: 'border-emerald-500/20',
+    color: 'text-[#34a853]',
+    bg: 'bg-[#34a853]/10',
+    border: 'border-[#34a853]/20',
     tag: 'Éducation',
     anchor: 'education',
     features: ['Inscription scolaire', 'Bourses CROUS', 'Équivalence diplômes'],
@@ -67,9 +67,9 @@ const guides = [
     defaultTitle: 'Emploi & Entrepreneuriat',
     defaultDesc:
       "Recherche d'emploi, création d'entreprise, titre de séjour autorisant le travail et aides à l'emploi.",
-    color: 'text-amber-500',
-    bg: 'bg-amber-500/10',
-    border: 'border-amber-500/20',
+    color: 'text-[#f9ab00]',
+    bg: 'bg-[#f9ab00]/10',
+    border: 'border-[#f9ab00]/20',
     tag: 'Emploi',
     anchor: 'emploi',
     features: ['Pôle Emploi', 'Auto-entrepreneur', 'Titre de travail'],
@@ -82,9 +82,9 @@ const guides = [
     defaultTitle: 'Droits & Titre de séjour',
     defaultDesc:
       'Renouvellement de titre de séjour, regroupement familial, naturalisation et aide juridique gratuite.',
-    color: 'text-violet-500',
-    bg: 'bg-violet-500/10',
-    border: 'border-violet-500/20',
+    color: 'text-[#1a73e8]',
+    bg: 'bg-[#1a73e8]/10',
+    border: 'border-[#1a73e8]/20',
     tag: 'Juridique',
     anchor: 'droits',
     features: ['Titre de séjour', 'Regroupement familial', 'Naturalisation'],
@@ -97,9 +97,9 @@ const guides = [
     defaultTitle: 'Famille & Enfants',
     defaultDesc:
       "Déclaration de naissance, allocations familiales, garde d'enfants et transcription d'actes d'état civil.",
-    color: 'text-pink-500',
-    bg: 'bg-pink-500/10',
-    border: 'border-pink-500/20',
+    color: 'text-[#d93025]',
+    bg: 'bg-[#d93025]/10',
+    border: 'border-[#d93025]/20',
     tag: 'Famille',
     anchor: 'famille',
     features: ['Naissance', 'Allocations CAF', 'Garde enfants'],
@@ -111,7 +111,7 @@ export function GuidePratiqueSection() {
   const { t } = useTranslation()
 
   return (
-    <section className="py-24 px-6 glass-section">
+    <section className="py-12 md:py-24 px-4 md:px-6 glass-section">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -201,7 +201,7 @@ export function GuidePratiqueSection() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-12">
-          <Button asChild variant="outline" size="lg" className="rounded-xl">
+          <Button asChild variant="outline" size="lg" className="rounded-full border-[#1a5dab]/30 text-[#1a5dab] hover:bg-[#1a5dab]/5">
             <Link to="/vie-en-france">
               {t('guidePratique.viewAll', 'Consulter le guide complet')}
               <ArrowRight className="w-4 h-4 ml-2" />

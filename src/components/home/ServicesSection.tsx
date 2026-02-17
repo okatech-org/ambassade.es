@@ -21,28 +21,28 @@ import { ServiceCategory } from '@convex/lib/validators'
 const categoryConfig: Record<string, { icon: LucideIcon; color: string; gradient: string }> = {
   [ServiceCategory.Identity]: {
     icon: Fingerprint,
-    color: 'bg-blue-500/10 text-blue-500',
-    gradient: 'from-blue-500/20 to-blue-600/5',
+    color: 'bg-[#1a5dab]/10 text-[#1a5dab]',
+    gradient: 'from-[#1a5dab]/15 to-[#4285f4]/5',
   },
   [ServiceCategory.CivilStatus]: {
     icon: Scroll,
-    color: 'bg-amber-500/10 text-amber-500',
-    gradient: 'from-amber-500/20 to-amber-600/5',
+    color: 'bg-[#f9ab00]/10 text-[#f9ab00]',
+    gradient: 'from-[#f9ab00]/15 to-[#f9ab00]/5',
   },
   [ServiceCategory.Registration]: {
     icon: BookUser,
-    color: 'bg-violet-500/10 text-violet-500',
-    gradient: 'from-violet-500/20 to-violet-600/5',
+    color: 'bg-[#34a853]/10 text-[#34a853]',
+    gradient: 'from-[#34a853]/15 to-[#34a853]/5',
   },
   Voyage: {
     icon: FileText,
-    color: 'bg-orange-500/10 text-orange-500',
-    gradient: 'from-orange-500/20 to-orange-600/5',
+    color: 'bg-[#ea4335]/10 text-[#ea4335]',
+    gradient: 'from-[#ea4335]/15 to-[#ea4335]/5',
   },
   default: {
     icon: FileText,
-    color: 'bg-gray-500/10 text-gray-500',
-    gradient: 'from-gray-500/20 to-gray-600/5',
+    color: 'bg-[#5f6368]/10 text-[#5f6368]',
+    gradient: 'from-[#5f6368]/15 to-[#5f6368]/5',
   },
 }
 
@@ -81,11 +81,11 @@ function BentoServiceCard({
         className="group relative text-left w-full cursor-pointer rounded-2xl glass-card overflow-hidden transition-all duration-300 hover:-translate-y-1 block md:col-span-2 md:row-span-2"
       >
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-digitalium-violet/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1a5dab]/5 via-transparent to-[#34a853]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
-        <div className="relative z-10 h-full flex flex-col" style={{ minHeight: '420px' }}>
-          {/* Image — flush to right edge, large, not cropped */}
-          <div className="absolute -top-5 bottom-0 right-0 w-[75%] md:w-[70%] flex items-center justify-end pointer-events-none">
+        <div className="relative z-10 h-full flex flex-col md:min-h-[420px]">
+          {/* ── Desktop Image — absolute overlay on right (hidden on mobile) ── */}
+          <div className="hidden md:flex absolute -top-5 bottom-0 right-0 w-[70%] items-center justify-end pointer-events-none">
             <img 
               src="/images/services/carte-consulaire.png" 
               alt="Carte Consulaire Gabonaise"
@@ -93,11 +93,11 @@ function BentoServiceCard({
             />
           </div>
 
-          {/* Text overlay — positioned on top of the image */}
-          <div className="relative z-20 p-6 md:p-8 flex flex-col h-full">
+          {/* Text content */}
+          <div className="relative z-20 p-5 md:p-8 flex flex-col h-full">
             {/* Header: Title then Badge below */}
-            <div className="flex flex-col items-start gap-0.5 mb-2">
-              <h3 className="text-2xl md:text-3xl font-bold text-foreground leading-tight group-hover:text-primary transition-colors">
+            <div className="flex flex-col items-start gap-1 mb-3">
+              <h3 className="text-xl md:text-3xl font-bold text-foreground leading-tight group-hover:text-primary transition-colors">
                 Votre pièce d'identité <span className="text-gradient">gabonaise en France</span>
               </h3>
               <Badge className="bg-primary/10 text-primary border-primary/20 text-xs backdrop-blur-sm">
@@ -105,8 +105,17 @@ function BentoServiceCard({
               </Badge>
             </div>
 
+            {/* ── Mobile Image — inline, centered (hidden on desktop) ── */}
+            <div className="md:hidden flex justify-center my-3">
+              <img 
+                src="/images/services/carte-consulaire.png" 
+                alt="Carte Consulaire Gabonaise"
+                className="w-[75%] max-w-[280px] object-contain drop-shadow-xl"
+              />
+            </div>
+
             {/* Documents required */}
-            <ul className="text-sm text-foreground/80 space-y-1.5 mb-4 max-w-sm mt-5">
+            <ul className="text-sm text-foreground/80 space-y-1.5 mb-4 max-w-sm">
               <li className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                 Une copie d'acte de naissance
@@ -130,8 +139,7 @@ function BentoServiceCard({
               href="https://www.consulat.ga/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-fit rounded-xl text-white shadow-lg hover:shadow-xl transition-all font-semibold px-6 py-2.5 inline-flex items-center gap-2 text-sm mb-4"
-              style={{ background: 'linear-gradient(135deg, hsl(240, 80%, 55%), hsl(270, 70%, 50%))' }}
+              className="w-full md:w-fit text-center rounded-full text-white shadow-lg hover:shadow-xl transition-all font-semibold px-6 py-3 md:py-2.5 inline-flex items-center justify-center gap-2 text-sm mb-4 bg-[#1a5dab] hover:bg-[#174ea6]"
               onClick={(e) => e.stopPropagation()}
             >
               Demande de Carte Consulaire
@@ -139,29 +147,25 @@ function BentoServiceCard({
             </a>
 
             {/* Description */}
-            <p className="text-sm text-muted-foreground leading-relaxed mb-1 max-w-2xl line-clamp-2 mt-16">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3 max-w-2xl line-clamp-2 md:mt-16">
               La carte consulaire atteste de votre inscription au registre des Gabonais de l'étranger.
               <br />
               Elle facilite toutes vos démarches administratives et consulaires sur le territoire français.
             </p>
 
-
-
-            {/* Features — all on one line */}
-            <div className="flex flex-wrap items-center gap-3 mb-1">
+            {/* Features */}
+            <div className="flex flex-wrap items-center gap-2 md:gap-3">
               {[
                 { label: 'Reconnaissance officielle', icon: '🏛️' },
                 { label: 'Démarches simplifiées', icon: '⚡' },
                 { label: 'Validité 5 ans', icon: '📅' },
               ].map((feat) => (
-                <div key={feat.label} className="flex items-center gap-2 text-sm text-foreground/80 backdrop-blur-sm bg-background/60 rounded-md px-2.5 py-1.5">
+                <div key={feat.label} className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-foreground/80 backdrop-blur-sm bg-background/60 rounded-md px-2 py-1 md:px-2.5 md:py-1.5">
                   <span>{feat.icon}</span>
                   <span className="font-medium">{feat.label}</span>
                 </div>
               ))}
             </div>
-
-
           </div>
         </div>
       </div>
@@ -249,7 +253,7 @@ export function ServicesSection() {
   const bottomRow = bottomRowSlugs.map(findBySlug).filter(Boolean) as any[]
 
   return (
-    <section className="py-24 px-6" id="services">
+    <section className="py-12 md:py-24 px-4 md:px-6" id="services">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-14">
@@ -321,7 +325,7 @@ export function ServicesSection() {
 
         {/* View All */}
         <div className="text-center mt-12">
-          <Button asChild variant="outline" size="lg" className="rounded-xl">
+          <Button asChild variant="outline" size="lg" className="rounded-full border-[#1a5dab]/30 text-[#1a5dab] hover:bg-[#1a5dab]/5">
             <Link to="/services">
               {t('services.viewAll', 'Voir tous les services')}
               <ArrowRight className="w-4 h-4 ml-2" />
