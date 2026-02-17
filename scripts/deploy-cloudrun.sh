@@ -2,7 +2,7 @@
 # ─────────────────────────────────────────────────
 # deploy-cloudrun.sh
 # Builds and deploys the Consulat Gabon France app
-# to Google Cloud Run.
+# to Google Cloud Run via Cloud Build.
 # ─────────────────────────────────────────────────
 set -euo pipefail
 
@@ -10,7 +10,6 @@ set -euo pipefail
 PROJECT_ID="${GCP_PROJECT_ID:-digitalium-ga}"
 REGION="${GCP_REGION:-europe-west1}"
 SERVICE_NAME="france-consulat-ga"
-IMAGE_NAME="gcr.io/${PROJECT_ID}/${SERVICE_NAME}"
 
 # ── Load .env.production ─────────────────────────
 ENV_FILE=".env.production"
@@ -22,46 +21,33 @@ fi
 echo "📦 Loading environment from $ENV_FILE..."
 
 # Parse the .env file (ignore comments and empty lines)
-export $(grep -v '^#' "$ENV_FILE" | grep -v '^\s*$' | xargs)
+VITE_CONVEX_URL=$(grep '^VITE_CONVEX_URL=' "$ENV_FILE" | cut -d'=' -f2-)
+VITE_CLERK_PUBLISHABLE_KEY=$(grep '^VITE_CLERK_PUBLISHABLE_KEY=' "$ENV_FILE" | cut -d'=' -f2-)
+CLERK_SECRET_KEY=$(grep '^CLERK_SECRET_KEY=' "$ENV_FILE" | cut -d'=' -f2-)
+CONVEX_DEPLOYMENT=$(grep '^CONVEX_DEPLOYMENT=' "$ENV_FILE" | cut -d'=' -f2-)
+VITE_SENTRY_DSN=$(grep '^VITE_SENTRY_DSN=' "$ENV_FILE" | cut -d'=' -f2- || echo "")
 
-# ── Build Docker image ───────────────────────────
-echo "🐳 Building Docker image: $IMAGE_NAME"
-docker build \
-  --build-arg VITE_CONVEX_URL="$VITE_CONVEX_URL" \
-  --build-arg VITE_CLERK_PUBLISHABLE_KEY="$VITE_CLERK_PUBLISHABLE_KEY" \
-  --build-arg CLERK_SECRET_KEY="$CLERK_SECRET_KEY" \
-  --build-arg CONVEX_DEPLOYMENT="$CONVEX_DEPLOYMENT" \
-  --build-arg VITE_SENTRY_DSN="${VITE_SENTRY_DSN:-}" \
-  -t "$IMAGE_NAME" \
-  .
+# ── Deploy via Cloud Build ───────────────────────
+echo "🚀 Submitting build to Google Cloud Build..."
+echo "   Project:  $PROJECT_ID"
+echo "   Region:   $REGION"
+echo "   Service:  $SERVICE_NAME"
+echo ""
 
-# ── Push to Container Registry ──────────────────
-echo "⬆️  Pushing image to GCR..."
-docker push "$IMAGE_NAME"
-
-# ── Deploy to Cloud Run ─────────────────────────
-echo "🚀 Deploying to Cloud Run ($REGION)..."
-gcloud run deploy "$SERVICE_NAME" \
-  --image "$IMAGE_NAME" \
-  --platform managed \
-  --region "$REGION" \
+gcloud builds submit \
   --project "$PROJECT_ID" \
-  --allow-unauthenticated \
-  --port 8080 \
-  --memory 512Mi \
-  --cpu 1 \
-  --min-instances 0 \
-  --max-instances 3 \
-  --set-env-vars "\
-VITE_CONVEX_URL=$VITE_CONVEX_URL,\
-VITE_CLERK_PUBLISHABLE_KEY=$VITE_CLERK_PUBLISHABLE_KEY,\
-CLERK_SECRET_KEY=$CLERK_SECRET_KEY,\
-CONVEX_DEPLOYMENT=$CONVEX_DEPLOYMENT,\
-VITE_SENTRY_DSN=${VITE_SENTRY_DSN:-},\
-NODE_ENV=production"
+  --config cloudbuild.yaml \
+  --substitutions "\
+_VITE_CONVEX_URL=$VITE_CONVEX_URL,\
+_VITE_CLERK_PUBLISHABLE_KEY=$VITE_CLERK_PUBLISHABLE_KEY,\
+_CLERK_SECRET_KEY=$CLERK_SECRET_KEY,\
+_CONVEX_DEPLOYMENT=$CONVEX_DEPLOYMENT,\
+_VITE_SENTRY_DSN=${VITE_SENTRY_DSN:-}" \
+  .
 
 echo ""
 echo "✅ Deployment complete!"
+echo "🌐 Service URL:"
 gcloud run services describe "$SERVICE_NAME" \
   --region "$REGION" \
   --project "$PROJECT_ID" \
