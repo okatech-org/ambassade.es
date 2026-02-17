@@ -1,18 +1,20 @@
 # ─────────────────────────────────────────────────────────
-# Stage 1 — Install dependencies
+# Stage 1 — Install dependencies with Bun
 # ─────────────────────────────────────────────────────────
-FROM node:20-alpine AS deps
+FROM oven/bun:1-alpine AS deps
 WORKDIR /app
 
 COPY package.json bun.lock ./
-# Use npm for Cloud Run compatibility (no bun in prod image)
-RUN npm install --legacy-peer-deps
+RUN bun install --frozen-lockfile
 
 # ─────────────────────────────────────────────────────────
-# Stage 2 — Build the application
+# Stage 2 — Build with Node 20 + Nitro
 # ─────────────────────────────────────────────────────────
 FROM node:20-alpine AS builder
 WORKDIR /app
+
+# Install bun for the build step (needed for bun-managed deps)
+RUN npm install -g bun
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -30,20 +32,21 @@ ENV CLERK_SECRET_KEY=$CLERK_SECRET_KEY
 ENV CONVEX_DEPLOYMENT=$CONVEX_DEPLOYMENT
 ENV VITE_SENTRY_DSN=$VITE_SENTRY_DSN
 
-RUN npm run build
+# Use Nitro instead of Netlify for Node.js server output
+ENV DOCKER_BUILD=true
+
+RUN npx vite build
 
 # ─────────────────────────────────────────────────────────
-# Stage 3 — Production runtime
+# Stage 3 — Production runtime (Node 20, minimal)
 # ─────────────────────────────────────────────────────────
 FROM node:20-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
 
-# Copy the built output and production dependencies
+# Copy Nitro output (.output/) — Nitro bundles all dependencies
 COPY --from=builder /app/.output ./.output
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
 
 # Runtime env vars (injected by Cloud Run)
 ENV VITE_CONVEX_URL=""
@@ -56,5 +59,5 @@ ENV VITE_SENTRY_DSN=""
 ENV PORT=8080
 EXPOSE 8080
 
-# Start the TanStack Start SSR server
-CMD ["node", "--import", "./.output/server/instrument.server.mjs", ".output/server/index.mjs"]
+# Start the Nitro Node.js server
+CMD ["node", ".output/server/index.mjs"]
