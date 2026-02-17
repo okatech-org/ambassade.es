@@ -1,22 +1,5 @@
 [
   {
-    "title": "Passeport Biométrique",
-    "slug": "passeport",
-    "description": "Demande et renouvellement de passeport biométrique pour les ressortissants gabonais en France.",
-    "content": "Les compatriotes gabonais présents sur le territoire français peuvent renouveler leur passeport dans les locaux du Consulat Général sis au 26 bis Avenue Raphaël 75016 Paris.\n\nCette démarche n’est pas du ressort du Consulat mais de l’Antenne extérieure de la DGDI à Paris dont les services sont ouverts du lundi au vendredi.\n\n### Contact Service Visa et Passeport\n- **Courriel** : aedgdi.fr@gmail.com\n- **Téléphone** : +33 6 08 03 20 29 (Permanence téléphonique tous les jours ouvrés de 09h à 10h et de 15h à 16h15 ou par SMS).\n\n### Horaires et Accès\n- **Dépôt des dossiers** : Du lundi au jeudi de 9h à 11h30.\n- **Retrait de passeports** : Du lundi au vendredi de 15h à 16h15.\n- **Adresse** : 26 bis Avenue Raphaël, 75016 Paris.\n\n> **Note** : Aucun dossier transmis par voie postale ne sera pris en compte.\n\n### Prise de Rendez-vous\nLa prise de rendez-vous est **obligatoire**. Envoyez par SMS ou par courriel les noms, prénoms de l’usager et la date souhaitée au +33 6 08 03 20 29. Si vous ne recevez aucun accusé de réception, votre date est retenue.\n\n### Processus\n1. Prendre un rendez-vous en ligne : [Plateforme de Rendez-vous](https://ae.dgdifrance.fr/booking)\n2. Télécharger le formulaire : [Formulaire NDP (PDF)](https://dgdi.ga/wp-content/uploads/2015/05/NDP.pdf)\n3. Consulter la liste des pièces à fournir : [Formalités Passeports](https://amba-france.ga/formalites-passeports/)",
-    "category": "identity",
-    "requirements": [
-      "Prise de rendez-vous obligatoire",
-      "Présence physique requise",
-      "Formulaire NDP dûment rempli",
-      "Pièces justificatives (voir site ambassade)"
-    ],
-    "actionLink": "https://ae.dgdifrance.fr/rendez-vous",
-    "isOnline": true,
-    "isActive": true,
-    "order": 1
-  },
-  {
     "title": "Carte Consulaire",
     "slug": "carte-consulaire",
     "description": "L'immatriculation consulaire est obligatoire pour tout Gabonais résidant en France.",
@@ -30,7 +13,7 @@
     "actionLink": "https://www.consulat.ga/sign-up",
     "isOnline": true,
     "isActive": true,
-    "order": 2
+    "order": 1
   },
   {
     "title": "Mariage",
@@ -48,7 +31,7 @@
     ],
     "isOnline": false,
     "isActive": true,
-    "order": 3
+    "order": 2
   },
   {
     "title": "Transcription de Naissance",
@@ -63,7 +46,7 @@
     ],
     "isOnline": true,
     "isActive": true,
-    "order": 4
+    "order": 3
   },
   {
     "title": "Tenant lieu de passeport",
@@ -81,7 +64,7 @@
     ],
     "isOnline": false,
     "isActive": true,
-    "order": 5
+    "order": 4
   },
   {
     "title": "Attestation Patronymique",
@@ -96,7 +79,7 @@
     ],
     "isOnline": false,
     "isActive": true,
-    "order": 6
+    "order": 5
   },
   {
     "title": "PACS",
@@ -111,7 +94,7 @@
     "actionLink": "https://www.service-public.fr/particuliers/vosdroits/F1618",
     "isOnline": false,
     "isActive": true,
-    "order": 7
+    "order": 6
   },
   {
     "title": "Divorce",
@@ -122,6 +105,6 @@
     "requirements": [],
     "isOnline": false,
     "isActive": true,
-    "order": 8
+    "order": 7
   }
 ]

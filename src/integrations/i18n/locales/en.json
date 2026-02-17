@@ -1,25 +1,183 @@
 {
   "hero": {
-    "badge": "Official Platform",
-    "title": "Consular Services of the",
-    "titleHighlight": "Gabonese Republic",
-    "subtitle": "Your consulate, wherever you are in the world",
-    "description": "Access all your consular services online: passport, visa, civil status, consular registration and much more.",
-    "bookAppointment": "Book Appointment",
-    "ourServices": "Our Services",
-    "trackApplication": "Track Application",
-    "createSpace": "Create my consular space",
-    "accessSpace": "Access my space",
-    "emergencyLabel": "24/7 Consular Emergency",
+    "badge": "Official Website",
+    "title": "General Consulate of Gabon",
+    "titleHighlight": "in France",
+    "subtitle": "Serving the Gabonese diaspora",
+    "description": "Consular protection, civil status, passports, visas and support for Gabonese nationals living in France. Simplify your administrative procedures online or in person.",
+    "services": "Our Services",
+    "contact": "Contact Us",
+    "emergencyLabel": "Consular Emergency 24/7",
     "quickAccess": {
       "news": "News",
-      "newsDesc": "Latest updates",
+      "newsDesc": "Official statements",
       "services": "Services",
-      "servicesDesc": "All our services",
-      "directory": "Directory",
-      "directoryDesc": "Our consulates",
-      "faq": "FAQ",
-      "faqDesc": "Frequently asked questions"
+      "servicesDesc": "Online procedures",
+      "inscription": "Registration",
+      "inscriptionDesc": "Consular register",
+      "consulat": "The Consulate",
+      "consulatDesc": "Missions & team"
+    }
+  },
+  "statsBar": {
+    "diaspora": {
+      "value": "30,000+",
+      "label": "Gabonese in France"
+    },
+    "services": {
+      "value": "9",
+      "label": "Service categories"
+    },
+    "protection": {
+      "value": "24/7",
+      "label": "Consular assistance"
+    },
+    "horaires": {
+      "value": "Mon-Fri",
+      "label": "9:00 AM - 4:00 PM"
+    }
+  },
+  "guidePratique": {
+    "badge": "Living in France",
+    "title": "Practical Guide for Gabonese in France",
+    "description": "Essential information to facilitate your settlement and daily life in France. The consulate supports you in all your procedures.",
+    "readMore": "Learn more",
+    "cta": "Need help with a specific procedure? Our consular team is at your service.",
+    "contactUs": "Contact the consulate",
+    "logement": {
+      "title": "Housing",
+      "desc": "Finding accommodation, housing aid (APL/ALS), tenant rights and administrative procedures."
+    },
+    "sante": {
+      "title": "Health & Social Protection",
+      "desc": "Social security registration, health insurance, access to care and health coverage rights."
+    },
+    "education": {
+      "title": "Education & Training",
+      "desc": "School enrollment, scholarships, recognition of Gabonese diplomas and vocational training."
+    },
+    "emploi": {
+      "title": "Employment & Entrepreneurship",
+      "desc": "Job search, business creation, work permits and employment assistance."
+    },
+    "droits": {
+      "title": "Rights & Residency Permit",
+      "desc": "Residence permit renewal, family reunification, naturalization and free legal aid."
+    },
+    "famille": {
+      "title": "Family & Children",
+      "desc": "Birth registration, family benefits, childcare and transcription of civil status documents."
+    },
+    "tags": {
+      "Vie quotidienne": "Daily life",
+      "Santé": "Health",
+      "Éducation": "Education",
+      "Emploi": "Employment",
+      "Juridique": "Legal",
+      "Famille": "Family"
+    }
+  },
+  "faq": {
+    "badge": "Frequently asked questions",
+    "title": "Most asked questions",
+    "description": "Quickly find answers to your questions about consular procedures.",
+    "viewAll": "View all questions",
+    "items": {
+      "inscription": {
+        "question": "How do I register at the consular register?",
+        "answer": "Registration can be done online at consulat.ga or in person at the consulate. Bring your valid passport, proof of address in France less than 3 months old, and 2 ID photos. The procedure is free and gives you access to consular protection."
+      },
+      "passeport": {
+        "question": "What documents are needed to renew my passport?",
+        "answer": "For passport renewal, you must provide: the old passport (even expired), a copy of your birth certificate, 2 compliant ID photos, a recent proof of address, and the completed application form. An appointment at the DGDI office is required for fingerprinting."
+      },
+      "etatCivil": {
+        "question": "How to transcribe a French birth certificate in Gabon?",
+        "answer": "Transcription of a birth certificate allows it to be recognized in Gabon. Submit to the consulate: the full copy of the French birth certificate, parents' identity documents, and family record book if applicable. The average processing time is 2 to 4 weeks."
+      },
+      "urgence": {
+        "question": "What to do in case of a consular emergency?",
+        "answer": "In case of emergency (serious accident, death, arrest, natural disaster), immediately contact the consular emergency number at 07 44 23 95 84, available 24/7. The consulate can assist you, repatriate remains, or facilitate contact with French authorities."
+      },
+      "rdv": {
+        "question": "Do I need an appointment to visit the consulate?",
+        "answer": "An appointment is strongly recommended for passport and visa procedures. For other services (legalization, civil status, consular registration), you can come during opening hours Monday to Friday from 9am to 4pm. Book online at consulat.ga for faster service."
+      },
+      "vote": {
+        "question": "How to vote from France?",
+        "answer": "To participate in Gabonese elections from France, you must be registered at the consular register and on the consular electoral roll. During elections, the consulate sets up polling stations. Present yourself with your consular card and valid ID on election day."
+      },
+      "regularisation": {
+        "question": "How to regularize my status in France?",
+        "answer": "Several paths exist: exceptional admission (Valls circular 2012), regularization through employment, family reasons, medical grounds. File at the prefecture or online via the ANEF portal. Consult a specialized lawyer."
+      },
+      "frontiere": {
+        "question": "What documents to present at the border?",
+        "answer": "Valid passport, visa, accommodation certificate, return ticket (short stay), travel insurance (min. €30,000). Resources: min. €120/day (hotel) or €32.50/day (private accommodation with attestation)."
+      },
+      "carteSejour": {
+        "question": "How to renew my residence permit?",
+        "answer": "Renewal is done 2 to 4 months before expiry, online at the ANEF portal or at the prefecture. A receipt is issued while waiting for the new permit."
+      },
+      "oqtf": {
+        "question": "What is an OQTF and what to do if I receive one?",
+        "answer": "The OQTF is an administrative order to leave France. NEVER ignore it. Appeal: to the prefect (30 days) or administrative court. The appeal is suspensive. Contact a lawyer and the consulate immediately."
+      },
+      "perteDocuments": {
+        "question": "I lost my passport/residence permit, what do I do?",
+        "answer": "Report to the police station, then contact the consulate (passport) or prefecture/ANEF (residence permit). Always keep digital copies of your documents."
+      },
+      "travailEtudiant": {
+        "question": "I'm a student, how many hours can I work?",
+        "answer": "964 hours per year (about 20h/week, 60% of legal working time). No additional work permit needed — your student permit authorizes it."
+      },
+      "visaBinational": {
+        "question": "I'm a dual national, do I need a visa for Gabon?",
+        "answer": "No, with a valid Gabonese passport. With only a French passport, an e-Visa is required (evisa.dgdi.ga). The consulate can help with obtaining a Gabonese passport."
+      },
+      "arrestation": {
+        "question": "What to do in case of arrest?",
+        "answer": "Stay calm. Rights: know the reason, remain silent, have a lawyer, notify a relative, contact the consulate (Vienna Convention, art. 36). Police custody: 24h max (renewable once). Don't sign anything without understanding."
+      },
+      "changementStatut": {
+        "question": "How to switch from student to employee status?",
+        "answer": "Job related to your degree, salary ≥ 1.5x minimum wage (1x for shortage occupations). Employer requests work authorization, then status change at prefecture. Timeline: 2 to 4 months."
+      },
+      "aps": {
+        "question": "What is the APS and how to benefit from it?",
+        "answer": "The APS is a 12-month permit (non-renewable) for Master's degree holders. Allows job search or business creation related to degree. Apply before student permit expires."
+      }
+    }
+  },
+  "integration": {
+    "badge": "Integration Guide",
+    "heroTitle": "Integrate and",
+    "heroHighlight": "succeed in France",
+    "heroDescription": "Complete guide for Gabonese nationals living in France: your rights, procedures, cultural codes and practical tips for successful integration. The General Consulate of Gabon supports you.",
+    "savoirVivre": {
+      "badge": "Social customs",
+      "title": "Cultural Codes & Conventions",
+      "description": "Understanding French social codes to navigate society better. It's not giving up your culture, it's adding another one."
+    },
+    "guides": {
+      "badge": "Complete guides",
+      "title": "Your detailed procedures",
+      "description": "Click on each topic to discover detailed information, procedures and our practical tips."
+    },
+    "erreurs": {
+      "badge": "Must know",
+      "title": "Common mistakes to avoid",
+      "description": "These oversights can have serious consequences. Take them seriously to protect your rights."
+    },
+    "numeros": {
+      "badge": "Essential numbers",
+      "title": "Useful numbers to save",
+      "description": "Save these numbers in your phone. They can save lives."
+    },
+    "cta": {
+      "title": "The Consulate stands by you",
+      "description": "Whether you've just arrived or have been living here for years, the General Consulate of Gabon in France is your support. Don't hesitate to reach out with any questions.",
+      "contact": "Visit us"
     }
   },
   "services": {
@@ -168,6 +326,7 @@
     "nav": {
       "home": "Home",
       "news": "News",
+      "integration": "Integration",
       "consulates": "Consulates",
       "faq": "FAQ",
       "contact": "Contact",

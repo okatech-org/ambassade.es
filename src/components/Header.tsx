@@ -2,35 +2,28 @@ import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { useState } from 'react'
 import {
-  BadgeCheck,
   BookOpen,
   Building,
   Calendar,
-  CardSimIcon,
   Check,
   ChevronDown,
   FileText,
-  FolderCheck,
-  Globe,
-  HelpCircle,
+  HandHeart,
   Home,
-  LucideIcon,
   MapPin,
   Menu,
   Newspaper,
   Phone,
-  PlaneIcon,
   X,
 } from 'lucide-react'
 import { Button } from './ui/button'
-import { Separator } from './ui/separator'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
-import { ServiceCategory } from '@convex/lib/constants'
+import { ModeToggle } from './mode-toggle'
 
 const languages = [
   { code: 'fr', label: 'Français', flag: '🇫🇷' },
@@ -40,7 +33,6 @@ const languages = [
 export default function Header() {
   const { t, i18n } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
-  const [servicesExpanded, setServicesExpanded] = useState(false)
 
   const currentLanguage = languages.find(l => l.code === i18n.language) || languages[0]
 
@@ -50,53 +42,41 @@ export default function Header() {
 
   const navLinks = [
     { label: t('header.nav.home'), href: '/', icon: Home },
+    { label: t('header.nav.services'), href: '/services', icon: FileText },
+    { label: t('header.nav.vieFrance', 'Vie en France'), href: '/vie-en-france', icon: BookOpen },
+    { label: t('header.nav.integration', 'Intégration'), href: '/integration', icon: HandHeart },
     { label: t('header.nav.news'), href: '/actualites', icon: Newspaper },
     { label: t('header.nav.consulat', 'Le Consulat'), href: '/le-consulat', icon: Building },
     { label: t('header.nav.contact'), href: '/contact', icon: MapPin },
   ]
 
-  const iconsMaps: Record<ServiceCategory, LucideIcon> = {
-    [ServiceCategory.Identity]: CardSimIcon,
-    [ServiceCategory.Visa]: Globe,
-    [ServiceCategory.CivilStatus]: FileText,
-    [ServiceCategory.Registration]: BookOpen,
-    [ServiceCategory.Assistance]: HelpCircle,
-    [ServiceCategory.TravelDocument]: PlaneIcon,
-    [ServiceCategory.Other]: CardSimIcon,
-    [ServiceCategory.Certification]: BadgeCheck,
-    [ServiceCategory.Transcript]: FolderCheck,
-    
-  }
 
-  const serviceLinks = Object.values(ServiceCategory).map((category) => {
-    return {
-      label: t(`services.categoriesMap.${category}`),
-      href: `/services?category=${category}`,
-      icon: iconsMaps[category],
-    }
-  })
+
   return (
     <>
       <div className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar */}
-      <div className="bg-primary text-white text-sm hidden md:block">
+      <div className="bg-primary text-primary-foreground text-sm hidden md:block">
         <div className="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
           <div className="flex items-center gap-6">
-            <a href="tel:+33189719298" className="flex items-center gap-2 hover:text-white/80 transition-colors">
+            <a href="tel:+33751025292" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Phone className="w-4 h-4" />
-              +33 1 89 71 92 98
+              07 51 02 52 92
             </a>
-            <span className="text-white/50">|</span>
+            <span className="opacity-30">|</span>
             <span className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
               {t('header.hours')}
             </span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            {/* Theme Toggle — Top bar */}
+            <ModeToggle variant="header" />
+
             {/* Language Switcher Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="text-white hover:text-white/80 hover:bg-white/10 h-7 px-2">
+                <Button variant="ghost" size="sm" className="text-primary-foreground hover:text-primary-foreground/80 hover:bg-white/10 h-7 px-2">
                   <span className="mr-1">{currentLanguage.flag}</span>
                   {currentLanguage.code.toUpperCase()}
                   <ChevronDown className="w-3 h-3 ml-1" />
@@ -124,18 +104,18 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Main Header */}
-      <header className="bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
+      {/* Main Header — Glass effect */}
+      <header className="glass border-b border-border/40 overflow-visible">
         <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img 
-              src="/logo-gabon-consul.png" 
+              src="/sceau_gabon.png" 
               alt="Logo Consulat Gabon" 
-              className="h-10 w-auto rounded-sm bg-white" 
+              className="h-20 w-auto relative -my-5" 
             />
             <div className="hidden sm:block">
-              <div className="font-bold text-lg text-foreground leading-tight">Consulat Général</div>
+              <div className="font-bold text-lg text-foreground leading-tight tracking-tight">Consulat Général</div>
               <div className="text-xs text-muted-foreground">Gabon en France</div>
             </div>
           </Link>
@@ -150,52 +130,33 @@ export default function Header() {
                   asChild
                   variant="ghost"
                   size="sm"
-                  className="font-medium"
+                  className="font-medium rounded-full"
                 >
                   <Link
                     to={link.href}
                     activeProps={{
-                      className: 'bg-primary text-white hover:bg-primary/90 hover:text-white',
+                      className: 'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground',
                     }}
                   >
                     {link.label}
                   </Link>
                 </Button>
               ))}
-              
-              {/* Services Dropdown */}
-              <div className="relative group">
-                <Button variant="ghost" size="sm" className="font-medium">
-                  {t('header.nav.services')}
-                  <ChevronDown className="w-4 h-4 ml-1" />
-                </Button>
-                <div className="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                  <div className="bg-card rounded-xl shadow-xl border border-border p-2 min-w-max">
-                    {serviceLinks.map((link) => (
-                      <Link
-                        key={link.label}
-                        to={link.href}
-                        className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-secondary transition-colors"
-                      >
-                        <link.icon className="w-5 h-5 text-primary" />
-                        <span className="text-sm font-medium text-foreground">{link.label}</span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
             </nav>
 
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(true)}
-              className="lg:hidden"
-              aria-label={t('header.openMenu')}
-            >
-              <Menu className="w-6 h-6" />
-            </Button>
+            {/* Mobile: Theme + Menu */}
+            <div className="flex items-center gap-2 lg:hidden">
+              <ModeToggle variant="header" />
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsOpen(true)}
+                className="rounded-xl bg-secondary/50 border border-border/50"
+                aria-label={t('header.openMenu')}
+              >
+                <Menu className="w-5 h-5" />
+              </Button>
+            </div>
           </div>
         </div>
       </header>
@@ -204,7 +165,7 @@ export default function Header() {
       {/* Mobile Sidebar Overlay */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black/50 z-50 lg:hidden"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden"
           onClick={() => setIsOpen(false)}
         />
       )}
@@ -219,12 +180,12 @@ export default function Header() {
         <div className="flex items-center justify-between p-4 border-b border-border">
           <div className="flex items-center gap-3">
             <img 
-              src="/logo-gabon-consul.png" 
+              src="/sceau_gabon.png" 
               alt="Logo Consulat Gabon" 
-              className="h-10 w-auto rounded-lg bg-white" 
+              className="h-20 w-auto" 
             />
             <div>
-              <div className="font-bold text-foreground">Consulat.ga</div>
+              <div className="font-bold text-foreground tracking-tight">Consulat.ga</div>
               <div className="text-xs text-muted-foreground">{t('header.country')}</div>
             </div>
           </div>
@@ -232,9 +193,10 @@ export default function Header() {
             variant="ghost"
             size="icon"
             onClick={() => setIsOpen(false)}
+            className="rounded-full"
             aria-label={t('header.closeMenu')}
           >
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5" />
           </Button>
         </div>
 
@@ -247,7 +209,7 @@ export default function Header() {
                 variant={i18n.language === lang.code ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => changeLanguage(lang.code)}
-                className="flex-1"
+                className="flex-1 rounded-full"
               >
                 <span className="mr-1">{lang.flag}</span>
                 {lang.label}
@@ -263,57 +225,25 @@ export default function Header() {
               key={link.label}
               to={link.href}
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 p-3 rounded-xl hover:bg-secondary transition-colors mb-1"
+              className="flex items-center gap-3 p-3 rounded-full hover:bg-secondary transition-colors mb-1"
               activeProps={{
-                className: 'flex items-center gap-3 p-3 rounded-xl bg-primary text-white mb-1',
+                className: 'flex items-center gap-3 p-3 rounded-full bg-primary text-primary-foreground mb-1',
               }}
             >
               <link.icon className="w-5 h-5" />
-              <span className="font-medium">{link.label}</span>
+              <span className="font-medium text-sm">{link.label}</span>
             </Link>
           ))}
 
-          <Separator className="my-4" />
 
-          {/* Services Accordion */}
-          <div>
-            <button
-              onClick={() => setServicesExpanded(!servicesExpanded)}
-              className="flex items-center justify-between w-full p-3 rounded-xl hover:bg-secondary transition-colors"
-            >
-              <span className="flex items-center gap-3">
-                <FileText className="w-5 h-5" />
-                <span className="font-medium">{t('header.nav.services')}</span>
-              </span>
-              <ChevronDown className={`w-5 h-5 transition-transform ${servicesExpanded ? 'rotate-180' : ''}`} />
-            </button>
-            
-            {servicesExpanded && (
-              <div className="ml-4 mt-1 space-y-1">
-                {serviceLinks.map((link) => (
-                  <Link
-                    key={link.label}
-                    to={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-secondary transition-colors text-sm"
-                    activeProps={{
-                      className: 'flex items-center gap-3 p-3 rounded-xl bg-primary/10 text-primary text-sm',
-                    }}
-                  >
-                    <link.icon className="w-4 h-4" />
-                    <span>{link.label}</span>
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
         </nav>
 
         {/* Sidebar Footer */}
-        <div className="p-4 border-t border-border">
-          <p className="text-xs text-muted-foreground text-center">
+        <div className="p-4 border-t border-border flex items-center justify-between">
+          <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} Consulat.ga
           </p>
+          <ModeToggle />
         </div>
       </aside>
     </>

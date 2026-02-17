@@ -12,7 +12,6 @@ import { ServiceCategory } from '@convex/lib/validators'
 import {
   Clock,
   FileText,
-  Download,
   CheckCircle2,
   Users,
   BookOpenCheck,
@@ -20,7 +19,6 @@ import {
   BookOpen,
   FileCheck,
   ShieldAlert,
-  ExternalLink,
   type LucideIcon,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -89,6 +87,21 @@ export function ServiceDetailModal({
         </DialogHeader>
 
         <div className="space-y-6 mt-4">
+          {/* Warning for Passport/Visa */}
+          {([ServiceCategory.Identity, ServiceCategory.Visa, 'Identité', 'Visa'].includes(service.category as any)) && (
+            <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 flex items-start gap-3 text-sm">
+                <ShieldAlert className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-bold text-amber-700 dark:text-amber-500 mb-1">
+                    {t('services.passportVisaWarning.title', 'Information Importante')}
+                  </h4>
+                  <p className="text-muted-foreground">
+                    {t('services.passportVisaWarning.message', "Les services Passeport et Visa sont de l'autorité de l'Antenne DGDI. Veuillez noter que ce n'est pas le Consulat Général qui établit les Passeports et les Visas en France.")}
+                  </p>
+                </div>
+              </div>
+          )}
+
           {/* Description principale (moved from header) */}
           <div className="text-muted-foreground prose dark:prose-invert max-w-none">
             <ReactMarkdown>{service.description}</ReactMarkdown>
@@ -106,11 +119,7 @@ export function ServiceDetailModal({
                 {service.delay}
               </Badge>
             )}
-            {service.price && (
-              <Badge variant="outline" className="gap-1">
-                {service.price}
-              </Badge>
-            )}
+            {/* Price badge removed */}
           </div>
 
           {/* Detailed content (markdown) */}
@@ -172,34 +181,14 @@ export function ServiceDetailModal({
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-3">
-            {service.actionLink && (
-              <Button
-                variant="outline"
-                className="flex-1 gap-2"
-                asChild
-              >
-                <a href={service.actionLink} target="_blank" rel="noopener noreferrer">
-                  {service.actionLink.endsWith('.pdf') ? (
-                    <>
-                      <Download className="h-4 w-4" />
-                      {t('services.modal.downloadForm')}
-                    </>
-                  ) : (
-                    <>
-                      <ExternalLink className="h-4 w-4" />
-                      {t('services.modal.accessService', 'Accéder au service')}
-                    </>
-                  )}
-                </a>
-              </Button>
-            )}
             <Button 
-              className="flex-1 gap-2" 
-              disabled
-              title={t('services.modal.requestDisabled', 'Les demandes en ligne seront bientôt disponibles')}
+              className="flex-1 gap-2 w-full sm:w-auto" 
+              asChild
             >
-              <FileText className="h-4 w-4" />
-              {t('services.modal.createRequest')}
+              <a href="https://consulat.ga" target="_blank" rel="noopener noreferrer">
+                <FileText className="h-4 w-4" />
+                {t('services.modal.createRequest', 'Faire la demande')}
+              </a>
             </Button>
           </div>
 

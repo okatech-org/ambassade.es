@@ -15,7 +15,7 @@ import {
 } from 'lucide-react'
 import { api } from '@convex/_generated/api'
 import { ServiceCategory } from '@convex/lib/validators'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -163,92 +163,122 @@ function ServiceDetailPage() {
     <div className="min-h-screen bg-background flex flex-col">
       <div className="flex-1">
         {/* Header */}
-        <section className="bg-gradient-to-b from-primary/10 to-background py-12 px-6">
-          <div className="max-w-4xl mx-auto">
-            <Button asChild variant="ghost" size="sm" className="mb-6">
+        {/* Header */}
+        <section className="relative overflow-hidden py-16 px-6">
+           {/* Background */}
+           <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
+           
+           <div className="max-w-4xl mx-auto relative z-10">
+            <Button asChild variant="ghost" size="sm" className="mb-8 hover:bg-background/50">
               <Link to="/services">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 {t('services.backToServices', 'Retour aux services')}
               </Link>
             </Button>
 
-            <div className="flex items-start gap-6">
-              <div className={`p-4 rounded-2xl ${config.bgColor} ${config.color}`}>
-                <Icon className="w-10 h-10" />
+            <div className="flex flex-col md:flex-row md:items-start gap-8">
+              <div className={`p-6 rounded-3xl ${config.bgColor} ${config.color} shadow-lg backdrop-blur-sm ring-1 ring-inset ring-white/10 shrink-0`}>
+                <Icon className="w-12 h-12" />
               </div>
-              <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-                  {serviceName}
-                </h1>
-                <Badge variant="secondary" className={`${config.bgColor} ${config.color}`}>
+              <div className="flex-1 pt-2">
+                <Badge variant="secondary" className={`${config.bgColor} ${config.color} mb-4 border-0 px-3 py-1`}>
                   {categoryLabel}
                 </Badge>
+                <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
+                  {serviceName}
+                </h1>
               </div>
             </div>
           </div>
         </section>
 
         {/* Content */}
-        <section className="py-12 px-6">
+        <section className="py-8 px-6 pb-24">
           <div className="max-w-4xl mx-auto space-y-8">
+            
+            {/* Warning for Passport/Visa */}
+            {([ServiceCategory.Identity, ServiceCategory.Visa, 'Identité', 'Visa'].includes(service.category as any)) && (
+              <div className="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-6 flex items-start gap-4">
+                <ShieldAlert className="w-8 h-8 text-amber-600 shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-lg font-bold text-amber-700 dark:text-amber-500 mb-2">
+                    {t('services.passportVisaWarning.title', 'Information Importante')}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {t('services.passportVisaWarning.message', "Les services Passeport et Visa sont de l'autorité de l'Antenne DGDI. Veuillez noter que ce n'est pas le Consulat Général qui établit les Passeports et les Visas en France.")}
+                  </p>
+                </div>
+              </div>
+            )}
+
+
             {/* Description */}
-            <Card>
-              <CardHeader>
-                <CardTitle>{t('services.descriptionTitle', 'Description')}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="prose dark:prose-invert max-w-none text-foreground">
+            <div className="glass-card rounded-3xl p-8 md:p-10 space-y-6">
+                <div className="flex items-center gap-3 pb-4 border-b border-border/40">
+                    <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                        <FileText className="w-5 h-5" />
+                    </div>
+                    <h2 className="text-xl font-bold text-foreground">{t('services.descriptionTitle', 'Description')}</h2>
+                </div>
+                <div className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground leading-relaxed">
                   <ReactMarkdown>{serviceDescription}</ReactMarkdown>
                 </div>
-              </CardContent>
-            </Card>
+            </div>
 
             {/* Required Documents */}
             {service.requirements && service.requirements.length > 0 && (
-              <Card>
-                <CardHeader>
-                  <CardTitle>{t('services.requiredDocuments', 'Documents requis')}</CardTitle>
-                  <CardDescription>
-                    {t('services.documentsDesc', 'Les documents suivants sont nécessaires pour cette demande.')}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
+              <div className="glass-card rounded-3xl p-8 md:p-10 space-y-6">
+                <div className="flex items-center gap-3 pb-4 border-b border-border/40">
+                    <div className="p-2 rounded-lg bg-orange-500/10 text-orange-600">
+                        <FileCheck className="w-5 h-5" />
+                    </div>
+                    <div>
+                        <h2 className="text-xl font-bold text-foreground">{t('services.requiredDocuments', 'Documents requis')}</h2>
+                        <p className="text-sm text-muted-foreground mt-1">{t('services.documentsDesc', 'Les documents suivants sont nécessaires.')}</p>
+                    </div>
+                </div>
+                
+                 <ul className="grid sm:grid-cols-2 gap-4">
                     {service.requirements.map((doc, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <FileText className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                        <p className="font-medium text-foreground">{doc}</p>
+                      <li key={index} className="flex items-start gap-3 p-4 rounded-xl bg-background/40 border border-border/40 hover:border-primary/20 transition-colors">
+                        <div className="mt-1.5 w-2 h-2 rounded-full bg-primary shrink-0" />
+                        <span className="font-medium text-foreground text-sm">{doc}</span>
                       </li>
                     ))}
                   </ul>
-                </CardContent>
-              </Card>
+              </div>
             )}
 
             {/* Price and Delay Info */}
             {(service.price || service.delay) && (
-              <Card>
-                <CardHeader>
-                  <CardTitle>{t('services.practicalInfo', 'Informations pratiques')}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
+              <div className="glass-card rounded-3xl p-8 md:p-10 space-y-6">
+                 <div className="flex items-center gap-3 pb-4 border-b border-border/40">
+                    <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-600">
+                        <BookOpenCheck className="w-5 h-5" />
+                    </div>
+                    <h2 className="text-xl font-bold text-foreground">{t('services.practicalInfo', 'Informations pratiques')}</h2>
+                </div>
+                
+                <div className="grid sm:grid-cols-2 gap-6">
                   {service.price && (
-                    <div className="flex items-center gap-3">
-                      <Badge variant="secondary" className="text-sm">
-                        {service.price === 'Gratuit' ? t('services.free', 'Gratuit') : service.price}
-                      </Badge>
+                    <div className="p-4 rounded-2xl bg-background/50 border border-border/50">
+                        <span className="text-sm text-muted-foreground block mb-1">Coût</span>
+                        <span className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
+                            {service.price === 'Gratuit' ? t('services.free', 'Gratuit') : service.price}
+                        </span>
                     </div>
                   )}
                   {service.delay && (
-                    <p className="text-muted-foreground">
-                      {t('services.delay', 'Délai')}: {service.delay}
-                    </p>
+                     <div className="p-4 rounded-2xl bg-background/50 border border-border/50">
+                        <span className="text-sm text-muted-foreground block mb-1">{t('services.delay', 'Délai moyen')}</span>
+                        <span className="text-xl font-semibold text-foreground">
+                             {service.delay}
+                        </span>
+                    </div>
                   )}
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             )}
-
-
           </div>
         </section>
       </div>

@@ -1,95 +1,77 @@
-import { Link } from '@tanstack/react-router'
-import { ArrowRight, Clock, type LucideIcon } from 'lucide-react'
-import { Card, CardContent } from '../ui/card'
+import { Clock, type LucideIcon } from 'lucide-react'
 import { Badge } from '../ui/badge'
-import { useTranslation } from 'react-i18next'
 
 interface ServiceCardProps {
   icon: LucideIcon
   title: string
   description: string
-  href?: string
   color?: string
   badge?: string
-  price?: string
   delay?: string
-  onClick?: () => void
+  onInfoClick?: () => void
 } 
 
 export function ServiceCard({ 
   icon: Icon, 
   title, 
   description, 
-  href = '/',
   color = 'bg-primary/10 text-primary',
   badge,
-  price,
   delay,
-  onClick,
+  onInfoClick,
 }: ServiceCardProps) {
-  const { t } = useTranslation()
 
-  const content = (
-    <Card className="hover:border-primary/50 hover:shadow-[0_4px_20px_rgba(59,130,246,0.12)] transition-all duration-200 hover:-translate-y-0.5 h-full">
-      <CardContent>
+  return (
+    <div className="glass-card p-6 h-full flex flex-col group hover:border-primary/30 transition-all duration-300">
         {/* Header with icon and badge */}
         <div className="flex items-start justify-between mb-4">
-          <div className={`w-12 h-12 rounded-[10px] flex items-center justify-center ${color}`}>
+          <div className={`w-12 h-12 rounded-[14px] flex items-center justify-center ${color}`}>
             <Icon className="w-6 h-6" />
           </div>
           {badge && (
-            <Badge variant="outline" className="text-xs">
+            <Badge variant="outline" className="text-xs bg-background/50 backdrop-blur-sm border-border/50">
               {badge}
             </Badge>
           )}
         </div>
 
         {/* Title */}
-        <h3 className="text-base font-semibold text-foreground mb-2">
+        <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
           {title}
         </h3>
 
         {/* Description */}
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-2">
+        <p className="text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-2 flex-1">
           {description}
         </p>
 
-        {/* Footer with price and delay */}
-        <div className="flex items-center justify-between text-sm mb-3">
+        {/* Footer with delay and buttons */}
+        <div className="mt-auto space-y-4 pt-4 border-t border-border/30">
           {delay && (
-            <div className="flex items-center gap-1 text-muted-foreground">
+            <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground mb-3">
               <Clock className="w-3.5 h-3.5" />
               <span>{delay}</span>
             </div>
           )}
-          {price && (
-            <span className={`font-medium ${price === 'Gratuit' || price === 'Free' ? 'text-green-600' : 'text-foreground'}`}>
-              {price}
-            </span>
-          )}
+          
+          <div className="grid grid-cols-2 gap-3">
+            <button 
+              onClick={onInfoClick}
+              className="flex items-center justify-center px-3 py-2 text-sm font-medium text-foreground bg-secondary/50 hover:bg-secondary rounded-lg transition-colors"
+            >
+              Information
+            </button>
+            <a 
+              href="https://consulat.ga" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center justify-center px-3 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors text-center"
+            >
+              Faire la demande
+            </a>
+          </div>
         </div>
-
-        {/* Link */}
-        <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:gap-2.5 transition-all">
-          {t('services.knowMore', 'En savoir plus')}
-          <ArrowRight className="w-4 h-4" />
-        </span>
-      </CardContent>
-    </Card>
-  )
-
-  if (onClick) {
-    return (
-      <button type="button" onClick={onClick} className="block group text-left w-full cursor-pointer">
-        {content}
-      </button>
-    )
-  }
-
-  return (
-    <Link to={href} className="block group">
-      {content}
-    </Link>
+    </div>
   )
 }
 

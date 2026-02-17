@@ -1,105 +1,165 @@
 import { useTranslation } from 'react-i18next'
 import {
   CheckCircle2,
-  Shield,
-  Bell,
-  Vote,
-  ExternalLink,
+  PhoneOff,
+  FileDigit,
+  MessageCircle,
+  ArrowRight,
+  Zap,
+  Smartphone,
+  ShieldCheck,
+  Bot,
+  Clock,
+  Sparkles,
 } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Badge } from '../ui/badge'
-import { Card, CardContent } from '../ui/card'
 
 export function CitizenCTA() {
   const { t } = useTranslation()
 
-  const benefits = [
+  const advantages = [
     {
-      icon: Shield,
-      title: t('citizenCta.benefits.protection.title', 'Protection consulaire'),
-      description: t('citizenCta.benefits.protection.description', 'Bénéficiez de l\'assistance en cas de difficulté'),
+      icon: PhoneOff,
+      title: t('citizenCta.advantages.noWait.title', 'Plus d\'attente téléphonique'),
+      description: t('citizenCta.advantages.noWait.desc', 'Posez vos questions en ligne, réponses immédiates.'),
     },
     {
-      icon: CheckCircle2,
-      title: t('citizenCta.benefits.documents.title', 'Renouvellement facilité'),
-      description: t('citizenCta.benefits.documents.description', 'Simplifiez vos démarches de documents'),
+      icon: FileDigit,
+      title: t('citizenCta.advantages.digital.title', 'Démarches 100% digitalisées'),
+      description: t('citizenCta.advantages.digital.desc', 'De la demande au suivi, tout se fait en ligne.'),
     },
     {
-      icon: Bell,
-      title: t('citizenCta.benefits.info.title', 'Informations officielles'),
-      description: t('citizenCta.benefits.info.description', 'Recevez les communications du consulat'),
+      icon: MessageCircle,
+      title: t('citizenCta.advantages.fast.title', 'Réponses rapides à vos questions'),
+      description: t('citizenCta.advantages.fast.desc', 'Assistant IA disponible pour toutes vos questions.'),
     },
     {
-      icon: Vote,
-      title: t('citizenCta.benefits.vote.title', 'Participation électorale'),
-      description: t('citizenCta.benefits.vote.description', 'Exercez votre droit de vote depuis la France'),
+      icon: Clock,
+      title: t('citizenCta.advantages.available.title', 'Disponible 24h/24, 7j/7'),
+      description: t('citizenCta.advantages.available.desc', 'Accès à tout moment, tous fuseaux horaires.'),
     },
   ]
 
-  return (
-    <section className="py-20 px-6 bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div>
-            <Badge variant="secondary" className="mb-4 bg-primary/20 text-primary">
-              {t('citizenCta.badge', 'Inscription Consulaire')}
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              {t('citizenCta.title', 'Inscrivez-vous au Registre Consulaire')}
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              {t('citizenCta.description', 'L\'inscription au registre des Gabonais de l\'étranger vous permet de bénéficier de la protection consulaire et facilite vos démarches administratives. Cette procédure s\'effectue en ligne sur le portail officiel.')}
-            </p>
+  const trustIndicators = [
+    { icon: Zap, label: t('citizenCta.trust.fast', 'Inscription en 2 minutes') },
+    { icon: Smartphone, label: t('citizenCta.trust.online', '100% sur mobile') },
+    { icon: ShieldCheck, label: t('citizenCta.trust.secure', 'Sécurisé & confidentiel') },
+  ]
 
-            {/* Benefits Grid */}
-            <div className="grid sm:grid-cols-2 gap-4 mb-8">
-              {benefits.map((benefit) => (
-                <div key={benefit.title} className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-primary/10 text-primary shrink-0">
-                    <benefit.icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground text-sm">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {benefit.description}
-                    </p>
-                  </div>
+  return (
+    <section className="py-24 px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Main CTA Card */}
+        <div className="relative overflow-hidden rounded-3xl glass-card border-border/50">
+          {/* Decorative glow orbs */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-digitalium-blue/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 animate-float" />
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-digitalium-violet/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 animate-float" style={{ animationDelay: '1.5s' }} />
+
+          <div className="relative grid lg:grid-cols-2 gap-0 items-stretch">
+            {/* Image Side */}
+            <div className="relative min-h-[300px] lg:min-h-[500px] overflow-hidden">
+              <img
+                src="/banner-gabon-france.jpeg"
+                alt="Application Consulat.ga"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/80 hidden lg:block" />
+              <div className="absolute inset-0 bg-gradient-to-t from-card/90 to-transparent lg:hidden" />
+              
+              {/* Floating AI badge on image */}
+              <div className="absolute bottom-6 left-6 lg:bottom-auto lg:top-8 lg:left-8 z-10">
+                <div className="inline-flex items-center gap-2 py-2.5 px-4 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white text-sm font-medium">
+                  <Bot className="w-4 h-4 text-primary" />
+                  Propulsé par l'IA
+                  <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
                 </div>
-              ))}
+              </div>
             </div>
 
-            {/* CTA Button */}
-            <Button asChild size="lg" className="h-12 px-6 rounded-xl shadow-lg shadow-primary/20">
-              <a href="https://www.consulat.ga/sign-up" target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="w-5 h-5 mr-2" />
-                {t('citizenCta.cta', 'S\'inscrire sur consulat.ga')}
-              </a>
-            </Button>
-          </div>
+            {/* Content Side */}
+            <div className="relative p-8 md:p-12 lg:p-14 flex flex-col items-center justify-center text-center">
+              <Badge className="mb-6 w-fit bg-primary/10 text-primary border-primary/20 backdrop-blur-sm">
+                {t('citizenCta.badge', 'Application Consulat.ga')}
+              </Badge>
 
-          {/* Illustration Card */}
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-3xl" />
-            <Card className="relative p-8 shadow-2xl rounded-3xl">
-              <CardContent className="p-0 text-center">
-                <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Shield className="w-10 h-10 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-2">
-                  {t('citizenCta.cardTitle', 'Carte Consulaire')}
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  {t('citizenCta.cardDescription', 'Document officiel attestant de votre immatriculation auprès du Consulat Général du Gabon en France.')}
-                </p>
-                <div className="flex items-center justify-center gap-2 text-sm text-primary font-medium">
-                  <CheckCircle2 className="w-4 h-4" />
-                  {t('citizenCta.cardNote', 'Démarche gratuite')}
-                </div>
-              </CardContent>
-            </Card>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight whitespace-nowrap">
+                {t('citizenCta.titlePart1', 'Votre consulat,')}{' '}
+                <span className="text-gradient">
+                  {t('citizenCta.titleHighlight', 'dans votre poche')}
+                </span>
+              </h2>
+
+              <p className="text-muted-foreground text-base mb-8 leading-relaxed">
+                {t(
+                  'citizenCta.description',
+                  "Vos démarches consulaires simplifiées : assistant IA, suivi en temps réel, zéro déplacement."
+                )}
+              </p>
+
+              {/* Advantages Grid */}
+              <div className="grid sm:grid-cols-2 gap-4 mb-8 w-full" style={{ transform: 'scaleX(1.15)', transformOrigin: 'center' }}>
+                {advantages.map((advantage) => (
+                  <div
+                    key={advantage.title}
+                    className="flex items-start gap-3 p-3 rounded-xl bg-primary/5 border border-primary/10 text-left"
+                  >
+                    <div className="p-2 rounded-lg bg-primary/10 shrink-0">
+                      <advantage.icon className="w-4 h-4 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">{advantage.title}</p>
+                      <p className="text-xs text-muted-foreground/80 mt-0.5 leading-relaxed">{advantage.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex items-center justify-center gap-4 mb-8">
+                <Button
+                  asChild
+                  size="lg"
+                  className="h-14 px-8 rounded-xl shadow-lg shadow-primary/20 bg-gradient-to-r from-digitalium-blue to-digitalium-violet hover:opacity-90 transition-all text-base"
+                >
+                  <a
+                    href="https://www.consulat.ga/sign-up"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    🚀{' '}
+                    {t('citizenCta.cta', 'Créer mon compte gratuit')}
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
+                </Button>
+
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="h-14 px-8 rounded-xl text-base border-border/50 hover:bg-accent/10"
+                >
+                  <a
+                    href="https://www.consulat.ga"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Smartphone className="w-4 h-4 mr-2" />
+                    {t('citizenCta.ctaSecondary', 'Découvrir l\'app')}
+                  </a>
+                </Button>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+                {trustIndicators.map((item) => (
+                  <span key={item.label} className="flex items-center gap-1.5 text-xs text-muted-foreground/70">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                    {item.label}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

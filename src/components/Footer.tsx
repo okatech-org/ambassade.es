@@ -1,180 +1,118 @@
 import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
-import {
-  Mail,
-  MapPin,
-  Phone,
-} from 'lucide-react'
-import { Button } from './ui/button'
-import { Separator } from './ui/separator'
 import { ModeToggle } from './mode-toggle'
-import { ServiceCategory } from '@convex/lib/constants'
 
-// Custom TikTok icon since lucide-react doesn't have it
-const TikTokIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-  </svg>
-)
-
-const socialLinks = [
-  { icon: TikTokIcon, href: 'https://www.tiktok.com/@consulatdugabon.fr', label: 'TikTok' },
-]
-
-export function Footer() {
+export default function Footer() {
   const { t } = useTranslation()
-  const currentYear = new Date().getFullYear()
+  const year = new Date().getFullYear()
 
-  const quickLinks = Object.values(ServiceCategory).slice(0, 6).map((category) => ({
-    label: t(`services.categoriesMap.${category}`),
-    href: `/services?category=${category}`,
-  }))
-
-  const resourceLinks = [
-    { label: t('footer.links.faq', 'FAQ'), href: '/faq' },
-    { label: t('footer.links.news', 'Actualités'), href: '/actualites' },
-    { label: t('footer.links.contact', 'Contact'), href: '/contact' },
-  ]
-
-  const legalLinks = [
-    { label: t('footer.links.legal'), href: '/mentions-legales' },
-    { label: t('footer.links.privacy'), href: '/confidentialite' },
-    { label: t('footer.links.accessibility'), href: '/accessibilite' },
-    { label: t('footer.links.sitemap'), href: '/plan-du-site' },
+  const navLinks = [
+    { label: t('header.nav.home'), href: '/' },
+    { label: t('header.nav.services', 'Services'), href: '/services' },
+    { label: t('header.nav.vieFrance', 'Vie en France'), href: '/vie-en-france' },
+    { label: t('header.nav.integration', 'Intégration'), href: '/integration' },
+    { label: t('header.nav.news', 'Actualités'), href: '/actualites' },
+    { label: t('header.nav.contact', 'Contact'), href: '/contact' },
   ]
 
   return (
-    <footer className="bg-muted/30 border-t border-border/40">
-      {/* Main Footer */}
+    <footer className="border-t border-border bg-card/50">
       <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Brand Column */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              {/* Gabonese Emblem Placeholder */}
-              <img 
-                src="/logo-gabon-consul.png" 
-                alt="Logo Consulat Gabon" 
-                className="h-10 w-auto rounded-sm bg-white" 
-              />
-              <div>
-                <div className="font-bold text-lg text-foreground">{t('footer.brand.name')}</div>
-                <div className="text-sm text-muted-foreground">{t('footer.brand.country')}</div>
+        <div className="flex flex-col md:flex-row items-start justify-between gap-8">
+          {/* Brand */}
+          <div className="flex items-center gap-3">
+            <img
+              src="/sceau_gabon.png"
+              alt="Logo Consulat Gabon"
+              className="h-20 w-auto rounded-sm bg-white"
+            />
+            <div>
+              <div className="font-bold text-foreground tracking-tight">
+                {t('footer.brand.name', 'Consulat.ga')}
               </div>
-            </div>
-            
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
-              {t('footer.brand.description')}
-            </p>
-
-            {/* Social Links */}
-             <div className="flex items-center gap-2">
-              {socialLinks.map((social) => (
-                <Button
-                  key={social.label}
-                  asChild
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full hover:bg-primary/10 hover:text-primary text-muted-foreground w-8 h-8"
-                >
-                  <a
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="w-4 h-4" />
-                  </a>
-                </Button>
-              ))}
-            </div>
-
-            <div className="space-y-2 text-sm text-muted-foreground pt-4">
-               <p className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4" />
-                  26 bis Avenue Raphaël, 75016 Paris
-               </p>
-               <p className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  <a href="tel:+33189719298" className="hover:text-primary">+33 1 89 71 92 98</a>
-               </p>
-               <p className="flex items-center gap-2">
-                  <Mail className="w-4 h-4" />
-                  <a href="mailto:contact@consulatdugabon.fr" className="hover:text-primary">contact@consulatdugabon.fr</a>
-               </p>
+              <div className="text-xs text-muted-foreground">
+                {t('footer.brand.country', 'République Gabonaise')}
+              </div>
             </div>
           </div>
 
-          {/* Links Column */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
-            <div>
-               <h3 className="font-semibold text-foreground mb-4">{t('footer.services')}</h3>
-               <ul className="space-y-2">
-                 {quickLinks.map((link) => (
-                   <li key={link.label}>
-                     <Link
-                       to={link.href}
-                       className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                     >
-                       {link.label}
-                     </Link>
-                   </li>
-                 ))}
-               </ul>
-            </div>
-            
-            <div>
-               <h3 className="font-semibold text-foreground mb-4">{t('footer.resources')}</h3>
-               <ul className="space-y-2">
-                 {resourceLinks.map((link) => (
-                   <li key={link.label}>
-                     <Link
-                       to={link.href}
-                       className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                     >
-                       {link.label}
-                     </Link>
-                   </li>
-                 ))}
-               </ul>
-            </div>
+          {/* Nav Links */}
+          <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
 
-             <div>
-               <h3 className="font-semibold text-foreground mb-4">Légal</h3>
-               <ul className="space-y-2">
-                 {legalLinks.map((link) => (
-                   <li key={link.label}>
-                     <Link
-                       to={link.href}
-                       className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                     >
-                       {link.label}
-                     </Link>
-                   </li>
-                 ))}
-               </ul>
-            </div>
+          {/* Social Icons */}
+          <div className="flex items-center gap-4">
+            <a
+              href="https://x.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="X (Twitter)"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Facebook"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="YouTube"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <Separator className="bg-border/40" />
-      <div className="max-w-7xl mx-auto px-6 py-6">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted-foreground/60 text-xs text-center md:text-left">
-            {t('footer.copyright', { year: currentYear })}
+      <div className="border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-muted-foreground">
+            © {year} Consulat.ga — Tous droits réservés
           </p>
-          <div className="flex items-center gap-4">
-             <ModeToggle />
-             <p className="text-muted-foreground/40 text-xs text-center md:text-left">
-              v1.0.0
-             </p>
+          <div className="flex items-center gap-4 text-xs text-muted-foreground">
+            <Link to="/mentions-legales" className="hover:text-foreground transition-colors">
+              {t('footer.links.legal', 'Mentions Légales')}
+            </Link>
+            <span>·</span>
+            <Link to="/politique-confidentialite" className="hover:text-foreground transition-colors">
+              {t('footer.links.privacy', 'Politique de Confidentialité')}
+            </Link>
+            <span>·</span>
+            <Link to="/accessibilite" className="hover:text-foreground transition-colors">
+              {t('footer.links.accessibility', 'Accessibilité')}
+            </Link>
+          </div>
+          <div className="flex items-center gap-2">
+            <ModeToggle />
+            <span className="text-xs text-muted-foreground">v1.0.0</span>
           </div>
         </div>
       </div>
     </footer>
   )
 }
-
-export default Footer

@@ -110,45 +110,50 @@ function ActualiteDetailPage() {
     <div className="min-h-screen bg-background flex flex-col">
       <div className="flex-1">
         {/* Hero Header */}
-        <header className="bg-gradient-to-b from-muted/50 to-background pt-8 pb-12 px-6">
-          <div className="max-w-4xl mx-auto">
-            {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-              <Link to="/" className="hover:text-foreground">Accueil</Link>
-              <span>/</span>
-              <Link to="/actualites" className="hover:text-foreground">Actualités</Link>
-              <span>/</span>
-              <span className={config.color}>{config.label}</span>
-            </nav>
-            
-            {/* Back button */}
-            <Button asChild variant="ghost" size="sm" className="mb-6 -ml-2">
-              <Link to="/actualites">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                {t('news.backToList', 'Retour aux actualités')}
-              </Link>
-            </Button>
+        {/* Hero Header */}
+        <header className="relative overflow-hidden py-16 px-6">
+           <div className="absolute inset-0 bg-background" />
+           <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
+           
+           <div className="max-w-4xl mx-auto relative z-10">
+            {/* Navigation */}
+            <div className="flex flex-col-reverse md:flex-row md:items-center justify-between gap-4 mb-8">
+                <Button asChild variant="ghost" size="sm" className="hover:bg-background/50 -ml-3 w-fit">
+                    <Link to="/actualites">
+                        <ArrowLeft className="w-4 h-4 mr-2" />
+                        {t('news.backToList', 'Retour aux actualités')}
+                    </Link>
+                </Button>
 
-            {/* Category Badge */}
-            <Badge className={`mb-4 ${config.bgColor} ${config.color} border-0`}>
-              {config.label}
-            </Badge>
+                <nav className="flex items-center gap-2 text-sm text-muted-foreground/80">
+                    <Link to="/" className="hover:text-primary transition-colors">Accueil</Link>
+                    <span>/</span>
+                    <Link to="/actualites" className="hover:text-primary transition-colors">Actualités</Link>
+                    <span>/</span>
+                    <span className={`font-medium ${config.color.replace('text-', 'text-opacity-80 ')}`}>{config.label}</span>
+                </nav>
+            </div>
 
-            {/* Title */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
-              {post.title}
-            </h1>
+            {/* Title & Meta */}
+            <div className="space-y-6">
+                <Badge className={`px-3 py-1 text-sm ${config.bgColor} ${config.color} border-0 shadow-sm`}>
+                    {config.label}
+                </Badge>
 
-            {/* Meta info */}
-            <div className="flex flex-wrap items-center gap-4 text-muted-foreground">
-              <time className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                {formatDate(post.publishedAt)}
-              </time>
-              <span className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
-                {readingTime} min de lecture
-              </span>
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight">
+                    {post.title}
+                </h1>
+
+                <div className="flex flex-wrap items-center gap-6 text-muted-foreground font-medium border-t border-border/40 pt-6">
+                    <time className="flex items-center gap-2 bg-background/50 px-3 py-1.5 rounded-full border border-border/50">
+                        <Calendar className="w-4 h-4 text-primary" />
+                        {formatDate(post.publishedAt)}
+                    </time>
+                    <span className="flex items-center gap-2 bg-background/50 px-3 py-1.5 rounded-full border border-border/50">
+                        <Clock className="w-4 h-4 text-primary" />
+                        {readingTime} min de lecture
+                    </span>
+                </div>
             </div>
           </div>
         </header>

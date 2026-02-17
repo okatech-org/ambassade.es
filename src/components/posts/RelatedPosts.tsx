@@ -2,7 +2,6 @@ import { Link } from '@tanstack/react-router'
 import { useQuery } from 'convex/react'
 import { Calendar, ArrowRight } from 'lucide-react'
 import { api } from '@convex/_generated/api'
-import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 
 const categoryConfig: Record<string, { label: string; color: string }> = {
@@ -58,36 +57,38 @@ export function RelatedPosts({ currentSlug, category }: RelatedPostsProps) {
                 key={post._id}
                 to="/actualites/$slug"
                 params={{ slug: post.slug }}
-                className="group"
+                className="group glass-card rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-300 block h-full flex flex-col"
               >
-                <Card className="h-full overflow-hidden hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1">
-                  {/* Cover Image or Placeholder */}
-                  {post.coverImage ? (
+                {/* Cover Image or Placeholder */}
+                <div className="h-44 relative bg-muted overflow-hidden">
+                    {post.coverImage ? (
                     <img 
-                      src={post.coverImage} 
-                      alt={post.title}
-                      className="w-full h-40 object-cover"
+                        src={post.coverImage} 
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                  ) : (
-                    <div className="h-40 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
-                      <Calendar className="w-10 h-10 text-primary/20" />
+                    ) : (
+                    <div className="h-full w-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                        <Calendar className="w-12 h-12 text-primary/30" />
                     </div>
-                  )}
-                  
-                  <CardContent className="p-4">
-                    <Badge className={`mb-2 ${config.color} border-0`}>
-                      {config.label}
-                    </Badge>
-                    
-                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2">
-                      {post.title}
+                    )}
+                    <div className="absolute top-3 left-3">
+                        <Badge className={`${config.color} border-0 backdrop-blur-md shadow-sm`}>
+                            {config.label}
+                        </Badge>
+                    </div>
+                </div>
+                
+                <div className="p-5 flex flex-col flex-1">
+                    <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-3">
+                        {post.title}
                     </h3>
                     
-                    <p className="text-xs text-muted-foreground">
-                      {formatDate(post.publishedAt)}
-                    </p>
-                  </CardContent>
-                </Card>
+                    <div className="mt-auto flex items-center text-xs text-muted-foreground font-medium pt-3 border-t border-border/30">
+                        <Calendar className="w-3.5 h-3.5 mr-1.5 text-primary" />
+                        {formatDate(post.publishedAt)}
+                    </div>
+                </div>
               </Link>
             )
           })}

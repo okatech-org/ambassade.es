@@ -5,82 +5,111 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ─────────── 🎨 DIGITALIUM DESIGN TOKENS — Light Theme ─────────── */
 :root {
-    /* Gabonese Government Colors */
+    /* Gabonese Government Colors (brand accents) */
     --gabon-green: oklch(0.55 0.18 145);
     --gabon-yellow: oklch(0.85 0.16 90);
     --gabon-blue: oklch(0.50 0.18 255);
     
-    --background: oklch(0.99 0.005 255);
-    --foreground: oklch(0.20 0.02 255);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.20 0.02 255);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.20 0.02 255);
-    --primary: oklch(0.50 0.18 255);
-    --primary-foreground: oklch(0.99 0 0);
-    --secondary: oklch(0.96 0.01 255);
-    --secondary-foreground: oklch(0.25 0.02 255);
-    --muted: oklch(0.96 0.01 255);
-    --muted-foreground: oklch(0.50 0.03 255);
-    --accent: oklch(0.55 0.18 145);
-    --accent-foreground: oklch(0.99 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.90 0.02 255);
-    --input: oklch(0.90 0.02 255);
-    --ring: oklch(0.50 0.18 255);
-    --chart-1: oklch(0.50 0.18 255);
-    --chart-2: oklch(0.55 0.18 145);
-    --chart-3: oklch(0.85 0.16 90);
-    --chart-4: oklch(0.60 0.15 255);
-    --chart-5: oklch(0.40 0.14 255);
+    /* Core Semantic Tokens — Light */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 263 70% 50.4%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217 91% 60%;
+    --chart-1: 217 91% 60%;
+    --chart-2: 263 70% 50.4%;
+    --chart-3: 160 60% 45%;
+    --chart-4: 43 96% 56%;
+    --chart-5: 0 84% 60%;
     --radius: 0.75rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.20 0.02 255);
-    --sidebar-primary: oklch(0.50 0.18 255);
-    --sidebar-primary-foreground: oklch(0.99 0 0);
-    --sidebar-accent: oklch(0.96 0.01 255);
-    --sidebar-accent-foreground: oklch(0.25 0.02 255);
-    --sidebar-border: oklch(0.90 0.02 255);
-    --sidebar-ring: oklch(0.50 0.18 255);
+    --sidebar: 0 0% 98.5%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 40% 96.1%;
+    --sidebar-accent-foreground: 222.2 47.4% 11.2%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 217 91% 60%;
+
+    /* Layout & Glass Tokens — Light */
+    --layout-bg: #fcfcfc;
+    --glass-bg: rgba(255,255,255,0.95);
+    --glass-bg-hover: #f4f4f5;
+    --glass-border: #e4e4e7;
+    --glass-border-hover: #d4d4d8;
+    --glass-subtle: #f4f4f5;
+    --glass-panel-bg: #ffffff;
+    --glass-panel-border: #e4e4e7;
+    --shimmer-color: rgba(0,0,0,0.04);
+    --grid-line: #f4f4f5;
 }
 
+/* ─────────── 🌙 DIGITALIUM DESIGN TOKENS — Dark Theme ─────────── */
 .dark {
-    --background: oklch(0.15 0.02 255);
-    --foreground: oklch(0.96 0.01 255);
-    --card: oklch(0.20 0.02 255);
-    --card-foreground: oklch(0.96 0.01 255);
-    --popover: oklch(0.20 0.02 255);
-    --popover-foreground: oklch(0.96 0.01 255);
-    --primary: oklch(0.55 0.16 255);
-    --primary-foreground: oklch(0.99 0 0);
-    --secondary: oklch(0.25 0.02 255);
-    --secondary-foreground: oklch(0.96 0.01 255);
-    --muted: oklch(0.25 0.02 255);
-    --muted-foreground: oklch(0.65 0.03 255);
-    --accent: oklch(0.50 0.16 145);
-    --accent-foreground: oklch(0.99 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 12%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.55 0.16 255);
-    --chart-1: oklch(0.55 0.16 255);
-    --chart-2: oklch(0.50 0.16 145);
-    --chart-3: oklch(0.80 0.14 90);
-    --chart-4: oklch(0.65 0.13 255);
-    --chart-5: oklch(0.45 0.12 255);
-    --sidebar: oklch(0.18 0.02 255);
-    --sidebar-foreground: oklch(0.96 0.01 255);
-    --sidebar-primary: oklch(0.55 0.16 255);
-    --sidebar-primary-foreground: oklch(0.99 0 0);
-    --sidebar-accent: oklch(0.25 0.02 255);
-    --sidebar-accent-foreground: oklch(0.96 0.01 255);
-    --sidebar-border: oklch(1 0 0 / 12%);
-    --sidebar-ring: oklch(0.55 0.16 255);
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 213 31% 91%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+    --accent: 263 70% 50.4%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --ring: 263 70% 50.4%;
+    --chart-1: 217 91% 60%;
+    --chart-2: 263 70% 50.4%;
+    --chart-3: 160 60% 45%;
+    --chart-4: 43 96% 56%;
+    --chart-5: 0 84% 60%;
+    --sidebar: 224 71% 6%;
+    --sidebar-foreground: 213 31% 91%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 222 47% 11%;
+    --sidebar-accent-foreground: 213 31% 91%;
+    --sidebar-border: 216 34% 17%;
+    --sidebar-ring: 263 70% 50.4%;
+
+    /* Layout & Glass Tokens — Dark */
+    --layout-bg: #09090b;
+    --glass-bg: #18181b;
+    --glass-bg-hover: #27272a;
+    --glass-border: #27272a;
+    --glass-border-hover: #3f3f46;
+    --glass-subtle: #18181b;
+    --glass-panel-bg: #0c0c0e;
+    --glass-panel-border: #27272a;
+    --shimmer-color: rgba(255,255,255,0.05);
+    --grid-line: #18181b;
 }
 
 @theme inline {
-    --font-sans: 'Inter Variable', sans-serif;
+    --font-sans: 'Inter Variable', system-ui, sans-serif;
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -119,6 +148,20 @@
     --radius-2xl: calc(var(--radius) + 8px);
     --radius-3xl: calc(var(--radius) + 12px);
     --radius-4xl: calc(var(--radius) + 16px);
+
+    /* Digitalium Brand Colors */
+    --color-digitalium-blue: #3B82F6;
+    --color-digitalium-violet: #8B5CF6;
+    --color-digitalium-blue-light: #60A5FA;
+    --color-digitalium-violet-light: #A78BFA;
+    --color-digitalium-blue-dark: #2563EB;
+    --color-digitalium-violet-dark: #7C3AED;
+
+    /* Animation Keyframes */
+    --animate-gradient-shift: gradient-shift 6s ease infinite;
+    --animate-float: float 3s ease-in-out infinite;
+    --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+    --animate-shimmer: shimmer 2s linear infinite;
 }
 
 @layer base {
@@ -126,7 +169,7 @@
     @apply border-border outline-ring/50;
     }
   body {
-    @apply font-sans bg-background text-foreground;
+    @apply font-sans bg-background text-foreground antialiased;
     }
   html {
     @apply font-sans;
@@ -144,7 +187,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--primary);
+    background: hsl(var(--primary));
     border-radius: 9999px;
     opacity: 0.7;
   }
@@ -156,6 +199,144 @@
   /* Firefox */
   * {
     scrollbar-width: thin;
-    scrollbar-color: var(--primary) transparent;
+    scrollbar-color: hsl(var(--primary)) transparent;
   }
+}
+
+/* ─────────── 🔮 GLASS EFFECTS ─────────── */
+
+/* .glass — Navbar & Badges (flat glass — opaque, no blur) */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(0px);
+  border: 1px solid var(--glass-border);
+  box-shadow: none !important;
+}
+
+/* .glass-card — Content cards with hover */
+.glass-card {
+  background: var(--glass-panel-bg);
+  border: 1px solid var(--glass-panel-border);
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+  box-shadow: none !important;
+}
+.glass-card:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+}
+
+/* .glass-panel — Detached panels (sidebar, main) */
+.glass-panel {
+  background: var(--glass-panel-bg);
+  border: 1px solid var(--glass-panel-border);
+  box-shadow: none !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+}
+
+/* .glass-section — Section backgrounds */
+.glass-section {
+  background: var(--glass-subtle);
+  backdrop-filter: blur(8px);
+}
+
+/* .glow — Hover border effect */
+.glow {
+  box-shadow: none !important;
+  border: 1px solid var(--glass-border);
+  transition: border-color 0.3s ease;
+}
+.glow:hover {
+  border-color: var(--glass-border-hover);
+}
+
+/* ─────────── ✨ GRADIENT TEXT ─────────── */
+.text-gradient {
+  background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #3B82F6 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 6s ease infinite;
+}
+
+.gradient-text-accent {
+  background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* .gradient-border — Animated gradient border */
+.gradient-border {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+/* ─────────── 🌊 SHIMMER LOADING ─────────── */
+.shimmer {
+  background: linear-gradient(90deg, transparent 0%, var(--shimmer-color) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* ─────────── 📐 CORTEX GRID PATTERN ─────────── */
+.cortex-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ─────────── 🏛️ DGDI SERVICE BANNER ─────────── */
+.dgdi-banner {
+  background: linear-gradient(145deg, #1a0e05 0%, #0d0704 40%, #120a03 100%);
+  box-shadow:
+    0 0 0 1px rgba(249, 115, 22, 0.08),
+    0 4px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(249, 115, 22, 0.06);
+}
+
+.dgdi-schedule-card {
+  backdrop-filter: blur(8px);
+}
+.dgdi-schedule-card:hover {
+  background: rgba(249, 115, 22, 0.08);
+  transform: translateY(-1px);
+}
+
+/* ─────────── 🎞️ KEYFRAME ANIMATIONS ─────────── */
+@keyframes gradient-shift {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(139, 92, 246, 0.4); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }

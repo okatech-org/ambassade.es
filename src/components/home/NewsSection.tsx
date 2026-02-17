@@ -3,23 +3,25 @@ import { useTranslation } from 'react-i18next'
 import { useQuery } from 'convex/react'
 import { Calendar, ArrowRight } from 'lucide-react'
 import { api } from '@convex/_generated/api'
-import { Card, CardContent } from '../ui/card'
 import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
 import { Skeleton } from '../ui/skeleton'
 
-const categoryConfig: Record<string, { label: string; color: string }> = {
+const categoryConfig: Record<string, { label: string; color: string; fallbackImage: string }> = {
   communique: {
     label: 'Communiqué',
     color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300',
+    fallbackImage: '/images/heroes/hero-consulat.png',
   },
   evenement: {
     label: 'Événement',
     color: 'bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300',
+    fallbackImage: '/images/heroes/hero-integration.png',
   },
   actualite: {
     label: 'Actualité',
     color: 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300',
+    fallbackImage: '/images/heroes/hero-services.png',
   },
 }
 
@@ -72,17 +74,27 @@ export function NewsSection() {
   const secondaryPosts = posts?.page.slice(1) || []
 
   return (
-    <section className="py-16 px-6 bg-background">
+    <section className="py-24 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-            {t('news.title', 'Actualités')}
+        <div className="text-center mb-12">
+          <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-primary/20">
+            <Calendar className="w-3.5 h-3.5 mr-1.5" />
+            {t('news.badge', 'Actualités & Événements')}
+          </Badge>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+            {t('news.titlePart1', 'Restez')}{' '}
+            <span className="text-gradient">
+              {t('news.titleHighlight', 'Informé')}
+            </span>
           </h2>
-          <Button asChild variant="ghost" className="group">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-6">
+            {t('news.description', 'Communiqués officiels, événements communautaires et informations pratiques du consulat.')}
+          </p>
+          <Button asChild variant="outline" size="sm" className="rounded-full">
             <Link to="/actualites">
               {t('news.viewAll', 'Voir toutes les actualités')}
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </Button>
         </div>
@@ -103,19 +115,13 @@ export function NewsSection() {
                 params={{ slug: featuredPost.slug }}
                 className="group block h-full"
               >
-                <div className="rounded-xl overflow-hidden border bg-card hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                <div className="rounded-xl overflow-hidden glass-card hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
                   {/* Featured Image */}
-                  {featuredPost.coverImage ? (
-                    <img 
-                      src={featuredPost.coverImage} 
-                      alt={featuredPost.title}
-                      className="w-full h-64 object-cover"
-                    />
-                  ) : (
-                    <div className="h-64 bg-gradient-to-br from-primary/20 via-primary/10 to-primary/5 flex items-center justify-center shrink-0">
-                      <Calendar className="w-16 h-16 text-primary/30" />
-                    </div>
-                  )}
+                  <img 
+                    src={featuredPost.coverImage || categoryConfig[featuredPost.category]?.fallbackImage || categoryConfig.actualite.fallbackImage} 
+                    alt={featuredPost.title}
+                    className="w-full h-64 object-cover"
+                  />
                   <div className="p-6 flex flex-col flex-1">
                     <div className="flex-1">
                       <Badge className={`mb-4 ${categoryConfig[featuredPost.category]?.color || categoryConfig.actualite.color} border-0`}>
@@ -142,7 +148,7 @@ export function NewsSection() {
 
           {/* Secondary Posts - Right Side (1/2 width) */}
           <div className="h-full">
-            <div className="h-full rounded-xl border bg-card overflow-hidden flex flex-col">
+            <div className="h-full rounded-xl glass-card overflow-hidden flex flex-col">
               <div className="flex-1 divide-y">
                 {isLoading ? (
                   <>
@@ -167,17 +173,11 @@ export function NewsSection() {
                         <div className="flex gap-6 h-full items-center">
                           {/* Square Thumbnail Image */}
                           <div className="w-24 h-24 shrink-0 rounded-lg overflow-hidden bg-muted">
-                            {post.coverImage ? (
-                              <img 
-                                src={post.coverImage} 
-                                alt={post.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                              />
-                            ) : (
-                              <div className="w-full h-full bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
-                                <Calendar className="w-8 h-8 text-primary/30" />
-                              </div>
-                            )}
+                            <img 
+                              src={post.coverImage || categoryConfig[post.category]?.fallbackImage || categoryConfig.actualite.fallbackImage} 
+                              alt={post.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
                           </div>
                           
                           <div className="flex-1 min-w-0 flex flex-col justify-center h-full">

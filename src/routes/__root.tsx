@@ -149,28 +149,16 @@ function RootLayout() {
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className="h-full overflow-hidden">
+    <html lang="fr" className="h-full overflow-hidden" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
-      <body className="h-full overflow-hidden">
+      <body className="h-full overflow-hidden" suppressHydrationWarning>
         <I18nProvider>
           <ClerkProvider>
             <ConvexProvider>
               <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                 {children}
-                <TanStackDevtools
-                  config={{
-                    position: 'bottom-right',
-                  }}
-                  plugins={[
-                    {
-                      name: 'Tanstack Router',
-                      render: <TanStackRouterDevtoolsPanel />,
-                    },
-                    TanStackQueryDevtools,
-                  ]}
-                />
               </ThemeProvider>
             </ConvexProvider>
           </ClerkProvider>

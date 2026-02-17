@@ -9,8 +9,10 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VieEnFranceRouteImport } from './routes/vie-en-france'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as LeConsulatRouteImport } from './routes/le-consulat'
+import { Route as IntegrationRouteImport } from './routes/integration'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
@@ -41,6 +43,11 @@ import { Route as AdminServicesServiceIdEditRouteImport } from './routes/admin/s
 import { Route as AdminPostsPostIdEditRouteImport } from './routes/admin/posts/$postId.edit'
 import { Route as AdminOrgsOrgIdEditRouteImport } from './routes/admin/orgs/$orgId_.edit'
 
+const VieEnFranceRoute = VieEnFranceRouteImport.update({
+  id: '/vie-en-france',
+  path: '/vie-en-france',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
   id: '/mentions-legales',
   path: '/mentions-legales',
@@ -49,6 +56,11 @@ const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
 const LeConsulatRoute = LeConsulatRouteImport.update({
   id: '/le-consulat',
   path: '/le-consulat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegrationRoute = IntegrationRouteImport.update({
+  id: '/integration',
+  path: '/integration',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -205,8 +217,10 @@ export interface FileRoutesByFullPath {
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/integration': typeof IntegrationRoute
   '/le-consulat': typeof LeConsulatRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/vie-en-france': typeof VieEnFranceRoute
   '/actualites/$slug': typeof ActualitesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/actualites': typeof ActualitesIndexRoute
@@ -237,8 +251,10 @@ export interface FileRoutesByTo {
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/integration': typeof IntegrationRoute
   '/le-consulat': typeof LeConsulatRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/vie-en-france': typeof VieEnFranceRoute
   '/actualites/$slug': typeof ActualitesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/actualites': typeof ActualitesIndexRoute
@@ -271,8 +287,10 @@ export interface FileRoutesById {
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/integration': typeof IntegrationRoute
   '/le-consulat': typeof LeConsulatRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/vie-en-france': typeof VieEnFranceRoute
   '/actualites/$slug': typeof ActualitesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/actualites/': typeof ActualitesIndexRoute
@@ -306,8 +324,10 @@ export interface FileRouteTypes {
     | '/confidentialite'
     | '/contact'
     | '/faq'
+    | '/integration'
     | '/le-consulat'
     | '/mentions-legales'
+    | '/vie-en-france'
     | '/actualites/$slug'
     | '/services/$slug'
     | '/actualites'
@@ -338,8 +358,10 @@ export interface FileRouteTypes {
     | '/confidentialite'
     | '/contact'
     | '/faq'
+    | '/integration'
     | '/le-consulat'
     | '/mentions-legales'
+    | '/vie-en-france'
     | '/actualites/$slug'
     | '/services/$slug'
     | '/actualites'
@@ -371,8 +393,10 @@ export interface FileRouteTypes {
     | '/confidentialite'
     | '/contact'
     | '/faq'
+    | '/integration'
     | '/le-consulat'
     | '/mentions-legales'
+    | '/vie-en-france'
     | '/actualites/$slug'
     | '/services/$slug'
     | '/actualites/'
@@ -405,8 +429,10 @@ export interface RootRouteChildren {
   ConfidentialiteRoute: typeof ConfidentialiteRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
+  IntegrationRoute: typeof IntegrationRoute
   LeConsulatRoute: typeof LeConsulatRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
+  VieEnFranceRoute: typeof VieEnFranceRoute
   ActualitesSlugRoute: typeof ActualitesSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   ActualitesIndexRoute: typeof ActualitesIndexRoute
@@ -415,6 +441,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/vie-en-france': {
+      id: '/vie-en-france'
+      path: '/vie-en-france'
+      fullPath: '/vie-en-france'
+      preLoaderRoute: typeof VieEnFranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mentions-legales': {
       id: '/mentions-legales'
       path: '/mentions-legales'
@@ -427,6 +460,13 @@ declare module '@tanstack/react-router' {
       path: '/le-consulat'
       fullPath: '/le-consulat'
       preLoaderRoute: typeof LeConsulatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integration': {
+      id: '/integration'
+      path: '/integration'
+      fullPath: '/integration'
+      preLoaderRoute: typeof IntegrationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -690,8 +730,10 @@ const rootRouteChildren: RootRouteChildren = {
   ConfidentialiteRoute: ConfidentialiteRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
+  IntegrationRoute: IntegrationRoute,
   LeConsulatRoute: LeConsulatRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
+  VieEnFranceRoute: VieEnFranceRoute,
   ActualitesSlugRoute: ActualitesSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   ActualitesIndexRoute: ActualitesIndexRoute,

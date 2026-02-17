@@ -8,7 +8,10 @@ import netlify from '@netlify/vite-plugin-tanstack-start'
 
 const config = defineConfig({
   plugins: [
-    devtools(),
+    // devtools() disabled — it injects a click-to-component inspector triggered
+    // by Cmd+Shift, which conflicts with macOS screenshot shortcuts.
+    // Set VITE_DEVTOOLS=true in .env.local to re-enable if needed.
+    ...(process.env.VITE_DEVTOOLS === 'true' ? [devtools()] : []),
     netlify(),
 
     viteTsConfigPaths({

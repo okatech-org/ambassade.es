@@ -1,22 +1,151 @@
 {
   "hero": {
-    "badge": "Site Officiel",
-    "title": "Consulat Général du Gabon",
-    "titleHighlight": "en France",
-    "subtitle": "Votre représentation officielle à Paris",
-    "description": "Retrouvez toutes les informations sur les démarches consulaires, les actualités officielles et les événements de la communauté gabonaise en France.",
-    "services": "Nos Services",
-    "contact": "Nous Contacter",
-    "emergencyLabel": "Urgence Consulaire",
+    "badge": "Nouveau — Propulsé par l'Intelligence Artificielle",
+    "title": "Le Consulat passe à",
+    "titleHighlight": "l'ère de l'IA",
+    "subtitle": "Consulat.ga — Votre consulat, réinventé",
+    "description": "Plus besoin d'attendre au téléphone. Grâce à l'intelligence artificielle, obtenez des réponses instantanées, suivez vos démarches en temps réel et accédez à tous les services consulaires 24h/24 depuis votre smartphone.",
+    "cta": "Découvrir Consulat.ga",
+    "services": "Voir nos services",
     "quickAccess": {
       "news": "Actualités",
-      "newsDesc": "Dernières infos",
+      "newsDesc": "Communiqués officiels",
       "services": "Services",
-      "servicesDesc": "Nos démarches",
-      "contact": "Contact",
-      "contactDesc": "Horaires et plan",
+      "servicesDesc": "Démarches en ligne",
+      "inscription": "Inscription",
+      "inscriptionDesc": "Registre consulaire",
       "consulat": "Le Consulat",
-      "consulatDesc": "Nos missions"
+      "consulatDesc": "Missions & équipe"
+    }
+  },
+  "statsBar": {
+    "diaspora": {
+      "value": "30 000+",
+      "label": "Gabonais en France"
+    },
+    "services": {
+      "value": "9",
+      "label": "Catégories de services"
+    },
+    "protection": {
+      "value": "24/7",
+      "label": "Assistance consulaire"
+    },
+    "horaires": {
+      "value": "Lun-Ven",
+      "label": "9h00 - 16h00"
+    }
+  },
+  "guidePratique": {
+    "badge": "Vie en France",
+    "title": "Guide Pratique pour les Gabonais en France",
+    "description": "Informations essentielles pour faciliter votre installation et votre vie quotidienne en France. Le consulat vous accompagne dans toutes vos démarches.",
+    "readMore": "En savoir plus",
+    "cta": "Besoin d'aide pour une démarche spécifique ? Notre équipe consulaire est à votre disposition.",
+    "contactUs": "Contacter le consulat",
+    "logement": {
+      "title": "Logement",
+      "desc": "Trouver un logement, aides au logement (APL/ALS), droits des locataires et démarches administratives."
+    },
+    "sante": {
+      "title": "Santé & Protection sociale",
+      "desc": "Inscription à la Sécurité sociale, mutuelle, accès aux soins et droits à la couverture maladie."
+    },
+    "education": {
+      "title": "Éducation & Formation",
+      "desc": "Inscription scolaire, bourses d'études, reconnaissance des diplômes gabonais et formation professionnelle."
+    },
+    "emploi": {
+      "title": "Emploi & Entrepreneuriat",
+      "desc": "Recherche d'emploi, création d'entreprise, titre de séjour autorisant le travail et aides à l'emploi."
+    },
+    "droits": {
+      "title": "Droits & Titre de séjour",
+      "desc": "Renouvellement de titre de séjour, regroupement familial, naturalisation et aide juridique gratuite."
+    },
+    "famille": {
+      "title": "Famille & Enfants",
+      "desc": "Déclaration de naissance, allocations familiales, garde d'enfants et transcription d'actes d'état civil."
+    },
+    "tags": {
+      "Vie quotidienne": "Vie quotidienne",
+      "Santé": "Santé",
+      "Éducation": "Éducation",
+      "Emploi": "Emploi",
+      "Juridique": "Juridique",
+      "Famille": "Famille"
+    }
+  },
+  "faq": {
+    "badge": "Questions fréquentes",
+    "title": "Questions les plus posées",
+    "description": "Trouvez rapidement les réponses à vos questions sur les démarches consulaires.",
+    "viewAll": "Voir toutes les questions",
+    "items": {
+      "inscription": {
+        "question": "Comment m'inscrire au registre consulaire ?",
+        "answer": "L'inscription se fait en ligne sur consulat.ga ou en personne au consulat. Munissez-vous de votre passeport valide, d'un justificatif de domicile en France de moins de 3 mois, et de 2 photos d'identité. La procédure est gratuite et vous donne accès à la protection consulaire."
+      },
+      "passeport": {
+        "question": "Quels documents pour renouveler mon passeport ?",
+        "answer": "Pour le renouvellement de passeport, vous devez fournir : l'ancien passeport (même expiré), une copie de votre acte de naissance, 2 photos d'identité conformes, un justificatif de domicile récent, et le formulaire de demande rempli. Un rendez-vous à l'antenne DGDI est nécessaire pour la prise d'empreintes."
+      },
+      "etatCivil": {
+        "question": "Comment transcrire un acte de naissance français au Gabon ?",
+        "answer": "La transcription d'un acte de naissance permet de le faire reconnaître au Gabon. Présentez au consulat : la copie intégrale de l'acte de naissance français, les pièces d'identité des parents, le livret de famille le cas échéant. Le délai moyen est de 2 à 4 semaines."
+      },
+      "urgence": {
+        "question": "Que faire en cas d'urgence consulaire ?",
+        "answer": "En cas d'urgence (accident grave, décès, arrestation, catastrophe naturelle), contactez immédiatement le numéro d'urgence consulaire au 07 44 23 95 84, disponible 24h/24. Le consulat peut intervenir pour vous assister, rapatrier un corps, ou faciliter les contacts avec les autorités françaises."
+      },
+      "rdv": {
+        "question": "Faut-il prendre rendez-vous pour venir au consulat ?",
+        "answer": "Un rendez-vous est fortement recommandé pour les démarches de passeport et visa. Pour les autres services (légalisation, état civil, inscription consulaire), vous pouvez vous présenter aux heures d'ouverture du lundi au vendredi de 9h à 16h. Prenez rendez-vous en ligne sur consulat.ga pour un service plus rapide."
+      },
+      "vote": {
+        "question": "Comment voter depuis la France ?",
+        "answer": "Pour participer aux élections gabonaises depuis la France, vous devez être inscrit au registre consulaire et sur la liste électorale consulaire. Lors des élections, le consulat organise des bureaux de vote. Présentez-vous avec votre carte consulaire et une pièce d'identité valide le jour du scrutin."
+      },
+      "regularisation": {
+        "question": "Comment régulariser ma situation en France ?",
+        "answer": "Plusieurs voies de régularisation existent : admission exceptionnelle au séjour (circulaire Valls 2012), régularisation par le travail, motif familial, raisons médicales. Le dossier se dépose en préfecture ou en ligne sur le portail ANEF. Consultez un avocat spécialisé."
+      },
+      "frontiere": {
+        "question": "Quels documents présenter à la frontière ?",
+        "answer": "Passeport valide, visa, attestation d'hébergement, billet retour (court séjour), assurance voyage (min. 30 000 €). Ressources : min. 120 €/jour (hôtel) ou 32,50 €/jour (hébergement particulier)."
+      },
+      "carteSejour": {
+        "question": "Comment renouveler ma carte de séjour ?",
+        "answer": "Le renouvellement se fait 2 à 4 mois avant l'expiration, en ligne sur le portail ANEF ou en préfecture. Un récépissé vous est remis en attendant le nouveau titre."
+      },
+      "oqtf": {
+        "question": "Qu'est-ce qu'une OQTF et que faire si j'en reçois une ?",
+        "answer": "L'OQTF est une décision administrative enjoignant à quitter la France. NE JAMAIS l'ignorer. Recours gracieux (30 jours) ou contentieux devant le tribunal administratif. Le recours est suspensif. Contactez immédiatement un avocat et le consulat."
+      },
+      "perteDocuments": {
+        "question": "J'ai perdu mon passeport/titre de séjour, que faire ?",
+        "answer": "Déclaration au commissariat, puis contactez le consulat (passeport) ou la préfecture/ANEF (titre de séjour). Conservez toujours des copies numériques de vos documents."
+      },
+      "travailEtudiant": {
+        "question": "Je suis étudiant, combien d'heures puis-je travailler ?",
+        "answer": "964 heures par an (environ 20h/semaine, soit 60% de la durée légale). Aucune autorisation supplémentaire nécessaire — votre titre étudiant vous y autorise."
+      },
+      "visaBinational": {
+        "question": "Je suis binational, ai-je besoin d'un visa pour le Gabon ?",
+        "answer": "Non avec un passeport gabonais valide. Avec uniquement un passeport français, un e-Visa est nécessaire (evisa.dgdi.ga). Le consulat peut vous aider pour l'obtention du passeport gabonais."
+      },
+      "arrestation": {
+        "question": "Que faire en cas d'arrestation ?",
+        "answer": "Restez calme. Droits : connaître le motif, garder le silence, avoir un avocat, prévenir un proche, contacter le consulat (Convention de Vienne, art. 36). Garde à vue : 24h max (renouvelable 1 fois). Ne signez rien sans comprendre."
+      },
+      "changementStatut": {
+        "question": "Comment passer du statut étudiant au statut salarié ?",
+        "answer": "Emploi en lien avec le diplôme, rémunération ≥ 1,5x SMIC (1x pour métiers en tension). L'employeur demande l'autorisation de travail, puis changement de statut en préfecture. Délai : 2 à 4 mois."
+      },
+      "aps": {
+        "question": "Qu'est-ce que l'APS et comment en bénéficier ?",
+        "answer": "L'APS est un titre de 12 mois (non renouvelable) pour les diplômés Master. Permet de chercher un emploi ou créer une entreprise en lien avec le diplôme. Demande avant expiration du titre étudiant."
+      }
     }
   },
   "services": {
@@ -58,7 +187,7 @@
       "residents": "Étrangers résidents",
       "requiredDocuments": "Documents requis",
       "downloadForm": "Télécharger le formulaire",
-      "createRequest": "Créer une demande",
+      "createRequest": "Faire la demande",
       "importantInfo": "Informations importantes",
       "infoPoints": {
         "docs": "Les documents doivent être originaux ou copies certifiées conformes",
@@ -69,6 +198,15 @@
       "formDownloadedDesc": "Formulaire de demande pour {{serviceName}}"
     },
     "viewAll": "Voir Tous les Services",
+    "passportVisaWarning": {
+      "title": "Information Importante",
+      "message": "Les services Passeport et Visa sont de l'autorité de l'Antenne DGDI. Veuillez noter que ce n'est pas le Consulat Général qui établit les Passeports et les Visas en France."
+    },
+    "dgdiNotice": "Ce service est géré par l'Antenne DGDI et non par le Consulat Général.",
+    "dgdiApply": "Faire ma demande",
+    "dgdiBadge": "Antenne DGDI — À ne pas confondre",
+    "dgdiTitle": "Passeports & Visas : Services de l'Antenne DGDI",
+    "dgdiSubtitle": "Ces services ne sont pas gérés par le Consulat Général. Ils relèvent exclusivement de l'Antenne extérieure de la DGDI à Paris.",
     "passport": {
       "title": "Passeport",
       "description": "Demande, renouvellement et suivi de votre passeport gabonais. Procédure simplifiée et sécurisée."
@@ -102,38 +240,67 @@
     "viewDetails": "Voir les détails",
     "viewAll": "Voir Tous les Consulats"
   },
+  "integration": {
+    "badge": "Guide d'intégration",
+    "heroTitle": "S'intégrer et",
+    "heroHighlight": "réussir en France",
+    "heroDescription": "Guide complet pour les Gabonais résidant en France : vos droits, vos démarches, les codes culturels et les astuces pratiques pour une intégration réussie. Le Consulat Général du Gabon vous accompagne.",
+    "savoirVivre": {
+      "badge": "Savoir-vivre",
+      "title": "Codes culturels & Conventions",
+      "description": "Comprendre les codes de la société française pour mieux y évoluer. Ce n'est pas renoncer à sa culture, c'est en ajouter une autre."
+    },
+    "guides": {
+      "badge": "Guides complets",
+      "title": "Vos démarches détaillées",
+      "description": "Cliquez sur chaque thème pour découvrir les informations détaillées, les procédures et nos astuces pratiques."
+    },
+    "erreurs": {
+      "badge": "À savoir absolument",
+      "title": "Erreurs courantes à éviter",
+      "description": "Ces oublis peuvent avoir des conséquences sérieuses. Prenez-les au sérieux pour protéger vos droits."
+    },
+    "numeros": {
+      "badge": "Numéros essentiels",
+      "title": "Numéros utiles à conserver",
+      "description": "Enregistrez ces numéros dans votre téléphone. Ils peuvent sauver des vies."
+    },
+    "cta": {
+      "title": "Le Consulat est à vos côtés",
+      "description": "Que vous soyez nouvellement arrivé ou installé depuis longtemps, le Consulat Général du Gabon en France est votre relais. N'hésitez pas à nous solliciter pour toute question.",
+      "contact": "Nous rendre visite"
+    }
+  },
   "citizenCta": {
-    "badge": "Compte Citoyen",
-    "title": "Créez votre Compte Citoyen Gabonais",
-    "description": "Un compte unique pour accéder à tous les services consulaires en ligne. Simplifiez vos démarches administratives où que vous soyez dans le monde.",
-    "createAccount": "Créer mon compte",
-    "existingAccount": "J'ai déjà un compte",
-    "benefits": {
-      "tracking": {
-        "title": "Suivi en temps réel",
-        "description": "Suivez l'avancement de vos demandes à tout moment"
+    "badge": "Application Consulat.ga",
+    "titlePart1": "Votre consulat,",
+    "titleHighlight": "dans votre poche",
+    "description": "Vos démarches consulaires simplifiées : assistant IA, suivi en temps réel, zéro déplacement.",
+    "cta": "Créer mon compte gratuit",
+    "ctaSecondary": "Découvrir l'app",
+    "advantages": {
+      "noWait": {
+        "title": "Plus d'attente téléphonique",
+        "desc": "Posez vos questions en ligne, réponses immédiates."
       },
-      "documents": {
-        "title": "Documents dématérialisés",
-        "description": "Accédez à vos documents officiels en ligne"
+      "digital": {
+        "title": "Démarches 100% digitalisées",
+        "desc": "De la demande au suivi, tout se fait en ligne."
       },
-      "payment": {
-        "title": "Paiement sécurisé",
-        "description": "Réglez vos frais consulaires en toute sécurité"
+      "fast": {
+        "title": "Réponses rapides à vos questions",
+        "desc": "Assistant IA disponible pour toutes vos questions."
       },
-      "appointments": {
-        "title": "Rendez-vous simplifiés",
-        "description": "Réservez vos créneaux en quelques clics"
+      "available": {
+        "title": "Disponible 24h/24, 7j/7",
+        "desc": "Accès à tout moment, tous fuseaux horaires."
       }
     },
-    "stats": {
-      "citizens": "Citoyens inscrits",
-      "consulates": "Consulats connectés",
-      "satisfaction": "Satisfaction",
-      "availability": "Disponibilité"
-    },
-    "testimonial": "Grâce à Consulat.ga, j'ai pu renouveler mon passeport depuis Londres sans avoir à me déplacer. Service rapide et efficace !",
-    "testimonialAuthor": "Marie N., Londres"
+    "trust": {
+      "fast": "Inscription en 2 minutes",
+      "online": "100% sur mobile",
+      "secure": "Sécurisé & confidentiel"
+    }
   },
   "footer": {
     "brand": {
@@ -202,6 +369,7 @@
     "nav": {
       "home": "Accueil",
       "news": "Actualités",
+      "integration": "Intégration",
       "consulates": "Consulats",
       "faq": "FAQ",
       "contact": "Contact",
@@ -819,7 +987,6 @@
       "AU": "Australie",
       "AW": "Aruba",
       "AX": "Îles Åland",
-
       "BE": "Belgique",
       "BF": "Burkina Faso",
       "BG": "Bulgarie",
@@ -827,7 +994,6 @@
       "BI": "Burundi",
       "BJ": "Bénin",
       "BR": "Brésil",
-
       "CA": "Canada",
       "CD": "République démocratique du Congo",
       "CF": "République centrafricaine",
@@ -840,49 +1006,37 @@
       "CO": "Colombie",
       "CR": "Costa Rica",
       "CU": "Cuba",
-
       "DE": "Allemagne",
       "DK": "Danemark",
       "DZ": "Algérie",
-
       "EG": "Égypte",
       "ES": "Espagne",
       "ET": "Éthiopie",
-
       "FI": "Finlande",
       "FR": "France",
-
       "GA": "Gabon",
       "GB": "Royaume-Uni",
       "GH": "Ghana",
       "GN": "Guinée",
       "GR": "Grèce",
-
       "IE": "Irlande",
       "IL": "Israël",
       "IN": "Inde",
       "IR": "Iran",
       "IT": "Italie",
-
       "JP": "Japon",
-
       "KE": "Kenya",
       "KR": "Corée du Sud",
-
       "MA": "Maroc",
       "ML": "Mali",
       "MX": "Mexique",
-
       "NG": "Nigéria",
       "NL": "Pays-Bas",
       "NO": "Norvège",
-
       "PL": "Pologne",
       "PT": "Portugal",
-
       "RO": "Roumanie",
       "RU": "Russie",
-
       "SA": "Arabie saoudite",
       "SE": "Suède",
       "SN": "Sénégal",
@@ -1405,4 +1559,3 @@
     "custom": "Invalide"
   }
 }
-

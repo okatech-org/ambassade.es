@@ -17,47 +17,6 @@ export const run = mutation({
 
     const services = [
       {
-        title: "Passeport Biométrique",
-        slug: "passeport",
-        description: "Demande ou renouvellement de passeport ordinaire pour les ressortissants gabonais.",
-        category: ServiceCategory.Identity,
-        requirements: [
-          "Formulaire NDP dûment rempli",
-          "Ancien passeport (original + copie)",
-          "Acte de naissance légalisé (< 3 mois)",
-          "Carte consulaire en cours de validité",
-          "Justificatif de domicile (< 3 mois)",
-          "2 photos d'identité (norme OACI)"
-        ],
-        price: "130 €",
-        delay: "6 à 8 semaines",
-        actionLink: "https://ae.dgdifrance.fr/booking",
-        isOnline: false,
-        isActive: true,
-        order: 1,
-      },
-      {
-        title: "Visa d'entrée au Gabon",
-        slug: "visa",
-        description: "Demande de visa d'entrée au Gabon pour les ressortissants étrangers (Tourisme, Affaires, Visite familiale).",
-        category: ServiceCategory.Visa,
-        requirements: [
-          "Passeport en cours de validité (> 6 mois)",
-          "Formulaire de demande de visa complété",
-          "2 photos d'identité récentes",
-          "Réservation d'hôtel ou attestation d'hébergement",
-          "Billet d'avion aller-retour",
-          "Certificat de vaccination fièvre jaune",
-          "Justificatif de ressources financières"
-        ],
-        price: "70 € (court séjour) / 100 € (long séjour)",
-        delay: "72h (dossier complet)",
-        actionLink: "https://ae.dgdifrance.fr/booking",
-        isOnline: false,
-        isActive: true,
-        order: 2,
-      },
-      {
         title: "Carte Consulaire",
         slug: "carte-consulaire",
         description: "Immatriculation consulaire obligatoire pour tout ressortissant gabonais résidant en France.",
@@ -73,7 +32,7 @@ export const run = mutation({
         actionLink: "https://www.consulatgabonfrance.com/demande-de-carte-consulaire/",
         isOnline: true,
         isActive: true,
-        order: 3,
+        order: 1,
       },
       {
         title: "Célébration de Mariage",
@@ -114,9 +73,9 @@ export const run = mutation({
         order: 5,
       },
       {
-        title: "Laissez-passer / Tenant Lieu",
+        title: "Laissez-Passer",
         slug: "laissez-passer",
-        description: "Document de voyage provisoire en cas d'urgence ou de perte/vol de passeport.",
+        description: "Document de voyage d'urgence délivré en cas de perte, vol ou expiration du passeport.",
         category: ServiceCategory.Identity,
         requirements: [
           "Déclaration de perte ou de vol (commissariat)",
@@ -128,13 +87,30 @@ export const run = mutation({
         delay: "24h à 72h",
         isOnline: false,
         isActive: true,
-        order: 6,
+        order: 4,
+      },
+      {
+        title: "Tenant Lieu de Passeport",
+        slug: "tenant-lieu",
+        description: "Document provisoire de voyage en cas de perte ou d'absence de passeport valide.",
+        category: ServiceCategory.Identity,
+        requirements: [
+          "Déclaration de perte ou de vol (commissariat)",
+          "Copie pièce d'identité ou acte de naissance",
+          "2 photos d'identité",
+          "Billet d'avion confirmé"
+        ],
+        price: "55 €",
+        delay: "24h à 72h",
+        isOnline: false,
+        isActive: true,
+        order: 5,
       },
       {
         title: "Légalisation de Documents",
         slug: "legalisation",
         description: "Authentification de documents gabonais ou étrangers pour usage au Gabon.",
-        category: ServiceCategory.Other, // Documents -> Other
+        category: ServiceCategory.Other,
         requirements: [
           "Document original à légaliser",
           "Copie du document",
@@ -144,7 +120,7 @@ export const run = mutation({
         delay: "24h à 48h",
         isOnline: false,
         isActive: true,
-        order: 7,
+        order: 8,
       },
       {
         title: "Attestation Patronymique",
@@ -160,14 +136,13 @@ export const run = mutation({
         delay: "Immédiat",
         isOnline: false,
         isActive: true,
-        order: 8,
+        order: 9,
       },
       {
         title: "Certificat de Vie",
         slug: "certificat-vie",
         description: "Attestation de vie pour les pensionnés et retraités gabonais résidant en France.",
         category: ServiceCategory.Certification,
-
         requirements: [
           "Pièce d'identité valide",
           "Carte consulaire",
@@ -177,7 +152,7 @@ export const run = mutation({
         delay: "Immédiat",
         isOnline: false,
         isActive: true,
-        order: 9,
+        order: 10,
       },
       {
         title: "Procuration",
@@ -193,7 +168,39 @@ export const run = mutation({
         delay: "24h",
         isOnline: false,
         isActive: true,
-        order: 10,
+        order: 11,
+      },
+      {
+        title: "Certificat de Célibat et Non Coutume",
+        slug: "certificat-celibat",
+        description: "Attestation officielle de célibat et de non engagement coutumier pour les ressortissants gabonais.",
+        category: ServiceCategory.CivilStatus,
+        requirements: [
+          "Pièce d'identité valide",
+          "Carte consulaire en cours de validité",
+          "Acte de naissance (< 3 mois)"
+        ],
+        price: "15 €",
+        delay: "Immédiat",
+        isOnline: false,
+        isActive: true,
+        order: 6,
+      },
+      {
+        title: "Demande d'Audience",
+        slug: "demande-audience",
+        description: "Sollicitation d'un rendez-vous avec le Consul Général pour toute question consulaire ou administrative.",
+        category: ServiceCategory.Other,
+        requirements: [
+          "Demande manuscrite ou email motivé",
+          "Pièce d'identité",
+          "Objet détaillé de la demande"
+        ],
+        price: "Gratuit",
+        delay: "Sur rendez-vous",
+        isOnline: false,
+        isActive: true,
+        order: 7,
       }
     ];
 
