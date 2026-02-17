@@ -3,9 +3,6 @@ import { setupRouterSsrQueryIntegration } from '@tanstack/react-router-ssr-query
 import { useTranslation } from 'react-i18next'
 import * as TanstackQuery from './integrations/tanstack-query/root-provider'
 
-import * as Sentry from '@sentry/tanstackstart-react'
-
-
 import { routeTree } from './routeTree.gen'
 
 
@@ -44,14 +41,20 @@ export const getRouter = () => {
 
   setupRouterSsrQueryIntegration({ router, queryClient: rqContext.queryClient })
 
-  if (!router.isServer) {
-    Sentry.init({
-      dsn: import.meta.env.VITE_SENTRY_DSN,
-      integrations: [],
-      tracesSampleRate: 1.0,
-      sendDefaultPii: true,
+  // Load Sentry dynamically — only client-side and only when DSN is set.
+  // Static import of @sentry/tanstackstart-react pulls in @opentelemetry
+  // which has broken ESM exports and crashes the Nitro SSR server.
+  if (!router.isServer && import.meta.env.VITE_SENTRY_DSN) {
+    import('@sentry/tanstackstart-react').then((Sentry) => {
+      Sentry.init({
+        dsn: import.meta.env.VITE_SENTRY_DSN,
+        integrations: [],
+        tracesSampleRate: 1.0,
+        sendDefaultPii: true,
+      })
     })
   }
 
   return router
 }
+

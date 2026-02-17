@@ -9,7 +9,7 @@ set -euo pipefail
 # ── Configuration ────────────────────────────────
 PROJECT_ID="${GCP_PROJECT_ID:-digitalium-ga}"
 REGION="${GCP_REGION:-europe-west1}"
-SERVICE_NAME="france-consulat-ga"
+SERVICE_NAME="consulatdugabon"
 
 # ── Load .env.production ─────────────────────────
 ENV_FILE=".env.production"

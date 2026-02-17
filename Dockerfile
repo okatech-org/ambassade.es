@@ -45,8 +45,14 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-# Copy Nitro output (.output/) — Nitro bundles all dependencies
+# Copy Nitro output + full node_modules for unbundled native deps (OpenTelemetry/Sentry)
 COPY --from=builder /app/.output ./.output
+COPY --from=builder /app/node_modules ./node_modules
+
+# Nitro creates a partial node_modules inside .output/server/ that lacks
+# some @opentelemetry packages. Replace it with a symlink to the full deps.
+RUN rm -rf .output/server/node_modules && \
+    ln -s /app/node_modules .output/server/node_modules
 
 # Runtime env vars (injected by Cloud Run)
 ENV VITE_CONVEX_URL=""
