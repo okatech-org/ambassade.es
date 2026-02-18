@@ -30,6 +30,7 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { PageHero } from '@/components/PageHero'
+import { CitizenCTA } from '@/components/home/CitizenCTA'
 
 export const Route = createFileRoute('/integration')({
   component: IntegrationPage,
@@ -641,6 +642,8 @@ function IntegrationPage() {
             </div>
           </div>
         </section>
+
+        <CitizenCTA />
 
       </div>
     </div>

@@ -3,17 +3,17 @@ import { useTranslation } from 'react-i18next'
 import { useState } from 'react'
 import {
   BookOpen,
-  Building,
+  Building2,
   Calendar,
   Check,
   ChevronDown,
   FileText,
-  HandHeart,
   Home,
-  MapPin,
+  Mail,
   Menu,
   Newspaper,
   Phone,
+  Plane,
   X,
 } from 'lucide-react'
 import { Button } from './ui/button'
@@ -24,6 +24,7 @@ import {
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
 import { ModeToggle } from './mode-toggle'
+import { ContactModal } from './ContactModal'
 
 const languages = [
   { code: 'fr', label: 'Français', flag: '🇫🇷' },
@@ -33,6 +34,7 @@ const languages = [
 export default function Header() {
   const { t, i18n } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
+  const [contactOpen, setContactOpen] = useState(false)
 
   const currentLanguage = languages.find(l => l.code === i18n.language) || languages[0]
 
@@ -42,12 +44,12 @@ export default function Header() {
 
   const navLinks = [
     { label: t('header.nav.home'), href: '/', icon: Home },
+    { label: t('header.nav.consulat', 'Consulat Général'), href: '/le-consulat', icon: Building2 },
     { label: t('header.nav.services'), href: '/services', icon: FileText },
-    { label: t('header.nav.vieFrance', 'Vie en France'), href: '/vie-en-france', icon: BookOpen },
-    { label: t('header.nav.integration', 'Intégration'), href: '/integration', icon: HandHeart },
     { label: t('header.nav.news'), href: '/actualites', icon: Newspaper },
-    { label: t('header.nav.consulat', 'Le Consulat'), href: '/le-consulat', icon: Building },
-    { label: t('header.nav.contact'), href: '/contact', icon: MapPin },
+    { label: t('header.nav.venirFrance', 'Venir en France'), href: '/venir-en-france', icon: Plane },
+    { label: t('header.nav.vieFrance', 'Vivre en France'), href: '/vie-en-france', icon: BookOpen },
+    { label: t('header.nav.retourGabon', 'Retour au Gabon'), href: '/retour-au-gabon', icon: Plane },
   ]
 
 
@@ -57,11 +59,11 @@ export default function Header() {
       <div className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar */}
       <div className="bg-primary text-primary-foreground text-sm hidden md:block">
-        <div className="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-3 py-2 flex justify-between items-center">
           <div className="flex items-center gap-6">
-            <a href="tel:+33751025292" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <Phone className="w-4 h-4" />
-              07 51 02 52 92
+            <a href="mailto:contact@consulatdugabon.fr" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <Mail className="w-4 h-4" />
+              contact@consulatdugabon.fr
             </a>
             <span className="opacity-30">|</span>
             <span className="flex items-center gap-2">
@@ -70,6 +72,8 @@ export default function Header() {
             </span>
           </div>
           <div className="flex items-center gap-3">
+
+
             {/* Theme Toggle — Top bar */}
             <ModeToggle variant="header" />
 
@@ -106,17 +110,17 @@ export default function Header() {
 
       {/* Main Header — Glass effect */}
       <header className="glass border-b border-border/40 overflow-visible">
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-3 py-1.5 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img 
               src="/sceau_gabon.png" 
               alt="Logo Consulat Gabon" 
-              className="h-[5.75rem] w-auto relative -mb-6 origin-top" 
+              className="h-[6rem] w-auto relative -mb-8 -mt-[0.25cm] origin-top" 
             />
             <div className="hidden sm:block">
-              <div className="font-bold text-base md:text-lg text-foreground leading-tight tracking-wide uppercase">CONSULAT GÉNÉRAL</div>
-              <div className="font-bold text-sm text-foreground/90 leading-snug">Du Gabon en France</div>
+              <div className="font-extrabold text-base md:text-lg text-foreground leading-tight tracking-wide uppercase">CONSULAT GÉNÉRAL</div>
+              <div className="font-medium text-foreground/90 leading-snug" style={{ letterSpacing: '0.185em', fontSize: '0.94rem' }}>Du Gabon en France</div>
               <div className="text-xs text-muted-foreground italic leading-snug">Union - Travail - Justice</div>
             </div>
           </Link>
@@ -143,6 +147,7 @@ export default function Header() {
                   </Link>
                 </Button>
               ))}
+
             </nav>
 
             {/* Mobile: Theme + Menu */}
@@ -237,6 +242,14 @@ export default function Header() {
             </Link>
           ))}
 
+          {/* Mobile Contact Button */}
+          <button
+            onClick={() => { setIsOpen(false); setContactOpen(true) }}
+            className="flex items-center gap-3 p-3 rounded-full bg-primary text-primary-foreground mt-2"
+          >
+            <Phone className="w-5 h-5" />
+            <span className="font-medium text-sm">{t('header.nav.contact', 'Contact')}</span>
+          </button>
 
         </nav>
 
@@ -248,6 +261,9 @@ export default function Header() {
           <ModeToggle />
         </div>
       </aside>
+
+      {/* Contact Modal */}
+      <ContactModal open={contactOpen} onOpenChange={setContactOpen} />
     </>
   )
 }

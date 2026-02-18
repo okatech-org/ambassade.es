@@ -430,139 +430,300 @@ export const run = mutation({
 
     const posts = [
       {
-        title: "Fermeture exceptionnelle du Consulat le 17 Août 2025",
-        slug: "fermeture-17-aout-2025",
-        excerpt: "À l'occasion de la Fête Nationale du Gabon, le Consulat Général sera fermé le vendredi 17 août 2025.",
-        content: `# Fermeture Fête Nationale
+        title: "S.E.M. Alfred Nguia Banda nommé Ambassadeur du Gabon en France",
+        slug: "nomination-ambassadeur-nguia-banda",
+        excerpt: "Le Conseil des ministres du 23 octobre 2025 a nommé S.E.M. Alfred Nguia Banda comme nouvel Ambassadeur Haut Représentant du Gabon en France et Représentant permanent auprès de l'OIF.",
+        content: `# Nomination de S.E.M. Alfred Nguia Banda
 
-À l'occasion de la célébration de la **Fête Nationale du Gabon** (Jour de l'Indépendance), le Consulat Général du Gabon en France sera exceptionnellement fermé le **vendredi 17 août 2025**.
+Le Conseil des ministres, réuni le **23 octobre 2025**, a procédé à la nomination de **Son Excellence Monsieur Alfred Nguia Banda** au poste d'Ambassadeur Haut Représentant de la République Gabonaise auprès de la République Française et Représentant permanent du Gabon auprès de l'Organisation internationale de la Francophonie (OIF).
 
-## Réouverture
-Le Consulat reprendra ses activités normales le **lundi 20 août 2025** à partir de 9h00.
+## Un retour symbolique
 
-## Urgences consulaires
-En cas d'urgence consulaire absolue (décès, hospitalisation grave, rapatriement), vous pouvez contacter le numéro d'urgence :
-**+33 1 42 99 68 57**
+S.E.M. Alfred Nguia Banda succède à Madame Marie-Édith Tassyla Doumbeneny. Son retour en tant qu'ambassadeur est considéré comme un événement symbolique pour la diplomatie gabonaise.
 
-Nous vous souhaitons une excellente Fête Nationale.`,
+## Prise de fonctions
+
+L'Ambassadeur a officiellement pris ses fonctions le **11 février 2026**, marquant ainsi le début d'un nouveau chapitre dans les relations franco-gabonaises.
+
+## Impact pour la communauté gabonaise
+
+Cette nomination s'inscrit dans la volonté du Gabon de renforcer ses liens diplomatiques avec la France et d'améliorer les services rendus à la communauté gabonaise résidant sur le territoire français.
+
+Le Consulat Général du Gabon en France se tient à la disposition des ressortissants pour toute information complémentaire.`,
         category: "communique" as const,
-        publishedAt: now - (2 * day),
+        publishedAt: now - (3 * day),
         status: "published" as const,
+        coverImage: "/images/actualites/ambassadeur-nguia-banda.png",
       },
       {
-        title: "Nouvelle procédure de demande de passeport en ligne",
-        slug: "nouvelle-procedure-passeport-ligne",
-        excerpt: "Le Consulat modernise ses démarches : la prise de rendez-vous pour les passeports est désormais disponible en ligne.",
-        content: `# Procédure modernisée de demande de passeport
+        title: "Élection présidentielle du 12 avril 2025 : Brice Clotaire Oligui Nguema élu Président",
+        slug: "election-presidentielle-avril-2025",
+        excerpt: "Le Gabon a élu son nouveau président lors du scrutin du 12 avril 2025, marquant la fin de la transition politique et le retour à l'ordre constitutionnel.",
+        content: `# Élection présidentielle du 12 avril 2025
 
-Le Consulat Général du Gabon en France a le plaisir d'annoncer la mise en place d'un nouveau système de **prise de rendez-vous en ligne** pour les demandes de passeport biométrique.
+Le **12 avril 2025**, les Gabonais se sont rendus aux urnes pour élire leur nouveau président dans le cadre du retour à l'ordre constitutionnel civil.
 
-## Comment ça marche ?
+## Résultats
 
-1. **Rendez-vous sur** [ae.dgdifrance.fr/booking](https://ae.dgdifrance.fr/booking)
-2. Sélectionnez "Passeport Biométrique"
-3. Choisissez un créneau disponible
-4. Recevez votre confirmation par email
+**Brice Clotaire Oligui Nguema**, qui a dirigé la transition depuis le 30 août 2023, a été élu Président de la République Gabonaise.
 
-## Avantages
-- Plus d'attente au Consulat
-- Choix du créneau selon vos disponibilités
-- Rappel automatique avant le rendez-vous
+## Fin de la transition
 
-## Pièces à fournir
-N'oubliez pas de vous munir de l'ensemble des documents requis le jour de votre rendez-vous.
+Le **Comité pour la Transition et la Restauration des Institutions (CTRI)** a été officiellement dissous le **2 mai 2025**, la veille de l'investiture du président élu, mettant ainsi fin à sa mission.
 
-Pour toute question, contactez-nous au 01 42 99 68 68.`,
+## Participation de la diaspora
+
+Les Gabonais de France ont pu exercer leur droit de vote dans les bureaux de vote mis en place par le Consulat et l'Ambassade. La mobilisation de la communauté gabonaise en France a été saluée par les autorités.
+
+## Nouvelle ère
+
+Cette élection marque le début de la **5ème République gabonaise**, instituée par la nouvelle Constitution adoptée par référendum en novembre 2024.`,
         category: "actualite" as const,
         publishedAt: now - (5 * day),
         status: "published" as const,
+        coverImage: "/images/actualites/election-presidentielle-2025.png",
       },
       {
-        title: "Cérémonie de vœux 2025 de la communauté gabonaise",
-        slug: "ceremonie-voeux-2025",
-        excerpt: "Le Consul Général invite tous les ressortissants gabonais à la traditionnelle cérémonie des vœux le samedi 25 janvier 2025.",
-        content: `# Cérémonie de Vœux 2025
+        title: "Lancement du e-Visa touristique gratuit du 1er juillet au 30 septembre 2025",
+        slug: "lancement-evisa-touristique-gratuit",
+        excerpt: "Le Gabon lance un e-Visa touristique gratuit dans le cadre de la Caravane Touristique, accessible en ligne via le portail de la DGDI en moins de 48 heures.",
+        content: `# E-Visa Touristique Gratuit
 
-Madame l'Ambassadeur du Gabon en France et Monsieur le Consul Général ont le plaisir de convier l'ensemble de la communauté gabonaise de France à la **traditionnelle cérémonie de présentation des vœux**.
+Dans le cadre de la **Caravane Touristique du Gabon**, le gouvernement a lancé un **e-Visa touristique entièrement gratuit** du **1er juillet au 30 septembre 2025**.
 
-## Informations pratiques
+## Comment en bénéficier ?
 
-- **Date** : Samedi 25 janvier 2025
-- **Heure** : 15h00 - 18h00
-- **Lieu** : Consulat Général du Gabon, 29 rue Galilée, 75116 Paris
-
-## Programme
-- 15h00 : Accueil
-- 15h30 : Discours de Madame l'Ambassadeur
-- 16h00 : Mot du Consul Général
-- 16h30 : Cocktail et échanges
-
-## Inscription
-Pour des raisons d'organisation, merci de confirmer votre présence avant le 20 janvier 2025.
-
-Au plaisir de vous retrouver !`,
-        category: "evenement" as const,
-        publishedAt: now - (10 * day),
-        status: "published" as const,
-      },
-      {
-        title: "Élections présidentielles 2025 : Inscription sur les listes électorales",
-        slug: "inscription-listes-electorales-2025",
-        excerpt: "Les Gabonais de France peuvent s'inscrire sur les listes électorales consulaires jusqu'au 31 mars 2025.",
-        content: `# Inscription sur les listes électorales
-
-En prévision des prochaines **élections présidentielles**, le Consulat Général invite tous les citoyens gabonais résidant en France à vérifier leur inscription sur les listes électorales.
-
-## Délai d'inscription
-La date limite d'inscription est fixée au **31 mars 2025**.
+1. Rendez-vous sur le portail officiel de la DGDI : **edgdi.dgdi.ga**
+2. Remplissez le formulaire de demande en ligne
+3. Joignez les documents requis (copie du passeport, photo d'identité)
+4. Recevez votre e-Visa en **moins de 48 heures**
 
 ## Conditions
-- Être de nationalité gabonaise
-- Être majeur (18 ans révolus)
-- Jouir de ses droits civiques et politiques
-- Être immatriculé au Consulat (carte consulaire)
 
-## Documents requis
-- Passeport gabonais en cours de validité
-- Carte consulaire
-- Justificatif de domicile en France
+- Passeport valide au moins 6 mois après la date d'entrée
+- Certificat de vaccination contre la fièvre jaune obligatoire
+- Confirmation d'hébergement
 
-## Comment s'inscrire ?
-Présentez-vous au Consulat avec vos documents ou envoyez un dossier complet par courrier recommandé.
+## Modernisation complète
 
-**Exercez votre droit de vote !**`,
+Par ailleurs, le Gabon finalisera en décembre 2025 la modernisation complète de son système e-Visa via le portail **evisa.dgdi.ga**, permettant désormais le paiement en ligne des frais de visa.
+
+## Pour les ressortissants gabonais
+
+Cette initiative vise à promouvoir le tourisme au Gabon. Les ressortissants gabonais souhaitant inviter des proches peuvent les orienter vers ce dispositif simplifié.`,
         category: "actualite" as const,
-        publishedAt: now - (15 * day),
+        publishedAt: now - (8 * day),
         status: "published" as const,
+        coverImage: "/images/actualites/evisa-touristique.png",
       },
       {
-        title: "Atelier d'information sur le Code de la Nationalité",
-        slug: "atelier-code-nationalite",
-        excerpt: "Le Consulat organise un atelier d'information sur le Code de la Nationalité Gabonaise le 15 février 2025.",
-        content: `# Atelier sur le Code de la Nationalité
+        title: "65ème anniversaire de l'Indépendance du Gabon — Célébrations du 17 août 2025",
+        slug: "65eme-anniversaire-independance-gabon",
+        excerpt: "Le Gabon célèbre le 65ème anniversaire de son Indépendance le 17 août 2025, ainsi que le 2ème anniversaire de la Journée nationale de la Libération le 30 août.",
+        content: `# 65ème Anniversaire de l'Indépendance
 
-Le Consulat Général organise un **atelier d'information** destiné aux couples mixtes et aux parents d'enfants binationaux.
+Le **17 août 2025**, la République Gabonaise a célébré le **65ème anniversaire de son Indépendance**, un événement majeur pour l'ensemble de la nation gabonaise.
 
-## Thèmes abordés
-- Acquisition de la nationalité gabonaise
-- Transmission de la nationalité aux enfants
-- Double nationalité : droits et obligations
-- Questions / Réponses avec un juriste
+## Double célébration
 
-## Informations pratiques
-- **Date** : Samedi 15 février 2025
-- **Heure** : 10h00 - 12h30
-- **Lieu** : Salle de conférence du Consulat
+Le mois d'août 2025 a été marqué par une double célébration :
+- **17 août** : 65ème anniversaire de l'Indépendance
+- **30 août** : 2ème anniversaire de la Journée nationale de la Libération
 
-## Inscription
-Atelier gratuit, sur inscription préalable.
-Contactez-nous par email : contact@consulatgabonfrance.com
+## Célébrations en France
 
-Places limitées à 30 personnes.`,
+Le Consulat Général, en collaboration avec l'Ambassade du Gabon en France, a organisé des festivités pour permettre à la communauté gabonaise de France de commémorer ces dates importantes.
+
+## Programme
+- Cérémonie officielle de levée des couleurs
+- Discours des autorités diplomatiques
+- Cocktail républicain
+- Animations culturelles
+
+## Message d'unité
+
+Ces célébrations ont été placées sous le signe de l'unité nationale et du renouveau, dans le contexte du retour à l'ordre constitutionnel après la période de transition.`,
         category: "evenement" as const,
-        publishedAt: now - (20 * day),
+        publishedAt: now - (12 * day),
         status: "published" as const,
-      }
+        coverImage: "/images/actualites/independance-65.png",
+        eventDate: new Date("2025-08-17").getTime(),
+        eventTime: "10h00 - 18h00",
+        eventLocation: "Ambassade du Gabon en France",
+        eventAddress: "26 bis avenue Raphaël, 75016 Paris",
+      },
+      {
+        title: "Représentation de la diaspora à l'Assemblée nationale : une avancée historique",
+        slug: "diaspora-representation-assemblee-nationale",
+        excerpt: "L'article 221 du projet de loi électorale prévoit désormais la représentation des Gabonais de l'étranger à l'Assemblée nationale.",
+        content: `# Représentation de la Diaspora à l'Assemblée Nationale
+
+Une avancée historique pour la diaspora gabonaise : l'**article 221 du projet de loi électorale** prévoit désormais la **représentation des Gabonais de l'étranger à l'Assemblée nationale**.
+
+## Ce que cela change
+
+Pour la première fois, les Gabonais résidant hors du territoire national pourront être représentés directement au sein de l'institution parlementaire. Cette mesure reconnaît officiellement le rôle et la contribution de la diaspora dans le développement du Gabon.
+
+## Réactions
+
+La **Confédération de la Diaspora Gabonaise Multi-continentale G10** a salué cette avancée comme « une reconnaissance historique du poids et de l'engagement des Gabonais de l'étranger ».
+
+## Élections législatives 2025
+
+Dans le cadre des préparatifs des élections législatives de 2025, la **Commission Consulaire Électorale de France** a réuni en septembre 2025 les candidats et leurs représentants à l'ambassade du Gabon en France pour la 2ème circonscription couvrant l'Europe, l'Asie, l'Amérique et l'Océanie.
+
+## Implications pratiques
+
+Les ressortissants gabonais en France sont invités à :
+- Vérifier leur inscription sur les listes électorales
+- Se rapprocher du Consulat pour toute information
+- Participer activement au processus démocratique`,
+        category: "actualite" as const,
+        publishedAt: now - (18 * day),
+        status: "published" as const,
+        coverImage: "/images/actualites/diaspora-assemblee.png",
+      },
+      {
+        title: "Simplification des visas français pour les ressortissants gabonais : discussions en cours",
+        slug: "simplification-visas-francais-gabonais",
+        excerpt: "Le chef de la diplomatie gabonaise, S.E.M. Michel Régis Onanga Ndiaye, a engagé des discussions avec la France pour faciliter l'octroi des visas aux ressortissants gabonais.",
+        content: `# Simplification des Visas Français
+
+Des discussions bilatérales ont été engagées entre **S.E.M. Michel Régis Onanga M. Ndiaye**, Ministre des Affaires Étrangères du Gabon, et le **Ministre délégué français chargé de la Francophonie** pour faciliter l'octroi des visas français aux ressortissants gabonais.
+
+## Contexte
+
+Des problèmes techniques et des retards importants avaient été observés dans le traitement des demandes de visa français déposées par les ressortissants gabonais. Ces difficultés avaient suscité de nombreuses plaintes au sein de la communauté.
+
+## Objectifs des discussions
+
+- Réduire les délais de traitement des demandes de visa
+- Résoudre les problèmes techniques rencontrés sur la plateforme de rendez-vous
+- Faciliter la mobilité des ressortissants gabonais vers la France
+- Renforcer la coopération consulaire bilatérale
+
+## Recommandations du Consulat
+
+En attendant l'aboutissement de ces discussions, le Consulat recommande aux ressortissants gabonais de :
+- Déposer leurs demandes de visa le plus tôt possible
+- S'assurer de la complétude de leurs dossiers
+- Consulter régulièrement le site de France Visas
+
+Le Consulat reste mobilisé pour accompagner les ressortissants dans leurs démarches.`,
+        category: "communique" as const,
+        publishedAt: now - (22 * day),
+        status: "published" as const,
+        coverImage: "/images/actualites/visa-simplification.png",
+      },
+      {
+        title: "Référendum constitutionnel : adoption de la nouvelle Constitution de la 5ème République",
+        slug: "referendum-constitution-5eme-republique",
+        excerpt: "Les Gabonais ont approuvé par référendum en novembre 2024 la nouvelle Constitution instituant la 5ème République gabonaise.",
+        content: `# Nouvelle Constitution de la 5ème République
+
+En **novembre 2024**, les citoyens gabonais ont été appelés à se prononcer par référendum sur un projet de nouvelle Constitution. Le texte a été **adopté**, instituant ainsi la **5ème République gabonaise**.
+
+## Principales dispositions
+
+La nouvelle Constitution introduit plusieurs réformes majeures :
+- Renforcement de l'État de droit et des libertés fondamentales
+- Modernisation des institutions républicaines
+- Encadrement des mandats présidentiels
+- Représentation de la diaspora au Parlement
+
+## Participation de la diaspora
+
+Les Gabonais de France ont pu voter dans les bureaux de vote ouverts au Consulat et à l'Ambassade. Le taux de participation de la diaspora a été significatif, témoignant de l'engagement civique des Gabonais de l'étranger.
+
+## Entrée en vigueur
+
+La nouvelle Constitution est entrée en vigueur en 2025, jetant les bases d'un nouveau cadre institutionnel pour le Gabon.
+
+## Impact pour les ressortissants
+
+Les ressortissants gabonais sont invités à se familiariser avec les nouvelles dispositions constitutionnelles, notamment celles relatives aux droits des citoyens vivant à l'étranger.`,
+        category: "actualite" as const,
+        publishedAt: now - (30 * day),
+        status: "published" as const,
+        coverImage: "/images/actualites/referendum-constitution.png",
+      },
+      {
+        title: "Loi immigration 2025 en France : ce qui change pour les ressortissants gabonais",
+        slug: "loi-immigration-france-2025-gabonais",
+        excerpt: "La loi immigration française de 2025 introduit de nouvelles exigences linguistiques et des procédures digitalisées. Le Consulat informe les ressortissants des changements.",
+        content: `# Loi Immigration 2025 : Ce Qui Change
+
+La France a adopté de nouvelles dispositions en matière d'immigration en 2025, impactant directement les ressortissants étrangers, y compris les Gabonais résidant en France.
+
+## Principales mesures à retenir
+
+### Exigences linguistiques renforcées (à partir du 1er janvier 2026)
+- **Carte de séjour longue durée** : niveau A2 en français requis
+- **Carte de résident** : niveau B1 en français requis
+- **Naturalisation** : niveau B2 en français requis
+- Un **examen civique** sera également obligatoire
+
+### Digitalisation des procédures
+- Prise de rendez-vous en préfecture obligatoirement en ligne à partir de décembre 2025
+- Dématérialisation progressive des demandes de titre de séjour
+
+### Statut « Talent » réformé
+- Nouvelles catégories et conditions pour les permis « Talent »
+- Révision des seuils de rémunération
+
+### Régularisation par le travail
+- Possibilité de régularisation pour les travailleurs dans les secteurs en tension (12 mois d'emploi minimum)
+- Titre de séjour d'un an renouvelable
+
+## Recommandations du Consulat
+
+- Anticipez vos renouvellements de titre de séjour
+- Inscrivez-vous à des cours de français si nécessaire
+- Consultez le site du Consulat pour des informations mises à jour`,
+        category: "communique" as const,
+        publishedAt: now - (35 * day),
+        status: "published" as const,
+        coverImage: "/images/actualites/loi-immigration-france.png",
+      },
+      {
+        title: "Rappel : la carte consulaire est gratuite et obligatoire pour tout Gabonais en France",
+        slug: "carte-consulaire-gratuite-obligatoire",
+        excerpt: "Le Consulat rappelle à tous les ressortissants gabonais en France que la carte consulaire est un document gratuit et obligatoire pour accéder aux services consulaires.",
+        content: `# Carte Consulaire : Gratuite et Obligatoire
+
+Le Consulat Général du Gabon en France rappelle à l'ensemble des ressortissants gabonais résidant sur le territoire français que la **carte consulaire** est un document **gratuit** et **obligatoire**.
+
+## Pourquoi la carte consulaire ?
+
+La carte consulaire est votre document d'identification auprès du Consulat. Elle vous permet de :
+- Accéder à l'ensemble des **services consulaires**
+- Être **recensé** au sein de la communauté gabonaise de France
+- Être **inscrit sur les listes électorales** consulaires
+- Bénéficier de l'**assistance consulaire** en cas d'urgence
+- Obtenir rapidement des **documents administratifs**
+
+## Pièces à fournir
+
+- 1 copie de l'acte de naissance (datant de moins de 6 mois)
+- 1 copie du passeport en cours de validité
+- 1 copie du titre de séjour en cours de validité
+- 1 justificatif de domicile récent
+- 2 photos d'identité (format officiel)
+
+## Où et comment ?
+
+Présentez-vous au **Consulat Général du Gabon en France** muni des pièces requises :
+
+📍 26 bis Avenue Raphaël, 75016 Paris
+📞 07 51 02 52 92
+📧 contact@consulatdugabon.fr
+
+**Aucun frais n'est demandé.** La démarche est entièrement gratuite.`,
+        category: "communique" as const,
+        publishedAt: now - (40 * day),
+        status: "published" as const,
+        coverImage: "/images/actualites/carte-consulaire-gratuite.png",
+      },
     ];
 
     for (const p of posts) {

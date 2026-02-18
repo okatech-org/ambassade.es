@@ -397,3 +397,36 @@ html, body {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
+/* ─────────── 🐡 MR RAY CHATBOT ─────────── */
+
+.chatbot-window {
+  animation: chatbot-slide-up 0.3s ease-out;
+}
+
+.chatbot-fab {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chatbot-message p:last-child {
+  margin-bottom: 0;
+}
+
+@keyframes chatbot-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile chatbot adjustments */
+@media (max-width: 640px) {
+  .chatbot-window {
+    bottom: 80px !important;
+    max-height: 65vh !important;
+  }
+}
+

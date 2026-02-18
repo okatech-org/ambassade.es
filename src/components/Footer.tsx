@@ -9,9 +9,10 @@ export default function Footer() {
   const navLinks = [
     { label: t('header.nav.home'), href: '/' },
     { label: t('header.nav.services', 'Services'), href: '/services' },
-    { label: t('header.nav.vieFrance', 'Vie en France'), href: '/vie-en-france' },
-    { label: t('header.nav.integration', 'Intégration'), href: '/integration' },
     { label: t('header.nav.news', 'Actualités'), href: '/actualites' },
+    { label: t('header.nav.venirFrance', 'Venir en France'), href: '/venir-en-france' },
+    { label: t('header.nav.vieFrance', 'Vivre en France'), href: '/vie-en-france' },
+    { label: t('header.nav.retourGabon', 'Retour au Gabon'), href: '/retour-au-gabon' },
     { label: t('header.nav.contact', 'Contact'), href: '/contact' },
   ]
 
@@ -20,21 +21,18 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row items-start justify-between gap-8">
           {/* Brand */}
-          <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <img
               src="/sceau_gabon.png"
               alt="Logo Consulat Gabon"
-              className="h-20 w-auto rounded-sm bg-white"
+              className="h-20 w-auto"
             />
             <div>
-              <div className="font-bold text-foreground tracking-tight">
-                {t('footer.brand.name', 'Consulat.ga')}
-              </div>
-              <div className="text-xs text-muted-foreground">
-                {t('footer.brand.country', 'République Gabonaise')}
-              </div>
+              <div className="font-extrabold text-base md:text-lg text-foreground leading-tight tracking-wide uppercase">CONSULAT GÉNÉRAL</div>
+              <div className="font-medium text-foreground/90 leading-snug" style={{ letterSpacing: '0.185em', fontSize: '0.94rem' }}>Du Gabon en France</div>
+              <div className="text-xs text-muted-foreground italic leading-snug">Union - Travail - Justice</div>
             </div>
-          </div>
+          </Link>
 
           {/* Nav Links */}
           <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">

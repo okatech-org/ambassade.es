@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<body>
+<img id="myImage" src="temp_design.png" style="display:none;" crossorigin="anonymous">
+<div id="results">Analyzing...</div>
+<script>
+window.onload = function() {
+    try {
+        var img = document.getElementById('myImage');
+        var canvas = document.createElement('canvas');
+        var context = canvas.getContext('2d');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        context.drawImage(img, 0, 0, img.width, img.height);
+        
+        var data = context.getImageData(0, 0, img.width, img.height).data;
+        var colorCounts = {};
+        var totalPixels = (img.width * img.height);
+        
+        // Sample every 10th pixel to be faster
+        for (var i = 0; i < data.length; i += 40) {
+            var r = data[i];
+            var g = data[i+1];
+            var b = data[i+2];
+            // Ignore transparent or very white/black if needed, but let's keep everything for now
+            var rgb = r + ',' + g + ',' + b;
+            if (colorCounts[rgb]) {
+                colorCounts[rgb]++;
+            } else {
+                colorCounts[rgb] = 1;
+            }
+        }
+        
+        // Sort
+        var sortedColors = Object.keys(colorCounts).sort(function(a, b) {
+            return colorCounts[b] - colorCounts[a];
+        });
+        
+        // Get top 20, filtering for distinctness
+        var distinct = [];
+        for (var i = 0; i < sortedColors.length; i++) {
+            var c = sortedColors[i].split(',').map(Number);
+            var isDistinct = true;
+            for (var j = 0; j < distinct.length; j++) {
+                var d = distinct[j].split(',').map(Number);
+                var dist = Math.sqrt(Math.pow(c[0]-d[0],2) + Math.pow(c[1]-d[1],2) + Math.pow(c[2]-d[2],2));
+                if (dist < 50) { // Threshold
+                    isDistinct = false;
+                    break;
+                }
+            }
+            if (isDistinct) {
+                distinct.push(sortedColors[i]);
+                if (distinct.length >= 10) break;
+            }
+        }
+        
+        // Convert to hex
+        var hexColors = distinct.map(function(c) {
+            var rgb = c.split(',').map(Number);
+            return "#" + ((1 << 24) + (rgb[0] << 16) + (rgb[1] << 8) + rgb[2]).toString(16).slice(1);
+        });
+        
+        document.getElementById('results').innerText = "COLORS: " + hexColors.join(', ');
+    } catch (e) {
+        document.getElementById('results').innerText = "Error: " + e.message;
+    }
+};
+</script>
+</body>
+</html>

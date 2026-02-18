@@ -14,21 +14,17 @@ import {
   ExternalLink,
   ArrowRight,
   CheckCircle2,
-  MapPin,
   Phone,
   BookOpen,
   Shield,
   Building2,
-  Plane,
-  AlertOctagon,
-  UserCheck,
-  ClipboardList,
   type LucideIcon,
 } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { PageHero } from '@/components/PageHero'
+import { CitizenCTA } from '@/components/home/CitizenCTA'
 
 
 export const Route = createFileRoute('/vie-en-france')({
@@ -397,239 +393,6 @@ const guideSections: GuideSection[] = [
       { label: 'Service-public.fr — Famille', url: 'https://www.service-public.fr/particuliers/vosdroits/N156', description: 'Droits et démarches familiales' },
     ],
   },
-  {
-    id: 'demarches',
-    icon: ClipboardList,
-    title: 'Démarches en France',
-    color: 'text-sky-600 dark:text-sky-400',
-    iconBg: 'bg-sky-500/10',
-    gradientFrom: 'from-sky-500/5',
-    gradientTo: 'to-sky-600/10',
-    intro:
-      "Toutes les démarches administratives liées à votre séjour en France : carte de séjour, régularisation, changement de statut, perte de documents… Le consulat vous accompagne et vous oriente.",
-    items: [
-      {
-        title: 'Régularisation administrative',
-        detail:
-          "Plusieurs voies existent : admission exceptionnelle au séjour (circulaire Valls 2012), régularisation par le travail (promesse d'embauche ou contrat), motif familial (parent d'enfant français, conjoint de Français), raisons médicales (traitement indisponible au Gabon), protection internationale (OFPRA). Dossier à déposer en préfecture ou sur le portail ANEF. Délai moyen : 3 à 6 mois.",
-      },
-      {
-        title: 'Première carte de séjour — Procédure OFII',
-        detail:
-          "À votre arrivée avec un VLS-TS : 1) Validez le visa sur le site de l'OFII dans les 3 mois. 2) Payez la taxe OFII (200 € à 400 €). 3) Passez la visite médicale obligatoire. 4) Signez le Contrat d'Intégration Républicaine (CIR) qui comprend une formation civique et linguistique. Documents : passeport, formulaire cerfa n°15614, justificatif de domicile, photos, timbre fiscal. ⚠️ Le récépissé de première demande ne permet PAS de quitter la France et d'y revenir.",
-      },
-      {
-        title: 'Renouvellement de carte de séjour',
-        detail:
-          "Anticipez : déposez votre demande 2 mois avant expiration, en ligne sur le portail ANEF ou en préfecture. Un récépissé de renouvellement vous sera délivré (valable 3 mois) en attendant la nouvelle carte. Documents : carte en cours/expirée, passeport valide, justificatifs de domicile récents, justificatifs selon le motif, timbres fiscaux, photos.",
-      },
-      {
-        title: 'APS pour diplômés (Master) — Accord franco-gabonais',
-        detail:
-          "Base juridique : accord franco-gabonais du 5 juillet 2007. L'APS est accordée pour 9 mois, renouvelable une fois (18 mois maximum) aux diplômés de niveau Master. Elle permet de chercher un emploi ou créer une entreprise en lien avec le diplôme. Droit de travailler à temps plein. Important : faites la demande 2 à 4 mois AVANT l'expiration de votre titre étudiant. Documents : titre étudiant, diplôme Master, justificatif de domicile.",
-      },
-      {
-        title: 'Changement de statut : étudiant → salarié',
-        detail:
-          "Conditions : emploi en rapport avec le diplôme, rémunération ≥ 1,5x SMIC (1x SMIC pour les métiers en tension). Procédure : 1) L'employeur dépose la demande d'autorisation de travail sur la plateforme du ministère. 2) Vous déposez la demande de changement de statut en préfecture (cerfa n°15187). 3) Instruction : 2 à 4 mois. 4) Délivrance d'un titre \"salarié\" ou \"travailleur temporaire\".",
-      },
-      {
-        title: 'Document de circulation pour mineur (DCM)',
-        detail:
-          "Destiné aux mineurs étrangers résidant en France dont les parents sont en situation régulière ou dont l'un est français. Le DCM permet au mineur de voyager à l'étranger et de revenir en France sans visa. Validité : 5 ans, renouvelable jusqu'aux 18 ans. Documents : acte de naissance, passeport de l'enfant, titre de séjour des parents, justificatif de domicile, certificat de scolarité, photos. ⚠️ À 18 ans, le jeune doit demander un titre de séjour propre.",
-      },
-      {
-        title: 'Déclaration de perte de documents',
-        detail:
-          "En cas de perte ou vol de passeport, titre de séjour ou carte consulaire : 1) Déclaration au commissariat (récépissé). 2) Pour le passeport : rendez-vous au consulat avec récépissé + photos + justificatifs d'identité. 3) Pour le titre de séjour : rendez-vous à la préfecture/ANEF avec le récépissé. Conseil : conservez TOUJOURS des copies papier ET numériques de vos documents.",
-      },
-      {
-        title: 'Changement d\'adresse (obligatoire)',
-        detail:
-          "Tout étranger titulaire d'un titre de séjour doit signaler son changement d'adresse dans les 3 mois, en ligne sur le portail ANEF ou en préfecture. Documents : titre de séjour + nouveau justificatif de domicile. Attention : le non-respect peut entraîner une amende et des complications lors du renouvellement de votre titre de séjour.",
-      },
-      {
-        title: 'Visa binationaux (Franco-Gabonais)',
-        detail:
-          "Un visa est obligatoire pour entrer au Gabon avec un passeport français. Il s'obtient uniquement au Consulat Général du Gabon à Paris (26 bis avenue Raphaël, 75016). Délai : 3 jours ouvrés. Présence physique requise, pas de visa express. Documents : passeport français valide, acte de naissance gabonais, photos aux normes, formulaire de visa, justificatif du motif du voyage. Pour les mineurs binationaux : mêmes documents + autorisation de sortie du territoire signée par les deux parents. Conseil : entrez en France avec le passeport français, au Gabon avec le passeport gabonais.",
-      },
-      {
-        title: 'Assistance en cas d\'arrestation',
-        detail:
-          "Vos droits : connaître le motif, garder le silence, avoir un avocat (commis d'office si nécessaire), prévenir un proche, contacter le consulat (Convention de Vienne, art. 36), demander un interprète, examen médical. Garde à vue : 24h max, renouvelable une fois (48h). Le consulat peut vous rendre visite, vérifier vos conditions de détention et vous mettre en relation avec un avocat. Numéro d'urgence : 07 44 23 95 84.",
-      },
-    ],
-    tips: [
-      'Anticipez toujours le renouvellement de votre titre de séjour — 2 mois avant expiration',
-      'Conservez des copies numériques de TOUS vos documents dans un cloud sécurisé',
-      'Le portail ANEF est l\'outil central pour la plupart des démarches de séjour en ligne',
-      'En cas d\'arrestation, demandez immédiatement à contacter le consulat',
-      'Les étudiants doivent demander l\'APS AVANT l\'expiration de leur titre étudiant',
-      'Tout changement d\'adresse doit être déclaré dans les 3 mois — sous peine d\'amende',
-      'Un récépissé de première demande ne permet PAS de quitter la France — seul le titre définitif ou le VLS-TS le permet',
-    ],
-    links: [
-      { label: 'Portail ANEF', url: 'https://administration-etrangers-en-france.interieur.gouv.fr', description: 'Démarches de titre de séjour en ligne' },
-      { label: 'OFII', url: 'https://www.ofii.fr', description: 'Office Français de l\'Immigration et de l\'Intégration' },
-      { label: 'Service-public.fr', url: 'https://www.service-public.fr/particuliers/vosdroits/N19804', description: 'Droits des étrangers en France' },
-      { label: 'CIMADE', url: 'https://www.lacimade.org', description: 'Accompagnement juridique gratuit' },
-      { label: 'Consulat du Gabon', url: 'https://consulat.ga', description: 'Visa pour le Gabon — 26 bis av. Raphaël, Paris 16e' },
-      { label: 'Consulat.ga', url: 'https://consulat.ga', description: 'Site officiel du Consulat du Gabon' },
-    ],
-  },
-  {
-    id: 'admission',
-    icon: Plane,
-    title: 'Admission en France',
-    color: 'text-cyan-600 dark:text-cyan-400',
-    iconBg: 'bg-cyan-500/10',
-    gradientFrom: 'from-cyan-500/5',
-    gradientTo: 'to-cyan-600/10',
-    intro:
-      "Avant de voyager, assurez-vous de disposer de tous les documents requis à la frontière. Le visa ne garantit pas automatiquement l'entrée sur le territoire français.",
-    items: [
-      {
-        title: 'Documents obligatoires à la frontière',
-        detail:
-          "Vous devez présenter : un passeport en cours de validité, un visa (court ou long séjour selon le motif), une attestation d'hébergement ou réservation d'hôtel, un billet d'avion retour (court séjour), une assurance voyage couvrant les frais médicaux (minimum 30 000 €).",
-      },
-      {
-        title: 'Justificatifs de ressources financières',
-        detail:
-          "Vous devez justifier de ressources suffisantes : minimum 120 €/jour si vous êtes hébergé à l'hôtel, ou 32,50 €/jour si vous êtes hébergé par un particulier titulaire d'une attestation d'accueil. Présentez des relevés bancaires récents.",
-      },
-      {
-        title: 'Refus d\'entrée : que faire ?',
-        detail:
-          "La police aux frontières peut refuser l'entrée même avec un visa valide. En cas de refus, un recours est possible auprès du tribunal administratif dans les 48 heures. Conservez tous les documents remis par la police aux frontières.",
-      },
-      {
-        title: 'Première démarche OFII à l\'arrivée',
-        detail:
-          "Si vous avez un VLS-TS (visa long séjour valant titre de séjour), validez-le sur le site de l'OFII dans les 3 mois suivant l'arrivée. Payez la taxe OFII (200 € à 400 €), passez la visite médicale obligatoire et signez le Contrat d'Intégration Républicaine (CIR).",
-      },
-    ],
-    tips: [
-      'Imprimez tous vos documents de voyage — ne comptez pas uniquement sur les versions numériques',
-      'Arrivez à la frontière avec vos justificatifs de ressources, hébergement et assurance facilement accessibles',
-      'Le CIR comprend une formation civique et linguistique obligatoire — planifiez votre emploi du temps en conséquence',
-      'Conservez une copie de votre visa et de votre passeport dans un cloud sécurisé',
-    ],
-    links: [
-      { label: 'OFII', url: 'https://www.ofii.fr', description: 'Office Français de l\'Immigration et de l\'Intégration' },
-      { label: 'France-Visas', url: 'https://france-visas.gouv.fr', description: 'Portail officiel des visas pour la France' },
-      { label: 'ANEF', url: 'https://administration-etrangers-en-france.interieur.gouv.fr', description: 'Validation du VLS-TS en ligne' },
-    ],
-  },
-  {
-    id: 'etudiants',
-    icon: UserCheck,
-    title: 'Vie étudiante',
-    color: 'text-indigo-600 dark:text-indigo-400',
-    iconBg: 'bg-indigo-500/10',
-    gradientFrom: 'from-indigo-500/5',
-    gradientTo: 'to-indigo-600/10',
-    intro:
-      "Les étudiants gabonais en France bénéficient de droits spécifiques : droit au travail, carte pluriannuelle, et Autorisation Provisoire de Séjour après le diplôme.",
-    items: [
-      {
-        title: 'Visa étudiant et procédure Campus France',
-        detail:
-          "Le visa étudiant long séjour est obtenu via Campus France (procédure \"Études en France\"). Le VLS-TS mention \"étudiant\" est valable 1 an et renouvelable. Après la 1ère année, vous pouvez obtenir une carte de séjour pluriannuelle (2 à 4 ans).",
-      },
-      {
-        title: 'Droit au travail étudiant (964 h/an)',
-        detail:
-          "Les étudiants étrangers sont autorisés à travailler 964 heures par an, soit 60% de la durée légale du travail. Aucune autorisation de travail supplémentaire n'est nécessaire. Cela représente environ 20 heures par semaine.",
-      },
-      {
-        title: 'Carte pluriannuelle et ressources minimum',
-        detail:
-          "Conditions pour la carte pluriannuelle : assiduité et progression des études, ressources suffisantes (615 €/mois minimum). Ce montant peut être justifié par un compte bancaire, une attestation de bourse ou un garant.",
-      },
-      {
-        title: 'APS — Autorisation Provisoire de Séjour (diplômés)',
-        detail:
-          "Base juridique : accord franco-gabonais du 5 juillet 2007. Après obtention d'un diplôme de niveau Master ou équivalent en France, vous pouvez demander une APS de 9 mois, renouvelable une fois (18 mois maximum). Elle permet de rechercher un emploi ou créer une entreprise en lien avec le diplôme, avec droit de travailler à temps plein. Demande à déposer 2 à 4 mois avant l'expiration du titre étudiant.",
-      },
-      {
-        title: 'Changement de statut : étudiant → salarié',
-        detail:
-          "Conditions : emploi en relation avec le diplôme obtenu, rémunération ≥ 1,5x le SMIC (1x SMIC pour les métiers en tension). L'employeur dépose une demande d'autorisation de travail, puis vous déposez votre demande de changement de statut en préfecture. Délai : 2 à 4 mois.",
-      },
-    ],
-    tips: [
-      'L\'APS dure 9 mois (renouvelable une fois) — demandez-la AVANT l\'expiration de votre titre étudiant',
-      'Les 964 heures de travail autorisées se calculent sur l\'année civile du titre de séjour',
-      'Le changement de statut étudiant → salarié nécessite un contrat ou une promesse d\'embauche',
-      'Conservez vos diplômes, relevés de notes et attestations — ils seront exigés pour le changement de statut',
-    ],
-    links: [
-      { label: 'Campus France', url: 'https://www.campusfrance.org/fr', description: 'Études en France pour les étudiants internationaux' },
-      { label: 'MesServices Étudiant', url: 'https://www.messervices.etudiant.gouv.fr', description: 'Bourse, logement CROUS et vie étudiante' },
-      { label: 'Service-public.fr — APS', url: 'https://www.service-public.fr/particuliers/vosdroits/F17319', description: 'Autorisation provisoire de séjour' },
-    ],
-  },
-  {
-    id: 'oqtf',
-    icon: AlertOctagon,
-    title: 'OQTF : que faire ?',
-    color: 'text-rose-600 dark:text-rose-400',
-    iconBg: 'bg-rose-500/10',
-    gradientFrom: 'from-rose-500/5',
-    gradientTo: 'to-rose-600/10',
-    intro:
-      "L'Obligation de Quitter le Territoire Français (OQTF) est une décision grave. Il est essentiel de connaître vos droits et les recours possibles. NE JAMAIS ignorer une OQTF.",
-    items: [
-      {
-        title: 'Qu\'est-ce qu\'une OQTF ?',
-        detail:
-          "C'est une décision administrative enjoignant un étranger à quitter la France dans un délai de 30 jours (ou sans délai dans certains cas). Motifs : séjour irrégulier, refus de renouvellement de titre, refus de demande d'asile, menace à l'ordre public.",
-      },
-      {
-        title: '1. Recours gracieux — auprès du Préfet',
-        detail:
-          "Délai : 2 mois à compter de la notification. Envoi par lettre recommandée avec accusé de réception. ⚠️ Ce recours NE SUSPEND PAS l'exécution de l'OQTF.",
-      },
-      {
-        title: '2. Recours hiérarchique — auprès du Ministre de l\'Intérieur',
-        detail:
-          "Délai : 2 mois à compter de la notification. Envoi par lettre recommandée avec accusé de réception. ⚠️ Ce recours NE SUSPEND PAS l'exécution de l'OQTF.",
-      },
-      {
-        title: '3. Recours contentieux — devant le Tribunal Administratif',
-        detail:
-          "Délai : 30 jours à compter de la notification (ou 48h si OQTF sans délai de départ). ✅ C'est le SEUL recours qui SUSPEND l'exécution de l'OQTF. L'aide juridictionnelle est accessible.",
-      },
-      {
-        title: 'Saisir le Consul Général',
-        detail:
-          "Si tous les recours échouent, le ressortissant peut saisir le Consul Général du Gabon avec : copie de l'OQTF, copies des recours effectués et décisions rendues, pièce d'identité (passeport ou carte consulaire), tout document utile à la défense. Le consulat peut accompagner et orienter vers une aide juridique, mais NE PEUT PAS s'opposer juridiquement à une OQTF.",
-      },
-      {
-        title: 'Régularisation administrative',
-        detail:
-          "Plusieurs options existent : admission exceptionnelle au séjour (circulaire Valls 2012), régularisation par le travail (promesse d'embauche/contrat), motif familial (parent d'enfant français, conjoint de Français), raisons médicales, ou protection internationale via l'OFPRA.",
-      },
-      {
-        title: 'Documents à rassembler',
-        detail:
-          "Passeport valide ou périmé, justificatifs de domicile (3 derniers mois), photos d'identité (normes ANTS), preuves de présence en France (avis d'imposition, attestations médicales, courriers administratifs), justificatifs selon le motif (contrat de travail, acte de naissance d'enfant français, etc.).",
-      },
-    ],
-    tips: [
-      'NE JAMAIS ignorer une OQTF — elle ne disparaît pas si vous ne faites rien',
-      'Consultez IMMÉDIATEMENT un avocat spécialisé en droit des étrangers',
-      'Privilégiez le recours contentieux (tribunal administratif) : c\'est le SEUL qui suspend l\'exécution de l\'OQTF',
-      'Rassemblez tous les documents prouvant votre ancienneté de séjour et votre insertion en France',
-      'Le dépôt du dossier de régularisation se fait à la préfecture ou en ligne sur le portail ANEF',
-    ],
-    links: [
-      { label: 'CIMADE', url: 'https://www.lacimade.org', description: 'Accompagnement juridique gratuit pour étrangers' },
-      { label: 'GISTI', url: 'https://www.gisti.org', description: 'Groupe d\'information et de soutien des immigrés' },
-      { label: 'Aide juridictionnelle', url: 'https://www.service-public.fr/particuliers/vosdroits/F18074', description: 'Prise en charge des frais d\'avocat' },
-    ],
-  },
 ]
 
 // ─── Components ──────────────────────────────────────────────────────────────
@@ -849,7 +612,7 @@ function VieEnFrancePage() {
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               <div className="flex items-center gap-2 text-foreground/80">
                 <BookOpen className="w-5 h-5 text-primary" />
-                <span className="font-medium">10 rubriques thématiques</span>
+                <span className="font-medium">6 rubriques thématiques</span>
               </div>
               <div className="flex items-center gap-2 text-foreground/80">
                 <CheckCircle2 className="w-5 h-5 text-emerald-500" />
@@ -970,9 +733,9 @@ function VieEnFrancePage() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button asChild size="lg" className="h-12 px-8 rounded-xl shadow-lg shadow-primary/20">
-                  <Link to="/contact">
-                    <MapPin className="w-5 h-5 mr-2" />
-                    Nous rendre visite
+                  <Link to="/venir-en-france">
+                    <ArrowRight className="w-5 h-5 mr-2" />
+                    Venir en France
                   </Link>
                 </Button>
                 <Button
@@ -981,9 +744,9 @@ function VieEnFrancePage() {
                   variant="outline"
                   className="h-12 px-8 rounded-xl bg-background/50 hover:bg-accent/10"
                 >
-                  <Link to="/integration">
+                  <Link to="/retour-au-gabon">
                     <ArrowRight className="w-5 h-5 mr-2" />
-                    Guide d'intégration
+                    Retour au Gabon
                   </Link>
                 </Button>
               </div>
@@ -991,6 +754,8 @@ function VieEnFrancePage() {
           </div>
         </div>
       </section>
+
+      <CitizenCTA />
     </div>
   )
 }

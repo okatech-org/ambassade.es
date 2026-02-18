@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion"
 import { Badge } from "@/components/ui/badge"
 import { PageHero } from '@/components/PageHero'
+import { CitizenCTA } from '@/components/home/CitizenCTA'
 import { Building2, Landmark, Globe, AlertTriangle, Mail, MapPin } from 'lucide-react'
 
 
@@ -249,6 +250,7 @@ function FAQPage() {
         </section>
       </main>
 
+      <CitizenCTA />
     </div>
   )
 }

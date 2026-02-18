@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Mail, Phone, MapPin, Info } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { PageHero } from '@/components/PageHero'
+import { CitizenCTA } from '@/components/home/CitizenCTA'
 
 
 export const Route = createFileRoute('/contact')({
@@ -177,6 +178,8 @@ function ContactPage() {
             </div>
         </div>
       </div>
+
+      <CitizenCTA />
     </div>
   )
 }

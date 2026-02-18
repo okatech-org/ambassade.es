@@ -12,14 +12,13 @@ import {
   CalendarPlus,
   ArrowRight,
   Globe,
-  Mail,
   MapPin,
-  Banknote,
   type LucideIcon,
 } from 'lucide-react'
 import { api } from '@convex/_generated/api'
 import { ServiceCategory } from '@convex/lib/validators'
 import { Badge } from '@/components/ui/badge'
+import { CitizenCTA } from '@/components/home/CitizenCTA'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -347,60 +346,7 @@ function ServicesPage() {
         onOpenChange={handleModalClose}
       />
 
-      {/* Tarifs Recap Table */}
-      <section className="py-16 px-6 bg-muted/30">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10">
-            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-primary/20">
-              <Banknote className="w-3.5 h-3.5 mr-1" />
-              Grille tarifaire
-            </Badge>
-            <h2 className="text-3xl font-bold text-foreground mb-3">Tarifs des services consulaires</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">Récapitulatif des tarifs en vigueur au Consulat Général du Gabon en France.</p>
-          </div>
-          <div className="glass-card overflow-hidden rounded-2xl">
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-border/50 bg-muted/50">
-                    <th className="text-left p-4 font-semibold text-foreground">Service</th>
-                    <th className="text-left p-4 font-semibold text-foreground">Tarif</th>
-                    <th className="text-left p-4 font-semibold text-foreground hidden sm:table-cell">Validité</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-border/30">
-                  <tr className="hover:bg-muted/30 transition-colors">
-                    <td className="p-4 font-medium">Carte consulaire</td>
-                    <td className="p-4 text-emerald-600 dark:text-emerald-400 font-semibold">Gratuit</td>
-                    <td className="p-4 text-muted-foreground hidden sm:table-cell">—</td>
-                  </tr>
-                  <tr className="hover:bg-muted/30 transition-colors">
-                    <td className="p-4 font-medium">Tenant lieu de passeport</td>
-                    <td className="p-4 text-primary font-semibold">55 €</td>
-                    <td className="p-4 text-muted-foreground hidden sm:table-cell">1 an</td>
-                  </tr>
-                  <tr className="hover:bg-muted/30 transition-colors">
-                    <td className="p-4 font-medium">Laissez-passer</td>
-                    <td className="p-4 text-primary font-semibold">55 €</td>
-                    <td className="p-4 text-muted-foreground hidden sm:table-cell">30 jours</td>
-                  </tr>
-                  <tr className="hover:bg-muted/30 transition-colors">
-                    <td className="p-4 font-medium">Célébration mariage (au consulat)</td>
-                    <td className="p-4 text-primary font-semibold">250 €</td>
-                    <td className="p-4 text-muted-foreground hidden sm:table-cell">—</td>
-                  </tr>
 
-                  <tr className="hover:bg-muted/30 transition-colors">
-                    <td className="p-4 font-medium">Autres actes consulaires</td>
-                    <td className="p-4 text-muted-foreground italic">Tarif consulaire en vigueur</td>
-                    <td className="p-4 text-muted-foreground hidden sm:table-cell">—</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Cross-links section */}
       <section className="py-12 px-6">
@@ -434,15 +380,7 @@ function ServicesPage() {
         </div>
       </section>
 
-      {/* Floating Contact Button */}
-      <a
-        href="mailto:consulatgeneralgabon@yahoo.fr?subject=Demande de renseignement"
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-primary text-primary-foreground px-5 py-3 rounded-full shadow-lg hover:bg-primary/90 transition-all hover:scale-105 font-medium"
-      >
-        <Mail className="w-5 h-5" />
-        <span className="hidden sm:inline">Contacter le consulat</span>
-      </a>
-
+      <CitizenCTA />
     </div>
   )
 }

@@ -6,19 +6,10 @@ import {
   Sparkles,
   ArrowRight,
   Bot,
-  Zap,
-  Globe,
-  Shield,
 } from 'lucide-react'
 import { Button } from '../ui/button'
 
-/* ───────── Stats counters ───────── */
-const stats = [
-  { value: 'IA', label: 'Assistant intelligent', icon: Bot },
-  { value: '100%', label: 'Démarches en ligne', icon: Globe },
-  { value: '< 2 min', label: 'Temps de réponse', icon: Zap },
-  { value: '24h/24', label: 'Disponibilité', icon: Shield },
-]
+
 
 export function Hero() {
   const { t } = useTranslation()
@@ -90,38 +81,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Stats Cards — Google Bento blocks */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 md:px-6 pb-10 mt-24 md:mt-32 lg:mt-40">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-          {stats.map((stat, i) => {
-            /* Alternate pastel backgrounds like Google Chrome Installer */
-            const bgColors = [
-              'bg-[#1a5dab] text-white',        /* Blue block */
-              'bg-[#f5d98e] text-[#3c4043]',    /* Yellow block */
-              'bg-[#b8d8b0] text-[#3c4043]',    /* Green block */
-              'bg-[#1a5dab] text-white',         /* Blue block */
-            ]
-            const iconBgs = [
-              'bg-white/20',
-              'bg-white/40',
-              'bg-white/40',
-              'bg-white/20',
-            ]
-            return (
-              <div
-                key={stat.label}
-                className={`group flex flex-col items-center gap-2 md:gap-3 p-4 md:p-6 rounded-2xl md:rounded-3xl ${bgColors[i]} transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
-              >
-                <div className={`p-3 rounded-2xl ${iconBgs[i]} transition-colors`}>
-                  <stat.icon className="w-6 h-6" />
-                </div>
-                <p className="text-2xl sm:text-3xl font-extrabold tracking-tight">{stat.value}</p>
-                <p className="text-sm font-medium opacity-80">{stat.label}</p>
-              </div>
-            )
-          })}
-        </div>
-      </div>
+
     </section>
   )
 }

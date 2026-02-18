@@ -59,9 +59,12 @@ export function CitizenCTA() {
           <div className="relative grid lg:grid-cols-2 gap-0 items-stretch">
             {/* Image Side */}
             <div className="relative min-h-[300px] lg:min-h-[500px] overflow-hidden">
-              <img
-                src="/banner-gabon-france.jpeg"
-                alt="Application Consulat.ga"
+              <video
+                src="/videos/video_idn_ga.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/80 hidden lg:block" />

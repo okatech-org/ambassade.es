@@ -12,6 +12,7 @@ import { TanStackDevtools } from '@tanstack/react-devtools'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import { MrRayChatbot } from '../components/MrRayChatbot'
 
 import ClerkProvider from '../integrations/clerk/provider'
 
@@ -141,6 +142,7 @@ function RootLayout() {
       >
         <Outlet />
         {!hasOwnLayout && <Footer />}
+        {!hasOwnLayout && <MrRayChatbot />}
       </main>
     </>
   )

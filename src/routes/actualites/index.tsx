@@ -17,6 +17,7 @@ import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Button } from '@/components/ui/button'
 import { PageHero } from '@/components/PageHero'
+import { CitizenCTA } from '@/components/home/CitizenCTA'
 
 
 export const Route = createFileRoute('/actualites/')({
@@ -324,6 +325,8 @@ function ActualitesPage() {
           </div>
         </div>
       </section>
+
+      <CitizenCTA />
     </div>
   )
 }

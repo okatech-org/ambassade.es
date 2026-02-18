@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VieEnFranceRouteImport } from './routes/vie-en-france'
+import { Route as VenirEnFranceRouteImport } from './routes/venir-en-france'
+import { Route as RetourAuGabonRouteImport } from './routes/retour-au-gabon'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as LeConsulatRouteImport } from './routes/le-consulat'
 import { Route as IntegrationRouteImport } from './routes/integration'
@@ -46,6 +48,16 @@ import { Route as AdminOrgsOrgIdEditRouteImport } from './routes/admin/orgs/$org
 const VieEnFranceRoute = VieEnFranceRouteImport.update({
   id: '/vie-en-france',
   path: '/vie-en-france',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VenirEnFranceRoute = VenirEnFranceRouteImport.update({
+  id: '/venir-en-france',
+  path: '/venir-en-france',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RetourAuGabonRoute = RetourAuGabonRouteImport.update({
+  id: '/retour-au-gabon',
+  path: '/retour-au-gabon',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
@@ -220,6 +232,8 @@ export interface FileRoutesByFullPath {
   '/integration': typeof IntegrationRoute
   '/le-consulat': typeof LeConsulatRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/retour-au-gabon': typeof RetourAuGabonRoute
+  '/venir-en-france': typeof VenirEnFranceRoute
   '/vie-en-france': typeof VieEnFranceRoute
   '/actualites/$slug': typeof ActualitesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -254,6 +268,8 @@ export interface FileRoutesByTo {
   '/integration': typeof IntegrationRoute
   '/le-consulat': typeof LeConsulatRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/retour-au-gabon': typeof RetourAuGabonRoute
+  '/venir-en-france': typeof VenirEnFranceRoute
   '/vie-en-france': typeof VieEnFranceRoute
   '/actualites/$slug': typeof ActualitesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -290,6 +306,8 @@ export interface FileRoutesById {
   '/integration': typeof IntegrationRoute
   '/le-consulat': typeof LeConsulatRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/retour-au-gabon': typeof RetourAuGabonRoute
+  '/venir-en-france': typeof VenirEnFranceRoute
   '/vie-en-france': typeof VieEnFranceRoute
   '/actualites/$slug': typeof ActualitesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -327,6 +345,8 @@ export interface FileRouteTypes {
     | '/integration'
     | '/le-consulat'
     | '/mentions-legales'
+    | '/retour-au-gabon'
+    | '/venir-en-france'
     | '/vie-en-france'
     | '/actualites/$slug'
     | '/services/$slug'
@@ -361,6 +381,8 @@ export interface FileRouteTypes {
     | '/integration'
     | '/le-consulat'
     | '/mentions-legales'
+    | '/retour-au-gabon'
+    | '/venir-en-france'
     | '/vie-en-france'
     | '/actualites/$slug'
     | '/services/$slug'
@@ -396,6 +418,8 @@ export interface FileRouteTypes {
     | '/integration'
     | '/le-consulat'
     | '/mentions-legales'
+    | '/retour-au-gabon'
+    | '/venir-en-france'
     | '/vie-en-france'
     | '/actualites/$slug'
     | '/services/$slug'
@@ -432,6 +456,8 @@ export interface RootRouteChildren {
   IntegrationRoute: typeof IntegrationRoute
   LeConsulatRoute: typeof LeConsulatRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
+  RetourAuGabonRoute: typeof RetourAuGabonRoute
+  VenirEnFranceRoute: typeof VenirEnFranceRoute
   VieEnFranceRoute: typeof VieEnFranceRoute
   ActualitesSlugRoute: typeof ActualitesSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
@@ -446,6 +472,20 @@ declare module '@tanstack/react-router' {
       path: '/vie-en-france'
       fullPath: '/vie-en-france'
       preLoaderRoute: typeof VieEnFranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/venir-en-france': {
+      id: '/venir-en-france'
+      path: '/venir-en-france'
+      fullPath: '/venir-en-france'
+      preLoaderRoute: typeof VenirEnFranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/retour-au-gabon': {
+      id: '/retour-au-gabon'
+      path: '/retour-au-gabon'
+      fullPath: '/retour-au-gabon'
+      preLoaderRoute: typeof RetourAuGabonRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mentions-legales': {
@@ -733,6 +773,8 @@ const rootRouteChildren: RootRouteChildren = {
   IntegrationRoute: IntegrationRoute,
   LeConsulatRoute: LeConsulatRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
+  RetourAuGabonRoute: RetourAuGabonRoute,
+  VenirEnFranceRoute: VenirEnFranceRoute,
   VieEnFranceRoute: VieEnFranceRoute,
   ActualitesSlugRoute: ActualitesSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
