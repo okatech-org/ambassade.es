@@ -7,7 +7,6 @@ import {
 } from '@/components/ui/dialog'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
 import { ServiceCategory } from '@convex/lib/validators'
 import {
   Clock,
@@ -39,7 +38,6 @@ const CATEGORY_CONFIG: Record<string, { icon: LucideIcon; color: string }> = {
   [ServiceCategory.Other]: { icon: FileText, color: 'bg-gray-500' },
 }
 
-// Simplified service interface matching the new schema
 interface ServiceInfo {
   _id: string
   title: string
@@ -80,156 +78,136 @@ export function ServiceDetailModal({
   const CategoryIcon = categoryConfig.icon
   
   const categoryLabel = t(`services.categoriesMap.${service.category}`)
+  const hasRequirements = (service.requirements?.length ?? 0) > 0
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-3xl lg:max-w-4xl w-[90vw] max-h-[85vh] overflow-y-auto">
-        <DialogHeader>
-          <div className="flex items-start gap-4">
-            <div className={`p-3 rounded-xl ${categoryConfig.color}/10`}>
-              <CategoryIcon className={`h-8 w-8 text-${categoryConfig.color.replace('bg-', '')}`} />
+      <DialogContent className="max-w-2xl w-[92vw] max-h-[85vh] flex flex-col overflow-hidden p-0 bg-background/85 backdrop-blur-xl border-border/50 shadow-2xl">
+        {/* ── Header ── */}
+        <DialogHeader className="px-6 pt-6 pb-0 shrink-0">
+          <div className="flex items-start gap-3">
+            <div className={`p-2.5 rounded-xl ${categoryConfig.color}/10 shrink-0`}>
+              <CategoryIcon className={`h-6 w-6 text-${categoryConfig.color.replace('bg-', '')}`} />
             </div>
-            <div className="flex-1">
-              <div className="flex items-center gap-2 flex-wrap mb-1">
-                <DialogTitle className="text-2xl">{service.title}</DialogTitle>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 flex-wrap">
+                <DialogTitle className="text-xl leading-tight">{service.title}</DialogTitle>
                 {service.isUrgent && (
-                  <Badge variant="destructive" className="gap-1 animate-pulse">
+                  <Badge variant="destructive" className="gap-1 animate-pulse text-[10px] px-2 py-0.5">
                     <AlertTriangle className="w-3 h-3" />
                     Urgent
                   </Badge>
                 )}
               </div>
+              {/* Inline metadata badges */}
+              <div className="flex flex-wrap items-center gap-1.5 mt-2">
+                <Badge variant="outline" className="gap-1 text-[10px] px-2 py-0.5">
+                  <CategoryIcon className="h-2.5 w-2.5" />
+                  {categoryLabel}
+                </Badge>
+                {service.price && ['tenant-lieu', 'laissez-passer', 'celebration-mariage'].includes(service.slug) && (
+                  <Badge className="gap-1 bg-primary/10 text-primary border-primary/20 text-[10px] px-2 py-0.5">
+                    <Banknote className="h-2.5 w-2.5" />
+                    {service.price}
+                  </Badge>
+                )}
+                {service.delay && (
+                  <Badge variant="outline" className="gap-1 text-[10px] px-2 py-0.5">
+                    <Clock className="h-2.5 w-2.5" />
+                    {service.delay}
+                  </Badge>
+                )}
+                {service.validity && (
+                  <Badge variant="outline" className="gap-1 border-teal-500/30 text-teal-700 dark:text-teal-400 text-[10px] px-2 py-0.5">
+                    <CalendarCheck className="h-2.5 w-2.5" />
+                    {service.validity}
+                  </Badge>
+                )}
+                <Badge variant="secondary" className="gap-1 text-[10px] px-2 py-0.5">
+                  <Users className="h-2.5 w-2.5" />
+                  🇬🇦 Ressortissants gabonais en France
+                </Badge>
+              </div>
             </div>
           </div>
         </DialogHeader>
 
-        <div className="space-y-6 mt-4">
-          {/* Warning for Passport/Visa */}
+        {/* ── Scrollable content ── */}
+        <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
+          {/* DGDI Warning */}
           {([ServiceCategory.Identity, ServiceCategory.Visa, 'Identité', 'Visa'].includes(service.category as any)) && (
-            <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 flex items-start gap-3 text-sm">
-                <ShieldAlert className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-bold text-amber-700 dark:text-amber-500 mb-1">
-                    {t('services.passportVisaWarning.title', 'Information Importante')}
-                  </h4>
-                  <p className="text-muted-foreground">
-                    {t('services.passportVisaWarning.message', "Les services Passeport et Visa sont de l'autorité de l'Antenne DGDI. Veuillez noter que ce n'est pas le Consulat Général qui établit les Passeports et les Visas en France.")}
-                  </p>
-                </div>
+            <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-3 flex items-start gap-2.5 text-xs">
+              <ShieldAlert className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+              <div>
+                <span className="font-bold text-amber-700 dark:text-amber-500">
+                  {t('services.passportVisaWarning.title', 'Information Importante')} —{' '}
+                </span>
+                <span className="text-muted-foreground">
+                  {t('services.passportVisaWarning.message', "Les services Passeport et Visa sont de l'autorité de l'Antenne DGDI.")}
+                </span>
               </div>
+            </div>
           )}
 
-          {/* Description principale */}
-          <div className="text-muted-foreground prose dark:prose-invert max-w-none">
+          {/* Description */}
+          <div className="text-sm text-muted-foreground leading-relaxed prose prose-sm dark:prose-invert max-w-none">
             <ReactMarkdown>{service.description}</ReactMarkdown>
           </div>
 
-          {/* Info badges row: category, price, delay, validity */}
-          <div className="flex flex-wrap gap-3">
-            <Badge variant="outline" className="gap-1">
-              <CategoryIcon className="h-3 w-3" />
-              {categoryLabel}
-            </Badge>
-            {service.price && ['tenant-lieu', 'laissez-passer'].includes(service.slug) && (
-              <Badge className="gap-1 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
-                <Banknote className="h-3 w-3" />
-                {service.price}
-              </Badge>
-            )}
-            {service.delay && (
-              <Badge variant="outline" className="gap-1">
-                <Clock className="h-3 w-3" />
-                {service.delay}
-              </Badge>
-            )}
-            {service.validity && (
-              <Badge variant="outline" className="gap-1 border-teal-500/30 text-teal-700 dark:text-teal-400">
-                <CalendarCheck className="h-3 w-3" />
-                Validité : {service.validity}
-              </Badge>
-            )}
-          </div>
-
-          {/* Notes / Important info */}
+          {/* Notes */}
           {service.notes && (
-            <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 flex items-start gap-3 text-sm">
-              <AlertTriangle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+            <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-3 flex items-start gap-2.5 text-xs">
+              <AlertTriangle className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-bold text-blue-700 dark:text-blue-400 mb-1">Note importante</h4>
-                <p className="text-muted-foreground">{service.notes}</p>
+                <span className="font-bold text-blue-700 dark:text-blue-400">Note — </span>
+                <span className="text-muted-foreground">{service.notes}</span>
               </div>
             </div>
           )}
 
-          {/* Detailed content (markdown) */}
+          {/* Detailed content */}
           {service.content && (
-            <>
-              <Separator />
-              <div className="prose prose-sm dark:prose-invert max-w-none">
-                <ReactMarkdown>
-                  {service.content}
-                </ReactMarkdown>
-              </div>
-            </>
+            <div className="prose prose-sm dark:prose-invert max-w-none text-sm">
+              <ReactMarkdown>{service.content}</ReactMarkdown>
+            </div>
           )}
 
-          {/* Bénéficiaires éligibles */}
-          <div>
-            <h4 className="font-semibold mb-3 flex items-center gap-2">
-              <Users className="h-4 w-4 text-muted-foreground" />
-              {t('services.modal.eligibleBeneficiaries')}
-            </h4>
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="secondary" className="gap-1 bg-green-600 text-white">
-                <CheckCircle2 className="h-3 w-3" />
-                {t('services.modal.citizens')}
-              </Badge>
-              <Badge variant="secondary" className="gap-1 bg-blue-600 text-white">
-                <CheckCircle2 className="h-3 w-3" />
-                {t('services.modal.residents')}
-              </Badge>
-            </div>
-          </div>
-
-          <Separator />
-
-          {/* Documents requis */}
-          {(service.requirements?.length ?? 0) > 0 && (
+          {/* Documents requis — compact 2-column grid */}
+          {hasRequirements && (
             <div>
-              <h4 className="font-semibold mb-3 flex items-center gap-2">
+              <h4 className="font-semibold text-sm mb-2 flex items-center gap-2">
                 <FileText className="h-4 w-4 text-muted-foreground" />
                 {t('services.modal.requiredDocuments')} ({service.requirements?.length})
               </h4>
-              <ul className="space-y-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                 {service.requirements?.map((doc, index) => (
-                  <li
+                  <div
                     key={index}
-                    className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg"
+                    className="flex items-center gap-2 px-3 py-2 bg-muted/40 rounded-lg"
                   >
-                    <div className="h-6 w-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-medium">
+                    <span className="h-5 w-5 rounded-full bg-primary/10 text-primary flex items-center justify-center text-[10px] font-bold shrink-0">
                       {index + 1}
-                    </div>
-                    <span className="text-sm">{doc}</span>
-                  </li>
+                    </span>
+                    <span className="text-xs leading-snug">{doc}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           )}
+        </div>
 
-          {(service.requirements?.length ?? 0) > 0 && <Separator />}
-
-          {/* Action */}
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Button 
-              className="flex-1 gap-2 w-full sm:w-auto" 
-              asChild
-            >
-              <a href="https://www.consulat.ga/" target="_blank" rel="noopener noreferrer">
-                <ArrowRight className="h-4 w-4" />
-                {t('services.modal.makeRequest', 'Faire la démarche')}
-              </a>
-            </Button>
-          </div>
+        {/* ── Sticky CTA footer ── */}
+        <div className="px-6 py-4 border-t border-border/40 shrink-0 bg-background/60 backdrop-blur-md">
+          <Button className="w-full gap-2 h-11" asChild>
+            <a href="https://www.consulat.ga/" target="_blank" rel="noopener noreferrer">
+              {t('services.modal.makeRequest', 'Faire la démarche')}
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </Button>
+          <p className="text-[10px] text-muted-foreground/60 text-center mt-2 flex items-center justify-center gap-1">
+            <CheckCircle2 className="w-3 h-3" />
+            Réservé aux ressortissants gabonais résidant en France (séjour &gt; 3 mois)
+          </p>
         </div>
       </DialogContent>
     </Dialog>

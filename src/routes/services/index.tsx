@@ -181,49 +181,87 @@ function ServicesPage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <PageHero image="/images/Consult_general.jpeg">
-          <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-primary/20 backdrop-blur-sm">
-            {t('services.badge', 'Services Consulaires')}
+          <Badge variant="secondary" className="mb-2 lg:mb-4 bg-primary/10 text-primary border-primary/20 backdrop-blur-sm text-[10px] lg:text-xs">
+            {t('services.badge', 'Nos Services')}
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            {t('services.pageTitle', 'Nos')}{' '}
+          <h1 className="text-2xl lg:text-6xl font-bold text-foreground mb-2 lg:mb-6">
+            {t('services.pageTitle', 'Services Consulaires')}{' '}
              <span className="text-gradient hover:animate-shimmer bg-[length:200%_auto]">{t('services.pageTitleHighlight', 'Services')}</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-            {t('services.pageDescription', 'Découvrez l\'ensemble des services consulaires proposés par la République Gabonaise pour ses citoyens à l\'étranger.')}
+          <p className="text-sm lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 lg:mb-10 leading-relaxed">
+            {t('services.pageDescription', 'Découvrez l\'ensemble des services proposés par les représentations consulaires de la République Gabonaise à l\'étranger.')}
           </p>
 
-           {/* Search Bar + Demande d'Audience */}
-           <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center gap-4">
-            <div className="relative flex-1 w-full">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
-              <Input 
-                className="h-14 pl-12 pr-4 rounded-2xl bg-background shadow-lg border-primary/10 text-lg placeholder:text-muted-foreground/50 focus-visible:ring-primary/20"
-                placeholder={t('services.searchPlaceholder', 'Rechercher un service...')}
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
-            <Button
-              size="lg"
-              className="h-14 px-6 rounded-2xl gap-2 shadow-lg whitespace-nowrap bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
-              onClick={() => handleServiceClick('demande-audience')}
-            >
-              <CalendarPlus className="w-5 h-5" />
-              {t('services.requestAudience', "Demande d'Audience")}
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-          </div>
       </PageHero>
 
 
 
       {/* Main Content */}
-      <section className="py-12 px-6">
+      <section className="py-8 lg:py-12 px-4 lg:px-6">
         <div className="max-w-7xl mx-auto">
+
+          {/* ── Mobile: Inline filters (horizontal chips + search) ── */}
+          <div className="lg:hidden mb-6 space-y-3">
+            {/* Search bar — mobile */}
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4" />
+              <Input
+                className="h-10 pl-9 pr-4 rounded-xl bg-background border-border/50 text-sm placeholder:text-muted-foreground/50"
+                placeholder={t('services.searchPlaceholder', 'Rechercher un service...')}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+            {/* Horizontal filter chips */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide -mx-1 px-1">
+              {activeFiltersCount > 0 && (
+                <button
+                  onClick={clearFilters}
+                  className="shrink-0 text-[11px] font-medium text-red-500 hover:text-red-600 px-2.5 py-1.5 rounded-full border border-red-200 bg-red-50 dark:bg-red-950/20 dark:border-red-800/30 transition-colors"
+                >
+                  ✕ Effacer
+                </button>
+              )}
+              {Object.values(ServiceCategory).filter((cat) => cat !== ServiceCategory.Visa).map((category) => {
+                const label = t(`services.categoriesMap.${category}`)
+                const config = categoryConfig[category] || categoryConfig[ServiceCategory.Other]
+                const Icon = config.icon
+                const isSelected = selectedCategories.includes(category)
+
+                return (
+                  <button
+                    key={category}
+                    onClick={() => toggleCategory(category)}
+                    className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium border transition-all duration-200 ${
+                      isSelected
+                        ? 'bg-primary text-primary-foreground border-primary shadow-sm'
+                        : 'bg-background border-border/50 text-muted-foreground hover:border-primary/30 hover:text-foreground'
+                    }`}
+                  >
+                    <Icon className="w-3 h-3" />
+                    {label}
+                  </button>
+                )
+              })}
+            </div>
+            {/* Demande d'Audience — mobile */}
+            <Button
+              size="sm"
+              className="w-full h-10 rounded-xl gap-2 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold text-xs"
+              onClick={() => handleServiceClick('demande-audience')}
+            >
+              <CalendarPlus className="w-4 h-4" />
+              {t('services.requestAudience', "Demande d'Audience")}
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Button>
+            {/* DGDI Banner — mobile only (retractable) */}
+            <DGDIServiceBanner />
+          </div>
+
           <div className="flex flex-col lg:flex-row gap-8">
             
-            {/* Sidebar: Filters + DGDI Banner */}
-            <aside className="w-full lg:w-72 shrink-0">
+            {/* ── Desktop Sidebar: Filters + DGDI Banner ── */}
+            <aside className="hidden lg:block w-72 shrink-0">
               <div className="lg:sticky lg:top-24 space-y-5">
                 {/* Filter Panel */}
                 <div className="glass-panel p-6 rounded-2xl border-border/40">
@@ -289,7 +327,6 @@ function ServicesPage() {
                  <h2 className="text-xl font-semibold">
                    {filteredServices ? `${filteredServices.length} service${filteredServices.length > 1 ? 's' : ''}` : 'Chargement...'}
                  </h2>
-                 {/* Mobile Filter Toggle could go here if needed */}
                </div>
 
                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -316,7 +353,7 @@ function ServicesPage() {
                          href="https://www.ae.dgdifrance.fr/"
                          target="_blank"
                          rel="noopener noreferrer"
-                         className="group block col-span-full"
+                         className="group hidden lg:block col-span-full"
                        >
                          <div className="dgdi-banner rounded-2xl border border-amber-400/30 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 hover:-translate-y-1 transition-all duration-300">
                            <div className="flex items-center gap-3">
