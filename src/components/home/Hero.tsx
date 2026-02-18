@@ -21,13 +21,13 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-[92vh] flex flex-col items-center justify-end overflow-hidden">
+    <section className="relative min-h-[69vh] sm:min-h-[92vh] flex flex-col items-center justify-end overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
           src="/images/IMG_2415.PNG"
           alt="Consulat de l'ère IA"
-                    className="w-full h-full object-cover object-[center_60%]"
+                    className="w-full h-full object-cover object-[center_calc(60%-3cm)] sm:object-[center_60%]"
         />
         {/* Subtle bottom gradient for text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -35,7 +35,7 @@ export function Hero() {
 
       {/* Main Content */}
       <div
-        className={`relative z-10 w-full max-w-6xl mx-auto px-6 pt-0 pb-12 transition-all duration-700 ${
+        className={`relative z-10 w-full max-w-6xl mx-auto px-6 pt-0 pb-12 top-[2cm] sm:top-0 transition-all duration-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
         }`}
       >
@@ -43,9 +43,17 @@ export function Hero() {
           {/* Left — Title + CTA */}
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-[0.7cm] tracking-tight drop-shadow-lg">
-              {t('hero.title', 'Le Consulat passe à')}{' '}
-              <span className="text-[#EAB308] drop-shadow-lg">
-                {t('hero.titleHighlight', "l'ère de l'IA")}
+              {/* Mobile version */}
+              <span className="sm:hidden">
+                {t('hero.mobileTitle', 'Le Consulat Général')}<br />
+                <span className="text-[#EAB308] drop-shadow-lg">{t('hero.mobileTitleHighlight', "passe à l'ère de l'IA")}</span>
+              </span>
+              {/* Desktop version */}
+              <span className="hidden sm:inline">
+                {t('hero.title', 'Le Consulat passe à')}{' '}
+                <span className="text-[#EAB308] drop-shadow-lg">
+                  {t('hero.titleHighlight', "l'ère de l'IA")}
+                </span>
               </span>
             </h1>
 

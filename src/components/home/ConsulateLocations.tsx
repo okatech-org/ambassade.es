@@ -30,7 +30,7 @@ export function ConsulateLocations() {
                 <MapPin className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="font-bold text-lg text-foreground">Consulat Général du Gabon</h3>
+                <h3 className="font-bold text-lg text-foreground">{t('locations.consulateTitle', 'Consulat Général du Gabon')}</h3>
                 <p className="text-muted-foreground">26 bis Avenue Raphaël</p>
                 <p className="text-muted-foreground">75016 Paris, France</p>
               </div>
@@ -40,31 +40,31 @@ export function ConsulateLocations() {
             <div className="space-y-2 border-t border-border/50 pt-4">
               <div className="flex items-center gap-3 text-sm">
                 <Phone className="w-4 h-4 text-primary" />
-                <span className="font-semibold w-20">Standard:</span>
+                <span className="font-semibold w-20">{t('locations.standardLabel', 'Standard:')}</span>
                 <a href="tel:+33751025292" className="text-foreground hover:text-primary transition-colors">07 51 02 52 92</a>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <Phone className="w-4 h-4 text-destructive" />
-                <span className="font-semibold w-20">Urgences:</span>
+                <span className="font-semibold w-20">{t('locations.emergenciesLabel', 'Urgences:')}</span>
                 <a href="tel:+33744239584" className="text-foreground hover:text-primary transition-colors">07 44 23 95 84</a>
               </div>
             </div>
 
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-sm text-foreground">
-                <span className="font-semibold w-24">Métro:</span>
-                <span>Ranelagh (Ligne 9)</span>
+                <span className="font-semibold w-24">{t('locations.metroLabel', 'Métro:')}</span>
+                <span>{t('locations.metroValue', 'Ranelagh (Ligne 9)')}</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-foreground">
-                <span className="font-semibold w-24">Bus:</span>
-                <span>Lignes 22, 52 (Arrêt Ranelagh)</span>
+                <span className="font-semibold w-24">{t('locations.busLabel', 'Bus:')}</span>
+                <span>{t('locations.busValue', 'Lignes 22, 52 (Arrêt Ranelagh)')}</span>
               </div>
             </div>
 
             <div className="pt-4">
               <Button asChild className="w-full rounded-xl">
                 <a href="https://www.google.com/maps/search/?api=1&query=26+bis+Avenue+Raphaël+75016+Paris" target="_blank" rel="noopener noreferrer">
-                  Voir sur la carte
+                  {t('locations.viewOnMap', 'Voir sur la carte')}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </Button>
@@ -78,7 +78,7 @@ export function ConsulateLocations() {
                 <MapPin className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="font-bold text-lg text-foreground">Antenne DGDI (Passeports/Visas)</h3>
+                <h3 className="font-bold text-lg text-foreground">{t('locations.dgdiTitle', 'Antenne DGDI (Passeports/Visas)')}</h3>
                 <p className="text-muted-foreground">26 bis Avenue Raphaël</p>
                 <p className="text-muted-foreground">75016 Paris, France</p>
               </div>
@@ -86,18 +86,18 @@ export function ConsulateLocations() {
 
             <div className="space-y-4">
               <p className="text-sm italic text-muted-foreground">
-                Pour les demandes de passeport et de visa exclusivement.
+                {t('locations.dgdiNote', 'Pour les demandes de passeport et de visa exclusivement.')}
               </p>
               <div className="flex items-center gap-3 text-sm text-foreground">
-                <span className="font-semibold w-24">Métro:</span>
-                <span>Ranelagh (Ligne 9)</span>
+                <span className="font-semibold w-24">{t('locations.metroLabel', 'Métro:')}</span>
+                <span>{t('locations.metroValue', 'Ranelagh (Ligne 9)')}</span>
               </div>
             </div>
 
             <div className="pt-4">
               <Button asChild variant="outline" className="w-full rounded-xl border-amber-500/30 text-amber-600 dark:text-amber-400 hover:bg-amber-500/10">
                 <a href="https://www.google.com/maps/search/?api=1&query=26+bis+Avenue+Raphaël+75016+Paris" target="_blank" rel="noopener noreferrer">
-                  Voir sur la carte
+                  {t('locations.viewOnMap', 'Voir sur la carte')}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </Button>

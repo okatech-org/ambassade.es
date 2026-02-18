@@ -425,7 +425,7 @@ html, body {
 /* ─────────── 🐡 MR RAY CHATBOT ─────────── */
 
 .chatbot-window {
-  animation: chatbot-slide-up 0.3s ease-out;
+  animation: chatbot-appear 0.3s ease-out;
 }
 
 .chatbot-fab {
@@ -436,22 +436,22 @@ html, body {
   margin-bottom: 0;
 }
 
-@keyframes chatbot-slide-up {
+@keyframes chatbot-appear {
   from {
     opacity: 0;
-    transform: translateY(20px) scale(0.95);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: scale(1);
   }
 }
 
-/* Mobile chatbot adjustments */
+/* Mobile chatbot: fullscreen, no extra adjustments needed (inset-0 handles it) */
 @media (max-width: 640px) {
   .chatbot-window {
-    bottom: 80px !important;
-    max-height: 65vh !important;
+    border-radius: 0 !important;
+    border: none !important;
   }
 }
 

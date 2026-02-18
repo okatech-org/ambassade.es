@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect } from 'react'
 import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import {
@@ -107,8 +108,86 @@ const guides = [
   },
 ]
 
+function GuideCard({ guide, t }: { guide: typeof guides[0]; t: any }) {
+  return (
+    <Link
+      to="/vie-en-france"
+      hash={guide.anchor}
+      className="block group h-full"
+    >
+      <div className="h-full glass-card rounded-2xl overflow-hidden hover:-translate-y-2 transition-all duration-300 flex flex-col shadow-sm hover:shadow-xl hover:shadow-primary/5 ring-1 ring-border/50">
+        {/* Image Header */}
+        <div className="h-48 relative overflow-hidden bg-muted">
+          <img 
+            src={guide.image} 
+            alt={guide.defaultTitle} 
+            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
+          
+          <div className={`absolute top-4 left-4 p-2.5 rounded-xl backdrop-blur-md bg-background/80 shadow-sm ${guide.color}`}>
+            <guide.icon className="w-5 h-5" />
+          </div>
+
+          <div className="absolute bottom-4 left-4 right-4">
+            <Badge
+              variant="outline"
+              className="text-xs font-semibold border-white/20 text-white bg-white/10 backdrop-blur-md"
+            >
+              {t(`guidePratique.tags.${guide.tag}`, guide.tag)}
+            </Badge>
+          </div>
+        </div>
+
+        <div className="p-6 flex flex-col flex-1">
+          <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+            {t(guide.titleKey, guide.defaultTitle)}
+          </h3>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
+            {t(guide.descKey, guide.defaultDesc)}
+          </p>
+          <div className="space-y-2.5 pt-4 border-t border-border/40 mt-auto">
+            {guide.features.map((f) => (
+              <div key={f} className="flex items-center gap-2.5 text-sm text-foreground/80">
+                <CheckCircle2 className={`w-4 h-4 ${guide.color} shrink-0`} />
+                <span className="font-medium">{f}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 pt-2 flex items-center text-primary font-semibold text-sm">
+            {t('guidePratique.readMore', 'Consulter le guide')}
+            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+          </div>
+        </div>
+      </div>
+    </Link>
+  )
+}
+
 export function GuidePratiqueSection() {
   const { t } = useTranslation()
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [activeCard, setActiveCard] = useState(0)
+
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
+    const handleScroll = () => {
+      const scrollLeft = el.scrollLeft
+      const cardWidth = el.firstElementChild?.getBoundingClientRect().width || 1
+      const idx = Math.round(scrollLeft / cardWidth)
+      setActiveCard(Math.min(idx, guides.length - 1))
+    }
+    el.addEventListener('scroll', handleScroll, { passive: true })
+    return () => el.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollToCard = (index: number) => {
+    const el = scrollRef.current
+    if (!el) return
+    const cardWidth = el.firstElementChild?.getBoundingClientRect().width || 0
+    el.scrollTo({ left: cardWidth * index, behavior: 'smooth' })
+  }
 
   return (
     <section className="py-12 md:py-24 px-4 md:px-6 glass-section">
@@ -133,70 +212,42 @@ export function GuidePratiqueSection() {
           </p>
         </div>
 
-        {/* Guides Grid — 3 per row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* ── DESKTOP: Grid layout ── */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {guides.map((guide) => (
-            <Link
-              key={guide.titleKey}
-              to="/vie-en-france"
-              hash={guide.anchor}
-              className="block group h-full"
-            >
-              <div className="h-full glass-card rounded-2xl overflow-hidden hover:-translate-y-2 transition-all duration-300 flex flex-col shadow-sm hover:shadow-xl hover:shadow-primary/5 ring-1 ring-border/50">
-                
-                {/* Image Header */}
-                <div className="h-48 relative overflow-hidden bg-muted">
-                  <img 
-                    src={guide.image} 
-                    alt={guide.defaultTitle} 
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
-                  
-                  <div className={`absolute top-4 left-4 p-2.5 rounded-xl backdrop-blur-md bg-background/80 shadow-sm ${guide.color}`}>
-                    <guide.icon className="w-5 h-5" />
-                  </div>
-
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <Badge
-                      variant="outline"
-                      className="text-xs font-semibold border-white/20 text-white bg-white/10 backdrop-blur-md"
-                    >
-                      {t(`guidePratique.tags.${guide.tag}`, guide.tag)}
-                    </Badge>
-                  </div>
-                </div>
-
-                <div className="p-6 flex flex-col flex-1">
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-                    {t(guide.titleKey, guide.defaultTitle)}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
-                    {t(guide.descKey, guide.defaultDesc)}
-                  </p>
-
-                  {/* Feature checklist */}
-                  <div className="space-y-2.5 pt-4 border-t border-border/40 mt-auto">
-                    {guide.features.map((f) => (
-                      <div key={f} className="flex items-center gap-2.5 text-sm text-foreground/80">
-                        <CheckCircle2 className={`w-4 h-4 ${guide.color} shrink-0`} />
-                        <span className="font-medium">{f}</span>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  {/* Action */}
-                  <div className="mt-6 pt-2 flex items-center text-primary font-semibold text-sm">
-                    {t('guidePratique.readMore', 'Consulter le guide')}
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </div>
-            </Link>
+            <GuideCard key={guide.titleKey} guide={guide} t={t} />
           ))}
+        </div>
+
+        {/* ── MOBILE: Horizontal scroll carousel ── */}
+        <div className="md:hidden">
+          <div
+            ref={scrollRef}
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory pt-2 pb-4 scrollbar-hide"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', paddingLeft: 'calc((100vw - 85vw) / 2)', paddingRight: 'calc((100vw - 85vw) / 2)' }}
+          >
+            {guides.map((guide) => (
+              <div key={guide.titleKey} className="snap-center shrink-0 w-[85vw]">
+                <GuideCard guide={guide} t={t} />
+              </div>
+            ))}
+          </div>
+
+          {/* Dot indicators */}
+          <div className="flex justify-center gap-2 mt-4">
+            {guides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollToCard(i)}
+                className={`rounded-full transition-all duration-300 ${
+                  activeCard === i
+                    ? 'w-6 h-2.5 bg-primary'
+                    : 'w-2.5 h-2.5 bg-muted-foreground/30'
+                }`}
+                aria-label={`Guide ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Bottom CTA */}

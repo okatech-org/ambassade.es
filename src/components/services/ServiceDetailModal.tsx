@@ -133,7 +133,7 @@ export function ServiceDetailModal({
               <CategoryIcon className="h-3 w-3" />
               {categoryLabel}
             </Badge>
-            {service.price && (
+            {service.price && ['tenant-lieu', 'laissez-passer'].includes(service.slug) && (
               <Badge className="gap-1 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
                 <Banknote className="h-3 w-3" />
                 {service.price}

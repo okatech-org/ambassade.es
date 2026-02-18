@@ -16,7 +16,11 @@
       "inscriptionDesc": "Registre consulaire",
       "consulat": "Le Consulat",
       "consulatDesc": "Missions & équipe"
-    }
+    },
+    "contact": "Nous Contacter",
+    "emergencyLabel": "Urgence consulaire 24h/24",
+    "mobileTitle": "Le Consulat Général",
+    "mobileTitleHighlight": "passe à l'ère de l'IA"
   },
   "statsBar": {
     "diaspora": {
@@ -149,6 +153,12 @@
         "question": "Qu'est-ce que l'APS et comment en bénéficier ?",
         "answer": "L'APS est un titre de 12 mois (non renouvelable) pour les diplômés Master. Permet de chercher un emploi ou créer une entreprise en lien avec le diplôme. Demande avant expiration du titre étudiant."
       }
+    },
+    "categories": {
+      "consulat": "Consulat",
+      "prefecture": "Préfecture",
+      "enligne": "En ligne",
+      "urgent": "Urgent"
     }
   },
   "services": {
@@ -324,13 +334,42 @@
       "fast": "Inscription en 2 minutes",
       "online": "100% sur mobile",
       "secure": "Sécurisé & confidentiel"
-    }
+    },
+    "title": "Créez votre Compte Citoyen Gabonais",
+    "createAccount": "Créer mon compte",
+    "existingAccount": "J'ai déjà un compte",
+    "benefits": {
+      "tracking": {
+        "title": "Suivi en temps réel",
+        "description": "Suivez l'avancement de vos demandes à tout moment"
+      },
+      "documents": {
+        "title": "Documents numériques",
+        "description": "Accédez à vos documents officiels en ligne"
+      },
+      "payment": {
+        "title": "Paiement sécurisé",
+        "description": "Payez vos frais consulaires en toute sécurité"
+      },
+      "appointments": {
+        "title": "Rendez-vous simplifiés",
+        "description": "Réservez vos créneaux en quelques clics"
+      }
+    },
+    "stats": {
+      "citizens": "Citoyens inscrits",
+      "consulates": "Consulats connectés",
+      "satisfaction": "Satisfaction",
+      "availability": "Disponibilité"
+    },
+    "testimonial": "Grâce à Consulat.ga, j'ai pu renouveler mon passeport depuis Londres sans avoir à me déplacer. Service rapide et efficace !",
+    "testimonialAuthor": "Marie N., Londres"
   },
   "footer": {
     "brand": {
-      "name": "Consulat.ga",
-      "country": "République Gabonaise",
-      "description": "Plateforme officielle des services consulaires de la République Gabonaise pour les citoyens résidant à l'étranger."
+      "line1": "CONSULAT GÉNÉRAL",
+      "line2": "Du Gabon en France",
+      "motto": "Union - Travail - Justice"
     },
     "services": "Services",
     "resources": "Ressources",
@@ -357,7 +396,7 @@
       "accessibility": "Accessibilité",
       "sitemap": "Plan du Site"
     },
-    "copyright": "© {{year}} Consulat.ga - République Gabonaise. Tous droits réservés."
+    "copyright": "© {{year}} Consulat.ga — Tous droits réservés"
   },
   "common": {
     "notFound": {
@@ -420,6 +459,14 @@
     "language": {
       "fr": "Français",
       "en": "English"
+    },
+    "mySpace": "Mon Espace",
+    "signIn": "Se connecter",
+    "signUp": "S'inscrire",
+    "brand": {
+      "line1": "CONSULAT GÉNÉRAL",
+      "line2": "Du Gabon en France",
+      "motto": "Union - Travail - Justice"
     }
   },
   "mySpace": {
@@ -1524,7 +1571,18 @@
       "dateRequested": "Date de demande:",
       "number": "Numéro:",
       "fallbackOrg": "Consulat"
-    }
+    },
+    "title": "Inscription Consulaire",
+    "requestTitle": "Demande d'inscription",
+    "desc": "Sélectionnez le consulat ou l'ambassade de votre juridiction pour vous inscrire.",
+    "selectOrg": "Choisir l'organisation",
+    "submit": "Envoyer la demande",
+    "success": "Demande envoyée avec succès",
+    "missingDocs": {
+      "title": "Profil incomplet",
+      "description": "Veuillez ajouter les documents suivants à votre profil avant de soumettre votre demande :"
+    },
+    "completeProfile": "Compléter mon profil"
   },
   "documents": {
     "search": "Rechercher..."
@@ -1741,7 +1799,25 @@
         "consularCard": "Carte consulaire",
         "other": "Autre"
       }
-    }
+    },
+    "titleHighlight": "contacter",
+    "coordinates": "Coordonnées",
+    "civilStatus": "État Civil",
+    "emergencies": "Urgences",
+    "openingHours": "Horaires d'ouverture",
+    "weekdays": "Lundi - Vendredi",
+    "deposit": "Dépôt",
+    "pickup": "Retrait",
+    "depositHoursValue": "9h00 - 15h00",
+    "pickupHoursValue": "15h00 - 16h30",
+    "closedHolidays": "Fermé les jours fériés chômés au Gabon et en France.",
+    "access": "Accès & Transport",
+    "metro": "Métro Ligne 9",
+    "metroStop": "Arrêt Ranelagh (5 min à pied)",
+    "busStop": "Arrêt Ranelagh",
+    "parking": "Stationnement",
+    "parkingDesc": "Parking payant sur voie publique",
+    "consulateGeneral": "Consulat Général"
   },
   "leConsulat": {
     "title": "Le Consulat",
@@ -1809,6 +1885,11 @@
       "european": "Numéro européen d'urgence",
       "sms": "Urgences par SMS (sourds/malentendants)",
       "consulat": "Urgence consulaire Gabon 24h/24"
+    },
+    "stats": {
+      "themes": "6 rubriques thématiques",
+      "procedures": "50+ démarches détaillées",
+      "links": "Liens officiels vérifiés"
     }
   },
   "venirFrance": {
@@ -1867,5 +1948,39 @@
       "title": "Numéros utiles",
       "description": "À conserver pour votre retour au Gabon."
     }
+  },
+  "locations": {
+    "consulateTitle": "Consulat Général du Gabon",
+    "standardLabel": "Standard:",
+    "emergenciesLabel": "Urgences:",
+    "metroLabel": "Métro:",
+    "metroValue": "Ranelagh (Ligne 9)",
+    "busLabel": "Bus:",
+    "busValue": "Lignes 22, 52 (Arrêt Ranelagh)",
+    "viewOnMap": "Voir sur la carte",
+    "dgdiTitle": "Antenne DGDI (Passeports/Visas)",
+    "dgdiNote": "Pour les demandes de passeport et de visa exclusivement.",
+    "walkTime": "5 min à pied",
+    "badge": "Localisation",
+    "titlePart1": "Nous",
+    "titleHighlight": "Trouver"
+  },
+  "contactModal": {
+    "title": "Contactez le Consulat",
+    "description": "Consulat Général du Gabon en France — Toutes les coordonnées",
+    "phones": "Téléphones",
+    "civilStatus": "État Civil",
+    "emergencies24": "Urgences 24h/24",
+    "openingHours": "Horaires d'ouverture",
+    "monFri": "Lun - Ven",
+    "deposit": "Dépôt",
+    "pickup": "Retrait",
+    "depositHours": "9h00 - 15h00",
+    "pickupHours": "15h00 - 16h30",
+    "closedHolidays": "Fermé les jours fériés chômés au Gabon et en France.",
+    "access": "Accès",
+    "walkTime": "5 min à pied",
+    "busLines": "Lignes 22, 52",
+    "busStop": "Arrêt Ranelagh"
   }
 }

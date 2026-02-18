@@ -6,6 +6,7 @@ import { api } from '@convex/_generated/api'
 import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
 import { Skeleton } from '../ui/skeleton'
+import { useRef, useState, useCallback, useEffect } from 'react'
 
 function formatDate(timestamp: number, lang: string = 'fr') {
   return new Intl.DateTimeFormat(lang === 'en' ? 'en-GB' : 'fr-FR', {
@@ -73,6 +74,77 @@ export function NewsSection() {
   const featuredPost = posts?.page[0]
   const secondaryPosts = posts?.page.slice(1) || []
 
+  // Mobile horizontal scroll state
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const handleScroll = useCallback(() => {
+    const container = scrollContainerRef.current
+    if (!container) return
+    const scrollLeft = container.scrollLeft
+    const cardWidth = container.offsetWidth
+    const index = Math.round(scrollLeft / cardWidth)
+    setActiveIndex(Math.min(index, secondaryPosts.length - 1))
+  }, [secondaryPosts.length])
+
+  const scrollToIndex = useCallback((index: number) => {
+    const container = scrollContainerRef.current
+    if (!container) return
+    const cardWidth = container.offsetWidth
+    container.scrollTo({ left: cardWidth * index, behavior: 'smooth' })
+    setActiveIndex(index)
+  }, [])
+
+  useEffect(() => {
+    const container = scrollContainerRef.current
+    if (!container) return
+    container.addEventListener('scroll', handleScroll, { passive: true })
+    return () => container.removeEventListener('scroll', handleScroll)
+  }, [handleScroll])
+
+  // Render a single secondary post card (used in both mobile and desktop)
+  const renderSecondaryCard = (post: (typeof secondaryPosts)[number], isMobile: boolean) => {
+    const config = categoryConfig[post.category] || categoryConfig.actualite
+    return (
+      <Link
+        key={post._id}
+        to="/actualites/$slug"
+        params={{ slug: post.slug }}
+        className={
+          isMobile
+            ? 'group block p-5 w-full shrink-0 snap-center'
+            : 'group block p-6 hover:bg-muted/50 transition-colors h-1/3'
+        }
+      >
+        <div className="flex gap-6 h-full items-center">
+          {/* Square Thumbnail Image */}
+          <div className="w-24 h-24 shrink-0 rounded-lg overflow-hidden bg-muted">
+            <img
+              src={post.coverImage || categoryConfig[post.category]?.fallbackImage || categoryConfig.actualite.fallbackImage}
+              alt={post.title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
+          <div className="flex-1 min-w-0 flex flex-col justify-center h-full">
+            <Badge className={`mb-2 w-fit text-xs ${config.color} border-0`}>
+              {config.label}
+            </Badge>
+            <h4 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2">
+              {post.title}
+            </h4>
+            <p className="text-sm text-muted-foreground mt-auto">
+              {formatDate(post.publishedAt, i18n.language)}
+            </p>
+          </div>
+
+          <div className="h-full flex items-center">
+            <ArrowRight className="w-5 h-5 text-muted-foreground/50 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+          </div>
+        </div>
+      </Link>
+    )
+  }
 
   return (
     <section className="py-12 md:py-24 px-4 md:px-6 bg-background">
@@ -149,60 +221,63 @@ export function NewsSection() {
 
           {/* Secondary Posts - Right Side (1/2 width) */}
           <div className="h-full">
-            <div className="h-full rounded-xl glass-card overflow-hidden flex flex-col">
-              <div className="flex-1 divide-y">
-                {isLoading ? (
-                  <>
-                    <SecondarySkeleton />
-                    <SecondarySkeleton />
-                    <SecondarySkeleton />
-                  </>
-                ) : secondaryPosts.length === 0 ? (
-                  <div className="p-6 text-center text-muted-foreground h-full flex items-center justify-center">
-                    {t('news.noMore', 'Pas d\'autres actualités')}
-                  </div>
-                ) : (
-                  secondaryPosts.map((post) => {
-                    const config = categoryConfig[post.category] || categoryConfig.actualite
-                    return (
-                      <Link
-                        key={post._id}
-                        to="/actualites/$slug"
-                        params={{ slug: post.slug }}
-                        className="group block p-6 hover:bg-muted/50 transition-colors h-1/3"
-                      >
-                        <div className="flex gap-6 h-full items-center">
-                          {/* Square Thumbnail Image */}
-                          <div className="w-24 h-24 shrink-0 rounded-lg overflow-hidden bg-muted">
-                            <img 
-                              src={post.coverImage || categoryConfig[post.category]?.fallbackImage || categoryConfig.actualite.fallbackImage} 
-                              alt={post.title}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            />
-                          </div>
-                          
-                          <div className="flex-1 min-w-0 flex flex-col justify-center h-full">
-                            <Badge className={`mb-2 w-fit text-xs ${config.color} border-0`}>
-                              {config.label}
-                            </Badge>
-                            <h4 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2">
-                              {post.title}
-                            </h4>
-                            <p className="text-sm text-muted-foreground mt-auto">
-                              {formatDate(post.publishedAt, i18n.language)}
-                            </p>
-                          </div>
-                          
-                          <div className="h-full flex items-center">
-                            <ArrowRight className="w-5 h-5 text-muted-foreground/50 group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                          </div>
-                        </div>
-                      </Link>
-                    )
-                  })
-                )}
+            {isLoading ? (
+              <div className="h-full rounded-xl glass-card overflow-hidden flex flex-col">
+                <div className="flex-1 divide-y">
+                  <SecondarySkeleton />
+                  <SecondarySkeleton />
+                  <SecondarySkeleton />
+                </div>
               </div>
-            </div>
+            ) : secondaryPosts.length === 0 ? (
+              <div className="h-full rounded-xl glass-card overflow-hidden flex flex-col">
+                <div className="p-6 text-center text-muted-foreground h-full flex items-center justify-center">
+                  {t('news.noMore', 'Pas d\'autres actualités')}
+                </div>
+              </div>
+            ) : (
+              <>
+                {/* Mobile: Horizontal scroll carousel */}
+                <div className="lg:hidden">
+                  <div className="rounded-xl glass-card overflow-hidden">
+                    <div
+                      ref={scrollContainerRef}
+                      className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+                      style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
+                    >
+                      {secondaryPosts.map((post) => renderSecondaryCard(post, true))}
+                    </div>
+                  </div>
+                  {/* Dot indicators */}
+                  {secondaryPosts.length > 1 && (
+                    <div className="flex justify-center gap-2 mt-4">
+                      {secondaryPosts.map((_, idx) => (
+                        <button
+                          key={idx}
+                          type="button"
+                          aria-label={`Aller à l'actualité ${idx + 1}`}
+                          onClick={() => scrollToIndex(idx)}
+                          className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                            idx === activeIndex
+                              ? 'bg-primary scale-110'
+                              : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Desktop: Stacked vertical layout */}
+                <div className="hidden lg:block h-full">
+                  <div className="h-full rounded-xl glass-card overflow-hidden flex flex-col">
+                    <div className="flex-1 divide-y">
+                      {secondaryPosts.map((post) => renderSecondaryCard(post, false))}
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

@@ -262,7 +262,7 @@ function ServiceDetailPage() {
                 </div>
                 
                 <div className="grid sm:grid-cols-2 gap-6">
-                  {service.price && (
+                  {service.price && ['tenant-lieu', 'laissez-passer'].includes(slug) && (
                     <div className="p-4 rounded-2xl bg-background/50 border border-border/50">
                         <span className="text-sm text-muted-foreground block mb-1">Coût</span>
                         <span className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">

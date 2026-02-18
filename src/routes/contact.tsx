@@ -18,7 +18,7 @@ function ContactPage() {
       {/* Header */}
       <PageHero image="/images/heroes/hero-contact.png">
           <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-primary/20 backdrop-blur-sm">
-            Contact
+            {t('header.nav.contact', 'Contact')}
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
             {t('contact.title', 'Nous')}{' '}
@@ -41,7 +41,7 @@ function ContactPage() {
                             <span className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shadow-sm">
                                 <Info className="w-6 h-6" />
                             </span>
-                            Consulat Général
+                            {t('contact.consulateGeneral', 'Consulat Général')}
                         </h2>
                     </div>
                     <div className="p-6 md:p-8 space-y-8">
@@ -102,14 +102,14 @@ function ContactPage() {
                                             <span className="text-muted-foreground">{t('contact.weekdays', 'Lundi - Vendredi')}</span>
                                             <Badge variant="outline" className="bg-primary/5 text-primary border-primary/20">{t('contact.deposit', 'Dépôt')}</Badge>
                                         </div>
-                                        <p className="font-bold text-lg text-foreground">9h00 - 15h00</p>
+                                        <p className="font-bold text-lg text-foreground">{t('contact.depositHoursValue', '9h00 - 15h00')}</p>
                                     </div>
                                     <div className="p-3 rounded-xl bg-muted/30 border border-border/40">
                                         <div className="flex justify-between items-center mb-1">
                                             <span className="text-muted-foreground">{t('contact.weekdays', 'Lundi - Vendredi')}</span>
                                             <Badge variant="outline" className="bg-primary/5 text-primary border-primary/20">{t('contact.pickup', 'Retrait')}</Badge>
                                         </div>
-                                        <p className="font-bold text-lg text-foreground">15h00 - 16h30</p>
+                                        <p className="font-bold text-lg text-foreground">{t('contact.pickupHoursValue', '15h00 - 16h30')}</p>
                                     </div>
                                     <div className="flex items-start gap-2 mt-4 text-xs text-muted-foreground bg-accent/5 p-3 rounded-lg border border-accent/10">
                                         <Info className="w-4 h-4 text-accent shrink-0 mt-0.5" />

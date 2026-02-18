@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
   CheckCircle2,
@@ -15,6 +16,8 @@ import { Badge } from '../ui/badge'
 
 export function CitizenCTA() {
   const { t } = useTranslation()
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [activeCard, setActiveCard] = useState(0)
 
   const advantages = [
     {
@@ -45,6 +48,27 @@ export function CitizenCTA() {
     { icon: ShieldCheck, label: t('citizenCta.trust.secure', 'Sécurisé & confidentiel') },
   ]
 
+  // Track active card via scroll position (mobile carousel)
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
+    const handleScroll = () => {
+      const scrollLeft = el.scrollLeft
+      const cardWidth = el.firstElementChild?.getBoundingClientRect().width || 1
+      const idx = Math.round(scrollLeft / cardWidth)
+      setActiveCard(Math.min(idx, advantages.length - 1))
+    }
+    el.addEventListener('scroll', handleScroll, { passive: true })
+    return () => el.removeEventListener('scroll', handleScroll)
+  }, [advantages.length])
+
+  const scrollToCard = (index: number) => {
+    const el = scrollRef.current
+    if (!el) return
+    const cardWidth = el.firstElementChild?.getBoundingClientRect().width || 0
+    el.scrollTo({ left: cardWidth * index, behavior: 'smooth' })
+  }
+
   return (
     <section className="py-12 md:py-24 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
@@ -69,7 +93,7 @@ export function CitizenCTA() {
             </div>
 
             {/* Content Side */}
-            <div className="relative p-6 md:p-10 lg:p-14 flex flex-col items-center justify-center text-center">
+            <div className="relative p-6 md:p-10 lg:p-14 flex flex-col items-center justify-center text-center overflow-hidden">
               <Badge className="mb-6 w-fit bg-primary/10 text-primary border-primary/20 backdrop-blur-sm">
                 {t('citizenCta.badge', 'Application Consulat.ga')}
               </Badge>
@@ -88,8 +112,8 @@ export function CitizenCTA() {
                 )}
               </p>
 
-              {/* Advantages Grid */}
-              <div className="grid sm:grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8 w-full md:scale-x-[1.15] md:origin-center">
+              {/* Advantages — Desktop Grid (hidden on mobile) */}
+              <div className="hidden sm:grid sm:grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8 w-full md:scale-x-[1.15] md:origin-center">
                 {advantages.map((advantage) => (
                   <div
                     key={advantage.title}
@@ -104,6 +128,46 @@ export function CitizenCTA() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Advantages — Mobile Horizontal Scroll Carousel */}
+              <div className="sm:hidden w-full mb-6">
+                <div
+                  ref={scrollRef}
+                  className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide"
+                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', paddingLeft: 'calc((100vw - 72vw) / 2)', paddingRight: 'calc((100vw - 72vw) / 2)' }}
+                >
+                  {advantages.map((advantage) => (
+                    <div
+                      key={advantage.title}
+                      className="snap-center shrink-0 w-[72vw] flex items-start gap-3 p-4 rounded-xl bg-primary/5 border border-primary/10 text-left"
+                    >
+                      <div className="p-2 rounded-lg bg-primary/10 shrink-0">
+                        <advantage.icon className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-foreground">{advantage.title}</p>
+                        <p className="text-xs text-muted-foreground/80 mt-0.5 leading-relaxed">{advantage.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Dot indicators */}
+                <div className="flex justify-center gap-2 mt-2">
+                  {advantages.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => scrollToCard(i)}
+                      className={`rounded-full transition-all duration-300 ${
+                        activeCard === i
+                          ? 'w-6 h-2.5 bg-primary'
+                          : 'w-2.5 h-2.5 bg-muted-foreground/30'
+                      }`}
+                      aria-label={`Avantage ${i + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
 
               {/* CTA Buttons */}

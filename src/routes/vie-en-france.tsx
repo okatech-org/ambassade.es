@@ -518,15 +518,15 @@ function VieEnFrancePage() {
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               <div className="flex items-center gap-2 text-foreground/80">
                 <BookOpen className="w-5 h-5 text-primary" />
-                <span className="font-medium">6 rubriques thématiques</span>
+                <span className="font-medium">{t('vieFrance.stats.themes', '6 rubriques thématiques')}</span>
               </div>
               <div className="flex items-center gap-2 text-foreground/80">
                 <CheckCircle2 className="w-5 h-5 text-emerald-500" />
-                <span className="font-medium">50+ démarches détaillées</span>
+                <span className="font-medium">{t('vieFrance.stats.procedures', '50+ démarches détaillées')}</span>
               </div>
               <div className="flex items-center gap-2 text-foreground/80">
                 <ExternalLink className="w-5 h-5 text-blue-500" />
-                <span className="font-medium">Liens officiels vérifiés</span>
+                <span className="font-medium">{t('vieFrance.stats.links', 'Liens officiels vérifiés')}</span>
               </div>
             </div>
       </PageHero>

@@ -58,27 +58,38 @@ export default function Header() {
     <>
       <div className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar */}
-      <div className="bg-primary text-primary-foreground text-sm hidden md:block">
+      <div className="bg-primary text-primary-foreground text-sm">
         <div className="max-w-7xl mx-auto px-3 py-2 flex justify-between items-center">
-          <div className="flex items-center gap-6">
-            <a href="mailto:contact@consulatdugabon.fr" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <Mail className="w-4 h-4" />
-              contact@consulatdugabon.fr
-            </a>
-            <span className="opacity-30">|</span>
-            <span className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
-              {t('header.hours')}
-            </span>
-          </div>
-          <div className="flex items-center gap-3">
-
-            {/* Nous Contacter — Top bar */}
+          <div className="flex items-center gap-4 sm:gap-6">
+            {/* Mobile: Contact button on the left */}
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setContactOpen(true)}
-              className="text-primary-foreground hover:text-primary-foreground/80 hover:bg-white/10 h-7 px-3 font-medium"
+              className="sm:hidden text-primary-foreground hover:text-primary-foreground/80 hover:bg-white/10 h-7 px-2 font-medium"
+            >
+              <Phone className="w-3.5 h-3.5 mr-1" />
+              Contact
+            </Button>
+            {/* Desktop: email + hours */}
+            <a href="mailto:contact@consulatdugabon.fr" className="hidden sm:flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <Mail className="w-4 h-4" />
+              contact@consulatdugabon.fr
+            </a>
+            <span className="opacity-30 hidden sm:inline">|</span>
+            <span className="hidden sm:flex items-center gap-2" suppressHydrationWarning>
+              <Calendar className="w-4 h-4" />
+              {t('header.hours')}
+            </span>
+          </div>
+          <div className="flex items-center gap-2 sm:gap-3">
+
+            {/* Desktop: Nous Contacter */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setContactOpen(true)}
+              className="hidden sm:inline-flex text-primary-foreground hover:text-primary-foreground/80 hover:bg-white/10 h-7 px-3 font-medium"
             >
               <Phone className="w-3.5 h-3.5 mr-1.5" />
               {t('header.nav.nousContacter', 'Nous Contacter')}
@@ -86,8 +97,8 @@ export default function Header() {
 
             <span className="opacity-30">|</span>
 
-            {/* Theme Toggle — Top bar */}
-            <ModeToggle variant="header" />
+            {/* Theme Toggle — Top bar (desktop only) */}
+            <span className="hidden md:inline-flex"><ModeToggle variant="header" /></span>
 
             {/* Language Switcher Dropdown */}
             <DropdownMenu>
@@ -128,12 +139,12 @@ export default function Header() {
             <img 
               src="/sceau_gabon.png" 
               alt="Logo Consulat Gabon" 
-              className="h-[6rem] w-auto relative -mb-8 -mt-[0.25cm] origin-top" 
+              className="h-[5rem] sm:h-[6rem] w-auto relative -mb-7 sm:-mb-8 -mt-[0.25cm] sm:-mt-[0.25cm] origin-top" 
             />
-            <div className="hidden sm:block">
-              <div className="font-extrabold text-base md:text-lg text-foreground leading-tight tracking-wide uppercase">CONSULAT GÉNÉRAL</div>
-              <div className="font-medium text-foreground/90 leading-snug" style={{ letterSpacing: '0.185em', fontSize: '0.94rem' }}>Du Gabon en France</div>
-              <div className="text-xs text-muted-foreground italic leading-snug">Union - Travail - Justice</div>
+            <div>
+              <div className="font-extrabold text-sm sm:text-base md:text-lg text-foreground leading-tight tracking-wide uppercase">{t('header.brand.line1', 'CONSULAT GÉNÉRAL')}</div>
+              <div className="font-medium text-foreground/90 leading-snug text-[0.72rem] sm:text-[0.94rem]" style={{ letterSpacing: '0.185em' }}>{t('header.brand.line2', 'Du Gabon en France')}</div>
+              <div className="text-[0.65rem] sm:text-xs text-muted-foreground italic leading-snug">{t('header.brand.motto', 'Union - Travail - Justice')}</div>
             </div>
           </Link>
 
@@ -203,9 +214,9 @@ export default function Header() {
               className="h-20 w-auto" 
             />
             <div>
-              <div className="font-bold text-sm text-foreground tracking-wide uppercase">CONSULAT GÉNÉRAL</div>
-              <div className="font-bold text-xs text-foreground/90">Du Gabon en France</div>
-              <div className="text-[10px] text-muted-foreground italic">Union - Travail - Justice</div>
+              <div className="font-bold text-sm text-foreground tracking-wide uppercase">{t('header.brand.line1', 'CONSULAT GÉNÉRAL')}</div>
+              <div className="font-bold text-xs text-foreground/90">{t('header.brand.line2', 'Du Gabon en France')}</div>
+              <div className="text-[10px] text-muted-foreground italic">{t('header.brand.motto', 'Union - Travail - Justice')}</div>
             </div>
           </div>
           <Button

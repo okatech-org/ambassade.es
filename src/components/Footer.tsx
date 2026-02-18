@@ -28,9 +28,9 @@ export default function Footer() {
               className="h-20 w-auto"
             />
             <div>
-              <div className="font-extrabold text-base md:text-lg text-foreground leading-tight tracking-wide uppercase">CONSULAT GÉNÉRAL</div>
-              <div className="font-medium text-foreground/90 leading-snug" style={{ letterSpacing: '0.185em', fontSize: '0.94rem' }}>Du Gabon en France</div>
-              <div className="text-xs text-muted-foreground italic leading-snug">Union - Travail - Justice</div>
+              <div className="font-extrabold text-base md:text-lg text-foreground leading-tight tracking-wide uppercase">{t('footer.brand.line1', 'CONSULAT GÉNÉRAL')}</div>
+              <div className="font-medium text-foreground/90 leading-snug" style={{ letterSpacing: '0.185em', fontSize: '0.85rem' }}>{t('footer.brand.line2', 'Du Gabon en France')}</div>
+              <div className="text-xs text-muted-foreground italic leading-snug">{t('footer.brand.motto', 'Union - Travail - Justice')}</div>
             </div>
           </Link>
 
@@ -90,7 +90,7 @@ export default function Footer() {
       <div className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground">
-            © {year} Consulat.ga — Tous droits réservés
+            {t('footer.copyright', '© {{year}} Consulat.ga — Tous droits réservés', { year })}
           </p>
           <div className="flex items-center gap-4 text-xs text-muted-foreground">
             <Link to="/mentions-legales" className="hover:text-foreground transition-colors">

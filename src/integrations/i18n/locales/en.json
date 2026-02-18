@@ -18,7 +18,9 @@
       "consulat": "The Consulate",
       "consulatDesc": "Missions & team"
     },
-    "cta": "Discover Consulat.ga"
+    "cta": "Discover Consulat.ga",
+    "mobileTitle": "The General Consulate",
+    "mobileTitleHighlight": "enters the AI era"
   },
   "statsBar": {
     "diaspora": {
@@ -151,6 +153,12 @@
         "question": "What is the APS and how to benefit from it?",
         "answer": "The APS is a 12-month permit (non-renewable) for Master's degree holders. Allows job search or business creation related to degree. Apply before student permit expires."
       }
+    },
+    "categories": {
+      "consulat": "Consulate",
+      "prefecture": "Prefecture",
+      "enligne": "Online",
+      "urgent": "Urgent"
     }
   },
   "integration": {
@@ -359,9 +367,9 @@
   },
   "footer": {
     "brand": {
-      "name": "Consulat.ga",
-      "country": "Gabonese Republic",
-      "description": "Official platform for consular services of the Gabonese Republic for citizens residing abroad."
+      "line1": "GENERAL CONSULATE",
+      "line2": "Of Gabon in France",
+      "motto": "Union - Work - Justice"
     },
     "services": "Services",
     "resources": "Resources",
@@ -388,7 +396,7 @@
       "accessibility": "Accessibility",
       "sitemap": "Sitemap"
     },
-    "copyright": "© {{year}} Consulat.ga - Gabonese Republic. All rights reserved."
+    "copyright": "© {{year}} Consulat.ga — All rights reserved"
   },
   "header": {
     "hours": "Mon-Fri: 9:00 AM - 4:00 PM",
@@ -425,7 +433,12 @@
     },
     "mySpace": "My Space",
     "signIn": "Sign In",
-    "signUp": "Sign Up"
+    "signUp": "Sign Up",
+    "brand": {
+      "line1": "GENERAL CONSULATE",
+      "line2": "Of Gabon in France",
+      "motto": "Union - Work - Justice"
+    }
   },
   "mySpace": {
     "title": "My Consular Space",
@@ -472,6 +485,109 @@
       "onlyDraftCanBeSubmitted": "Only draft requests can be submitted",
       "onlyStaffCanAddInternalNotes": "Only staff can add internal notes",
       "cannotCancelProcessing": "Cannot cancel a request that is already being processed"
+    },
+    "profile": {
+      "identity": {
+        "firstName": {
+          "min": "First name must be at least 2 characters"
+        },
+        "lastName": {
+          "min": "Last name must be at least 2 characters"
+        },
+        "birthDate": {
+          "past": "Date of birth must be in the past",
+          "adult": "You must be at least 18 years old"
+        },
+        "birthPlace": {
+          "min": "Place of birth must be at least 2 characters"
+        },
+        "birthCountry": {
+          "invalid": "Invalid country of birth"
+        },
+        "gender": {
+          "invalid": "Invalid gender"
+        },
+        "nationality": {
+          "invalid": "Invalid nationality"
+        },
+        "nationalityAcquisition": {
+          "invalid": "Invalid nationality acquisition mode"
+        }
+      },
+      "passportInfo": {
+        "number": {
+          "min": "Passport number must be at least 6 characters"
+        },
+        "issueDate": {
+          "past": "Issue date must be in the past"
+        },
+        "expiryDate": {
+          "future": "Expiry date must be in the future",
+          "afterIssue": "Expiry date must be after issue date"
+        },
+        "issuingAuthority": {
+          "min": "Issuing authority must be at least 2 characters"
+        }
+      },
+      "addresses": {
+        "street": {
+          "required": "Address is required"
+        },
+        "city": {
+          "required": "City is required"
+        },
+        "postalCode": {
+          "required": "Postal code is required"
+        },
+        "country": {
+          "invalid": "Invalid country"
+        }
+      },
+      "contacts": {
+        "email": {
+          "invalid": "Invalid email"
+        },
+        "emergency": {
+          "firstName": {
+            "min": "First name must be at least 2 characters"
+          },
+          "lastName": {
+            "min": "Last name must be at least 2 characters"
+          },
+          "phone": {
+            "required": "Phone number is required"
+          },
+          "email": {
+            "invalid": "Invalid email"
+          },
+          "relationship": {
+            "invalid": "Invalid relationship"
+          }
+        }
+      },
+      "family": {
+        "maritalStatus": {
+          "invalid": "Invalid marital status"
+        },
+        "parent": {
+          "firstName": {
+            "min": "First name must be at least 2 characters"
+          },
+          "lastName": {
+            "min": "Last name must be at least 2 characters"
+          }
+        },
+        "spouse": {
+          "firstName": {
+            "min": "First name must be at least 2 characters",
+            "required": "Spouse's first name is required"
+          },
+          "lastName": {
+            "min": "Last name must be at least 2 characters",
+            "required": "Spouse's last name is required"
+          }
+        }
+      }
     }
   },
   "superadmin": {
@@ -742,7 +858,8 @@
       "actions": {
         "edit": "Edit",
         "enable": "Enable",
-        "disable": "Disable"
+        "disable": "Disable",
+        "activate": "Activate"
       },
       "form": {
         "create": "Create Service",
@@ -771,12 +888,6 @@
       "status": {
         "active": "Active",
         "inactive": "Inactive"
-      },
-      "actions": {
-        "edit": "Edit",
-        "enable": "Enable",
-        "disable": "Disable",
-        "activate": "Activate"
       },
       "dialog": {
         "title": "Activate Service",
@@ -855,7 +966,19 @@
       "created": "Created At",
       "actions": "Actions",
       "avatar": "Avatar",
-      "phone": "Phone"
+      "phone": "Phone",
+      "rowsPerPage": "Rows per page",
+      "page": "Page",
+      "of": "of",
+      "selected": "{{count}} selected",
+      "noResults": "No results",
+      "columns": "Columns",
+      "previousPage": "Previous page",
+      "nextPage": "Next page",
+      "firstPage": "First page",
+      "lastPage": "Last page",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At"
     },
     "types": {
       "consulate": "Consulate",
@@ -895,19 +1018,76 @@
       "yes": "Yes",
       "no": "No"
     },
-    "table": {
-      "rowsPerPage": "Rows per page",
-      "page": "Page",
-      "of": "of",
-      "selected": "{{count}} selected",
-      "noResults": "No results",
-      "columns": "Columns",
-      "previousPage": "Previous page",
-      "nextPage": "Next page",
-      "firstPage": "First page",
-      "lastPage": "Last page",
-      "createdAt": "Created At",
-      "updatedAt": "Updated At"
+    "countryCodes": {
+      "AD": "Andorra",
+      "AE": "United Arab Emirates",
+      "AF": "Afghanistan",
+      "AG": "Antigua and Barbuda",
+      "AI": "Anguilla",
+      "AL": "Albania",
+      "AM": "Armenia",
+      "AO": "Angola",
+      "AQ": "Antarctica",
+      "AR": "Argentina",
+      "AS": "American Samoa",
+      "AT": "Austria",
+      "AU": "Australia",
+      "AW": "Aruba",
+      "AX": "Åland Islands",
+      "BE": "Belgium",
+      "BF": "Burkina Faso",
+      "BG": "Bulgaria",
+      "BH": "Bahrain",
+      "BI": "Burundi",
+      "BJ": "Benin",
+      "BR": "Brazil",
+      "CA": "Canada",
+      "CD": "Democratic Republic of the Congo",
+      "CF": "Central African Republic",
+      "CG": "Republic of the Congo",
+      "CH": "Switzerland",
+      "CI": "Côte d'Ivoire",
+      "CL": "Chile",
+      "CM": "Cameroon",
+      "CN": "China",
+      "CO": "Colombia",
+      "CR": "Costa Rica",
+      "CU": "Cuba",
+      "DE": "Germany",
+      "DK": "Denmark",
+      "DZ": "Algeria",
+      "EG": "Egypt",
+      "ES": "Spain",
+      "ET": "Ethiopia",
+      "FI": "Finland",
+      "FR": "France",
+      "GA": "Gabon",
+      "GB": "United Kingdom",
+      "GH": "Ghana",
+      "GN": "Guinea",
+      "GR": "Greece",
+      "IE": "Ireland",
+      "IL": "Israel",
+      "IN": "India",
+      "IR": "Iran",
+      "IT": "Italy",
+      "JP": "Japan",
+      "KE": "Kenya",
+      "KR": "South Korea",
+      "MA": "Morocco",
+      "ML": "Mali",
+      "MX": "Mexico",
+      "NG": "Nigeria",
+      "NL": "Netherlands",
+      "NO": "Norway",
+      "PL": "Poland",
+      "PT": "Portugal",
+      "RO": "Romania",
+      "RU": "Russia",
+      "SA": "Saudi Arabia",
+      "SE": "Sweden",
+      "SN": "Senegal",
+      "ZA": "South Africa"
     }
   },
   "dashboard": {
@@ -1619,7 +1799,25 @@
         "consularCard": "Consular Card",
         "other": "Other"
       }
-    }
+    },
+    "titleHighlight": "us",
+    "coordinates": "Contact Details",
+    "civilStatus": "Civil Status",
+    "emergencies": "Emergencies",
+    "openingHours": "Opening Hours",
+    "weekdays": "Monday - Friday",
+    "deposit": "Drop-off",
+    "pickup": "Pick-up",
+    "depositHoursValue": "9:00 AM - 3:00 PM",
+    "pickupHoursValue": "3:00 PM - 4:30 PM",
+    "closedHolidays": "Closed on public holidays in Gabon and France.",
+    "access": "Access & Transport",
+    "metro": "Metro Line 9",
+    "metroStop": "Ranelagh stop (5 min walk)",
+    "busStop": "Ranelagh stop",
+    "parking": "Parking",
+    "parkingDesc": "Paid street parking",
+    "consulateGeneral": "General Consulate"
   },
   "leConsulat": {
     "title": "The Consulate",
@@ -1687,6 +1885,11 @@
       "european": "European Emergency Number",
       "sms": "SMS Emergencies (deaf/hard of hearing)",
       "consulat": "Gabon Consular Emergency 24/7"
+    },
+    "stats": {
+      "themes": "6 thematic sections",
+      "procedures": "50+ detailed procedures",
+      "links": "Verified official links"
     }
   },
   "venirFrance": {
@@ -1745,6 +1948,39 @@
       "title": "Useful Numbers",
       "description": "Keep these for your return to Gabon."
     }
+  },
+  "locations": {
+    "badge": "Location",
+    "titlePart1": "Find",
+    "titleHighlight": "Us",
+    "consulateTitle": "General Consulate of Gabon",
+    "standardLabel": "Standard:",
+    "emergenciesLabel": "Emergencies:",
+    "metroLabel": "Metro:",
+    "metroValue": "Ranelagh (Line 9)",
+    "busLabel": "Bus:",
+    "busValue": "Lines 22, 52 (Ranelagh stop)",
+    "viewOnMap": "View on map",
+    "dgdiTitle": "DGDI Branch (Passports/Visas)",
+    "dgdiNote": "For passport and visa requests only.",
+    "walkTime": "5 min walk"
+  },
+  "contactModal": {
+    "title": "Contact the Consulate",
+    "description": "General Consulate of Gabon in France — All contact details",
+    "phones": "Phone Numbers",
+    "civilStatus": "Civil Status",
+    "emergencies24": "Emergencies 24/7",
+    "openingHours": "Opening Hours",
+    "monFri": "Mon - Fri",
+    "deposit": "Drop-off",
+    "pickup": "Pick-up",
+    "depositHours": "9:00 AM - 3:00 PM",
+    "pickupHours": "3:00 PM - 4:30 PM",
+    "closedHolidays": "Closed on public holidays in Gabon and France.",
+    "access": "Access",
+    "walkTime": "5 min walk",
+    "busLines": "Lines 22, 52",
+    "busStop": "Ranelagh stop"
   }
 }
-

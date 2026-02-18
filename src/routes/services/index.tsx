@@ -362,7 +362,7 @@ function ServicesPage() {
                           color={config.color}
                           badge={categoryLabel}
                           delay={service.delay}
-                          price={service.price}
+                          price={['tenant-lieu', 'laissez-passer'].includes(service.slug) ? service.price : undefined}
                           validity={service.validity}
                           isUrgent={service.isUrgent}
                           onInfoClick={() => handleServiceClick(service.slug)}

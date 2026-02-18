@@ -33,6 +33,7 @@ export const run = mutation({
         ],
         price: "Gratuit",
         delay: "Selon disponibilité",
+        validity: "3 ans",
         isOnline: false,
         isActive: true,
         order: 1,

@@ -21,15 +21,19 @@ export function DGDIServiceBanner() {
 
         <div className="relative z-10 p-5">
           {/* Header */}
-          <div className="flex items-center gap-2.5 mb-5">
-            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-amber-700/15 border border-amber-600/30 shrink-0">
+          <div className="flex items-start gap-2.5 mb-5">
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-amber-700/15 border border-amber-600/30 shrink-0 mt-1">
               <Info className="w-4 h-4 text-amber-800" />
             </div>
-            <h3 className="text-sm font-bold text-amber-950 leading-tight">
-              Service Passeports & Visas{' '}
-              <span className="text-amber-700">(DGDI)</span>
-            </h3>
-            <p className="text-[10px] text-amber-800/60 mt-0.5">Service sous l'autorité de la DGDI sur le territoire français</p>
+            <div>
+              <h3 className="text-sm font-bold text-amber-950 leading-tight">
+                Service Passeport <span className="text-amber-700">(DGDI)</span>
+              </h3>
+              <h3 className="text-sm font-bold text-amber-950 leading-tight mt-0.5">
+                Service Visa <span className="text-amber-700">(DGDI)</span>
+              </h3>
+              <p className="text-xs text-amber-950 font-medium mt-1.5 leading-snug">Service sous l'autorité de la DGDI sur le territoire français</p>
+            </div>
           </div>
 
           {/* Contact Spécifique */}

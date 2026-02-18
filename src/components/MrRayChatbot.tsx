@@ -105,7 +105,7 @@ export function MrRayChatbot() {
       {/* Chat Window */}
       {isOpen && (
         <div
-          className="fixed top-1/2 -translate-y-1/2 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] max-h-[70vh] flex flex-col rounded-2xl overflow-hidden border border-border/60 chatbot-window"
+          className="fixed z-50 flex flex-col overflow-hidden border border-border/60 chatbot-window inset-0 rounded-none sm:inset-auto sm:bottom-24 sm:right-6 sm:w-[420px] sm:max-h-[75vh] sm:rounded-2xl"
           style={{
             background: 'var(--glass-panel-bg)',
             boxShadow: '0 8px 40px rgba(0,0,0,0.15), 0 2px 12px rgba(0,0,0,0.08)',
@@ -132,7 +132,7 @@ export function MrRayChatbot() {
           </div>
 
           {/* Messages area */}
-          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4 min-h-[300px] max-h-[calc(70vh-140px)]">
+          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
             {/* Welcome message */}
             <div className="flex gap-3">
               <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
@@ -263,7 +263,7 @@ export function MrRayChatbot() {
           </div>
 
           {/* Input area */}
-          <div className="border-t border-border/50 px-4 py-3 shrink-0">
+          <div className="border-t border-border/50 px-4 py-3 shrink-0 safe-area-bottom">
             <div className="flex items-center gap-2">
               <input
                 ref={inputRef}
@@ -299,26 +299,20 @@ export function MrRayChatbot() {
         </div>
       )}
 
-      {/* Floating Action Button — Spherical, vermillion-pink-yellow with heartbeat */}
-      <button
-        onClick={toggleChat}
-        className={`fixed top-1/2 -translate-y-1/2 right-4 sm:right-6 z-50 w-[144px] h-[144px] flex items-center justify-center rounded-full shadow-xl transition-all duration-300 ${
-          isOpen
-            ? 'bg-muted hover:bg-muted/80 text-muted-foreground'
-            : 'text-white animate-heartbeat'
-        }`}
-        style={!isOpen ? {
-          background: 'linear-gradient(135deg, #E74C3C 0%, #FF6B9D 35%, #EAB308 100%)',
-          boxShadow: '0 6px 30px rgba(231, 76, 60, 0.4), 0 0 50px rgba(234, 179, 8, 0.2)',
-        } : undefined}
-        aria-label={isOpen ? 'Fermer le chat' : 'Ouvrir le chat Mr Ray'}
-      >
-        {isOpen ? (
-          <X className="w-8 h-8" />
-        ) : (
-          <span className="font-extrabold text-2xl text-white drop-shadow-md tracking-wide">Mr Ray</span>
-        )}
-      </button>
+      {/* Floating Action Button — hidden when chat is open */}
+      {!isOpen && (
+        <button
+          onClick={toggleChat}
+          className="fixed bottom-6 right-4 sm:right-6 z-50 w-[96px] h-[96px] sm:w-[144px] sm:h-[144px] flex items-center justify-center rounded-full shadow-xl transition-all duration-300 text-white animate-heartbeat"
+          style={{
+            background: 'linear-gradient(135deg, #E74C3C 0%, #FF6B9D 35%, #EAB308 100%)',
+            boxShadow: '0 6px 30px rgba(231, 76, 60, 0.4), 0 0 50px rgba(234, 179, 8, 0.2)',
+          }}
+          aria-label="Ouvrir le chat Mr Ray"
+        >
+          <span className="font-extrabold text-base sm:text-2xl text-white drop-shadow-md tracking-wide">Mr Ray</span>
+        </button>
+      )}
     </>
   )
 }

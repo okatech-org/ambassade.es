@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect } from 'react'
 import { Link, useNavigate } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { useQuery } from 'convex/react'
@@ -106,12 +107,12 @@ function BentoServiceCard({
               </Badge>
             </div>
 
-            {/* ── Mobile Image — inline, centered (hidden on desktop) ── */}
-            <div className="md:hidden flex justify-center my-3">
+            {/* ── Mobile Image — aligned right, scaled up (hidden on desktop) ── */}
+            <div className="md:hidden flex justify-end my-3 -mr-5 overflow-hidden">
               <img 
                 src="/images/services/carte-consulaire.png" 
                 alt="Carte Consulaire Gabonaise"
-                className="w-[75%] max-w-[280px] object-contain drop-shadow-xl"
+                className="w-[75%] object-contain drop-shadow-xl scale-[1.60] origin-right"
               />
             </div>
 
@@ -245,6 +246,8 @@ function BentoServiceCard({
 export function ServicesSection() {
   const { t } = useTranslation()
   const services = useQuery(api.functions.services.list, {})
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [activeCard, setActiveCard] = useState(0)
 
   const isLoading = services === undefined
 
@@ -253,11 +256,37 @@ export function ServicesSection() {
   // Define the exact layout order by slug
   const topRowSlugs = ['carte-consulaire', 'laissez-passer', 'tenant-lieu']
   const bottomRowSlugs = ['transcription-naissance', 'certificat-coutume-celibat', 'demande-audience']
+  const carouselSlugs = ['laissez-passer', 'tenant-lieu', 'transcription-naissance', 'certificat-coutume-celibat', 'demande-audience']
 
   const findBySlug = (slug: string) => otherServices.find(s => s.slug === slug)
 
   const topRow = topRowSlugs.map(findBySlug).filter(Boolean) as any[]
   const bottomRow = bottomRowSlugs.map(findBySlug).filter(Boolean) as any[]
+  const carouselCards = carouselSlugs.map(findBySlug).filter(Boolean) as any[]
+
+  // Carte consulaire only
+  const carteConsulaire = findBySlug('carte-consulaire')
+
+  // Track active card via scroll position
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
+    const handleScroll = () => {
+      const scrollLeft = el.scrollLeft
+      const cardWidth = el.firstElementChild?.getBoundingClientRect().width || 1
+      const idx = Math.round(scrollLeft / cardWidth)
+      setActiveCard(Math.min(idx, carouselCards.length - 1))
+    }
+    el.addEventListener('scroll', handleScroll, { passive: true })
+    return () => el.removeEventListener('scroll', handleScroll)
+  }, [carouselCards.length])
+
+  const scrollToCard = (index: number) => {
+    const el = scrollRef.current
+    if (!el) return
+    const cardWidth = el.firstElementChild?.getBoundingClientRect().width || 0
+    el.scrollTo({ left: cardWidth * index, behavior: 'smooth' })
+  }
 
   return (
     <section className="py-12 md:py-24 px-4 md:px-6" id="services">
@@ -282,56 +311,121 @@ export function ServicesSection() {
           </p>
         </div>
 
-        {/* Row 1: Carte Consulaire (large) + Laissez-Passer + Tenant Lieu */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-          {isLoading ? (
-            <>
-              <div className="md:col-span-2 md:row-span-2">
+        {/* ── DESKTOP: Grid layout (hidden on mobile) ── */}
+        <div className="hidden md:block">
+          {/* Row 1: Carte Consulaire (large) + Laissez-Passer + Tenant Lieu */}
+          <div className="grid grid-cols-3 gap-6 mb-6">
+            {isLoading ? (
+              <>
+                <div className="col-span-2 row-span-2">
+                  <ServiceSkeleton />
+                </div>
                 <ServiceSkeleton />
+                <ServiceSkeleton />
+              </>
+            ) : topRow.length > 0 ? (
+              topRow.map((service, i) => {
+                const config = categoryConfig[service.category] || categoryConfig['default']
+                return (
+                  <BentoServiceCard
+                    key={service._id}
+                    service={service}
+                    config={config}
+                    slug={service.slug}
+                    featured={i === 0}
+                  />
+                )
+              })
+            ) : (
+              <div className="col-span-full text-center py-12 text-muted-foreground">
+                {t('services.empty', 'Aucun service disponible pour le moment.')}
               </div>
-              <ServiceSkeleton />
-              <ServiceSkeleton />
-            </>
-          ) : topRow.length > 0 ? (
-            topRow.map((service, i) => {
-              const config = categoryConfig[service.category] || categoryConfig['default']
-              return (
-                <BentoServiceCard
-                  key={service._id}
-                  service={service}
-                  config={config}
-                  slug={service.slug}
-                  featured={i === 0}
-                />
-              )
-            })
-          ) : (
-            <div className="col-span-full text-center py-12 text-muted-foreground">
-              {t('services.empty', 'Aucun service disponible pour le moment.')}
+            )}
+          </div>
+
+          {/* Row 2: Transcription + Certificat de célibat + Demande d'Audience */}
+          {!isLoading && bottomRow.length > 0 && (
+            <div className="grid grid-cols-3 gap-6">
+              {bottomRow.map((service) => {
+                const isAudience = service.slug === 'demande-audience'
+                const config = isAudience
+                  ? { icon: CalendarPlus, color: 'bg-emerald-500/10 text-emerald-600', gradient: 'from-emerald-500/15 to-emerald-400/5' }
+                  : categoryConfig[service.category] || categoryConfig['default']
+                return (
+                  <BentoServiceCard
+                    key={service._id}
+                    service={service}
+                    config={config}
+                    slug={service.slug}
+                    featured={false}
+                  />
+                )
+              })}
             </div>
           )}
         </div>
 
-        {/* Row 2: Transcription + Certificat de célibat + Demande d'Audience */}
-        {!isLoading && bottomRow.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {bottomRow.map((service) => {
-              const isAudience = service.slug === 'demande-audience'
-              const config = isAudience
-                ? { icon: CalendarPlus, color: 'bg-emerald-500/10 text-emerald-600', gradient: 'from-emerald-500/15 to-emerald-400/5' }
-                : categoryConfig[service.category] || categoryConfig['default']
-              return (
-                <BentoServiceCard
-                  key={service._id}
-                  service={service}
-                  config={config}
-                  slug={service.slug}
-                  featured={false}
-                />
-              )
-            })}
-          </div>
-        )}
+        {/* ── MOBILE: Carte Consulaire + Horizontal Scroll Carousel ── */}
+        <div className="md:hidden">
+          {/* Carte Consulaire card */}
+          {isLoading ? (
+            <ServiceSkeleton />
+          ) : carteConsulaire ? (
+            <div className="mb-6">
+              <BentoServiceCard
+                service={carteConsulaire}
+                config={categoryConfig[carteConsulaire.category] || categoryConfig['default']}
+                slug="carte-consulaire"
+                featured={true}
+              />
+            </div>
+          ) : null}
+
+          {/* Horizontal scroll carousel */}
+          {!isLoading && carouselCards.length > 0 && (
+            <div>
+              <div
+                ref={scrollRef}
+                className="flex gap-4 overflow-x-auto snap-x snap-mandatory pt-2 pb-4 scrollbar-hide"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', paddingLeft: 'calc((100vw - 85vw) / 2)', paddingRight: 'calc((100vw - 85vw) / 2)' }}
+
+              >
+                {carouselCards.map((service) => {
+                  const isAudience = service.slug === 'demande-audience'
+                  const config = isAudience
+                    ? { icon: CalendarPlus, color: 'bg-emerald-500/10 text-emerald-600', gradient: 'from-emerald-500/15 to-emerald-400/5' }
+                    : categoryConfig[service.category] || categoryConfig['default']
+                  return (
+                    <div key={service._id} className="snap-center shrink-0 w-[85vw]">
+                      <BentoServiceCard
+                        service={service}
+                        config={config}
+                        slug={service.slug}
+                        featured={false}
+                      />
+                    </div>
+                  )
+                })}
+              </div>
+
+              {/* Dot indicators */}
+              <div className="flex justify-center gap-2 mt-4">
+                {carouselCards.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => scrollToCard(i)}
+                    className={`rounded-full transition-all duration-300 ${
+                      activeCard === i
+                        ? 'w-6 h-2.5 bg-primary'
+                        : 'w-2.5 h-2.5 bg-muted-foreground/30'
+                    }`}
+                    aria-label={`Carte ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* View All */}
         <div className="text-center mt-12">
@@ -342,11 +436,7 @@ export function ServicesSection() {
             </Link>
           </Button>
         </div>
-
-
       </div>
-
-
     </section>
   )
 }
