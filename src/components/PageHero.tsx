@@ -24,7 +24,7 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <section
-      className={`relative overflow-hidden ${className}`}
+      className={`relative overflow-hidden mt-6 md:mt-8 ${className}`}
     >
       <div className="flex flex-col md:flex-row items-stretch min-h-[280px] md:min-h-[360px]">
         

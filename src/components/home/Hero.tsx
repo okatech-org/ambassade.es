@@ -25,7 +25,7 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/Consult_general.jpeg"
+          src="/images/IMG_2415.PNG"
           alt="Consulat de l'ère IA"
           className="w-full h-full object-cover object-center"
         />

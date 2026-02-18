@@ -453,7 +453,7 @@ Le Consulat Général du Gabon en France se tient à la disposition des ressorti
         category: "communique" as const,
         publishedAt: now - (3 * day),
         status: "published" as const,
-        coverImage: "/images/actualites/ambassadeur-nguia-banda.png",
+        coverImage: "/images/ambassadeur_fr.jpg",
       },
       {
         title: "Élection présidentielle du 12 avril 2025 : Brice Clotaire Oligui Nguema élu Président",
