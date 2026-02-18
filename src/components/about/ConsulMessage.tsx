@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import { Quote, Linkedin, Mail } from 'lucide-react'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 
 interface ConsulMessageProps {
@@ -41,28 +40,54 @@ export function ConsulMessage({
         <div className="glass-panel p-6 md:p-8 lg:p-12 rounded-3xl border-primary/10 shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10" />
 
-            <div className="grid md:grid-cols-[280px,1fr] gap-10 lg:gap-16 items-start md:items-center">
-            {/* Photo side */}
-            <div className="flex flex-col items-center">
-                <div className="relative group">
-                <Avatar className="w-40 h-40 md:w-56 md:h-56 ring-4 ring-background shadow-2xl transition-transform duration-500 group-hover:scale-105">
-                    <AvatarImage src={photoUrl || undefined} alt={fullName} className="object-cover" />
-                    <AvatarFallback className="text-5xl font-bold bg-gradient-to-br from-primary/20 to-primary/10 text-primary">
-                    {initials}
-                    </AvatarFallback>
-                </Avatar>
-                {/* Decorative accent */}
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent/20 rounded-full -z-10 blur-xl group-hover:bg-accent/30 transition-colors" />
-                <div className="absolute -top-4 -left-4 w-16 h-16 bg-primary/20 rounded-full -z-10 blur-xl group-hover:bg-primary/30 transition-colors" />
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+            {/* Image side (left) */}
+            <div className="relative group order-1">
+                <div className="relative h-full min-h-[320px] md:min-h-[420px] rounded-2xl overflow-hidden shadow-2xl">
+                {photoUrl ? (
+                    <img 
+                      src={photoUrl} 
+                      alt={fullName} 
+                      className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" 
+                    />
+                ) : (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/10">
+                      <span className="text-7xl font-bold text-primary/40">{initials}</span>
+                    </div>
+                )}
+                {/* Gradient overlay at bottom for name */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-6">
+                    <h3 className="text-2xl font-bold text-white mb-1">{fullName}</h3>
+                    <p className="text-white/80 font-medium uppercase tracking-wider text-sm">{role}</p>
                 </div>
+                </div>
+                {/* Decorative accents */}
+                <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-accent/20 rounded-full -z-10 blur-xl group-hover:bg-accent/30 transition-colors" />
+                <div className="absolute -top-4 -left-4 w-20 h-20 bg-primary/20 rounded-full -z-10 blur-xl group-hover:bg-primary/30 transition-colors" />
+            </div>
+
+            {/* Message side (right) */}
+            <div className="relative order-2 flex flex-col justify-center">
+                {/* Quote icon */}
+                <Quote className="absolute -top-6 -left-2 w-14 h-14 text-primary/10 rotate-180" />
                 
-                {/* Name and role below photo on mobile, beside on desktop */}
-                <div className="mt-8 text-center w-full">
-                <h3 className="text-2xl font-bold text-foreground mb-1">{fullName}</h3>
-                <p className="text-primary font-medium opacity-90 uppercase tracking-wide text-sm mb-4">{role}</p>
+                <div className="relative z-10 space-y-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                    {t('leConsulat.consulMessageTitle', 'Mot du Consul Général')}
+                </h2>
                 
+                <blockquote className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed italic font-light">
+                    "{message || defaultMessage}"
+                </blockquote>
+                
+                {description && (
+                    <p className="text-sm text-muted-foreground/80 pt-6 border-t border-border/40 leading-relaxed">
+                    {description}
+                    </p>
+                )}
+
                 {/* Social links */}
-                <div className="flex gap-3 justify-center">
+                <div className="flex gap-3 pt-4">
                     {email && (
                     <Button size="sm" variant="outline" className="gap-2 rounded-full border-primary/20 hover:bg-primary hover:text-white transition-all hover:border-primary" asChild>
                         <a href={`mailto:${email}`}>
@@ -80,28 +105,6 @@ export function ConsulMessage({
                     </Button>
                     )}
                 </div>
-                </div>
-            </div>
-
-            {/* Message side */}
-            <div className="relative">
-                {/* Quote icon */}
-                <Quote className="absolute -top-8 -left-4 w-16 h-16 text-primary/10 rotate-180" />
-                
-                <div className="relative z-10 space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                    {t('leConsulat.consulMessageTitle', 'Mot du Consul Général')}
-                </h2>
-                
-                <blockquote className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed italic font-light">
-                    "{message || defaultMessage}"
-                </blockquote>
-                
-                {description && (
-                    <p className="text-base text-muted-foreground/80 pt-6 border-t border-border/40 leading-relaxed">
-                    {description}
-                    </p>
-                )}
                 </div>
             </div>
             </div>

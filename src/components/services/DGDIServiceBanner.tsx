@@ -29,6 +29,7 @@ export function DGDIServiceBanner() {
               Service Passeports & Visas{' '}
               <span className="text-amber-700">(DGDI)</span>
             </h3>
+            <p className="text-[10px] text-amber-800/60 mt-0.5">Service sous l'autorité de la DGDI sur le territoire français</p>
           </div>
 
           {/* Contact Spécifique */}
@@ -96,15 +97,15 @@ export function DGDIServiceBanner() {
             </h4>
 
             <div className="space-y-2.5">
-              {/* Dépôt Visa */}
+              {/* Établissement Passeport */}
               <div className="dgdi-schedule-card flex items-center justify-between rounded-xl border border-amber-600/20 bg-amber-100/40 px-3 py-2.5 hover:border-amber-600/40 transition-all duration-300">
                 <div>
                   <p className="text-amber-800/60 text-[10px] font-medium mb-0.5 flex items-center gap-1">
                     <Clock className="w-2.5 h-2.5" />
-                    Dépôt Visa (Lun-Jeu)
+                    Passeports (Lun-Jeu)
                   </p>
                   <p className="text-amber-950 text-sm font-bold tracking-tight">
-                    9h00 – 11h30
+                    9h00 – 12h00
                   </p>
                 </div>
                 <span className="text-[9px] font-semibold uppercase tracking-wider text-amber-800 bg-amber-600/10 px-2 py-1 rounded-full border border-amber-600/25">
@@ -117,10 +118,42 @@ export function DGDIServiceBanner() {
                 <div>
                   <p className="text-amber-800/60 text-[10px] font-medium mb-0.5 flex items-center gap-1">
                     <Clock className="w-2.5 h-2.5" />
-                    Retrait Passeport
+                    Retrait Passeport (Vendredi)
                   </p>
                   <p className="text-amber-950 text-sm font-bold tracking-tight">
-                    15h00 – 16h15
+                    9h00 – 12h00
+                  </p>
+                </div>
+                <span className="text-[9px] font-semibold uppercase tracking-wider text-amber-800 bg-amber-600/10 px-2 py-1 rounded-full border border-amber-600/25">
+                  Matin
+                </span>
+              </div>
+
+              {/* Dépôt Visa */}
+              <div className="dgdi-schedule-card flex items-center justify-between rounded-xl border border-amber-600/20 bg-amber-100/40 px-3 py-2.5 hover:border-amber-600/40 transition-all duration-300">
+                <div>
+                  <p className="text-amber-800/60 text-[10px] font-medium mb-0.5 flex items-center gap-1">
+                    <Clock className="w-2.5 h-2.5" />
+                    Visas (Lun-Jeu)
+                  </p>
+                  <p className="text-amber-950 text-sm font-bold tracking-tight">
+                    9h00 – 12h00
+                  </p>
+                </div>
+                <span className="text-[9px] font-semibold uppercase tracking-wider text-amber-800 bg-amber-600/10 px-2 py-1 rounded-full border border-amber-600/25">
+                  Matin
+                </span>
+              </div>
+
+              {/* Retrait Visa */}
+              <div className="dgdi-schedule-card flex items-center justify-between rounded-xl border border-amber-600/20 bg-amber-100/40 px-3 py-2.5 hover:border-amber-600/40 transition-all duration-300">
+                <div>
+                  <p className="text-amber-800/60 text-[10px] font-medium mb-0.5 flex items-center gap-1">
+                    <Clock className="w-2.5 h-2.5" />
+                    Retrait Visa (selon type)
+                  </p>
+                  <p className="text-amber-950 text-sm font-bold tracking-tight">
+                    15h00
                   </p>
                 </div>
                 <span className="text-[9px] font-semibold uppercase tracking-wider text-amber-800 bg-amber-600/10 px-2 py-1 rounded-full border border-amber-600/25">
@@ -137,7 +170,7 @@ export function DGDIServiceBanner() {
             asChild
           >
             <a
-              href="https://www.rdv360.com/dgdi"
+              href="https://www.ae.dgdifrance.fr/"
               target="_blank"
               rel="noopener noreferrer"
             >

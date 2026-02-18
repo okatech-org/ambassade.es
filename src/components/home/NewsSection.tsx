@@ -120,7 +120,7 @@ export function NewsSection() {
                   <img 
                     src={featuredPost.coverImage || categoryConfig[featuredPost.category]?.fallbackImage || categoryConfig.actualite.fallbackImage} 
                     alt={featuredPost.title}
-                    className="w-full h-64 object-cover"
+                    className="w-full h-64 object-cover object-top"
                   />
                   <div className="p-6 flex flex-col flex-1">
                     <div className="flex-1">

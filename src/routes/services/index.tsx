@@ -311,26 +311,61 @@ function ServicesPage() {
                       </Button>
                    </div>
                  ) : (
-                   filteredServices?.map((service) => {
-                     const config = categoryConfig[service.category] || categoryConfig[ServiceCategory.Other]
-                     const categoryLabel = t(`services.categoriesMap.${service.category}`)
+                   <>
+                     {/* DGDI Service Cards — Passeport & Visa */}
+                     {(!search.query && selectedCategories.length === 0) && (
+                       <a
+                         href="https://www.ae.dgdifrance.fr/"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         className="group block col-span-full"
+                       >
+                         <div className="dgdi-banner rounded-2xl border border-amber-400/30 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 hover:-translate-y-1 transition-all duration-300">
+                           <div className="flex items-center gap-3">
+                             <div className="w-12 h-12 rounded-[14px] flex items-center justify-center bg-amber-700/15 border border-amber-600/30 shrink-0">
+                               <Globe className="w-6 h-6 text-amber-800" />
+                             </div>
+                             <div>
+                               <h3 className="text-lg font-bold text-amber-950 group-hover:text-amber-700 transition-colors">
+                                 Passeport & Visa
+                               </h3>
+                               <Badge className="text-[10px] bg-amber-600/10 text-amber-800 border-amber-600/25 border mt-1">
+                                 DGDI
+                               </Badge>
+                             </div>
+                           </div>
+                           <p className="text-sm text-amber-800/70 leading-relaxed flex-1">
+                             Établissement, dépôt et retrait de passeports et visas. Services assurés par la <strong className="text-amber-900">DGDI</strong> (Délégation Générale à la Documentation et à l'Immigration) sur le territoire français.
+                           </p>
+                           <span className="inline-flex items-center gap-2 text-sm font-semibold text-amber-800 group-hover:text-amber-900 transition-colors whitespace-nowrap shrink-0">
+                             Faire la démarche
+                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                           </span>
+                         </div>
+                       </a>
+                     )}
 
-                     return (
-                       <ServiceCard
-                         key={service._id}
-                         icon={config.icon}
-                         title={service.title}
-                         description={service.description}
-                         color={config.color}
-                         badge={categoryLabel}
-                         delay={service.delay}
-                         price={service.price}
-                         validity={service.validity}
-                         isUrgent={service.isUrgent}
-                         onInfoClick={() => handleServiceClick(service.slug)}
-                       />
-                     )
-                   })
+                     {filteredServices?.map((service) => {
+                      const config = categoryConfig[service.category] || categoryConfig[ServiceCategory.Other]
+                      const categoryLabel = t(`services.categoriesMap.${service.category}`)
+
+                      return (
+                        <ServiceCard
+                          key={service._id}
+                          icon={config.icon}
+                          title={service.title}
+                          description={service.description}
+                          color={config.color}
+                          badge={categoryLabel}
+                          delay={service.delay}
+                          price={service.price}
+                          validity={service.validity}
+                          isUrgent={service.isUrgent}
+                          onInfoClick={() => handleServiceClick(service.slug)}
+                        />
+                      )
+                    })}
+                   </>
                  )}
                </div>
             </div>

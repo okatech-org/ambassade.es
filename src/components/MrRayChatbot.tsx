@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { useAction } from 'convex/react'
 import { api } from '@convex/_generated/api'
-import { MessageCircle, X, Send, Bot, User, Loader2, ExternalLink } from 'lucide-react'
+import { X, Send, Bot, User, Loader2, ExternalLink } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 
 interface ChatMessage {
@@ -105,7 +105,7 @@ export function MrRayChatbot() {
       {/* Chat Window */}
       {isOpen && (
         <div
-          className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] max-h-[70vh] flex flex-col rounded-2xl overflow-hidden border border-border/60 chatbot-window"
+          className="fixed top-1/2 -translate-y-1/2 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] max-h-[70vh] flex flex-col rounded-2xl overflow-hidden border border-border/60 chatbot-window"
           style={{
             background: 'var(--glass-panel-bg)',
             boxShadow: '0 8px 40px rgba(0,0,0,0.15), 0 2px 12px rgba(0,0,0,0.08)',
@@ -299,28 +299,24 @@ export function MrRayChatbot() {
         </div>
       )}
 
-      {/* Floating Action Button */}
+      {/* Floating Action Button — Spherical, vermillion-pink-yellow with heartbeat */}
       <button
         onClick={toggleChat}
-        className={`fixed bottom-6 right-4 sm:right-6 z-50 flex items-center justify-center rounded-full shadow-lg transition-all duration-300 chatbot-fab ${
+        className={`fixed top-1/2 -translate-y-1/2 right-4 sm:right-6 z-50 w-[144px] h-[144px] flex items-center justify-center rounded-full shadow-xl transition-all duration-300 ${
           isOpen
-            ? 'w-14 h-14 bg-muted hover:bg-muted/80 text-muted-foreground'
-            : 'w-14 h-14 sm:w-auto sm:h-14 sm:px-5 sm:gap-2 bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105'
+            ? 'bg-muted hover:bg-muted/80 text-muted-foreground'
+            : 'text-white animate-heartbeat'
         }`}
+        style={!isOpen ? {
+          background: 'linear-gradient(135deg, #E74C3C 0%, #FF6B9D 35%, #EAB308 100%)',
+          boxShadow: '0 6px 30px rgba(231, 76, 60, 0.4), 0 0 50px rgba(234, 179, 8, 0.2)',
+        } : undefined}
         aria-label={isOpen ? 'Fermer le chat' : 'Ouvrir le chat Mr Ray'}
       >
         {isOpen ? (
-          <X className="w-6 h-6" />
+          <X className="w-8 h-8" />
         ) : (
-          <>
-            <MessageCircle className="w-5 h-5" />
-            <span className="hidden sm:inline font-medium text-sm">Mr Ray 🐡</span>
-          </>
-        )}
-
-        {/* Pulse effect when closed */}
-        {!isOpen && (
-          <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-20 pointer-events-none" />
+          <span className="font-extrabold text-2xl text-white drop-shadow-md tracking-wide">Mr Ray</span>
         )}
       </button>
     </>

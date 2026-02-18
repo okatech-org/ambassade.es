@@ -375,6 +375,31 @@
   100% { background-position: 200% 0; }
 }
 
+/* Slow organic blob deformation */
+@keyframes blob-morph {
+  0%, 100% { border-radius: 50%; }
+  12%  { border-radius: 42% 58% 60% 40% / 45% 38% 62% 55%; }
+  25%  { border-radius: 58% 42% 40% 60% / 38% 60% 45% 55%; }
+  37%  { border-radius: 40% 60% 55% 45% / 58% 42% 55% 45%; }
+  50%  { border-radius: 55% 45% 42% 58% / 42% 55% 60% 40%; }
+  62%  { border-radius: 45% 55% 58% 42% / 60% 40% 42% 58%; }
+  75%  { border-radius: 60% 40% 45% 55% / 40% 58% 50% 50%; }
+  87%  { border-radius: 42% 58% 55% 45% / 55% 45% 58% 42%; }
+}
+
+/* Heartbeat pulse — 25 bpm = 2.4s per beat */
+@keyframes heartbeat-pulse {
+  0%, 100% { transform: scale(1); }
+  15%  { transform: scale(1.06); }
+  30%  { transform: scale(0.98); }
+  45%  { transform: scale(1.04); }
+  60%  { transform: scale(1); }
+}
+
+.animate-heartbeat {
+  animation: blob-morph 8s ease-in-out infinite, heartbeat-pulse 2.4s ease-in-out infinite;
+}
+
 /* ─────────── 📱 MOBILE RESPONSIVENESS HELPERS ─────────── */
 
 /* Prevent horizontal overflow on all pages */

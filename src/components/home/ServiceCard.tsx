@@ -94,10 +94,12 @@ export function ServiceCard({
               📋 Voir la fiche
             </button>
             <a 
-              href="mailto:consulatgeneralgabon@yahoo.fr?subject=Demande de renseignement" 
+              href="https://www.consulat.ga/" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center px-3 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors text-center"
             >
-              📝 Contacter
+              Faire la démarche
             </a>
           </div>
         </div>

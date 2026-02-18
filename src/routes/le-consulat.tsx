@@ -116,7 +116,7 @@ function LeConsulatPage() {
           lastName={consulGeneral?.lastName ?? "Général"}
           role={consulGeneral?.role ?? "Consul Général du Gabon en France"}
           description={consulGeneral?.description ?? "Diplomate de carrière, le Consul Général assure la protection et l'assistance des ressortissants gabonais en France. Il veille au renforcement des relations bilatérales entre le Gabon et la France et à la modernisation des services consulaires."}
-          photoUrl={consulGeneral?.photoUrl ?? "/images/consul-general.png"}
+          photoUrl={"/images/consul_general.jpg"}
           email={consulGeneral?.email ?? "contact@consulatdugabon.fr"}
           linkedIn={consulGeneral?.linkedIn}
         />

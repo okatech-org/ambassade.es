@@ -245,7 +245,7 @@ export function ServicesSection() {
 
   // Define the exact layout order by slug
   const topRowSlugs = ['carte-consulaire', 'laissez-passer', 'tenant-lieu']
-  const bottomRowSlugs = ['transcription-naissance', 'certificat-celibat', 'demande-audience']
+  const bottomRowSlugs = ['transcription-naissance', 'certificat-coutume-celibat', 'demande-audience']
 
   const findBySlug = (slug: string) => otherServices.find(s => s.slug === slug)
 
