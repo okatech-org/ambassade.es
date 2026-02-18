@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import { CitizenCTA } from '../components/home/CitizenCTA'
 import { useTranslation } from 'react-i18next'
 import { useQuery } from 'convex/react'
@@ -11,7 +11,9 @@ import {
   Gavel, 
   Plane,
   MapPin,
-  Building2
+  Building2,
+  Phone,
+  Megaphone
 } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge'
@@ -25,46 +27,47 @@ export const Route = createFileRoute('/le-consulat')({
   component: LeConsulatPage,
 })
 
-const missions = [
-  {
-    icon: Shield,
-    title: "Protection des ressortissants",
-    description: "Protection des intérêts de l'État gabonais et de ses ressortissants en France, conformément à la Convention de Vienne de 1963 (art. 5). Assistance aux détenus, victimes d'accidents, et accompagnement en cas de décès ou de rapatriement.",
-  },
-  {
-    icon: Globe,
-    title: "Relations internationales",
-    description: "Développement des relations commerciales, économiques, culturelles et scientifiques entre le Gabon et la France. Promotion de la coopération bilatérale et de la diplomatie économique.",
-  },
-  {
-    icon: FileText,
-    title: "Documents officiels",
-    description: "Délivrance de passeports, visas, titres de voyage et documents de circulation. Légalisation et certification de documents administratifs officiels pour les ressortissants et visiteurs.",
-  },
-  {
-    icon: Users,
-    title: "État Civil",
-    description: "Fonctions d'Officier d'État Civil : enregistrement des naissances, célébration de mariages, déclaration de décès et transcription d'actes. Service de l'état civil pour la communauté gabonaise.",
-  },
-  {
-    icon: Gavel,
-    title: "Actes notariés & administratifs",
-    description: "Fonctions notariales pour les actes authentiques, procurations, certificats de vie, légalisations de signatures et de documents. Rédaction et certification d'actes administratifs.",
-  },
-  {
-    icon: Plane,
-    title: "Assistance d'urgence",
-    description: "Secours et assistance aux ressortissants gabonais en difficulté : aide aux détenus, victimes d'accidents ou de catastrophes, organisation de rapatriements et aide d'urgence.",
-  },
-  {
-    icon: Gavel,
-    title: "Fonctions judiciaires",
-    description: "Transmission d'actes judiciaires et extrajudiciaires, exécution de commissions rogatoires selon les conventions internationales. Facilitation des démarches juridiques entre la France et le Gabon.",
-  },
-]
 
 function LeConsulatPage() {
   const { t } = useTranslation()
+
+  const missions = [
+    {
+      icon: Shield,
+      title: t('leConsulat.missions.0.title', "Protection des ressortissants"),
+      description: t('leConsulat.missions.0.description', "Protection des intérêts de l'État gabonais et de ses ressortissants en France, conformément à la Convention de Vienne de 1963 (art. 5). Assistance aux détenus, victimes d'accidents, et accompagnement en cas de décès ou de rapatriement."),
+    },
+    {
+      icon: Globe,
+      title: t('leConsulat.missions.1.title', "Relations internationales"),
+      description: t('leConsulat.missions.1.description', "Développement des relations commerciales, économiques, culturelles et scientifiques entre le Gabon et la France. Promotion de la coopération bilatérale et de la diplomatie économique."),
+    },
+    {
+      icon: FileText,
+      title: t('leConsulat.missions.2.title', "Documents officiels"),
+      description: t('leConsulat.missions.2.description', "Délivrance de passeports, visas, titres de voyage et documents de circulation. Légalisation et certification de documents administratifs officiels pour les ressortissants et visiteurs."),
+    },
+    {
+      icon: Users,
+      title: t('leConsulat.missions.3.title', "État Civil"),
+      description: t('leConsulat.missions.3.description', "Fonctions d'Officier d'État Civil : enregistrement des naissances, célébration de mariages, déclaration de décès et transcription d'actes. Service de l'état civil pour la communauté gabonaise."),
+    },
+    {
+      icon: Gavel,
+      title: t('leConsulat.missions.4.title', "Actes notariés & administratifs"),
+      description: t('leConsulat.missions.4.description', "Fonctions notariales pour les actes authentiques, procurations, certificats de vie, légalisations de signatures et de documents. Rédaction et certification d'actes administratifs."),
+    },
+    {
+      icon: Plane,
+      title: t('leConsulat.missions.5.title', "Assistance d'urgence"),
+      description: t('leConsulat.missions.5.description', "Secours et assistance aux ressortissants gabonais en difficulté : aide aux détenus, victimes d'accidents ou de catastrophes, organisation de rapatriements et aide d'urgence."),
+    },
+    {
+      icon: Gavel,
+      title: t('leConsulat.missions.6.title', "Fonctions judiciaires"),
+      description: t('leConsulat.missions.6.description', "Transmission d'actes judiciaires et extrajudiciaires, exécution de commissions rogatoires selon les conventions internationales. Facilitation des démarches juridiques entre la France et le Gabon."),
+    },
+  ]
   
   // Fetch team members
   const teamMembers = useQuery(api.functions.teamMembers.list)
@@ -112,8 +115,8 @@ function LeConsulatPage() {
 
         {/* Consul General Message Section */}
         <ConsulMessage
-          firstName={consulGeneral?.firstName ?? "Le Consul"}
-          lastName={consulGeneral?.lastName ?? "Général"}
+          firstName={consulGeneral?.firstName ?? "Jean-Rémy"}
+          lastName={consulGeneral?.lastName ?? "MAGANGA-NZAMBA"}
           role={consulGeneral?.role ?? "Consul Général du Gabon en France"}
           description={consulGeneral?.description ?? "Diplomate de carrière, le Consul Général assure la protection et l'assistance des ressortissants gabonais en France. Il veille au renforcement des relations bilatérales entre le Gabon et la France et à la modernisation des services consulaires."}
           photoUrl={"/images/consul_general.jpg"}
@@ -191,6 +194,54 @@ function LeConsulatPage() {
 
 
 
+
+        {/* Blue Contact Bar */}
+        <section className="py-24 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-primary/5 dark:bg-primary/10" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gabon-blue/20 rounded-full blur-[100px] animate-pulse-glow" />
+          <div
+            className="absolute bottom-0 left-0 w-96 h-96 bg-gabon-green/20 rounded-full blur-[100px] animate-pulse-glow"
+            style={{ animationDelay: '2s' }}
+          />
+
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <div className="glass-panel p-10 md:p-16 rounded-3xl border-primary/20 shadow-2xl shadow-primary/5">
+              <Megaphone className="w-12 h-12 text-primary mx-auto mb-6" />
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
+                {t('leConsulat.cta.title', 'Une question ? Besoin d\'aide ?')}
+              </h2>
+              <p className="text-muted-foreground mb-10 text-lg max-w-2xl mx-auto leading-relaxed">
+                {t(
+                  'leConsulat.cta.description',
+                  'Notre équipe est à votre disposition pour répondre à toutes vos questions et vous accompagner dans vos démarches consulaires.'
+                )}
+              </p>
+              <div className="flex flex-wrap justify-center gap-6">
+                <Button
+                  size="lg"
+                  className="h-14 px-8 rounded-xl text-base shadow-lg shadow-primary/20"
+                  asChild
+                >
+                  <Link to="/contact">
+                    <MapPin className="w-5 h-5 mr-2" />
+                    {t('leConsulat.cta.contact', 'Nous contacter')}
+                  </Link>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="h-14 px-8 rounded-xl text-base bg-background/50 hover:bg-accent/10 border-foreground/10"
+                  asChild
+                >
+                  <a href="tel:+33751025292">
+                    <Phone className="w-5 h-5 mr-2" />
+                    07 51 02 52 92
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <CitizenCTA />
 

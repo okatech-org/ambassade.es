@@ -9,4 +9,4 @@ Disallow: /admin
 Disallow: /admin/*
 
 # Sitemap
-Sitemap: https://consulat.ga/sitemap.xml
+Sitemap: https://consulatdugabon.fr/sitemap.xml

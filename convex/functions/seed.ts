@@ -581,7 +581,7 @@ Les ressortissants gabonais en France sont invités à :
         category: "actualite" as const,
         publishedAt: now - (18 * day),
         status: "published" as const,
-        coverImage: "/images/actualites/diaspora-assemblee.png",
+        coverImage: "/images/depute_dispora_gabon.jpg",
       },
       {
         title: "Simplification des visas français pour les ressortissants gabonais : discussions en cours",

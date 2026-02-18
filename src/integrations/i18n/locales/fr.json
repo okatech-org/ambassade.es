@@ -74,7 +74,10 @@
       "Emploi": "Emploi",
       "Juridique": "Juridique",
       "Famille": "Famille"
-    }
+    },
+    "titlePart1": "Un Écosystème Complet en",
+    "titleHighlight": "6 Rubriques Essentielles",
+    "viewAll": "Consulter le guide complet"
   },
   "faq": {
     "badge": "Questions fréquentes",
@@ -402,7 +405,12 @@
       "dashboard": "Tableau de bord",
       "mySpace": "Mon Espace",
       "signIn": "Se connecter",
-      "signUp": "S'inscrire"
+      "signUp": "S'inscrire",
+      "consulat": "Consulat Général",
+      "venirFrance": "Venir en France",
+      "vieFrance": "Vivre en France",
+      "retourGabon": "Retour au Gabon",
+      "nousContacter": "Nous Contacter"
     },
     "appointment": "Rendez-vous",
     "bookAppointment": "Prendre Rendez-vous",
@@ -1578,5 +1586,286 @@
     "not_multiple_of": "Doit être un multiple de {{multipleOf}}",
     "not_finite": "Doit être fini",
     "custom": "Invalide"
+  },
+  "accessibilite": {
+    "title": "Accessibilité",
+    "intro": "Le Consulat Général du Gabon en France s'engage à rendre ce site internet accessible conformément aux normes en vigueur.",
+    "conformance": {
+      "title": "Déclaration de conformité",
+      "content": "Ce site a été conçu pour être accessible au plus grand nombre. Nous nous efforçons de respecter les recommandations du RGAA (Référentiel Général d'Amélioration de l'Accessibilité)."
+    },
+    "technologies": {
+      "title": "Technologies utilisées",
+      "content": "Ce site est construit avec les technologies web modernes suivantes :",
+      "items": {
+        "html5": "HTML5 sémantique",
+        "css3": "CSS3 avec support du mode sombre",
+        "react": "React avec composants accessibles",
+        "aria": "Attributs ARIA pour les technologies d'assistance"
+      }
+    },
+    "features": {
+      "title": "Fonctionnalités d'accessibilité",
+      "navigation": {
+        "title": "Navigation",
+        "content": "Navigation au clavier complète, structure de titres hiérarchique, liens d'évitement."
+      },
+      "visual": {
+        "title": "Affichage",
+        "content": "Contrastes conformes AA, mode sombre, textes redimensionnables, responsive design."
+      },
+      "assistive": {
+        "title": "Technologies d'assistance",
+        "content": "Compatible lecteurs d'écran (NVDA, JAWS, VoiceOver), alternatives textuelles pour les images."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "content": "Si vous rencontrez un problème d'accessibilité, contactez-nous :",
+      "email": "Email :",
+      "phone": "Téléphone :"
+    },
+    "legal": {
+      "title": "Voies de recours",
+      "content": "Si vous constatez un défaut d'accessibilité vous empêchant d'accéder à un contenu ou une fonctionnalité du site, vous pouvez contacter le Défenseur des droits."
+    }
+  },
+  "confidentialite": {
+    "title": "Politique de Confidentialité",
+    "intro": "Le Consulat Général du Gabon en France s'engage à protéger la vie privée des utilisateurs de ce site.",
+    "dataCollection": {
+      "title": "Collecte des données",
+      "content": "Nous collectons uniquement les données nécessaires au fonctionnement des services consulaires : nom, prénom, date de naissance, nationalité, coordonnées, documents d'identité."
+    },
+    "purpose": {
+      "title": "Finalités du traitement",
+      "content": "Vos données sont utilisées exclusivement pour :",
+      "items": {
+        "consular": "Le traitement de vos demandes consulaires",
+        "communication": "La communication d'informations consulaires",
+        "statistics": "L'établissement de statistiques anonymes",
+        "legal": "Le respect de nos obligations légales"
+      }
+    },
+    "retention": {
+      "title": "Durée de conservation",
+      "content": "Vos données sont conservées pendant la durée nécessaire au traitement de votre demande, puis archivées conformément aux obligations légales applicables."
+    },
+    "rights": {
+      "title": "Vos droits",
+      "content": "Conformément au RGPD, vous disposez des droits suivants :",
+      "items": {
+        "access": "Droit d'accès à vos données",
+        "rectification": "Droit de rectification",
+        "deletion": "Droit à l'effacement",
+        "opposition": "Droit d'opposition",
+        "portability": "Droit à la portabilité"
+      }
+    },
+    "cookies": {
+      "title": "Cookies",
+      "content": "Ce site utilise des cookies techniques nécessaires à son fonctionnement et des cookies de mesure d'audience anonymes. Aucun cookie publicitaire n'est utilisé."
+    },
+    "contact": {
+      "title": "Contact DPO",
+      "content": "Pour exercer vos droits ou pour toute question relative à la protection de vos données :",
+      "email": "Email :"
+    }
+  },
+  "mentionsLegales": {
+    "title": "Mentions Légales",
+    "editor": {
+      "title": "Éditeur du site",
+      "content": "Consulat Général de la République Gabonaise en France",
+      "address": "26 bis avenue Raphaël, 75016 Paris, France",
+      "phone": "Téléphone :",
+      "email": "Email :"
+    },
+    "director": {
+      "title": "Directeur de la publication",
+      "content": "Le Consul Général de la République Gabonaise en France"
+    },
+    "hosting": {
+      "title": "Hébergement",
+      "content": "Ce site est hébergé par Firebase (Google Cloud Platform), 8 rue de Londres, 75009 Paris, France."
+    },
+    "intellectual": {
+      "title": "Propriété intellectuelle",
+      "content": "L'ensemble du contenu de ce site (textes, images, vidéos, logos) est protégé par le droit d'auteur. Toute reproduction, même partielle, est soumise à autorisation préalable."
+    },
+    "responsibility": {
+      "title": "Responsabilité",
+      "content": "Le Consulat Général s'efforce d'assurer l'exactitude des informations diffusées sur ce site. Toutefois, il ne saurait être tenu responsable des erreurs, omissions ou résultats qui pourraient être obtenus par un mauvais usage de ces informations."
+    },
+    "links": {
+      "title": "Liens hypertextes",
+      "content": "Ce site peut contenir des liens vers des sites externes. Le Consulat Général n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu."
+    }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Coordonnées officielles",
+    "description": "Le Consulat Général de la République Gabonaise en France est à votre disposition pour toutes vos démarches consulaires.",
+    "address": {
+      "title": "Adresse",
+      "value": "26 bis avenue Raphaël, 75016 Paris"
+    },
+    "phone": {
+      "title": "Téléphone"
+    },
+    "email": {
+      "title": "Email"
+    },
+    "hours": {
+      "title": "Horaires d'ouverture",
+      "weekdays": "Lundi — Vendredi : 9h30 — 15h00",
+      "weekend": "Samedi — Dimanche : Fermé"
+    },
+    "emergency": {
+      "title": "Urgence consulaire 24h/24",
+      "description": "En cas d'urgence en dehors des heures d'ouverture :"
+    },
+    "form": {
+      "title": "Envoyez-nous un message",
+      "name": "Nom complet",
+      "email": "Adresse email",
+      "subject": "Sujet",
+      "message": "Votre message",
+      "submit": "Envoyer",
+      "success": "Votre message a été envoyé avec succès !",
+      "subjects": {
+        "general": "Renseignement général",
+        "passport": "Passeport",
+        "visa": "Visa",
+        "civilStatus": "État civil",
+        "consularCard": "Carte consulaire",
+        "other": "Autre"
+      }
+    }
+  },
+  "leConsulat": {
+    "title": "Le Consulat",
+    "badge": "Institution",
+    "subtitle": "Le Consulat Général de la République Gabonaise en France",
+    "description": "Au service de la communauté gabonaise en France depuis plus de 50 ans. Découvrez nos missions, notre histoire et notre engagement.",
+    "missions": {
+      "title": "Nos missions",
+      "protection": {
+        "title": "Protection consulaire",
+        "description": "Assistance et protection des ressortissants gabonais en France dans toutes les situations."
+      },
+      "administrative": {
+        "title": "Services administratifs",
+        "description": "Délivrance de passeports, cartes consulaires, actes d'état civil et autres documents officiels."
+      },
+      "community": {
+        "title": "Vie communautaire",
+        "description": "Animation et accompagnement de la diaspora gabonaise en France."
+      },
+      "cultural": {
+        "title": "Rayonnement culturel",
+        "description": "Promotion de la culture gabonaise en France à travers des événements et des partenariats."
+      },
+      "economic": {
+        "title": "Coopération économique",
+        "description": "Facilitation des échanges économiques entre le Gabon et la France."
+      },
+      "legal": {
+        "title": "Assistance juridique",
+        "description": "Accompagnement dans les démarches juridiques et notariales."
+      },
+      "social": {
+        "title": "Action sociale",
+        "description": "Soutien aux ressortissants en difficulté et orientation vers les services compétents."
+      }
+    }
+  },
+  "news": {
+    "badge": "Actualités & Événements",
+    "titlePart1": "Restez",
+    "titlePart2": "informé",
+    "description": "Suivez les dernières actualités, événements et communiqués du Consulat Général.",
+    "readMore": "Lire la suite",
+    "allNews": "Toutes les actualités",
+    "noNews": "Aucune actualité pour le moment",
+    "noMore": "Pas d'autres actualités",
+    "categories": {
+      "communique": "Communiqué",
+      "evenement": "Événement",
+      "actualite": "Actualité"
+    }
+  },
+  "vieFrance": {
+    "badge": "Guide pratique",
+    "heroTitle": "Vivre en France",
+    "heroHighlight": "au quotidien",
+    "heroDescription": "Guide complet pour les Gabonais résidant en France : logement, santé, éducation, emploi, droits de séjour et vie de famille. Toutes les informations pratiques pour votre quotidien.",
+    "emergency": {
+      "title": "Numéros d'urgence",
+      "subtitle": "À conserver dans votre téléphone",
+      "samu": "SAMU — Urgences médicales",
+      "police": "Police — Secours",
+      "pompiers": "Pompiers",
+      "european": "Numéro européen d'urgence",
+      "sms": "Urgences par SMS (sourds/malentendants)",
+      "consulat": "Urgence consulaire Gabon 24h/24"
+    }
+  },
+  "venirFrance": {
+    "badge": "Guide d'arrivée & intégration",
+    "heroTitle": "Venir en France",
+    "heroHighlight": "& s'intégrer",
+    "heroDescription": "Guide complet pour les Gabonais arrivant en France : admission, visa, démarches administratives, codes culturels et conseils pratiques pour une intégration réussie. Le Consulat Général du Gabon vous accompagne.",
+    "savoirVivre": {
+      "badge": "Savoir-vivre",
+      "title": "Codes culturels & Conventions",
+      "description": "Comprendre les codes de la société française pour mieux y évoluer. Ce n'est pas renoncer à sa culture, c'est en ajouter une autre."
+    },
+    "guides": {
+      "badge": "Guides complets",
+      "title": "Vos démarches détaillées",
+      "description": "Cliquez sur chaque thème pour découvrir les informations détaillées, les procédures et nos astuces pratiques."
+    },
+    "erreurs": {
+      "badge": "À savoir absolument",
+      "title": "Erreurs courantes à éviter",
+      "description": "Ces oublis peuvent avoir des conséquences sérieuses. Prenez-les au sérieux pour protéger vos droits."
+    },
+    "numeros": {
+      "badge": "Numéros essentiels",
+      "title": "Numéros utiles à conserver",
+      "description": "Enregistrez ces numéros dans votre téléphone. Ils peuvent sauver des vies."
+    },
+    "cta": {
+      "title": "Le Consulat est à vos côtés",
+      "description": "Que vous soyez sur le point de partir ou nouvellement arrivé, le Consulat Général du Gabon en France est votre relais. N'hésitez pas à nous solliciter pour toute question.",
+      "vieFrance": "Guide de la vie en France"
+    }
+  },
+  "retourGabon": {
+    "badge": "Guide de retour",
+    "heroTitle": "Retour au Gabon",
+    "heroHighlight": "— Bien préparer",
+    "heroDescription": "Guide complet pour les Gabonais rentrant au pays : démarches consulaires, déménagement, réinstallation, emploi, OQTF, aides et maintien de vos droits acquis en France.",
+    "steps": {
+      "badge": "Étapes du retour",
+      "title": "Préparez chaque étape",
+      "description": "Du premier jour de préparation à votre réinstallation, chaque étape est détaillée avec des conseils pratiques et des liens utiles."
+    },
+    "aides": {
+      "badge": "Aides & Accompagnement",
+      "title": "Des aides pour votre retour",
+      "description": "Plusieurs dispositifs existent pour faciliter votre réintégration au Gabon."
+    },
+    "erreurs": {
+      "badge": "Erreurs à éviter",
+      "title": "Ne commettez pas ces erreurs",
+      "description": "Ces oublis peuvent compliquer votre retour. Anticipez-les pour partir sereinement."
+    },
+    "numeros": {
+      "badge": "Contacts essentiels",
+      "title": "Numéros utiles",
+      "description": "À conserver pour votre retour au Gabon."
+    }
   }
 }

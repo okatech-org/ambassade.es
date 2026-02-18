@@ -1,48 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://consulat.ga/</loc>
+    <loc>https://consulatdugabon.fr/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://consulat.ga/le-consulat</loc>
+    <loc>https://consulatdugabon.fr/le-consulat</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://consulat.ga/services</loc>
+    <loc>https://consulatdugabon.fr/services</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://consulat.ga/actualites</loc>
+    <loc>https://consulatdugabon.fr/actualites</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://consulat.ga/contact</loc>
+    <loc>https://consulatdugabon.fr/venir-en-france</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://consulatdugabon.fr/vie-en-france</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://consulatdugabon.fr/retour-au-gabon</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://consulatdugabon.fr/integration</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://consulat.ga/faq</loc>
+    <loc>https://consulatdugabon.fr/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://consulatdugabon.fr/faq</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://consulat.ga/mentions-legales</loc>
+    <loc>https://consulatdugabon.fr/mentions-legales</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://consulat.ga/confidentialite</loc>
+    <loc>https://consulatdugabon.fr/confidentialite</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://consulat.ga/accessibilite</loc>
+    <loc>https://consulatdugabon.fr/accessibilite</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 </urlset>
+

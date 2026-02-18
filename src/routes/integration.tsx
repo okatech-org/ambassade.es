@@ -16,7 +16,6 @@ import {
   Users,
   ChevronDown,
   Phone,
-  Mail,
   MapPin,
   Lightbulb,
   CheckCircle2,
@@ -31,12 +30,20 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { PageHero } from '@/components/PageHero'
 import { CitizenCTA } from '@/components/home/CitizenCTA'
+import {
+  SavoirVivreGrid,
+  ErreursCourantesGrid,
+  NumerosUtilesGrid,
+  type SavoirVivreItem,
+  type ErreurItem,
+  type NumeroUtile,
+} from '@/components/guides'
 
 export const Route = createFileRoute('/integration')({
   component: IntegrationPage,
 })
 
-// ─── Types ───────────────────────────────────────────────────────────────────
+// ─── Types (page-specific: no links field) ───────────────────────────────────
 
 interface GuideSection {
   id: string
@@ -60,22 +67,10 @@ const guideSections: GuideSection[] = [
     iconBg: 'bg-blue-500/10',
     intro: 'Le logement est souvent la première étape de votre installation. Voici les clés pour comprendre le marché locatif français et accéder à vos droits.',
     items: [
-      {
-        title: 'Recherche de logement',
-        detail: 'Utilisez les plateformes officielles (Leboncoin, SeLoger, PAP) et les agences immobilières. Méfiez-vous des annonces trop avantageuses — ne versez jamais d\'argent avant la visite et la signature du bail.',
-      },
-      {
-        title: 'Dossier locatif',
-        detail: 'Préparez : pièce d\'identité, 3 derniers bulletins de salaire, contrat de travail, avis d\'imposition, justificatif de domicile actuel. Un garant (ou le dispositif Visale gratuit) est souvent exigé.',
-      },
-      {
-        title: 'Aides au logement (CAF)',
-        detail: 'Vous pouvez bénéficier de l\'APL (Aide Personnalisée au Logement) ou de l\'ALS selon votre situation. Faites votre demande sur caf.fr dès la signature de votre bail.',
-      },
-      {
-        title: 'Droits du locataire',
-        detail: 'Le propriétaire ne peut pas vous demander : photo, relevé bancaire, carte vitale. Le dépôt de garantie est plafonné à 1 mois de loyer (hors charges). La trêve hivernale protège contre les expulsions du 1er novembre au 31 mars.',
-      },
+      { title: 'Recherche de logement', detail: 'Utilisez les plateformes officielles (Leboncoin, SeLoger, PAP) et les agences immobilières. Méfiez-vous des annonces trop avantageuses — ne versez jamais d\'argent avant la visite et la signature du bail.' },
+      { title: 'Dossier locatif', detail: 'Préparez : pièce d\'identité, 3 derniers bulletins de salaire, contrat de travail, avis d\'imposition, justificatif de domicile actuel. Un garant (ou le dispositif Visale gratuit) est souvent exigé.' },
+      { title: 'Aides au logement (CAF)', detail: 'Vous pouvez bénéficier de l\'APL (Aide Personnalisée au Logement) ou de l\'ALS selon votre situation. Faites votre demande sur caf.fr dès la signature de votre bail.' },
+      { title: 'Droits du locataire', detail: 'Le propriétaire ne peut pas vous demander : photo, relevé bancaire, carte vitale. Le dépôt de garantie est plafonné à 1 mois de loyer (hors charges). La trêve hivernale protège contre les expulsions du 1er novembre au 31 mars.' },
     ],
     tips: [
       'Le dispositif Visale (gratuit, via Action Logement) remplace le garant physique',
@@ -91,22 +86,10 @@ const guideSections: GuideSection[] = [
     iconBg: 'bg-red-500/10',
     intro: 'La France dispose d\'un système de santé universel. En tant que résident, vous avez droit à la couverture maladie. Voici comment en bénéficier.',
     items: [
-      {
-        title: 'Inscription à la Sécurité sociale',
-        detail: 'Inscrivez-vous sur le site ameli.fr (CPAM) avec votre titre de séjour, justificatif de domicile et RIB. Le dispositif PUMA garantit la prise en charge des soins pour tout résident stable en France (plus de 3 mois).',
-      },
-      {
-        title: 'Complémentaire santé (Mutuelle)',
-        detail: 'La Sécurité sociale rembourse environ 70% des frais médicaux. Une mutuelle couvre le reste. Si vos revenus sont modestes, la Complémentaire Santé Solidaire (CSS, ex-CMU-C) est gratuite ou à moins de 1€/jour.',
-      },
-      {
-        title: 'Médecin traitant',
-        detail: 'Déclarez un médecin traitant auprès de votre CPAM — c\'est obligatoire pour un remboursement optimal. Consultez l\'annuaire-sante.ameli.fr pour trouver un médecin qui accepte de nouveaux patients.',
-      },
-      {
-        title: 'Urgences et numéros utiles',
-        detail: 'SAMU : 15 • Pompiers : 18 • Urgences européennes : 112 • SOS Médecins (consultations à domicile) • Pharmacies de garde (composez le 3237). Aux urgences hospitalières, vous serez soigné même sans carte vitale.',
-      },
+      { title: 'Inscription à la Sécurité sociale', detail: 'Inscrivez-vous sur le site ameli.fr (CPAM) avec votre titre de séjour, justificatif de domicile et RIB. Le dispositif PUMA garantit la prise en charge des soins pour tout résident stable en France (plus de 3 mois).' },
+      { title: 'Complémentaire santé (Mutuelle)', detail: 'La Sécurité sociale rembourse environ 70% des frais médicaux. Une mutuelle couvre le reste. Si vos revenus sont modestes, la Complémentaire Santé Solidaire (CSS, ex-CMU-C) est gratuite ou à moins de 1€/jour.' },
+      { title: 'Médecin traitant', detail: 'Déclarez un médecin traitant auprès de votre CPAM — c\'est obligatoire pour un remboursement optimal. Consultez l\'annuaire-sante.ameli.fr pour trouver un médecin qui accepte de nouveaux patients.' },
+      { title: 'Urgences et numéros utiles', detail: 'SAMU : 15 • Pompiers : 18 • Urgences européennes : 112 • SOS Médecins (consultations à domicile) • Pharmacies de garde (composez le 3237). Aux urgences hospitalières, vous serez soigné même sans carte vitale.' },
     ],
     tips: [
       'Conservez toujours sur vous votre carte vitale (ou attestation provisoire)',
@@ -122,22 +105,10 @@ const guideSections: GuideSection[] = [
     iconBg: 'bg-green-500/10',
     intro: 'Le système éducatif français est accessible à tous les enfants résidant en France, quelle que soit la nationalité. Pour les adultes, de nombreuses formations existent.',
     items: [
-      {
-        title: 'Scolarisation des enfants',
-        detail: 'L\'instruction est obligatoire de 3 à 16 ans. Inscrivez votre enfant à la mairie de votre commune puis à l\'école. Aucun document de séjour ne peut être exigé pour l\'inscription scolaire d\'un enfant.',
-      },
-      {
-        title: 'Études supérieures',
-        detail: 'Inscription via Parcoursup (lycéens en France) ou Campus France (depuis le Gabon). Les frais d\'inscription publiques sont modérés (170€ à 380€/an). Demandez une bourse CROUS sur messervices.etudiant.gouv.fr.',
-      },
-      {
-        title: 'Reconnaissance des diplômes',
-        detail: 'Le centre ENIC-NARIC délivre des attestations de comparabilité de vos diplômes gabonais. Cette attestation facilite la recherche d\'emploi et l\'inscription en formation. Coût : environ 70€.',
-      },
-      {
-        title: 'Formation professionnelle (adultes)',
-        detail: 'Le Compte Personnel de Formation (CPF) finance des formations certifiantes. Pôle Emploi / France Travail propose aussi des formations gratuites pour les demandeurs d\'emploi. La VAE permet de faire reconnaître votre expérience.',
-      },
+      { title: 'Scolarisation des enfants', detail: 'L\'instruction est obligatoire de 3 à 16 ans. Inscrivez votre enfant à la mairie de votre commune puis à l\'école. Aucun document de séjour ne peut être exigé pour l\'inscription scolaire d\'un enfant.' },
+      { title: 'Études supérieures', detail: 'Inscription via Parcoursup (lycéens en France) ou Campus France (depuis le Gabon). Les frais d\'inscription publiques sont modérés (170€ à 380€/an). Demandez une bourse CROUS sur messervices.etudiant.gouv.fr.' },
+      { title: 'Reconnaissance des diplômes', detail: 'Le centre ENIC-NARIC délivre des attestations de comparabilité de vos diplômes gabonais. Cette attestation facilite la recherche d\'emploi et l\'inscription en formation. Coût : environ 70€.' },
+      { title: 'Formation professionnelle (adultes)', detail: 'Le Compte Personnel de Formation (CPF) finance des formations certifiantes. Pôle Emploi / France Travail propose aussi des formations gratuites pour les demandeurs d\'emploi. La VAE permet de faire reconnaître votre expérience.' },
     ],
     tips: [
       'Les cours de français (FLE) sont souvent gratuits dans les associations et les mairies',
@@ -153,22 +124,10 @@ const guideSections: GuideSection[] = [
     iconBg: 'bg-orange-500/10',
     intro: 'Travailler en France nécessite un titre de séjour autorisant le travail. Voici les étapes clés pour accéder au marché de l\'emploi ou créer votre activité.',
     items: [
-      {
-        title: 'Autorisation de travail',
-        detail: 'Vérifiez que votre titre de séjour autorise le travail (mention "autorise son titulaire à travailler"). Les cartes de résident, les cartes "vie privée et familiale" et les cartes "salarié" autorisent le travail. Les visas étudiants permettent de travailler 964 heures/an.',
-      },
-      {
-        title: 'Recherche d\'emploi',
-        detail: 'Inscrivez-vous à France Travail (ex-Pôle Emploi) pour bénéficier d\'un accompagnement et d\'indemnités si vous avez cotisé. Utilisez aussi : LinkedIn, Indeed, HelloWork, l\'APEC (cadres). Le CV français est sans photo, concis (1-2 pages).',
-      },
-      {
-        title: 'Créer son entreprise',
-        detail: 'Le statut auto-entrepreneur (micro-entreprise) est le plus simple : inscription gratuite en ligne sur autoentrepreneur.urssaf.fr. Pour les activités plus importantes, consultez la CCI (Chambre de Commerce et d\'Industrie) ou un accompagnateur BGE.',
-      },
-      {
-        title: 'Droits des salariés',
-        detail: 'SMIC 2025 : environ 1 426€ net/mois. 5 semaines de congés payés. Durée légale : 35h/semaine. Vous avez droit aux mêmes protections que tout salarié français (contrat de travail obligatoire, bulletin de paie, assurance chômage).',
-      },
+      { title: 'Autorisation de travail', detail: 'Vérifiez que votre titre de séjour autorise le travail (mention "autorise son titulaire à travailler"). Les cartes de résident, les cartes "vie privée et familiale" et les cartes "salarié" autorisent le travail. Les visas étudiants permettent de travailler 964 heures/an.' },
+      { title: 'Recherche d\'emploi', detail: 'Inscrivez-vous à France Travail (ex-Pôle Emploi) pour bénéficier d\'un accompagnement et d\'indemnités si vous avez cotisé. Utilisez aussi : LinkedIn, Indeed, HelloWork, l\'APEC (cadres). Le CV français est sans photo, concis (1-2 pages).' },
+      { title: 'Créer son entreprise', detail: 'Le statut auto-entrepreneur (micro-entreprise) est le plus simple : inscription gratuite en ligne sur autoentrepreneur.urssaf.fr. Pour les activités plus importantes, consultez la CCI (Chambre de Commerce et d\'Industrie) ou un accompagnateur BGE.' },
+      { title: 'Droits des salariés', detail: 'SMIC 2025 : environ 1 426€ net/mois. 5 semaines de congés payés. Durée légale : 35h/semaine. Vous avez droit aux mêmes protections que tout salarié français (contrat de travail obligatoire, bulletin de paie, assurance chômage).' },
     ],
     tips: [
       'L\'aide ACRE exonère de charges sociales la première année de création d\'entreprise',
@@ -184,42 +143,15 @@ const guideSections: GuideSection[] = [
     iconBg: 'bg-purple-500/10',
     intro: 'Comprendre vos droits et les démarches liées à votre titre de séjour est essentiel pour vivre sereinement en France.',
     items: [
-      {
-        title: 'Titre de séjour',
-        detail: 'Renouvelez votre titre 2 à 4 mois avant expiration sur le site de la préfecture (ANEF). Types principaux : VLS-TS (visa long séjour valant titre), carte de séjour temporaire (1 an), carte pluriannuelle (4 ans), carte de résident (10 ans).',
-      },
-      {
-        title: 'Recours OQTF — Vos droits',
-        detail: 'Si vous recevez une OQTF, ne l\'ignorez JAMAIS. Trois recours existent : 1) Recours gracieux auprès du Préfet (2 mois, NE suspend PAS l\'OQTF). 2) Recours hiérarchique auprès du Ministre de l\'Intérieur (2 mois, NE suspend PAS l\'OQTF). 3) Recours contentieux devant le Tribunal Administratif (30 jours, ou 48h si OQTF sans délai) — c\'est le SEUL recours qui SUSPEND l\'exécution de l\'OQTF. L\'aide juridictionnelle est accessible. Consultez immédiatement un avocat spécialisé.',
-      },
-      {
-        title: 'Régularisation de séjour',
-        detail: 'Options : admission exceptionnelle (circulaire Valls 2012 — ancienneté + insertion), régularisation par le travail (contrat ou promesse d\'embauche), motif familial (parent d\'enfant français, conjoint de Français), raisons médicales (traitement indisponible au Gabon), protection internationale (OFPRA). Documents essentiels : passeport, justificatifs de domicile, preuves de présence en France.',
-      },
-      {
-        title: 'Droit au travail étudiant (964 h/an)',
-        detail: 'Les étudiants étrangers avec un VLS-TS mention "étudiant" sont autorisés à travailler 964 heures/an (60% de la durée légale) sans autorisation supplémentaire. Pour la carte pluriannuelle étudiant : assiduité requise + ressources min. 615 €/mois. L\'APS après un Master (accord franco-gabonais du 5 juillet 2007) donne droit au travail à temps plein pendant 9 mois, renouvelable une fois (18 mois maximum).',
-      },
-      {
-        title: 'Changement d\'adresse (obligatoire)',
-        detail: 'Tout étranger titulaire d\'un titre de séjour doit signaler son changement d\'adresse dans les 3 mois sur le portail ANEF ou en préfecture. Le non-respect entraîne une amende possible et des complications au renouvellement. Documents : titre de séjour + nouveau justificatif de domicile.',
-      },
-      {
-        title: 'Binationaux (Franco-Gabonais)',
-        detail: 'Le Gabon ne reconnaît pas officiellement la double nationalité, mais elle est tolérée en pratique. Un visa est obligatoire pour entrer au Gabon avec un passeport français — il s\'obtient uniquement au Consulat Général du Gabon à Paris (26 bis avenue Raphaël, 75016), délai 3 jours ouvrés, présence physique requise. Conseil : entrez en France avec le passeport français, au Gabon avec le passeport gabonais.',
-      },
-      {
-        title: 'Regroupement familial',
-        detail: 'Vous pouvez faire venir votre conjoint et vos enfants mineurs si vous résidez légalement en France depuis au moins 18 mois, disposez de ressources stables et d\'un logement adapté. Dossier à déposer auprès de l\'OFII.',
-      },
-      {
-        title: 'Naturalisation française',
-        detail: 'Possible après 5 ans de résidence régulière en France (réduit dans certains cas). Conditions : maîtrise du français (niveau B1), connaissance des droits et devoirs, insertion professionnelle, absence de condamnation pénale.',
-      },
-      {
-        title: 'Aide juridique',
-        detail: 'L\'aide juridictionnelle prend en charge vos frais d\'avocat si vos revenus sont modestes. Les Maisons de Justice et du Droit offrent des consultations juridiques gratuites. Contactez aussi le Défenseur des droits (discrimination, droits fondamentaux). Numéro : 3039.',
-      },
+      { title: 'Titre de séjour', detail: 'Renouvelez votre titre 2 à 4 mois avant expiration sur le site de la préfecture (ANEF). Types principaux : VLS-TS (visa long séjour valant titre), carte de séjour temporaire (1 an), carte pluriannuelle (4 ans), carte de résident (10 ans).' },
+      { title: 'Recours OQTF — Vos droits', detail: 'Si vous recevez une OQTF, ne l\'ignorez JAMAIS. Trois recours existent : 1) Recours gracieux auprès du Préfet (2 mois, NE suspend PAS l\'OQTF). 2) Recours hiérarchique auprès du Ministre de l\'Intérieur (2 mois, NE suspend PAS l\'OQTF). 3) Recours contentieux devant le Tribunal Administratif (30 jours, ou 48h si OQTF sans délai) — c\'est le SEUL recours qui SUSPEND l\'exécution de l\'OQTF. L\'aide juridictionnelle est accessible. Consultez immédiatement un avocat spécialisé.' },
+      { title: 'Régularisation de séjour', detail: 'Options : admission exceptionnelle (circulaire Valls 2012 — ancienneté + insertion), régularisation par le travail (contrat ou promesse d\'embauche), motif familial (parent d\'enfant français, conjoint de Français), raisons médicales (traitement indisponible au Gabon), protection internationale (OFPRA). Documents essentiels : passeport, justificatifs de domicile, preuves de présence en France.' },
+      { title: 'Droit au travail étudiant (964 h/an)', detail: 'Les étudiants étrangers avec un VLS-TS mention "étudiant" sont autorisés à travailler 964 heures/an (60% de la durée légale) sans autorisation supplémentaire. Pour la carte pluriannuelle étudiant : assiduité requise + ressources min. 615 €/mois. L\'APS après un Master (accord franco-gabonais du 5 juillet 2007) donne droit au travail à temps plein pendant 9 mois, renouvelable une fois (18 mois maximum).' },
+      { title: 'Changement d\'adresse (obligatoire)', detail: 'Tout étranger titulaire d\'un titre de séjour doit signaler son changement d\'adresse dans les 3 mois sur le portail ANEF ou en préfecture. Le non-respect entraîne une amende possible et des complications au renouvellement. Documents : titre de séjour + nouveau justificatif de domicile.' },
+      { title: 'Binationaux (Franco-Gabonais)', detail: 'Le Gabon ne reconnaît pas officiellement la double nationalité, mais elle est tolérée en pratique. Un visa est obligatoire pour entrer au Gabon avec un passeport français — il s\'obtient uniquement au Consulat Général du Gabon à Paris (26 bis avenue Raphaël, 75016), délai 3 jours ouvrés, présence physique requise. Conseil : entrez en France avec le passeport français, au Gabon avec le passeport gabonais.' },
+      { title: 'Regroupement familial', detail: 'Vous pouvez faire venir votre conjoint et vos enfants mineurs si vous résidez légalement en France depuis au moins 18 mois, disposez de ressources stables et d\'un logement adapté. Dossier à déposer auprès de l\'OFII.' },
+      { title: 'Naturalisation française', detail: 'Possible après 5 ans de résidence régulière en France (réduit dans certains cas). Conditions : maîtrise du français (niveau B1), connaissance des droits et devoirs, insertion professionnelle, absence de condamnation pénale.' },
+      { title: 'Aide juridique', detail: 'L\'aide juridictionnelle prend en charge vos frais d\'avocat si vos revenus sont modestes. Les Maisons de Justice et du Droit offrent des consultations juridiques gratuites. Contactez aussi le Défenseur des droits (discrimination, droits fondamentaux). Numéro : 3039.' },
     ],
     tips: [
       'Gardez toujours une copie numérique de vos documents (passeport, titre de séjour, bail) dans un cloud sécurisé',
@@ -238,22 +170,10 @@ const guideSections: GuideSection[] = [
     iconBg: 'bg-pink-500/10',
     intro: 'La France offre un soutien important aux familles. Voici les démarches essentielles et les aides auxquelles vous avez droit.',
     items: [
-      {
-        title: 'Déclaration de naissance',
-        detail: 'Déclarez la naissance à la mairie du lieu d\'accouchement dans les 5 jours. Puis faites transcrire l\'acte au Consulat du Gabon pour que votre enfant soit reconnu comme gabonais. Apportez : acte de naissance français, passeports des parents, livret de famille.',
-      },
-      {
-        title: 'Allocations familiales (CAF)',
-        detail: 'Dès le 2ème enfant, vous recevez les allocations familiales automatiquement. La prime à la naissance (PAJE) aide dès la grossesse. L\'allocation de rentrée scolaire (ARS) est versée en août pour les enfants de 6 à 18 ans. Inscrivez-vous sur caf.fr.',
-      },
-      {
-        title: 'Garde d\'enfants',
-        detail: 'Modes de garde : crèche municipale (inscription dès la grossesse à la mairie), assistante maternelle agréée, micro-crèche. Le complément de libre choix du mode de garde (CMG) aide à financer les frais de garde.',
-      },
-      {
-        title: 'Mariage & État civil',
-        detail: 'Un mariage contracté en France doit être transcrit au Consulat pour être reconnu au Gabon. Pour un mariage mixte (gabonais-français), le consulat délivre le certificat de capacité à mariage. Anticipez les délais (2-3 mois).',
-      },
+      { title: 'Déclaration de naissance', detail: 'Déclarez la naissance à la mairie du lieu d\'accouchement dans les 5 jours. Puis faites transcrire l\'acte au Consulat du Gabon pour que votre enfant soit reconnu comme gabonais. Apportez : acte de naissance français, passeports des parents, livret de famille.' },
+      { title: 'Allocations familiales (CAF)', detail: 'Dès le 2ème enfant, vous recevez les allocations familiales automatiquement. La prime à la naissance (PAJE) aide dès la grossesse. L\'allocation de rentrée scolaire (ARS) est versée en août pour les enfants de 6 à 18 ans. Inscrivez-vous sur caf.fr.' },
+      { title: 'Garde d\'enfants', detail: 'Modes de garde : crèche municipale (inscription dès la grossesse à la mairie), assistante maternelle agréée, micro-crèche. Le complément de libre choix du mode de garde (CMG) aide à financer les frais de garde.' },
+      { title: 'Mariage & État civil', detail: 'Un mariage contracté en France doit être transcrit au Consulat pour être reconnu au Gabon. Pour un mariage mixte (gabonais-français), le consulat délivre le certificat de capacité à mariage. Anticipez les délais (2-3 mois).' },
     ],
     tips: [
       'La PMI (Protection Maternelle et Infantile) offre des consultations gratuites pour les enfants de 0 à 6 ans',
@@ -265,100 +185,36 @@ const guideSections: GuideSection[] = [
 
 // ─── Codes de conduite / Savoir-vivre ────────────────────────────────────────
 
-const savoirVivre = [
-  {
-    icon: HandHeart,
-    title: 'Respect et courtoisie',
-    description: 'En France, les formules de politesse sont très importantes. Dites "Bonjour" en entrant dans un commerce, "Merci", "S\'il vous plaît", "Excusez-moi". Le vouvoiement est la règle avec les inconnus, les aînés et en contexte professionnel. Le tutoiement se fait entre amis proches.',
-  },
-  {
-    icon: Landmark,
-    title: 'Laïcité et vivre ensemble',
-    description: 'La France est un État laïc. La liberté de culte est garantie, mais la religion relève de la sphère privée. Dans les services publics (école, mairie, hôpital), une attitude neutre est attendue. Le respect de toutes les croyances et de la non-croyance est un principe fondamental.',
-  },
-  {
-    icon: Scale,
-    title: 'Lois et règles de vie',
-    description: 'Le respect des lois est non-négociable : code de la route, interdiction de fumer dans les lieux publics fermés, tri des déchets, respect du voisinage (bruit limité entre 22h et 7h). Les amendes sont réelles et peuvent impacter votre dossier de renouvellement de titre.',
-  },
-  {
-    icon: Users,
-    title: 'Relations de voisinage',
-    description: 'Se présenter à ses voisins en emménageant est apprécié. Respectez le règlement de copropriété, les horaires de calme et les espaces communs. En cas de conflit, privilégiez le dialogue ou un médiateur municipal avant toute action juridique.',
-  },
-  {
-    icon: Flag,
-    title: 'Valeurs de la République',
-    description: 'Liberté, Égalité, Fraternité : ces valeurs sont au cœur de la société française. L\'égalité homme-femme est un droit fondamental. Toute discrimination (origine, genre, religion, orientation) est punie par la loi. Vous avez les mêmes droits que tout résident.',
-  },
-  {
-    icon: HeartHandshake,
-    title: 'Engagement communautaire',
-    description: 'Participer à la vie associative locale (associations gabonaises, associations de quartier, bénévolat) facilite l\'intégration et crée un réseau de solidarité. Restez connecté à la communauté gabonaise tout en vous ouvrant à la diversité culturelle française.',
-  },
-  {
-    icon: Siren,
-    title: 'Coopération avec les forces de l\'ordre',
-    description: 'En cas d\'arrestation, restez calme et coopérez. Vous avez le droit de connaître le motif, de garder le silence, d\'avoir un avocat, de prévenir un proche et de contacter le consulat (Convention de Vienne, art. 36). La garde à vue dure 24h max (renouvelable 1 fois). Ne signez rien sans avoir lu et compris.',
-  },
+const savoirVivre: SavoirVivreItem[] = [
+  { icon: HandHeart, title: 'Respect et courtoisie', description: 'En France, les formules de politesse sont très importantes. Dites "Bonjour" en entrant dans un commerce, "Merci", "S\'il vous plaît", "Excusez-moi". Le vouvoiement est la règle avec les inconnus, les aînés et en contexte professionnel. Le tutoiement se fait entre amis proches.' },
+  { icon: Landmark, title: 'Laïcité et vivre ensemble', description: 'La France est un État laïc. La liberté de culte est garantie, mais la religion relève de la sphère privée. Dans les services publics (école, mairie, hôpital), une attitude neutre est attendue. Le respect de toutes les croyances et de la non-croyance est un principe fondamental.' },
+  { icon: Scale, title: 'Lois et règles de vie', description: 'Le respect des lois est non-négociable : code de la route, interdiction de fumer dans les lieux publics fermés, tri des déchets, respect du voisinage (bruit limité entre 22h et 7h). Les amendes sont réelles et peuvent impacter votre dossier de renouvellement de titre.' },
+  { icon: Users, title: 'Relations de voisinage', description: 'Se présenter à ses voisins en emménageant est apprécié. Respectez le règlement de copropriété, les horaires de calme et les espaces communs. En cas de conflit, privilégiez le dialogue ou un médiateur municipal avant toute action juridique.' },
+  { icon: Flag, title: 'Valeurs de la République', description: 'Liberté, Égalité, Fraternité : ces valeurs sont au cœur de la société française. L\'égalité homme-femme est un droit fondamental. Toute discrimination (origine, genre, religion, orientation) est punie par la loi. Vous avez les mêmes droits que tout résident.' },
+  { icon: HeartHandshake, title: 'Engagement communautaire', description: 'Participer à la vie associative locale (associations gabonaises, associations de quartier, bénévolat) facilite l\'intégration et crée un réseau de solidarité. Restez connecté à la communauté gabonaise tout en vous ouvrant à la diversité culturelle française.' },
+  { icon: Siren, title: 'Coopération avec les forces de l\'ordre', description: 'En cas d\'arrestation, restez calme et coopérez. Vous avez le droit de connaître le motif, de garder le silence, d\'avoir un avocat, de prévenir un proche et de contacter le consulat (Convention de Vienne, art. 36). La garde à vue dure 24h max (renouvelable 1 fois). Ne signez rien sans avoir lu et compris.' },
 ]
 
 // ─── Erreurs courantes ───────────────────────────────────────────────────────
 
-const erreursCourantes = [
-  {
-    erreur: 'Laisser expirer son titre de séjour',
-    conseil: 'Lancez le renouvellement 2 à 4 mois avant la date d\'expiration. Conservez le récépissé comme preuve de démarche en cours.',
-  },
-  {
-    erreur: 'Ne pas souscrire d\'assurance habitation',
-    conseil: 'C\'est obligatoire dès l\'entrée dans le logement. Sans elle, votre bail peut être résilié. Coût : à partir de 5€/mois.',
-  },
-  {
-    erreur: 'Travailler sans autorisation',
-    conseil: 'Le travail non déclaré vous prive de droits (chômage, retraite, accident du travail) et peut entraîner une OQTF (obligation de quitter le territoire).',
-  },
-  {
-    erreur: 'Ignorer la déclaration d\'impôts',
-    conseil: 'Même sans revenus, vous devez déclarer vos impôts chaque année (sur impots.gouv.fr). L\'avis d\'imposition est exigé pour de nombreuses démarches (logement, bourses, titre de séjour).',
-  },
-  {
-    erreur: 'Ne pas transcrire les actes d\'état civil',
-    conseil: 'Les naissances et mariages en France doivent être transcrits au Consulat pour être valables au Gabon. Ne tardez pas — les délais s\'allongent avec le temps.',
-  },
-  {
-    erreur: 'Isolement et absence de réseau',
-    conseil: 'Rejoignez les associations gabonaises locales, les groupes de quartier et participez aux événements du consulat. L\'isolement complique toutes les démarches.',
-  },
-  {
-    erreur: 'Ignorer une OQTF',
-    conseil: 'Une OQTF ne disparaît pas si vous ne faites rien. Consultez immédiatement un avocat spécialisé en droit des étrangers. Trois recours existent : gracieux (2 mois), hiérarchique (2 mois), et contentieux (30 jours) — seul le contentieux SUSPEND l\'exécution de l\'OQTF.',
-  },
-  {
-    erreur: 'Voyager avec un simple récépissé de première demande',
-    conseil: 'Le récépissé de PREMIÈRE DEMANDE de carte de séjour ne permet PAS de quitter la France et d\'y revenir. Seul le titre de séjour définitif ou le VLS-TS validé le permet. Le récépissé de renouvellement, en revanche, fait office de titre provisoire.',
-  },
-  {
-    erreur: 'Signer des documents sans les lire (garde à vue)',
-    conseil: 'En cas de garde à vue, ne signez AUCUN document sans avoir lu et compris. Demandez un avocat (commis d\'office si nécessaire), un interprète si besoin, et exigez que le consulat soit informé (Convention de Vienne, art. 36).',
-  },
-  {
-    erreur: 'Oublier de signaler un changement d\'adresse',
-    conseil: 'Tout étranger titulaire d\'un titre de séjour doit signaler son changement d\'adresse dans les 3 mois, en ligne sur le portail ANEF ou en préfecture. Une amende est possible en cas de non-déclaration.',
-  },
-  {
-    erreur: 'Ne pas conserver de copies de ses documents',
-    conseil: 'Gardez des photocopies papier ET numériques (cloud sécurisé) de votre passeport, titre de séjour, bail, actes d\'état civil. En cas de perte ou vol, ces copies accélèrent le remplacement.',
-  },
-  {
-    erreur: 'Méconnaître ses droits au travail en tant qu\'étudiant',
-    conseil: 'Les étudiants étrangers peuvent travailler 964 heures/an (environ 20h/semaine) sans autorisation supplémentaire. Vérifiez la mention sur votre titre de séjour.',
-  },
+const erreursCourantes: ErreurItem[] = [
+  { erreur: 'Laisser expirer son titre de séjour', conseil: 'Lancez le renouvellement 2 à 4 mois avant la date d\'expiration. Conservez le récépissé comme preuve de démarche en cours.' },
+  { erreur: 'Ne pas souscrire d\'assurance habitation', conseil: 'C\'est obligatoire dès l\'entrée dans le logement. Sans elle, votre bail peut être résilié. Coût : à partir de 5€/mois.' },
+  { erreur: 'Travailler sans autorisation', conseil: 'Le travail non déclaré vous prive de droits (chômage, retraite, accident du travail) et peut entraîner une OQTF (obligation de quitter le territoire).' },
+  { erreur: 'Ignorer la déclaration d\'impôts', conseil: 'Même sans revenus, vous devez déclarer vos impôts chaque année (sur impots.gouv.fr). L\'avis d\'imposition est exigé pour de nombreuses démarches (logement, bourses, titre de séjour).' },
+  { erreur: 'Ne pas transcrire les actes d\'état civil', conseil: 'Les naissances et mariages en France doivent être transcrits au Consulat pour être valables au Gabon. Ne tardez pas — les délais s\'allongent avec le temps.' },
+  { erreur: 'Isolement et absence de réseau', conseil: 'Rejoignez les associations gabonaises locales, les groupes de quartier et participez aux événements du consulat. L\'isolement complique toutes les démarches.' },
+  { erreur: 'Ignorer une OQTF', conseil: 'Une OQTF ne disparaît pas si vous ne faites rien. Consultez immédiatement un avocat spécialisé en droit des étrangers. Trois recours existent : gracieux (2 mois), hiérarchique (2 mois), et contentieux (30 jours) — seul le contentieux SUSPEND l\'exécution de l\'OQTF.' },
+  { erreur: 'Voyager avec un simple récépissé de première demande', conseil: 'Le récépissé de PREMIÈRE DEMANDE de carte de séjour ne permet PAS de quitter la France et d\'y revenir. Seul le titre de séjour définitif ou le VLS-TS validé le permet. Le récépissé de renouvellement, en revanche, fait office de titre provisoire.' },
+  { erreur: 'Signer des documents sans les lire (garde à vue)', conseil: 'En cas de garde à vue, ne signez AUCUN document sans avoir lu et compris. Demandez un avocat (commis d\'office si nécessaire), un interprète si besoin, et exigez que le consulat soit informé (Convention de Vienne, art. 36).' },
+  { erreur: 'Oublier de signaler un changement d\'adresse', conseil: 'Tout étranger titulaire d\'un titre de séjour doit signaler son changement d\'adresse dans les 3 mois, en ligne sur le portail ANEF ou en préfecture. Une amende est possible en cas de non-déclaration.' },
+  { erreur: 'Ne pas conserver de copies de ses documents', conseil: 'Gardez des photocopies papier ET numériques (cloud sécurisé) de votre passeport, titre de séjour, bail, actes d\'état civil. En cas de perte ou vol, ces copies accélèrent le remplacement.' },
+  { erreur: 'Méconnaître ses droits au travail en tant qu\'étudiant', conseil: 'Les étudiants étrangers peuvent travailler 964 heures/an (environ 20h/semaine) sans autorisation supplémentaire. Vérifiez la mention sur votre titre de séjour.' },
 ]
 
 // ─── Numéros utiles ──────────────────────────────────────────────────────────
 
-const numerosUtiles = [
+const numerosUtiles: NumeroUtile[] = [
   { label: 'Consul Général du Gabon', number: '26 bis av. Raphaël, 75016', color: 'bg-emerald-500/10 text-emerald-600' },
   { label: 'Email Consulat', number: 'consulatgeneralgabon@yahoo.fr', color: 'bg-emerald-500/10 text-emerald-600' },
   { label: 'Urgence consulaire Gabon', number: '07 44 23 95 84', color: 'bg-green-500/10 text-green-600' },
@@ -375,7 +231,7 @@ const numerosUtiles = [
   { label: 'OFPRA (Asile)', number: '01 58 68 10 10', color: 'bg-slate-500/10 text-slate-600' },
 ]
 
-// ─── Accordion Component ─────────────────────────────────────────────────────
+// ─── Accordion Component (page-specific: no links) ──────────────────────────
 
 function GuideSectionAccordion({ section }: { section: GuideSection }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -499,22 +355,7 @@ function IntegrationPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {savoirVivre.map((item, idx) => {
-                const Icon = item.icon
-                return (
-                  <div key={idx} className="group glass-card rounded-2xl p-6 hover:-translate-y-2 transition-all duration-300">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                        <Icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="font-bold text-lg text-foreground">{item.title}</h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-                  </div>
-                )
-              })}
-            </div>
+            <SavoirVivreGrid items={savoirVivre} />
           </div>
         </section>
 
@@ -558,21 +399,7 @@ function IntegrationPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {erreursCourantes.map((item, idx) => (
-                <div key={idx} className="glass-card border-orange-200/50 dark:border-orange-900/30 bg-orange-50/50 dark:bg-orange-950/20 rounded-2xl p-6 hover:-translate-y-1 transition-transform">
-                  <div className="flex gap-5">
-                    <div className="p-2.5 rounded-xl bg-orange-500/10 h-fit shrink-0">
-                      <AlertTriangle className="w-6 h-6 text-orange-500" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-foreground text-lg mb-2">{item.erreur}</h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{item.conseil}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <ErreursCourantesGrid items={erreursCourantes} />
           </div>
         </section>
 
@@ -592,26 +419,12 @@ function IntegrationPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {numerosUtiles.map((n, idx) => {
-                const isEmail = n.number.includes('@')
-                return (
-                <div key={idx} className="glass-card rounded-2xl p-6 text-center hover:-translate-y-1 transition-transform duration-300">
-                  <div className={`w-14 h-14 rounded-full ${n.color} flex items-center justify-center mx-auto mb-4`}>
-                    {isEmail ? <Mail className="w-6 h-6" /> : n.number.includes('av.') ? <MapPin className="w-6 h-6" /> : <Phone className="w-6 h-6" />}
-                  </div>
-                  <p className="text-xl font-bold text-foreground mb-1 tracking-tight">{isEmail ? <a href={`mailto:${n.number}`} className="hover:text-primary transition-colors text-sm">{n.number}</a> : n.number}</p>
-                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{n.label}</p>
-                </div>
-                )
-              })}
-            </div>
+            <NumerosUtilesGrid items={numerosUtiles} />
           </div>
         </section>
 
         {/* ── CTA Final ───────────────────────────────────────────────────── */}
         <section className="py-24 px-6 relative overflow-hidden">
-          {/* Background gradient/image replacement for solid primary */}
           <div className="absolute inset-0 bg-primary/5 dark:bg-primary/10" />
           <div className="absolute top-0 right-0 w-96 h-96 bg-digitalium-blue/20 rounded-full blur-[100px] animate-pulse-glow" />
            <div className="absolute bottom-0 left-0 w-96 h-96 bg-digitalium-violet/20 rounded-full blur-[100px] animate-pulse-glow" style={{ animationDelay: '2s' }} />

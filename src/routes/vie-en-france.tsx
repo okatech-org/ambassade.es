@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { useState } from 'react'
 import {
@@ -8,23 +8,22 @@ import {
   Briefcase,
   Scale,
   Baby,
-  ChevronDown,
-  ChevronRight,
-  Lightbulb,
+  BookOpen,
   ExternalLink,
-  ArrowRight,
+
   CheckCircle2,
   Phone,
-  BookOpen,
   Shield,
-  Building2,
-  type LucideIcon,
+
+  Receipt,
+  ShieldAlert,
 } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+
 import { PageHero } from '@/components/PageHero'
 import { CitizenCTA } from '@/components/home/CitizenCTA'
+import { GuideSectionCard, SectionNav, type GuideSection } from '@/components/guides'
 
 
 export const Route = createFileRoute('/vie-en-france')({
@@ -41,32 +40,6 @@ export const Route = createFileRoute('/vie-en-france')({
   }),
 })
 
-// ─── Types ───────────────────────────────────────────────────────────────────
-interface GuideItem {
-  title: string
-  detail: string
-}
-
-interface UsefulLink {
-  label: string
-  url: string
-  description: string
-}
-
-interface GuideSection {
-  id: string
-  icon: LucideIcon
-  title: string
-  color: string
-  iconBg: string
-  gradientFrom: string
-  gradientTo: string
-  intro: string
-  items: GuideItem[]
-  tips: string[]
-  links: UsefulLink[]
-}
-
 // ─── Data ────────────────────────────────────────────────────────────────────
 const guideSections: GuideSection[] = [
   {
@@ -77,40 +50,47 @@ const guideSections: GuideSection[] = [
     iconBg: 'bg-blue-500/10',
     gradientFrom: 'from-blue-500/5',
     gradientTo: 'to-blue-600/10',
+    image: '/images/guide-logement.png',
     intro:
       'Trouver un logement en France peut être un défi, surtout sans garant ou historique locatif. Ce guide vous accompagne pas à pas dans la recherche, les aides financières et vos droits en tant que locataire.',
     items: [
       {
         title: 'Recherche de logement',
         detail:
-          "Consultez des sites comme LeBonCoin, SeLoger, PAP, ou Jinka. Pour les logements sociaux, déposez une demande sur demande-logement-social.gouv.fr. Les résidences CROUS sont réservées aux étudiants boursiers.",
+          "Sites incontournables : LeBonCoin, SeLoger, PAP, Jinka, Bien'ici. Pour les logements sociaux (HLM), déposez une demande sur demande-logement-social.gouv.fr (numéro unique régional). Délai d'attente variable : de 6 mois en province à plusieurs années en Île-de-France. Résidences CROUS : réservées aux étudiants boursiers (inscription via MesServices.étudiant.gouv.fr).",
       },
       {
         title: 'Garantie locative (Visale)',
         detail:
-          "Le dispositif Visale (gratuit, géré par Action Logement) se porte garant pour vous auprès du propriétaire. Il est ouvert aux moins de 30 ans, aux salariés en mobilité et aux titulaires d'un bail mobilité. Inscription sur visale.fr.",
+          "Le dispositif Visale (gratuit, géré par Action Logement) se porte garant pour vous auprès du propriétaire. Ouvert aux moins de 30 ans, aux salariés en mobilité, et aux titulaires d'un bail mobilité. L'inscription se fait en ligne sur visale.fr en quelques minutes. C'est la solution n°1 pour les Gabonais sans garant en France.",
       },
       {
         title: 'Aides au logement (APL / ALS)',
         detail:
-          "L'APL (Aide Personnalisée au Logement) ou l'ALS (Allocation de Logement Sociale) sont versées par la CAF. Le montant dépend de vos revenus, du loyer et de la zone géographique. Simulez vos droits sur caf.fr.",
+          "L'APL (Aide Personnalisée au Logement) ou l'ALS (Allocation de Logement Sociale) sont versées par la CAF. Le montant dépend de vos revenus, du loyer et de la zone géographique. Simulez vos droits sur caf.fr. La demande se fait en ligne dès l'entrée dans le logement. Délai de versement : environ 2 mois (rétroactif au 1er mois).",
       },
       {
         title: 'Droits des locataires',
         detail:
-          "Le bail d'habitation est encadré par la loi ALUR. Le propriétaire ne peut pas vous expulser durant la trêve hivernale (1er novembre au 31 mars). Le dépôt de garantie est limité à 1 mois de loyer hors charges pour un logement non meublé.",
+          "Le bail d'habitation est encadré par la loi ALUR. Droits fondamentaux : le propriétaire ne peut pas vous expulser durant la trêve hivernale (1er novembre au 31 mars). Le dépôt de garantie est limité à 1 mois de loyer hors charges (non meublé) ou 2 mois (meublé). Le propriétaire doit fournir un logement décent (chauffage, eau, électricité, surface minimale). En cas de litige, saisissez la commission de conciliation gratuite ou le tribunal.",
       },
       {
-        title: "Assurance habitation",
+        title: "Assurance habitation (obligatoire)",
         detail:
-          "L'assurance habitation est obligatoire pour tout locataire. Elle couvre les risques locatifs (incendie, dégât des eaux, etc.). Comparez les offres sur LeLynx.fr ou Assurland.com. Comptez entre 10€ et 30€/mois.",
+          "L'assurance habitation est obligatoire pour tout locataire dès l'entrée dans le logement. Elle couvre les risques locatifs (incendie, dégât des eaux, etc.). Comparez les offres sur LeLynx.fr ou Assurland.com. Budget : 10€ à 30€/mois. Le propriétaire peut résilier le bail si vous ne souscrivez pas d'assurance.",
+      },
+      {
+        title: 'État des lieux : entrée et sortie',
+        detail:
+          "L'état des lieux d'entrée est un document essentiel : il décrit l'état du logement à votre arrivée. Prenez des photos de chaque pièce. Sans état des lieux, vous êtes présumé avoir reçu le logement en bon état. À la sortie, l'état des lieux de sortie est comparé : toute dégradation non signalée peut être retenue sur le dépôt de garantie.",
       },
     ],
     tips: [
-      'Le dispositif Visale (gratuit, via Action Logement) remplace le garant physique',
+      'Le dispositif Visale (gratuit, via Action Logement) remplace le garant physique — solution idéale pour les Gabonais',
       "Ouvrez un compte bancaire français rapidement — c'est indispensable pour le prélèvement du loyer",
-      "Souscrivez une assurance habitation obligatoire dès l'entrée dans le logement",
+      "Souscrivez une assurance habitation AVANT d'emménager — le propriétaire l'exigera",
       "Conservez tous vos échanges écrits avec le propriétaire (emails, courriers recommandés)",
+      "Prenez des photos détaillées le jour de l'état des lieux d'entrée",
     ],
     links: [
       { label: 'CAF — Simulateur APL', url: 'https://www.caf.fr', description: 'Calculez vos droits aux aides au logement' },
@@ -126,45 +106,53 @@ const guideSections: GuideSection[] = [
     iconBg: 'bg-red-500/10',
     gradientFrom: 'from-red-500/5',
     gradientTo: 'to-red-600/10',
+    image: '/images/guide-sante.png',
     intro:
-      "La France dispose d'un système de santé universel. En tant que résident, vous avez droit à la couverture maladie. Voici comment en bénéficier et naviguer dans le système de soins.",
+      "La France dispose d'un système de santé universel parmi les meilleurs au monde. En tant que résident, vous avez droit à la couverture maladie. Voici comment en bénéficier et naviguer dans le système de soins.",
     items: [
       {
         title: 'Inscription à la Sécurité sociale',
         detail:
-          "Dès votre arrivée, inscrivez-vous à la CPAM (Caisse Primaire d'Assurance Maladie) via ameli.fr. Si vous travaillez, votre employeur lance la procédure. Sinon, la PUMA (Protection Universelle Maladie) vous couvre après 3 mois de résidence stable.",
+          "Dès votre arrivée, inscrivez-vous à la CPAM (Caisse Primaire d'Assurance Maladie) via ameli.fr. Si vous travaillez, votre employeur lance la procédure automatiquement. Sinon, la PUMA (Protection Universelle Maladie) vous couvre après 3 mois de résidence stable et régulière. Vous recevrez votre carte Vitale en 2 à 4 semaines (une attestation provisoire est disponible en attendant).",
       },
       {
         title: 'Complémentaire santé solidaire (CSS)',
         detail:
-          "Ex CMU-C, la CSS est une mutuelle gratuite ou à faible coût pour les revenus modestes. Elle couvre le ticket modérateur, les lunettes, le dentaire et les prothèses auditives. Demande sur ameli.fr.",
+          "Ex CMU-C, la CSS est une mutuelle gratuite ou à faible coût pour les revenus modestes (plafond : environ 9 700 €/an pour une personne seule). Elle couvre : ticket modérateur, lunettes (jusqu'à 200 €), soins dentaires, prothèses auditives. Demande sur ameli.fr ou en CPAM. Décision sous 2 mois.",
       },
       {
         title: 'Médecin traitant',
         detail:
-          "Déclarez un médecin traitant auprès de la CPAM pour bénéficier du meilleur remboursement. En cas de difficulté pour en trouver un, consultez les centres de santé municipaux ou les maisons de santé pluriprofessionnelles.",
+          "Déclarez un médecin traitant auprès de la CPAM pour bénéficier du meilleur remboursement (70% au lieu de 30% sans médecin traitant). En cas de difficulté pour en trouver un, consultez les centres de santé municipaux ou les maisons de santé pluriprofessionnelles. L'application Doctolib permet de trouver des créneaux disponibles.",
       },
       {
-        title: 'PMI pour enfants',
+        title: 'Santé mentale et soutien psychologique',
         detail:
-          "La Protection Maternelle et Infantile (PMI) offre des consultations gratuites pour les enfants de 0 à 6 ans : vaccinations, suivi de croissance, conseils de puériculture. Renseignez-vous auprès de votre mairie.",
+          "Le dispositif 'Mon soutien psy' permet 8 séances gratuites par an avec un psychologue conventionné (sur prescription du médecin traitant). Les Centres Médico-Psychologiques (CMP) offrent des consultations gratuites avec psychiatres et psychologues. L'isolement, le choc culturel et les difficultés administratives peuvent peser : n'hésitez pas à consulter.",
+      },
+      {
+        title: 'PMI pour enfants (0-6 ans)',
+        detail:
+          "La Protection Maternelle et Infantile (PMI) offre des consultations entièrement gratuites pour les enfants de 0 à 6 ans : vaccinations, suivi de croissance, conseils de puériculture, dépistage précoce. Renseignez-vous auprès de votre mairie. Aucun justificatif de régularité de séjour n'est demandé.",
       },
       {
         title: 'Urgences médicales',
         detail:
-          "En cas d'urgence, appelez le 15 (SAMU) ou le 112 (numéro européen). Les urgences hospitalières sont accessibles 24h/24. Pour une consultation sans rendez-vous, les maisons médicales de garde assurent la permanence.",
+          "En cas d'urgence vitale : appelez le 15 (SAMU) ou le 112 (numéro européen). Les urgences hospitalières sont accessibles 24h/24 sans rendez-vous. Pour une consultation urgente non vitale : SOS Médecins (3624), maisons médicales de garde (le soir et le week-end), ou les pharmacies de garde.",
       },
     ],
     tips: [
-      'Conservez toujours sur vous votre carte vitale (ou attestation provisoire)',
+      'Conservez toujours sur vous votre carte Vitale (ou attestation provisoire)',
       'La téléconsultation est remboursée — pratique quand on ne trouve pas de médecin',
       "Les centres de santé municipaux proposent des consultations sans dépassement d'honoraires",
-      "Inscrivez-vous sur Doctolib pour trouver des créneaux de rendez-vous disponibles",
+      "Inscrivez-vous sur Doctolib pour trouver des créneaux disponibles rapidement",
+      "Le 114 permet de contacter les urgences par SMS (personnes sourdes ou en danger silencieux)",
     ],
     links: [
       { label: 'Ameli.fr', url: 'https://www.ameli.fr', description: 'Site officiel de la Sécurité sociale' },
       { label: 'Doctolib', url: 'https://www.doctolib.fr', description: 'Prise de rendez-vous médical en ligne' },
-      { label: 'CSS - Complémentaire santé', url: 'https://www.complementaire-sante-solidaire.gouv.fr', description: 'Mutuelle gratuite sous conditions' },
+      { label: 'CSS', url: 'https://www.complementaire-sante-solidaire.gouv.fr', description: 'Mutuelle gratuite sous conditions' },
+      { label: 'Mon soutien psy', url: 'https://www.ameli.fr/assure/remboursements/rembourse/consultations/mon-soutien-psy', description: '8 séances psy gratuites par an' },
     ],
   },
   {
@@ -175,8 +163,9 @@ const guideSections: GuideSection[] = [
     iconBg: 'bg-green-500/10',
     gradientFrom: 'from-green-500/5',
     gradientTo: 'to-green-600/10',
+    image: '/images/guide-education.png',
     intro:
-      "Le système éducatif français est accessible à tous les enfants résidant en France, quelle que soit la nationalité. Pour les adultes, de nombreuses formations et dispositifs d'accompagnement existent.",
+      "Le système éducatif français est accessible à tous les enfants résidant en France, quelle que soit la nationalité ou la situation administrative des parents. Pour les adultes, de nombreuses formations et dispositifs d'accompagnement existent.",
     items: [
       {
         title: 'Scolarisation des enfants',
@@ -224,6 +213,7 @@ const guideSections: GuideSection[] = [
     iconBg: 'bg-orange-500/10',
     gradientFrom: 'from-orange-500/5',
     gradientTo: 'to-orange-600/10',
+    image: '/images/guide-emploi.png',
     intro:
       "Travailler en France nécessite un titre de séjour autorisant le travail. Voici les étapes clés pour accéder au marché de l'emploi ou créer votre propre activité.",
     items: [
@@ -273,6 +263,7 @@ const guideSections: GuideSection[] = [
     iconBg: 'bg-purple-500/10',
     gradientFrom: 'from-purple-500/5',
     gradientTo: 'to-purple-600/10',
+    image: '/images/guide-droits.png',
     intro:
       "Comprendre vos droits et les démarches liées à votre titre de séjour est essentiel pour vivre sereinement en France. Le non-respect des délais peut entraîner des situations complexes.",
     items: [
@@ -352,6 +343,7 @@ const guideSections: GuideSection[] = [
     iconBg: 'bg-pink-500/10',
     gradientFrom: 'from-pink-500/5',
     gradientTo: 'to-pink-600/10',
+    image: '/images/guide-famille.png',
     intro:
       "La France offre un système de prestations familiales parmi les plus généreux au monde. En tant que parent résidant en France, vous avez droit à de nombreuses aides et services pour votre famille.",
     items: [
@@ -393,185 +385,99 @@ const guideSections: GuideSection[] = [
       { label: 'Service-public.fr — Famille', url: 'https://www.service-public.fr/particuliers/vosdroits/N156', description: 'Droits et démarches familiales' },
     ],
   },
+  {
+    id: 'impots',
+    icon: Receipt,
+    title: 'Impôts & Fiscalité',
+    color: 'text-teal-600 dark:text-teal-400',
+    iconBg: 'bg-teal-500/10',
+    gradientFrom: 'from-teal-500/5',
+    gradientTo: 'to-teal-600/10',
+    intro:
+      "Tout résident en France est soumis à l'obligation de déclarer ses revenus, même en l'absence de revenus. Comprendre le système fiscal français est essentiel pour éviter les pénalités et accéder aux aides.",
+    items: [
+      {
+        title: 'Déclaration annuelle de revenus',
+        detail:
+          "Chaque année entre avril et juin, déclarez vos revenus sur impots.gouv.fr. C'est OBLIGATOIRE même si vous n'avez pas de revenus ou si vous êtes étudiant. Créez votre espace en ligne avec votre numéro fiscal (obtenu lors de la première déclaration papier au centre des impôts de votre domicile). L'avis d'imposition ou de NON-imposition est un document essentiel pour : APL, logement social, renouvellement de titre de séjour, CSS.",
+      },
+      {
+        title: 'Prélèvement à la source',
+        detail:
+          "Depuis 2019, l'impôt sur le revenu est prélevé directement sur votre salaire par l'employeur. Le taux est personnalisé en fonction de votre déclaration. Si vous n'êtes pas imposable, le taux est de 0%. Vous pouvez modifier votre taux en cours d'année sur impots.gouv.fr (mariage, naissance, changement de revenus).",
+      },
+      {
+        title: 'Taxe d\'habitation et taxe foncière',
+        detail:
+          "La taxe d'habitation sur les résidences principales a été supprimée pour tous depuis 2023. La taxe foncière concerne uniquement les propriétaires. Si vous êtes locataire, aucune taxe foncière ne vous sera demandée. La contribution à l'audiovisuel public (redevance TV) a également été supprimée.",
+      },
+      {
+        title: 'Convention fiscale France-Gabon',
+        detail:
+          "La convention fiscale entre la France et le Gabon évite la double imposition. Si vous percevez des revenus au Gabon tout en résidant en France, ces revenus doivent être déclarés en France mais un crédit d'impôt peut s'appliquer. Consultez un conseiller fiscal ou le centre des impôts pour votre situation particulière.",
+      },
+    ],
+    tips: [
+      'Déclarez vos impôts MÊME SANS REVENUS — l\'avis de non-imposition est indispensable pour de nombreuses démarches',
+      'Votre première déclaration doit se faire en papier au centre des impôts de votre domicile',
+      'Conservez vos avis d\'imposition pendant au moins 3 ans — l\'administration peut contrôler sur cette période',
+      'En cas de difficulté, demandez un délai de paiement au centre des impôts (gratuit et souvent accordé)',
+    ],
+    links: [
+      { label: 'Impots.gouv.fr', url: 'https://www.impots.gouv.fr', description: 'Déclaration de revenus en ligne' },
+      { label: 'Simulateur d\'impôt', url: 'https://www.impots.gouv.fr/simulateurs', description: 'Estimez votre impôt sur le revenu' },
+    ],
+  },
+  {
+    id: 'discriminations',
+    icon: ShieldAlert,
+    title: 'Discriminations & Recours',
+    color: 'text-amber-600 dark:text-amber-400',
+    iconBg: 'bg-amber-500/10',
+    gradientFrom: 'from-amber-500/5',
+    gradientTo: 'to-amber-600/10',
+    intro:
+      "La loi française protège contre toute forme de discrimination. En tant que Gabonais en France, connaître vos droits et les recours disponibles est essentiel pour vivre dignement.",
+    items: [
+      {
+        title: 'Qu\'est-ce qu\'une discrimination ?',
+        detail:
+          "La loi française reconnaît 25 critères de discrimination interdits, incluant : l'origine, le nom de famille, l'apparence physique, la couleur de peau, la nationalité, la religion, le sexe, l'orientation sexuelle. La discrimination peut se manifester au travail, dans le logement, dans les services publics ou dans les lieux de loisirs.",
+      },
+      {
+        title: 'Discrimination au logement',
+        detail:
+          "Il est illégal pour un propriétaire de refuser un locataire en raison de son origine, de son nom ou de sa couleur de peau. Si vous suspectez une discrimination, constituez un dossier de preuves (emails, SMS, témoignages). Contactez SOS Racisme (01 40 35 36 55) ou le Défenseur des droits (09 69 39 00 00, gratuit).",
+      },
+      {
+        title: 'Discrimination au travail',
+        detail:
+          "L'employeur ne peut pas refuser une embauche, une promotion ou un licenciement basé sur des critères discriminatoires. Le Conseil de Prud'hommes est compétent pour les litiges liés au travail. L'inspection du travail peut également être saisie. Les syndicats CFDT, CGT et FO peuvent vous accompagner gratuitement.",
+      },
+      {
+        title: 'Contrôles d\'identité : vos droits',
+        detail:
+          "Lors d'un contrôle d'identité, vous devez présenter votre titre de séjour ou récépissé. Un contrôle au faciès (basé uniquement sur l'apparence) est illégal. Si vous estimez être victime d'un contrôle discriminatoire : notez le lieu, l'heure, le numéro d'équipage, et saisissez l'IGPN (inspection générale de la police) ou le Défenseur des droits.",
+      },
+      {
+        title: 'Recours disponibles',
+        detail:
+          "1) Défenseur des droits (defenseurdesdroits.fr) — gratuit, indépendant, saisine en ligne. 2) Dépôt de plainte au commissariat ou directement au procureur de la République. 3) Associations spécialisées : SOS Racisme, LICRA, MRAP, LDH. 4) Aide juridictionnelle si revenus modestes. La discrimination est punie de 3 ans de prison et 45 000 € d'amende.",
+      },
+    ],
+    tips: [
+      'Conservez toujours des preuves écrites (emails, SMS, captures d\'appels) en cas de discrimination',
+      'Le Défenseur des droits est gratuit et peut être saisi en ligne — 99% des dossiers sont traités',
+      'En cas d\'agression raciste, déposez plainte immédiatement et consultez un médecin pour certificat',
+      'Contactez le consulat si vous avez besoin d\'accompagnement dans vos démarches',
+    ],
+    links: [
+      { label: 'Défenseur des droits', url: 'https://www.defenseurdesdroits.fr', description: 'Recours gratuit contre les discriminations' },
+      { label: 'SOS Racisme', url: 'https://sos-racisme.org', description: 'Assistance juridique contre le racisme' },
+      { label: 'LICRA', url: 'https://www.licra.org', description: 'Ligue internationale contre le racisme' },
+    ],
+  },
 ]
-
-// ─── Components ──────────────────────────────────────────────────────────────
-
-function SectionNav({
-  sections,
-  activeSection,
-  onSelect,
-}: {
-  sections: GuideSection[]
-  activeSection: string
-  onSelect: (id: string) => void
-}) {
-  return (
-    <nav className="hidden lg:block sticky top-24 space-y-1">
-      <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3 px-3">
-        Rubriques
-      </h3>
-      {sections.map((section) => {
-        const Icon = section.icon
-        const isActive = section.id === activeSection
-        return (
-          <button
-            key={section.id}
-            onClick={() => onSelect(section.id)}
-            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm font-medium transition-all ${
-              isActive
-                ? 'bg-primary/10 text-primary shadow-sm glass-border'
-                : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-            }`}
-          >
-            <span className={`p-1.5 rounded-lg ${isActive ? section.iconBg : 'bg-muted/50'}`}>
-              <Icon className={`w-4 h-4 ${isActive ? section.color : ''}`} />
-            </span>
-            {section.title}
-          </button>
-        )
-      })}
-    </nav>
-  )
-}
-
-function GuideAccordionItem({
-  item,
-  isOpen,
-  onToggle,
-  color,
-}: {
-  item: GuideItem
-  isOpen: boolean
-  onToggle: () => void
-  color: string
-}) {
-  return (
-    <div className="border border-border/60 rounded-xl overflow-hidden transition-all hover:border-border">
-      <button
-        onClick={onToggle}
-        className="w-full flex items-center justify-between p-4 text-left hover:bg-muted/30 transition-colors"
-      >
-        <div className="flex items-center gap-3">
-          <CheckCircle2 className={`w-5 h-5 ${color} shrink-0`} />
-          <span className="font-medium text-foreground">{item.title}</span>
-        </div>
-        <ChevronDown
-          className={`w-5 h-5 text-muted-foreground transition-transform duration-200 ${
-            isOpen ? 'rotate-180' : ''
-          }`}
-        />
-      </button>
-      {isOpen && (
-        <div className="px-4 pb-4 pt-0">
-          <div className="pl-8">
-            <p className="text-sm text-muted-foreground leading-relaxed">{item.detail}</p>
-          </div>
-        </div>
-      )}
-    </div>
-  )
-}
-
-function GuideSectionCard({ section }: { section: GuideSection }) {
-  const [openItems, setOpenItems] = useState<Set<number>>(new Set())
-
-  const toggleItem = (index: number) => {
-    setOpenItems((prev) => {
-      const next = new Set(prev)
-      if (next.has(index)) {
-        next.delete(index)
-      } else {
-        next.add(index)
-      }
-      return next
-    })
-  }
-
-  const Icon = section.icon
-
-  return (
-    <div id={section.id} className="scroll-mt-24">
-      <div className="overflow-hidden glass-card rounded-2xl">
-        {/* Section Header */}
-        <div
-          className={`bg-gradient-to-r ${section.gradientFrom} ${section.gradientTo} p-6 md:p-8 border-b border-border/40`}
-        >
-          <div className="flex items-start gap-4">
-            <div
-              className={`p-3 rounded-2xl ${section.iconBg} shrink-0 backdrop-blur-sm`}
-            >
-              <Icon className={`w-7 h-7 ${section.color}`} />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-foreground mb-2">{section.title}</h2>
-              <p className="text-muted-foreground leading-relaxed">{section.intro}</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="p-6 md:p-8 space-y-6">
-          {/* Accordion Items */}
-          <div className="space-y-3">
-            {section.items.map((item, index) => (
-              <GuideAccordionItem
-                key={item.title}
-                item={item}
-                isOpen={openItems.has(index)}
-                onToggle={() => toggleItem(index)}
-                color={section.color}
-              />
-            ))}
-          </div>
-
-          {/* Tips */}
-          <div className="rounded-xl bg-amber-500/5 border border-amber-500/20 p-5 glass-panel">
-            <div className="flex items-center gap-2 mb-3">
-              <Lightbulb className="w-5 h-5 text-amber-500" />
-              <h4 className="font-semibold text-foreground text-sm">Conseils pratiques</h4>
-            </div>
-            <ul className="space-y-2">
-              {section.tips.map((tip) => (
-                <li
-                  key={tip}
-                  className="flex items-start gap-2 text-sm text-muted-foreground"
-                >
-                  <ChevronRight className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                  <span>{tip}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Useful Links */}
-          <div>
-            <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-              <ExternalLink className="w-4 h-4" />
-              Liens utiles
-            </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {section.links.map((link) => (
-                <a
-                  key={link.url}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex flex-col p-3 rounded-xl border border-border/60 hover:border-primary/30 hover:bg-primary/5 transition-all text-left"
-                >
-                  <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                    {link.label}
-                  </span>
-                  <span className="text-xs text-muted-foreground mt-1">{link.description}</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-muted-foreground/50 mt-2 group-hover:text-primary transition-colors" />
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
 
 // ─── Page ────────────────────────────────────────────────────────────────────
 
@@ -681,21 +587,21 @@ function VieEnFrancePage() {
                   <Shield className="w-6 h-6 text-red-500" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-foreground">Numéros d'urgence</h3>
+                  <h3 className="text-lg font-bold text-foreground">{t('vieFrance.emergency.title', 'Numéros d\'urgence')}</h3>
                   <p className="text-sm text-muted-foreground">
-                    À conserver dans votre téléphone
+                    {t('vieFrance.emergency.subtitle', 'À conserver dans votre téléphone')}
                   </p>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {[
-                  { number: '15', label: 'SAMU — Urgences médicales' },
-                  { number: '17', label: 'Police — Secours' },
-                  { number: '18', label: 'Pompiers' },
-                  { number: '112', label: 'Numéro européen d\'urgence' },
-                  { number: '114', label: 'Urgences par SMS (sourds/malentendants)' },
-                  { number: '07 44 23 95 84', label: 'Urgence consulaire Gabon 24h/24' },
+                  { number: '15', label: t('vieFrance.emergency.samu', 'SAMU — Urgences médicales') },
+                  { number: '17', label: t('vieFrance.emergency.police', 'Police — Secours') },
+                  { number: '18', label: t('vieFrance.emergency.pompiers', 'Pompiers') },
+                  { number: '112', label: t('vieFrance.emergency.european', 'Numéro européen d\'urgence') },
+                  { number: '114', label: t('vieFrance.emergency.sms', 'Urgences par SMS (sourds/malentendants)') },
+                  { number: '07 44 23 95 84', label: t('vieFrance.emergency.consulat', 'Urgence consulaire Gabon 24h/24') },
                 ].map((item) => (
                   <div
                     key={item.number}
@@ -714,46 +620,7 @@ function VieEnFrancePage() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-12 md:py-24 px-4 md:px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="p-6 md:p-8 lg:p-14 rounded-3xl glass-panel relative overflow-hidden">
-             {/* Gradient glow */}
-             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
-            <div className="relative z-10">
-              <Building2 className="w-12 h-12 text-primary mx-auto mb-6" />
-              <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
-                Le Consulat est à vos côtés
-              </h2>
-              <p className="text-muted-foreground max-w-xl mx-auto mb-8 text-lg">
-                Que vous soyez nouvellement arrivé ou installé depuis longtemps, le Consulat Général du
-                Gabon en France est votre relais. N'hésitez pas à nous solliciter pour toute question.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button asChild size="lg" className="h-12 px-8 rounded-xl shadow-lg shadow-primary/20">
-                  <Link to="/venir-en-france">
-                    <ArrowRight className="w-5 h-5 mr-2" />
-                    Venir en France
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="h-12 px-8 rounded-xl bg-background/50 hover:bg-accent/10"
-                >
-                  <Link to="/retour-au-gabon">
-                    <ArrowRight className="w-5 h-5 mr-2" />
-                    Retour au Gabon
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <CitizenCTA />
     </div>

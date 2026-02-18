@@ -11,6 +11,7 @@ interface ServiceCardProps {
   price?: string
   validity?: string
   isUrgent?: boolean
+  greenHighlight?: boolean
   onInfoClick?: () => void
 } 
 
@@ -24,11 +25,12 @@ export function ServiceCard({
   price,
   validity,
   isUrgent,
+  greenHighlight,
   onInfoClick,
 }: ServiceCardProps) {
 
   return (
-    <div className={`glass-card p-6 h-full flex flex-col group hover:border-primary/30 transition-all duration-300 ${isUrgent ? 'border-red-500/30 hover:border-red-500/50' : ''}`}>
+    <div className={`glass-card p-6 h-full flex flex-col group hover:border-primary/30 transition-all duration-300 ${isUrgent ? 'border-red-500/30 hover:border-red-500/50' : ''} ${greenHighlight ? 'bg-emerald-50/60 dark:bg-emerald-950/20 border-emerald-200/50 dark:border-emerald-800/30 hover:border-emerald-400/50' : ''}`}>
         {/* Header with icon and badges */}
         <div className="flex items-start justify-between mb-4">
           <div className={`w-12 h-12 rounded-[14px] flex items-center justify-center ${color}`}>

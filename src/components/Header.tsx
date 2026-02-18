@@ -73,6 +73,18 @@ export default function Header() {
           </div>
           <div className="flex items-center gap-3">
 
+            {/* Nous Contacter — Top bar */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setContactOpen(true)}
+              className="text-primary-foreground hover:text-primary-foreground/80 hover:bg-white/10 h-7 px-3 font-medium"
+            >
+              <Phone className="w-3.5 h-3.5 mr-1.5" />
+              {t('header.nav.nousContacter', 'Nous Contacter')}
+            </Button>
+
+            <span className="opacity-30">|</span>
 
             {/* Theme Toggle — Top bar */}
             <ModeToggle variant="header" />

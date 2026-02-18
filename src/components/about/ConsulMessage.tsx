@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Quote, Linkedin, Mail } from 'lucide-react'
+import { Quote, Linkedin, CalendarCheck } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 interface ConsulMessageProps {
@@ -78,6 +78,9 @@ export function ConsulMessage({
                 
                 <blockquote className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed italic font-light">
                     "{message || defaultMessage}"
+                    <footer className="mt-4 not-italic text-sm md:text-base font-semibold text-foreground">
+                      — S.E. Monsieur {fullName}<br />{role}
+                    </footer>
                 </blockquote>
                 
                 {description && (
@@ -90,9 +93,9 @@ export function ConsulMessage({
                 <div className="flex gap-3 pt-4">
                     {email && (
                     <Button size="sm" variant="outline" className="gap-2 rounded-full border-primary/20 hover:bg-primary hover:text-white transition-all hover:border-primary" asChild>
-                        <a href={`mailto:${email}`}>
-                        <Mail className="h-3.5 w-3.5" />
-                        Email
+                        <a href={`mailto:${email}?subject=Demande d'audience auprès de S.E. Monsieur ${encodeURIComponent(fullName)}`}>
+                        <CalendarCheck className="h-3.5 w-3.5" />
+                        Demande d'audience
                         </a>
                     </Button>
                     )}

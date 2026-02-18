@@ -8,9 +8,7 @@ import {
   Zap,
   Smartphone,
   ShieldCheck,
-  Bot,
   Clock,
-  Sparkles,
 } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Badge } from '../ui/badge'
@@ -67,17 +65,8 @@ export function CitizenCTA() {
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/80 hidden lg:block" />
-              <div className="absolute inset-0 bg-gradient-to-t from-card/90 to-transparent lg:hidden" />
-              
-              {/* Floating AI badge on image */}
-              <div className="absolute bottom-6 left-6 lg:bottom-auto lg:top-8 lg:left-8 z-10">
-                <div className="inline-flex items-center gap-2 py-2.5 px-4 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white text-sm font-medium">
-                  <Bot className="w-4 h-4 text-primary" />
-                  Propulsé par l'IA
-                  <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
-                </div>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card hidden lg:block" />
+              <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent lg:hidden" />
             </div>
 
             {/* Content Side */}

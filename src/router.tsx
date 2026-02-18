@@ -49,7 +49,7 @@ export const getRouter = () => {
       Sentry.init({
         dsn: import.meta.env.VITE_SENTRY_DSN,
         integrations: [],
-        tracesSampleRate: 1.0,
+        tracesSampleRate: 0.2,
         sendDefaultPii: true,
       })
     })

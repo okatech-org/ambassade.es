@@ -160,8 +160,6 @@ function ServicesPage() {
   const isLoading = services === undefined
 
   const filteredServices = services?.filter(service => {
-    // Exclude "Demande d'Audience" from the card grid (shown as a button instead)
-    if (service.slug === 'demande-audience') return false
 
     const matchesQuery = !search.query || 
       service.title.toLowerCase().includes(search.query.toLowerCase()) ||
@@ -182,7 +180,7 @@ function ServicesPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <PageHero image="/images/heroes/hero-services.png">
+      <PageHero image="/images/Consult_general.jpeg">
           <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-primary/20 backdrop-blur-sm">
             {t('services.badge', 'Services Consulaires')}
           </Badge>
@@ -346,8 +344,14 @@ function ServicesPage() {
                      )}
 
                      {filteredServices?.map((service) => {
-                      const config = categoryConfig[service.category] || categoryConfig[ServiceCategory.Other]
-                      const categoryLabel = t(`services.categoriesMap.${service.category}`)
+                      // Special green styling for Demande d'Audience
+                      const isAudience = service.slug === 'demande-audience'
+                      const config = isAudience
+                        ? { icon: CalendarPlus, color: 'text-emerald-600 dark:text-emerald-400', bgColor: 'bg-emerald-500/10' }
+                        : categoryConfig[service.category] || categoryConfig[ServiceCategory.Other]
+                      const categoryLabel = isAudience
+                        ? "Audience"
+                        : t(`services.categoriesMap.${service.category}`)
 
                       return (
                         <ServiceCard
@@ -362,6 +366,7 @@ function ServicesPage() {
                           validity={service.validity}
                           isUrgent={service.isUrgent}
                           onInfoClick={() => handleServiceClick(service.slug)}
+                          greenHighlight={isAudience}
                         />
                       )
                     })}

@@ -17,7 +17,8 @@
       "inscriptionDesc": "Consular register",
       "consulat": "The Consulate",
       "consulatDesc": "Missions & team"
-    }
+    },
+    "cta": "Discover Consulat.ga"
   },
   "statsBar": {
     "diaspora": {
@@ -75,7 +76,10 @@
       "Emploi": "Employment",
       "Juridique": "Legal",
       "Famille": "Family"
-    }
+    },
+    "titlePart1": "A Complete Ecosystem in",
+    "titleHighlight": "6 Essential Topics",
+    "viewAll": "View the complete guide"
   },
   "faq": {
     "badge": "Frequently asked questions",
@@ -206,8 +210,22 @@
       "travel_document": "Travel Document",
       "assistance": "Consular Assistance",
       "emergency": "Emergency Assistance",
-      "other": "Other"
+      "other": "Other",
+      "Identité": "Identity",
+      "État Civil": "Civil Status",
+      "Immatriculation": "Consular Registration",
+      "Visa": "Visa",
+      "Documents": "Documents"
     },
+    "passportVisaWarning": {
+      "title": "Important Information",
+      "message": "Passport and Visa services are under the authority of the DGDI Office. Please note that it is not the General Consulate that issues Passports and Visas in France."
+    },
+    "dgdiNotice": "This service is managed by the DGDI Office, not the General Consulate.",
+    "dgdiApply": "Submit my application",
+    "dgdiBadge": "DGDI Office — Do not confuse",
+    "dgdiTitle": "Passports & Visas: DGDI Office Services",
+    "dgdiSubtitle": "These services are not managed by the General Consulate. They fall exclusively under the DGDI External Office in Paris.",
     "modal": {
       "eligibleBeneficiaries": "Eligible Beneficiaries",
       "citizens": "Gabonese Citizens",
@@ -310,7 +328,34 @@
       "availability": "Availability"
     },
     "testimonial": "Thanks to Consulat.ga, I was able to renew my passport from London without having to travel. Fast and efficient service!",
-    "testimonialAuthor": "Marie N., London"
+    "testimonialAuthor": "Marie N., London",
+    "titlePart1": "Your consulate,",
+    "titleHighlight": "in your pocket",
+    "cta": "Create my free account",
+    "ctaSecondary": "Discover the app",
+    "advantages": {
+      "noWait": {
+        "title": "No more phone waiting",
+        "desc": "Ask your questions online, get immediate answers."
+      },
+      "digital": {
+        "title": "100% digital procedures",
+        "desc": "From request to tracking, everything is done online."
+      },
+      "fast": {
+        "title": "Quick answers to your questions",
+        "desc": "AI assistant available for all your questions."
+      },
+      "available": {
+        "title": "Available 24/7",
+        "desc": "Access anytime, all time zones."
+      }
+    },
+    "trust": {
+      "fast": "Sign up in 2 minutes",
+      "online": "100% on mobile",
+      "secure": "Secure & confidential"
+    }
   },
   "footer": {
     "brand": {
@@ -358,7 +403,16 @@
       "profile": "My Profile",
       "requests": "My Requests",
       "documents": "My Documents",
-      "appointments": "My Appointments"
+      "appointments": "My Appointments",
+      "dashboard": "Dashboard",
+      "mySpace": "My Space",
+      "signIn": "Sign In",
+      "signUp": "Sign Up",
+      "consulat": "General Consulate",
+      "venirFrance": "Coming to France",
+      "vieFrance": "Living in France",
+      "retourGabon": "Return to Gabon",
+      "nousContacter": "Contact Us"
     },
     "appointment": "Appointment",
     "bookAppointment": "Book Appointment",
@@ -1196,7 +1250,13 @@
     "dashboard": "Dashboard",
     "menu": "Menu",
     "actions": "Actions",
-    "noResults": "No results found."
+    "noResults": "No results found.",
+    "saved": "Changes saved",
+    "previous": "Previous",
+    "next": "Next",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "postalCode": "Postal Code"
   },
   "zod": {
     "required": "Required",
@@ -1404,6 +1464,287 @@
   },
   "documents": {
     "search": "Search..."
+  },
+  "accessibilite": {
+    "title": "Accessibility",
+    "intro": "The General Consulate of Gabon in France is committed to making this website accessible in accordance with current standards.",
+    "conformance": {
+      "title": "Compliance Statement",
+      "content": "This website has been designed to be accessible to the widest audience. We strive to comply with the RGAA (General Accessibility Improvement Framework) recommendations."
+    },
+    "technologies": {
+      "title": "Technologies Used",
+      "content": "This site is built with the following modern web technologies:",
+      "items": {
+        "html5": "Semantic HTML5",
+        "css3": "CSS3 with dark mode support",
+        "react": "React with accessible components",
+        "aria": "ARIA attributes for assistive technologies"
+      }
+    },
+    "features": {
+      "title": "Accessibility Features",
+      "navigation": {
+        "title": "Navigation",
+        "content": "Full keyboard navigation, hierarchical heading structure, skip links."
+      },
+      "visual": {
+        "title": "Display",
+        "content": "AA-compliant contrasts, dark mode, resizable text, responsive design."
+      },
+      "assistive": {
+        "title": "Assistive Technologies",
+        "content": "Compatible with screen readers (NVDA, JAWS, VoiceOver), text alternatives for images."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "content": "If you encounter an accessibility issue, please contact us:",
+      "email": "Email:",
+      "phone": "Phone:"
+    },
+    "legal": {
+      "title": "Legal Remedies",
+      "content": "If you notice an accessibility defect preventing you from accessing content or a feature of the site, you may contact the Defender of Rights."
+    }
+  },
+  "confidentialite": {
+    "title": "Privacy Policy",
+    "intro": "The General Consulate of Gabon in France is committed to protecting the privacy of users of this website.",
+    "dataCollection": {
+      "title": "Data Collection",
+      "content": "We only collect data necessary for the operation of consular services: surname, first name, date of birth, nationality, contact details, identity documents."
+    },
+    "purpose": {
+      "title": "Purpose of Processing",
+      "content": "Your data is used exclusively for:",
+      "items": {
+        "consular": "Processing your consular requests",
+        "communication": "Communicating consular information",
+        "statistics": "Producing anonymous statistics",
+        "legal": "Complying with our legal obligations"
+      }
+    },
+    "retention": {
+      "title": "Data Retention Period",
+      "content": "Your data is kept for the duration necessary to process your request, then archived in accordance with applicable legal obligations."
+    },
+    "rights": {
+      "title": "Your Rights",
+      "content": "In accordance with the GDPR, you have the following rights:",
+      "items": {
+        "access": "Right to access your data",
+        "rectification": "Right to rectification",
+        "deletion": "Right to erasure",
+        "opposition": "Right to object",
+        "portability": "Right to data portability"
+      }
+    },
+    "cookies": {
+      "title": "Cookies",
+      "content": "This site uses technical cookies necessary for its operation and anonymous audience measurement cookies. No advertising cookies are used."
+    },
+    "contact": {
+      "title": "DPO Contact",
+      "content": "To exercise your rights or for any question regarding the protection of your data:",
+      "email": "Email:"
+    }
+  },
+  "mentionsLegales": {
+    "title": "Legal Notice",
+    "editor": {
+      "title": "Website Publisher",
+      "content": "General Consulate of the Gabonese Republic in France",
+      "address": "26 bis avenue Raphaël, 75016 Paris, France",
+      "phone": "Phone:",
+      "email": "Email:"
+    },
+    "director": {
+      "title": "Publication Director",
+      "content": "The Consul General of the Gabonese Republic in France"
+    },
+    "hosting": {
+      "title": "Hosting",
+      "content": "This site is hosted by Firebase (Google Cloud Platform), 8 rue de Londres, 75009 Paris, France."
+    },
+    "intellectual": {
+      "title": "Intellectual Property",
+      "content": "All content on this site (text, images, videos, logos) is protected by copyright. Any reproduction, even partial, requires prior authorization."
+    },
+    "responsibility": {
+      "title": "Liability",
+      "content": "The General Consulate endeavours to ensure the accuracy of the information published on this site. However, it cannot be held responsible for errors, omissions or results that may be obtained through misuse of this information."
+    },
+    "links": {
+      "title": "Hyperlinks",
+      "content": "This site may contain links to external sites. The General Consulate has no control over these sites and declines any responsibility for their content."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Official Contact Information",
+    "description": "The General Consulate of the Gabonese Republic in France is at your service for all your consular procedures.",
+    "address": {
+      "title": "Address",
+      "value": "26 bis avenue Raphaël, 75016 Paris"
+    },
+    "phone": {
+      "title": "Phone"
+    },
+    "email": {
+      "title": "Email"
+    },
+    "hours": {
+      "title": "Opening Hours",
+      "weekdays": "Monday — Friday: 9:30 AM — 3:00 PM",
+      "weekend": "Saturday — Sunday: Closed"
+    },
+    "emergency": {
+      "title": "24/7 Consular Emergency",
+      "description": "In case of emergency outside opening hours:"
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "name": "Full Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send",
+      "success": "Your message has been sent successfully!",
+      "subjects": {
+        "general": "General Enquiry",
+        "passport": "Passport",
+        "visa": "Visa",
+        "civilStatus": "Civil Status",
+        "consularCard": "Consular Card",
+        "other": "Other"
+      }
+    }
+  },
+  "leConsulat": {
+    "title": "The Consulate",
+    "badge": "Institution",
+    "subtitle": "The General Consulate of the Gabonese Republic in France",
+    "description": "Serving the Gabonese community in France for over 50 years. Discover our missions, our history and our commitment.",
+    "missions": {
+      "title": "Our Missions",
+      "protection": {
+        "title": "Consular Protection",
+        "description": "Assistance and protection of Gabonese nationals in France in all situations."
+      },
+      "administrative": {
+        "title": "Administrative Services",
+        "description": "Issuance of passports, consular cards, civil status certificates and other official documents."
+      },
+      "community": {
+        "title": "Community Life",
+        "description": "Support and guidance for the Gabonese diaspora in France."
+      },
+      "cultural": {
+        "title": "Cultural Outreach",
+        "description": "Promoting Gabonese culture in France through events and partnerships."
+      },
+      "economic": {
+        "title": "Economic Cooperation",
+        "description": "Facilitating economic exchanges between Gabon and France."
+      },
+      "legal": {
+        "title": "Legal Assistance",
+        "description": "Support with legal and notarial procedures."
+      },
+      "social": {
+        "title": "Social Action",
+        "description": "Support for nationals in difficulty and referral to relevant services."
+      }
+    }
+  },
+  "news": {
+    "badge": "News & Events",
+    "titlePart1": "Stay",
+    "titlePart2": "informed",
+    "description": "Follow the latest news, events and press releases from the General Consulate.",
+    "readMore": "Read more",
+    "allNews": "All news",
+    "noNews": "No news at the moment",
+    "noMore": "No more news",
+    "categories": {
+      "communique": "Press Release",
+      "evenement": "Event",
+      "actualite": "News"
+    }
+  },
+  "vieFrance": {
+    "badge": "Practical Guide",
+    "heroTitle": "Living in France",
+    "heroHighlight": "day to day",
+    "heroDescription": "A comprehensive guide for Gabonese residents in France: housing, healthcare, education, employment, residency rights and family life. All the practical information for your daily life.",
+    "emergency": {
+      "title": "Emergency Numbers",
+      "subtitle": "Save these in your phone",
+      "samu": "SAMU — Medical Emergencies",
+      "police": "Police — Emergency",
+      "pompiers": "Fire Brigade",
+      "european": "European Emergency Number",
+      "sms": "SMS Emergencies (deaf/hard of hearing)",
+      "consulat": "Gabon Consular Emergency 24/7"
+    }
+  },
+  "venirFrance": {
+    "badge": "Arrival & Integration Guide",
+    "heroTitle": "Coming to France",
+    "heroHighlight": "& Settling In",
+    "heroDescription": "A comprehensive guide for Gabonese nationals arriving in France: admission, visa, administrative procedures, cultural norms and practical advice for successful integration. The General Consulate of Gabon is here to help.",
+    "savoirVivre": {
+      "badge": "Etiquette",
+      "title": "Cultural Norms & Conventions",
+      "description": "Understanding French society's norms to navigate it better. It's not about giving up your culture — it's about adding another one."
+    },
+    "guides": {
+      "badge": "Complete Guides",
+      "title": "Your Detailed Procedures",
+      "description": "Click on each topic to discover detailed information, procedures and our practical tips."
+    },
+    "erreurs": {
+      "badge": "Must Know",
+      "title": "Common Mistakes to Avoid",
+      "description": "These oversights can have serious consequences. Take them seriously to protect your rights."
+    },
+    "numeros": {
+      "badge": "Essential Numbers",
+      "title": "Useful Numbers to Keep",
+      "description": "Save these numbers in your phone. They can save lives."
+    },
+    "cta": {
+      "title": "The Consulate Is By Your Side",
+      "description": "Whether you are about to leave or have just arrived, the General Consulate of Gabon in France is your point of contact. Do not hesitate to reach out to us with any questions.",
+      "vieFrance": "Guide to Living in France"
+    }
+  },
+  "retourGabon": {
+    "badge": "Return Guide",
+    "heroTitle": "Return to Gabon",
+    "heroHighlight": "— Prepare Well",
+    "heroDescription": "A comprehensive guide for Gabonese nationals returning home: consular procedures, moving, resettlement, employment, OQTF, aid and maintaining your acquired rights in France.",
+    "steps": {
+      "badge": "Return Steps",
+      "title": "Prepare Each Step",
+      "description": "From the first day of preparation to your resettlement, each step is detailed with practical advice and useful links."
+    },
+    "aides": {
+      "badge": "Aid & Support",
+      "title": "Support for Your Return",
+      "description": "Several programmes exist to facilitate your reintegration in Gabon."
+    },
+    "erreurs": {
+      "badge": "Mistakes to Avoid",
+      "title": "Don't Make These Mistakes",
+      "description": "These oversights can complicate your return. Anticipate them for a smooth departure."
+    },
+    "numeros": {
+      "badge": "Essential Contacts",
+      "title": "Useful Numbers",
+      "description": "Keep these for your return to Gabon."
+    }
   }
 }
 

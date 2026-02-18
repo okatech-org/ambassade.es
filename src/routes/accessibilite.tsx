@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next'
 
 
 
@@ -7,7 +8,7 @@ export const Route = createFileRoute('/accessibilite')({
 })
 
 function AccessibilityPage() {
-
+  const { t } = useTranslation()
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -16,7 +17,7 @@ function AccessibilityPage() {
             <div className="absolute inset-0 bg-background" />
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
             <div className="relative z-10 max-w-4xl mx-auto">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Accessibilité</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">{t('accessibility.title', 'Accessibilité')}</h1>
             </div>
         </section>
 
@@ -26,30 +27,30 @@ function AccessibilityPage() {
 
                 <div className="prose dark:prose-invert max-w-none space-y-8">
                     <p className="text-xl text-muted-foreground leading-relaxed">
-                    Le service consulaire s'engage à rendre ses services numériques accessibles à tous, y compris aux personnes en situation de handicap.
+                    {t('accessibility.intro', "Le service consulaire s'engage à rendre ses services numériques accessibles à tous, y compris aux personnes en situation de handicap.")}
                     </p>
 
                     <section>
-                    <h2 className="text-2xl font-bold mb-4 text-foreground">État de conformité</h2>
+                    <h2 className="text-2xl font-bold mb-4 text-foreground">{t('accessibility.conformity.title', 'État de conformité')}</h2>
                     <p className="text-muted-foreground leading-relaxed">
-                        Le site consulat.ga est en cours d'audit pour déterminer son niveau de conformité avec les normes internationales d'accessibilité (WCAG 2.1).
+                        {t('accessibility.conformity.description', "Le site consulat.ga est en cours d'audit pour déterminer son niveau de conformité avec les normes internationales d'accessibilité (WCAG 2.1).")}
                     </p>
                     </section>
 
                     <section>
-                    <h2 className="text-2xl font-bold mb-4 text-foreground">Fonctionnalités d'assistance</h2>
+                    <h2 className="text-2xl font-bold mb-4 text-foreground">{t('accessibility.features.title', "Fonctionnalités d'assistance")}</h2>
                     <ul className="list-disc pl-6 space-y-2 text-muted-foreground leading-relaxed">
-                        <li>Contraste des couleurs optimisé</li>
-                        <li>Navigation au clavier possible sur l'ensemble du site</li>
-                        <li>Compatibilité avec les lecteurs d'écran</li>
-                        <li>Textes alternatifs pour les images</li>
+                        <li>{t('accessibility.features.contrast', 'Contraste des couleurs optimisé')}</li>
+                        <li>{t('accessibility.features.keyboard', "Navigation au clavier possible sur l'ensemble du site")}</li>
+                        <li>{t('accessibility.features.screenReader', "Compatibilité avec les lecteurs d'écran")}</li>
+                        <li>{t('accessibility.features.altText', 'Textes alternatifs pour les images')}</li>
                     </ul>
                     </section>
                     
                     <section>
-                    <h2 className="text-2xl font-bold mb-4 text-foreground">Signaler un problème</h2>
+                    <h2 className="text-2xl font-bold mb-4 text-foreground">{t('accessibility.report.title', 'Signaler un problème')}</h2>
                     <p className="text-muted-foreground leading-relaxed">
-                        Si vous rencontrez des difficultés pour accéder à un contenu ou à une fonctionnalité de ce site, n'hésitez pas à nous contacter pour que nous puissions vous orienter vers une alternative accessible ou vous fournir le contenu sous une autre forme.
+                        {t('accessibility.report.description', "Si vous rencontrez des difficultés pour accéder à un contenu ou à une fonctionnalité de ce site, n'hésitez pas à nous contacter pour que nous puissions vous orienter vers une alternative accessible ou vous fournir le contenu sous une autre forme.")}
                     </p>
                     </section>
                 </div>

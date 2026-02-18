@@ -4,6 +4,7 @@ import { z } from 'zod'
 export const env = createEnv({
   server: {
     SERVER_URL: z.string().url().optional(),
+    CLERK_SECRET_KEY: z.string().min(1).optional(),
   },
 
   /**
@@ -14,6 +15,13 @@ export const env = createEnv({
 
   client: {
     VITE_APP_TITLE: z.string().min(1).optional(),
+    VITE_CONVEX_URL: z.string().url({
+      message: 'VITE_CONVEX_URL is required — the app cannot connect to Convex without it.',
+    }),
+    VITE_CLERK_PUBLISHABLE_KEY: z.string().startsWith('pk_', {
+      message: 'VITE_CLERK_PUBLISHABLE_KEY must start with "pk_".',
+    }),
+    VITE_SENTRY_DSN: z.string().url().optional(),
   },
 
   /**
@@ -37,3 +45,4 @@ export const env = createEnv({
    */
   emptyStringAsUndefined: true,
 })
+

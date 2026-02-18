@@ -1,4 +1,4 @@
-import { Link } from '@tanstack/react-router'
+import { Link, useNavigate } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { useQuery } from 'convex/react'
 import {
@@ -10,6 +10,7 @@ import {
   ArrowRight,
   CheckCircle2,
   Sparkles,
+  CalendarPlus,
 } from 'lucide-react'
 import { api } from '@convex/_generated/api'
 import { Button } from '../ui/button'
@@ -172,13 +173,19 @@ function BentoServiceCard({
     )
   }
 
+  const navigate = useNavigate()
+
+  const handleServiceClick = (slug: string) => {
+    navigate({ to: '/services', search: { service: slug } })
+  }
+
   return (
-    <Link
-      to="/services/$slug"
-      params={{ slug }}
+    <button
+      type="button"
+      onClick={() => handleServiceClick(slug)}
       className={`group relative text-left w-full cursor-pointer rounded-2xl glass-card overflow-hidden transition-all duration-300 hover:-translate-y-1 block ${
         featured ? 'md:col-span-2 md:row-span-2' : ''
-      }`}
+      } ${slug === 'demande-audience' ? 'bg-emerald-50/60 dark:bg-emerald-950/20 border-emerald-200/50 dark:border-emerald-800/30 hover:border-emerald-400/50' : ''}`}
     >
       {/* Background Image */}
       {image && (
@@ -198,7 +205,7 @@ function BentoServiceCard({
       <div className={`relative z-10 p-6 ${featured ? 'md:p-8' : ''} h-full flex flex-col`}>
         {/* Header with Icon + Title */}
         <div className="flex items-center gap-3 mb-3">
-          <div className={`p-2.5 rounded-xl shrink-0 ${image ? 'bg-white/10 backdrop-blur-md text-white' : config.color + ' backdrop-blur-sm'}`}>
+          <div className={`p-2.5 rounded-xl shrink-0 ${image ? 'bg-white/10 backdrop-blur-md text-white' : slug === 'demande-audience' ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400' : config.color + ' backdrop-blur-sm'}`}>
             <Icon className={`${featured ? 'w-6 h-6' : 'w-5 h-5'}`} />
           </div>
           <h3 className={`font-bold transition-colors ${featured ? 'text-xl' : 'text-base'} ${image ? 'text-white' : 'text-foreground group-hover:text-primary'}`}>
@@ -225,7 +232,7 @@ function BentoServiceCard({
           </span>
         </div>
       </div>
-    </Link>
+    </button>
   )
 }
 
@@ -309,7 +316,10 @@ export function ServicesSection() {
         {!isLoading && bottomRow.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {bottomRow.map((service) => {
-              const config = categoryConfig[service.category] || categoryConfig['default']
+              const isAudience = service.slug === 'demande-audience'
+              const config = isAudience
+                ? { icon: CalendarPlus, color: 'bg-emerald-500/10 text-emerald-600', gradient: 'from-emerald-500/15 to-emerald-400/5' }
+                : categoryConfig[service.category] || categoryConfig['default']
               return (
                 <BentoServiceCard
                   key={service._id}

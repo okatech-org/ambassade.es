@@ -47,7 +47,7 @@ function ContactPage() {
                     <div className="p-6 md:p-8 space-y-8">
                         <div className="grid sm:grid-cols-2 gap-8">
                             <div className="space-y-6">
-                                <h3 className="font-semibold text-lg text-foreground border-l-4 border-primary pl-3">Coordonnées</h3>
+                                <h3 className="font-semibold text-lg text-foreground border-l-4 border-primary pl-3">{t('contact.coordinates', 'Coordonnées')}</h3>
                                 <div className="space-y-4">
                                     <div className="flex items-start gap-3 group">
                                         <div className="p-2 rounded-lg bg-muted/50 group-hover:bg-primary/10 transition-colors">
@@ -71,14 +71,14 @@ function ContactPage() {
                                                 </div>
                                             </div>
                                             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 p-2 rounded-lg hover:bg-muted/40 transition-colors -ml-2 border border-transparent hover:border-border/30">
-                                                <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">État Civil</span>
+                                                <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{t('contact.civilStatus', 'État Civil')}</span>
                                                 <div className="flex flex-col items-end gap-1">
                                                   <a href="tel:+33759485895" className="text-foreground font-medium hover:text-primary transition-colors">07 59 48 58 95</a>
                                                   <a href="tel:+33759302637" className="text-foreground font-medium hover:text-primary transition-colors">07 59 30 26 37</a>
                                                 </div>
                                             </div>
                                             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 p-2 rounded-lg bg-red-500/5 border border-red-500/10 -ml-2">
-                                                <span className="text-xs font-bold text-red-500 uppercase tracking-wide">Urgences</span>
+                                                <span className="text-xs font-bold text-red-500 uppercase tracking-wide">{t('contact.emergencies', 'Urgences')}</span>
                                                 <a href="tel:+33744239584" className="text-red-600 dark:text-red-400 font-bold hover:text-red-700 dark:hover:text-red-300 transition-colors">07 44 23 95 84</a>
                                             </div>
                                         </div>
@@ -94,26 +94,26 @@ function ContactPage() {
 
                             <div className="space-y-6">
                                 <h3 className="font-semibold text-lg text-foreground border-l-4 border-primary pl-3 flex items-center gap-2">
-                                    Horaires d'ouverture
+                                    {t('contact.openingHours', "Horaires d'ouverture")}
                                 </h3>
                                 <div className="space-y-3 text-sm">
                                     <div className="p-3 rounded-xl bg-muted/30 border border-border/40">
                                         <div className="flex justify-between items-center mb-1">
-                                            <span className="text-muted-foreground">Lundi - Vendredi</span>
-                                            <Badge variant="outline" className="bg-primary/5 text-primary border-primary/20">Dépôt</Badge>
+                                            <span className="text-muted-foreground">{t('contact.weekdays', 'Lundi - Vendredi')}</span>
+                                            <Badge variant="outline" className="bg-primary/5 text-primary border-primary/20">{t('contact.deposit', 'Dépôt')}</Badge>
                                         </div>
                                         <p className="font-bold text-lg text-foreground">9h00 - 15h00</p>
                                     </div>
                                     <div className="p-3 rounded-xl bg-muted/30 border border-border/40">
                                         <div className="flex justify-between items-center mb-1">
-                                            <span className="text-muted-foreground">Lundi - Vendredi</span>
-                                            <Badge variant="outline" className="bg-primary/5 text-primary border-primary/20">Retrait</Badge>
+                                            <span className="text-muted-foreground">{t('contact.weekdays', 'Lundi - Vendredi')}</span>
+                                            <Badge variant="outline" className="bg-primary/5 text-primary border-primary/20">{t('contact.pickup', 'Retrait')}</Badge>
                                         </div>
                                         <p className="font-bold text-lg text-foreground">15h00 - 16h30</p>
                                     </div>
                                     <div className="flex items-start gap-2 mt-4 text-xs text-muted-foreground bg-accent/5 p-3 rounded-lg border border-accent/10">
                                         <Info className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-                                        <span>Fermé les jours fériés chômés au Gabon et en France.</span>
+                                        <span>{t('contact.closedHolidays', 'Fermé les jours fériés chômés au Gabon et en France.')}</span>
                                     </div>
                                 </div>
                             </div>
@@ -128,7 +128,7 @@ function ContactPage() {
             <div className="space-y-8">
                 <div className="glass-card rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 h-full">
                     <div className="p-6 border-b border-border/40 bg-muted/20">
-                        <h2 className="text-xl font-bold text-foreground">Accès & Transport</h2>
+                        <h2 className="text-xl font-bold text-foreground">{t('contact.access', 'Accès & Transport')}</h2>
                     </div>
                     <div className="p-6 space-y-6">
                         <div className="aspect-square w-full rounded-2xl bg-muted overflow-hidden relative shadow-inner ring-1 ring-black/5 dark:ring-white/10">
@@ -150,8 +150,8 @@ function ContactPage() {
                                     M9
                                 </div>
                                 <div>
-                                    <p className="font-bold text-foreground">Métro Ligne 9</p>
-                                    <p className="text-xs text-muted-foreground">Arrêt Ranelagh (5 min à pied)</p>
+                                    <p className="font-bold text-foreground">{t('contact.metro', 'Métro Ligne 9')}</p>
+                                    <p className="text-xs text-muted-foreground">{t('contact.metroStop', 'Arrêt Ranelagh (5 min à pied)')}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4 p-3 rounded-xl bg-background/50 border border-border/50">
@@ -160,7 +160,7 @@ function ContactPage() {
                                 </div>
                                 <div>
                                     <p className="font-bold text-foreground">Bus 22, 52</p>
-                                    <p className="text-xs text-muted-foreground">Arrêt Ranelagh</p>
+                                    <p className="text-xs text-muted-foreground">{t('contact.busStop', 'Arrêt Ranelagh')}</p>
                                 </div>
                             </div>
                              <div className="flex items-center gap-4 p-3 rounded-xl bg-background/50 border border-border/50">
@@ -168,8 +168,8 @@ function ContactPage() {
                                     P
                                 </div>
                                 <div>
-                                    <p className="font-bold text-foreground">Stationnement</p>
-                                    <p className="text-xs text-muted-foreground">Parking payant sur voie publique</p>
+                                    <p className="font-bold text-foreground">{t('contact.parking', 'Stationnement')}</p>
+                                    <p className="text-xs text-muted-foreground">{t('contact.parkingDesc', 'Parking payant sur voie publique')}</p>
                                 </div>
                             </div>
                         </div>

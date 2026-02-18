@@ -7,26 +7,8 @@ import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
 import { Skeleton } from '../ui/skeleton'
 
-const categoryConfig: Record<string, { label: string; color: string; fallbackImage: string }> = {
-  communique: {
-    label: 'Communiqué',
-    color: 'bg-[#1a5dab]/10 text-[#1a5dab] dark:bg-[#1a5dab]/20 dark:text-[#8ab4f8]',
-    fallbackImage: '/images/heroes/hero-consulat.png',
-  },
-  evenement: {
-    label: 'Événement',
-    color: 'bg-[#34a853]/10 text-[#34a853] dark:bg-[#34a853]/20 dark:text-[#81c995]',
-    fallbackImage: '/images/heroes/hero-integration.png',
-  },
-  actualite: {
-    label: 'Actualité',
-    color: 'bg-[#f9ab00]/10 text-[#e37400] dark:bg-[#f9ab00]/20 dark:text-[#fdd663]',
-    fallbackImage: '/images/heroes/hero-services.png',
-  },
-}
-
-function formatDate(timestamp: number) {
-  return new Intl.DateTimeFormat('fr-FR', {
+function formatDate(timestamp: number, lang: string = 'fr') {
+  return new Intl.DateTimeFormat(lang === 'en' ? 'en-GB' : 'fr-FR', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -62,16 +44,35 @@ function SecondarySkeleton() {
 }
 
 export function NewsSection() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const posts = useQuery(api.functions.posts.list, {
     paginationOpts: { numItems: 4, cursor: null },
   })
+
+  const categoryConfig: Record<string, { label: string; color: string; fallbackImage: string }> = {
+    communique: {
+      label: t('news.categories.communique', 'Communiqué'),
+      color: 'bg-[#1a5dab]/10 text-[#1a5dab] dark:bg-[#1a5dab]/20 dark:text-[#8ab4f8]',
+      fallbackImage: '/images/heroes/hero-consulat.png',
+    },
+    evenement: {
+      label: t('news.categories.evenement', 'Événement'),
+      color: 'bg-[#34a853]/10 text-[#34a853] dark:bg-[#34a853]/20 dark:text-[#81c995]',
+      fallbackImage: '/images/heroes/hero-integration.png',
+    },
+    actualite: {
+      label: t('news.categories.actualite', 'Actualité'),
+      color: 'bg-[#f9ab00]/10 text-[#e37400] dark:bg-[#f9ab00]/20 dark:text-[#fdd663]',
+      fallbackImage: '/images/heroes/hero-services.png',
+    },
+  }
 
   const isLoading = posts === undefined
 
   // Split posts: first one is featured, rest are secondary
   const featuredPost = posts?.page[0]
   const secondaryPosts = posts?.page.slice(1) || []
+
 
   return (
     <section className="py-12 md:py-24 px-4 md:px-6 bg-background">
@@ -125,7 +126,7 @@ export function NewsSection() {
                   <div className="p-6 flex flex-col flex-1">
                     <div className="flex-1">
                       <Badge className={`mb-4 ${categoryConfig[featuredPost.category]?.color || categoryConfig.actualite.color} border-0`}>
-                        {categoryConfig[featuredPost.category]?.label || 'Actualité'}
+                        {categoryConfig[featuredPost.category]?.label || t('news.categories.actualite', 'Actualité')}
                       </Badge>
                       <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors mb-3 line-clamp-3">
                         {featuredPost.title}
@@ -136,7 +137,7 @@ export function NewsSection() {
                     </div>
                     <div className="flex items-center justify-between mt-auto pt-4 border-t">
                       <p className="text-sm text-muted-foreground font-medium">
-                        {formatDate(featuredPost.publishedAt)}
+                        {formatDate(featuredPost.publishedAt, i18n.language)}
                       </p>
                       <ArrowRight className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                     </div>
@@ -188,7 +189,7 @@ export function NewsSection() {
                               {post.title}
                             </h4>
                             <p className="text-sm text-muted-foreground mt-auto">
-                              {formatDate(post.publishedAt)}
+                              {formatDate(post.publishedAt, i18n.language)}
                             </p>
                           </div>
                           

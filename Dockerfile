@@ -45,9 +45,13 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-# Copy Nitro output + full node_modules for unbundled native deps (OpenTelemetry/Sentry)
+# Copy Nitro output
 COPY --from=builder /app/.output ./.output
-COPY --from=builder /app/node_modules ./node_modules
+
+# Install only production deps for unbundled native modules (OpenTelemetry/Sentry)
+COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/package-lock.json ./package-lock.json
+RUN npm ci --omit=dev --ignore-scripts 2>/dev/null || true
 
 # Nitro creates a partial node_modules inside .output/server/ that lacks
 # some @opentelemetry packages. Replace it with a symlink to the full deps.
@@ -67,3 +71,4 @@ EXPOSE 8080
 
 # Start the Nitro Node.js server
 CMD ["node", ".output/server/index.mjs"]
+
