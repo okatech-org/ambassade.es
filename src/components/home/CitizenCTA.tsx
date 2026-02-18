@@ -65,8 +65,7 @@ export function CitizenCTA() {
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card hidden lg:block" />
-              <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent lg:hidden" />
+
             </div>
 
             {/* Content Side */}
