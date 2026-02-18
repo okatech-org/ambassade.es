@@ -265,7 +265,7 @@ const erreurs: ErreurItem[] = [
 
 const numerosUtiles: NumeroUtile[] = [
   { label: 'Consul Général du Gabon à Paris', number: '26 bis av. Raphaël, 75016', color: 'bg-emerald-500/10 text-emerald-600' },
-  { label: 'Email Consulat du Gabon', number: 'consulatgeneralgabon@yahoo.fr', color: 'bg-emerald-500/10 text-emerald-600' },
+  { label: 'Email Consulat du Gabon', number: 'contact@consulatdugabon.fr', color: 'bg-emerald-500/10 text-emerald-600' },
   { label: 'Urgence consulaire Gabon', number: '07 44 23 95 84', color: 'bg-green-500/10 text-green-600' },
   { label: 'OFII (Aide au retour)', number: '01 53 69 53 70', color: 'bg-blue-500/10 text-blue-600' },
   { label: 'Douanes du Gabon', number: '+241 01 72 13 26', color: 'bg-orange-500/10 text-orange-600' },

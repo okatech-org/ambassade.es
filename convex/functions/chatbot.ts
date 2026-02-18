@@ -14,7 +14,7 @@ const SYSTEM_PROMPT = `Tu es **Mr Ray** 🐡, l'assistant virtuel intelligent du
 
 ## Coordonnées du Consulat
 - **Adresse :** 26 bis, avenue Raphaël — 75016 Paris
-- **Email :** consulatgeneralgabon@yahoo.fr
+- **Email :** contact@consulatdugabon.fr
 
 ## Tes missions principales
 1. **Orienter les usagers** vers les pages d'information du site qui correspondent à leurs questions
@@ -105,7 +105,7 @@ export const chat = action({
     if (!apiKey) {
       return {
         response:
-          "Je suis désolé, le service de chat est temporairement indisponible. Veuillez contacter le consulat par email à consulatgeneralgabon@yahoo.fr.",
+          "Je suis désolé, le service de chat est temporairement indisponible. Veuillez contacter le consulat par email à contact@consulatdugabon.fr.",
         error: true,
       };
     }
@@ -148,7 +148,7 @@ export const chat = action({
       console.error("Gemini API error:", error);
       return {
         response:
-          "Une erreur s'est produite. Veuillez réessayer ou contacter le consulat directement par email à consulatgeneralgabon@yahoo.fr.",
+          "Une erreur s'est produite. Veuillez réessayer ou contacter le consulat directement par email à contact@consulatdugabon.fr.",
         error: true,
       };
     }

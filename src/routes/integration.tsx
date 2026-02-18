@@ -216,7 +216,7 @@ const erreursCourantes: ErreurItem[] = [
 
 const numerosUtiles: NumeroUtile[] = [
   { label: 'Consul Général du Gabon', number: '26 bis av. Raphaël, 75016', color: 'bg-emerald-500/10 text-emerald-600' },
-  { label: 'Email Consulat', number: 'consulatgeneralgabon@yahoo.fr', color: 'bg-emerald-500/10 text-emerald-600' },
+  { label: 'Email Consulat', number: 'contact@consulatdugabon.fr', color: 'bg-emerald-500/10 text-emerald-600' },
   { label: 'Urgence consulaire Gabon', number: '07 44 23 95 84', color: 'bg-green-500/10 text-green-600' },
   { label: 'SAMU (urgences médicales)', number: '15', color: 'bg-red-500/10 text-red-600' },
   { label: 'Police / Gendarmerie', number: '17', color: 'bg-blue-500/10 text-blue-600' },

@@ -97,7 +97,7 @@ export default function Footer() {
               {t('footer.links.legal', 'Mentions Légales')}
             </Link>
             <span>·</span>
-            <Link to="/politique-confidentialite" className="hover:text-foreground transition-colors">
+            <Link to="/confidentialite" className="hover:text-foreground transition-colors">
               {t('footer.links.privacy', 'Politique de Confidentialité')}
             </Link>
             <span>·</span>

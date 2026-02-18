@@ -81,7 +81,7 @@ export function MrRayChatbot() {
         {
           role: 'model',
           content:
-            "Désolé, une erreur s'est produite. Veuillez réessayer ou contacter le consulat par email à **consulatgeneralgabon@yahoo.fr**.",
+            "Désolé, une erreur s'est produite. Veuillez réessayer ou contacter le consulat par email à **contact@consulatdugabon.fr**.",
         },
       ])
     } finally {

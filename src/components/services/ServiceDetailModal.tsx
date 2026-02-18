@@ -22,13 +22,10 @@ import {
   AlertTriangle,
   Banknote,
   CalendarCheck,
-  Mail,
-  MapPin,
   ArrowRight,
   type LucideIcon,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Link } from '@tanstack/react-router'
 
 const CATEGORY_CONFIG: Record<string, { icon: LucideIcon; color: string }> = {
   [ServiceCategory.Identity]: { icon: BookOpenCheck, color: 'bg-blue-500' },
@@ -221,57 +218,17 @@ export function ServiceDetailModal({
 
           {(service.requirements?.length ?? 0) > 0 && <Separator />}
 
-          {/* Actions */}
+          {/* Action */}
           <div className="flex flex-col sm:flex-row gap-3">
             <Button 
               className="flex-1 gap-2 w-full sm:w-auto" 
               asChild
             >
-              <a href="mailto:consulatgeneralgabon@yahoo.fr?subject=Demande de renseignement" >
-                <Mail className="h-4 w-4" />
-                Contacter le consulat
+              <a href="https://www.consulat.ga/" target="_blank" rel="noopener noreferrer">
+                <ArrowRight className="h-4 w-4" />
+                {t('services.modal.makeRequest', 'Faire la démarche')}
               </a>
             </Button>
-          </div>
-
-          {/* Cross-links */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <Link
-              to="/integration"
-              className="flex items-center gap-3 p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
-            >
-              <div className="p-2 rounded-lg bg-primary/10">
-                <BookOpen className="w-4 h-4 text-primary" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-foreground">Guide d'intégration</p>
-                <p className="text-xs text-muted-foreground truncate">Conseils pratiques en France</p>
-              </div>
-              <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-            </Link>
-            <Link
-              to="/vie-en-france"
-              className="flex items-center gap-3 p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
-            >
-              <div className="p-2 rounded-lg bg-primary/10">
-                <MapPin className="w-4 h-4 text-primary" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-foreground">Vie en France</p>
-                <p className="text-xs text-muted-foreground truncate">Démarches préfectorales</p>
-              </div>
-              <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-            </Link>
-          </div>
-
-          {/* Info supplémentaire */}
-          <div className="bg-muted/50 rounded-lg p-4 text-sm text-muted-foreground">
-            <p className="font-medium text-foreground mb-2 flex items-center gap-2">
-              <MapPin className="w-4 h-4" />
-              Consulat Général du Gabon
-            </p>
-            <p>26 bis, avenue Raphaël — 75016 Paris</p>
-            <p>📧 consulatgeneralgabon@yahoo.fr</p>
           </div>
         </div>
       </DialogContent>
