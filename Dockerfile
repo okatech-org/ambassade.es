@@ -32,8 +32,6 @@ ENV CLERK_SECRET_KEY=$CLERK_SECRET_KEY
 ENV CONVEX_DEPLOYMENT=$CONVEX_DEPLOYMENT
 ENV VITE_SENTRY_DSN=$VITE_SENTRY_DSN
 
-# Use Nitro instead of Netlify for Node.js server output
-ENV DOCKER_BUILD=true
 
 RUN npx vite build
 
