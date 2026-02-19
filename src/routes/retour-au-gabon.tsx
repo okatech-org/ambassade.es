@@ -32,19 +32,28 @@ import {
   type ErreurItem,
   type NumeroUtile,
 } from '@/components/guides'
+import i18n from '@/integrations/i18n/i18n'
 
 export const Route = createFileRoute('/retour-au-gabon')({
   component: RetourAuGabonPage,
-  head: () => ({
-    meta: [
-      { title: 'Retour au Gabon — Guide Complet | Consulat Général du Gabon' },
-      {
-        name: 'description',
-        content:
-          'Guide complet pour préparer votre retour au Gabon : démarches consulaires, déménagement, réinstallation, emploi, OQTF, aides et maintien de vos droits acquis en France.',
-      },
-    ],
-  }),
+  head: () => {
+    const isEn = (i18n.resolvedLanguage || i18n.language).startsWith('en')
+    return {
+      meta: [
+        {
+          title: isEn
+            ? 'Returning to Gabon — Complete Guide | General Consulate of Gabon'
+            : 'Retour au Gabon — Guide Complet | Consulat Général du Gabon',
+        },
+        {
+          name: 'description',
+          content: isEn
+            ? 'Complete guide to prepare your return to Gabon: consular procedures, moving logistics, resettlement, employment, OQTF support and continuity of acquired rights.'
+            : 'Guide complet pour préparer votre retour au Gabon : démarches consulaires, déménagement, réinstallation, emploi, OQTF, aides et maintien de vos droits acquis en France.',
+        },
+      ],
+    }
+  },
 })
 
 // ─── Data : Guide Sections ──────────────────────────────────────────────────
@@ -275,10 +284,230 @@ const numerosUtiles: NumeroUtile[] = [
   { label: 'CNAMGS (Santé Gabon)', number: '+241 01 76 26 52', color: 'bg-pink-500/10 text-pink-600' },
 ]
 
+const guideSectionsEn: GuideSection[] = [
+  {
+    id: 'preparation',
+    icon: FileText,
+    title: 'Preparing Your Return',
+    color: 'text-blue-600 dark:text-blue-400',
+    iconBg: 'bg-blue-500/10',
+    image: '/images/guide-droits.png',
+    intro: 'A return to Gabon is easier when planned early. Build your timeline 6 to 12 months in advance.',
+    items: [
+      { title: 'Consular procedures', detail: 'Update passports, civil records and essential consular files before departure to avoid delays after arrival.' },
+      { title: 'Closing obligations in France', detail: 'Terminate housing and utility contracts, notify institutions, and keep proof of closure for every account.' },
+      { title: 'Medical record transfer', detail: 'Request complete medical history, prescriptions and key reports before leaving France.' },
+      { title: 'Core document pack', detail: 'Prepare identity, civil status, diploma, employment and retirement documents in both paper and secure digital copies.' },
+      { title: 'Banking transition', detail: 'Keep your French account active for a transition period while opening local banking services in Gabon.' },
+    ],
+    tips: [
+      'Start preparations at least 6 months before departure',
+      'Digitize all documents and keep cloud backups',
+      'Inform CAF, CPAM, France Travail and tax authorities',
+      'Do not close your French bank account immediately',
+    ],
+    links: [
+      { label: 'ANTS', url: 'https://ants.gouv.fr', description: 'French administrative procedures (license and identity)' },
+      { label: 'L\'Assurance Retraite', url: 'https://www.lassuranceretraite.fr', description: 'Career statement and pension rights' },
+      { label: 'La Poste — Réexpédition', url: 'https://www.laposte.fr/outils/reexpedition-courrier', description: 'Mail forwarding service' },
+    ],
+  },
+  {
+    id: 'demenagement',
+    icon: PackageCheck,
+    title: 'Moving Logistics',
+    color: 'text-orange-600 dark:text-orange-400',
+    iconBg: 'bg-orange-500/10',
+    intro: 'Shipping personal belongings requires cost comparisons, insurance and customs planning.',
+    items: [
+      { title: 'Sea freight', detail: 'Best option for larger volumes. Compare multiple quotations and verify transit timelines and insurance conditions.' },
+      { title: 'Air freight', detail: 'Faster but more expensive; reserve for urgent and limited items.' },
+      { title: 'Customs exemptions', detail: 'Returnees may benefit from exemptions under conditions. Confirm requirements before shipment.' },
+      { title: 'Vehicle import', detail: 'Evaluate total import cost and compliance rules before deciding to ship a vehicle.' },
+      { title: 'Detailed inventory', detail: 'Maintain a signed and dated inventory with estimated values and photos for customs and insurance.' },
+    ],
+    tips: [
+      'Request at least 3 transport quotes',
+      'Ship early to avoid arrival gaps',
+      'Check restricted goods lists before packing',
+      'Photograph contents before container sealing',
+    ],
+    links: [
+      { label: 'Douanes Gabon', url: 'https://www.douanes.ga', description: 'Gabon customs information' },
+    ],
+  },
+  {
+    id: 'reinstallation',
+    icon: Home,
+    title: 'Resettlement in Gabon',
+    color: 'text-green-600 dark:text-green-400',
+    iconBg: 'bg-green-500/10',
+    image: '/images/guide-logement.png',
+    intro: 'Returning home often requires practical and psychological adjustment. Plan housing, schools and daily services early.',
+    items: [
+      { title: 'Housing in Libreville', detail: 'Visit neighborhoods in person, compare rent levels and verify lease terms before signing.' },
+      { title: 'School enrollment', detail: 'Public, private and AEFE options exist. Gather records early to secure placement deadlines.' },
+      { title: 'Daily adaptation', detail: 'A reverse culture shock is common. Build support through trusted local and returnee networks.' },
+      { title: 'Banking and payments', detail: 'Open local accounts and keep cross-border transfer options available during transition.' },
+      { title: 'Telecom and internet', detail: 'Activate local mobile and connectivity services quickly to maintain admin and family communication.' },
+    ],
+    tips: [
+      'Plan a 3-to-6 month transition budget',
+      'Inspect housing personally before commitment',
+      'Use returnee associations for practical onboarding',
+      'Maintain temporary financial redundancy during transition',
+    ],
+    links: [
+      { label: 'Lycée Blaise Pascal', url: 'https://lfbp-libreville.net', description: 'French school network in Libreville' },
+      { label: 'BGFI Bank', url: 'https://www.bgfi.com', description: 'Regional banking services' },
+    ],
+  },
+  {
+    id: 'emploi',
+    icon: Briefcase,
+    title: 'Employment & Entrepreneurship',
+    color: 'text-purple-600 dark:text-purple-400',
+    iconBg: 'bg-purple-500/10',
+    image: '/images/guide-emploi.png',
+    intro: 'Skills acquired in France can be a strong advantage on the Gabonese market when positioned correctly.',
+    items: [
+      { title: 'Job market overview', detail: 'Priority sectors include energy, infrastructure, finance, digital services, health and education.' },
+      { title: 'Business creation', detail: 'ANPI pathways and local support structures can accelerate project setup and compliance.' },
+      { title: 'Diploma recognition', detail: 'Handle apostille/legalization procedures before departure whenever possible.' },
+      { title: 'Professional networking', detail: 'Local networks and business communities are key for faster reintegration.' },
+      { title: 'Investment incentives', detail: 'Depending on project and location, tax and import incentives may apply.' },
+    ],
+    tips: [
+      'Prepare credential recognition before leaving France',
+      'Map your target sectors and contacts in advance',
+      'Use ANPI and chamber resources for structured support',
+      'Activate professional networks before arrival',
+    ],
+    links: [
+      { label: 'ANPI Gabon', url: 'https://www.anpi.ga', description: 'Investment and business support agency' },
+      { label: 'ONE Gabon', url: 'https://one.ga', description: 'National employment office' },
+      { label: 'Business France', url: 'https://www.businessfrance.fr', description: 'France-Gabon business opportunities' },
+    ],
+  },
+  {
+    id: 'droits',
+    icon: Shield,
+    title: 'Preserving Acquired Rights',
+    color: 'text-teal-600 dark:text-teal-400',
+    iconBg: 'bg-teal-500/10',
+    intro: 'Leaving France does not erase all rights. Retirement, taxation and healthcare continuity require proactive steps.',
+    items: [
+      { title: 'French pension rights', detail: 'Contributed periods remain acquired. Request updated career records before departure.' },
+      { title: 'Unemployment rights transition', detail: 'Rules change after definitive departure; request formal attestations before leaving.' },
+      { title: 'Healthcare continuity options', detail: 'Assess CNAMGS, CFE and private coverage combinations for your profile.' },
+      { title: 'Tax departure obligations', detail: 'Departure year may require dual declaration periods and source-income clarification.' },
+      { title: 'Consular and civic registrations', detail: 'Update registrations based on your nationality profile and place of residence.' },
+    ],
+    tips: [
+      'Request pension records before departure',
+      'Keep salary and employment certificates safely archived',
+      'Clarify cross-border tax status early',
+      'Maintain access credentials for key French portals',
+    ],
+    links: [
+      { label: 'L\'Assurance Retraite', url: 'https://www.lassuranceretraite.fr', description: 'Pension rights and records' },
+      { label: 'CFE', url: 'https://www.cfe.fr', description: 'Healthcare continuity abroad' },
+      { label: 'Impots.gouv.fr', url: 'https://www.impots.gouv.fr', description: 'Tax declarations and departure guidance' },
+    ],
+  },
+  {
+    id: 'sante-gabon',
+    icon: Stethoscope,
+    title: 'Health & Well-Being in Gabon',
+    color: 'text-red-600 dark:text-red-400',
+    iconBg: 'bg-red-500/10',
+    intro: 'Healthcare organization differs from France. Prepare coverage, medications and preventive care before returning.',
+    items: [
+      { title: 'Healthcare system overview', detail: 'Combine public and private care options depending on availability and urgency.' },
+      { title: 'Coverage strategy', detail: 'Evaluate CNAMGS, CFE and private international plans based on your risk profile.' },
+      { title: 'Vaccination and prevention', detail: 'Update required vaccines and malaria prevention before travel.' },
+      { title: 'Medication continuity', detail: 'Bring a transition stock of chronic treatment and generic-name prescriptions.' },
+      { title: 'Psychological adjustment', detail: 'Reverse culture shock is common; seek support networks and professional help if needed.' },
+    ],
+    tips: [
+      'Plan health coverage before the move date',
+      'Carry international generic prescriptions',
+      'Verify yellow-fever and other vaccine requirements',
+      'Prepare a 3-to-6 month treatment stock when possible',
+    ],
+    links: [
+      { label: 'CNAMGS', url: 'https://www.cnamgs.com', description: 'National health insurance in Gabon' },
+      { label: 'CFE', url: 'https://www.cfe.fr', description: 'French coverage continuity abroad' },
+      { label: 'Institut Pasteur — Vaccins', url: 'https://www.pasteur.fr/fr/centre-medical/preparer-son-voyage', description: 'Travel vaccine recommendations' },
+    ],
+  },
+  {
+    id: 'oqtf-retour',
+    icon: AlertOctagon,
+    title: 'OQTF & Forced Return',
+    color: 'text-rose-600 dark:text-rose-400',
+    iconBg: 'bg-rose-500/10',
+    intro: 'If you face an OQTF, act quickly. Legal timelines and return choices strongly affect your long-term options.',
+    items: [
+      { title: 'Understanding your case', detail: 'Voluntary and forced return scenarios have different legal consequences and future visa impact.' },
+      { title: 'Rights before departure', detail: 'Even with OQTF, core rights remain, including legal challenge and consular support.' },
+      { title: 'Role of the Consulate', detail: 'The consulate can orient you, help organize documents and coordinate return assistance channels.' },
+      { title: 'OFII voluntary return aid', detail: 'OFII may support travel, reintegration and project-based assistance under eligibility rules.' },
+      { title: 'Rebuilding after return', detail: 'International skills remain valuable for reintegration and entrepreneurship in Gabon.' },
+    ],
+    tips: [
+      'Voluntary return is generally less damaging for future mobility',
+      'Contact legal counsel and the consulate immediately',
+      'Preserve all documents related to your stay and appeals',
+      'Use reintegration programs to structure your next steps',
+    ],
+    links: [
+      { label: 'OFII — Retour', url: 'https://www.ofii.fr/procedure/retourner-dans-son-pays', description: 'Voluntary return assistance' },
+      { label: 'CIMADE', url: 'https://www.lacimade.org', description: 'Free legal support' },
+      { label: 'ANPI Gabon', url: 'https://www.anpi.ga', description: 'Entrepreneurship support in Gabon' },
+      { label: 'Défenseur des droits', url: 'https://www.defenseurdesdroits.fr', description: 'Rights defense and complaints' },
+    ],
+  },
+]
+
+const aidesEn: { icon: typeof HandCoins; title: string; detail: string }[] = [
+  { icon: HandCoins, title: 'OFII voluntary return aid', detail: 'Depending on eligibility, OFII may provide travel support, reintegration allowance and project assistance.' },
+  { icon: GraduationCap, title: 'ANPI support programmes', detail: 'ANPI can help returnees structure business projects, identify incentives and connect to local ecosystems.' },
+  { icon: Users, title: 'Diaspora and returnee networks', detail: 'Community organizations provide practical guidance, peer support and local orientation during reintegration.' },
+]
+
+const erreursEn: ErreurItem[] = [
+  { erreur: 'Leaving without apostille/legalization for diplomas', conseil: 'Complete recognition steps before departure whenever possible.' },
+  { erreur: 'Not notifying French administrations', conseil: 'Inform CAF, CPAM, France Travail and tax services to avoid overpayments and penalties.' },
+  { erreur: 'Closing your French bank account too early', conseil: 'Keep it active during transition for pending payments and rights settlements.' },
+  { erreur: 'Skipping civil-record transcription', conseil: 'Handle key civil acts before departure to simplify procedures after return.' },
+  { erreur: 'Underestimating resettlement costs', conseil: 'Budget at least several months for housing, health and transportation adjustments.' },
+  { erreur: 'Ignoring customs requirements', conseil: 'Validate exemption rules and required documents before shipping belongings.' },
+  { erreur: 'Returning without medication continuity', conseil: 'Bring a transition stock and prescriptions for chronic treatments.' },
+]
+
+const numerosUtilesEn: NumeroUtile[] = [
+  { label: 'Consul General of Gabon in Paris', number: '26 bis av. Raphaël, 75016', color: 'bg-emerald-500/10 text-emerald-600' },
+  { label: 'Gabon Consulate Email', number: 'contact@consulatdugabon.fr', color: 'bg-emerald-500/10 text-emerald-600' },
+  { label: 'Gabon Consular Emergency', number: '07 44 23 95 84', color: 'bg-green-500/10 text-green-600' },
+  { label: 'OFII (Return aid)', number: '01 53 69 53 70', color: 'bg-blue-500/10 text-blue-600' },
+  { label: 'Gabon Customs', number: '+241 01 72 13 26', color: 'bg-orange-500/10 text-orange-600' },
+  { label: 'ANPI Gabon', number: '+241 01 79 52 52', color: 'bg-purple-500/10 text-purple-600' },
+  { label: 'ONE (Employment Gabon)', number: '+241 01 76 01 11', color: 'bg-indigo-500/10 text-indigo-600' },
+  { label: 'French Embassy in Libreville', number: '+241 01 79 70 00', color: 'bg-red-500/10 text-red-600' },
+  { label: 'CNAMGS (Health Gabon)', number: '+241 01 76 26 52', color: 'bg-pink-500/10 text-pink-600' },
+]
+
 // ─── Main Page Component ─────────────────────────────────────────────────────
 
 function RetourAuGabonPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.resolvedLanguage || i18n.language
+  const isEn = lang.startsWith('en')
+  const tSections = isEn ? guideSectionsEn : guideSections
+  const tErreurs = isEn ? erreursEn : erreurs
+  const tNumeros = isEn ? numerosUtilesEn : numerosUtiles
+  const tAides = isEn ? aidesEn : aides
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -301,7 +530,7 @@ function RetourAuGabonPage() {
               </p>
 
               <div className="flex flex-wrap gap-2">
-                {guideSections.map((s) => {
+                {tSections.map((s) => {
                   const SIcon = s.icon
                   return (
                     <a
@@ -334,7 +563,7 @@ function RetourAuGabonPage() {
             </div>
 
             <div className="space-y-8">
-              {guideSections.map((section) => (
+              {tSections.map((section) => (
                 <GuideSectionCard key={section.id} section={section} />
               ))}
             </div>
@@ -358,7 +587,7 @@ function RetourAuGabonPage() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {aides.map((aide, idx) => {
+              {tAides.map((aide, idx) => {
                 const Icon = aide.icon
                 return (
                   <div key={idx} className="glass-card rounded-2xl p-6 hover:-translate-y-2 transition-all duration-300">
@@ -390,7 +619,7 @@ function RetourAuGabonPage() {
               </p>
             </div>
 
-            <ErreursCourantesGrid items={erreurs} />
+            <ErreursCourantesGrid items={tErreurs} />
           </div>
         </section>
 
@@ -410,7 +639,7 @@ function RetourAuGabonPage() {
               </p>
             </div>
 
-            <NumerosUtilesGrid items={numerosUtiles} />
+            <NumerosUtilesGrid items={tNumeros} />
           </div>
         </section>
 

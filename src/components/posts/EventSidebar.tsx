@@ -1,4 +1,5 @@
 import { Calendar, MapPin, Clock, Ticket, ExternalLink } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
@@ -14,8 +15,8 @@ interface EventSidebarProps {
   ticketPrice?: string
 }
 
-function formatEventDate(timestamp: number) {
-  return new Intl.DateTimeFormat('fr-FR', {
+function formatEventDate(timestamp: number, lang: string) {
+  return new Intl.DateTimeFormat(lang.startsWith('en') ? 'en-GB' : 'fr-FR', {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
@@ -23,11 +24,13 @@ function formatEventDate(timestamp: number) {
   }).format(new Date(timestamp))
 }
 
-function formatEventDateShort(timestamp: number) {
+function formatEventDateShort(timestamp: number, lang: string) {
   const date = new Date(timestamp)
   return {
     day: date.getDate(),
-    month: new Intl.DateTimeFormat('fr-FR', { month: 'short' }).format(date).toUpperCase(),
+    month: new Intl.DateTimeFormat(lang.startsWith('en') ? 'en-GB' : 'fr-FR', {
+      month: 'short',
+    }).format(date).toUpperCase(),
     year: date.getFullYear(),
   }
 }
@@ -42,10 +45,14 @@ export function EventSidebar({
   ticketLink,
   ticketPrice,
 }: EventSidebarProps) {
+  const { t, i18n } = useTranslation()
+  const lang = i18n.resolvedLanguage || i18n.language
+
   if (!eventDate) return null
 
-  const dateInfo = formatEventDateShort(eventDate)
-  const isFree = !ticketPrice || ticketPrice.toLowerCase() === 'gratuit'
+  const dateInfo = formatEventDateShort(eventDate, lang)
+  const normalizedPrice = (ticketPrice || '').toLowerCase()
+  const isFree = !ticketPrice || normalizedPrice === 'gratuit' || normalizedPrice === 'free'
 
   return (
     <div className="glass-card sticky top-24 overflow-hidden rounded-2xl shadow-lg border-primary/20">
@@ -67,11 +74,11 @@ export function EventSidebar({
           </div>
           <div>
             <div className="font-bold text-foreground">
-              {formatEventDate(eventDate)}
+              {formatEventDate(eventDate, lang)}
             </div>
             {eventEndDate && eventEndDate !== eventDate && (
               <div className="text-sm text-muted-foreground mt-0.5">
-                au {formatEventDate(eventEndDate)}
+                {t('news.event.until', 'until')} {formatEventDate(eventEndDate, lang)}
               </div>
             )}
           </div>
@@ -105,7 +112,7 @@ export function EventSidebar({
                   rel="noopener noreferrer"
                   className="text-xs font-semibold text-primary hover:text-primary/80 inline-flex items-center gap-1 mt-2 uppercase tracking-wide transition-colors"
                 >
-                  Voir sur la carte
+                  {t('news.event.viewMap', 'View on map')}
                   <ExternalLink className="w-3 h-3" />
                 </a>
               )}
@@ -132,13 +139,13 @@ export function EventSidebar({
           <Button asChild className="w-full shadow-md hover:shadow-lg transition-all" size="lg">
             <a href={ticketLink} target="_blank" rel="noopener noreferrer">
               <Ticket className="w-4 h-4 mr-2" />
-              Réserver une place
+              {t('news.event.book', 'Book a seat')}
             </a>
           </Button>
         ) : (
           <Button className="w-full opacity-80" size="lg" variant="secondary" disabled>
             <Calendar className="w-4 h-4 mr-2" />
-            Entrée libre
+            {t('news.event.freeEntry', 'Free entry')}
           </Button>
         )}
       </div>

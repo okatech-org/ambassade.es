@@ -1,6 +1,6 @@
 import { v } from "convex/values";
 import { query, mutation } from "../_generated/server";
-import { requireSuperadmin } from "../lib/auth";
+import { requireModule } from "../lib/auth";
 const paginationOptsValidator = v.object({
   numItems: v.number(),
   cursor: v.union(v.string(), v.null()),
@@ -42,7 +42,7 @@ export const getBySlug = query({
 export const adminGetBySlug = query({
   args: { slug: v.string() },
   handler: async (ctx, args) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "posts");
     const post = await ctx.db
       .query("posts")
       .withIndex("by_slug", (q) => q.eq("slug", args.slug))
@@ -105,7 +105,7 @@ export const list = query({
 export const listAll = query({
   args: {},
   handler: async (ctx) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "posts");
     const posts = await ctx.db.query("posts").order("desc").collect();
     
     // Resolve URLs
@@ -151,7 +151,7 @@ export const create = mutation({
     referenceNumber: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "posts");
     
     // Check slug uniqueness
     const existing = await ctx.db
@@ -200,7 +200,7 @@ export const update = mutation({
     referenceNumber: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "posts");
     const { id, ...fields } = args;
     
     // Check slug uniqueness if changed
@@ -223,8 +223,41 @@ export const update = mutation({
 export const remove = mutation({
   args: { id: v.id("posts") },
   handler: async (ctx, args) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "posts");
     await ctx.db.delete(args.id);
+  },
+});
+
+// Admin: Update only the cover image of a post (for inline editing)
+export const updateCoverImage = mutation({
+  args: {
+    id: v.id("posts"),
+    coverImageStorageId: v.id("_storage"),
+  },
+  handler: async (ctx, args) => {
+    await requireModule(ctx, "posts");
+    const post = await ctx.db.get(args.id);
+    if (!post) throw new Error("Post not found");
+    await ctx.db.patch(args.id, {
+      coverImageStorageId: args.coverImageStorageId,
+      coverImagePosition: undefined, // Reset position when image changes
+    });
+  },
+});
+
+// Admin: Update the cover image position (object-position CSS)
+export const updateCoverImagePosition = mutation({
+  args: {
+    id: v.id("posts"),
+    position: v.string(), // e.g. "50% 30%"
+  },
+  handler: async (ctx, args) => {
+    await requireModule(ctx, "posts");
+    const post = await ctx.db.get(args.id);
+    if (!post) throw new Error("Post not found");
+    await ctx.db.patch(args.id, {
+      coverImagePosition: args.position,
+    });
   },
 });
 

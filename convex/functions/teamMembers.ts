@@ -1,6 +1,6 @@
 import { v } from "convex/values";
 import { query, mutation } from "../_generated/server";
-import { requireSuperadmin } from "../lib/auth";
+import { requireModule } from "../lib/auth";
 
 // Public: List all active team members
 export const list = query({
@@ -60,7 +60,7 @@ export const getConsulGeneral = query({
 export const listAll = query({
   args: {},
   handler: async (ctx) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "team");
     
     const members = await ctx.db
       .query("teamMembers")
@@ -88,7 +88,7 @@ export const listAll = query({
 export const getById = query({
   args: { id: v.id("teamMembers") },
   handler: async (ctx, args) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "team");
     
     const member = await ctx.db.get(args.id);
     if (!member) return null;
@@ -119,7 +119,7 @@ export const create = mutation({
     isActive: v.boolean(),
   },
   handler: async (ctx, args) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "team");
     
     // If this is the new Consul General, unset the previous one
     if (args.isConsulGeneral) {
@@ -159,7 +159,7 @@ export const update = mutation({
     isActive: v.boolean(),
   },
   handler: async (ctx, args) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "team");
     
     const { id, ...fields } = args;
     
@@ -186,7 +186,7 @@ export const update = mutation({
 export const remove = mutation({
   args: { id: v.id("teamMembers") },
   handler: async (ctx, args) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "team");
     
     const member = await ctx.db.get(args.id);
     if (!member) throw new Error("Team member not found");
@@ -206,7 +206,7 @@ export const reorder = mutation({
     orderedIds: v.array(v.id("teamMembers")),
   },
   handler: async (ctx, args) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "team");
     
     // Update order for each member
     for (let i = 0; i < args.orderedIds.length; i++) {
@@ -219,7 +219,7 @@ export const reorder = mutation({
 export const toggleActive = mutation({
   args: { id: v.id("teamMembers") },
   handler: async (ctx, args) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "team");
     
     const member = await ctx.db.get(args.id);
     if (!member) throw new Error("Team member not found");
@@ -232,7 +232,7 @@ export const toggleActive = mutation({
 export const generateUploadUrl = mutation({
   args: {},
   handler: async (ctx) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "team");
     return await ctx.storage.generateUploadUrl();
   },
 });

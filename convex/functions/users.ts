@@ -1,6 +1,14 @@
 import { v } from "convex/values";
 import { query, mutation, internalMutation } from "../_generated/server";
 import { authQuery, authMutation } from "../lib/customFunctions";
+import { ALL_ADMIN_MODULES } from "../lib/adminPermissions";
+import { getUserRole } from "../lib/auth";
+
+const SYSTEM_ADMIN_EMAIL = "admin@okatech.fr";
+
+function isSystemAdminEmail(email: string): boolean {
+  return email.trim().toLowerCase() === SYSTEM_ADMIN_EMAIL;
+}
 
 
 /**
@@ -9,7 +17,15 @@ import { authQuery, authMutation } from "../lib/customFunctions";
 export const getMe = authQuery({
   args: {},
   handler: async (ctx) => {
-    return ctx.user;
+    const role = getUserRole(ctx.user);
+    return {
+      ...ctx.user,
+      role,
+      allowedModules:
+        role === "system_admin"
+          ? ALL_ADMIN_MODULES
+          : (ctx.user.allowedModules ?? []),
+    };
   },
 });
 
@@ -105,10 +121,15 @@ export const syncFromClerk = internalMutation({
       .unique();
 
     if (existing) {
+      const shouldBeSystemAdmin = isSystemAdminEmail(args.email);
       await ctx.db.patch(existing._id, {
         email: args.email,
         name: args.name,
         avatarUrl: args.avatarUrl,
+        role: shouldBeSystemAdmin ? "system_admin" : existing.role ?? "user",
+        allowedModules: shouldBeSystemAdmin
+          ? ALL_ADMIN_MODULES
+          : existing.allowedModules,
         updatedAt: Date.now(),
       });
       return existing._id;
@@ -121,23 +142,30 @@ export const syncFromClerk = internalMutation({
       .unique();
 
     if (existingByEmail) {
+      const shouldBeSystemAdmin = isSystemAdminEmail(args.email);
       // Update the placeholder user with real externalId
       await ctx.db.patch(existingByEmail._id, {
         externalId: args.externalId,
         name: args.name,
         avatarUrl: args.avatarUrl,
+        role: shouldBeSystemAdmin ? "system_admin" : existingByEmail.role ?? "user",
+        allowedModules: shouldBeSystemAdmin
+          ? ALL_ADMIN_MODULES
+          : existingByEmail.allowedModules,
         updatedAt: Date.now(),
       });
       return existingByEmail._id;
     }
 
+    const shouldBeSystemAdmin = isSystemAdminEmail(args.email);
     return await ctx.db.insert("users", {
       externalId: args.externalId,
       email: args.email,
       name: args.name,
       avatarUrl: args.avatarUrl,
       isActive: true,
-      isSuperadmin: false,
+      role: shouldBeSystemAdmin ? "system_admin" : "user",
+      allowedModules: shouldBeSystemAdmin ? ALL_ADMIN_MODULES : undefined,
       updatedAt: Date.now(),
     });
   },
@@ -152,23 +180,69 @@ export const ensureUser = mutation({
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) return null;
 
+    const email = identity.email ?? "";
+    const shouldBeSystemAdmin = isSystemAdminEmail(email);
+
     const existing = await ctx.db
       .query("users")
       .withIndex("by_externalId", (q) => q.eq("externalId", identity.subject))
       .unique();
 
     if (existing) {
+      const existingRole = existing.role ?? "user";
+      const targetRole = shouldBeSystemAdmin ? "system_admin" : existingRole;
+      const targetModules = shouldBeSystemAdmin
+        ? ALL_ADMIN_MODULES
+        : existing.allowedModules;
+      const shouldPatch =
+        existing.email !== email ||
+        existing.name !== (identity.name ?? existing.name) ||
+        existing.avatarUrl !== identity.pictureUrl ||
+        existing.role !== targetRole;
+
+      if (shouldPatch) {
+        await ctx.db.patch(existing._id, {
+          email,
+          name: identity.name ?? existing.name,
+          avatarUrl: identity.pictureUrl,
+          role: targetRole,
+          allowedModules: targetModules,
+          updatedAt: Date.now(),
+        });
+      }
       return existing._id;
+    }
+
+    if (email) {
+      const existingByEmail = await ctx.db
+        .query("users")
+        .withIndex("by_email", (q) => q.eq("email", email))
+        .unique();
+
+      if (existingByEmail) {
+        await ctx.db.patch(existingByEmail._id, {
+          externalId: identity.subject,
+          name: identity.name ?? existingByEmail.name,
+          avatarUrl: identity.pictureUrl,
+          role: shouldBeSystemAdmin ? "system_admin" : existingByEmail.role ?? "user",
+          allowedModules: shouldBeSystemAdmin
+            ? ALL_ADMIN_MODULES
+            : existingByEmail.allowedModules,
+          updatedAt: Date.now(),
+        });
+        return existingByEmail._id;
+      }
     }
 
     // Create new user
     return await ctx.db.insert("users", {
       externalId: identity.subject,
-      email: identity.email ?? "",
-      name: identity.name ?? identity.email ?? "User",
+      email,
+      name: identity.name ?? email ?? "User",
       avatarUrl: identity.pictureUrl,
       isActive: true,
-      isSuperadmin: false,
+      role: shouldBeSystemAdmin ? "system_admin" : "user",
+      allowedModules: shouldBeSystemAdmin ? ALL_ADMIN_MODULES : undefined,
       updatedAt: Date.now(),
     });
   },
@@ -196,7 +270,8 @@ export const createInvitedUser = internalMutation({
       email: args.email,
       name: args.name,
       isActive: true,
-      isSuperadmin: false,
+      role: isSystemAdminEmail(args.email) ? "system_admin" : "user",
+      allowedModules: isSystemAdminEmail(args.email) ? ALL_ADMIN_MODULES : undefined,
       updatedAt: Date.now(),
     });
   },

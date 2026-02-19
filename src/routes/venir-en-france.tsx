@@ -26,6 +26,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { PageHero } from '@/components/PageHero'
 import { CitizenCTA } from '@/components/home/CitizenCTA'
+import i18n from '@/integrations/i18n/i18n'
 import {
   GuideSectionCard,
   SavoirVivreGrid,
@@ -39,16 +40,24 @@ import {
 
 export const Route = createFileRoute('/venir-en-france')({
   component: VenirEnFrancePage,
-  head: () => ({
-    meta: [
-      { title: 'Venir en France — Guide Complet | Consulat Général du Gabon' },
-      {
-        name: 'description',
-        content:
-          'Guide complet pour les Gabonais venant en France : admission, visa, intégration, démarches administratives, codes culturels et droits de séjour.',
-      },
-    ],
-  }),
+  head: () => {
+    const isEn = (i18n.resolvedLanguage || i18n.language).startsWith('en')
+    return {
+      meta: [
+        {
+          title: isEn
+            ? 'Coming to France — Complete Guide | General Consulate of Gabon'
+            : 'Venir en France — Guide Complet | Consulat Général du Gabon',
+        },
+        {
+          name: 'description',
+          content: isEn
+            ? 'Complete guide for Gabonese nationals coming to France: admission, visa, integration, administrative steps, cultural norms and residency rights.'
+            : 'Guide complet pour les Gabonais venant en France : admission, visa, intégration, démarches administratives, codes culturels et droits de séjour.',
+        },
+      ],
+    }
+  },
 })
 
 // ─── Data : Guide Sections ──────────────────────────────────────────────────
@@ -434,10 +443,316 @@ const numerosUtiles: NumeroUtile[] = [
   { label: 'Aide juridictionnelle', number: '3039', color: 'bg-emerald-500/10 text-emerald-600' },
 ]
 
+const guideSectionsEn: GuideSection[] = [
+  {
+    id: 'admission',
+    icon: Plane,
+    title: 'Admission to France',
+    color: 'text-cyan-600 dark:text-cyan-400',
+    iconBg: 'bg-cyan-500/10',
+    image: '/images/guide-droits.png',
+    intro:
+      'Before you travel, prepare all required entry documents. A visa alone does not guarantee admission at the border.',
+    items: [
+      {
+        title: 'Visa categories',
+        detail:
+          'Short-stay visas (Schengen type C) cover tourism and family visits up to 90 days. Long-stay visas (type D / VLS-TS) are for studies, work and family settlement.',
+      },
+      {
+        title: 'Border control checklist',
+        detail:
+          'Carry a valid passport, valid visa, accommodation proof, return ticket for short stays, travel insurance and proof of financial resources.',
+      },
+      {
+        title: 'Hosting certificate',
+        detail:
+          'If hosted by a private person, an official hosting certificate issued by the town hall is often required for short-stay applications.',
+      },
+      {
+        title: 'VLS-TS validation',
+        detail:
+          'After arrival, validate your VLS-TS online within three months through ANEF/OFII procedures to keep your stay regular.',
+      },
+    ],
+    tips: [
+      'Keep both paper and digital copies of travel documents',
+      'Organize all supporting documents in one folder for border checks',
+      'Do not delay VLS-TS validation after arrival',
+      'Save emergency contacts before departure',
+    ],
+    links: [
+      { label: 'OFII', url: 'https://www.ofii.fr', description: 'French Office for Immigration and Integration' },
+      { label: 'France-Visas', url: 'https://france-visas.gouv.fr', description: 'Official French visa portal' },
+      { label: 'ANEF', url: 'https://administration-etrangers-en-france.interieur.gouv.fr', description: 'Foreigners portal in France' },
+    ],
+  },
+  {
+    id: 'etudiants',
+    icon: UserCheck,
+    title: 'Student Life',
+    color: 'text-indigo-600 dark:text-indigo-400',
+    iconBg: 'bg-indigo-500/10',
+    image: '/images/guide-education.png',
+    intro:
+      'Gabonese students in France have specific rights around work, residence renewal and post-graduation transitions.',
+    items: [
+      {
+        title: 'Campus France pathway',
+        detail:
+          'Most long-stay student visas are prepared through Campus France, then finalized with the French consular process.',
+      },
+      {
+        title: 'Scholarships and aid',
+        detail:
+          'You may combine Gabonese or French funding sources depending on eligibility: ANBG, CROUS social grants and emergency support.',
+      },
+      {
+        title: 'Work during studies',
+        detail:
+          'Students can generally work up to 964 hours per year. Exceeding this limit can affect permit renewal.',
+      },
+      {
+        title: 'After graduation',
+        detail:
+          'APS and status-change pathways can allow graduates to seek employment or start a business after completing eligible degrees.',
+      },
+    ],
+    tips: [
+      'Apply for residence renewal before your current permit expires',
+      'Track your annual work hours from your first contract',
+      'Keep transcripts and degree certificates ready for status changes',
+      'Use CROUS services early (housing, meals, social support)',
+    ],
+    links: [
+      { label: 'Campus France', url: 'https://www.campusfrance.org/fr', description: 'Study in France portal' },
+      { label: 'MesServices Étudiant', url: 'https://www.messervices.etudiant.gouv.fr', description: 'Student services (grants and housing)' },
+      { label: 'Service-public.fr — APS', url: 'https://www.service-public.fr/particuliers/vosdroits/F17319', description: 'Temporary post-study permit information' },
+      { label: 'Visale', url: 'https://www.visale.fr', description: 'Free rental guarantee for eligible profiles' },
+    ],
+  },
+  {
+    id: 'demarches',
+    icon: ClipboardList,
+    title: 'Administrative Procedures',
+    color: 'text-sky-600 dark:text-sky-400',
+    iconBg: 'bg-sky-500/10',
+    image: '/images/guide-emploi.png',
+    intro:
+      'Your legal stay in France depends on meeting key administrative deadlines and keeping your documents up to date.',
+    items: [
+      {
+        title: 'First residence process',
+        detail:
+          'Validate your visa on ANEF, pay required taxes, and complete OFII steps where applicable during your first months.',
+      },
+      {
+        title: 'Permit renewal',
+        detail:
+          'Submit renewal files 2 to 4 months before expiry. Keep your receipt and monitor your online case regularly.',
+      },
+      {
+        title: 'Status changes',
+        detail:
+          'Switching from student to employee often requires a qualifying job offer, employer procedure, and prefecture submission.',
+      },
+      {
+        title: 'Loss or theft of documents',
+        detail:
+          'Declare loss/theft immediately, then request replacement through the relevant authority (consulate, prefecture or ANEF).',
+      },
+    ],
+    tips: [
+      'Set reminders for every permit and filing deadline',
+      'Store scanned copies of all identity and residence records',
+      'Use ANEF as the primary channel when available',
+      'Always keep proof of submission and receipts',
+    ],
+    links: [
+      { label: 'Portail ANEF', url: 'https://administration-etrangers-en-france.interieur.gouv.fr', description: 'Residence procedures online' },
+      { label: 'OFII', url: 'https://www.ofii.fr', description: 'Immigration and integration steps' },
+      { label: 'Service-public.fr', url: 'https://www.service-public.fr/particuliers/vosdroits/N19804', description: 'Official guidance for foreigners in France' },
+    ],
+  },
+  {
+    id: 'transport',
+    icon: Train,
+    title: 'Transport & Mobility',
+    color: 'text-emerald-600 dark:text-emerald-400',
+    iconBg: 'bg-emerald-500/10',
+    image: '/images/guide-logement.png',
+    intro:
+      'Understanding transport systems early will save you time and money, especially in your first months in France.',
+    items: [
+      {
+        title: 'Paris and Ile-de-France',
+        detail:
+          'Metro, RER, tram and bus networks are extensive. Monthly passes are usually more cost-effective than single tickets for frequent travel.',
+      },
+      {
+        title: 'Other cities',
+        detail:
+          'Every city has its own operator and fare system. Student and low-income discounts are often available.',
+      },
+      {
+        title: 'Long-distance travel',
+        detail:
+          'Book trains early on SNCF Connect for better prices. Youth discount cards can reduce costs significantly.',
+      },
+      {
+        title: 'Driving and local mobility',
+        detail:
+          'Check recognition rules for Gabonese driving licenses and exchange procedures through ANTS when applicable.',
+      },
+    ],
+    tips: [
+      'Use route apps (Citymapper/Google Maps) for real-time planning',
+      'Keep transport tickets or subscriptions valid to avoid fines',
+      'Compare monthly vs. pay-per-trip costs from your first week',
+      'Verify local rules for bikes and electric scooters',
+    ],
+    links: [
+      { label: 'RATP', url: 'https://www.ratp.fr', description: 'Public transport in Paris region' },
+      { label: 'SNCF Connect', url: 'https://www.sncf-connect.com', description: 'Train booking platform' },
+      { label: 'ANTS', url: 'https://ants.gouv.fr', description: 'Driving license administrative services' },
+    ],
+  },
+  {
+    id: 'banque',
+    icon: CreditCard,
+    title: 'Banking & Finances',
+    color: 'text-amber-600 dark:text-amber-400',
+    iconBg: 'bg-amber-500/10',
+    image: '/images/guide-famille.png',
+    intro:
+      'A French bank account is essential for rent, salaries and benefits. Build financial stability early after arrival.',
+    items: [
+      {
+        title: 'Opening a bank account',
+        detail:
+          'Traditional and digital options exist. If refused, you may use the legal right-to-an-account procedure through Banque de France.',
+      },
+      {
+        title: 'Money transfers to Gabon',
+        detail:
+          'Compare providers carefully for fees and exchange rates before each transfer.',
+      },
+      {
+        title: 'Tax obligations',
+        detail:
+          'Annual tax declaration is required in France, even with low or no income in many cases.',
+      },
+      {
+        title: 'Fraud prevention',
+        detail:
+          'Never share banking codes by phone or email. In case of fraud, block cards immediately and file a complaint.',
+      },
+    ],
+    tips: [
+      'Open your account as soon as you secure accommodation',
+      'Keep a copy of your bank details (RIB) ready for procedures',
+      'Always compare exchange-rate spread and transfer fees',
+      'Activate strong authentication in your banking app',
+    ],
+    links: [
+      { label: 'Banque de France', url: 'https://www.banque-france.fr/fr/a-votre-service/particulier/droit-au-compte', description: 'Right-to-an-account process' },
+      { label: 'Impots.gouv.fr', url: 'https://www.impots.gouv.fr', description: 'Tax portal and declarations' },
+      { label: 'Mes-aides.gouv.fr', url: 'https://www.mes-aides.gouv.fr', description: 'Social aid simulator' },
+    ],
+  },
+  {
+    id: 'oqtf',
+    icon: AlertOctagon,
+    title: 'OQTF: Understand and Act',
+    color: 'text-rose-600 dark:text-rose-400',
+    iconBg: 'bg-rose-500/10',
+    image: '/images/guide-sante.png',
+    intro:
+      'An OQTF is a serious administrative decision. Rapid legal action is critical to protect your rights and options.',
+    items: [
+      {
+        title: 'What an OQTF means',
+        detail:
+          'It is an order to leave France, with or without a voluntary departure period, depending on your case.',
+      },
+      {
+        title: 'Consequences if ignored',
+        detail:
+          'Ignoring an OQTF can lead to return bans, detention procedures and Schengen-wide consequences.',
+      },
+      {
+        title: 'Appeal routes',
+        detail:
+          'Administrative and hierarchical appeals exist, but court appeals are often the only suspensive remedy within strict deadlines.',
+      },
+      {
+        title: 'Consular support',
+        detail:
+          'The consulate can orient you to legal support, help document your case, and coordinate return-related assistance when required.',
+      },
+    ],
+    tips: [
+      'Do not wait: legal deadlines can be very short',
+      'Prioritize specialized legal counsel in immigration law',
+      'Organize all evidence of integration and residence history',
+      'Contact the consulate in parallel with legal steps',
+    ],
+    links: [
+      { label: 'CIMADE', url: 'https://www.lacimade.org', description: 'Free legal support for migrants' },
+      { label: 'GISTI', url: 'https://www.gisti.org', description: 'Immigration rights resources' },
+      { label: 'Aide juridictionnelle', url: 'https://www.service-public.fr/particuliers/vosdroits/F18074', description: 'Legal aid information' },
+      { label: 'Défenseur des droits', url: 'https://www.defenseurdesdroits.fr', description: 'Independent rights authority' },
+    ],
+  },
+]
+
+const savoirVivreEn: SavoirVivreItem[] = [
+  { icon: HandHeart, title: 'Respect and Courtesy', description: 'Politeness is central in everyday interactions. Greeting, thanking and using respectful language matter.' },
+  { icon: Landmark, title: 'Secularism and Social Life', description: 'Public institutions follow secular principles and expect respectful coexistence across beliefs.' },
+  { icon: Scale, title: 'Rules of Daily Life', description: 'Traffic, smoking, waste-sorting and neighborhood rules are enforced and should be taken seriously.' },
+  { icon: Users, title: 'Neighborhood Relations', description: 'Introducing yourself to neighbors and respecting quiet hours helps your integration.' },
+  { icon: Flag, title: 'Republican Values', description: 'Liberty, equality and fraternity are core values. Discrimination is prohibited.' },
+  { icon: HeartHandshake, title: 'Community Engagement', description: 'Joining local and diaspora associations builds support networks and opportunities.' },
+  { icon: Siren, title: 'Interaction with Law Enforcement', description: 'Stay calm and cooperate. You have legal rights, including lawyer access and consular contact.' },
+]
+
+const erreursCourantesEn: ErreurItem[] = [
+  { erreur: 'Letting your residence permit expire', conseil: 'Start renewal 2 to 4 months before expiry.' },
+  { erreur: 'Not taking home insurance', conseil: 'Insurance is mandatory from move-in and protects your lease.' },
+  { erreur: 'Working without authorization', conseil: 'Undeclared work can lead to serious legal and administrative sanctions.' },
+  { erreur: 'Ignoring annual tax filing', conseil: 'Declare every year, including low-income years when required.' },
+  { erreur: 'Not transcribing civil records', conseil: 'Birth and marriage acts done in France should be transcribed at the consulate.' },
+  { erreur: 'Ignoring an OQTF', conseil: 'Get legal counsel immediately. Court deadlines are short and decisive.' },
+  { erreur: 'Traveling with first-request receipt only', conseil: 'A first-application receipt may not permit exit/re-entry.' },
+  { erreur: 'Not reporting address changes', conseil: 'Address updates are mandatory within legal deadlines.' },
+  { erreur: 'Signing documents without reading', conseil: 'Request legal support and never sign unclear records.' },
+]
+
+const numerosUtilesEn: NumeroUtile[] = [
+  { label: 'Consul General of Gabon', number: '26 bis av. Raphaël, 75016', color: 'bg-emerald-500/10 text-emerald-600' },
+  { label: 'Consulate Email', number: 'contact@consulatdugabon.fr', color: 'bg-emerald-500/10 text-emerald-600' },
+  { label: 'Gabon Consular Emergency', number: '07 44 23 95 84', color: 'bg-green-500/10 text-green-600' },
+  { label: 'SAMU (Medical emergency)', number: '15', color: 'bg-red-500/10 text-red-600' },
+  { label: 'Police / Gendarmerie', number: '17', color: 'bg-blue-500/10 text-blue-600' },
+  { label: 'Fire Brigade', number: '18', color: 'bg-orange-500/10 text-orange-600' },
+  { label: 'European emergency', number: '112', color: 'bg-purple-500/10 text-purple-600' },
+  { label: 'Women violence hotline', number: '3919', color: 'bg-pink-500/10 text-pink-600' },
+  { label: 'Child protection hotline', number: '119', color: 'bg-yellow-500/10 text-yellow-600' },
+  { label: 'OFII', number: '01 53 69 53 70', color: 'bg-indigo-500/10 text-indigo-600' },
+  { label: 'Online prefecture (ANEF)', number: 'anef.interieur.gouv.fr', color: 'bg-cyan-500/10 text-cyan-600' },
+  { label: 'Legal aid', number: '3039', color: 'bg-emerald-500/10 text-emerald-600' },
+]
+
 // ─── Main Page Component ─────────────────────────────────────────────────────
 
 function VenirEnFrancePage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.resolvedLanguage || i18n.language
+  const isEn = lang.startsWith('en')
+  const tSections = isEn ? guideSectionsEn : guideSections
+  const tSavoirVivre = isEn ? savoirVivreEn : savoirVivre
+  const tErreurs = isEn ? erreursCourantesEn : erreursCourantes
+  const tNumeros = isEn ? numerosUtilesEn : numerosUtiles
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -461,7 +776,7 @@ function VenirEnFrancePage() {
 
               {/* Quick nav pills */}
               <div className="flex flex-wrap gap-2">
-                {guideSections.map((s) => {
+                {tSections.map((s) => {
                   const SIcon = s.icon
                   return (
                     <a
@@ -493,7 +808,7 @@ function VenirEnFrancePage() {
               </p>
             </div>
 
-            <SavoirVivreGrid items={savoirVivre} />
+            <SavoirVivreGrid items={tSavoirVivre} />
           </div>
         </section>
 
@@ -514,7 +829,7 @@ function VenirEnFrancePage() {
             </div>
 
             <div className="space-y-4">
-              {guideSections.map((section) => (
+              {tSections.map((section) => (
                 <GuideSectionCard key={section.id} section={section} />
               ))}
             </div>
@@ -537,7 +852,7 @@ function VenirEnFrancePage() {
               </p>
             </div>
 
-            <ErreursCourantesGrid items={erreursCourantes} />
+            <ErreursCourantesGrid items={tErreurs} />
           </div>
         </section>
 
@@ -557,7 +872,7 @@ function VenirEnFrancePage() {
               </p>
             </div>
 
-            <NumerosUtilesGrid items={numerosUtiles} />
+            <NumerosUtilesGrid items={tNumeros} />
           </div>
         </section>
 

@@ -17,7 +17,7 @@ function LegalPage() {
             <div className="absolute inset-0 bg-background" />
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
             <div className="relative z-10 max-w-4xl mx-auto">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">{t('legal.title', 'Mentions Légales')}</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">{t('mentionsLegales.title', 'Mentions Légales')}</h1>
             </div>
         </section>
 
@@ -27,26 +27,23 @@ function LegalPage() {
 
                 <div className="prose dark:prose-invert max-w-none space-y-8">
                     <section>
-                    <h2 className="text-2xl font-bold mb-4 text-foreground">{t('legal.publisher.title', 'Éditeur')}</h2>
+                    <h2 className="text-2xl font-bold mb-4 text-foreground">{t('mentionsLegales.editor.title', 'Éditeur')}</h2>
                     <p className="text-muted-foreground leading-relaxed">
-                        {t('legal.publisher.description', "Le site consulat.ga est édité par le Ministère des Affaires Étrangères de la République Gabonaise.")}
+                        {t('mentionsLegales.editor.content', "Le site consulat.ga est édité par le Ministère des Affaires Étrangères de la République Gabonaise.")}
                     </p>
                     </section>
 
                     <section>
-                    <h2 className="text-2xl font-bold mb-4 text-foreground">{t('legal.hosting.title', 'Hébergement')}</h2>
+                    <h2 className="text-2xl font-bold mb-4 text-foreground">{t('mentionsLegales.hosting.title', 'Hébergement')}</h2>
                     <p className="text-muted-foreground leading-relaxed">
-                        {t('legal.hosting.description', 'Ce site est hébergé sur les infrastructures de Vercel Inc.')}<br/>
-                        Vercel Inc.<br/>
-                        340 S Lemon Ave #4133<br/>
-                        Walnut, CA 91789, USA
+                        {t('mentionsLegales.hosting.content', 'Ce site est hébergé sur les infrastructures de Vercel Inc.')}
                     </p>
                     </section>
 
                     <section>
-                    <h2 className="text-2xl font-bold mb-4 text-foreground">{t('legal.ip.title', 'Propriété Intellectuelle')}</h2>
+                    <h2 className="text-2xl font-bold mb-4 text-foreground">{t('mentionsLegales.intellectual.title', 'Propriété Intellectuelle')}</h2>
                     <p className="text-muted-foreground leading-relaxed">
-                        {t('legal.ip.description', "L'ensemble de ce site relève de la législation gabonaise et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.")}
+                        {t('mentionsLegales.intellectual.content', "L'ensemble de ce site relève de la législation gabonaise et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.")}
                     </p>
                     </section>
                 </div>

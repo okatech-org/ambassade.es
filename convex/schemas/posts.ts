@@ -34,6 +34,7 @@ export const postsTable = defineTable({
   
   // Storage IDs (Future migration)
   coverImageStorageId: v.optional(v.id("_storage")),
+  coverImagePosition: v.optional(v.string()), // CSS object-position e.g. "50% 30%"
 })
   .index("by_slug", ["slug"])
   .index("by_status_date", ["status", "publishedAt"])

@@ -9,7 +9,7 @@ import { Skeleton } from '../ui/skeleton'
 import { useRef, useState, useCallback, useEffect } from 'react'
 
 function formatDate(timestamp: number, lang: string = 'fr') {
-  return new Intl.DateTimeFormat(lang === 'en' ? 'en-GB' : 'fr-FR', {
+  return new Intl.DateTimeFormat(lang.startsWith('en') ? 'en-GB' : 'fr-FR', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',

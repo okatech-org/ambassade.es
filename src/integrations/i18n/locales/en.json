@@ -1,1986 +1,2179 @@
 {
-  "hero": {
-    "badge": "Official Website",
-    "title": "General Consulate of Gabon",
-    "titleHighlight": "in France",
-    "subtitle": "Serving the Gabonese diaspora",
-    "description": "Consular protection, civil status, passports, visas and support for Gabonese nationals living in France. Simplify your administrative procedures online or in person.",
-    "services": "Our Services",
-    "contact": "Contact Us",
-    "emergencyLabel": "Consular Emergency 24/7",
-    "quickAccess": {
-      "news": "News",
-      "newsDesc": "Official statements",
-      "services": "Services",
-      "servicesDesc": "Online procedures",
-      "inscription": "Registration",
-      "inscriptionDesc": "Consular register",
-      "consulat": "The Consulate",
-      "consulatDesc": "Missions & team"
-    },
-    "cta": "Discover Consulat.ga",
-    "mobileTitle": "The General Consulate",
-    "mobileTitleHighlight": "enters the AI era"
-  },
-  "statsBar": {
-    "diaspora": {
-      "value": "30,000+",
-      "label": "Gabonese in France"
-    },
-    "services": {
-      "value": "9",
-      "label": "Service categories"
-    },
-    "protection": {
-      "value": "24/7",
-      "label": "Consular assistance"
-    },
-    "horaires": {
-      "value": "Mon-Fri",
-      "label": "9:00 AM - 4:00 PM"
-    }
-  },
-  "guidePratique": {
-    "badge": "Living in France",
-    "title": "Practical Guide for Gabonese in France",
-    "description": "Essential information to facilitate your settlement and daily life in France. The consulate supports you in all your procedures.",
-    "readMore": "Learn more",
-    "cta": "Need help with a specific procedure? Our consular team is at your service.",
-    "contactUs": "Contact the consulate",
-    "logement": {
-      "title": "Housing",
-      "desc": "Finding accommodation, housing aid (APL/ALS), tenant rights and administrative procedures."
-    },
-    "sante": {
-      "title": "Health & Social Protection",
-      "desc": "Social security registration, health insurance, access to care and health coverage rights."
-    },
-    "education": {
-      "title": "Education & Training",
-      "desc": "School enrollment, scholarships, recognition of Gabonese diplomas and vocational training."
-    },
-    "emploi": {
-      "title": "Employment & Entrepreneurship",
-      "desc": "Job search, business creation, work permits and employment assistance."
-    },
-    "droits": {
-      "title": "Rights & Residency Permit",
-      "desc": "Residence permit renewal, family reunification, naturalization and free legal aid."
-    },
-    "famille": {
-      "title": "Family & Children",
-      "desc": "Birth registration, family benefits, childcare and transcription of civil status documents."
-    },
-    "tags": {
-      "Vie quotidienne": "Daily life",
-      "Santé": "Health",
-      "Éducation": "Education",
-      "Emploi": "Employment",
-      "Juridique": "Legal",
-      "Famille": "Family"
-    },
-    "titlePart1": "A Complete Ecosystem in",
-    "titleHighlight": "6 Essential Topics",
-    "viewAll": "View the complete guide"
-  },
-  "faq": {
-    "badge": "Frequently asked questions",
-    "title": "Most asked questions",
-    "description": "Quickly find answers to your questions about consular procedures.",
-    "viewAll": "View all questions",
-    "items": {
-      "inscription": {
-        "question": "How do I register at the consular register?",
-        "answer": "Registration can be done online at consulat.ga or in person at the consulate. Bring your valid passport, proof of address in France less than 3 months old, and 2 ID photos. The procedure is free and gives you access to consular protection."
-      },
-      "passeport": {
-        "question": "What documents are needed to renew my passport?",
-        "answer": "For passport renewal, you must provide: the old passport (even expired), a copy of your birth certificate, 2 compliant ID photos, a recent proof of address, and the completed application form. An appointment at the DGDI office is required for fingerprinting."
-      },
-      "etatCivil": {
-        "question": "How to transcribe a French birth certificate in Gabon?",
-        "answer": "Transcription of a birth certificate allows it to be recognized in Gabon. Submit to the consulate: the full copy of the French birth certificate, parents' identity documents, and family record book if applicable. The average processing time is 2 to 4 weeks."
-      },
-      "urgence": {
-        "question": "What to do in case of a consular emergency?",
-        "answer": "In case of emergency (serious accident, death, arrest, natural disaster), immediately contact the consular emergency number at 07 44 23 95 84, available 24/7. The consulate can assist you, repatriate remains, or facilitate contact with French authorities."
-      },
-      "rdv": {
-        "question": "Do I need an appointment to visit the consulate?",
-        "answer": "An appointment is strongly recommended for passport and visa procedures. For other services (legalization, civil status, consular registration), you can come during opening hours Monday to Friday from 9am to 4pm. Book online at consulat.ga for faster service."
-      },
-      "vote": {
-        "question": "How to vote from France?",
-        "answer": "To participate in Gabonese elections from France, you must be registered at the consular register and on the consular electoral roll. During elections, the consulate sets up polling stations. Present yourself with your consular card and valid ID on election day."
-      },
-      "regularisation": {
-        "question": "How to regularize my status in France?",
-        "answer": "Several paths exist: exceptional admission (Valls circular 2012), regularization through employment, family reasons, medical grounds. File at the prefecture or online via the ANEF portal. Consult a specialized lawyer."
-      },
-      "frontiere": {
-        "question": "What documents to present at the border?",
-        "answer": "Valid passport, visa, accommodation certificate, return ticket (short stay), travel insurance (min. €30,000). Resources: min. €120/day (hotel) or €32.50/day (private accommodation with attestation)."
-      },
-      "carteSejour": {
-        "question": "How to renew my residence permit?",
-        "answer": "Renewal is done 2 to 4 months before expiry, online at the ANEF portal or at the prefecture. A receipt is issued while waiting for the new permit."
-      },
-      "oqtf": {
-        "question": "What is an OQTF and what to do if I receive one?",
-        "answer": "The OQTF is an administrative order to leave France. NEVER ignore it. Appeal: to the prefect (30 days) or administrative court. The appeal is suspensive. Contact a lawyer and the consulate immediately."
-      },
-      "perteDocuments": {
-        "question": "I lost my passport/residence permit, what do I do?",
-        "answer": "Report to the police station, then contact the consulate (passport) or prefecture/ANEF (residence permit). Always keep digital copies of your documents."
-      },
-      "travailEtudiant": {
-        "question": "I'm a student, how many hours can I work?",
-        "answer": "964 hours per year (about 20h/week, 60% of legal working time). No additional work permit needed — your student permit authorizes it."
-      },
-      "visaBinational": {
-        "question": "I'm a dual national, do I need a visa for Gabon?",
-        "answer": "No, with a valid Gabonese passport. With only a French passport, an e-Visa is required (evisa.dgdi.ga). The consulate can help with obtaining a Gabonese passport."
-      },
-      "arrestation": {
-        "question": "What to do in case of arrest?",
-        "answer": "Stay calm. Rights: know the reason, remain silent, have a lawyer, notify a relative, contact the consulate (Vienna Convention, art. 36). Police custody: 24h max (renewable once). Don't sign anything without understanding."
-      },
-      "changementStatut": {
-        "question": "How to switch from student to employee status?",
-        "answer": "Job related to your degree, salary ≥ 1.5x minimum wage (1x for shortage occupations). Employer requests work authorization, then status change at prefecture. Timeline: 2 to 4 months."
-      },
-      "aps": {
-        "question": "What is the APS and how to benefit from it?",
-        "answer": "The APS is a 12-month permit (non-renewable) for Master's degree holders. Allows job search or business creation related to degree. Apply before student permit expires."
-      }
-    },
-    "categories": {
-      "consulat": "Consulate",
-      "prefecture": "Prefecture",
-      "enligne": "Online",
-      "urgent": "Urgent"
-    }
-  },
-  "integration": {
-    "badge": "Integration Guide",
-    "heroTitle": "Integrate and",
-    "heroHighlight": "succeed in France",
-    "heroDescription": "Complete guide for Gabonese nationals living in France: your rights, procedures, cultural codes and practical tips for successful integration. The General Consulate of Gabon supports you.",
-    "savoirVivre": {
-      "badge": "Social customs",
-      "title": "Cultural Codes & Conventions",
-      "description": "Understanding French social codes to navigate society better. It's not giving up your culture, it's adding another one."
-    },
-    "guides": {
-      "badge": "Complete guides",
-      "title": "Your detailed procedures",
-      "description": "Click on each topic to discover detailed information, procedures and our practical tips."
-    },
-    "erreurs": {
-      "badge": "Must know",
-      "title": "Common mistakes to avoid",
-      "description": "These oversights can have serious consequences. Take them seriously to protect your rights."
-    },
-    "numeros": {
-      "badge": "Essential numbers",
-      "title": "Useful numbers to save",
-      "description": "Save these numbers in your phone. They can save lives."
-    },
-    "cta": {
-      "title": "The Consulate stands by you",
-      "description": "Whether you've just arrived or have been living here for years, the General Consulate of Gabon in France is your support. Don't hesitate to reach out with any questions.",
-      "contact": "Visit us"
-    }
-  },
-  "services": {
-    "badge": "Our Services",
-    "title": "Consular Services",
-    "pageTitle": "Consular Services",
-    "description": "Discover all the services offered by the consular representations of the Gabonese Republic abroad.",
-    "pageDescription": "Discover all the services offered by the consular representations of the Gabonese Republic abroad.",
-    "knowMore": "Learn more",
-    "free": "Free",
-    "filters": "Filters",
-    "clearAll": "Clear all",
-    "searchPlaceholder": "Search for a service...",
-    "days_one": "day",
-    "days_other": "days",
-    "categories": "Categories",
-    "categoriesMap": {
-      "identity": "Identity",
-      "passport": "Passport",
-      "visa": "Visa",
-      "civil_status": "Civil Status",
-      "registration": "Consular Registration",
-      "certification": "Certification & Legalization",
-      "legalization": "Legalization",
-      "transcript": "Transcript",
-      "travel_document": "Travel Document",
-      "assistance": "Consular Assistance",
-      "emergency": "Emergency Assistance",
-      "other": "Other",
-      "Identité": "Identity",
-      "État Civil": "Civil Status",
-      "Immatriculation": "Consular Registration",
-      "Visa": "Visa",
-      "Documents": "Documents"
-    },
-    "passportVisaWarning": {
-      "title": "Important Information",
-      "message": "Passport and Visa services are under the authority of the DGDI Office. Please note that it is not the General Consulate that issues Passports and Visas in France."
-    },
-    "dgdiNotice": "This service is managed by the DGDI Office, not the General Consulate.",
-    "dgdiApply": "Submit my application",
-    "dgdiBadge": "DGDI Office — Do not confuse",
-    "dgdiTitle": "Passports & Visas: DGDI Office Services",
-    "dgdiSubtitle": "These services are not managed by the General Consulate. They fall exclusively under the DGDI External Office in Paris.",
-    "modal": {
-      "eligibleBeneficiaries": "Eligible Beneficiaries",
-      "citizens": "Gabonese Citizens",
-      "residents": "Foreign Residents",
-      "requiredDocuments": "Required Documents",
-      "downloadForm": "Download Form",
-      "createRequest": "Create Request",
-      "importantInfo": "Important Information",
-      "infoPoints": {
-        "docs": "Documents must be originals or certified copies",
-        "delay": "Processing time is indicative and may vary by consulate",
-        "identity": "Present yourself with a valid ID"
-      },
-      "formDownloaded": "Form Downloaded",
-      "formDownloadedDesc": "Application form for {{serviceName}}"
-    },
-    "viewAll": "View All Services",
-    "passport": {
-      "title": "Passport",
-      "description": "Application, renewal and tracking of your Gabonese passport. Simplified and secure process."
-    },
-    "visa": {
-      "title": "Visa",
-      "description": "Visa applications for Gabon. Tourist, business, work and other categories."
-    },
-    "civilStatus": {
-      "title": "Civil Status",
-      "description": "Birth, marriage, death certificates. Transcription and legalization of documents."
-    },
-    "registration": {
-      "title": "Consular Registration",
-      "description": "Register in the registry of Gabonese nationals abroad. Stay informed and protected."
-    },
-    "legalization": {
-      "title": "Legalization",
-      "description": "Authentication and legalization of your official documents for international use."
-    },
-    "emergency": {
-      "title": "Emergency Assistance",
-      "description": "Consular assistance in emergencies: lost documents, difficulties abroad."
-    },
-    "urgentBadge": "Urgent",
-    "validity": "Validity",
-    "contactConsulate": "Contact the consulate",
-    "viewFiche": "View details",
-    "noteImportante": "Important note",
-    "tarifs": {
-      "badge": "Fee schedule",
-      "title": "Consular service fees",
-      "description": "Summary of current fees at the General Consulate of Gabon in France.",
-      "service": "Service",
-      "tarif": "Fee",
-      "validite": "Validity",
-      "autresActes": "Other consular acts",
-      "tarifConsulaire": "Current consular fee"
-    },
-    "crossLinks": {
-      "integration": "Integration guide",
-      "integrationDesc": "Practical tips for living in France",
-      "vieFrance": "Life in France",
-      "vieFranceDesc": "Prefecture and administrative procedures"
-    }
-  },
-  "consulates": {
-    "badge": "Our Representations",
-    "title": "Gabonese Consulates Worldwide",
-    "description": "Find the nearest Gabonese consulate to carry out your administrative procedures.",
-    "headquarters": "Headquarters",
-    "viewDetails": "View details",
-    "viewAll": "View All Consulates"
-  },
-  "citizenCta": {
-    "badge": "Citizen Account",
-    "title": "Create Your Gabonese Citizen Account",
-    "description": "A single account to access all online consular services. Simplify your administrative procedures wherever you are in the world.",
-    "createAccount": "Create my account",
-    "existingAccount": "I already have an account",
-    "benefits": {
-      "tracking": {
-        "title": "Real-time tracking",
-        "description": "Track the progress of your applications at any time"
-      },
-      "documents": {
-        "title": "Digital documents",
-        "description": "Access your official documents online"
-      },
-      "payment": {
-        "title": "Secure payment",
-        "description": "Pay your consular fees securely"
-      },
-      "appointments": {
-        "title": "Simplified appointments",
-        "description": "Book your slots in just a few clicks"
-      }
-    },
-    "stats": {
-      "citizens": "Registered citizens",
-      "consulates": "Connected consulates",
-      "satisfaction": "Satisfaction",
-      "availability": "Availability"
-    },
-    "testimonial": "Thanks to Consulat.ga, I was able to renew my passport from London without having to travel. Fast and efficient service!",
-    "testimonialAuthor": "Marie N., London",
-    "titlePart1": "Your consulate,",
-    "titleHighlight": "in your pocket",
-    "cta": "Create my free account",
-    "ctaSecondary": "Discover the app",
-    "advantages": {
-      "noWait": {
-        "title": "No more phone waiting",
-        "desc": "Ask your questions online, get immediate answers."
-      },
-      "digital": {
-        "title": "100% digital procedures",
-        "desc": "From request to tracking, everything is done online."
-      },
-      "fast": {
-        "title": "Quick answers to your questions",
-        "desc": "AI assistant available for all your questions."
-      },
-      "available": {
-        "title": "Available 24/7",
-        "desc": "Access anytime, all time zones."
-      }
-    },
-    "trust": {
-      "fast": "Sign up in 2 minutes",
-      "online": "100% on mobile",
-      "secure": "Secure & confidential"
-    }
-  },
-  "footer": {
-    "brand": {
-      "line1": "GENERAL CONSULATE",
-      "line2": "Of Gabon in France",
-      "motto": "Union - Work - Justice"
-    },
-    "services": "Services",
-    "resources": "Resources",
-    "newsletter": {
-      "title": "Stay Informed",
-      "description": "Subscribe to our newsletter to receive the latest consular news.",
-      "placeholder": "Your email",
-      "subscribe": "Subscribe"
-    },
-    "links": {
-      "passport": "Passport",
-      "visa": "Visa",
-      "civilStatus": "Civil Status",
-      "registration": "Consular Registration",
-      "legalization": "Legalization",
-      "appointment": "Book Appointment",
-      "faq": "FAQ",
-      "fees": "Consular Fees",
-      "forms": "Forms",
-      "news": "News",
-      "directory": "Consulates Directory",
-      "legal": "Legal Notice",
-      "privacy": "Privacy Policy",
-      "accessibility": "Accessibility",
-      "sitemap": "Sitemap"
-    },
-    "copyright": "© {{year}} Consulat.ga — All rights reserved"
-  },
-  "header": {
-    "hours": "Mon-Fri: 9:00 AM - 4:00 PM",
-    "nav": {
-      "home": "Home",
-      "news": "News",
-      "integration": "Integration",
-      "consulates": "Consulates",
-      "faq": "FAQ",
-      "contact": "Contact",
-      "services": "Services",
-      "profile": "My Profile",
-      "requests": "My Requests",
-      "documents": "My Documents",
-      "appointments": "My Appointments",
-      "dashboard": "Dashboard",
-      "mySpace": "My Space",
-      "signIn": "Sign In",
-      "signUp": "Sign Up",
-      "consulat": "General Consulate",
-      "venirFrance": "Coming to France",
-      "vieFrance": "Living in France",
-      "retourGabon": "Return to Gabon",
-      "nousContacter": "Contact Us"
-    },
-    "appointment": "Appointment",
-    "bookAppointment": "Book Appointment",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu",
-    "country": "Gabonese Republic",
-    "language": {
-      "fr": "Français",
-      "en": "English"
-    },
-    "mySpace": "My Space",
-    "signIn": "Sign In",
-    "signUp": "Sign Up",
-    "brand": {
-      "line1": "GENERAL CONSULATE",
-      "line2": "Of Gabon in France",
-      "motto": "Union - Work - Justice"
-    }
-  },
-  "mySpace": {
-    "title": "My Consular Space",
-    "syncing": "Syncing your account..."
-  },
-  "errors": {
-    "auth": {
-      "noAuthentication": "Authentication required",
-      "pleaseSignIn": "Please sign in to access your space.",
-      "welcomeBack": "Welcome back",
-      "accessAccount": "Access your consular services account",
-      "createAccount": "Create an account",
-      "joinPlatform": "Join the consular services platform"
-    },
-    "appointments": {
-      "notFound": "Appointment not found",
-      "slotNotAvailable": "This time slot is not available",
-      "cannotReschedule": "Cannot reschedule this appointment"
-    },
-    "users": {
-      "notFound": "User not found"
-    },
-    "admin": {
-      "cannotDemoteSelf": "You cannot demote yourself",
-      "cannotDisableSelf": "You cannot disable yourself"
-    },
-    "orgs": {
-      "notFound": "Organization not found",
-      "slugExists": "Organization slug already exists",
-      "memberAlreadyExists": "User is already a member of this organization",
-      "memberNotFound": "User is not a member of this organization",
-      "cannotRemoveSelf": "You cannot remove yourself from the organization"
-    },
-    "services": {
-      "notFound": "Service not found",
-      "slugExists": "Service slug already exists",
-      "alreadyActivated": "Service is already activated for this organization",
-      "notAvailable": "This service is not currently available"
-    },
-    "requests": {
-      "notFound": "Request not found",
-      "notAuthorizedToSubmit": "Not authorized to submit this request",
-      "notAuthorizedToCancel": "Not authorized to cancel this request",
-      "onlyDraftCanBeSubmitted": "Only draft requests can be submitted",
-      "onlyStaffCanAddInternalNotes": "Only staff can add internal notes",
-      "cannotCancelProcessing": "Cannot cancel a request that is already being processed"
-    },
-    "profile": {
-      "identity": {
-        "firstName": {
-          "min": "First name must be at least 2 characters"
-        },
-        "lastName": {
-          "min": "Last name must be at least 2 characters"
-        },
-        "birthDate": {
-          "past": "Date of birth must be in the past",
-          "adult": "You must be at least 18 years old"
-        },
-        "birthPlace": {
-          "min": "Place of birth must be at least 2 characters"
-        },
-        "birthCountry": {
-          "invalid": "Invalid country of birth"
-        },
-        "gender": {
-          "invalid": "Invalid gender"
-        },
-        "nationality": {
-          "invalid": "Invalid nationality"
-        },
-        "nationalityAcquisition": {
-          "invalid": "Invalid nationality acquisition mode"
-        }
-      },
-      "passportInfo": {
-        "number": {
-          "min": "Passport number must be at least 6 characters"
-        },
-        "issueDate": {
-          "past": "Issue date must be in the past"
-        },
-        "expiryDate": {
-          "future": "Expiry date must be in the future",
-          "afterIssue": "Expiry date must be after issue date"
-        },
-        "issuingAuthority": {
-          "min": "Issuing authority must be at least 2 characters"
-        }
-      },
-      "addresses": {
-        "street": {
-          "required": "Address is required"
-        },
-        "city": {
-          "required": "City is required"
-        },
-        "postalCode": {
-          "required": "Postal code is required"
-        },
-        "country": {
-          "invalid": "Invalid country"
-        }
-      },
-      "contacts": {
-        "email": {
-          "invalid": "Invalid email"
-        },
-        "emergency": {
-          "firstName": {
-            "min": "First name must be at least 2 characters"
-          },
-          "lastName": {
-            "min": "Last name must be at least 2 characters"
-          },
-          "phone": {
-            "required": "Phone number is required"
-          },
-          "email": {
-            "invalid": "Invalid email"
-          },
-          "relationship": {
-            "invalid": "Invalid relationship"
-          }
-        }
-      },
-      "family": {
-        "maritalStatus": {
-          "invalid": "Invalid marital status"
-        },
-        "parent": {
-          "firstName": {
-            "min": "First name must be at least 2 characters"
-          },
-          "lastName": {
-            "min": "Last name must be at least 2 characters"
-          }
-        },
-        "spouse": {
-          "firstName": {
-            "min": "First name must be at least 2 characters",
-            "required": "Spouse's first name is required"
-          },
-          "lastName": {
-            "min": "Last name must be at least 2 characters",
-            "required": "Spouse's last name is required"
-          }
-        }
-      }
-    }
-  },
-  "superadmin": {
-    "nav": {
-      "dashboard": "Dashboard",
-      "users": "Users",
-      "allUsers": "All Users",
-      "organizations": "Organizations",
-      "allOrganizations": "All Organizations",
-      "newOrganization": "New Organization",
-      "services": "Services",
-      "commonServices": "Common Services",
-      "auditLogs": "Audit Logs",
-      "settings": "Settings"
-    },
-    "dashboard": {
-      "title": "Dashboard",
-      "welcome": "Welcome to Consulat.ga Administration",
-      "stats": {
-        "users": "Users",
-        "totalUsers": "Total registered users",
-        "organizations": "Organizations",
-        "consulatesEmbassies": "Consulates and embassies",
-        "services": "Services",
-        "availableServices": "Available services",
-        "requests": "Requests",
-        "pendingRequests": "Pending processing"
-      },
-      "recentActivity": "Recent Activity",
-      "recentActivityDesc": "Latest actions on the platform",
-      "quickActions": "Quick Actions",
-      "quickActionsDesc": "Shortcuts to common tasks",
-      "addUser": "Add User",
-      "addOrg": "Add Organization",
-      "addService": "Add Service",
-      "viewLogs": "View Logs"
-    },
-    "users": {
-      "title": "Users",
-      "description": "Manage platform users and their roles",
-      "columns": {
-        "avatar": "Avatar",
-        "name": "Name",
-        "email": "Email",
-        "phone": "Phone",
-        "role": "Role",
-        "residenceCountry": "Residence Country",
-        "status": "Status",
-        "createdAt": "Created At",
-        "actions": "Actions"
-      },
-      "filters": {
-        "allRoles": "All Roles",
-        "allStatus": "All Status",
-        "active": "Active",
-        "inactive": "Inactive",
-        "searchPlaceholder": "Search users..."
-      },
-      "actions": {
-        "editRole": "Edit Role",
-        "enable": "Enable",
-        "disable": "Disable",
-        "viewDetails": "View Details"
-      },
-      "roles": {
-        "user": "User",
-        "superadmin": "Super Admin"
-      },
-      "roleDialog": {
-        "title": "Change User Role",
-        "description": "Select a new role for {{name}}",
-        "confirm": "Confirm",
-        "cancel": "Cancel"
-      },
-      "noResults": "No users found",
-      "details": {
-        "infos": "Information",
-        "organizations": "Organizations",
-        "orgMembership": "Organization Membership",
-        "activity": "Recent Activity",
-        "lastActions": "Last 10 actions",
-        "nationality": "Nationality",
-        "residence": "Residence Country",
-        "registered": "Registered on",
-        "verified": "verified",
-        "unverified": "unverified",
-        "since": "Since",
-        "noOrg": "No organization",
-        "noActivity": "No activity"
-      }
-    },
-    "organizations": {
-      "title": "Organizations",
-      "description": "Manage consulates, embassies, and organizations",
-      "columns": {
-        "logo": "Logo",
-        "name": "Name",
-        "slug": "Slug",
-        "type": "Type",
-        "address": "Address",
-        "contact": "Contact",
-        "membersCount": "Members",
-        "status": "Status",
-        "createdAt": "Created At",
-        "actions": "Actions"
-      },
-      "types": {
-        "consulate": "Consulate",
-        "embassy": "Embassy",
-        "ministry": "Ministry",
-        "other": "Other"
-      },
-      "filters": {
-        "allTypes": "All Types",
-        "allCountries": "All Countries",
-        "searchPlaceholder": "Search organizations..."
-      },
-      "actions": {
-        "view": "View",
-        "edit": "Edit",
-        "manageMembers": "Manage Members",
-        "manageServices": "Manage Services",
-        "enable": "Enable",
-        "disable": "Disable"
-      },
-      "form": {
-        "create": "Create Organization",
-        "edit": "Edit Organization",
-        "name": "Name",
-        "namePlaceholder": "e.g. Consulate of Gabon in Paris",
-        "slug": "Slug",
-        "slugPlaceholder": "e.g. gabon-paris",
-        "slugHelp": "URL-friendly identifier (auto-generated from name)",
-        "type": "Type",
-        "address": "Address",
-        "street": "Street",
-        "street2": "Street 2 (optional)",
-        "city": "City",
-        "postalCode": "Postal Code",
-        "state": "State/Province (optional)",
-        "country": "Country",
-        "contact": "Contact",
-        "email": "Email",
-        "phone": "Phone",
-        "website": "Website",
-        "timezone": "Timezone",
-        "jurisdiction": "Jurisdiction",
-        "jurisdictionPlaceholder": "Add a country...",
-        "logoUrl": "Logo URL",
-        "advancedConfig": "Advanced Configuration",
-        "appointmentDelay": "Appointment Delay (hours)",
-        "maxActiveRequests": "Max Active Requests",
-        "typeReadonly": "Organization type cannot be changed after creation.",
-        "save": "Save",
-        "saving": "Saving...",
-        "cancel": "Cancel",
-        "error": {
-          "nameLength": "Name must be at least 3 characters",
-          "slugLength": "Slug must be at least 2 characters",
-          "addressRequired": "Street, city and country are required"
-        }
-      },
-      "detail": {
-        "tabs": {
-          "details": "Details",
-          "members": "Members",
-          "services": "Services"
-        }
-      },
-      "tabs": {
-        "overview": "Overview",
-        "members": "Members",
-        "services": "Services"
-      },
-      "details": "Organization Details",
-      "detailsDesc": "Additional information about this organization",
-      "servicesDesc": "Services offered by this organization",
-      "noResults": "No organizations found"
-    },
-    "members": {
-      "title": "Organization Members",
-      "description": "Manage members of this organization",
-      "columns": {
-        "user": "User",
-        "role": "Role",
-        "joinedAt": "Joined At",
-        "actions": "Actions"
-      },
-      "roles": {
-        "admin": "Admin",
-        "agent": "Agent",
-        "viewer": "Viewer"
-      },
-      "actions": {
-        "changeRole": "Change Role",
-        "remove": "Remove"
-      },
-      "addMember": "Add Member",
-      "addMemberDialog": {
-        "title": "Add Member",
-        "description": "Add a user to this organization",
-        "searchUser": "Search user",
-        "selectRole": "Select role",
-        "add": "Add",
-        "cancel": "Cancel"
-      },
-      "noMembers": "No members in this organization"
-    },
-    "orgMembers": {
-      "title": "Organization Members",
-      "description": "Manage members of this organization",
-      "addMember": "Add Member",
-      "addMemberDesc": "Search for a user or create a new account to add to this organization",
-      "removeMember": "Remove Member",
-      "memberRemoved": "Member removed successfully",
-      "memberAdded": "Member added successfully",
-      "emailRequired": "Email is required",
-      "noMembers": "No members in this organization",
-      "roles": {
-        "admin": "Admin",
-        "agent": "Agent",
-        "viewer": "Viewer"
-      },
-      "tabs": {
-        "existing": "Existing User",
-        "new": "New User"
-      },
-      "searchPlaceholder": "Search by name or email...",
-      "noUsersFound": "No users found",
-      "selectUser": "Select a user",
-      "newUser": {
-        "firstName": "First Name",
-        "lastName": "Last Name",
-        "email": "Email",
-        "create": "Create and Add"
-      }
-    },
-    "services": {
-      "title": "Services",
-      "description": "Manage the global service catalog",
-      "tabs": {
-        "commonServices": "Common Services",
-        "orgServices": "Org Services"
-      },
-      "columns": {
-        "name": "Name",
-        "slug": "Slug",
-        "category": "Category",
-        "description": "Description",
-        "documentsCount": "Required Documents",
-        "status": "Status",
-        "createdAt": "Created At",
-        "actions": "Actions"
-      },
-      "categories": {
-        "passport": "Passport",
-        "visa": "Visa",
-        "civil_status": "Civil Status",
-        "registration": "Registration",
-        "legalization": "Legalization",
-        "emergency": "Emergency",
-        "other": "Other"
-      },
-      "filters": {
-        "allCategories": "All Categories",
-        "searchPlaceholder": "Search services..."
-      },
-      "actions": {
-        "edit": "Edit",
-        "enable": "Enable",
-        "disable": "Disable",
-        "activate": "Activate"
-      },
-      "form": {
-        "create": "Create Service",
-        "edit": "Edit Service",
-        "name": "Name",
-        "slug": "Slug",
-        "category": "Category",
-        "description": "Description",
-        "requiredDocuments": "Required Documents",
-        "addDocument": "Add Document",
-        "documentName": "Document Name",
-        "documentDescription": "Description (optional)",
-        "isRequired": "Required",
-        "save": "Save",
-        "cancel": "Cancel",
-        "icon": "Icon (Lucide Name / URL)",
-        "schema": "Form Schema (JSON)",
-        "noDocuments": "No required documents",
-        "success": "Service created successfully",
-        "updated": "Service updated successfully"
-      },
-      "table": {
-        "fee": "Fee",
-        "appointmentRequired": "Appointment Required"
-      },
-      "status": {
-        "active": "Active",
-        "inactive": "Inactive"
-      },
-      "dialog": {
-        "title": "Activate Service",
-        "description": "Select a service from the catalog to activate for this organization",
-        "allActivated": "All services are already activated",
-        "selectPlaceholder": "Select a service...",
-        "feeLabel": "Fee",
-        "currencyLabel": "Currency",
-        "appointmentLabel": "Appointment Required",
-        "submit": "Activate",
-        "submitting": "Activating..."
-      },
-      "empty": {
-        "org": "No services activated for this organization"
-      },
-      "noResults": "No services found"
-    },
-    "auditLogs": {
-      "title": "Audit Logs",
-      "description": "View all administrative actions",
-      "columns": {
-        "timestamp": "Timestamp",
-        "user": "User",
-        "action": "Action",
-        "targetType": "Target Type",
-        "targetId": "Target ID",
-        "details": "Details"
-      },
-      "actions": {
-        "user_created": "User Created",
-        "user_updated": "User Updated",
-        "user_disabled": "User Disabled",
-        "user_role_changed": "Role Changed",
-        "org_created": "Org Created",
-        "org_updated": "Org Updated",
-        "org_disabled": "Org Disabled",
-        "service_created": "Service Created",
-        "service_updated": "Service Updated",
-        "request_status_changed": "Request Status Changed"
-      },
-      "filters": {
-        "allActions": "All Actions",
-        "allTargets": "All Targets",
-        "searchPlaceholder": "Search logs..."
-      },
-      "noResults": "No audit logs found"
-    },
-    "settings": {
-      "title": "Platform Settings",
-      "description": "Manage global settings for the Consulat.ga application",
-      "tabs": {
-        "general": "General",
-        "notifications": "Notifications",
-        "security": "Security"
-      },
-      "general": {
-        "title": "General Information",
-        "description": "Basic details about the platform configuration",
-        "siteName": "Site Name",
-        "adminEmail": "Admin Email"
-      },
-      "notifications": {
-        "title": "Notification Settings",
-        "description": "Configure system-wide email and push notifications"
-      },
-      "security": {
-        "title": "Security Settings",
-        "description": "Manage security policies and access controls"
-      }
-    },
-    "table": {
-      "logo": "Logo",
-      "location": "Location",
-      "contact": "Contact",
-      "status": "Status",
-      "created": "Created At",
-      "actions": "Actions",
-      "avatar": "Avatar",
-      "phone": "Phone",
-      "rowsPerPage": "Rows per page",
-      "page": "Page",
-      "of": "of",
-      "selected": "{{count}} selected",
-      "noResults": "No results",
-      "columns": "Columns",
-      "previousPage": "Previous page",
-      "nextPage": "Next page",
-      "firstPage": "First page",
-      "lastPage": "Last page",
-      "createdAt": "Created At",
-      "updatedAt": "Updated At"
-    },
-    "types": {
-      "consulate": "Consulate",
-      "general_consulate": "General Consulate",
-      "embassy": "Embassy",
-      "ministry": "Ministry",
-      "other": "Other"
-    },
-    "roles": {
-      "superadmin": "Super Admin",
-      "user": "User",
-      "admin": "Administrator",
-      "agent": "Agent",
-      "viewer": "Viewer"
-    },
-    "common": {
-      "loading": "Loading...",
-      "view": "View",
-      "error": "An error occurred",
-      "retry": "Retry",
-      "save": "Save",
-      "cancel": "Cancel",
-      "delete": "Delete",
-      "edit": "Edit",
-      "create": "Create",
-      "search": "Search",
-      "filter": "Filter",
-      "reset": "Reset",
-      "noData": "No data available",
-      "confirmDelete": "Are you sure you want to delete this item?",
-      "active": "Active",
-      "inactive": "Inactive",
-      "enabled": "Enabled",
-      "disabled": "Disabled",
-      "back": "Back",
-      "comingSoon": "Coming soon",
-      "yes": "Yes",
-      "no": "No"
-    },
-    "countryCodes": {
-      "AD": "Andorra",
-      "AE": "United Arab Emirates",
-      "AF": "Afghanistan",
-      "AG": "Antigua and Barbuda",
-      "AI": "Anguilla",
-      "AL": "Albania",
-      "AM": "Armenia",
-      "AO": "Angola",
-      "AQ": "Antarctica",
-      "AR": "Argentina",
-      "AS": "American Samoa",
-      "AT": "Austria",
-      "AU": "Australia",
-      "AW": "Aruba",
-      "AX": "Åland Islands",
-      "BE": "Belgium",
-      "BF": "Burkina Faso",
-      "BG": "Bulgaria",
-      "BH": "Bahrain",
-      "BI": "Burundi",
-      "BJ": "Benin",
-      "BR": "Brazil",
-      "CA": "Canada",
-      "CD": "Democratic Republic of the Congo",
-      "CF": "Central African Republic",
-      "CG": "Republic of the Congo",
-      "CH": "Switzerland",
-      "CI": "Côte d'Ivoire",
-      "CL": "Chile",
-      "CM": "Cameroon",
-      "CN": "China",
-      "CO": "Colombia",
-      "CR": "Costa Rica",
-      "CU": "Cuba",
-      "DE": "Germany",
-      "DK": "Denmark",
-      "DZ": "Algeria",
-      "EG": "Egypt",
-      "ES": "Spain",
-      "ET": "Ethiopia",
-      "FI": "Finland",
-      "FR": "France",
-      "GA": "Gabon",
-      "GB": "United Kingdom",
-      "GH": "Ghana",
-      "GN": "Guinea",
-      "GR": "Greece",
-      "IE": "Ireland",
-      "IL": "Israel",
-      "IN": "India",
-      "IR": "Iran",
-      "IT": "Italy",
-      "JP": "Japan",
-      "KE": "Kenya",
-      "KR": "South Korea",
-      "MA": "Morocco",
-      "ML": "Mali",
-      "MX": "Mexico",
-      "NG": "Nigeria",
-      "NL": "Netherlands",
-      "NO": "Norway",
-      "PL": "Poland",
-      "PT": "Portugal",
-      "RO": "Romania",
-      "RU": "Russia",
-      "SA": "Saudi Arabia",
-      "SE": "Sweden",
-      "SN": "Senegal",
-      "ZA": "South Africa"
-    }
-  },
-  "dashboard": {
-    "nav": {
-      "dashboard": "Dashboard",
-      "services": "Services",
-      "requests": "Requests",
-      "appointments": "Appointments",
-      "team": "Team",
-      "settings": "Settings"
-    },
-    "home": {
-      "title": "Dashboard",
-      "welcome": "Welcome to {{orgName}}'s dashboard",
-      "description": "This is your centralized management space. Use the sidebar to manage your services, process requests and configure your organization.",
-      "stats": {
-        "pendingRequests": "Pending Requests",
-        "pendingRequestsDesc": "+0% since last month",
-        "teamMembers": "Team Members",
-        "teamMembersDesc": "Active in this organization",
-        "activeServices": "Active Services",
-        "activeServicesDesc": "Configured services",
-        "upcomingAppointments": "Upcoming Appointments",
-        "upcomingAppointmentsDesc": "Scheduled or confirmed"
-      }
-    },
-    "services": {
-      "title": "Services",
-      "description": "Configure the services offered by your organization",
-      "listTitle": "Service Catalog",
-      "listDescription": "Enable and configure the services you want to offer",
-      "columns": {
-        "service": "Service",
-        "category": "Category",
-        "fee": "Fee",
-        "status": "Status"
-      },
-      "configure": "Configure",
-      "notConfigured": "Not configured",
-      "configureFirst": "Please configure this service first",
-      "statusUpdated": "Status updated",
-      "updateError": "Update error",
-      "edit": {
-        "title": "Service Configuration",
-        "serviceInfo": "Service information",
-        "notFound": "Service not found",
-        "back": "Back to services",
-        "activate": "Activate this service",
-        "fee": "Fee",
-        "currency": "Currency",
-        "estimatedDays": "Estimated days",
-        "requiresAppointment": "Requires appointment",
-        "instructions": "Custom instructions",
-        "instructionsPlaceholder": "Instructions for users...",
-        "save": "Save",
-        "saving": "Saving...",
-        "saved": "Configuration saved",
-        "saveError": "Save error"
-      }
-    },
-    "team": {
-      "title": "Team",
-      "description": "Manage your organization members and their permissions",
-      "addMember": "Add member",
-      "cardTitle": "Organization Members",
-      "cardDescription": "List of users with access to this dashboard.",
-      "columns": {
-        "user": "User",
-        "role": "Role",
-        "joinedAt": "Date joined",
-        "actions": "Actions"
-      },
-      "actions": {
-        "changeRole": "Change role",
-        "remove": "Remove"
-      },
-      "confirmRemove": "Are you sure you want to remove this member?",
-      "memberRemoved": "Member removed",
-      "removeError": "Removal error",
-      "roles": {
-        "admin": "Administrator",
-        "agent": "Consular Agent",
-        "viewer": "Viewer"
-      },
-      "addDialog": {
-        "title": "Add member",
-        "description": "Add an existing user or create a new account for your team.",
-        "existingTab": "Existing user",
-        "newTab": "New account",
-        "searchLabel": "Search by email",
-        "searchPlaceholder": "example@email.com",
-        "noUsersFound": "No users found",
-        "selectUser": "Please select a user",
-        "role": "Role",
-        "firstName": "First name",
-        "lastName": "Last name",
-        "email": "Email",
-        "emailRequired": "Email is required",
-        "cancel": "Cancel",
-        "add": "Add member",
-        "adding": "Please wait...",
-        "memberAdded": "Member added successfully",
-        "newAccountCreated": "New account created and member added",
-        "addError": "Add error",
-        "createError": "Creation error"
-      },
-      "roleDialog": {
-        "title": "Change role",
-        "description": "Change the role of {{name}}",
-        "role": "Role",
-        "cancel": "Cancel",
-        "save": "Save",
-        "saved": "Role updated",
-        "error": "Error"
-      }
-    },
-    "requests": {
-      "title": "Requests",
-      "description": "Manage your organization's service requests",
-      "listTitle": "All requests",
-      "listDescription": "View and process received requests.",
-      "filterByStatus": "Filter by status",
-      "columns": {
-        "reference": "Reference",
-        "service": "Service",
-        "requester": "Requester",
-        "date": "Date",
-        "status": "Status",
-        "action": "Action"
-      },
-      "loading": "Loading...",
-      "noRequests": "No requests found",
-      "noReference": "NO-REF",
-      "unknownUser": "Unknown user",
-      "manage": "Manage",
-      "statuses": {
-        "all": "All statuses",
-        "draft": "Draft",
-        "submitted": "Submitted",
-        "under_review": "Under review",
-        "processing": "Processing",
-        "pending_documents": "Pending documents",
-        "pending_payment": "Pending payment",
-        "completed": "Completed",
-        "rejected": "Rejected",
-        "cancelled": "Cancelled"
-      },
-      "detail": {
-        "title": "Request {{ref}}",
-        "createdAt": "Created on {{date}}",
-        "back": "Back",
-        "serviceCard": {
-          "title": "Requested Service",
-          "serviceName": "Service name",
-          "unknownService": "Unknown service",
-          "formData": "Form data"
-        },
-        "notesCard": {
-          "title": "Notes and comments",
-          "description": "History of exchanges on this request",
-          "noNotes": "No notes yet",
-          "internal": "Internal",
-          "agent": "Agent",
-          "addPlaceholder": "Add a note...",
-          "internalNote": "Internal note (not visible to requester)",
-          "send": "Send",
-          "noteAdded": "Note added",
-          "noteError": "Note add error"
-        },
-        "requesterCard": {
-          "title": "Requester",
-          "unknown": "Unknown user"
-        },
-        "statusCard": {
-          "title": "Update status",
-          "selectPlaceholder": "Select a status",
-          "update": "Update",
-          "statusUpdated": "Status updated",
-          "updateError": "Update error"
-        },
-        "timelineCard": {
-          "title": "Timeline",
-          "created": "Created",
-          "submitted": "Submitted",
-          "completed": "Completed"
-        }
-      }
-    },
-    "noAccess": {
-      "title": "Unauthorized access",
-      "description": "You are not a member of any organization.",
-      "contact": "Contact an administrator to be added."
-    },
-    "appointments": {
-      "title": "Appointments",
-      "description": "Manage your organization's appointments",
-      "listTitle": "All appointments",
-      "listDescription": "View and manage scheduled appointments.",
-      "filterByStatus": "Filter by status",
-      "filterByDate": "Date",
-      "columns": {
-        "dateTime": "Date and time",
-        "user": "User",
-        "service": "Service",
-        "status": "Status",
-        "action": "Action"
-      },
-      "loading": "Loading...",
-      "noAppointments": "No appointments found",
-      "listView": "List",
-      "calendarView": "Calendar",
-      "manage": "Manage",
-      "confirm": "Confirm",
-      "cancel": "Cancel",
-      "complete": "Complete",
-      "noShow": "No-show",
-      "statuses": {
-        "all": "All statuses",
-        "scheduled": "Scheduled",
-        "confirmed": "Confirmed",
-        "cancelled": "Cancelled",
-        "completed": "Completed",
-        "no_show": "No-show"
-      },
-      "success": {
-        "confirmed": "Appointment confirmed",
-        "cancelled": "Appointment cancelled",
-        "completed": "Appointment marked as completed",
-        "noShow": "Appointment marked as no-show"
-      },
-      "error": {
-        "confirm": "Confirmation error",
-        "cancel": "Cancellation error",
-        "complete": "Completion error",
-        "noShow": "No-show marking error"
-      },
-      "notFound": "Appointment not found",
-      "detail": {
-        "title": "Appointment details",
-        "dateTime": "Date and time",
-        "date": "Date",
-        "user": "Client",
-        "service": "Service",
-        "notes": "Notes",
-        "actions": "Actions",
-        "actionsDescription": "Update the status of this appointment"
-      }
-    },
-    "dialogs": {
-      "addMember": {
-        "title": "Add a member",
-        "description": "Add an existing user or create a new account for your team.",
-        "existingUser": "Existing user",
-        "newAccount": "New account",
-        "searchByEmail": "Search by email",
-        "emailPlaceholder": "example@email.com",
-        "noUserFound": "No user found",
-        "selectUser": "Please select a user",
-        "firstName": "First name",
-        "lastName": "Last name",
-        "email": "Email",
-        "emailLabel": "Email address",
-        "emailRequired": "Email is required",
-        "role": "Role",
-        "roleLabel": "Role in organization",
-        "roles": {
-          "admin": "Administrator",
-          "agent": "Consular Agent",
-          "viewer": "Viewer"
-        },
-        "cancel": "Cancel",
-        "add": "Add member",
-        "loading": "Please wait...",
-        "successExisting": "Member added successfully",
-        "successNew": "New account created and member added"
-      },
-      "memberRole": {
-        "title": "Change role",
-        "descriptionPrefix": "Change the role of",
-        "role": "Role",
-        "cancel": "Cancel",
-        "save": "Save",
-        "success": "Role updated",
-        "error": "Error"
-      }
-    },
-    "settings": {
-      "title": "Settings",
-      "description": "Your organization information",
-      "notFound": "Organization not found",
-      "edit": "Edit",
-      "orgProfile": "Organization Profile",
-      "orgProfileDescription": "General information",
-      "name": "Name",
-      "type": "Type",
-      "descriptionLabel": "Description",
-      "address": "Address",
-      "street": "Street",
-      "city": "City",
-      "postalCode": "Postal Code",
-      "country": "Country",
-      "noAddress": "No address configured",
-      "contact": "Contact",
-      "phone": "Phone",
-      "email": "Email",
-      "website": "Website",
-      "noContact": "No contact information",
-      "jurisdiction": "Jurisdiction",
-      "noJurisdiction": "No jurisdiction defined",
-      "updateSuccess": "Settings updated",
-      "updateError": "Update error",
-      "orgTypes": {
-        "consulate": "Consulate",
-        "consulateGeneral": "Consulate General",
-        "embassy": "Embassy",
-        "honoraryConsulate": "Honorary Consulate",
-        "ministry": "Ministry",
-        "other": "Other"
-      }
-    }
-  },
-  "common": {
-    "cancel": "Cancel",
-    "save": "Save",
-    "back": "Back",
-    "edit": "Edit",
-    "delete": "Delete",
-    "confirm": "Confirm",
-    "notFound": {
-      "title": "404",
-      "heading": "Page not found",
-      "description": "Sorry, the page you are looking for does not exist or has been moved.",
-      "backHome": "Back to home"
-    },
-    "step": "Step",
-    "profile": "My Profile",
-    "requests": "My Requests",
-    "documents": "My Documents",
-    "appointments": "My Appointments",
-    "dashboard": "Dashboard",
-    "menu": "Menu",
-    "actions": "Actions",
-    "noResults": "No results found.",
-    "saved": "Changes saved",
-    "previous": "Previous",
-    "next": "Next",
-    "firstName": "First Name",
-    "lastName": "Last Name",
-    "postalCode": "Postal Code"
-  },
-  "zod": {
-    "required": "Required",
-    "invalid_type": "Expected {{expected}}, received {{received}}",
-    "invalid_literal": "Invalid value, expected {{expected}}",
-    "unrecognized_keys": "Unrecognized keys: {{keys}}",
-    "invalid_union": "Invalid input",
-    "invalid_union_discriminator": "Invalid discriminator. Options: {{options}}",
-    "invalid_enum_value": "Invalid value. Options: {{options}}, Received: {{received}}",
-    "invalid_arguments": "Invalid arguments",
-    "invalid_return_type": "Invalid return type",
-    "invalid_date": "Invalid date",
-    "invalid_string": {
-      "email": "Invalid email",
-      "url": "Invalid URL",
-      "uuid": "Invalid UUID",
-      "startsWith": "Must start with \"{{startsWith}}\"",
-      "endsWith": "Must end with \"{{endsWith}}\""
-    },
-    "too_small": {
-      "string": {
-        "inclusive": "Must contain at least {{minimum}} character(s)",
-        "not_inclusive": "Must contain over {{minimum}} character(s)"
-      },
-      "number": {
-        "inclusive": "Must be greater than or equal to {{minimum}}",
-        "not_inclusive": "Must be greater than {{minimum}}"
-      },
-      "array": {
-        "inclusive": "Must contain at least {{minimum}} element(s)",
-        "not_inclusive": "Must contain over {{minimum}} element(s)"
-      },
-      "date": {
-        "inclusive": "Must be after or equal to {{minimum}}",
-        "not_inclusive": "Must be after {{minimum}}"
-      }
-    },
-    "too_big": {
-      "string": {
-        "inclusive": "Must contain at most {{maximum}} character(s)",
-        "not_inclusive": "Must contain fewer than {{maximum}} character(s)"
-      },
-      "number": {
-        "inclusive": "Must be less than or equal to {{maximum}}",
-        "not_inclusive": "Must be less than {{maximum}}"
-      },
-      "array": {
-        "inclusive": "Must contain at most {{maximum}} element(s)",
-        "not_inclusive": "Must contain fewer than {{maximum}} element(s)"
-      },
-      "date": {
-        "inclusive": "Must be before or equal to {{maximum}}",
-        "not_inclusive": "Must be before {{maximum}}"
-      }
-    },
-    "not_multiple_of": "Must be a multiple of {{multipleOf}}",
-    "not_finite": "Must be finite",
-    "custom": "Invalid"
-  },
-  "profile": {
-    "step": {
-      "invalid": "Please correct the errors before continuing"
-    },
-    "errors": {
-      "title": "Fields to correct"
-    },
-    "fields": {
-      "firstName": "First Name",
-      "lastName": "Last Name",
-      "birthPlace": "Place of Birth",
-      "birthCountry": "Country of Birth",
-      "gender": "Gender",
-      "maritalStatus": "Marital Status",
-      "nipCode": "NIP (If known)",
-      "email": "Contact Email",
-      "phoneHome": "Phone (Home Country)",
-      "phoneAbroad": "Phone (Residence)",
-      "country": "Country",
-      "countryOfResidence": "Country of Residence",
-      "city": "City",
-      "street": "Address"
-    },
-    "sections": {
-      "addressHome": "Address in Gabon (or home country)",
-      "addressAbroad": "Current Residence Address",
-      "emergencyContacts": "Emergency Contacts",
-      "emergencyContactsDesc": "People to contact in case of emergency",
-      "emergencyResidence": "Emergency Contact (Residence Country)",
-      "emergencyHomeland": "Emergency Contact (Gabon)"
-    },
-    "relationship": {
-      "father": "Father",
-      "mother": "Mother",
-      "spouse": "Spouse",
-      "brotherSister": "Brother/Sister",
-      "child": "Child",
-      "legalGuardian": "Legal Guardian",
-      "other": "Other"
-    },
-    "placeholders": {
-      "selectCountry": "Select a country",
-      "select": "Select"
-    },
-    "gender": {
-      "male": "Male",
-      "female": "Female"
-    },
-    "maritalStatus": {
-      "single": "Single",
-      "married": "Married",
-      "divorced": "Divorced",
-      "widowed": "Widowed"
-    },
-    "documents": {
-      "passport": "Passport (Main Pages)",
-      "nationalId": "National ID Card",
-      "birthCertificate": "Birth Certificate",
-      "residencePermit": "Residence Permit / Visa",
-      "proofOfAddress": "Proof of Address",
-      "photo": "ID Photo"
-    },
-    "tabs": {
-      "personal": "Personal Info",
-      "contacts": "Contacts",
-      "family": "Family",
-      "documents": "My Documents"
-    }
-  },
-  "registration": {
-    "steps": {
-      "identity": {
-        "title": "Identity",
-        "description": "Personal info"
-      },
-      "contacts": {
-        "title": "Contacts",
-        "description": "Contact details"
-      },
-      "family": {
-        "title": "Family",
-        "description": "Family status"
-      },
-      "documents": {
-        "title": "Documents",
-        "description": "Supporting documents"
-      }
-    },
-    "errors": {
-      "firstNameRequired": "First name is required",
-      "lastNameRequired": "Last name is required",
-      "birthDateRequired": "Date of birth is required",
-      "dateInvalid": "Invalid date",
-      "birthDateInPast": "Date of birth must be in the past",
-      "mustBeAdult": "You must be an adult",
-      "birthPlaceRequired": "Place of birth is required",
-      "birthCountryRequired": "Country of birth is required",
-      "genderRequired": "Gender is required",
-      "nationalityRequired": "Nationality is required",
-      "nationalityAcquisitionRequired": "Acquisition mode is required",
-      "passportNumberInvalid": "Invalid passport number (min 6 characters)",
-      "issueDateRequired": "Issue date required",
-      "issueDateInPast": "Issue date must be in the past",
-      "expiryDateRequired": "Expiry date required",
-      "expiryDateInFuture": "Passport must be valid",
-      "expiryAfterIssue": "Expiry date must be after issue date",
-      "issuingAuthorityRequired": "Issuing authority required",
-      "emailInvalid": "Invalid email",
-      "phoneInvalid": "Invalid phone number",
-      "streetRequired": "Address required (min 5 characters)",
-      "cityRequired": "City required",
-      "postalCodeRequired": "Postal code required",
-      "countryRequired": "Country required",
-      "maritalStatusRequired": "Marital status required",
-      "spouseFirstNameRequired": "Spouse first name required",
-      "spouseLastNameRequired": "Spouse last name required",
-      "passportDocRequired": "Passport is required",
-      "nationalIdDocRequired": "National ID is required",
-      "photoDocRequired": "ID photo is required"
-    },
-    "backToDashboard": "Back to dashboard",
-    "labels": {
-      "consulateOrEmbassy": "Consulate / Embassy",
-      "selectPlaceholder": "Select..."
-    },
-    "jurisdiction": {
-      "title": "Jurisdiction",
-      "description": "Make sure you reside within the jurisdiction of this organization. Proof of residence will be requested."
-    },
-    "status": {
-      "dateRequested": "Request date:",
-      "number": "Number:",
-      "fallbackOrg": "Consulate"
-    },
-    "title": "Consular Registration",
-    "requestTitle": "Registration Request",
-    "desc": "Select the consulate or embassy in your jurisdiction to register.",
-    "selectOrg": "Choose Organization",
-    "submit": "Send Request",
-    "success": "Request sent successfully",
-    "missingDocs": {
-      "title": "Incomplete Profile",
-      "description": "Please add the following documents to your profile before submitting your request:"
-    },
-    "completeProfile": "Complete my profile"
-  },
-  "documents": {
-    "search": "Search..."
-  },
-  "accessibilite": {
-    "title": "Accessibility",
-    "intro": "The General Consulate of Gabon in France is committed to making this website accessible in accordance with current standards.",
-    "conformance": {
-      "title": "Compliance Statement",
-      "content": "This website has been designed to be accessible to the widest audience. We strive to comply with the RGAA (General Accessibility Improvement Framework) recommendations."
-    },
-    "technologies": {
-      "title": "Technologies Used",
-      "content": "This site is built with the following modern web technologies:",
-      "items": {
-        "html5": "Semantic HTML5",
-        "css3": "CSS3 with dark mode support",
-        "react": "React with accessible components",
-        "aria": "ARIA attributes for assistive technologies"
-      }
-    },
-    "features": {
-      "title": "Accessibility Features",
-      "navigation": {
-        "title": "Navigation",
-        "content": "Full keyboard navigation, hierarchical heading structure, skip links."
-      },
-      "visual": {
-        "title": "Display",
-        "content": "AA-compliant contrasts, dark mode, resizable text, responsive design."
-      },
-      "assistive": {
-        "title": "Assistive Technologies",
-        "content": "Compatible with screen readers (NVDA, JAWS, VoiceOver), text alternatives for images."
-      }
-    },
-    "contact": {
-      "title": "Contact",
-      "content": "If you encounter an accessibility issue, please contact us:",
-      "email": "Email:",
-      "phone": "Phone:"
-    },
-    "legal": {
-      "title": "Legal Remedies",
-      "content": "If you notice an accessibility defect preventing you from accessing content or a feature of the site, you may contact the Defender of Rights."
-    }
-  },
-  "confidentialite": {
-    "title": "Privacy Policy",
-    "intro": "The General Consulate of Gabon in France is committed to protecting the privacy of users of this website.",
-    "dataCollection": {
-      "title": "Data Collection",
-      "content": "We only collect data necessary for the operation of consular services: surname, first name, date of birth, nationality, contact details, identity documents."
-    },
-    "purpose": {
-      "title": "Purpose of Processing",
-      "content": "Your data is used exclusively for:",
-      "items": {
-        "consular": "Processing your consular requests",
-        "communication": "Communicating consular information",
-        "statistics": "Producing anonymous statistics",
-        "legal": "Complying with our legal obligations"
-      }
-    },
-    "retention": {
-      "title": "Data Retention Period",
-      "content": "Your data is kept for the duration necessary to process your request, then archived in accordance with applicable legal obligations."
-    },
-    "rights": {
-      "title": "Your Rights",
-      "content": "In accordance with the GDPR, you have the following rights:",
-      "items": {
-        "access": "Right to access your data",
-        "rectification": "Right to rectification",
-        "deletion": "Right to erasure",
-        "opposition": "Right to object",
-        "portability": "Right to data portability"
-      }
-    },
-    "cookies": {
-      "title": "Cookies",
-      "content": "This site uses technical cookies necessary for its operation and anonymous audience measurement cookies. No advertising cookies are used."
-    },
-    "contact": {
-      "title": "DPO Contact",
-      "content": "To exercise your rights or for any question regarding the protection of your data:",
-      "email": "Email:"
-    }
-  },
-  "mentionsLegales": {
-    "title": "Legal Notice",
-    "editor": {
-      "title": "Website Publisher",
-      "content": "General Consulate of the Gabonese Republic in France",
-      "address": "26 bis avenue Raphaël, 75016 Paris, France",
-      "phone": "Phone:",
-      "email": "Email:"
-    },
-    "director": {
-      "title": "Publication Director",
-      "content": "The Consul General of the Gabonese Republic in France"
-    },
-    "hosting": {
-      "title": "Hosting",
-      "content": "This site is hosted by Firebase (Google Cloud Platform), 8 rue de Londres, 75009 Paris, France."
-    },
-    "intellectual": {
-      "title": "Intellectual Property",
-      "content": "All content on this site (text, images, videos, logos) is protected by copyright. Any reproduction, even partial, requires prior authorization."
-    },
-    "responsibility": {
-      "title": "Liability",
-      "content": "The General Consulate endeavours to ensure the accuracy of the information published on this site. However, it cannot be held responsible for errors, omissions or results that may be obtained through misuse of this information."
-    },
-    "links": {
-      "title": "Hyperlinks",
-      "content": "This site may contain links to external sites. The General Consulate has no control over these sites and declines any responsibility for their content."
-    }
-  },
-  "contact": {
-    "title": "Contact Us",
-    "subtitle": "Official Contact Information",
-    "description": "The General Consulate of the Gabonese Republic in France is at your service for all your consular procedures.",
-    "address": {
-      "title": "Address",
-      "value": "26 bis avenue Raphaël, 75016 Paris"
-    },
-    "phone": {
-      "title": "Phone"
-    },
-    "email": {
-      "title": "Email"
-    },
-    "hours": {
-      "title": "Opening Hours",
-      "weekdays": "Monday — Friday: 9:30 AM — 3:00 PM",
-      "weekend": "Saturday — Sunday: Closed"
-    },
-    "emergency": {
-      "title": "24/7 Consular Emergency",
-      "description": "In case of emergency outside opening hours:"
-    },
-    "form": {
-      "title": "Send Us a Message",
-      "name": "Full Name",
-      "email": "Email Address",
-      "subject": "Subject",
-      "message": "Your Message",
-      "submit": "Send",
-      "success": "Your message has been sent successfully!",
-      "subjects": {
-        "general": "General Enquiry",
-        "passport": "Passport",
-        "visa": "Visa",
-        "civilStatus": "Civil Status",
-        "consularCard": "Consular Card",
-        "other": "Other"
-      }
-    },
-    "titleHighlight": "us",
-    "coordinates": "Contact Details",
-    "civilStatus": "Civil Status",
-    "emergencies": "Emergencies",
-    "openingHours": "Opening Hours",
-    "weekdays": "Monday - Friday",
-    "deposit": "Drop-off",
-    "pickup": "Pick-up",
-    "depositHoursValue": "9:00 AM - 3:00 PM",
-    "pickupHoursValue": "3:00 PM - 4:30 PM",
-    "closedHolidays": "Closed on public holidays in Gabon and France.",
-    "access": "Access & Transport",
-    "metro": "Metro Line 9",
-    "metroStop": "Ranelagh stop (5 min walk)",
-    "busStop": "Ranelagh stop",
-    "parking": "Parking",
-    "parkingDesc": "Paid street parking",
-    "consulateGeneral": "General Consulate"
-  },
-  "leConsulat": {
-    "title": "The Consulate",
-    "badge": "Institution",
-    "subtitle": "The General Consulate of the Gabonese Republic in France",
-    "description": "Serving the Gabonese community in France for over 50 years. Discover our missions, our history and our commitment.",
-    "missions": {
-      "title": "Our Missions",
-      "protection": {
-        "title": "Consular Protection",
-        "description": "Assistance and protection of Gabonese nationals in France in all situations."
-      },
-      "administrative": {
-        "title": "Administrative Services",
-        "description": "Issuance of passports, consular cards, civil status certificates and other official documents."
-      },
-      "community": {
-        "title": "Community Life",
-        "description": "Support and guidance for the Gabonese diaspora in France."
-      },
-      "cultural": {
-        "title": "Cultural Outreach",
-        "description": "Promoting Gabonese culture in France through events and partnerships."
-      },
-      "economic": {
-        "title": "Economic Cooperation",
-        "description": "Facilitating economic exchanges between Gabon and France."
-      },
-      "legal": {
-        "title": "Legal Assistance",
-        "description": "Support with legal and notarial procedures."
-      },
-      "social": {
-        "title": "Social Action",
-        "description": "Support for nationals in difficulty and referral to relevant services."
-      }
-    }
-  },
-  "news": {
-    "badge": "News & Events",
-    "titlePart1": "Stay",
-    "titlePart2": "informed",
-    "description": "Follow the latest news, events and press releases from the General Consulate.",
-    "readMore": "Read more",
-    "allNews": "All news",
-    "noNews": "No news at the moment",
-    "noMore": "No more news",
-    "categories": {
-      "communique": "Press Release",
-      "evenement": "Event",
-      "actualite": "News"
-    }
-  },
-  "vieFrance": {
-    "badge": "Practical Guide",
-    "heroTitle": "Living in France",
-    "heroHighlight": "day to day",
-    "heroDescription": "A comprehensive guide for Gabonese residents in France: housing, healthcare, education, employment, residency rights and family life. All the practical information for your daily life.",
-    "emergency": {
-      "title": "Emergency Numbers",
-      "subtitle": "Save these in your phone",
-      "samu": "SAMU — Medical Emergencies",
-      "police": "Police — Emergency",
-      "pompiers": "Fire Brigade",
-      "european": "European Emergency Number",
-      "sms": "SMS Emergencies (deaf/hard of hearing)",
-      "consulat": "Gabon Consular Emergency 24/7"
-    },
-    "stats": {
-      "themes": "6 thematic sections",
-      "procedures": "50+ detailed procedures",
-      "links": "Verified official links"
-    }
-  },
-  "venirFrance": {
-    "badge": "Arrival & Integration Guide",
-    "heroTitle": "Coming to France",
-    "heroHighlight": "& Settling In",
-    "heroDescription": "A comprehensive guide for Gabonese nationals arriving in France: admission, visa, administrative procedures, cultural norms and practical advice for successful integration. The General Consulate of Gabon is here to help.",
-    "savoirVivre": {
-      "badge": "Etiquette",
-      "title": "Cultural Norms & Conventions",
-      "description": "Understanding French society's norms to navigate it better. It's not about giving up your culture — it's about adding another one."
-    },
-    "guides": {
-      "badge": "Complete Guides",
-      "title": "Your Detailed Procedures",
-      "description": "Click on each topic to discover detailed information, procedures and our practical tips."
-    },
-    "erreurs": {
-      "badge": "Must Know",
-      "title": "Common Mistakes to Avoid",
-      "description": "These oversights can have serious consequences. Take them seriously to protect your rights."
-    },
-    "numeros": {
-      "badge": "Essential Numbers",
-      "title": "Useful Numbers to Keep",
-      "description": "Save these numbers in your phone. They can save lives."
-    },
-    "cta": {
-      "title": "The Consulate Is By Your Side",
-      "description": "Whether you are about to leave or have just arrived, the General Consulate of Gabon in France is your point of contact. Do not hesitate to reach out to us with any questions.",
-      "vieFrance": "Guide to Living in France"
-    }
-  },
-  "retourGabon": {
-    "badge": "Return Guide",
-    "heroTitle": "Return to Gabon",
-    "heroHighlight": "— Prepare Well",
-    "heroDescription": "A comprehensive guide for Gabonese nationals returning home: consular procedures, moving, resettlement, employment, OQTF, aid and maintaining your acquired rights in France.",
-    "steps": {
-      "badge": "Return Steps",
-      "title": "Prepare Each Step",
-      "description": "From the first day of preparation to your resettlement, each step is detailed with practical advice and useful links."
-    },
-    "aides": {
-      "badge": "Aid & Support",
-      "title": "Support for Your Return",
-      "description": "Several programmes exist to facilitate your reintegration in Gabon."
-    },
-    "erreurs": {
-      "badge": "Mistakes to Avoid",
-      "title": "Don't Make These Mistakes",
-      "description": "These oversights can complicate your return. Anticipate them for a smooth departure."
-    },
-    "numeros": {
-      "badge": "Essential Contacts",
-      "title": "Useful Numbers",
-      "description": "Keep these for your return to Gabon."
-    }
-  },
-  "locations": {
-    "badge": "Location",
-    "titlePart1": "Find",
-    "titleHighlight": "Us",
-    "consulateTitle": "General Consulate of Gabon",
-    "standardLabel": "Standard:",
-    "emergenciesLabel": "Emergencies:",
-    "metroLabel": "Metro:",
-    "metroValue": "Ranelagh (Line 9)",
-    "busLabel": "Bus:",
-    "busValue": "Lines 22, 52 (Ranelagh stop)",
-    "viewOnMap": "View on map",
-    "dgdiTitle": "DGDI Branch (Passports/Visas)",
-    "dgdiNote": "For passport and visa requests only.",
-    "walkTime": "5 min walk"
-  },
-  "contactModal": {
-    "title": "Contact the Consulate",
-    "description": "General Consulate of Gabon in France — All contact details",
-    "phones": "Phone Numbers",
-    "civilStatus": "Civil Status",
-    "emergencies24": "Emergencies 24/7",
-    "openingHours": "Opening Hours",
-    "monFri": "Mon - Fri",
-    "deposit": "Drop-off",
-    "pickup": "Pick-up",
-    "depositHours": "9:00 AM - 3:00 PM",
-    "pickupHours": "3:00 PM - 4:30 PM",
-    "closedHolidays": "Closed on public holidays in Gabon and France.",
-    "access": "Access",
-    "walkTime": "5 min walk",
-    "busLines": "Lines 22, 52",
-    "busStop": "Ranelagh stop"
-  }
+	"hero": {
+		"badge": "New — Powered by Artificial Intelligence",
+		"title": "The Consulate enters",
+		"titleHighlight": "the AI era",
+		"subtitle": "Consulat.ga — Your consulate, reinvented",
+		"description": "No more waiting on the phone. Thanks to artificial intelligence, get instant answers, track your procedures in real time and access all consular services 24/7 from your smartphone.",
+		"services": "Our Services",
+		"contact": "Contact Us",
+		"emergencyLabel": "Consular Emergency 24/7",
+		"quickAccess": {
+			"news": "News",
+			"newsDesc": "Official statements",
+			"services": "Services",
+			"servicesDesc": "Online procedures",
+			"inscription": "Registration",
+			"inscriptionDesc": "Consular register",
+			"consulat": "The Consulate",
+			"consulatDesc": "Missions & team"
+		},
+		"cta": "Discover Consulat.ga",
+		"mobileTitle": "The General Consulate",
+		"mobileTitleHighlight": "enters the AI era"
+	},
+	"statsBar": {
+		"diaspora": {
+			"value": "30,000+",
+			"label": "Gabonese in France"
+		},
+		"services": {
+			"value": "9",
+			"label": "Service categories"
+		},
+		"protection": {
+			"value": "24/7",
+			"label": "Consular assistance"
+		},
+		"horaires": {
+			"value": "Mon-Fri",
+			"label": "9:00 AM - 4:00 PM"
+		}
+	},
+	"guidePratique": {
+		"badge": "Living in France",
+		"title": "Practical Guide for Gabonese in France",
+		"description": "Essential information to facilitate your settlement and daily life in France. The consulate supports you in all your procedures.",
+		"readMore": "Learn more",
+		"cta": "Need help with a specific procedure? Our consular team is at your service.",
+		"contactUs": "Contact the consulate",
+		"logement": {
+			"title": "Housing",
+			"desc": "Finding accommodation, housing aid (APL/ALS), tenant rights and administrative procedures."
+		},
+		"sante": {
+			"title": "Health & Social Protection",
+			"desc": "Social security registration, health insurance, access to care and health coverage rights."
+		},
+		"education": {
+			"title": "Education & Training",
+			"desc": "School enrollment, scholarships, recognition of Gabonese diplomas and vocational training."
+		},
+		"emploi": {
+			"title": "Employment & Entrepreneurship",
+			"desc": "Job search, business creation, work permits and employment assistance."
+		},
+		"droits": {
+			"title": "Rights & Residency Permit",
+			"desc": "Residence permit renewal, family reunification, naturalization and free legal aid."
+		},
+		"famille": {
+			"title": "Family & Children",
+			"desc": "Birth registration, family benefits, childcare and transcription of civil status documents."
+		},
+		"tags": {
+			"Vie quotidienne": "Daily life",
+			"Santé": "Health",
+			"Éducation": "Education",
+			"Emploi": "Employment",
+			"Juridique": "Legal",
+			"Famille": "Family"
+		},
+		"titlePart1": "A Complete Ecosystem in",
+		"titleHighlight": "6 Essential Topics",
+		"viewAll": "View the complete guide",
+		"features": {
+			"logement1": "Housing search",
+			"logement2": "APL / ALS",
+			"logement3": "Visale guarantee",
+			"sante1": "Social security",
+			"sante2": "Health insurance",
+			"sante3": "CMU-C / ACS",
+			"education1": "School enrollment",
+			"education2": "CROUS scholarships",
+			"education3": "Diploma equivalence",
+			"emploi1": "Job center",
+			"emploi2": "Self-employed",
+			"emploi3": "Work permit",
+			"droits1": "Residence permit",
+			"droits2": "Family reunification",
+			"droits3": "Naturalization",
+			"famille1": "Birth registration",
+			"famille2": "CAF benefits",
+			"famille3": "Childcare"
+		}
+	},
+	"faq": {
+		"badge": "Frequently asked questions",
+		"title": "Most asked questions",
+		"titlePart1": "Most Asked",
+		"titleHighlight": "Questions",
+		"description": "Quickly find answers to your questions about consular procedures.",
+		"viewAll": "View all questions",
+		"contactTitle": "Didn't find your answer?",
+		"contactDescription": "Contact the General Consulate of Gabon for any additional information request.",
+		"items": {
+			"inscription": {
+				"question": "How do I register at the consular register?",
+				"answer": "Registration can be done online at consulat.ga or in person at the consulate. Bring your valid passport, proof of address in France less than 3 months old, and 2 ID photos. The procedure is free and gives you access to consular protection."
+			},
+			"passeport": {
+				"question": "What documents are needed to renew my passport?",
+				"answer": "For passport renewal, you must provide: the old passport (even expired), a copy of your birth certificate, 2 compliant ID photos, a recent proof of address, and the completed application form. An appointment at the DGDI office is required for fingerprinting."
+			},
+			"etatCivil": {
+				"question": "How to transcribe a French birth certificate in Gabon?",
+				"answer": "Transcription of a birth certificate allows it to be recognized in Gabon. Submit to the consulate: the full copy of the French birth certificate, parents' identity documents, and family record book if applicable. The average processing time is 2 to 4 weeks."
+			},
+			"urgence": {
+				"question": "What to do in case of a consular emergency?",
+				"answer": "In case of emergency (serious accident, death, arrest, natural disaster), immediately contact the consular emergency number at 07 44 23 95 84, available 24/7. The consulate can assist you, repatriate remains, or facilitate contact with French authorities."
+			},
+			"rdv": {
+				"question": "Do I need an appointment to visit the consulate?",
+				"answer": "An appointment is strongly recommended for passport and visa procedures. For other services (legalization, civil status, consular registration), you can come during opening hours Monday to Friday from 9am to 4pm. Book online at consulat.ga for faster service."
+			},
+			"vote": {
+				"question": "How to vote from France?",
+				"answer": "To participate in Gabonese elections from France, you must be registered at the consular register and on the consular electoral roll. During elections, the consulate sets up polling stations. Present yourself with your consular card and valid ID on election day."
+			},
+			"regularisation": {
+				"question": "How to regularize my status in France?",
+				"answer": "Several paths exist: exceptional admission (Valls circular 2012), regularization through employment, family reasons, medical grounds. File at the prefecture or online via the ANEF portal. Consult a specialized lawyer."
+			},
+			"frontiere": {
+				"question": "What documents to present at the border?",
+				"answer": "Valid passport, visa, accommodation certificate, return ticket (short stay), travel insurance (min. €30,000). Resources: min. €120/day (hotel) or €32.50/day (private accommodation with attestation)."
+			},
+			"carteSejour": {
+				"question": "How to renew my residence permit?",
+				"answer": "Renewal is done 2 to 4 months before expiry, online at the ANEF portal or at the prefecture. A receipt is issued while waiting for the new permit."
+			},
+			"oqtf": {
+				"question": "What is an OQTF and what to do if I receive one?",
+				"answer": "The OQTF is an administrative order to leave France. NEVER ignore it. Appeal: to the prefect (30 days) or administrative court. The appeal is suspensive. Contact a lawyer and the consulate immediately."
+			},
+			"perteDocuments": {
+				"question": "I lost my passport/residence permit, what do I do?",
+				"answer": "Report to the police station, then contact the consulate (passport) or prefecture/ANEF (residence permit). Always keep digital copies of your documents."
+			},
+			"travailEtudiant": {
+				"question": "I'm a student, how many hours can I work?",
+				"answer": "964 hours per year (about 20h/week, 60% of legal working time). No additional work permit needed — your student permit authorizes it."
+			},
+			"visaBinational": {
+				"question": "I'm a dual national, do I need a visa for Gabon?",
+				"answer": "No, with a valid Gabonese passport. With only a French passport, an e-Visa is required (evisa.dgdi.ga). The consulate can help with obtaining a Gabonese passport."
+			},
+			"arrestation": {
+				"question": "What to do in case of arrest?",
+				"answer": "Stay calm. Rights: know the reason, remain silent, have a lawyer, notify a relative, contact the consulate (Vienna Convention, art. 36). Police custody: 24h max (renewable once). Don't sign anything without understanding."
+			},
+			"changementStatut": {
+				"question": "How to switch from student to employee status?",
+				"answer": "Job related to your degree, salary ≥ 1.5x minimum wage (1x for shortage occupations). Employer requests work authorization, then status change at prefecture. Timeline: 2 to 4 months."
+			},
+			"aps": {
+				"question": "What is the APS and how to benefit from it?",
+				"answer": "The APS is a 12-month permit (non-renewable) for Master's degree holders. Allows job search or business creation related to degree. Apply before student permit expires."
+			}
+		},
+		"categories": {
+			"consulat": "Consulate",
+			"prefecture": "Prefecture",
+			"enligne": "Online",
+			"urgent": "Urgent"
+		}
+	},
+	"integration": {
+		"badge": "Integration Guide",
+		"heroTitle": "Integrate and",
+		"heroHighlight": "succeed in France",
+		"heroDescription": "Complete guide for Gabonese nationals living in France: your rights, procedures, cultural codes and practical tips for successful integration. The General Consulate of Gabon supports you.",
+		"savoirVivre": {
+			"badge": "Social customs",
+			"title": "Cultural Codes & Conventions",
+			"description": "Understanding French social codes to navigate society better. It's not giving up your culture, it's adding another one."
+		},
+		"guides": {
+			"badge": "Complete guides",
+			"title": "Your detailed procedures",
+			"description": "Click on each topic to discover detailed information, procedures and our practical tips."
+		},
+		"erreurs": {
+			"badge": "Must know",
+			"title": "Common mistakes to avoid",
+			"description": "These oversights can have serious consequences. Take them seriously to protect your rights."
+		},
+		"numeros": {
+			"badge": "Essential numbers",
+			"title": "Useful numbers to save",
+			"description": "Save these numbers in your phone. They can save lives."
+		},
+		"cta": {
+			"title": "The Consulate stands by you",
+			"description": "Whether you've just arrived or have been living here for years, the General Consulate of Gabon in France is your support. Don't hesitate to reach out with any questions.",
+			"contact": "Visit us"
+		}
+	},
+	"services": {
+		"badge": "Our Services",
+		"title": "Consular Services",
+		"pageTitle": "Consular Services",
+		"pageTitleHighlight": "Services",
+		"description": "Discover all the services offered by the consular representations of the Gabonese Republic abroad.",
+		"pageDescription": "Discover all the services offered by the consular representations of the Gabonese Republic abroad.",
+		"notFound": "Service not found",
+		"notFoundDesc": "The requested service does not exist or has been removed.",
+		"backToServices": "Back to services",
+		"descriptionTitle": "Description",
+		"requiredDocuments": "Required Documents",
+		"documentsDesc": "The following documents are required.",
+		"practicalInfo": "Practical Information",
+		"delay": "Average processing time",
+		"knowMore": "Learn more",
+		"free": "Free",
+		"filters": "Filters",
+		"clearAll": "Clear all",
+		"clear": "Clear",
+		"searchPlaceholder": "Search for a service...",
+		"days_one": "day",
+		"days_other": "days",
+		"serviceCount": "service",
+		"servicesCount": "services",
+		"loading": "Loading...",
+		"noResults": "No service found",
+		"noResultsDesc": "We couldn't find any service matching your criteria. Try changing your filters or search query.",
+		"viewAllServices": "View all services",
+		"audience": "Audience",
+		"requestAudience": "Request an Audience",
+		"categories": "Categories",
+		"categoriesMap": {
+			"identity": "Identity",
+			"passport": "Passport",
+			"visa": "Visa",
+			"civil_status": "Civil Status",
+			"registration": "Consular Registration",
+			"certification": "Certification & Legalization",
+			"legalization": "Legalization",
+			"transcript": "Transcript",
+			"travel_document": "Travel Document",
+			"assistance": "Consular Assistance",
+			"emergency": "Emergency Assistance",
+			"other": "Other",
+			"Identité": "Identity",
+			"État Civil": "Civil Status",
+			"Immatriculation": "Consular Registration",
+			"Visa": "Visa",
+			"Documents": "Documents"
+		},
+		"passportVisaWarning": {
+			"title": "Important Information",
+			"message": "Passport and Visa services are under the authority of the DGDI Office. Please note that it is not the General Consulate that issues Passports and Visas in France."
+		},
+		"dgdiNotice": "This service is managed by the DGDI Office, not the General Consulate.",
+		"dgdiApply": "Submit my application",
+		"dgdiBadge": "DGDI Office — Do not confuse",
+		"dgdiTitle": "Passports & Visas: DGDI Office Services",
+		"dgdiSubtitle": "These services are not managed by the General Consulate. They fall exclusively under the DGDI External Office in Paris.",
+		"dgdi": {
+			"title": "Passport & Visa",
+			"description": "Issuance, submission and collection of passports and visas. Services provided by the DGDI (General Delegation for Documentation and Immigration) on French territory.",
+			"cta": "Start the process"
+		},
+		"cost": "Cost",
+		"modal": {
+			"eligibleBeneficiaries": "Eligible Beneficiaries",
+			"citizens": "Gabonese Citizens",
+			"residents": "Foreign Residents",
+			"eligibleAudience": "Gabonese nationals in France",
+			"requiredDocuments": "Required Documents",
+			"downloadForm": "Download Form",
+			"createRequest": "Create Request",
+			"makeRequest": "Start the process",
+			"noteLabel": "Note",
+			"reservedAudience": "Reserved for Gabonese nationals residing in France (stay > 3 months)",
+			"importantInfo": "Important Information",
+			"infoPoints": {
+				"docs": "Documents must be originals or certified copies",
+				"delay": "Processing time is indicative and may vary by consulate",
+				"identity": "Present yourself with a valid ID"
+			},
+			"formDownloaded": "Form Downloaded",
+			"formDownloadedDesc": "Application form for {{serviceName}}"
+		},
+		"homeTitle": "Services and procedures",
+		"homeTitleHighlight": "at a glance",
+		"homeDescription": "Quickly access your most common administrative procedures.",
+		"empty": "No services available at this time.",
+		"carteConsulaire": {
+			"title": "Your Gabonese ID",
+			"titleHighlight": "in France",
+			"badge": "✨ New Consular Card",
+			"doc1": "A copy of the birth certificate",
+			"doc2": "A copy of the passport",
+			"doc3": "A proof of address",
+			"doc4": "A copy of the resident card",
+			"doc4Note": "(Optional)",
+			"cta": "Apply for Consular Card",
+			"desc1": "The consular card certifies your registration in the registry of Gabonese nationals abroad.",
+			"desc2": "It facilitates all your administrative and consular procedures on French territory.",
+			"feat1": "Official recognition",
+			"feat2": "Simplified procedures",
+			"feat3": "3-year validity"
+		},
+		"viewAll": "View All Services",
+		"passport": {
+			"title": "Passport",
+			"description": "Application, renewal and tracking of your Gabonese passport. Simplified and secure process."
+		},
+		"visa": {
+			"title": "Visa",
+			"description": "Visa applications for Gabon. Tourist, business, work and other categories."
+		},
+		"civilStatus": {
+			"title": "Civil Status",
+			"description": "Birth, marriage, death certificates. Transcription and legalization of documents."
+		},
+		"registration": {
+			"title": "Consular Registration",
+			"description": "Register in the registry of Gabonese nationals abroad. Stay informed and protected."
+		},
+		"legalization": {
+			"title": "Legalization",
+			"description": "Authentication and legalization of your official documents for international use."
+		},
+		"emergency": {
+			"title": "Emergency Assistance",
+			"description": "Consular assistance in emergencies: lost documents, difficulties abroad."
+		},
+		"urgentBadge": "Urgent",
+		"validity": "Validity",
+		"contactConsulate": "Contact the consulate",
+		"viewFiche": "View details",
+		"noteImportante": "Important note",
+		"crossLinks": {
+			"integration": "Integration guide",
+			"integrationDesc": "Practical tips for living in France",
+			"vieFrance": "Life in France",
+			"vieFranceDesc": "Prefecture and administrative procedures"
+		}
+	},
+	"consulates": {
+		"badge": "Our Representations",
+		"title": "Gabonese Consulates Worldwide",
+		"description": "Find the nearest Gabonese consulate to carry out your administrative procedures.",
+		"headquarters": "Headquarters",
+		"viewDetails": "View details",
+		"viewAll": "View All Consulates"
+	},
+	"citizenCta": {
+		"badge": "Consulat.ga App",
+		"title": "Create Your Gabonese Citizen Account",
+		"description": "Simplified consular procedures: AI assistant, real-time tracking, zero travel.",
+		"createAccount": "Create my account",
+		"existingAccount": "I already have an account",
+		"benefits": {
+			"tracking": {
+				"title": "Real-time tracking",
+				"description": "Track the progress of your applications at any time"
+			},
+			"documents": {
+				"title": "Digital documents",
+				"description": "Access your official documents online"
+			},
+			"payment": {
+				"title": "Secure payment",
+				"description": "Pay your consular fees securely"
+			},
+			"appointments": {
+				"title": "Simplified appointments",
+				"description": "Book your slots in just a few clicks"
+			}
+		},
+		"stats": {
+			"citizens": "Registered citizens",
+			"consulates": "Connected consulates",
+			"satisfaction": "Satisfaction",
+			"availability": "Availability"
+		},
+		"testimonial": "Thanks to Consulat.ga, I was able to renew my passport from London without having to travel. Fast and efficient service!",
+		"testimonialAuthor": "Marie N., London",
+		"titlePart1": "Your consulate,",
+		"titleHighlight": "in your pocket",
+		"cta": "Create my free account",
+		"ctaSecondary": "Discover the app",
+		"advantages": {
+			"noWait": {
+				"title": "No more phone waiting",
+				"desc": "Ask your questions online, get immediate answers."
+			},
+			"digital": {
+				"title": "100% digital procedures",
+				"desc": "From request to tracking, everything is done online."
+			},
+			"fast": {
+				"title": "Quick answers to your questions",
+				"desc": "AI assistant available for all your questions."
+			},
+			"available": {
+				"title": "Available 24/7",
+				"desc": "Access anytime, all time zones."
+			}
+		},
+		"trust": {
+			"fast": "Sign up in 2 minutes",
+			"online": "100% on mobile",
+			"secure": "Secure & confidential"
+		}
+	},
+	"footer": {
+		"brand": {
+			"line1": "GENERAL CONSULATE",
+			"line2": "Of Gabon in France",
+			"motto": "Union - Work - Justice"
+		},
+		"services": "Services",
+		"resources": "Resources",
+		"newsletter": {
+			"title": "Stay Informed",
+			"description": "Subscribe to our newsletter to receive the latest consular news.",
+			"placeholder": "Your email",
+			"subscribe": "Subscribe"
+		},
+		"links": {
+			"passport": "Passport",
+			"visa": "Visa",
+			"civilStatus": "Civil Status",
+			"registration": "Consular Registration",
+			"legalization": "Legalization",
+			"appointment": "Book Appointment",
+			"faq": "FAQ",
+			"fees": "Consular Services",
+			"forms": "Forms",
+			"news": "News",
+			"directory": "Consulates Directory",
+			"legal": "Legal Notice",
+			"privacy": "Privacy Policy",
+			"accessibility": "Accessibility",
+			"sitemap": "Sitemap"
+		},
+		"copyright": "© {{year}} Consulat.ga — All rights reserved"
+	},
+	"header": {
+		"hours": "Mon-Fri: 9:00 AM - 4:00 PM",
+		"nav": {
+			"home": "Home",
+			"news": "News",
+			"integration": "Integration",
+			"consulates": "Consulates",
+			"faq": "FAQ",
+			"contact": "Contact",
+			"services": "Services",
+			"profile": "My Profile",
+			"requests": "My Requests",
+			"documents": "My Documents",
+			"appointments": "My Appointments",
+			"dashboard": "Dashboard",
+			"mySpace": "My Space",
+			"signIn": "Sign In",
+			"signUp": "Sign Up",
+			"consulat": "General Consulate",
+			"venirFrance": "Coming to France",
+			"vieFrance": "Living in France",
+			"retourGabon": "Return to Gabon",
+			"nousContacter": "Contact Us"
+		},
+		"appointment": "Appointment",
+		"bookAppointment": "Book Appointment",
+		"openMenu": "Open menu",
+		"closeMenu": "Close menu",
+		"country": "Gabonese Republic",
+		"language": {
+			"fr": "French",
+			"en": "English"
+		},
+		"mySpace": "My Space",
+		"signIn": "Sign In",
+		"signUp": "Sign Up",
+		"brand": {
+			"line1": "GENERAL CONSULATE",
+			"line2": "Of Gabon in France",
+			"motto": "Union - Work - Justice"
+		}
+	},
+	"mySpace": {
+		"title": "My Consular Space",
+		"syncing": "Syncing your account..."
+	},
+	"errors": {
+		"auth": {
+			"noAuthentication": "Authentication required",
+			"pleaseSignIn": "Please sign in to access your space.",
+			"welcomeBack": "Welcome back",
+			"accessAccount": "Access your consular services account",
+			"createAccount": "Create an account",
+			"joinPlatform": "Join the consular services platform"
+		},
+		"appointments": {
+			"notFound": "Appointment not found",
+			"slotNotAvailable": "This time slot is not available",
+			"cannotReschedule": "Cannot reschedule this appointment"
+		},
+		"users": {
+			"notFound": "User not found"
+		},
+		"admin": {
+			"cannotDemoteSelf": "You cannot demote yourself",
+			"cannotDisableSelf": "You cannot disable yourself"
+		},
+		"orgs": {
+			"notFound": "Organization not found",
+			"slugExists": "Organization slug already exists",
+			"memberAlreadyExists": "User is already a member of this organization",
+			"memberNotFound": "User is not a member of this organization",
+			"cannotRemoveSelf": "You cannot remove yourself from the organization"
+		},
+		"services": {
+			"notFound": "Service not found",
+			"slugExists": "Service slug already exists",
+			"alreadyActivated": "Service is already activated for this organization",
+			"notAvailable": "This service is not currently available"
+		},
+		"requests": {
+			"notFound": "Request not found",
+			"notAuthorizedToSubmit": "Not authorized to submit this request",
+			"notAuthorizedToCancel": "Not authorized to cancel this request",
+			"onlyDraftCanBeSubmitted": "Only draft requests can be submitted",
+			"onlyStaffCanAddInternalNotes": "Only staff can add internal notes",
+			"cannotCancelProcessing": "Cannot cancel a request that is already being processed"
+		},
+		"profile": {
+			"identity": {
+				"firstName": {
+					"min": "First name must be at least 2 characters"
+				},
+				"lastName": {
+					"min": "Last name must be at least 2 characters"
+				},
+				"birthDate": {
+					"past": "Date of birth must be in the past",
+					"adult": "You must be at least 18 years old"
+				},
+				"birthPlace": {
+					"min": "Place of birth must be at least 2 characters"
+				},
+				"birthCountry": {
+					"invalid": "Invalid country of birth"
+				},
+				"gender": {
+					"invalid": "Invalid gender"
+				},
+				"nationality": {
+					"invalid": "Invalid nationality"
+				},
+				"nationalityAcquisition": {
+					"invalid": "Invalid nationality acquisition mode"
+				}
+			},
+			"passportInfo": {
+				"number": {
+					"min": "Passport number must be at least 6 characters"
+				},
+				"issueDate": {
+					"past": "Issue date must be in the past"
+				},
+				"expiryDate": {
+					"future": "Expiry date must be in the future",
+					"afterIssue": "Expiry date must be after issue date"
+				},
+				"issuingAuthority": {
+					"min": "Issuing authority must be at least 2 characters"
+				}
+			},
+			"addresses": {
+				"street": {
+					"required": "Address is required"
+				},
+				"city": {
+					"required": "City is required"
+				},
+				"postalCode": {
+					"required": "Postal code is required"
+				},
+				"country": {
+					"invalid": "Invalid country"
+				}
+			},
+			"contacts": {
+				"email": {
+					"invalid": "Invalid email"
+				},
+				"emergency": {
+					"firstName": {
+						"min": "First name must be at least 2 characters"
+					},
+					"lastName": {
+						"min": "Last name must be at least 2 characters"
+					},
+					"phone": {
+						"required": "Phone number is required"
+					},
+					"email": {
+						"invalid": "Invalid email"
+					},
+					"relationship": {
+						"invalid": "Invalid relationship"
+					}
+				}
+			},
+			"family": {
+				"maritalStatus": {
+					"invalid": "Invalid marital status"
+				},
+				"parent": {
+					"firstName": {
+						"min": "First name must be at least 2 characters"
+					},
+					"lastName": {
+						"min": "Last name must be at least 2 characters"
+					}
+				},
+				"spouse": {
+					"firstName": {
+						"min": "First name must be at least 2 characters",
+						"required": "Spouse's first name is required"
+					},
+					"lastName": {
+						"min": "Last name must be at least 2 characters",
+						"required": "Spouse's last name is required"
+					}
+				}
+			}
+		}
+	},
+	"superadmin": {
+		"nav": {
+			"dashboard": "Dashboard",
+			"users": "Users",
+			"allUsers": "All Users",
+			"organizations": "Organizations",
+			"allOrganizations": "All Organizations",
+			"newOrganization": "New Organization",
+			"services": "Services",
+			"commonServices": "Common Services",
+			"auditLogs": "Audit Logs",
+			"settings": "Settings"
+		},
+		"dashboard": {
+			"title": "Dashboard",
+			"welcome": "Welcome to Consulat.ga Administration",
+			"stats": {
+				"users": "Users",
+				"totalUsers": "Total registered users",
+				"organizations": "Organizations",
+				"consulatesEmbassies": "Consulates and embassies",
+				"services": "Services",
+				"availableServices": "Available services",
+				"requests": "Requests",
+				"pendingRequests": "Pending processing"
+			},
+			"recentActivity": "Recent Activity",
+			"recentActivityDesc": "Latest actions on the platform",
+			"quickActions": "Quick Actions",
+			"quickActionsDesc": "Shortcuts to common tasks",
+			"addUser": "Add User",
+			"addOrg": "Add Organization",
+			"addService": "Add Service",
+			"viewLogs": "View Logs"
+		},
+		"users": {
+			"title": "Users",
+			"description": "Manage platform users and their roles",
+			"columns": {
+				"avatar": "Avatar",
+				"name": "Name",
+				"email": "Email",
+				"phone": "Phone",
+				"role": "Role",
+				"residenceCountry": "Residence Country",
+				"status": "Status",
+				"createdAt": "Created At",
+				"actions": "Actions"
+			},
+			"filters": {
+				"allRoles": "All Roles",
+				"allStatus": "All Status",
+				"active": "Active",
+				"inactive": "Inactive",
+				"searchPlaceholder": "Search users..."
+			},
+			"actions": {
+				"editRole": "Edit Role",
+				"enable": "Enable",
+				"disable": "Disable",
+				"viewDetails": "View Details"
+			},
+			"roles": {
+				"user": "User",
+				"superadmin": "Super Admin"
+			},
+			"roleDialog": {
+				"title": "Change User Role",
+				"description": "Select a new role for {{name}}",
+				"confirm": "Confirm",
+				"cancel": "Cancel"
+			},
+			"noResults": "No users found",
+			"details": {
+				"infos": "Information",
+				"organizations": "Organizations",
+				"orgMembership": "Organization Membership",
+				"activity": "Recent Activity",
+				"lastActions": "Last 10 actions",
+				"nationality": "Nationality",
+				"residence": "Residence Country",
+				"registered": "Registered on",
+				"verified": "verified",
+				"unverified": "unverified",
+				"since": "Since",
+				"noOrg": "No organization",
+				"noActivity": "No activity"
+			}
+		},
+		"organizations": {
+			"title": "Organizations",
+			"description": "Manage consulates, embassies, and organizations",
+			"columns": {
+				"logo": "Logo",
+				"name": "Name",
+				"slug": "Slug",
+				"type": "Type",
+				"address": "Address",
+				"contact": "Contact",
+				"membersCount": "Members",
+				"status": "Status",
+				"createdAt": "Created At",
+				"actions": "Actions"
+			},
+			"types": {
+				"consulate": "Consulate",
+				"embassy": "Embassy",
+				"ministry": "Ministry",
+				"other": "Other"
+			},
+			"filters": {
+				"allTypes": "All Types",
+				"allCountries": "All Countries",
+				"searchPlaceholder": "Search organizations..."
+			},
+			"actions": {
+				"view": "View",
+				"edit": "Edit",
+				"manageMembers": "Manage Members",
+				"manageServices": "Manage Services",
+				"enable": "Enable",
+				"disable": "Disable"
+			},
+			"form": {
+				"create": "Create Organization",
+				"edit": "Edit Organization",
+				"name": "Name",
+				"namePlaceholder": "e.g. Consulate of Gabon in Paris",
+				"slug": "Slug",
+				"slugPlaceholder": "e.g. gabon-paris",
+				"slugHelp": "URL-friendly identifier (auto-generated from name)",
+				"type": "Type",
+				"address": "Address",
+				"street": "Street",
+				"street2": "Street 2 (optional)",
+				"city": "City",
+				"postalCode": "Postal Code",
+				"state": "State/Province (optional)",
+				"country": "Country",
+				"contact": "Contact",
+				"email": "Email",
+				"phone": "Phone",
+				"website": "Website",
+				"timezone": "Timezone",
+				"jurisdiction": "Jurisdiction",
+				"jurisdictionPlaceholder": "Add a country...",
+				"logoUrl": "Logo URL",
+				"advancedConfig": "Advanced Configuration",
+				"appointmentDelay": "Appointment Delay (hours)",
+				"maxActiveRequests": "Max Active Requests",
+				"typeReadonly": "Organization type cannot be changed after creation.",
+				"save": "Save",
+				"saving": "Saving...",
+				"cancel": "Cancel",
+				"error": {
+					"nameLength": "Name must be at least 3 characters",
+					"slugLength": "Slug must be at least 2 characters",
+					"addressRequired": "Street, city and country are required"
+				}
+			},
+			"detail": {
+				"tabs": {
+					"details": "Details",
+					"members": "Members",
+					"services": "Services"
+				}
+			},
+			"tabs": {
+				"overview": "Overview",
+				"members": "Members",
+				"services": "Services"
+			},
+			"details": "Organization Details",
+			"detailsDesc": "Additional information about this organization",
+			"servicesDesc": "Services offered by this organization",
+			"noResults": "No organizations found"
+		},
+		"members": {
+			"title": "Organization Members",
+			"description": "Manage members of this organization",
+			"columns": {
+				"user": "User",
+				"role": "Role",
+				"joinedAt": "Joined At",
+				"actions": "Actions"
+			},
+			"roles": {
+				"admin": "Admin",
+				"agent": "Agent",
+				"viewer": "Viewer"
+			},
+			"actions": {
+				"changeRole": "Change Role",
+				"remove": "Remove"
+			},
+			"addMember": "Add Member",
+			"addMemberDialog": {
+				"title": "Add Member",
+				"description": "Add a user to this organization",
+				"searchUser": "Search user",
+				"selectRole": "Select role",
+				"add": "Add",
+				"cancel": "Cancel"
+			},
+			"noMembers": "No members in this organization"
+		},
+		"orgMembers": {
+			"title": "Organization Members",
+			"description": "Manage members of this organization",
+			"addMember": "Add Member",
+			"addMemberDesc": "Search for a user or create a new account to add to this organization",
+			"removeMember": "Remove Member",
+			"memberRemoved": "Member removed successfully",
+			"memberAdded": "Member added successfully",
+			"emailRequired": "Email is required",
+			"noMembers": "No members in this organization",
+			"roles": {
+				"admin": "Admin",
+				"agent": "Agent",
+				"viewer": "Viewer"
+			},
+			"tabs": {
+				"existing": "Existing User",
+				"new": "New User"
+			},
+			"searchPlaceholder": "Search by name or email...",
+			"noUsersFound": "No users found",
+			"selectUser": "Select a user",
+			"newUser": {
+				"firstName": "First Name",
+				"lastName": "Last Name",
+				"email": "Email",
+				"create": "Create and Add"
+			}
+		},
+		"services": {
+			"title": "Services",
+			"description": "Manage the global service catalog",
+			"tabs": {
+				"commonServices": "Common Services",
+				"orgServices": "Org Services"
+			},
+			"columns": {
+				"name": "Name",
+				"slug": "Slug",
+				"category": "Category",
+				"description": "Description",
+				"documentsCount": "Required Documents",
+				"status": "Status",
+				"createdAt": "Created At",
+				"actions": "Actions"
+			},
+			"categories": {
+				"passport": "Passport",
+				"visa": "Visa",
+				"civil_status": "Civil Status",
+				"registration": "Registration",
+				"legalization": "Legalization",
+				"emergency": "Emergency",
+				"other": "Other"
+			},
+			"filters": {
+				"allCategories": "All Categories",
+				"searchPlaceholder": "Search services..."
+			},
+			"actions": {
+				"edit": "Edit",
+				"enable": "Enable",
+				"disable": "Disable",
+				"activate": "Activate"
+			},
+			"form": {
+				"create": "Create Service",
+				"edit": "Edit Service",
+				"name": "Name",
+				"slug": "Slug",
+				"category": "Category",
+				"description": "Description",
+				"requiredDocuments": "Required Documents",
+				"addDocument": "Add Document",
+				"documentName": "Document Name",
+				"documentDescription": "Description (optional)",
+				"isRequired": "Required",
+				"save": "Save",
+				"cancel": "Cancel",
+				"icon": "Icon (Lucide Name / URL)",
+				"schema": "Form Schema (JSON)",
+				"noDocuments": "No required documents",
+				"success": "Service created successfully",
+				"updated": "Service updated successfully"
+			},
+			"table": {
+				"fee": "Fee",
+				"appointmentRequired": "Appointment Required"
+			},
+			"status": {
+				"active": "Active",
+				"inactive": "Inactive"
+			},
+			"dialog": {
+				"title": "Activate Service",
+				"description": "Select a service from the catalog to activate for this organization",
+				"allActivated": "All services are already activated",
+				"selectPlaceholder": "Select a service...",
+				"feeLabel": "Fee",
+				"currencyLabel": "Currency",
+				"appointmentLabel": "Appointment Required",
+				"submit": "Activate",
+				"submitting": "Activating..."
+			},
+			"empty": {
+				"org": "No services activated for this organization"
+			},
+			"noResults": "No services found"
+		},
+		"auditLogs": {
+			"title": "Audit Logs",
+			"description": "View all administrative actions",
+			"columns": {
+				"timestamp": "Timestamp",
+				"user": "User",
+				"action": "Action",
+				"targetType": "Target Type",
+				"targetId": "Target ID",
+				"details": "Details"
+			},
+			"actions": {
+				"user_created": "User Created",
+				"user_updated": "User Updated",
+				"user_disabled": "User Disabled",
+				"user_role_changed": "Role Changed",
+				"org_created": "Org Created",
+				"org_updated": "Org Updated",
+				"org_disabled": "Org Disabled",
+				"service_created": "Service Created",
+				"service_updated": "Service Updated",
+				"request_status_changed": "Request Status Changed"
+			},
+			"filters": {
+				"allActions": "All Actions",
+				"allTargets": "All Targets",
+				"searchPlaceholder": "Search logs..."
+			},
+			"noResults": "No audit logs found"
+		},
+		"settings": {
+			"title": "Platform Settings",
+			"description": "Manage global settings for the Consulat.ga application",
+			"tabs": {
+				"general": "General",
+				"notifications": "Notifications",
+				"security": "Security"
+			},
+			"general": {
+				"title": "General Information",
+				"description": "Basic details about the platform configuration",
+				"siteName": "Site Name",
+				"adminEmail": "Admin Email"
+			},
+			"notifications": {
+				"title": "Notification Settings",
+				"description": "Configure system-wide email and push notifications"
+			},
+			"security": {
+				"title": "Security Settings",
+				"description": "Manage security policies and access controls"
+			}
+		},
+		"table": {
+			"logo": "Logo",
+			"location": "Location",
+			"contact": "Contact",
+			"status": "Status",
+			"created": "Created At",
+			"actions": "Actions",
+			"avatar": "Avatar",
+			"phone": "Phone",
+			"rowsPerPage": "Rows per page",
+			"page": "Page",
+			"of": "of",
+			"selected": "{{count}} selected",
+			"noResults": "No results",
+			"columns": "Columns",
+			"previousPage": "Previous page",
+			"nextPage": "Next page",
+			"firstPage": "First page",
+			"lastPage": "Last page",
+			"createdAt": "Created At",
+			"updatedAt": "Updated At"
+		},
+		"types": {
+			"consulate": "Consulate",
+			"general_consulate": "General Consulate",
+			"embassy": "Embassy",
+			"ministry": "Ministry",
+			"other": "Other"
+		},
+		"roles": {
+			"superadmin": "Super Admin",
+			"user": "User",
+			"admin": "Administrator",
+			"agent": "Agent",
+			"viewer": "Viewer"
+		},
+		"common": {
+			"loading": "Loading...",
+			"view": "View",
+			"error": "An error occurred",
+			"retry": "Retry",
+			"save": "Save",
+			"cancel": "Cancel",
+			"delete": "Delete",
+			"edit": "Edit",
+			"create": "Create",
+			"search": "Search",
+			"filter": "Filter",
+			"reset": "Reset",
+			"noData": "No data available",
+			"confirmDelete": "Are you sure you want to delete this item?",
+			"active": "Active",
+			"inactive": "Inactive",
+			"enabled": "Enabled",
+			"disabled": "Disabled",
+			"back": "Back",
+			"comingSoon": "Coming soon",
+			"yes": "Yes",
+			"no": "No"
+		},
+		"countryCodes": {
+			"AD": "Andorra",
+			"AE": "United Arab Emirates",
+			"AF": "Afghanistan",
+			"AG": "Antigua and Barbuda",
+			"AI": "Anguilla",
+			"AL": "Albania",
+			"AM": "Armenia",
+			"AO": "Angola",
+			"AQ": "Antarctica",
+			"AR": "Argentina",
+			"AS": "American Samoa",
+			"AT": "Austria",
+			"AU": "Australia",
+			"AW": "Aruba",
+			"AX": "Åland Islands",
+			"BE": "Belgium",
+			"BF": "Burkina Faso",
+			"BG": "Bulgaria",
+			"BH": "Bahrain",
+			"BI": "Burundi",
+			"BJ": "Benin",
+			"BR": "Brazil",
+			"CA": "Canada",
+			"CD": "Democratic Republic of the Congo",
+			"CF": "Central African Republic",
+			"CG": "Republic of the Congo",
+			"CH": "Switzerland",
+			"CI": "Côte d'Ivoire",
+			"CL": "Chile",
+			"CM": "Cameroon",
+			"CN": "China",
+			"CO": "Colombia",
+			"CR": "Costa Rica",
+			"CU": "Cuba",
+			"DE": "Germany",
+			"DK": "Denmark",
+			"DZ": "Algeria",
+			"EG": "Egypt",
+			"ES": "Spain",
+			"ET": "Ethiopia",
+			"FI": "Finland",
+			"FR": "France",
+			"GA": "Gabon",
+			"GB": "United Kingdom",
+			"GH": "Ghana",
+			"GN": "Guinea",
+			"GR": "Greece",
+			"IE": "Ireland",
+			"IL": "Israel",
+			"IN": "India",
+			"IR": "Iran",
+			"IT": "Italy",
+			"JP": "Japan",
+			"KE": "Kenya",
+			"KR": "South Korea",
+			"MA": "Morocco",
+			"ML": "Mali",
+			"MX": "Mexico",
+			"NG": "Nigeria",
+			"NL": "Netherlands",
+			"NO": "Norway",
+			"PL": "Poland",
+			"PT": "Portugal",
+			"RO": "Romania",
+			"RU": "Russia",
+			"SA": "Saudi Arabia",
+			"SE": "Sweden",
+			"SN": "Senegal",
+			"ZA": "South Africa"
+		}
+	},
+	"dashboard": {
+		"nav": {
+			"dashboard": "Dashboard",
+			"services": "Services",
+			"requests": "Requests",
+			"appointments": "Appointments",
+			"team": "Team",
+			"settings": "Settings"
+		},
+		"home": {
+			"title": "Dashboard",
+			"welcome": "Welcome to {{orgName}}'s dashboard",
+			"description": "This is your centralized management space. Use the sidebar to manage your services, process requests and configure your organization.",
+			"stats": {
+				"pendingRequests": "Pending Requests",
+				"pendingRequestsDesc": "+0% since last month",
+				"teamMembers": "Team Members",
+				"teamMembersDesc": "Active in this organization",
+				"activeServices": "Active Services",
+				"activeServicesDesc": "Configured services",
+				"upcomingAppointments": "Upcoming Appointments",
+				"upcomingAppointmentsDesc": "Scheduled or confirmed"
+			}
+		},
+		"services": {
+			"title": "Services",
+			"description": "Configure the services offered by your organization",
+			"listTitle": "Service Catalog",
+			"listDescription": "Enable and configure the services you want to offer",
+			"columns": {
+				"service": "Service",
+				"category": "Category",
+				"fee": "Fee",
+				"status": "Status"
+			},
+			"configure": "Configure",
+			"notConfigured": "Not configured",
+			"configureFirst": "Please configure this service first",
+			"statusUpdated": "Status updated",
+			"updateError": "Update error",
+			"edit": {
+				"title": "Service Configuration",
+				"serviceInfo": "Service information",
+				"notFound": "Service not found",
+				"back": "Back to services",
+				"activate": "Activate this service",
+				"fee": "Fee",
+				"currency": "Currency",
+				"estimatedDays": "Estimated days",
+				"requiresAppointment": "Requires appointment",
+				"instructions": "Custom instructions",
+				"instructionsPlaceholder": "Instructions for users...",
+				"save": "Save",
+				"saving": "Saving...",
+				"saved": "Configuration saved",
+				"saveError": "Save error"
+			}
+		},
+		"team": {
+			"title": "Team",
+			"description": "Manage your organization members and their permissions",
+			"addMember": "Add member",
+			"cardTitle": "Organization Members",
+			"cardDescription": "List of users with access to this dashboard.",
+			"columns": {
+				"user": "User",
+				"role": "Role",
+				"joinedAt": "Date joined",
+				"actions": "Actions"
+			},
+			"actions": {
+				"changeRole": "Change role",
+				"remove": "Remove"
+			},
+			"confirmRemove": "Are you sure you want to remove this member?",
+			"memberRemoved": "Member removed",
+			"removeError": "Removal error",
+			"roles": {
+				"admin": "Administrator",
+				"agent": "Consular Agent",
+				"viewer": "Viewer"
+			},
+			"addDialog": {
+				"title": "Add member",
+				"description": "Add an existing user or create a new account for your team.",
+				"existingTab": "Existing user",
+				"newTab": "New account",
+				"searchLabel": "Search by email",
+				"searchPlaceholder": "example@email.com",
+				"noUsersFound": "No users found",
+				"selectUser": "Please select a user",
+				"role": "Role",
+				"firstName": "First name",
+				"lastName": "Last name",
+				"email": "Email",
+				"emailRequired": "Email is required",
+				"cancel": "Cancel",
+				"add": "Add member",
+				"adding": "Please wait...",
+				"memberAdded": "Member added successfully",
+				"newAccountCreated": "New account created and member added",
+				"addError": "Add error",
+				"createError": "Creation error"
+			},
+			"roleDialog": {
+				"title": "Change role",
+				"description": "Change the role of {{name}}",
+				"role": "Role",
+				"cancel": "Cancel",
+				"save": "Save",
+				"saved": "Role updated",
+				"error": "Error"
+			}
+		},
+		"requests": {
+			"title": "Requests",
+			"description": "Manage your organization's service requests",
+			"listTitle": "All requests",
+			"listDescription": "View and process received requests.",
+			"filterByStatus": "Filter by status",
+			"columns": {
+				"reference": "Reference",
+				"service": "Service",
+				"requester": "Requester",
+				"date": "Date",
+				"status": "Status",
+				"action": "Action"
+			},
+			"loading": "Loading...",
+			"noRequests": "No requests found",
+			"noReference": "NO-REF",
+			"unknownUser": "Unknown user",
+			"manage": "Manage",
+			"statuses": {
+				"all": "All statuses",
+				"draft": "Draft",
+				"submitted": "Submitted",
+				"under_review": "Under review",
+				"processing": "Processing",
+				"pending_documents": "Pending documents",
+				"pending_payment": "Pending payment",
+				"completed": "Completed",
+				"rejected": "Rejected",
+				"cancelled": "Cancelled"
+			},
+			"detail": {
+				"title": "Request {{ref}}",
+				"createdAt": "Created on {{date}}",
+				"back": "Back",
+				"serviceCard": {
+					"title": "Requested Service",
+					"serviceName": "Service name",
+					"unknownService": "Unknown service",
+					"formData": "Form data"
+				},
+				"notesCard": {
+					"title": "Notes and comments",
+					"description": "History of exchanges on this request",
+					"noNotes": "No notes yet",
+					"internal": "Internal",
+					"agent": "Agent",
+					"addPlaceholder": "Add a note...",
+					"internalNote": "Internal note (not visible to requester)",
+					"send": "Send",
+					"noteAdded": "Note added",
+					"noteError": "Note add error"
+				},
+				"requesterCard": {
+					"title": "Requester",
+					"unknown": "Unknown user"
+				},
+				"statusCard": {
+					"title": "Update status",
+					"selectPlaceholder": "Select a status",
+					"update": "Update",
+					"statusUpdated": "Status updated",
+					"updateError": "Update error"
+				},
+				"timelineCard": {
+					"title": "Timeline",
+					"created": "Created",
+					"submitted": "Submitted",
+					"completed": "Completed"
+				}
+			}
+		},
+		"noAccess": {
+			"title": "Unauthorized access",
+			"description": "You are not a member of any organization.",
+			"contact": "Contact an administrator to be added."
+		},
+		"appointments": {
+			"title": "Appointments",
+			"description": "Manage your organization's appointments",
+			"listTitle": "All appointments",
+			"listDescription": "View and manage scheduled appointments.",
+			"filterByStatus": "Filter by status",
+			"filterByDate": "Date",
+			"columns": {
+				"dateTime": "Date and time",
+				"user": "User",
+				"service": "Service",
+				"status": "Status",
+				"action": "Action"
+			},
+			"loading": "Loading...",
+			"noAppointments": "No appointments found",
+			"listView": "List",
+			"calendarView": "Calendar",
+			"manage": "Manage",
+			"confirm": "Confirm",
+			"cancel": "Cancel",
+			"complete": "Complete",
+			"noShow": "No-show",
+			"statuses": {
+				"all": "All statuses",
+				"scheduled": "Scheduled",
+				"confirmed": "Confirmed",
+				"cancelled": "Cancelled",
+				"completed": "Completed",
+				"no_show": "No-show"
+			},
+			"success": {
+				"confirmed": "Appointment confirmed",
+				"cancelled": "Appointment cancelled",
+				"completed": "Appointment marked as completed",
+				"noShow": "Appointment marked as no-show"
+			},
+			"error": {
+				"confirm": "Confirmation error",
+				"cancel": "Cancellation error",
+				"complete": "Completion error",
+				"noShow": "No-show marking error"
+			},
+			"notFound": "Appointment not found",
+			"detail": {
+				"title": "Appointment details",
+				"dateTime": "Date and time",
+				"date": "Date",
+				"user": "Client",
+				"service": "Service",
+				"notes": "Notes",
+				"actions": "Actions",
+				"actionsDescription": "Update the status of this appointment"
+			}
+		},
+		"dialogs": {
+			"addMember": {
+				"title": "Add a member",
+				"description": "Add an existing user or create a new account for your team.",
+				"existingUser": "Existing user",
+				"newAccount": "New account",
+				"searchByEmail": "Search by email",
+				"emailPlaceholder": "example@email.com",
+				"noUserFound": "No user found",
+				"selectUser": "Please select a user",
+				"firstName": "First name",
+				"lastName": "Last name",
+				"email": "Email",
+				"emailLabel": "Email address",
+				"emailRequired": "Email is required",
+				"role": "Role",
+				"roleLabel": "Role in organization",
+				"roles": {
+					"admin": "Administrator",
+					"agent": "Consular Agent",
+					"viewer": "Viewer"
+				},
+				"cancel": "Cancel",
+				"add": "Add member",
+				"loading": "Please wait...",
+				"successExisting": "Member added successfully",
+				"successNew": "New account created and member added"
+			},
+			"memberRole": {
+				"title": "Change role",
+				"descriptionPrefix": "Change the role of",
+				"role": "Role",
+				"cancel": "Cancel",
+				"save": "Save",
+				"success": "Role updated",
+				"error": "Error"
+			}
+		},
+		"settings": {
+			"title": "Settings",
+			"description": "Your organization information",
+			"notFound": "Organization not found",
+			"edit": "Edit",
+			"orgProfile": "Organization Profile",
+			"orgProfileDescription": "General information",
+			"name": "Name",
+			"type": "Type",
+			"descriptionLabel": "Description",
+			"address": "Address",
+			"street": "Street",
+			"city": "City",
+			"postalCode": "Postal Code",
+			"country": "Country",
+			"noAddress": "No address configured",
+			"contact": "Contact",
+			"phone": "Phone",
+			"email": "Email",
+			"website": "Website",
+			"noContact": "No contact information",
+			"jurisdiction": "Jurisdiction",
+			"noJurisdiction": "No jurisdiction defined",
+			"updateSuccess": "Settings updated",
+			"updateError": "Update error",
+			"orgTypes": {
+				"consulate": "Consulate",
+				"consulateGeneral": "Consulate General",
+				"embassy": "Embassy",
+				"honoraryConsulate": "Honorary Consulate",
+				"ministry": "Ministry",
+				"other": "Other"
+			}
+		}
+	},
+	"common": {
+		"cancel": "Cancel",
+		"save": "Save",
+		"back": "Back",
+		"edit": "Edit",
+		"delete": "Delete",
+		"confirm": "Confirm",
+		"notFound": {
+			"title": "404",
+			"heading": "Page not found",
+			"description": "Sorry, the page you are looking for does not exist or has been moved.",
+			"backHome": "Back to home"
+		},
+		"step": "Step",
+		"profile": "My Profile",
+		"requests": "My Requests",
+		"documents": "My Documents",
+		"appointments": "My Appointments",
+		"dashboard": "Dashboard",
+		"menu": "Menu",
+		"actions": "Actions",
+		"noResults": "No results found.",
+		"saved": "Changes saved",
+		"previous": "Previous",
+		"next": "Next",
+		"firstName": "First Name",
+		"lastName": "Last Name",
+		"postalCode": "Postal Code",
+		"home": "Home",
+		"sections": "Sections"
+	},
+	"zod": {
+		"required": "Required",
+		"invalid_type": "Expected {{expected}}, received {{received}}",
+		"invalid_literal": "Invalid value, expected {{expected}}",
+		"unrecognized_keys": "Unrecognized keys: {{keys}}",
+		"invalid_union": "Invalid input",
+		"invalid_union_discriminator": "Invalid discriminator. Options: {{options}}",
+		"invalid_enum_value": "Invalid value. Options: {{options}}, Received: {{received}}",
+		"invalid_arguments": "Invalid arguments",
+		"invalid_return_type": "Invalid return type",
+		"invalid_date": "Invalid date",
+		"invalid_string": {
+			"email": "Invalid email",
+			"url": "Invalid URL",
+			"uuid": "Invalid UUID",
+			"startsWith": "Must start with \"{{startsWith}}\"",
+			"endsWith": "Must end with \"{{endsWith}}\""
+		},
+		"too_small": {
+			"string": {
+				"inclusive": "Must contain at least {{minimum}} character(s)",
+				"not_inclusive": "Must contain over {{minimum}} character(s)"
+			},
+			"number": {
+				"inclusive": "Must be greater than or equal to {{minimum}}",
+				"not_inclusive": "Must be greater than {{minimum}}"
+			},
+			"array": {
+				"inclusive": "Must contain at least {{minimum}} element(s)",
+				"not_inclusive": "Must contain over {{minimum}} element(s)"
+			},
+			"date": {
+				"inclusive": "Must be after or equal to {{minimum}}",
+				"not_inclusive": "Must be after {{minimum}}"
+			}
+		},
+		"too_big": {
+			"string": {
+				"inclusive": "Must contain at most {{maximum}} character(s)",
+				"not_inclusive": "Must contain fewer than {{maximum}} character(s)"
+			},
+			"number": {
+				"inclusive": "Must be less than or equal to {{maximum}}",
+				"not_inclusive": "Must be less than {{maximum}}"
+			},
+			"array": {
+				"inclusive": "Must contain at most {{maximum}} element(s)",
+				"not_inclusive": "Must contain fewer than {{maximum}} element(s)"
+			},
+			"date": {
+				"inclusive": "Must be before or equal to {{maximum}}",
+				"not_inclusive": "Must be before {{maximum}}"
+			}
+		},
+		"not_multiple_of": "Must be a multiple of {{multipleOf}}",
+		"not_finite": "Must be finite",
+		"custom": "Invalid"
+	},
+	"profile": {
+		"step": {
+			"invalid": "Please correct the errors before continuing"
+		},
+		"errors": {
+			"title": "Fields to correct"
+		},
+		"fields": {
+			"firstName": "First Name",
+			"lastName": "Last Name",
+			"birthPlace": "Place of Birth",
+			"birthCountry": "Country of Birth",
+			"gender": "Gender",
+			"maritalStatus": "Marital Status",
+			"nipCode": "NIP (If known)",
+			"email": "Contact Email",
+			"phoneHome": "Phone (Home Country)",
+			"phoneAbroad": "Phone (Residence)",
+			"country": "Country",
+			"countryOfResidence": "Country of Residence",
+			"city": "City",
+			"street": "Address"
+		},
+		"sections": {
+			"addressHome": "Address in Gabon (or home country)",
+			"addressAbroad": "Current Residence Address",
+			"emergencyContacts": "Emergency Contacts",
+			"emergencyContactsDesc": "People to contact in case of emergency",
+			"emergencyResidence": "Emergency Contact (Residence Country)",
+			"emergencyHomeland": "Emergency Contact (Gabon)"
+		},
+		"relationship": {
+			"father": "Father",
+			"mother": "Mother",
+			"spouse": "Spouse",
+			"brotherSister": "Brother/Sister",
+			"child": "Child",
+			"legalGuardian": "Legal Guardian",
+			"other": "Other"
+		},
+		"placeholders": {
+			"selectCountry": "Select a country",
+			"select": "Select"
+		},
+		"gender": {
+			"male": "Male",
+			"female": "Female"
+		},
+		"maritalStatus": {
+			"single": "Single",
+			"married": "Married",
+			"divorced": "Divorced",
+			"widowed": "Widowed"
+		},
+		"documents": {
+			"passport": "Passport (Main Pages)",
+			"nationalId": "National ID Card",
+			"birthCertificate": "Birth Certificate",
+			"residencePermit": "Residence Permit / Visa",
+			"proofOfAddress": "Proof of Address",
+			"photo": "ID Photo"
+		},
+		"tabs": {
+			"personal": "Personal Info",
+			"contacts": "Contacts",
+			"family": "Family",
+			"documents": "My Documents"
+		}
+	},
+	"registration": {
+		"steps": {
+			"identity": {
+				"title": "Identity",
+				"description": "Personal info"
+			},
+			"contacts": {
+				"title": "Contacts",
+				"description": "Contact details"
+			},
+			"family": {
+				"title": "Family",
+				"description": "Family status"
+			},
+			"documents": {
+				"title": "Documents",
+				"description": "Supporting documents"
+			}
+		},
+		"errors": {
+			"firstNameRequired": "First name is required",
+			"lastNameRequired": "Last name is required",
+			"birthDateRequired": "Date of birth is required",
+			"dateInvalid": "Invalid date",
+			"birthDateInPast": "Date of birth must be in the past",
+			"mustBeAdult": "You must be an adult",
+			"birthPlaceRequired": "Place of birth is required",
+			"birthCountryRequired": "Country of birth is required",
+			"genderRequired": "Gender is required",
+			"nationalityRequired": "Nationality is required",
+			"nationalityAcquisitionRequired": "Acquisition mode is required",
+			"passportNumberInvalid": "Invalid passport number (min 6 characters)",
+			"issueDateRequired": "Issue date required",
+			"issueDateInPast": "Issue date must be in the past",
+			"expiryDateRequired": "Expiry date required",
+			"expiryDateInFuture": "Passport must be valid",
+			"expiryAfterIssue": "Expiry date must be after issue date",
+			"issuingAuthorityRequired": "Issuing authority required",
+			"emailInvalid": "Invalid email",
+			"phoneInvalid": "Invalid phone number",
+			"streetRequired": "Address required (min 5 characters)",
+			"cityRequired": "City required",
+			"postalCodeRequired": "Postal code required",
+			"countryRequired": "Country required",
+			"maritalStatusRequired": "Marital status required",
+			"spouseFirstNameRequired": "Spouse first name required",
+			"spouseLastNameRequired": "Spouse last name required",
+			"passportDocRequired": "Passport is required",
+			"nationalIdDocRequired": "National ID is required",
+			"photoDocRequired": "ID photo is required"
+		},
+		"backToDashboard": "Back to dashboard",
+		"labels": {
+			"consulateOrEmbassy": "Consulate / Embassy",
+			"selectPlaceholder": "Select..."
+		},
+		"jurisdiction": {
+			"title": "Jurisdiction",
+			"description": "Make sure you reside within the jurisdiction of this organization. Proof of residence will be requested."
+		},
+		"status": {
+			"dateRequested": "Request date:",
+			"number": "Number:",
+			"fallbackOrg": "Consulate"
+		},
+		"title": "Consular Registration",
+		"requestTitle": "Registration Request",
+		"desc": "Select the consulate or embassy in your jurisdiction to register.",
+		"selectOrg": "Choose Organization",
+		"submit": "Send Request",
+		"success": "Request sent successfully",
+		"missingDocs": {
+			"title": "Incomplete Profile",
+			"description": "Please add the following documents to your profile before submitting your request:"
+		},
+		"completeProfile": "Complete my profile"
+	},
+	"documents": {
+		"search": "Search..."
+	},
+	"accessibilite": {
+		"title": "Accessibility",
+		"intro": "The General Consulate of Gabon in France is committed to making this website accessible in accordance with current standards.",
+		"conformance": {
+			"title": "Compliance Statement",
+			"content": "This website has been designed to be accessible to the widest audience. We strive to comply with the RGAA (General Accessibility Improvement Framework) recommendations."
+		},
+		"technologies": {
+			"title": "Technologies Used",
+			"content": "This site is built with the following modern web technologies:",
+			"items": {
+				"html5": "Semantic HTML5",
+				"css3": "CSS3 with dark mode support",
+				"react": "React with accessible components",
+				"aria": "ARIA attributes for assistive technologies"
+			}
+		},
+		"features": {
+			"title": "Accessibility Features",
+			"navigation": {
+				"title": "Navigation",
+				"content": "Full keyboard navigation, hierarchical heading structure, skip links."
+			},
+			"visual": {
+				"title": "Display",
+				"content": "AA-compliant contrasts, dark mode, resizable text, responsive design."
+			},
+			"assistive": {
+				"title": "Assistive Technologies",
+				"content": "Compatible with screen readers (NVDA, JAWS, VoiceOver), text alternatives for images."
+			}
+		},
+		"contact": {
+			"title": "Contact",
+			"content": "If you encounter an accessibility issue, please contact us:",
+			"email": "Email:",
+			"phone": "Phone:"
+		},
+		"legal": {
+			"title": "Legal Remedies",
+			"content": "If you notice an accessibility defect preventing you from accessing content or a feature of the site, you may contact the Defender of Rights."
+		}
+	},
+	"confidentialite": {
+		"title": "Privacy Policy",
+		"intro": "The General Consulate of Gabon in France is committed to protecting the privacy of users of this website.",
+		"dataCollection": {
+			"title": "Data Collection",
+			"content": "We only collect data necessary for the operation of consular services: surname, first name, date of birth, nationality, contact details, identity documents."
+		},
+		"purpose": {
+			"title": "Purpose of Processing",
+			"content": "Your data is used exclusively for:",
+			"items": {
+				"consular": "Processing your consular requests",
+				"communication": "Communicating consular information",
+				"statistics": "Producing anonymous statistics",
+				"legal": "Complying with our legal obligations"
+			}
+		},
+		"retention": {
+			"title": "Data Retention Period",
+			"content": "Your data is kept for the duration necessary to process your request, then archived in accordance with applicable legal obligations."
+		},
+		"rights": {
+			"title": "Your Rights",
+			"content": "In accordance with the GDPR, you have the following rights:",
+			"items": {
+				"access": "Right to access your data",
+				"rectification": "Right to rectification",
+				"deletion": "Right to erasure",
+				"opposition": "Right to object",
+				"portability": "Right to data portability"
+			}
+		},
+		"cookies": {
+			"title": "Cookies",
+			"content": "This site uses technical cookies necessary for its operation and anonymous audience measurement cookies. No advertising cookies are used."
+		},
+		"contact": {
+			"title": "DPO Contact",
+			"content": "To exercise your rights or for any question regarding the protection of your data:",
+			"email": "Email:"
+		}
+	},
+	"mentionsLegales": {
+		"title": "Legal Notice",
+		"editor": {
+			"title": "Website Publisher",
+			"content": "General Consulate of the Gabonese Republic in France",
+			"address": "26 bis avenue Raphaël, 75016 Paris, France",
+			"phone": "Phone:",
+			"email": "Email:"
+		},
+		"director": {
+			"title": "Publication Director",
+			"content": "The Consul General of the Gabonese Republic in France"
+		},
+		"hosting": {
+			"title": "Hosting",
+			"content": "This site is hosted by Firebase (Google Cloud Platform), 8 rue de Londres, 75009 Paris, France."
+		},
+		"intellectual": {
+			"title": "Intellectual Property",
+			"content": "All content on this site (text, images, videos, logos) is protected by copyright. Any reproduction, even partial, requires prior authorization."
+		},
+		"responsibility": {
+			"title": "Liability",
+			"content": "The General Consulate endeavours to ensure the accuracy of the information published on this site. However, it cannot be held responsible for errors, omissions or results that may be obtained through misuse of this information."
+		},
+		"links": {
+			"title": "Hyperlinks",
+			"content": "This site may contain links to external sites. The General Consulate has no control over these sites and declines any responsibility for their content."
+		}
+	},
+	"contact": {
+		"title": "Contact Us",
+		"subtitle": "Official Contact Information",
+		"description": "The General Consulate of the Gabonese Republic in France is at your service for all your consular procedures.",
+		"address": {
+			"title": "Address",
+			"value": "26 bis avenue Raphaël, 75016 Paris"
+		},
+		"phone": {
+			"title": "Phone"
+		},
+		"email": {
+			"title": "Email"
+		},
+		"hours": {
+			"title": "Opening Hours",
+			"weekdays": "Monday — Friday: 9:30 AM — 3:00 PM",
+			"weekend": "Saturday — Sunday: Closed"
+		},
+		"emergency": {
+			"title": "24/7 Consular Emergency",
+			"description": "In case of emergency outside opening hours:"
+		},
+		"form": {
+			"title": "Send Us a Message",
+			"name": "Full Name",
+			"email": "Email Address",
+			"subject": "Subject",
+			"message": "Your Message",
+			"submit": "Send",
+			"success": "Your message has been sent successfully!",
+			"subjects": {
+				"general": "General Enquiry",
+				"passport": "Passport",
+				"visa": "Visa",
+				"civilStatus": "Civil Status",
+				"consularCard": "Consular Card",
+				"other": "Other"
+			}
+		},
+		"titleHighlight": "us",
+		"coordinates": "Contact Details",
+		"civilStatus": "Civil Status",
+		"emergencies": "Emergencies",
+		"openingHours": "Opening Hours",
+		"weekdays": "Monday - Friday",
+		"deposit": "Drop-off",
+		"pickup": "Pick-up",
+		"depositHoursValue": "9:00 AM - 3:00 PM",
+		"pickupHoursValue": "3:00 PM - 4:30 PM",
+		"closedHolidays": "Closed on public holidays in Gabon and France.",
+		"access": "Access & Transport",
+		"metro": "Metro Line 9",
+		"metroStop": "Ranelagh stop (5 min walk)",
+		"busStop": "Ranelagh stop",
+		"parking": "Parking",
+		"parkingDesc": "Paid street parking",
+		"consulateGeneral": "General Consulate"
+	},
+	"leConsulat": {
+		"title": "The Consulate",
+		"badge": "Official Institution",
+		"subtitle": "The General Consulate of the Gabonese Republic in France",
+		"description": "Serving the Gabonese community in France for over 50 years. Discover our missions, our history and our commitment.",
+		"heroTitle": "Our mission is to",
+		"heroHighlight": "support you",
+		"heroDescription": "In accordance with the Vienna Convention on Consular Relations, the General Consulate of Gabon in France ensures the protection and assistance of Gabonese nationals, issues official documents and fosters the development of relations between the two countries.",
+		"discoverServices": "Discover our services",
+		"contactUs": "Visit us",
+		"consulMessageTitle": "A Word from the Consul General",
+		"consulMessage": "On behalf of the entire consular team, I welcome you to the official website of the General Consulate of Gabon in France. Our mission is to assist you in all your administrative procedures and to strengthen the bonds between our community and our country. We are at your service.",
+		"honorific": "H.E. Mr.",
+		"audienceRequest": "Request an Audience",
+		"audienceSubject": "Request for an audience with H.E. Mr.",
+		"consulRole": "Consul General of Gabon in France",
+		"consulDescription": "A career diplomat, the Consul General ensures the protection and assistance of Gabonese nationals in France. He oversees the strengthening of bilateral relations between Gabon and France and the modernisation of consular services.",
+		"missionsBadge": "What we do",
+		"missionsTitle": "Our Missions",
+		"missionsSubtitle": "Consular functions as defined by the Vienna Convention of 1963",
+		"missions": {
+			"title": "Our Missions",
+			"0": {
+				"title": "Protection of Nationals",
+				"description": "Protecting the interests of the Gabonese State and its nationals in France, in accordance with the Vienna Convention of 1963 (art. 5). Assisting detainees, accident victims, and providing support in case of death or repatriation."
+			},
+			"1": {
+				"title": "International Relations",
+				"description": "Developing trade, economic, cultural and scientific relations between Gabon and France. Promoting bilateral cooperation and economic diplomacy."
+			},
+			"2": {
+				"title": "Official Documents",
+				"description": "Issuing passports, visas, travel documents and laissez-passer documents. Legalisation and certification of official administrative documents for nationals and visitors."
+			},
+			"3": {
+				"title": "Civil Status",
+				"description": "Civil Registrar functions: registration of births, celebration of marriages, declaration of deaths and transcription of certificates. Civil status services for the Gabonese community."
+			},
+			"4": {
+				"title": "Notarial & Administrative Acts",
+				"description": "Notarial functions for authenticated deeds, powers of attorney, certificates of life, legalisation of signatures and documents. Drafting and certification of administrative acts."
+			},
+			"5": {
+				"title": "Emergency Assistance",
+				"description": "Relief and assistance to Gabonese nationals in distress: help for detainees, accident or disaster victims, organisation of repatriations and emergency aid."
+			},
+			"6": {
+				"title": "Judicial Functions",
+				"description": "Transmission of judicial and extrajudicial documents, execution of letters rogatory under international conventions. Facilitating legal proceedings between France and Gabon."
+			},
+			"protection": {
+				"title": "Consular Protection",
+				"description": "Assistance and protection of Gabonese nationals in France in all situations."
+			},
+			"administrative": {
+				"title": "Administrative Services",
+				"description": "Issuance of passports, consular cards, civil status certificates and other official documents."
+			},
+			"community": {
+				"title": "Community Life",
+				"description": "Support and guidance for the Gabonese diaspora in France."
+			},
+			"cultural": {
+				"title": "Cultural Outreach",
+				"description": "Promoting Gabonese culture in France through events and partnerships."
+			},
+			"economic": {
+				"title": "Economic Cooperation",
+				"description": "Facilitating economic exchanges between Gabon and France."
+			},
+			"legal": {
+				"title": "Legal Assistance",
+				"description": "Support with legal and notarial procedures."
+			},
+			"social": {
+				"title": "Social Action",
+				"description": "Support for nationals in difficulty and referral to relevant services."
+			}
+		},
+		"teamBadge": "Our Team",
+		"teamTitle": "Our Team Members",
+		"teamSubtitle": "Dedicated professionals at your service",
+		"cta": {
+			"title": "Got a question? Need help?",
+			"description": "Our team is at your disposal to answer all your questions and assist you with your consular procedures.",
+			"contact": "Contact us"
+		}
+	},
+	"news": {
+		"badge": "News & Events",
+		"pageTitle": "News",
+		"pageTitleHighlight": "Events",
+		"titlePart1": "Stay",
+		"titlePart2": "informed",
+		"titleHighlight": "Informed",
+		"description": "Official press releases, community events and practical information from the consulate.",
+		"pageDescription": "Latest news, official press releases and events from the General Consulate of Gabon in France.",
+		"readMore": "Read more",
+		"allNews": "All news",
+		"viewAll": "View all news",
+		"empty": "No news at the moment.",
+		"notFound": "Article not found",
+		"notFoundDesc": "The requested article does not exist or has been removed.",
+		"backToList": "Back to news",
+		"noNews": "No news at the moment",
+		"noMore": "No more news",
+		"categories": {
+			"communique": "Press Release",
+			"evenement": "Event",
+			"actualite": "News"
+		},
+		"related": {
+			"title": "Discover more articles",
+			"viewAll": "View all news"
+		},
+		"communique": {
+			"title": "Official Press Release",
+			"reference": "No.",
+			"description": "This document is an official press release from the General Consulate of Gabon in France.",
+			"download": "Download press release",
+			"officialDocument": "Official document",
+			"officialPdf": "Official press release (PDF)",
+			"downloadShort": "Download"
+		},
+		"event": {
+			"until": "until",
+			"viewMap": "View on map",
+			"book": "Book a seat",
+			"freeEntry": "Free entry"
+		},
+		"cta": {
+			"title": "Stay informed",
+			"description": "Follow our official channels and check this page regularly so you do not miss any consulate updates.",
+			"contact": "Contact us"
+		},
+		"readingTime": "{{count}} min read"
+	},
+	"vieFrance": {
+		"badge": "Practical Guide",
+		"title": "Living in France",
+		"titleHighlight": "with confidence",
+		"heroTitle": "Living in France",
+		"heroHighlight": "day to day",
+		"heroDescription": "A comprehensive guide for Gabonese residents in France: housing, healthcare, education, employment, residency rights and family life. All the practical information for your daily life.",
+		"subtitle": "All essential information for your installation and daily life in France. The Consulate supports you at every step.",
+		"emergency": {
+			"title": "Emergency Numbers",
+			"subtitle": "Save these in your phone",
+			"samu": "SAMU — Medical Emergencies",
+			"police": "Police — Emergency",
+			"pompiers": "Fire Brigade",
+			"european": "European Emergency Number",
+			"sms": "SMS Emergencies (deaf/hard of hearing)",
+			"consulat": "Gabon Consular Emergency 24/7"
+		},
+		"stats": {
+			"themes": "6 thematic sections",
+			"procedures": "50+ detailed procedures",
+			"links": "Verified official links"
+		}
+	},
+	"venirFrance": {
+		"badge": "Arrival & Integration Guide",
+		"heroTitle": "Coming to France",
+		"heroHighlight": "& Settling In",
+		"heroDescription": "A comprehensive guide for Gabonese nationals arriving in France: admission, visa, administrative procedures, cultural norms and practical advice for successful integration. The General Consulate of Gabon is here to help.",
+		"savoirVivre": {
+			"badge": "Etiquette",
+			"title": "Cultural Norms & Conventions",
+			"description": "Understanding French society's norms to navigate it better. It's not about giving up your culture — it's about adding another one."
+		},
+		"guides": {
+			"badge": "Complete Guides",
+			"title": "Your Detailed Procedures",
+			"description": "Click on each topic to discover detailed information, procedures and our practical tips."
+		},
+		"erreurs": {
+			"badge": "Must Know",
+			"title": "Common Mistakes to Avoid",
+			"description": "These oversights can have serious consequences. Take them seriously to protect your rights."
+		},
+		"numeros": {
+			"badge": "Essential Numbers",
+			"title": "Useful Numbers to Keep",
+			"description": "Save these numbers in your phone. They can save lives."
+		},
+		"cta": {
+			"title": "The Consulate Is By Your Side",
+			"description": "Whether you are about to leave or have just arrived, the General Consulate of Gabon in France is your point of contact. Do not hesitate to reach out to us with any questions.",
+			"vieFrance": "Guide to Living in France"
+		}
+	},
+	"retourGabon": {
+		"badge": "Return Guide",
+		"heroTitle": "Return to Gabon",
+		"heroHighlight": "— Prepare Well",
+		"heroDescription": "A comprehensive guide for Gabonese nationals returning home: consular procedures, moving, resettlement, employment, OQTF, aid and maintaining your acquired rights in France.",
+		"steps": {
+			"badge": "Return Steps",
+			"title": "Prepare Each Step",
+			"description": "From the first day of preparation to your resettlement, each step is detailed with practical advice and useful links."
+		},
+		"aides": {
+			"badge": "Aid & Support",
+			"title": "Support for Your Return",
+			"description": "Several programmes exist to facilitate your reintegration in Gabon."
+		},
+		"erreurs": {
+			"badge": "Mistakes to Avoid",
+			"title": "Don't Make These Mistakes",
+			"description": "These oversights can complicate your return. Anticipate them for a smooth departure."
+		},
+		"numeros": {
+			"badge": "Essential Contacts",
+			"title": "Useful Numbers",
+			"description": "Keep these for your return to Gabon."
+		}
+	},
+	"locations": {
+		"badge": "Location",
+		"titlePart1": "Find",
+		"titleHighlight": "Us",
+		"consulateTitle": "General Consulate of Gabon",
+		"standardLabel": "Standard:",
+		"emergenciesLabel": "Emergencies:",
+		"metroLabel": "Metro:",
+		"metroValue": "Ranelagh (Line 9)",
+		"busLabel": "Bus:",
+		"busValue": "Lines 22, 52 (Ranelagh stop)",
+		"viewOnMap": "View on map",
+		"dgdiTitle": "DGDI Branch (Passports/Visas)",
+		"dgdiNote": "For passport and visa requests only.",
+		"walkTime": "5 min walk"
+	},
+	"contactModal": {
+		"title": "Contact the Consulate",
+		"description": "General Consulate of Gabon in France — All contact details",
+		"phones": "Phone Numbers",
+		"civilStatus": "Civil Status",
+		"emergencies24": "Emergencies 24/7",
+		"openingHours": "Opening Hours",
+		"monFri": "Mon - Fri",
+		"deposit": "Drop-off",
+		"pickup": "Pick-up",
+		"depositHours": "9:00 AM - 3:00 PM",
+		"pickupHours": "3:00 PM - 4:30 PM",
+		"closedHolidays": "Closed on public holidays in Gabon and France.",
+		"access": "Access",
+		"walkTime": "5 min walk",
+		"busLines": "Lines 22, 52",
+		"busStop": "Ranelagh stop"
+	},
+	"newsPage": {
+		"publications": "publications",
+		"pressReleases": "press releases",
+		"events": "events",
+		"filters": {
+			"all": "All",
+			"communique": "Press Releases",
+			"actualite": "News",
+			"evenement": "Events"
+		},
+		"noFilterResults": "No items in this category for now.",
+		"comeBack": "Check back soon for the latest news from the Consulate.",
+		"viewAllPublications": "View all publications"
+	},
+	"guides": {
+		"practicalTips": "Practical Tips",
+		"usefulLinks": "Useful Links"
+	},
+	"serviceCard": {
+		"validity": "Validity",
+		"viewDetails": "View details",
+		"startProcess": "Start the process"
+	},
+	"dgdi": {
+		"passportService": "Passport Service",
+		"visaService": "Visa Service",
+		"subtitle": "Service under the authority of the DGDI on French territory",
+		"hideDetails": "Hide details",
+		"showDetails": "View contact & hours",
+		"specificContact": "Specific Contact",
+		"dedicatedEntrance": "Dedicated entrance",
+		"smsOnly": "SMS only",
+		"specificHours": "Specific Hours",
+		"passportSchedule": "Passports (Mon–Thu)",
+		"passportPickup": "Passport Pick-up (Friday)",
+		"visaSchedule": "Visas (Mon–Thu)",
+		"visaPickup": "Visa Pick-up (by type)",
+		"morning": "Morning",
+		"afternoon": "Afternoon",
+		"bookAppointment": "Book DGDI Appointment"
+	}
 }

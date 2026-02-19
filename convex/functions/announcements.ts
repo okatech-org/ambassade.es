@@ -1,6 +1,6 @@
 import { v } from "convex/values";
 import { query, mutation } from "../_generated/server";
-import { requireSuperadmin } from "../lib/auth";
+import { requireModule } from "../lib/auth";
 
 export const getActive = query({
   args: {},
@@ -22,7 +22,7 @@ export const getActive = query({
 export const listAll = query({
   args: {},
   handler: async (ctx) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "announcements");
     return await ctx.db.query("announcements").collect();
   },
 });
@@ -37,7 +37,7 @@ export const create = mutation({
     endAt: v.optional(v.number()),
   },
   handler: async (ctx, args) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "announcements");
     return await ctx.db.insert("announcements", args);
   },
 });
@@ -53,7 +53,7 @@ export const update = mutation({
     endAt: v.optional(v.number()),
   },
   handler: async (ctx, args) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "announcements");
     const { id, ...fields } = args;
     await ctx.db.patch(id, fields);
   },
@@ -62,7 +62,7 @@ export const update = mutation({
 export const remove = mutation({
   args: { id: v.id("announcements") },
   handler: async (ctx, args) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "announcements");
     await ctx.db.delete(args.id);
   },
 });

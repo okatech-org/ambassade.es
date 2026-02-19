@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 import type { GuideSection } from './guide.types'
 
 export function SectionNav({
@@ -9,10 +11,12 @@ export function SectionNav({
   activeSection: string
   onSelect: (id: string) => void
 }) {
+  const { t } = useTranslation()
+
   return (
     <nav className="hidden lg:block sticky top-24 space-y-1">
       <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3 px-3">
-        Rubriques
+        {t('common.sections', 'Sections')}
       </h3>
       {sections.map((section) => {
         const Icon = section.icon

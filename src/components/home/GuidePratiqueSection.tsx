@@ -28,7 +28,8 @@ const guides = [
     border: 'border-[#1a5dab]/20',
     tag: 'Vie quotidienne',
     anchor: 'logement',
-    features: ['Recherche de logement', 'APL / ALS', 'Garantie Visale'],
+    featureKeys: ['guidePratique.features.logement1', 'guidePratique.features.logement2', 'guidePratique.features.logement3'],
+    featureDefaults: ['Recherche de logement', 'APL / ALS', 'Garantie Visale'],
     image: '/images/guide-logement.png',
   },
   {
@@ -43,7 +44,8 @@ const guides = [
     border: 'border-[#ea4335]/20',
     tag: 'Santé',
     anchor: 'sante',
-    features: ['Sécurité sociale', 'Mutuelle', 'CMU-C / ACS'],
+    featureKeys: ['guidePratique.features.sante1', 'guidePratique.features.sante2', 'guidePratique.features.sante3'],
+    featureDefaults: ['Sécurité sociale', 'Mutuelle', 'CMU-C / ACS'],
     image: '/images/guide-sante.png',
   },
   {
@@ -58,7 +60,8 @@ const guides = [
     border: 'border-[#34a853]/20',
     tag: 'Éducation',
     anchor: 'education',
-    features: ['Inscription scolaire', 'Bourses CROUS', 'Équivalence diplômes'],
+    featureKeys: ['guidePratique.features.education1', 'guidePratique.features.education2', 'guidePratique.features.education3'],
+    featureDefaults: ['Inscription scolaire', 'Bourses CROUS', 'Équivalence diplômes'],
     image: '/images/guide-education.png',
   },
   {
@@ -73,7 +76,8 @@ const guides = [
     border: 'border-[#f9ab00]/20',
     tag: 'Emploi',
     anchor: 'emploi',
-    features: ['Pôle Emploi', 'Auto-entrepreneur', 'Titre de travail'],
+    featureKeys: ['guidePratique.features.emploi1', 'guidePratique.features.emploi2', 'guidePratique.features.emploi3'],
+    featureDefaults: ['Pôle Emploi', 'Auto-entrepreneur', 'Titre de travail'],
     image: '/images/guide-emploi.png',
   },
   {
@@ -88,7 +92,8 @@ const guides = [
     border: 'border-[#1a73e8]/20',
     tag: 'Juridique',
     anchor: 'droits',
-    features: ['Titre de séjour', 'Regroupement familial', 'Naturalisation'],
+    featureKeys: ['guidePratique.features.droits1', 'guidePratique.features.droits2', 'guidePratique.features.droits3'],
+    featureDefaults: ['Titre de séjour', 'Regroupement familial', 'Naturalisation'],
     image: '/images/guide-droits.png',
   },
   {
@@ -103,7 +108,8 @@ const guides = [
     border: 'border-[#d93025]/20',
     tag: 'Famille',
     anchor: 'famille',
-    features: ['Naissance', 'Allocations CAF', 'Garde enfants'],
+    featureKeys: ['guidePratique.features.famille1', 'guidePratique.features.famille2', 'guidePratique.features.famille3'],
+    featureDefaults: ['Naissance', 'Allocations CAF', 'Garde enfants'],
     image: '/images/guide-famille.png',
   },
 ]
@@ -147,10 +153,10 @@ function GuideCard({ guide, t }: { guide: typeof guides[0]; t: any }) {
             {t(guide.descKey, guide.defaultDesc)}
           </p>
           <div className="space-y-2.5 pt-4 border-t border-border/40 mt-auto">
-            {guide.features.map((f) => (
-              <div key={f} className="flex items-center gap-2.5 text-sm text-foreground/80">
+            {guide.featureKeys.map((key, i) => (
+              <div key={key} className="flex items-center gap-2.5 text-sm text-foreground/80">
                 <CheckCircle2 className={`w-4 h-4 ${guide.color} shrink-0`} />
-                <span className="font-medium">{f}</span>
+                <span className="font-medium">{t(key, guide.featureDefaults[i])}</span>
               </div>
             ))}
           </div>

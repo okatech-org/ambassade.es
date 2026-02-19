@@ -9,7 +9,13 @@ import {
   customAction,
   customCtx,
 } from "convex-helpers/server/customFunctions";
-import { requireAuth, requireSuperadmin } from "./auth";
+import {
+  requireAuth,
+  requireAdmin,
+  requireModule,
+  requireSystemAdmin,
+} from "./auth";
+import { AdminModule } from "./adminPermissions";
 
 /**
  * Custom query that requires authentication.
@@ -24,12 +30,12 @@ export const authQuery = customQuery(
 );
 
 /**
- * Custom query that requires superadmin role.
+ * Custom query that requires system_admin role.
  */
-export const superadminQuery = customQuery(
+export const systemAdminQuery = customQuery(
   query,
   customCtx(async (ctx) => {
-    const user = await requireSuperadmin(ctx);
+    const user = await requireSystemAdmin(ctx);
     return { user };
   })
 );
@@ -47,15 +53,63 @@ export const authMutation = customMutation(
 );
 
 /**
- * Custom mutation that requires superadmin role.
+ * Custom mutation that requires system_admin role.
  */
-export const superadminMutation = customMutation(
+export const systemAdminMutation = customMutation(
   mutation,
   customCtx(async (ctx) => {
-    const user = await requireSuperadmin(ctx);
+    const user = await requireSystemAdmin(ctx);
     return { user };
   })
 );
+
+/**
+ * Custom query that requires admin role (admin or system_admin).
+ */
+export const adminQuery = customQuery(
+  query,
+  customCtx(async (ctx) => {
+    const user = await requireAdmin(ctx);
+    return { user };
+  })
+);
+
+/**
+ * Custom mutation that requires admin role (admin or system_admin).
+ */
+export const adminMutation = customMutation(
+  mutation,
+  customCtx(async (ctx) => {
+    const user = await requireAdmin(ctx);
+    return { user };
+  })
+);
+
+/**
+ * Factory: query restricted to a specific admin module.
+ */
+export function moduleQuery(moduleId: AdminModule) {
+  return customQuery(
+    query,
+    customCtx(async (ctx) => {
+      const user = await requireModule(ctx, moduleId);
+      return { user };
+    })
+  );
+}
+
+/**
+ * Factory: mutation restricted to a specific admin module.
+ */
+export function moduleMutation(moduleId: AdminModule) {
+  return customMutation(
+    mutation,
+    customCtx(async (ctx) => {
+      const user = await requireModule(ctx, moduleId);
+      return { user };
+    })
+  );
+}
 
 /**
  * Custom action that requires authentication.
@@ -73,14 +127,14 @@ export const authAction = customAction(
 );
 
 /**
- * Custom action that requires superadmin role.
+ * Custom action intended for system admin usage.
  * (Note: Authorization happens via a mutation call usually, but strictly speaking 
  * an action can check auth too if we pass user around, OR we rely on internal calls).
  * For now, assume it behaves like authAction but intended for admin use cases.
  * Ideally, actions shouldn't trust client-provided claims implicitly without verification,
  * but assuming Convex Auth structure...
  */
-export const superadminAction = customAction(
+export const systemAdminAction = customAction(
   action,
   customCtx(async (ctx) => {
     // In actions, we can't easily check DB for superadmin status without a query.
@@ -95,3 +149,8 @@ export const superadminAction = customAction(
     return { identity };
   })
 );
+
+// Backward-compat aliases
+export const superadminQuery = systemAdminQuery;
+export const superadminMutation = systemAdminMutation;
+export const superadminAction = systemAdminAction;

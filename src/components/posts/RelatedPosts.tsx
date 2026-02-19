@@ -1,26 +1,24 @@
 import { Link } from '@tanstack/react-router'
 import { useQuery } from 'convex/react'
+import { useTranslation } from 'react-i18next'
 import { Calendar, ArrowRight } from 'lucide-react'
 import { api } from '@convex/_generated/api'
 import { Badge } from '@/components/ui/badge'
 
-const categoryConfig: Record<string, { label: string; color: string }> = {
+const categoryConfig: Record<string, { color: string }> = {
   communique: {
-    label: 'Communiqué',
     color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300',
   },
   evenement: {
-    label: 'Événement',
     color: 'bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300',
   },
   actualite: {
-    label: 'Actualité',
     color: 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300',
   },
 }
 
-function formatDate(timestamp: number) {
-  return new Intl.DateTimeFormat('fr-FR', {
+function formatDate(timestamp: number, lang: string) {
+  return new Intl.DateTimeFormat(lang.startsWith('en') ? 'en-GB' : 'fr-FR', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -33,6 +31,8 @@ interface RelatedPostsProps {
 }
 
 export function RelatedPosts({ currentSlug, category }: RelatedPostsProps) {
+  const { t, i18n } = useTranslation()
+  const lang = i18n.resolvedLanguage || i18n.language
   const posts = useQuery(api.functions.posts.getRelated, {
     currentSlug,
     category,
@@ -45,12 +45,13 @@ export function RelatedPosts({ currentSlug, category }: RelatedPostsProps) {
     <section className="py-16 border-t">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-2xl font-bold mb-8 text-center">
-          Découvrir plus d'articles
+          {t('news.related.title', "Discover more articles")}
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {posts.map((post) => {
             const config = categoryConfig[post.category] || categoryConfig.actualite
+            const categoryLabel = t(`news.categories.${post.category}`, post.category)
             
             return (
               <Link
@@ -74,7 +75,7 @@ export function RelatedPosts({ currentSlug, category }: RelatedPostsProps) {
                     )}
                     <div className="absolute top-3 left-3">
                         <Badge className={`${config.color} border-0 backdrop-blur-md shadow-sm`}>
-                            {config.label}
+                            {categoryLabel}
                         </Badge>
                     </div>
                 </div>
@@ -86,7 +87,7 @@ export function RelatedPosts({ currentSlug, category }: RelatedPostsProps) {
                     
                     <div className="mt-auto flex items-center text-xs text-muted-foreground font-medium pt-3 border-t border-border/30">
                         <Calendar className="w-3.5 h-3.5 mr-1.5 text-primary" />
-                        {formatDate(post.publishedAt)}
+                        {formatDate(post.publishedAt, lang)}
                     </div>
                 </div>
               </Link>
@@ -99,7 +100,7 @@ export function RelatedPosts({ currentSlug, category }: RelatedPostsProps) {
             to="/actualites"
             className="inline-flex items-center text-primary hover:underline font-medium"
           >
-            Voir toutes les actualités
+            {t('news.related.viewAll', 'View all news')}
             <ArrowRight className="w-4 h-4 ml-2" />
           </Link>
         </div>

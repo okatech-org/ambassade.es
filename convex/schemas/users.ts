@@ -1,9 +1,9 @@
 import { defineTable } from "convex/server";
 import { v } from "convex/values";
+import { adminModuleValidator, userRoleValidator } from "../lib/adminPermissions";
 
 /**
- * Users table - minimal, synced from Clerk
- * Pas de role global - les rôles sont dans memberships
+ * Users table - synced from Clerk + global admin roles
  */
 export const usersTable = defineTable({
   // Auth externe (Clerk)
@@ -19,7 +19,9 @@ export const usersTable = defineTable({
 
   // Flags système
   isActive: v.boolean(),
-  isSuperadmin: v.boolean(),
+  isSuperadmin: v.optional(v.boolean()), // TEMPORARY: kept for migration compat
+  role: v.optional(userRoleValidator),
+  allowedModules: v.optional(v.array(adminModuleValidator)),
 
   // Metadata (pas de _createdAt, utilise _creationTime natif)
   updatedAt: v.optional(v.number()),

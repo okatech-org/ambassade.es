@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import {
   ChevronRight,
   ExternalLink,
@@ -9,6 +10,7 @@ import type { GuideSection } from './guide.types'
 import { GuideAccordionItem } from './GuideAccordionItem'
 
 export function GuideSectionCard({ section }: { section: GuideSection }) {
+  const { t } = useTranslation()
   const [openItems, setOpenItems] = useState<Set<number>>(new Set())
 
   const toggleItem = (index: number) => {
@@ -75,7 +77,7 @@ export function GuideSectionCard({ section }: { section: GuideSection }) {
           <div className="rounded-xl bg-amber-500/5 border border-amber-500/20 p-5 glass-panel">
             <div className="flex items-center gap-2 mb-3">
               <Lightbulb className="w-5 h-5 text-amber-500" />
-              <h4 className="font-semibold text-foreground text-sm">Conseils pratiques</h4>
+              <h4 className="font-semibold text-foreground text-sm">{t('guides.practicalTips', 'Conseils pratiques')}</h4>
             </div>
             <ul className="space-y-2">
               {section.tips.map((tip) => (
@@ -95,7 +97,7 @@ export function GuideSectionCard({ section }: { section: GuideSection }) {
             <div>
               <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
                 <ExternalLink className="w-4 h-4" />
-                Liens utiles
+                {t('guides.usefulLinks', 'Liens utiles')}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {section.links.map((link) => (

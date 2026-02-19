@@ -1,7 +1,17 @@
 import { QueryCtx, MutationCtx, ActionCtx } from "../_generated/server";
+import { AdminModule, UserRole } from "./adminPermissions";
 import { error, ErrorCode } from "./errors";
 
 type AuthContext = QueryCtx | MutationCtx;
+type UserRecord = Awaited<ReturnType<typeof getCurrentUser>>;
+
+function normalizeRole(user: Record<string, unknown>): UserRole {
+  const rawRole = user.role;
+  if (rawRole === "user" || rawRole === "admin" || rawRole === "system_admin") {
+    return rawRole;
+  }
+  return user.isSuperadmin === true ? "system_admin" : "user";
+}
 
 /**
  * Get user identity from auth provider (Clerk)
@@ -24,6 +34,14 @@ export async function getCurrentUser(ctx: AuthContext) {
     .unique();
 
   return user;
+}
+
+/**
+ * Read user role with legacy fallback support.
+ */
+export function getUserRole(user: UserRecord | null): UserRole {
+  if (!user) return "user";
+  return normalizeRole(user as unknown as Record<string, unknown>);
 }
 
 /**
@@ -52,12 +70,12 @@ export async function requireAuth(ctx: AuthContext) {
 }
 
 /**
- * Require superadmin role
+ * Require system_admin role
  */
-export async function requireSuperadmin(ctx: AuthContext) {
+export async function requireSystemAdmin(ctx: AuthContext) {
   const user = await requireAuth(ctx);
 
-  if (!user.isSuperadmin) {
+  if (getUserRole(user) !== "system_admin") {
     throw error(ErrorCode.INSUFFICIENT_PERMISSIONS);
   }
 
@@ -65,9 +83,45 @@ export async function requireSuperadmin(ctx: AuthContext) {
 }
 
 /**
- * Check if current user is superadmin
+ * Require admin or system_admin role
  */
-export async function isSuperadmin(ctx: AuthContext): Promise<boolean> {
-  const user = await getCurrentUser(ctx);
-  return user?.isSuperadmin ?? false;
+export async function requireAdmin(ctx: AuthContext) {
+  const user = await requireAuth(ctx);
+  const role = getUserRole(user);
+  if (role === "admin" || role === "system_admin") return user;
+  throw error(ErrorCode.INSUFFICIENT_PERMISSIONS);
 }
+
+/**
+ * Require access to a specific module for admin users.
+ * system_admin users always have full access.
+ */
+export async function requireModule(ctx: AuthContext, moduleId: AdminModule) {
+  const user = await requireAdmin(ctx);
+  if (getUserRole(user) === "system_admin") return user;
+  if (!user.allowedModules?.includes(moduleId)) {
+    throw error(ErrorCode.INSUFFICIENT_PERMISSIONS);
+  }
+  return user;
+}
+
+/**
+ * Check if current user is system_admin.
+ */
+export async function isSystemAdmin(ctx: AuthContext): Promise<boolean> {
+  const user = await getCurrentUser(ctx);
+  return getUserRole(user) === "system_admin";
+}
+
+/**
+ * Check if current user is admin or system_admin.
+ */
+export async function isAdmin(ctx: AuthContext): Promise<boolean> {
+  const user = await getCurrentUser(ctx);
+  const role = getUserRole(user);
+  return role === "admin" || role === "system_admin";
+}
+
+// Backward-compat aliases
+export const requireSuperadmin = requireSystemAdmin;
+export const isSuperadmin = isSystemAdmin;

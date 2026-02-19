@@ -231,9 +231,177 @@ const numerosUtiles: NumeroUtile[] = [
   { label: 'OFPRA (Asile)', number: '01 58 68 10 10', color: 'bg-slate-500/10 text-slate-600' },
 ]
 
+const guideSectionsEn: GuideSection[] = [
+  {
+    id: 'logement',
+    icon: Home,
+    title: 'Housing',
+    color: 'text-blue-600 dark:text-blue-400',
+    iconBg: 'bg-blue-500/10',
+    intro: 'Housing is usually the first step after arrival. These essentials help you rent safely and understand your rights.',
+    items: [
+      { title: 'Finding accommodation', detail: 'Use trusted platforms (Leboncoin, SeLoger, PAP) and agencies. Avoid scams: never send money before a visit and signed lease.' },
+      { title: 'Rental application file', detail: 'Prepare ID, recent payslips, work contract, tax notice and proof of address. A guarantor is often required; Visale can replace a private guarantor.' },
+      { title: 'Housing support (CAF)', detail: 'Depending on your situation, you may be eligible for APL/ALS. Apply on caf.fr as soon as your lease starts.' },
+      { title: 'Tenant rights', detail: 'Landlords cannot request prohibited documents (e.g. health card). Security deposit is capped, and winter eviction protections apply from November to March.' },
+    ],
+    tips: [
+      'Visale is free and widely accepted by landlords',
+      'Open a French bank account early to pay rent and bills',
+      'Take out home insurance from day one of your lease',
+    ],
+  },
+  {
+    id: 'sante',
+    icon: Heart,
+    title: 'Health & Social Protection',
+    color: 'text-red-600 dark:text-red-400',
+    iconBg: 'bg-red-500/10',
+    intro: 'France offers universal healthcare. As a resident, you can access care through the public system and optional complementary coverage.',
+    items: [
+      { title: 'Joining social security', detail: 'Register through ameli.fr with your residence permit, proof of address and bank details. PUMA covers stable residents after three months.' },
+      { title: 'Complementary insurance', detail: 'Public insurance reimburses part of costs. A mutual plan covers the rest. Low-income residents can apply for CSS at reduced or no cost.' },
+      { title: 'Primary care doctor', detail: 'Declare a regular doctor to receive better reimbursements. Use the Ameli directory to find doctors accepting new patients.' },
+      { title: 'Emergencies', detail: 'Call 15 (SAMU), 18 (fire), or 112 (EU). Emergency hospital services remain accessible even if your paperwork is still in progress.' },
+    ],
+    tips: [
+      'Keep your Vitale card or temporary certificate with you',
+      'Teleconsultation is reimbursed and useful in medical deserts',
+      'Municipal health centers often avoid extra billing',
+    ],
+  },
+  {
+    id: 'education',
+    icon: GraduationCap,
+    title: 'Education & Training',
+    color: 'text-green-600 dark:text-green-400',
+    iconBg: 'bg-green-500/10',
+    intro: 'Children have a right to education in France regardless of nationality. Adults can also access strong training and upskilling options.',
+    items: [
+      { title: 'School enrollment for children', detail: 'Schooling is mandatory from age 3 to 16. First register at your local town hall, then with the school.' },
+      { title: 'Higher education', detail: 'Apply through Parcoursup (students in France) or Campus France (from abroad). Public tuition remains comparatively affordable.' },
+      { title: 'Degree recognition', detail: 'ENIC-NARIC comparability statements can help with jobs and studies when you hold a foreign diploma.' },
+      { title: 'Adult training', detail: 'CPF, France Travail and VAE pathways can finance or validate skills for career transitions.' },
+    ],
+    tips: [
+      'Many local associations offer free French classes (FLE)',
+      'Student status unlocks transport and cultural discounts',
+      'Public libraries provide free digital and training resources',
+    ],
+  },
+  {
+    id: 'emploi',
+    icon: Briefcase,
+    title: 'Work & Entrepreneurship',
+    color: 'text-orange-600 dark:text-orange-400',
+    iconBg: 'bg-orange-500/10',
+    intro: 'To work legally, your residence status must authorize employment. Plan your strategy early: job search, contracts, or business creation.',
+    items: [
+      { title: 'Work authorization', detail: 'Check the wording on your residence permit. Most employee and family permits allow work; student permits are capped in hours.' },
+      { title: 'Job search channels', detail: 'Register with France Travail and combine it with LinkedIn, Indeed, HelloWork and sector-specific networks.' },
+      { title: 'Starting a business', detail: 'Micro-entrepreneur status is the fastest entry point. Register online and verify tax/social contribution obligations.' },
+      { title: 'Employee rights', detail: 'You are entitled to a valid contract, payslips, paid leave and social protections. Undeclared work removes key rights.' },
+    ],
+    tips: [
+      'ACRE can reduce social charges in the first year',
+      'Local missions support young adults with job access',
+      'Avoid undeclared work: legal and social risks are high',
+    ],
+  },
+  {
+    id: 'droits',
+    icon: Scale,
+    title: 'Rights, Residency & Citizenship',
+    color: 'text-purple-600 dark:text-purple-400',
+    iconBg: 'bg-purple-500/10',
+    intro: 'Understanding residency rules and legal options protects your stability in France and reduces administrative risk.',
+    items: [
+      { title: 'Residence permit timelines', detail: 'Renew 2 to 4 months before expiry through ANEF or prefecture channels to avoid status gaps.' },
+      { title: 'OQTF: immediate action', detail: 'Never ignore an OQTF. Administrative and court appeals have strict deadlines, and only court action can suspend enforcement in many cases.' },
+      { title: 'Regularization paths', detail: 'Possible routes include work-based, family-based, humanitarian or exceptional admission, depending on your case file.' },
+      { title: 'Student work cap', detail: 'Students can work up to 964 hours/year. Exceeding this threshold can impact renewal decisions.' },
+      { title: 'Address change obligation', detail: 'Report your new address within three months through ANEF or prefecture procedures.' },
+      { title: 'Dual nationality situations', detail: 'Travel and visa rules may differ by passport used. Check entry requirements before each trip.' },
+      { title: 'Family reunification', detail: 'You may request reunification if you meet legal residence, income and housing conditions.' },
+      { title: 'Naturalization', detail: 'Naturalization usually requires long-term legal residence, language proficiency and integration.' },
+      { title: 'Legal aid', detail: 'Legal aid and free rights clinics are available for low-income residents and discrimination cases.' },
+    ],
+    tips: [
+      'Keep secure digital copies of all identity and residence documents',
+      'Do not let permits expire while waiting on administration',
+      'Use specialized associations for legal orientation',
+      'For OQTF, prioritize urgent legal advice and court deadlines',
+      'Students should track work hours month by month',
+      'A first-application receipt is not always valid for re-entry',
+    ],
+  },
+  {
+    id: 'famille',
+    icon: Baby,
+    title: 'Family & Children',
+    color: 'text-pink-600 dark:text-pink-400',
+    iconBg: 'bg-pink-500/10',
+    intro: 'France provides significant support for families through civil registration, childcare and social benefits.',
+    items: [
+      { title: 'Birth registration', detail: 'Declare birth promptly at the local town hall, then complete consular transcription for Gabonese civil status recognition.' },
+      { title: 'Family benefits (CAF)', detail: 'Family and early-childhood benefits may be available depending on household composition and income.' },
+      { title: 'Childcare options', detail: 'Explore municipal daycare, licensed childminders and at-home care. Financial support may offset part of costs.' },
+      { title: 'Marriage and civil records', detail: 'Acts issued in France often need transcription or legalization for recognition in Gabonese records.' },
+    ],
+    tips: [
+      'PMI centers provide free support for children aged 0-6',
+      'Keep your family record book and civil documents updated',
+      'School insurance is low-cost and strongly recommended',
+    ],
+  },
+]
+
+const savoirVivreEn: SavoirVivreItem[] = [
+  { icon: HandHeart, title: 'Respect and Courtesy', description: 'Politeness is important in daily life. Greeting people and using respectful language improves every interaction.' },
+  { icon: Landmark, title: 'Secularism and Social Life', description: 'French public life is structured by secular principles. Respect for different beliefs is expected in shared institutions.' },
+  { icon: Scale, title: 'Laws and Daily Rules', description: 'Rules around traffic, smoking, waste sorting and neighborhood noise are enforced and can impact your administrative record.' },
+  { icon: Users, title: 'Neighborhood Relations', description: 'Introducing yourself to neighbors and respecting building rules helps avoid unnecessary conflict.' },
+  { icon: Flag, title: 'Republican Values', description: 'Liberty, equality and fraternity frame rights and responsibilities. Discrimination is prohibited by law.' },
+  { icon: HeartHandshake, title: 'Community Engagement', description: 'Joining local associations and community networks accelerates integration and support.' },
+  { icon: Siren, title: 'Interactions with Police', description: 'Stay calm and cooperative. You have rights during custody, including legal counsel and consular contact.' },
+]
+
+const erreursCourantesEn: ErreurItem[] = [
+  { erreur: 'Letting your permit expire', conseil: 'Start renewal procedures 2 to 4 months before expiry and keep your receipt as proof.' },
+  { erreur: 'No home insurance', conseil: 'Insurance is mandatory from move-in day. Without it, your lease can be terminated.' },
+  { erreur: 'Working without authorization', conseil: 'Undeclared or unauthorized work can lead to severe administrative penalties, including OQTF.' },
+  { erreur: 'Ignoring tax declaration', conseil: 'You must file taxes every year, even with little or no income.' },
+  { erreur: 'Not transcribing civil records', conseil: 'Birth and marriage records completed in France should be transcribed for Gabonese administrative validity.' },
+  { erreur: 'Isolation and no support network', conseil: 'Join local groups and trusted associations early to reduce administrative and social vulnerability.' },
+  { erreur: 'Ignoring an OQTF', conseil: 'Act immediately with legal support. Appeal deadlines are short and procedural strategy matters.' },
+  { erreur: 'Traveling with first-request receipt only', conseil: 'A first-application receipt may not allow exit and re-entry. Verify rules before travel.' },
+  { erreur: 'Signing documents without understanding', conseil: 'During custody, request a lawyer and interpreter if needed; never sign unclear documents.' },
+  { erreur: 'Forgetting to report address change', conseil: 'Report a new address within 3 months to avoid fines and renewal complications.' },
+  { erreur: 'No backup copies of documents', conseil: 'Keep both physical and secure digital copies of all key identity and residency records.' },
+  { erreur: 'Ignoring student work limits', conseil: 'Track annual work hours carefully to protect student permit renewals.' },
+]
+
+const numerosUtilesEn: NumeroUtile[] = [
+  { label: 'Consul General of Gabon', number: '26 bis av. Raphaël, 75016', color: 'bg-emerald-500/10 text-emerald-600' },
+  { label: 'Consulate Email', number: 'contact@consulatdugabon.fr', color: 'bg-emerald-500/10 text-emerald-600' },
+  { label: 'Gabon Consular Emergency', number: '07 44 23 95 84', color: 'bg-green-500/10 text-green-600' },
+  { label: 'SAMU (Medical emergency)', number: '15', color: 'bg-red-500/10 text-red-600' },
+  { label: 'Police / Gendarmerie', number: '17', color: 'bg-blue-500/10 text-blue-600' },
+  { label: 'Fire Brigade', number: '18', color: 'bg-orange-500/10 text-orange-600' },
+  { label: 'European emergency', number: '112', color: 'bg-purple-500/10 text-purple-600' },
+  { label: 'Women violence hotline', number: '3919', color: 'bg-pink-500/10 text-pink-600' },
+  { label: 'Child protection hotline', number: '119', color: 'bg-yellow-500/10 text-yellow-600' },
+  { label: 'Housing rights hotline', number: '0 806 000 113', color: 'bg-teal-500/10 text-teal-600' },
+  { label: 'OFII', number: '01 53 69 53 70', color: 'bg-indigo-500/10 text-indigo-600' },
+  { label: 'Online prefecture (ANEF)', number: 'anef.interieur.gouv.fr', color: 'bg-cyan-500/10 text-cyan-600' },
+  { label: 'Legal aid', number: '3039', color: 'bg-emerald-500/10 text-emerald-600' },
+  { label: 'OFPRA (Asylum)', number: '01 58 68 10 10', color: 'bg-slate-500/10 text-slate-600' },
+]
+
 // ─── Accordion Component (page-specific: no links) ──────────────────────────
 
 function GuideSectionAccordion({ section }: { section: GuideSection }) {
+  const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
   const Icon = section.icon
 
@@ -278,7 +446,7 @@ function GuideSectionAccordion({ section }: { section: GuideSection }) {
             <div className="bg-primary/5 rounded-xl p-5 border border-primary/10 glass-panel">
               <div className="flex items-center gap-2 mb-3">
                 <Lightbulb className="w-5 h-5 text-primary" />
-                <h4 className="font-semibold text-foreground">Astuces pratiques</h4>
+                <h4 className="font-semibold text-foreground">{t('guides.practicalTips', 'Practical tips')}</h4>
               </div>
               <ul className="space-y-2">
                 {section.tips.map((tip, idx) => (
@@ -299,7 +467,13 @@ function GuideSectionAccordion({ section }: { section: GuideSection }) {
 // ─── Main Page Component ─────────────────────────────────────────────────────
 
 function IntegrationPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.resolvedLanguage || i18n.language
+  const isEn = lang.startsWith('en')
+  const localizedGuideSections = isEn ? guideSectionsEn : guideSections
+  const localizedSavoirVivre = isEn ? savoirVivreEn : savoirVivre
+  const localizedErreurs = isEn ? erreursCourantesEn : erreursCourantes
+  const localizedNumeros = isEn ? numerosUtilesEn : numerosUtiles
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -323,7 +497,7 @@ function IntegrationPage() {
 
               {/* Quick nav pills */}
               <div className="flex flex-wrap gap-2">
-                {guideSections.map((s) => {
+                {localizedGuideSections.map((s) => {
                   const SIcon = s.icon
                   return (
                     <a
@@ -355,7 +529,7 @@ function IntegrationPage() {
               </p>
             </div>
 
-            <SavoirVivreGrid items={savoirVivre} />
+            <SavoirVivreGrid items={localizedSavoirVivre} />
           </div>
         </section>
 
@@ -376,7 +550,7 @@ function IntegrationPage() {
             </div>
 
             <div className="space-y-4">
-              {guideSections.map((section) => (
+              {localizedGuideSections.map((section) => (
                 <GuideSectionAccordion key={section.id} section={section} />
               ))}
             </div>
@@ -399,7 +573,7 @@ function IntegrationPage() {
               </p>
             </div>
 
-            <ErreursCourantesGrid items={erreursCourantes} />
+            <ErreursCourantesGrid items={localizedErreurs} />
           </div>
         </section>
 
@@ -419,7 +593,7 @@ function IntegrationPage() {
               </p>
             </div>
 
-            <NumerosUtilesGrid items={numerosUtiles} />
+            <NumerosUtilesGrid items={localizedNumeros} />
           </div>
         </section>
 

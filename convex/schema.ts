@@ -5,6 +5,9 @@ import {
   postsTable,
   announcementsTable,
   teamMembersTable,
+  pageViewsTable,
+  editableContentTable,
+  auditLogTable,
 } from "./schemas";
 
 export default defineSchema({
@@ -13,4 +16,7 @@ export default defineSchema({
   posts: postsTable,
   announcements: announcementsTable,
   teamMembers: teamMembersTable,
+  pageViews: pageViewsTable,
+  editableContent: editableContentTable,
+  auditLog: auditLogTable,
 });

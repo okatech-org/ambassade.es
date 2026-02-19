@@ -34,12 +34,15 @@ import { Route as AdminPostsIndexRouteImport } from './routes/admin/posts/index'
 import { Route as AdminOrgsIndexRouteImport } from './routes/admin/orgs/index'
 import { Route as AdminAuditLogsIndexRouteImport } from './routes/admin/audit-logs/index'
 import { Route as AdminAnnouncementsIndexRouteImport } from './routes/admin/announcements/index'
+import { Route as AdminAnalyticsIndexRouteImport } from './routes/admin/analytics/index'
+import { Route as AdminAdminManagementIndexRouteImport } from './routes/admin/admin-management/index'
 import { Route as AdminUsersUserIdRouteImport } from './routes/admin/users/$userId'
 import { Route as AdminTeamNewRouteImport } from './routes/admin/team/new'
 import { Route as AdminServicesNewRouteImport } from './routes/admin/services/new'
 import { Route as AdminPostsNewRouteImport } from './routes/admin/posts/new'
 import { Route as AdminOrgsNewRouteImport } from './routes/admin/orgs/new'
 import { Route as AdminOrgsOrgIdRouteImport } from './routes/admin/orgs/$orgId'
+import { Route as AdminAdminManagementAdminIdRouteImport } from './routes/admin/admin-management/$adminId'
 import { Route as AdminTeamMemberIdEditRouteImport } from './routes/admin/team/$memberId.edit'
 import { Route as AdminServicesServiceIdEditRouteImport } from './routes/admin/services/$serviceId_.edit'
 import { Route as AdminPostsPostIdEditRouteImport } from './routes/admin/posts/$postId.edit'
@@ -170,6 +173,17 @@ const AdminAnnouncementsIndexRoute = AdminAnnouncementsIndexRouteImport.update({
   path: '/announcements/',
   getParentRoute: () => AdminRouteRoute,
 } as any)
+const AdminAnalyticsIndexRoute = AdminAnalyticsIndexRouteImport.update({
+  id: '/analytics/',
+  path: '/analytics/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminAdminManagementIndexRoute =
+  AdminAdminManagementIndexRouteImport.update({
+    id: '/admin-management/',
+    path: '/admin-management/',
+    getParentRoute: () => AdminRouteRoute,
+  } as any)
 const AdminUsersUserIdRoute = AdminUsersUserIdRouteImport.update({
   id: '/users/$userId',
   path: '/users/$userId',
@@ -200,6 +214,12 @@ const AdminOrgsOrgIdRoute = AdminOrgsOrgIdRouteImport.update({
   path: '/orgs/$orgId',
   getParentRoute: () => AdminRouteRoute,
 } as any)
+const AdminAdminManagementAdminIdRoute =
+  AdminAdminManagementAdminIdRouteImport.update({
+    id: '/admin-management/$adminId',
+    path: '/admin-management/$adminId',
+    getParentRoute: () => AdminRouteRoute,
+  } as any)
 const AdminTeamMemberIdEditRoute = AdminTeamMemberIdEditRouteImport.update({
   id: '/team/$memberId/edit',
   path: '/team/$memberId/edit',
@@ -240,12 +260,15 @@ export interface FileRoutesByFullPath {
   '/actualites': typeof ActualitesIndexRoute
   '/admin/': typeof AdminIndexRoute
   '/services': typeof ServicesIndexRoute
+  '/admin/admin-management/$adminId': typeof AdminAdminManagementAdminIdRoute
   '/admin/orgs/$orgId': typeof AdminOrgsOrgIdRoute
   '/admin/orgs/new': typeof AdminOrgsNewRoute
   '/admin/posts/new': typeof AdminPostsNewRoute
   '/admin/services/new': typeof AdminServicesNewRoute
   '/admin/team/new': typeof AdminTeamNewRoute
   '/admin/users/$userId': typeof AdminUsersUserIdRoute
+  '/admin/admin-management': typeof AdminAdminManagementIndexRoute
+  '/admin/analytics': typeof AdminAnalyticsIndexRoute
   '/admin/announcements': typeof AdminAnnouncementsIndexRoute
   '/admin/audit-logs': typeof AdminAuditLogsIndexRoute
   '/admin/orgs': typeof AdminOrgsIndexRoute
@@ -276,12 +299,15 @@ export interface FileRoutesByTo {
   '/actualites': typeof ActualitesIndexRoute
   '/admin': typeof AdminIndexRoute
   '/services': typeof ServicesIndexRoute
+  '/admin/admin-management/$adminId': typeof AdminAdminManagementAdminIdRoute
   '/admin/orgs/$orgId': typeof AdminOrgsOrgIdRoute
   '/admin/orgs/new': typeof AdminOrgsNewRoute
   '/admin/posts/new': typeof AdminPostsNewRoute
   '/admin/services/new': typeof AdminServicesNewRoute
   '/admin/team/new': typeof AdminTeamNewRoute
   '/admin/users/$userId': typeof AdminUsersUserIdRoute
+  '/admin/admin-management': typeof AdminAdminManagementIndexRoute
+  '/admin/analytics': typeof AdminAnalyticsIndexRoute
   '/admin/announcements': typeof AdminAnnouncementsIndexRoute
   '/admin/audit-logs': typeof AdminAuditLogsIndexRoute
   '/admin/orgs': typeof AdminOrgsIndexRoute
@@ -314,12 +340,15 @@ export interface FileRoutesById {
   '/actualites/': typeof ActualitesIndexRoute
   '/admin/': typeof AdminIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/admin/admin-management/$adminId': typeof AdminAdminManagementAdminIdRoute
   '/admin/orgs/$orgId': typeof AdminOrgsOrgIdRoute
   '/admin/orgs/new': typeof AdminOrgsNewRoute
   '/admin/posts/new': typeof AdminPostsNewRoute
   '/admin/services/new': typeof AdminServicesNewRoute
   '/admin/team/new': typeof AdminTeamNewRoute
   '/admin/users/$userId': typeof AdminUsersUserIdRoute
+  '/admin/admin-management/': typeof AdminAdminManagementIndexRoute
+  '/admin/analytics/': typeof AdminAnalyticsIndexRoute
   '/admin/announcements/': typeof AdminAnnouncementsIndexRoute
   '/admin/audit-logs/': typeof AdminAuditLogsIndexRoute
   '/admin/orgs/': typeof AdminOrgsIndexRoute
@@ -353,12 +382,15 @@ export interface FileRouteTypes {
     | '/actualites'
     | '/admin/'
     | '/services'
+    | '/admin/admin-management/$adminId'
     | '/admin/orgs/$orgId'
     | '/admin/orgs/new'
     | '/admin/posts/new'
     | '/admin/services/new'
     | '/admin/team/new'
     | '/admin/users/$userId'
+    | '/admin/admin-management'
+    | '/admin/analytics'
     | '/admin/announcements'
     | '/admin/audit-logs'
     | '/admin/orgs'
@@ -389,12 +421,15 @@ export interface FileRouteTypes {
     | '/actualites'
     | '/admin'
     | '/services'
+    | '/admin/admin-management/$adminId'
     | '/admin/orgs/$orgId'
     | '/admin/orgs/new'
     | '/admin/posts/new'
     | '/admin/services/new'
     | '/admin/team/new'
     | '/admin/users/$userId'
+    | '/admin/admin-management'
+    | '/admin/analytics'
     | '/admin/announcements'
     | '/admin/audit-logs'
     | '/admin/orgs'
@@ -426,12 +461,15 @@ export interface FileRouteTypes {
     | '/actualites/'
     | '/admin/'
     | '/services/'
+    | '/admin/admin-management/$adminId'
     | '/admin/orgs/$orgId'
     | '/admin/orgs/new'
     | '/admin/posts/new'
     | '/admin/services/new'
     | '/admin/team/new'
     | '/admin/users/$userId'
+    | '/admin/admin-management/'
+    | '/admin/analytics/'
     | '/admin/announcements/'
     | '/admin/audit-logs/'
     | '/admin/orgs/'
@@ -642,6 +680,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAnnouncementsIndexRouteImport
       parentRoute: typeof AdminRouteRoute
     }
+    '/admin/analytics/': {
+      id: '/admin/analytics/'
+      path: '/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/admin-management/': {
+      id: '/admin/admin-management/'
+      path: '/admin-management'
+      fullPath: '/admin/admin-management'
+      preLoaderRoute: typeof AdminAdminManagementIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
     '/admin/users/$userId': {
       id: '/admin/users/$userId'
       path: '/users/$userId'
@@ -684,6 +736,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminOrgsOrgIdRouteImport
       parentRoute: typeof AdminRouteRoute
     }
+    '/admin/admin-management/$adminId': {
+      id: '/admin/admin-management/$adminId'
+      path: '/admin-management/$adminId'
+      fullPath: '/admin/admin-management/$adminId'
+      preLoaderRoute: typeof AdminAdminManagementAdminIdRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
     '/admin/team/$memberId/edit': {
       id: '/admin/team/$memberId/edit'
       path: '/team/$memberId/edit'
@@ -717,12 +776,15 @@ declare module '@tanstack/react-router' {
 
 interface AdminRouteRouteChildren {
   AdminIndexRoute: typeof AdminIndexRoute
+  AdminAdminManagementAdminIdRoute: typeof AdminAdminManagementAdminIdRoute
   AdminOrgsOrgIdRoute: typeof AdminOrgsOrgIdRoute
   AdminOrgsNewRoute: typeof AdminOrgsNewRoute
   AdminPostsNewRoute: typeof AdminPostsNewRoute
   AdminServicesNewRoute: typeof AdminServicesNewRoute
   AdminTeamNewRoute: typeof AdminTeamNewRoute
   AdminUsersUserIdRoute: typeof AdminUsersUserIdRoute
+  AdminAdminManagementIndexRoute: typeof AdminAdminManagementIndexRoute
+  AdminAnalyticsIndexRoute: typeof AdminAnalyticsIndexRoute
   AdminAnnouncementsIndexRoute: typeof AdminAnnouncementsIndexRoute
   AdminAuditLogsIndexRoute: typeof AdminAuditLogsIndexRoute
   AdminOrgsIndexRoute: typeof AdminOrgsIndexRoute
@@ -739,12 +801,15 @@ interface AdminRouteRouteChildren {
 
 const AdminRouteRouteChildren: AdminRouteRouteChildren = {
   AdminIndexRoute: AdminIndexRoute,
+  AdminAdminManagementAdminIdRoute: AdminAdminManagementAdminIdRoute,
   AdminOrgsOrgIdRoute: AdminOrgsOrgIdRoute,
   AdminOrgsNewRoute: AdminOrgsNewRoute,
   AdminPostsNewRoute: AdminPostsNewRoute,
   AdminServicesNewRoute: AdminServicesNewRoute,
   AdminTeamNewRoute: AdminTeamNewRoute,
   AdminUsersUserIdRoute: AdminUsersUserIdRoute,
+  AdminAdminManagementIndexRoute: AdminAdminManagementIndexRoute,
+  AdminAnalyticsIndexRoute: AdminAnalyticsIndexRoute,
   AdminAnnouncementsIndexRoute: AdminAnnouncementsIndexRoute,
   AdminAuditLogsIndexRoute: AdminAuditLogsIndexRoute,
   AdminOrgsIndexRoute: AdminOrgsIndexRoute,

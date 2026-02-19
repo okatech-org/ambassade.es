@@ -26,7 +26,7 @@ export async function createInvitedUserHelper(
     firstName,
     lastName,
     isActive: true,
-    isSuperadmin: false,
+    role: "user",
     updatedAt: Date.now(),
   });
 }

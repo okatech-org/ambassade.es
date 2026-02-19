@@ -4,3 +4,6 @@ export { servicesTable } from "./services";
 export { postsTable } from "./posts";
 export { announcementsTable } from "./announcements";
 export { teamMembersTable } from "./teamMembers";
+export { pageViewsTable } from "./pageViews";
+export { editableContentTable } from "./editableContent";
+export { auditLogTable } from "./auditLog";

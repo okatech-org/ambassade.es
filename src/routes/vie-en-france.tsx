@@ -24,20 +24,29 @@ import { Badge } from '@/components/ui/badge'
 import { PageHero } from '@/components/PageHero'
 import { CitizenCTA } from '@/components/home/CitizenCTA'
 import { GuideSectionCard, SectionNav, type GuideSection } from '@/components/guides'
+import i18n from '@/integrations/i18n/i18n'
 
 
 export const Route = createFileRoute('/vie-en-france')({
   component: VieEnFrancePage,
-  head: () => ({
-    meta: [
-      { title: 'Vie en France — Guide Pratique | Consulat Général du Gabon' },
-      {
-        name: 'description',
-        content:
-          'Guide complet pour les Gabonais en France : logement, santé, éducation, emploi, droits de séjour et famille. Toutes les informations pratiques pour votre vie quotidienne.',
-      },
-    ],
-  }),
+  head: () => {
+    const isEn = (i18n.resolvedLanguage || i18n.language).startsWith('en')
+    return {
+      meta: [
+        {
+          title: isEn
+            ? 'Living in France — Practical Guide | General Consulate of Gabon'
+            : 'Vie en France — Guide Pratique | Consulat Général du Gabon',
+        },
+        {
+          name: 'description',
+          content: isEn
+            ? 'Comprehensive guide for Gabonese nationals in France: housing, health, education, employment, residency rights, family and daily-life procedures.'
+            : 'Guide complet pour les Gabonais en France : logement, santé, éducation, emploi, droits de séjour et famille. Toutes les informations pratiques pour votre vie quotidienne.',
+        },
+      ],
+    }
+  },
 })
 
 // ─── Data ────────────────────────────────────────────────────────────────────
@@ -479,11 +488,415 @@ const guideSections: GuideSection[] = [
   },
 ]
 
+const guideSectionsEn: GuideSection[] = [
+  {
+    id: 'logement',
+    icon: Home,
+    title: 'Housing',
+    color: 'text-blue-600 dark:text-blue-400',
+    iconBg: 'bg-blue-500/10',
+    gradientFrom: 'from-blue-500/5',
+    gradientTo: 'to-blue-600/10',
+    image: '/images/guide-logement.png',
+    intro:
+      'Finding accommodation in France can be difficult at first. This section helps you secure housing, benefits and legal protections.',
+    items: [
+      {
+        title: 'Where to search',
+        detail:
+          'Use trusted platforms and agencies. For social housing, file a formal request and expect potentially long wait times in large cities.',
+      },
+      {
+        title: 'Rental guarantee (Visale)',
+        detail:
+          'Visale can replace a private guarantor for many profiles and is free to use.',
+      },
+      {
+        title: 'Housing benefits (APL/ALS)',
+        detail:
+          'CAF support depends on income, rent and location. Apply online as soon as your lease starts.',
+      },
+      {
+        title: 'Tenant rights',
+        detail:
+          'Security deposits are regulated and landlord obligations are strict. In disputes, mediation or legal channels are available.',
+      },
+      {
+        title: 'Move-in and move-out inventory',
+        detail:
+          'Document property condition with photos at entry and exit to protect your deposit.',
+      },
+    ],
+    tips: [
+      'Use Visale early if you do not have a guarantor',
+      'Open a French bank account before signing your lease',
+      'Take mandatory home insurance before moving in',
+      'Keep written communication with your landlord',
+      'Photograph every room on move-in day',
+    ],
+    links: [
+      { label: 'CAF — Simulateur APL', url: 'https://www.caf.fr', description: 'Estimate housing benefit eligibility' },
+      { label: 'Visale', url: 'https://www.visale.fr', description: 'Free rental guarantee' },
+      { label: 'Demande logement social', url: 'https://www.demande-logement-social.gouv.fr', description: 'Apply for social housing' },
+    ],
+  },
+  {
+    id: 'sante',
+    icon: Heart,
+    title: 'Health & Social Protection',
+    color: 'text-red-600 dark:text-red-400',
+    iconBg: 'bg-red-500/10',
+    gradientFrom: 'from-red-500/5',
+    gradientTo: 'to-red-600/10',
+    image: '/images/guide-sante.png',
+    intro:
+      'France provides broad healthcare access. As a resident, you can enroll in the public system and complete your coverage with a complementary plan.',
+    items: [
+      {
+        title: 'Social security registration',
+        detail:
+          'Register with CPAM through ameli.fr. Your employer may initiate this process if you are employed.',
+      },
+      {
+        title: 'Complementary health plan (CSS)',
+        detail:
+          'CSS can reduce or remove out-of-pocket costs for low-income households.',
+      },
+      {
+        title: 'Primary doctor pathway',
+        detail:
+          'Declaring a regular doctor improves reimbursement rates and care coordination.',
+      },
+      {
+        title: 'Mental health support',
+        detail:
+          'Public and subsidized support exists for psychological care, including referral-based schemes.',
+      },
+      {
+        title: 'Emergency care',
+        detail:
+          'Call 15 or 112 in urgent situations; emergency departments are open 24/7.',
+      },
+    ],
+    tips: [
+      'Always keep your Vitale card or temporary certificate',
+      'Teleconsultation can help when local availability is low',
+      'Municipal health centers often limit extra fees',
+      'Use Doctolib or official directories for appointments',
+      'Emergency SMS service (114) is available in specific situations',
+    ],
+    links: [
+      { label: 'Ameli.fr', url: 'https://www.ameli.fr', description: 'Official health insurance portal' },
+      { label: 'Doctolib', url: 'https://www.doctolib.fr', description: 'Online medical appointment booking' },
+      { label: 'CSS', url: 'https://www.complementaire-sante-solidaire.gouv.fr', description: 'Complementary health coverage' },
+      { label: 'Mon soutien psy', url: 'https://www.ameli.fr/assure/remboursements/rembourse/consultations/mon-soutien-psy', description: 'Psychological support scheme' },
+    ],
+  },
+  {
+    id: 'education',
+    icon: GraduationCap,
+    title: 'Education & Training',
+    color: 'text-green-600 dark:text-green-400',
+    iconBg: 'bg-green-500/10',
+    gradientFrom: 'from-green-500/5',
+    gradientTo: 'to-green-600/10',
+    image: '/images/guide-education.png',
+    intro:
+      'Children and adults can access strong education and training pathways in France, with dedicated support for international students.',
+    items: [
+      {
+        title: 'Schooling for children',
+        detail:
+          'School attendance is mandatory from ages 3 to 16 and cannot be denied on nationality grounds.',
+      },
+      {
+        title: 'Higher education admission',
+        detail:
+          'Apply through Parcoursup (in France) or Campus France pathways depending on your profile.',
+      },
+      {
+        title: 'Scholarships and grants',
+        detail:
+          'CROUS and other support schemes may be available based on social and academic criteria.',
+      },
+      {
+        title: 'Diploma recognition',
+        detail:
+          'ENIC-NARIC comparability certificates can support job applications and academic admissions.',
+      },
+      {
+        title: 'Professional validation (VAE)',
+        detail:
+          'VAE can convert work experience into recognized qualifications.',
+      },
+    ],
+    tips: [
+      'Free or low-cost French classes are widely available',
+      'Student cards unlock transport and cultural discounts',
+      'Public libraries provide free resources and internet access',
+      'Use official portals for applications and deadlines',
+    ],
+    links: [
+      { label: 'Parcoursup', url: 'https://www.parcoursup.fr', description: 'Higher education application platform' },
+      { label: 'Campus France', url: 'https://www.campusfrance.org/fr', description: 'Study in France information' },
+      { label: 'ENIC-NARIC', url: 'https://www.france-education-international.fr', description: 'Foreign diploma recognition' },
+    ],
+  },
+  {
+    id: 'emploi',
+    icon: Briefcase,
+    title: 'Employment & Entrepreneurship',
+    color: 'text-orange-600 dark:text-orange-400',
+    iconBg: 'bg-orange-500/10',
+    gradientFrom: 'from-orange-500/5',
+    gradientTo: 'to-orange-600/10',
+    image: '/images/guide-emploi.png',
+    intro:
+      'Working in France requires the right residence status. You can pursue employment, self-employment or supported business creation.',
+    items: [
+      {
+        title: 'Work authorization',
+        detail:
+          'Check your permit wording carefully to confirm your right to work and any hour limitations.',
+      },
+      {
+        title: 'France Travail support',
+        detail:
+          'Register for job-search support, training and potential compensation based on your contribution history.',
+      },
+      {
+        title: 'Micro-business creation',
+        detail:
+          'Micro-entrepreneur status offers a simplified setup and tax framework for many activities.',
+      },
+      {
+        title: 'ACRE support',
+        detail:
+          'ACRE may reduce social charges during the first year for eligible founders.',
+      },
+      {
+        title: 'Chamber of commerce resources',
+        detail:
+          'CCI networks provide guidance, training and business support programs.',
+      },
+    ],
+    tips: [
+      'Use ACRE and youth-employment support schemes where eligible',
+      'Avoid undeclared work: legal and social risk is high',
+      'Track residence and work-permit deadlines alongside contracts',
+      'Build a network early through local associations and platforms',
+    ],
+    links: [
+      { label: 'France Travail', url: 'https://www.francetravail.fr', description: 'Jobs and employment support' },
+      { label: 'Auto-entrepreneur', url: 'https://autoentrepreneur.urssaf.fr', description: 'Micro-business registration' },
+      { label: '1jeune1solution', url: 'https://www.1jeune1solution.gouv.fr', description: 'Youth jobs and training offers' },
+    ],
+  },
+  {
+    id: 'droits',
+    icon: Scale,
+    title: 'Rights & Residency',
+    color: 'text-purple-600 dark:text-purple-400',
+    iconBg: 'bg-purple-500/10',
+    gradientFrom: 'from-purple-500/5',
+    gradientTo: 'to-purple-600/10',
+    image: '/images/guide-droits.png',
+    intro:
+      'Understanding your rights and residence obligations is essential for long-term stability and legal security in France.',
+    items: [
+      {
+        title: 'Residence permit validity',
+        detail:
+          'Validate and renew permits on time through official ANEF/prefecture channels.',
+      },
+      {
+        title: 'Receipt limitations',
+        detail:
+          'Some first-application receipts do not authorize international travel and re-entry.',
+      },
+      {
+        title: 'Multi-year permits',
+        detail:
+          'After an initial permit, multi-year cards may be available depending on your status.',
+      },
+      {
+        title: 'Address change obligation',
+        detail:
+          'You must declare address changes within legal deadlines to avoid penalties.',
+      },
+      {
+        title: 'Regularization options',
+        detail:
+          'Possible paths include work-based, family-based, humanitarian and protection routes.',
+      },
+      {
+        title: 'Family reunification and naturalization',
+        detail:
+          'Both require strict criteria on residence duration, resources, language and integration.',
+      },
+    ],
+    tips: [
+      'Keep digital backups of all official documents',
+      'Never let a permit expire without proof of renewal filing',
+      'Use specialized legal associations for complex cases',
+      'Report address changes quickly',
+      'Verify travel rights before crossing borders with receipts',
+    ],
+    links: [
+      { label: 'ANEF - Étrangers en France', url: 'https://administration-etrangers-en-france.interieur.gouv.fr', description: 'Residence procedures online' },
+      { label: 'Défenseur des droits', url: 'https://www.defenseurdesdroits.fr', description: 'Independent rights and discrimination body' },
+      { label: 'CIMADE', url: 'https://www.lacimade.org', description: 'Free legal support' },
+      { label: 'Consulat du Gabon', url: 'https://consulat.ga', description: 'Gabonese consular support in France' },
+      { label: 'Service-public.fr — DCME', url: 'https://www.service-public.fr/particuliers/vosdroits/F2710', description: 'Travel document for minors' },
+    ],
+  },
+  {
+    id: 'famille',
+    icon: Baby,
+    title: 'Family & Children',
+    color: 'text-pink-600 dark:text-pink-400',
+    iconBg: 'bg-pink-500/10',
+    gradientFrom: 'from-pink-500/5',
+    gradientTo: 'to-pink-600/10',
+    image: '/images/guide-famille.png',
+    intro:
+      'Families can access substantial support in France through child benefits, health services and civil registration pathways.',
+    items: [
+      {
+        title: 'Birth registration',
+        detail:
+          'Declare birth at the town hall first, then complete consular transcription for Gabonese records.',
+      },
+      {
+        title: 'Family benefits',
+        detail:
+          'CAF provides different types of support depending on family size, income and child age.',
+      },
+      {
+        title: 'Childcare options',
+        detail:
+          'Municipal daycare, licensed childminders and home care are available with potential financial support.',
+      },
+      {
+        title: 'Civil status procedures',
+        detail:
+          'Marriage and family records often need formal transcription for cross-border legal validity.',
+      },
+    ],
+    tips: [
+      'Complete both French and consular registration for children',
+      'Open your CAF account early to avoid delays',
+      'Use PMI services for preventive care for young children',
+      'Keep family documents updated and accessible',
+    ],
+    links: [
+      { label: 'CAF', url: 'https://www.caf.fr', description: 'Family benefits and social support' },
+      { label: 'Mon-enfant.fr', url: 'https://www.mon-enfant.fr', description: 'Find childcare options' },
+      { label: 'Service-public.fr — Famille', url: 'https://www.service-public.fr/particuliers/vosdroits/N156', description: 'Family rights and procedures' },
+    ],
+  },
+  {
+    id: 'impots',
+    icon: Receipt,
+    title: 'Taxes & Fiscal Rules',
+    color: 'text-teal-600 dark:text-teal-400',
+    iconBg: 'bg-teal-500/10',
+    gradientFrom: 'from-teal-500/5',
+    gradientTo: 'to-teal-600/10',
+    intro:
+      'Tax filing is a key annual obligation in France and is often required for housing, social aid and residence renewals.',
+    items: [
+      {
+        title: 'Annual tax declaration',
+        detail:
+          'File returns each year through impots.gouv.fr. Even low-income situations may still require declaration.',
+      },
+      {
+        title: 'Withholding tax system',
+        detail:
+          'Income tax is generally deducted at source and adjusted based on your household declaration.',
+      },
+      {
+        title: 'Local taxes and changes',
+        detail:
+          'Primary-residence housing tax has largely been removed, but property owners may still owe other taxes.',
+      },
+      {
+        title: 'France-Gabon tax convention',
+        detail:
+          'The bilateral convention helps avoid double taxation for eligible cross-border income situations.',
+      },
+    ],
+    tips: [
+      'File on time every year to avoid penalties',
+      'Keep tax notices for major administrative procedures',
+      'Ask tax offices for support if your situation is complex',
+      'Report family and income changes quickly to update your rate',
+    ],
+    links: [
+      { label: 'Impots.gouv.fr', url: 'https://www.impots.gouv.fr', description: 'Official tax portal' },
+      { label: 'Simulateur d\'impôt', url: 'https://www.impots.gouv.fr/simulateurs', description: 'Income tax simulation tools' },
+    ],
+  },
+  {
+    id: 'discriminations',
+    icon: ShieldAlert,
+    title: 'Discrimination & Legal Remedies',
+    color: 'text-amber-600 dark:text-amber-400',
+    iconBg: 'bg-amber-500/10',
+    gradientFrom: 'from-amber-500/5',
+    gradientTo: 'to-amber-600/10',
+    intro:
+      'French law prohibits discrimination in housing, work and public services. Knowing your remedies helps protect your rights.',
+    items: [
+      {
+        title: 'What counts as discrimination',
+        detail:
+          'Protected criteria include origin, nationality, religion, gender, disability and other legally defined factors.',
+      },
+      {
+        title: 'Housing discrimination',
+        detail:
+          'Refusals based on origin or identity markers are illegal. Keep evidence and contact competent organizations quickly.',
+      },
+      {
+        title: 'Workplace discrimination',
+        detail:
+          'Hiring, promotion and dismissal decisions cannot lawfully rely on discriminatory criteria.',
+      },
+      {
+        title: 'Identity checks',
+        detail:
+          'You must carry valid documents, but discriminatory checks can be challenged through formal complaint channels.',
+      },
+      {
+        title: 'Available remedies',
+        detail:
+          'You can contact the Defender of Rights, file a police/prosecutor complaint and request legal aid if eligible.',
+      },
+    ],
+    tips: [
+      'Keep written proof and screenshots when incidents occur',
+      'Use the Defender of Rights online channels early',
+      'Seek medical and legal documentation after violent incidents',
+      'Request consular orientation when needed',
+    ],
+    links: [
+      { label: 'Défenseur des droits', url: 'https://www.defenseurdesdroits.fr', description: 'Free anti-discrimination remedy' },
+      { label: 'SOS Racisme', url: 'https://sos-racisme.org', description: 'Legal assistance against racism' },
+      { label: 'LICRA', url: 'https://www.licra.org', description: 'Anti-racism advocacy organization' },
+    ],
+  },
+]
+
 // ─── Page ────────────────────────────────────────────────────────────────────
 
 function VieEnFrancePage() {
-  const { t } = useTranslation()
-  const [activeSection, setActiveSection] = useState(guideSections[0].id)
+  const { t, i18n } = useTranslation()
+  const lang = i18n.resolvedLanguage || i18n.language
+  const isEn = lang.startsWith('en')
+  const tSections = isEn ? guideSectionsEn : guideSections
+  const [activeSection, setActiveSection] = useState(tSections[0].id)
 
   const scrollToSection = (id: string) => {
     setActiveSection(id)
@@ -534,7 +947,7 @@ function VieEnFrancePage() {
       {/* Mobile Section Navigation */}
       <div className="lg:hidden sticky top-16 z-40 bg-background/80 backdrop-blur-md border-b border-border/50 px-4 py-3">
         <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
-          {guideSections.map((section) => {
+          {tSections.map((section) => {
             const Icon = section.icon
             return (
               <button
@@ -561,7 +974,7 @@ function VieEnFrancePage() {
             {/* Sidebar Navigation (Desktop) */}
             <div className="w-64 shrink-0 hidden lg:block">
               <SectionNav
-                sections={guideSections}
+                sections={tSections}
                 activeSection={activeSection}
                 onSelect={scrollToSection}
               />
@@ -569,7 +982,7 @@ function VieEnFrancePage() {
 
             {/* Content */}
             <div className="flex-1 space-y-8">
-              {guideSections.map((section) => (
+              {tSections.map((section) => (
                 <GuideSectionCard key={section.id} section={section} />
               ))}
             </div>

@@ -1,6 +1,6 @@
 import { v } from "convex/values";
 import { query, mutation } from "../_generated/server";
-import { requireSuperadmin } from "../lib/auth";
+import { requireModule } from "../lib/auth";
 import { serviceCategoryValidator } from "../lib/validators";
 
 // Public: List all active services
@@ -51,7 +51,7 @@ export const getBySlug = query({
 export const listAll = query({
   args: {},
   handler: async (ctx) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "services");
     const services = await ctx.db.query("services").collect();
     return services.sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
   },
@@ -85,7 +85,7 @@ export const update = mutation({
     order: v.optional(v.number()),
   },
   handler: async (ctx, args) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "services");
     const { id, ...fields } = args;
     await ctx.db.patch(id, fields);
   },
@@ -120,7 +120,7 @@ export const create = mutation({
     order: v.optional(v.number()),
   },
   handler: async (ctx, args) => {
-    await requireSuperadmin(ctx);
+    await requireModule(ctx, "services");
     return await ctx.db.insert("services", args);
   },
 });
