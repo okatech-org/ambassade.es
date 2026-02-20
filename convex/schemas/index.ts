@@ -7,3 +7,5 @@ export { teamMembersTable } from "./teamMembers";
 export { pageViewsTable } from "./pageViews";
 export { editableContentTable } from "./editableContent";
 export { auditLogTable } from "./auditLog";
+export { siteSettingsTable } from "./siteSettings";
+export { sectionVisibilityTable } from "./sectionVisibility";

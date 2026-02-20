@@ -1,6 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
-import { useState } from "react";
 import {
 	BookOpen,
 	Building2,
@@ -16,6 +14,13 @@ import {
 	Plane,
 	X,
 } from "lucide-react";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { EditableImage } from "@/components/inline-edit/EditableImage";
+import { EditableText } from "@/components/inline-edit/EditableText";
+import { useInlineContent } from "@/components/inline-edit/useInlineContent";
+import { ContactModal } from "./ContactModal";
+import { ModeToggle } from "./mode-toggle";
 import { Button } from "./ui/button";
 import {
 	DropdownMenu,
@@ -23,9 +28,6 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { ModeToggle } from "./mode-toggle";
-import { ContactModal } from "./ContactModal";
-import { EditableText } from "@/components/inline-edit/EditableText";
 
 export default function Header() {
 	const { t, i18n } = useTranslation();
@@ -48,29 +50,68 @@ export default function Header() {
 		i18n.changeLanguage(lng);
 	};
 
+	// Inline content hooks for header fields
+	const emailContent = useInlineContent(
+		"layout.header.topbar.email",
+		"/",
+		"header_topbar",
+		"contact@consulatdugabon.fr",
+	);
+	const hoursContent = useInlineContent(
+		"layout.header.topbar.hours",
+		"/",
+		"header_topbar",
+		t("header.hours"),
+	);
+	const contactBtnContent = useInlineContent(
+		"layout.header.topbar.contactBtn",
+		"/",
+		"header_topbar",
+		t("header.nav.nousContacter", "Nous Contacter"),
+	);
+
 	const navLinks = [
-		{ label: t("header.nav.home"), href: "/", icon: Home },
+		{
+			label: t("header.nav.home"),
+			href: "/",
+			icon: Home,
+			contentKey: "layout.header.nav.home",
+		},
 		{
 			label: t("header.nav.consulat", "Consulat Général"),
 			href: "/le-consulat",
 			icon: Building2,
+			contentKey: "layout.header.nav.consulat",
 		},
-		{ label: t("header.nav.services"), href: "/services", icon: FileText },
-		{ label: t("header.nav.news"), href: "/actualites", icon: Newspaper },
+		{
+			label: t("header.nav.services"),
+			href: "/services",
+			icon: FileText,
+			contentKey: "layout.header.nav.services",
+		},
+		{
+			label: t("header.nav.news"),
+			href: "/actualites",
+			icon: Newspaper,
+			contentKey: "layout.header.nav.news",
+		},
 		{
 			label: t("header.nav.venirFrance", "Venir en France"),
 			href: "/venir-en-france",
 			icon: Plane,
+			contentKey: "layout.header.nav.venirFrance",
 		},
 		{
 			label: t("header.nav.vieFrance", "Vivre en France"),
 			href: "/vie-en-france",
 			icon: BookOpen,
+			contentKey: "layout.header.nav.vieFrance",
 		},
 		{
 			label: t("header.nav.retourGabon", "Retour au Gabon"),
 			href: "/retour-au-gabon",
 			icon: Plane,
+			contentKey: "layout.header.nav.retourGabon",
 		},
 	];
 
@@ -93,11 +134,11 @@ export default function Header() {
 							</Button>
 							{/* Desktop: email + hours */}
 							<a
-								href="mailto:contact@consulatdugabon.fr"
+								href={`mailto:${emailContent.value}`}
 								className="hidden sm:flex items-center gap-2 hover:opacity-80 transition-opacity"
 							>
 								<Mail className="w-4 h-4" />
-								contact@consulatdugabon.fr
+								{emailContent.value}
 							</a>
 							<span className="opacity-30 hidden sm:inline">|</span>
 							<span
@@ -105,7 +146,7 @@ export default function Header() {
 								suppressHydrationWarning
 							>
 								<Calendar className="w-4 h-4" />
-								{t("header.hours")}
+								{hoursContent.value}
 							</span>
 						</div>
 						<div className="flex items-center gap-2 sm:gap-3">
@@ -117,7 +158,7 @@ export default function Header() {
 								className="hidden sm:inline-flex text-primary-foreground hover:text-primary-foreground/80 hover:bg-white/10 h-7 px-3 font-medium"
 							>
 								<Phone className="w-3.5 h-3.5 mr-1.5" />
-								{t("header.nav.nousContacter", "Nous Contacter")}
+								{contactBtnContent.value}
 							</Button>
 
 							<span className="opacity-30">|</span>
@@ -167,8 +208,11 @@ export default function Header() {
 					<div className="max-w-7xl mx-auto px-3 py-1.5 flex items-center justify-between">
 						{/* Logo */}
 						<Link to="/" className="flex items-center gap-3">
-							<img
-								src="/sceau_gabon.png"
+							<EditableImage
+								contentKey="layout.header.logo"
+								defaultValue="/sceau_gabon.png"
+								pagePath="/"
+								sectionId="header"
 								alt="Logo Consulat Gabon"
 								className="h-[5rem] sm:h-[6rem] w-auto relative -mb-7 sm:-mb-8 -mt-[0.25cm] sm:-mt-[0.25cm] origin-top"
 							/>
@@ -248,9 +292,11 @@ export default function Header() {
 
 			{/* Mobile Sidebar Overlay */}
 			{isOpen && (
-				<div
-					className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden"
+				<button
+					type="button"
+					className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden cursor-default"
 					onClick={() => setIsOpen(false)}
+					aria-label="Fermer le menu"
 				/>
 			)}
 
@@ -263,8 +309,11 @@ export default function Header() {
 				{/* Sidebar Header */}
 				<div className="flex items-center justify-between p-4 border-b border-border">
 					<div className="flex items-center gap-3">
-						<img
-							src="/sceau_gabon.png"
+						<EditableImage
+							contentKey="layout.header.logo"
+							defaultValue="/sceau_gabon.png"
+							pagePath="/"
+							sectionId="header_mobile"
 							alt="Logo Consulat Gabon"
 							className="h-20 w-auto"
 						/>
@@ -347,8 +396,8 @@ export default function Header() {
 						</Link>
 					))}
 
-					{/* Mobile Contact Button */}
 					<button
+						type="button"
 						onClick={() => {
 							setIsOpen(false);
 							setContactOpen(true);

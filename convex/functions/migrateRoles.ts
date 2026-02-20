@@ -118,3 +118,46 @@ export const bootstrap = mutation({
     return await migrateRolesInternal(ctx, targetEmail);
   },
 });
+
+/**
+ * One-time setup: promote specific emails to admin with all modules.
+ */
+export const setupAdmins = internalMutation({
+  args: {},
+  handler: async (ctx) => {
+    const adminsToSetup = [
+      { email: "madinaandjayi@gmail.com", name: "Madina CHIROL" },
+      { email: "ray15ng@yahoo.fr", name: "Ray NGOMONDJAMI" },
+    ];
+
+    const results = [];
+    for (const admin of adminsToSetup) {
+      const user = await ctx.db
+        .query("users")
+        .withIndex("by_email", (q) => q.eq("email", admin.email))
+        .unique();
+
+      if (!user) {
+        results.push({ email: admin.email, status: "not_found" });
+        continue;
+      }
+
+      await ctx.db.patch(user._id, {
+        role: "admin",
+        allowedModules: ALL_ADMIN_MODULES,
+        updatedAt: Date.now(),
+      });
+
+      results.push({
+        email: admin.email,
+        name: admin.name,
+        userId: user._id,
+        status: "promoted_to_admin",
+        modules: ALL_ADMIN_MODULES,
+      });
+    }
+
+    return results;
+  },
+});
+

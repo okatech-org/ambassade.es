@@ -3,17 +3,20 @@
 import { Link } from "@tanstack/react-router";
 import {
 	BarChart3,
-	Bell,
+	BookOpen,
+	Building2,
 	FileText,
+	Home,
 	LayoutDashboard,
 	type LucideIcon,
 	Newspaper,
+	Phone,
+	Plane,
 	ScrollText,
 	Settings,
 	Shield,
 	ShieldCheck,
 	Users,
-	UsersRound,
 } from "lucide-react";
 import type * as React from "react";
 import { useTranslation } from "react-i18next";
@@ -33,6 +36,16 @@ import {
 import { useUserData } from "@/hooks/use-user-data";
 import type { AdminModule } from "@/lib/admin-modules";
 
+type SidebarItem = {
+	title: string;
+	url: string;
+	icon: LucideIcon;
+	isActive?: boolean;
+	module?: AdminModule;
+	systemAdminOnly?: boolean;
+	items?: { title: string; url: string }[];
+};
+
 export function SuperadminSidebar({
 	...props
 }: React.ComponentProps<typeof Sidebar>) {
@@ -40,83 +53,15 @@ export function SuperadminSidebar({
 	const userDataHook = useUserData();
 	const { hasModule, isSystemAdmin } = userDataHook;
 
-	type SidebarItem = {
-		title: string;
-		url: string;
-		icon: LucideIcon;
-		isActive?: boolean;
-		module?: AdminModule;
-		systemAdminOnly?: boolean;
-		items?: { title: string; url: string }[];
-	};
+	const filterItems = (items: SidebarItem[]) =>
+		items.filter((item) => {
+			if (item.systemAdminOnly && !isSystemAdmin) return false;
+			if (!item.module) return true;
+			return hasModule(item.module);
+		});
 
-	const baseNavItems: SidebarItem[] = [
-		{
-			title: t("superadmin.nav.dashboard"),
-			url: "/admin",
-			icon: LayoutDashboard,
-			isActive: true,
-		},
-		{
-			title: t("superadmin.nav.posts", "Actualités"),
-			url: "/admin/posts",
-			icon: Newspaper,
-			module: "posts",
-			items: [
-				{
-					title: t("superadmin.nav.allPosts", "Tous les articles"),
-					url: "/admin/posts",
-				},
-				{
-					title: t("superadmin.nav.newPost", "Nouvel article"),
-					url: "/admin/posts/new",
-				},
-			],
-		},
-		{
-			title: t("superadmin.nav.services"),
-			url: "/admin/services",
-			icon: FileText,
-			module: "services",
-			items: [
-				{ title: t("superadmin.nav.commonServices"), url: "/admin/services" },
-			],
-		},
-		{
-			title: t("superadmin.nav.announcements", "Annonces"),
-			url: "/admin/announcements",
-			icon: Bell,
-			module: "announcements",
-		},
-		{
-			title: t("superadmin.nav.team", "Équipe"),
-			url: "/admin/team",
-			icon: UsersRound,
-			module: "team",
-			items: [
-				{
-					title: t("superadmin.nav.allTeamMembers", "Tous les membres"),
-					url: "/admin/team",
-				},
-				{
-					title: t("superadmin.nav.newTeamMember", "Nouveau membre"),
-					url: "/admin/team/new",
-				},
-			],
-		},
-		{
-			title: t("superadmin.nav.users"),
-			url: "/admin/users",
-			icon: Users,
-			module: "users",
-			items: [{ title: t("superadmin.nav.allUsers"), url: "/admin/users" }],
-		},
-		{
-			title: t("superadmin.nav.adminManagement", "Gestion Admins"),
-			url: "/admin/admin-management",
-			icon: ShieldCheck,
-			systemAdminOnly: true,
-		},
+	// ── Section 1: Analytics et Opération ────────────────────────
+	const analyticsItems: SidebarItem[] = filterItems([
 		{
 			title: t("superadmin.nav.analytics", "Statistiques"),
 			url: "/admin/analytics",
@@ -129,23 +74,83 @@ export function SuperadminSidebar({
 			icon: ScrollText,
 			module: "audit",
 		},
+	]);
+
+	// ── Section 2: Gestion et édition ────────────────────────────
+	// Each link opens the admin management page; "Édition directe" redirects to the public page.
+	const gestionItems: SidebarItem[] = [
 		{
-			title: t("superadmin.nav.settings"),
-			url: "/admin/settings",
-			icon: Settings,
-			module: "settings",
+			title: t("header.nav.home", "Accueil"),
+			url: "/admin/pages/accueil",
+			icon: Home,
+		},
+		{
+			title: t("header.nav.consulat", "Le Consulat"),
+			url: "/admin/pages/le-consulat",
+			icon: Building2,
+		},
+		{
+			title: t("header.nav.services", "Services"),
+			url: "/admin/pages/services",
+			icon: FileText,
+		},
+		{
+			title: t("header.nav.news", "Actualités"),
+			url: "/admin/pages/actualites",
+			icon: Newspaper,
+		},
+		{
+			title: t("header.nav.venirFrance", "Venir en France"),
+			url: "/admin/pages/venir-en-france",
+			icon: Plane,
+		},
+		{
+			title: t("header.nav.vieFrance", "Vivre en France"),
+			url: "/admin/pages/vie-en-france",
+			icon: BookOpen,
+		},
+		{
+			title: t("header.nav.retourGabon", "Retour au Gabon"),
+			url: "/admin/pages/retour-au-gabon",
+			icon: Plane,
+		},
+		{
+			title: t("header.nav.contact", "Contact"),
+			url: "/admin/pages/contact",
+			icon: Phone,
 		},
 	];
 
-	const superadminNavItems = baseNavItems.filter((item) => {
-		if (item.systemAdminOnly && !isSystemAdmin) {
-			return false;
-		}
-		const moduleId = item.module;
-		if (!moduleId) return true;
-		return hasModule(moduleId);
-	});
+	// ── Section 3: Système ───────────────────────────────────────
+	const systemeItems: SidebarItem[] = [
+		...filterItems([
+			{
+				title: t("superadmin.nav.users"),
+				url: "/admin/users",
+				icon: Users,
+				module: "users",
+			},
+		]),
+		...(isSystemAdmin
+			? [
+					{
+						title: t("superadmin.nav.adminManagement", "Gestion Admins"),
+						url: "/admin/admin-management",
+						icon: ShieldCheck,
+					},
+				]
+			: []),
+		...filterItems([
+			{
+				title: t("superadmin.nav.settings"),
+				url: "/admin/settings",
+				icon: Settings,
+				module: "settings",
+			},
+		]),
+	];
 
+	// ── User data ────────────────────────────────────────────────
 	const user = userDataHook.userData;
 	const userData = {
 		name:
@@ -179,7 +184,28 @@ export function SuperadminSidebar({
 				</SidebarMenu>
 			</SidebarHeader>
 			<SidebarContent>
-				<NavMain items={superadminNavItems} />
+				<NavMain
+					label="Tableau de bord"
+					items={[
+						{
+							title: t("superadmin.nav.dashboard"),
+							url: "/admin",
+							icon: LayoutDashboard,
+						},
+					]}
+				/>
+
+				{analyticsItems.length > 0 && (
+					<NavMain label="Analytics et Opération" items={analyticsItems} />
+				)}
+
+				{gestionItems.length > 0 && (
+					<NavMain label="Gestion et édition" items={gestionItems} />
+				)}
+
+				{systemeItems.length > 0 && (
+					<NavMain label="Système" items={systemeItems} />
+				)}
 			</SidebarContent>
 			<SidebarFooter>
 				<NavUser user={userData} />

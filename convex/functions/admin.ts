@@ -44,12 +44,32 @@ export const getUser = moduleQuery("users")({
 });
 
 /**
- * Placeholder for legacy UI route. Returns empty until org/membership module is restored.
+ * System-admin: update a user's poste (position title).
  */
-export const getUserMemberships = moduleQuery("users")({
-  args: { userId: v.id("users") },
-  handler: async () => {
-    return [];
+export const updateUserPoste = systemAdminMutation({
+  args: {
+    userId: v.id("users"),
+    poste: v.optional(v.string()),
+  },
+  handler: async (ctx, args) => {
+    const target = await ctx.db.get(args.userId);
+    if (!target) throw error(ErrorCode.USER_NOT_FOUND);
+
+    await ctx.db.patch(args.userId, {
+      poste: args.poste?.trim() || undefined,
+      updatedAt: Date.now(),
+    });
+
+    await logAudit(ctx, {
+      userId: ctx.user._id,
+      userName: ctx.user.name,
+      action: "update_user_poste",
+      targetType: "user",
+      targetId: args.userId,
+      details: { email: target.email, poste: args.poste },
+    });
+
+    return true;
   },
 });
 

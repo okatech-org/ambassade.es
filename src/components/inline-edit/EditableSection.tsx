@@ -14,6 +14,8 @@ interface EditableSectionProps {
 	label: string;
 	/** Section style from design settings */
 	style?: SectionStyle;
+	/** Whether the section is hidden via Admin CMS */
+	adminHidden?: boolean;
 	/** Callback to update section style */
 	onUpdateStyle?: (patch: Partial<SectionStyle>) => void;
 	/** Callback to reset section style */
@@ -32,6 +34,7 @@ export function EditableSection({
 	sectionId,
 	label,
 	style,
+	adminHidden,
 	onUpdateStyle,
 	onResetStyle,
 	children,
@@ -57,12 +60,39 @@ export function EditableSection({
 
 	// Not in design mode — render children with applied styles
 	if (!canEditDesign || !ready) {
-		// Even outside design mode, apply persisted styles (bgColor)
+		// Admin CMS hidden takes priority
+		if (adminHidden) return null;
 		if (style?.hidden) return null;
 		if (style?.bgColor) {
 			return <div style={{ backgroundColor: style.bgColor }}>{children}</div>;
 		}
 		return <>{children}</>;
+	}
+
+	// Admin CMS hidden in design mode — show a collapsed placeholder
+	if (adminHidden) {
+		return (
+			<div
+				ref={setNodeRef}
+				style={dragStyle}
+				{...attributes}
+				className="relative group/section my-1"
+			>
+				<div className="flex items-center gap-2 px-4 py-2 bg-orange-50 dark:bg-orange-950/20 border border-dashed border-orange-300 dark:border-orange-800 rounded-lg opacity-60">
+					<button
+						type="button"
+						className="cursor-grab active:cursor-grabbing touch-none"
+						{...listeners}
+					>
+						<GripVertical className="h-4 w-4 text-orange-400" />
+					</button>
+					<EyeOff className="h-3.5 w-3.5 text-orange-400" />
+					<span className="text-xs font-medium text-orange-500">
+						{label} — Masquée (Admin)
+					</span>
+				</div>
+			</div>
+		);
 	}
 
 	// Hidden in design mode — show a collapsed placeholder

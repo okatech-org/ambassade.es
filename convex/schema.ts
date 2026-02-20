@@ -8,6 +8,8 @@ import {
   pageViewsTable,
   editableContentTable,
   auditLogTable,
+  siteSettingsTable,
+  sectionVisibilityTable,
 } from "./schemas";
 
 export default defineSchema({
@@ -19,4 +21,6 @@ export default defineSchema({
   pageViews: pageViewsTable,
   editableContent: editableContentTable,
   auditLog: auditLogTable,
+  siteSettings: siteSettingsTable,
+  sectionVisibility: sectionVisibilityTable,
 });

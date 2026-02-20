@@ -16,6 +16,7 @@ export const usersTable = defineTable({
   firstName: v.optional(v.string()),
   lastName: v.optional(v.string()),
   avatarUrl: v.optional(v.string()),
+  poste: v.optional(v.string()), // Position title — e.g. "Vice-Consule 2"
 
   // Flags système
   isActive: v.boolean(),

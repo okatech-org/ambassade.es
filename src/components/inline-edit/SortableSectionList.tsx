@@ -19,6 +19,7 @@ import {
 	type ReactElement,
 	type ReactNode,
 } from "react";
+import { useSectionVisibility } from "@/hooks/useSectionVisibility";
 import { useInlineEdit } from "./use-inline-edit";
 import { useDesignSettings } from "./useDesignSettings";
 
@@ -57,6 +58,7 @@ export function SortableSectionList({
 		updateSectionStyle,
 		resetSectionStyle,
 	} = useDesignSettings(pagePath, defaultOrder);
+	const { isSectionHidden } = useSectionVisibility(pagePath);
 
 	const sensors = useSensors(
 		useSensor(PointerSensor, {
@@ -99,9 +101,11 @@ export function SortableSectionList({
 			const child = childMap.get(id);
 			if (!child) return null;
 			const style = getSectionStyle(id);
+			const adminHidden = isSectionHidden(id);
 			return cloneElement(child, {
 				key: id,
 				style,
+				adminHidden,
 				onUpdateStyle: (patch: Record<string, unknown>) =>
 					updateSectionStyle(
 						id,

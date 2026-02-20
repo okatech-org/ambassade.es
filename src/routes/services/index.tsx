@@ -29,6 +29,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useSectionVisibility } from "@/hooks/useSectionVisibility";
 import { localizeServiceForLanguage } from "@/lib/services-localization";
 
 const servicesSearchSchema = z.object({
@@ -186,30 +187,33 @@ function ServicesPage() {
 	};
 
 	const activeFiltersCount = (search.query ? 1 : 0) + selectedCategories.length;
+	const { isSectionHidden } = useSectionVisibility("/services");
 
 	return (
 		<div className="min-h-screen bg-background">
 			{/* Hero Section */}
-			<PageHero image="/images/Consult_general.jpeg">
-				<Badge
-					variant="secondary"
-					className="mb-2 lg:mb-4 bg-primary/10 text-primary border-primary/20 backdrop-blur-sm text-[10px] lg:text-xs"
-				>
-					{t("services.badge", "Nos Services")}
-				</Badge>
-				<h1 className="text-2xl lg:text-6xl font-bold text-foreground mb-2 lg:mb-6">
-					{t("services.pageTitle", "Services Consulaires")}{" "}
-					<span className="text-gradient hover:animate-shimmer bg-[length:200%_auto]">
-						{t("services.pageTitleHighlight", "Services")}
-					</span>
-				</h1>
-				<p className="text-sm lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 lg:mb-10 leading-relaxed">
-					{t(
-						"services.pageDescription",
-						"Découvrez l'ensemble des services proposés par les représentations consulaires de la République Gabonaise à l'étranger.",
-					)}
-				</p>
-			</PageHero>
+			{!isSectionHidden("hero") && (
+				<PageHero image="/images/Consult_general.jpeg">
+					<Badge
+						variant="secondary"
+						className="mb-2 lg:mb-4 bg-primary/10 text-primary border-primary/20 backdrop-blur-sm text-[10px] lg:text-xs"
+					>
+						{t("services.badge", "Nos Services")}
+					</Badge>
+					<h1 className="text-2xl lg:text-6xl font-bold text-foreground mb-2 lg:mb-6">
+						{t("services.pageTitle", "Services Consulaires")}{" "}
+						<span className="text-gradient hover:animate-shimmer bg-[length:200%_auto]">
+							{t("services.pageTitleHighlight", "Services")}
+						</span>
+					</h1>
+					<p className="text-sm lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 lg:mb-10 leading-relaxed">
+						{t(
+							"services.pageDescription",
+							"Découvrez l'ensemble des services proposés par les représentations consulaires de la République Gabonaise à l'étranger.",
+						)}
+					</p>
+				</PageHero>
+			)}
 
 			{/* Main Content */}
 			<section className="py-8 lg:py-12 px-4 lg:px-6">
@@ -473,7 +477,7 @@ function ServicesPage() {
 				onOpenChange={handleModalClose}
 			/>
 
-			<CitizenCTA />
+			{!isSectionHidden("citizen-cta") && <CitizenCTA />}
 		</div>
 	);
 }

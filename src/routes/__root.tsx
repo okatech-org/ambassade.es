@@ -1,36 +1,28 @@
+import { TanStackDevtools } from "@tanstack/react-devtools";
+import type { QueryClient } from "@tanstack/react-query";
 import {
+	createRootRouteWithContext,
 	HeadContent,
 	Outlet,
 	Scripts,
-	createRootRouteWithContext,
-	useMatches,
 	useLocation,
+	useMatches,
 } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-import { TanStackDevtools } from "@tanstack/react-devtools";
-
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { MrRayChatbot } from "../components/MrRayChatbot";
-
-import ClerkProvider from "../integrations/clerk/provider";
-
-import ConvexProvider from "../integrations/convex/provider";
-
-import I18nProvider from "../integrations/i18n/provider";
-
-import { ThemeProvider } from "@/components/theme-provider";
-import { InlineEditProvider } from "@/components/inline-edit/InlineEditProvider";
+import { useEffect, useRef } from "react";
 import { InlineEditBar } from "@/components/inline-edit/InlineEditBar";
+import { InlineEditProvider } from "@/components/inline-edit/InlineEditProvider";
 import { PageViewTracker } from "@/components/PageViewTracker";
-
-import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
+import { ThemeProvider } from "@/components/theme-provider";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import { MrRayChatbot } from "../components/MrRayChatbot";
+import ClerkProvider from "../integrations/clerk/provider";
+import ConvexProvider from "../integrations/convex/provider";
 import i18n from "../integrations/i18n/i18n";
-
+import I18nProvider from "../integrations/i18n/provider";
+import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
 import appCss from "../styles.css?url";
-
-import type { QueryClient } from "@tanstack/react-query";
 
 interface MyRouterContext {
 	queryClient: QueryClient;
@@ -183,6 +175,17 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 		>
 			<head>
 				<HeadContent />
+				{/* Anti-FOUC: hide body until CSS is loaded */}
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `(function(){var d=document.documentElement;d.style.opacity='0';d.style.transition='opacity 0.15s ease-in';window.addEventListener('DOMContentLoaded',function(){requestAnimationFrame(function(){d.style.opacity='1'})})})()`,
+					}}
+				/>
+				<noscript>
+					<style
+						dangerouslySetInnerHTML={{ __html: "html{opacity:1!important}" }}
+					/>
+				</noscript>
 			</head>
 			<body className="h-full overflow-hidden" suppressHydrationWarning>
 				<I18nProvider>
