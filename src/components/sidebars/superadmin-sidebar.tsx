@@ -15,7 +15,6 @@ import {
 	ScrollText,
 	Settings,
 	Shield,
-	ShieldCheck,
 	Users,
 } from "lucide-react";
 import type * as React from "react";
@@ -67,12 +66,6 @@ export function SuperadminSidebar({
 			url: "/admin/analytics",
 			icon: BarChart3,
 			module: "analytics",
-		},
-		{
-			title: t("superadmin.nav.audit", "Journal d'audit"),
-			url: "/admin/audit-logs",
-			icon: ScrollText,
-			module: "audit",
 		},
 	]);
 
@@ -131,15 +124,14 @@ export function SuperadminSidebar({
 				module: "users",
 			},
 		]),
-		...(isSystemAdmin
-			? [
-					{
-						title: t("superadmin.nav.adminManagement", "Gestion Admins"),
-						url: "/admin/admin-management",
-						icon: ShieldCheck,
-					},
-				]
-			: []),
+		...filterItems([
+			{
+				title: t("superadmin.nav.audit", "Journal d'audit"),
+				url: "/admin/audit-logs",
+				icon: ScrollText,
+				module: "audit",
+			},
+		]),
 		...filterItems([
 			{
 				title: t("superadmin.nav.settings"),
@@ -163,18 +155,24 @@ export function SuperadminSidebar({
 	};
 
 	return (
-		<Sidebar collapsible="icon" {...props}>
-			<SidebarHeader>
+		<Sidebar collapsible="icon" className="glass-panel border-r" {...props}>
+			<SidebarHeader className="border-b/50 pb-4">
 				<SidebarMenu>
 					<SidebarMenuItem>
-						<SidebarMenuButton size="lg" asChild>
+						<SidebarMenuButton
+							size="lg"
+							asChild
+							className="hover:bg-primary/5 transition-colors mt-2"
+						>
 							<Link to="/admin">
-								<div className="bg-primary text-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-									<Shield className="size-4" />
+								<div className="bg-primary/10 text-primary flex aspect-square size-10 items-center justify-center rounded-xl">
+									<Shield className="size-5" />
 								</div>
-								<div className="grid flex-1 text-left text-sm leading-tight">
-									<span className="truncate font-semibold">Consulat.ga</span>
-									<span className="truncate text-xs text-muted-foreground">
+								<div className="grid flex-1 text-left text-sm leading-tight ml-1">
+									<span className="truncate text-lg font-bold text-gradient">
+										Consulat.ga
+									</span>
+									<span className="truncate text-xs font-medium text-muted-foreground">
 										Administration
 									</span>
 								</div>

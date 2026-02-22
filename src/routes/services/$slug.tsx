@@ -1,21 +1,21 @@
 import { api } from "@convex/_generated/api";
 import { ServiceCategory } from "@convex/lib/validators";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useQuery } from "convex/react";
+import { useMutation, useQuery } from "convex/react";
 import {
+	ArrowLeft,
 	BookOpen,
 	BookOpenCheck,
 	FileCheck,
 	FileText,
-	Globe,
-	ShieldAlert,
-	ArrowLeft,
 	FileWarning,
+	Globe,
 	type LucideIcon,
+	ShieldAlert,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import ReactMarkdown from "react-markdown";
 
+import { EditableEntityText } from "@/components/inline-edit/EditableEntityText";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -98,6 +98,7 @@ function ServiceDetailPage() {
 	const { t, i18n } = useTranslation();
 	const { slug } = Route.useParams();
 	const service = useQuery(api.functions.services.getBySlug, { slug });
+	const updateService = useMutation(api.functions.services.update);
 	const lang = i18n.resolvedLanguage || i18n.language;
 
 	const isLoading = service === undefined;
@@ -198,9 +199,19 @@ function ServiceDetailPage() {
 								>
 									{categoryLabel}
 								</Badge>
-								<h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
-									{serviceName}
-								</h1>
+								<EditableEntityText
+									value={serviceName}
+									onSave={async (v) => {
+										await updateService({
+											id: service._id,
+											title: v,
+										});
+									}}
+									pagePath={`/services/${slug}`}
+									sectionId="hero"
+									as="h1"
+									className="text-3xl md:text-5xl font-bold text-foreground mb-4 leading-tight"
+								/>
 							</div>
 						</div>
 					</div>
@@ -246,7 +257,19 @@ function ServiceDetailPage() {
 								</h2>
 							</div>
 							<div className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground leading-relaxed">
-								<ReactMarkdown>{serviceDescription}</ReactMarkdown>
+								<EditableEntityText
+									value={serviceDescription}
+									onSave={async (v) => {
+										await updateService({
+											id: service._id,
+											description: v,
+										});
+									}}
+									pagePath={`/services/${slug}`}
+									sectionId="content"
+									fieldType="richtext"
+									as="div"
+								/>
 							</div>
 						</div>
 

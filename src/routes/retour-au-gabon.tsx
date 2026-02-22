@@ -25,6 +25,7 @@ import {
 	type NumeroUtile,
 } from "@/components/guides";
 import { CitizenCTA } from "@/components/home/CitizenCTA";
+import { EditableText } from "@/components/inline-edit/EditableText";
 import { PageHero } from "@/components/PageHero";
 import { Badge } from "@/components/ui/badge";
 import { useSectionVisibility } from "@/hooks/useSectionVisibility";
@@ -1128,22 +1129,44 @@ function RetourAuGabonPage() {
 				<PageHero image="/images/heroes/hero-consulat.png">
 					<Badge className="mb-4 bg-primary/10 text-primary border-primary/20 backdrop-blur-sm">
 						<BookOpen className="w-3.5 h-3.5 mr-1.5" />
-						{t("retourGabon.badge", "Guide de retour")}
+						<EditableText
+							contentKey="retourGabon.hero.badge"
+							defaultValue={t("retourGabon.badge", "Guide de retour")}
+							pagePath="/retour-au-gabon"
+							sectionId="hero"
+							as="span"
+						/>
 					</Badge>
 
 					<h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight mb-4">
-						{t("retourGabon.heroTitle", "Retour au Gabon")}{" "}
-						<span className="text-gradient">
-							{t("retourGabon.heroHighlight", "— Bien préparer")}
-						</span>
+						<EditableText
+							contentKey="retourGabon.hero.title"
+							defaultValue={t("retourGabon.heroTitle", "Retour au Gabon")}
+							pagePath="/retour-au-gabon"
+							sectionId="hero"
+							as="span"
+						/>{" "}
+						<EditableText
+							contentKey="retourGabon.hero.titleHighlight"
+							defaultValue={t("retourGabon.heroHighlight", "— Bien préparer")}
+							pagePath="/retour-au-gabon"
+							sectionId="hero"
+							as="span"
+							className="text-gradient"
+						/>
 					</h1>
 
-					<p className="text-base text-muted-foreground mb-6 max-w-2xl leading-relaxed">
-						{t(
+					<EditableText
+						contentKey="retourGabon.hero.description"
+						defaultValue={t(
 							"retourGabon.heroDescription",
 							"Guide complet pour les Gabonais rentrant au pays : démarches consulaires, déménagement, réinstallation, emploi, OQTF, aides et maintien de vos droits acquis en France.",
 						)}
-					</p>
+						pagePath="/retour-au-gabon"
+						sectionId="hero"
+						as="p"
+						className="text-base text-muted-foreground mb-6 max-w-2xl leading-relaxed"
+					/>
 
 					<div className="flex flex-wrap gap-2">
 						{tSections.map((s) => {
@@ -1168,17 +1191,40 @@ function RetourAuGabonPage() {
 						<div className="text-center mb-12">
 							<Badge variant="outline" className="mb-4">
 								<FileText className="w-3.5 h-3.5 mr-1.5" />
-								{t("retourGabon.steps.badge", "Étapes du retour")}
+								<EditableText
+									contentKey="retourGabon.steps.badge"
+									defaultValue={t(
+										"retourGabon.steps.badge",
+										"Étapes du retour",
+									)}
+									pagePath="/retour-au-gabon"
+									sectionId="steps"
+									as="span"
+								/>
 							</Badge>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-								{t("retourGabon.steps.title", "Préparez chaque étape")}
+								<EditableText
+									contentKey="retourGabon.steps.title"
+									defaultValue={t(
+										"retourGabon.steps.title",
+										"Préparez chaque étape",
+									)}
+									pagePath="/retour-au-gabon"
+									sectionId="steps"
+									as="span"
+								/>
 							</h2>
-							<p className="text-muted-foreground max-w-2xl mx-auto">
-								{t(
+							<EditableText
+								contentKey="retourGabon.steps.description"
+								defaultValue={t(
 									"retourGabon.steps.description",
 									"Du premier jour de préparation à votre réinstallation, chaque étape est détaillée avec des conseils pratiques et des liens utiles.",
 								)}
-							</p>
+								pagePath="/retour-au-gabon"
+								sectionId="steps"
+								as="p"
+								className="text-muted-foreground max-w-2xl mx-auto"
+							/>
 						</div>
 
 						<div className="space-y-8">
@@ -1195,17 +1241,40 @@ function RetourAuGabonPage() {
 						<div className="text-center mb-12">
 							<Badge variant="outline" className="mb-4 bg-background/50">
 								<Heart className="w-3.5 h-3.5 mr-1.5" />
-								{t("retourGabon.aides.badge", "Aides & Accompagnement")}
+								<EditableText
+									contentKey="retourGabon.aides.badge"
+									defaultValue={t(
+										"retourGabon.aides.badge",
+										"Aides & Accompagnement",
+									)}
+									pagePath="/retour-au-gabon"
+									sectionId="aides"
+									as="span"
+								/>
 							</Badge>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-								{t("retourGabon.aides.title", "Des aides pour votre retour")}
+								<EditableText
+									contentKey="retourGabon.aides.title"
+									defaultValue={t(
+										"retourGabon.aides.title",
+										"Des aides pour votre retour",
+									)}
+									pagePath="/retour-au-gabon"
+									sectionId="aides"
+									as="span"
+								/>
 							</h2>
-							<p className="text-muted-foreground max-w-2xl mx-auto">
-								{t(
+							<EditableText
+								contentKey="retourGabon.aides.description"
+								defaultValue={t(
 									"retourGabon.aides.description",
 									"Plusieurs dispositifs existent pour faciliter votre réintégration au Gabon.",
 								)}
-							</p>
+								pagePath="/retour-au-gabon"
+								sectionId="aides"
+								as="p"
+								className="text-muted-foreground max-w-2xl mx-auto"
+							/>
 						</div>
 
 						<div className="grid md:grid-cols-3 gap-8">
@@ -1213,7 +1282,7 @@ function RetourAuGabonPage() {
 								const Icon = aide.icon;
 								return (
 									<div
-										key={idx}
+										key={aide.title}
 										className="glass-card rounded-2xl p-6 hover:-translate-y-2 transition-all duration-300"
 									>
 										<div className="p-3 rounded-xl bg-primary/10 w-fit mb-4">
@@ -1238,17 +1307,40 @@ function RetourAuGabonPage() {
 						<div className="text-center mb-12">
 							<Badge className="mb-4 bg-orange-500/10 text-orange-600 border-orange-200 dark:border-orange-800">
 								<AlertTriangle className="w-3.5 h-3.5 mr-1.5" />
-								{t("retourGabon.erreurs.badge", "Erreurs à éviter")}
+								<EditableText
+									contentKey="retourGabon.erreurs.badge"
+									defaultValue={t(
+										"retourGabon.erreurs.badge",
+										"Erreurs à éviter",
+									)}
+									pagePath="/retour-au-gabon"
+									sectionId="erreurs"
+									as="span"
+								/>
 							</Badge>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-								{t("retourGabon.erreurs.title", "Ne commettez pas ces erreurs")}
+								<EditableText
+									contentKey="retourGabon.erreurs.title"
+									defaultValue={t(
+										"retourGabon.erreurs.title",
+										"Ne commettez pas ces erreurs",
+									)}
+									pagePath="/retour-au-gabon"
+									sectionId="erreurs"
+									as="span"
+								/>
 							</h2>
-							<p className="text-muted-foreground max-w-2xl mx-auto">
-								{t(
+							<EditableText
+								contentKey="retourGabon.erreurs.description"
+								defaultValue={t(
 									"retourGabon.erreurs.description",
 									"Ces oublis peuvent compliquer votre retour. Anticipez-les pour partir sereinement.",
 								)}
-							</p>
+								pagePath="/retour-au-gabon"
+								sectionId="erreurs"
+								as="p"
+								className="text-muted-foreground max-w-2xl mx-auto"
+							/>
 						</div>
 
 						<ErreursCourantesGrid items={tErreurs} />
@@ -1261,24 +1353,53 @@ function RetourAuGabonPage() {
 						<div className="text-center mb-12">
 							<Badge variant="outline" className="mb-4 bg-background/50">
 								<Phone className="w-3.5 h-3.5 mr-1.5" />
-								{t("retourGabon.numeros.badge", "Contacts essentiels")}
+								<EditableText
+									contentKey="retourGabon.numeros.badge"
+									defaultValue={t(
+										"retourGabon.numeros.badge",
+										"Contacts essentiels",
+									)}
+									pagePath="/retour-au-gabon"
+									sectionId="numeros"
+									as="span"
+								/>
 							</Badge>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-								{t("retourGabon.numeros.title", "Numéros utiles")}
+								<EditableText
+									contentKey="retourGabon.numeros.title"
+									defaultValue={t(
+										"retourGabon.numeros.title",
+										"Numéros utiles",
+									)}
+									pagePath="/retour-au-gabon"
+									sectionId="numeros"
+									as="span"
+								/>
 							</h2>
-							<p className="text-muted-foreground max-w-2xl mx-auto">
-								{t(
+							<EditableText
+								contentKey="retourGabon.numeros.description"
+								defaultValue={t(
 									"retourGabon.numeros.description",
 									"À conserver pour votre retour au Gabon.",
 								)}
-							</p>
+								pagePath="/retour-au-gabon"
+								sectionId="numeros"
+								as="p"
+								className="text-muted-foreground max-w-2xl mx-auto"
+							/>
 						</div>
 
 						<NumerosUtilesGrid items={tNumeros} />
 					</div>
 				</section>
 
-				{!isSectionHidden("citizen-cta") && <CitizenCTA />}
+				{!isSectionHidden("citizen-cta") && (
+					<CitizenCTA
+						pagePath="/retour-au-gabon"
+						sectionId="citizen-cta"
+						contentKeyPrefix="retourGabon.citizenCta"
+					/>
+				)}
 			</div>
 		</div>
 	);

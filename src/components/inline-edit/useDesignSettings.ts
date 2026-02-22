@@ -62,13 +62,24 @@ function persistSettings(pagePath: string, settings: DesignSettings) {
  * @param defaultOrder - The default section order (section IDs)
  */
 export function useDesignSettings(pagePath: string, defaultOrder: string[]) {
-	const [settings, setSettings] = useState<DesignSettings>(() => {
-		const saved = loadSettings(pagePath);
-		return saved ?? { sectionOrder: defaultOrder, sectionStyles: {} };
+	const [settings, setSettings] = useState<DesignSettings>({
+		sectionOrder: defaultOrder,
+		sectionStyles: {},
 	});
+	const [isLoaded, setIsLoaded] = useState(false);
+
+	// Load settings from localStorage on client mount
+	useEffect(() => {
+		const saved = loadSettings(pagePath);
+		if (saved) {
+			setSettings(saved);
+		}
+		setIsLoaded(true);
+	}, [pagePath]);
 
 	// Re-sync if defaultOrder changes (e.g. sections added/removed)
 	useEffect(() => {
+		if (!isLoaded) return;
 		setSettings((prev) => {
 			const ordered = prev.sectionOrder;
 			// Add any new sections that aren't in the saved order
@@ -80,12 +91,14 @@ export function useDesignSettings(pagePath: string, defaultOrder: string[]) {
 			}
 			return { ...prev, sectionOrder: [...cleaned, ...missing] };
 		});
-	}, [defaultOrder]);
+	}, [defaultOrder, isLoaded]);
 
 	// Persist on change
 	useEffect(() => {
-		persistSettings(pagePath, settings);
-	}, [pagePath, settings]);
+		if (isLoaded) {
+			persistSettings(pagePath, settings);
+		}
+	}, [pagePath, settings, isLoaded]);
 
 	const sectionOrder = settings.sectionOrder;
 

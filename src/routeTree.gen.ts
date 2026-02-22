@@ -34,13 +34,11 @@ import { Route as AdminPostsIndexRouteImport } from './routes/admin/posts/index'
 import { Route as AdminAuditLogsIndexRouteImport } from './routes/admin/audit-logs/index'
 import { Route as AdminAnnouncementsIndexRouteImport } from './routes/admin/announcements/index'
 import { Route as AdminAnalyticsIndexRouteImport } from './routes/admin/analytics/index'
-import { Route as AdminAdminManagementIndexRouteImport } from './routes/admin/admin-management/index'
 import { Route as AdminUsersUserIdRouteImport } from './routes/admin/users/$userId'
 import { Route as AdminTeamNewRouteImport } from './routes/admin/team/new'
 import { Route as AdminServicesNewRouteImport } from './routes/admin/services/new'
 import { Route as AdminPostsNewRouteImport } from './routes/admin/posts/new'
 import { Route as AdminPagesSlugRouteImport } from './routes/admin/pages/$slug'
-import { Route as AdminAdminManagementAdminIdRouteImport } from './routes/admin/admin-management/$adminId'
 import { Route as AdminTeamMemberIdEditRouteImport } from './routes/admin/team/$memberId.edit'
 import { Route as AdminServicesServiceIdEditRouteImport } from './routes/admin/services/$serviceId_.edit'
 import { Route as AdminPostsPostIdEditRouteImport } from './routes/admin/posts/$postId.edit'
@@ -170,12 +168,6 @@ const AdminAnalyticsIndexRoute = AdminAnalyticsIndexRouteImport.update({
   path: '/analytics/',
   getParentRoute: () => AdminRouteRoute,
 } as any)
-const AdminAdminManagementIndexRoute =
-  AdminAdminManagementIndexRouteImport.update({
-    id: '/admin-management/',
-    path: '/admin-management/',
-    getParentRoute: () => AdminRouteRoute,
-  } as any)
 const AdminUsersUserIdRoute = AdminUsersUserIdRouteImport.update({
   id: '/users/$userId',
   path: '/users/$userId',
@@ -201,12 +193,6 @@ const AdminPagesSlugRoute = AdminPagesSlugRouteImport.update({
   path: '/pages/$slug',
   getParentRoute: () => AdminRouteRoute,
 } as any)
-const AdminAdminManagementAdminIdRoute =
-  AdminAdminManagementAdminIdRouteImport.update({
-    id: '/admin-management/$adminId',
-    path: '/admin-management/$adminId',
-    getParentRoute: () => AdminRouteRoute,
-  } as any)
 const AdminTeamMemberIdEditRoute = AdminTeamMemberIdEditRouteImport.update({
   id: '/team/$memberId/edit',
   path: '/team/$memberId/edit',
@@ -242,13 +228,11 @@ export interface FileRoutesByFullPath {
   '/actualites': typeof ActualitesIndexRoute
   '/admin/': typeof AdminIndexRoute
   '/services': typeof ServicesIndexRoute
-  '/admin/admin-management/$adminId': typeof AdminAdminManagementAdminIdRoute
   '/admin/pages/$slug': typeof AdminPagesSlugRoute
   '/admin/posts/new': typeof AdminPostsNewRoute
   '/admin/services/new': typeof AdminServicesNewRoute
   '/admin/team/new': typeof AdminTeamNewRoute
   '/admin/users/$userId': typeof AdminUsersUserIdRoute
-  '/admin/admin-management': typeof AdminAdminManagementIndexRoute
   '/admin/analytics': typeof AdminAnalyticsIndexRoute
   '/admin/announcements': typeof AdminAnnouncementsIndexRoute
   '/admin/audit-logs': typeof AdminAuditLogsIndexRoute
@@ -278,13 +262,11 @@ export interface FileRoutesByTo {
   '/actualites': typeof ActualitesIndexRoute
   '/admin': typeof AdminIndexRoute
   '/services': typeof ServicesIndexRoute
-  '/admin/admin-management/$adminId': typeof AdminAdminManagementAdminIdRoute
   '/admin/pages/$slug': typeof AdminPagesSlugRoute
   '/admin/posts/new': typeof AdminPostsNewRoute
   '/admin/services/new': typeof AdminServicesNewRoute
   '/admin/team/new': typeof AdminTeamNewRoute
   '/admin/users/$userId': typeof AdminUsersUserIdRoute
-  '/admin/admin-management': typeof AdminAdminManagementIndexRoute
   '/admin/analytics': typeof AdminAnalyticsIndexRoute
   '/admin/announcements': typeof AdminAnnouncementsIndexRoute
   '/admin/audit-logs': typeof AdminAuditLogsIndexRoute
@@ -316,13 +298,11 @@ export interface FileRoutesById {
   '/actualites/': typeof ActualitesIndexRoute
   '/admin/': typeof AdminIndexRoute
   '/services/': typeof ServicesIndexRoute
-  '/admin/admin-management/$adminId': typeof AdminAdminManagementAdminIdRoute
   '/admin/pages/$slug': typeof AdminPagesSlugRoute
   '/admin/posts/new': typeof AdminPostsNewRoute
   '/admin/services/new': typeof AdminServicesNewRoute
   '/admin/team/new': typeof AdminTeamNewRoute
   '/admin/users/$userId': typeof AdminUsersUserIdRoute
-  '/admin/admin-management/': typeof AdminAdminManagementIndexRoute
   '/admin/analytics/': typeof AdminAnalyticsIndexRoute
   '/admin/announcements/': typeof AdminAnnouncementsIndexRoute
   '/admin/audit-logs/': typeof AdminAuditLogsIndexRoute
@@ -355,13 +335,11 @@ export interface FileRouteTypes {
     | '/actualites'
     | '/admin/'
     | '/services'
-    | '/admin/admin-management/$adminId'
     | '/admin/pages/$slug'
     | '/admin/posts/new'
     | '/admin/services/new'
     | '/admin/team/new'
     | '/admin/users/$userId'
-    | '/admin/admin-management'
     | '/admin/analytics'
     | '/admin/announcements'
     | '/admin/audit-logs'
@@ -391,13 +369,11 @@ export interface FileRouteTypes {
     | '/actualites'
     | '/admin'
     | '/services'
-    | '/admin/admin-management/$adminId'
     | '/admin/pages/$slug'
     | '/admin/posts/new'
     | '/admin/services/new'
     | '/admin/team/new'
     | '/admin/users/$userId'
-    | '/admin/admin-management'
     | '/admin/analytics'
     | '/admin/announcements'
     | '/admin/audit-logs'
@@ -428,13 +404,11 @@ export interface FileRouteTypes {
     | '/actualites/'
     | '/admin/'
     | '/services/'
-    | '/admin/admin-management/$adminId'
     | '/admin/pages/$slug'
     | '/admin/posts/new'
     | '/admin/services/new'
     | '/admin/team/new'
     | '/admin/users/$userId'
-    | '/admin/admin-management/'
     | '/admin/analytics/'
     | '/admin/announcements/'
     | '/admin/audit-logs/'
@@ -644,13 +618,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAnalyticsIndexRouteImport
       parentRoute: typeof AdminRouteRoute
     }
-    '/admin/admin-management/': {
-      id: '/admin/admin-management/'
-      path: '/admin-management'
-      fullPath: '/admin/admin-management'
-      preLoaderRoute: typeof AdminAdminManagementIndexRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
     '/admin/users/$userId': {
       id: '/admin/users/$userId'
       path: '/users/$userId'
@@ -686,13 +653,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminPagesSlugRouteImport
       parentRoute: typeof AdminRouteRoute
     }
-    '/admin/admin-management/$adminId': {
-      id: '/admin/admin-management/$adminId'
-      path: '/admin-management/$adminId'
-      fullPath: '/admin/admin-management/$adminId'
-      preLoaderRoute: typeof AdminAdminManagementAdminIdRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
     '/admin/team/$memberId/edit': {
       id: '/admin/team/$memberId/edit'
       path: '/team/$memberId/edit'
@@ -719,13 +679,11 @@ declare module '@tanstack/react-router' {
 
 interface AdminRouteRouteChildren {
   AdminIndexRoute: typeof AdminIndexRoute
-  AdminAdminManagementAdminIdRoute: typeof AdminAdminManagementAdminIdRoute
   AdminPagesSlugRoute: typeof AdminPagesSlugRoute
   AdminPostsNewRoute: typeof AdminPostsNewRoute
   AdminServicesNewRoute: typeof AdminServicesNewRoute
   AdminTeamNewRoute: typeof AdminTeamNewRoute
   AdminUsersUserIdRoute: typeof AdminUsersUserIdRoute
-  AdminAdminManagementIndexRoute: typeof AdminAdminManagementIndexRoute
   AdminAnalyticsIndexRoute: typeof AdminAnalyticsIndexRoute
   AdminAnnouncementsIndexRoute: typeof AdminAnnouncementsIndexRoute
   AdminAuditLogsIndexRoute: typeof AdminAuditLogsIndexRoute
@@ -741,13 +699,11 @@ interface AdminRouteRouteChildren {
 
 const AdminRouteRouteChildren: AdminRouteRouteChildren = {
   AdminIndexRoute: AdminIndexRoute,
-  AdminAdminManagementAdminIdRoute: AdminAdminManagementAdminIdRoute,
   AdminPagesSlugRoute: AdminPagesSlugRoute,
   AdminPostsNewRoute: AdminPostsNewRoute,
   AdminServicesNewRoute: AdminServicesNewRoute,
   AdminTeamNewRoute: AdminTeamNewRoute,
   AdminUsersUserIdRoute: AdminUsersUserIdRoute,
-  AdminAdminManagementIndexRoute: AdminAdminManagementIndexRoute,
   AdminAnalyticsIndexRoute: AdminAnalyticsIndexRoute,
   AdminAnnouncementsIndexRoute: AdminAnnouncementsIndexRoute,
   AdminAuditLogsIndexRoute: AdminAuditLogsIndexRoute,

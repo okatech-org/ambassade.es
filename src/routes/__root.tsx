@@ -1,4 +1,3 @@
-import { TanStackDevtools } from "@tanstack/react-devtools";
 import type { QueryClient } from "@tanstack/react-query";
 import {
 	createRootRouteWithContext,
@@ -8,10 +7,12 @@ import {
 	useLocation,
 	useMatches,
 } from "@tanstack/react-router";
-import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
+
 import { useEffect, useRef } from "react";
+import { ImpersonationProvider } from "@/components/admin/ImpersonationProvider";
 import { InlineEditBar } from "@/components/inline-edit/InlineEditBar";
 import { InlineEditProvider } from "@/components/inline-edit/InlineEditProvider";
+import { PreviewContainer } from "@/components/inline-edit/PreviewContainer";
 import { PageViewTracker } from "@/components/PageViewTracker";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "../components/Footer";
@@ -21,7 +22,7 @@ import ClerkProvider from "../integrations/clerk/provider";
 import ConvexProvider from "../integrations/convex/provider";
 import i18n from "../integrations/i18n/i18n";
 import I18nProvider from "../integrations/i18n/provider";
-import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
+
 import appCss from "../styles.css?url";
 
 interface MyRouterContext {
@@ -97,12 +98,12 @@ function RootLayout() {
 
 	const mainRef = useRef<HTMLElement>(null);
 
-	// Scroll to top on route change
+	// biome-ignore lint/correctness/useExhaustiveDependencies: intentionally scroll on route change
 	useEffect(() => {
 		if (mainRef.current) {
 			mainRef.current.scrollTop = 0;
 		}
-	}, [location.pathname]);
+	}, [location]);
 
 	useEffect(() => {
 		if (hasOwnLayout) return;
@@ -153,7 +154,9 @@ function RootLayout() {
 						: "calc(100vh - clamp(64px, calc(64px + 36px), 100px))",
 				}}
 			>
-				<Outlet />
+				<PreviewContainer>
+					<Outlet />
+				</PreviewContainer>
 				{!hasOwnLayout && <Footer />}
 				{!hasOwnLayout && <MrRayChatbot />}
 			</main>
@@ -196,7 +199,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 								defaultTheme="system"
 								enableSystem
 							>
-								<InlineEditProvider>{children}</InlineEditProvider>
+								<ImpersonationProvider>
+									<InlineEditProvider>{children}</InlineEditProvider>
+								</ImpersonationProvider>
 							</ThemeProvider>
 						</ConvexProvider>
 					</ClerkProvider>

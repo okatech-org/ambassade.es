@@ -7,6 +7,7 @@ import {
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 import { Lock, Shield } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { ImpersonationBanner } from "@/components/admin/ImpersonationProvider";
 import { SuperadminSidebar } from "@/components/sidebars/superadmin-sidebar";
 import {
 	Breadcrumb,
@@ -24,12 +25,8 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import {
-	SidebarInset,
-	SidebarProvider,
-	SidebarTrigger,
-} from "@/components/ui/sidebar";
+
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { useUserData } from "@/hooks/use-user-data";
 
 export const Route = createFileRoute("/admin")({
@@ -37,14 +34,14 @@ export const Route = createFileRoute("/admin")({
 });
 
 function AdminRoute() {
-	const { isPending, isAdmin, userData } = useUserData();
+	const { isPending, realIsAdmin, userData } = useUserData();
 
 	return (
 		<>
 			<SignedIn>
 				{isPending ? (
 					<AdminLoadingPage />
-				) : isAdmin ? (
+				) : realIsAdmin ? (
 					<SuperadminLayout />
 				) : (
 					<AdminAccessDeniedPage email={userData?.email} />
@@ -155,9 +152,8 @@ function SuperadminLayout() {
 		<SidebarProvider>
 			<SuperadminSidebar />
 			<SidebarInset>
+				<ImpersonationBanner />
 				<header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-					<SidebarTrigger className="-ml-1" />
-					<Separator orientation="vertical" className="mr-2 h-4" />
 					<Breadcrumb>
 						<BreadcrumbList>
 							<BreadcrumbItem className="hidden md:block">

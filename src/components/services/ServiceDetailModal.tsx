@@ -1,4 +1,7 @@
+import { api } from "@convex/_generated/api";
+import type { Id } from "@convex/_generated/dataModel";
 import { ServiceCategory } from "@convex/lib/validators";
+import { useMutation } from "convex/react";
 import {
 	AlertTriangle,
 	ArrowRight,
@@ -11,11 +14,15 @@ import {
 	FileText,
 	Globe,
 	type LucideIcon,
+	Plus,
 	ShieldAlert,
+	Trash2,
 	Users,
 } from "lucide-react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import ReactMarkdown from "react-markdown";
+import { EditableEntityText } from "@/components/inline-edit/EditableEntityText";
+import { useInlineEdit } from "@/components/inline-edit/use-inline-edit";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -66,6 +73,7 @@ export function ServiceDetailModal({
 	onOpenChange,
 }: ServiceDetailModalProps) {
 	const { t, i18n } = useTranslation();
+	const updateService = useMutation(api.functions.services.update);
 
 	if (!service) return null;
 	const lang = i18n.resolvedLanguage || i18n.language;
@@ -84,7 +92,6 @@ export function ServiceDetailModal({
 	const categoryLabel = t(
 		`services.categoriesMap.${localizedService.category}`,
 	);
-	const hasRequirements = (localizedService.requirements?.length ?? 0) > 0;
 
 	return (
 		<Dialog open={open} onOpenChange={onOpenChange}>
@@ -102,7 +109,18 @@ export function ServiceDetailModal({
 						<div className="flex-1 min-w-0">
 							<div className="flex items-center gap-2 flex-wrap">
 								<DialogTitle className="text-xl leading-tight">
-									{localizedService.title}
+									<EditableEntityText
+										value={localizedService.title}
+										onSave={async (v) => {
+											await updateService({
+												id: service._id as Id<"services">,
+												title: v,
+											});
+										}}
+										pagePath={`/services/${service.slug}`}
+										sectionId="content"
+										as="span"
+									/>
 								</DialogTitle>
 								{localizedService.isUrgent && (
 									<Badge
@@ -188,7 +206,19 @@ export function ServiceDetailModal({
 
 					{/* Description */}
 					<div className="text-sm text-muted-foreground leading-relaxed prose prose-sm dark:prose-invert max-w-none">
-						<ReactMarkdown>{localizedService.description}</ReactMarkdown>
+						<EditableEntityText
+							value={localizedService.description}
+							onSave={async (v) => {
+								await updateService({
+									id: service._id as Id<"services">,
+									description: v,
+								});
+							}}
+							pagePath={`/services/${service.slug}`}
+							sectionId="content"
+							fieldType="richtext"
+							as="div"
+						/>
 					</div>
 
 					{/* Notes */}
@@ -209,33 +239,28 @@ export function ServiceDetailModal({
 					{/* Detailed content */}
 					{localizedService.content && (
 						<div className="prose prose-sm dark:prose-invert max-w-none text-sm">
-							<ReactMarkdown>{localizedService.content}</ReactMarkdown>
+							<EditableEntityText
+								value={localizedService.content}
+								onSave={async (v) => {
+									await updateService({
+										id: service._id as Id<"services">,
+										content: v,
+									});
+								}}
+								pagePath={`/services/${service.slug}`}
+								sectionId="content"
+								fieldType="richtext"
+								as="div"
+							/>
 						</div>
 					)}
 
-					{/* Documents requis — compact 2-column grid */}
-					{hasRequirements && (
-						<div>
-							<h4 className="font-semibold text-sm mb-2 flex items-center gap-2">
-								<FileText className="h-4 w-4 text-muted-foreground" />
-								{t("services.modal.requiredDocuments")} (
-								{localizedService.requirements?.length})
-							</h4>
-							<div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-								{localizedService.requirements?.map((doc, index) => (
-									<div
-										key={index}
-										className="flex items-center gap-2 px-3 py-2 bg-muted/40 rounded-lg"
-									>
-										<span className="h-5 w-5 rounded-full bg-primary/10 text-primary flex items-center justify-center text-[10px] font-bold shrink-0">
-											{index + 1}
-										</span>
-										<span className="text-xs leading-snug">{doc}</span>
-									</div>
-								))}
-							</div>
-						</div>
-					)}
+					{/* Documents requis — editable */}
+					<EditableRequirements
+						requirements={localizedService.requirements ?? []}
+						serviceId={service._id as Id<"services">}
+						updateService={updateService}
+					/>
 				</div>
 
 				{/* ── Sticky CTA footer ── */}
@@ -260,5 +285,159 @@ export function ServiceDetailModal({
 				</div>
 			</DialogContent>
 		</Dialog>
+	);
+}
+
+// ── EditableRequirements sub-component ──────────────────────────────────────
+
+function EditableRequirements({
+	requirements,
+	serviceId,
+	updateService,
+}: {
+	requirements: string[];
+	serviceId: Id<"services">;
+	updateService: ReturnType<typeof useMutation>;
+}) {
+	const { t } = useTranslation();
+	const { canEditContent, ready } = useInlineEdit();
+	const canEdit = canEditContent && ready;
+
+	const [editingIdx, setEditingIdx] = useState<number | null>(null);
+	const [editValue, setEditValue] = useState("");
+	const [newDoc, setNewDoc] = useState("");
+	const [isSaving, setIsSaving] = useState(false);
+
+	const saveRequirements = async (updated: string[]) => {
+		setIsSaving(true);
+		try {
+			await (updateService as any)({ id: serviceId, requirements: updated });
+		} finally {
+			setIsSaving(false);
+		}
+	};
+
+	const handleEdit = (idx: number) => {
+		setEditingIdx(idx);
+		setEditValue(requirements[idx]);
+	};
+
+	const handleSaveEdit = async () => {
+		if (editingIdx === null || !editValue.trim()) return;
+		const updated = [...requirements];
+		updated[editingIdx] = editValue.trim();
+		await saveRequirements(updated);
+		setEditingIdx(null);
+		setEditValue("");
+	};
+
+	const handleDelete = async (idx: number) => {
+		const updated = requirements.filter((_, i) => i !== idx);
+		await saveRequirements(updated);
+	};
+
+	const handleAdd = async () => {
+		if (!newDoc.trim()) return;
+		const updated = [...requirements, newDoc.trim()];
+		await saveRequirements(updated);
+		setNewDoc("");
+	};
+
+	if (requirements.length === 0 && !canEdit) return null;
+
+	return (
+		<div>
+			<h4 className="font-semibold text-sm mb-2 flex items-center gap-2">
+				<FileText className="h-4 w-4 text-muted-foreground" />
+				{t("services.modal.requiredDocuments", "Documents requis")} (
+				{requirements.length})
+			</h4>
+			<div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+				{requirements.map((doc, index) => (
+					<div
+						key={`req-${doc.slice(0, 20)}-${index}`}
+						className="flex items-center gap-2 px-3 py-2 bg-muted/40 rounded-lg group"
+					>
+						<span className="h-5 w-5 rounded-full bg-primary/10 text-primary flex items-center justify-center text-[10px] font-bold shrink-0">
+							{index + 1}
+						</span>
+						{editingIdx === index ? (
+							<form
+								onSubmit={(e) => {
+									e.preventDefault();
+									void handleSaveEdit();
+								}}
+								className="flex-1 flex gap-1"
+							>
+								<input
+									value={editValue}
+									onChange={(e) => setEditValue(e.target.value)}
+									className="flex-1 text-xs bg-background border border-border rounded px-2 py-1 focus:ring-1 focus:ring-primary outline-none"
+									autoFocus
+									onBlur={() => void handleSaveEdit()}
+									disabled={isSaving}
+								/>
+							</form>
+						) : (
+							<>
+								<span
+									className={`text-xs leading-snug flex-1 ${canEdit ? "cursor-pointer hover:text-primary transition-colors" : ""}`}
+									onClick={() => canEdit && handleEdit(index)}
+									onKeyDown={(e) => {
+										if (canEdit && (e.key === "Enter" || e.key === " "))
+											handleEdit(index);
+									}}
+									role={canEdit ? "button" : undefined}
+									tabIndex={canEdit ? 0 : undefined}
+								>
+									{doc}
+								</span>
+								{canEdit && (
+									<button
+										type="button"
+										onClick={() => void handleDelete(index)}
+										className="opacity-0 group-hover:opacity-100 transition-opacity p-0.5 rounded hover:bg-red-500/10 text-red-500 shrink-0"
+										title={t("common.delete", "Supprimer")}
+										disabled={isSaving}
+									>
+										<Trash2 className="h-3 w-3" />
+									</button>
+								)}
+							</>
+						)}
+					</div>
+				))}
+			</div>
+
+			{/* Add new document */}
+			{canEdit && (
+				<form
+					onSubmit={(e) => {
+						e.preventDefault();
+						void handleAdd();
+					}}
+					className="flex items-center gap-2 mt-2"
+				>
+					<input
+						value={newDoc}
+						onChange={(e) => setNewDoc(e.target.value)}
+						placeholder={t(
+							"services.modal.addDocument",
+							"Ajouter un document...",
+						)}
+						className="flex-1 text-xs bg-background border border-dashed border-primary/30 rounded-lg px-3 py-2 focus:ring-1 focus:ring-primary outline-none placeholder:text-muted-foreground/50"
+						disabled={isSaving}
+					/>
+					<button
+						type="submit"
+						disabled={!newDoc.trim() || isSaving}
+						className="p-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+						title={t("common.add", "Ajouter")}
+					>
+						<Plus className="h-3.5 w-3.5" />
+					</button>
+				</form>
+			)}
+		</div>
 	);
 }

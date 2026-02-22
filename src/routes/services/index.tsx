@@ -20,6 +20,7 @@ import { useTranslation } from "react-i18next";
 import { z } from "zod";
 import { CitizenCTA } from "@/components/home/CitizenCTA";
 import { ServiceCard } from "@/components/home/ServiceCard";
+import { EditableText } from "@/components/inline-edit/EditableText";
 import { PageHero } from "@/components/PageHero";
 import { DGDIServiceBanner } from "@/components/services/DGDIServiceBanner";
 import { ServiceDetailModal } from "@/components/services/ServiceDetailModal";
@@ -198,20 +199,41 @@ function ServicesPage() {
 						variant="secondary"
 						className="mb-2 lg:mb-4 bg-primary/10 text-primary border-primary/20 backdrop-blur-sm text-[10px] lg:text-xs"
 					>
-						{t("services.badge", "Nos Services")}
+						<EditableText
+							contentKey="services.hero.badge"
+							defaultValue={t("services.badge", "Nos Services")}
+							pagePath="/services"
+							sectionId="hero"
+						/>
 					</Badge>
 					<h1 className="text-2xl lg:text-6xl font-bold text-foreground mb-2 lg:mb-6">
-						{t("services.pageTitle", "Services Consulaires")}{" "}
-						<span className="text-gradient hover:animate-shimmer bg-[length:200%_auto]">
-							{t("services.pageTitleHighlight", "Services")}
-						</span>
+						<EditableText
+							contentKey="services.hero.title"
+							defaultValue={t("services.pageTitle", "Services Consulaires")}
+							pagePath="/services"
+							sectionId="hero"
+							as="span"
+						/>{" "}
+						<EditableText
+							contentKey="services.hero.titleHighlight"
+							defaultValue={t("services.pageTitleHighlight", "Services")}
+							pagePath="/services"
+							sectionId="hero"
+							as="span"
+							className="text-gradient hover:animate-shimmer bg-[length:200%_auto]"
+						/>
 					</h1>
-					<p className="text-sm lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 lg:mb-10 leading-relaxed">
-						{t(
+					<EditableText
+						contentKey="services.hero.description"
+						defaultValue={t(
 							"services.pageDescription",
 							"Découvrez l'ensemble des services proposés par les représentations consulaires de la République Gabonaise à l'étranger.",
 						)}
-					</p>
+						pagePath="/services"
+						sectionId="hero"
+						as="p"
+						className="text-sm lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 lg:mb-10 leading-relaxed"
+					/>
 				</PageHero>
 			)}
 
@@ -377,7 +399,16 @@ function ServicesPage() {
 											<Search className="w-10 h-10 text-primary/50" />
 										</div>
 										<h3 className="text-xl font-bold mb-3 text-foreground">
-											{t("services.noResults", "Aucun service trouvé")}
+											<EditableText
+												contentKey="services.list.noResults"
+												defaultValue={t(
+													"services.noResults",
+													"Aucun service trouvé",
+												)}
+												pagePath="/services"
+												sectionId="services_list"
+												as="span"
+											/>
 										</h3>
 										<p className="text-muted-foreground mb-8 max-w-md">
 											{t(
@@ -477,7 +508,13 @@ function ServicesPage() {
 				onOpenChange={handleModalClose}
 			/>
 
-			{!isSectionHidden("citizen-cta") && <CitizenCTA />}
+			{!isSectionHidden("citizen-cta") && (
+				<CitizenCTA
+					pagePath="/services"
+					sectionId="citizen-cta"
+					contentKeyPrefix="services.citizenCta"
+				/>
+			)}
 		</div>
 	);
 }

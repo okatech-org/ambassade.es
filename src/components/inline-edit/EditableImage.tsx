@@ -4,6 +4,7 @@ import { useConvex, useMutation } from "convex/react";
 import { Image as ImageIcon, Loader2 } from "lucide-react";
 import { useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
+import { useUserData } from "@/hooks/use-user-data";
 import { useConvexQuery } from "@/integrations/convex/hooks";
 import { useInlineEdit } from "./use-inline-edit";
 
@@ -14,6 +15,12 @@ interface EditableImageProps {
 	sectionId: string;
 	alt: string;
 	className?: string;
+}
+
+/** Derive page slug from pagePath for permission checks */
+function getPageSlug(pagePath: string): string {
+	const clean = pagePath.replace(/^\/+|\/+$/g, "");
+	return clean || "accueil";
 }
 
 export function EditableImage({
@@ -29,6 +36,14 @@ export function EditableImage({
 	});
 	const { canEditImages, pendingChanges, setPendingChange, ready } =
 		useInlineEdit();
+	const { hasPageAction, isAdmin } = useUserData();
+
+	// Permission check: can this user edit images on this page/section?
+	const pageSlug = getPageSlug(pagePath);
+	const requiredAction = sectionId === "hero" ? "edit_hero" : "edit_image";
+	const hasPermission =
+		!isAdmin || hasPageAction(pageSlug, requiredAction, sectionId);
+	const canEdit = canEditImages && hasPermission;
 
 	const fileInputRef = useRef<HTMLInputElement>(null);
 	const convex = useConvex();
@@ -105,11 +120,11 @@ export function EditableImage({
 	};
 
 	const handleEdit = () => {
-		if (!canEditImages || !ready || isUploading) return;
+		if (!canEdit || !ready || isUploading) return;
 		fileInputRef.current?.click();
 	};
 
-	if (!canEditImages || !ready) {
+	if (!canEdit || !ready) {
 		return (
 			<img
 				src={value}

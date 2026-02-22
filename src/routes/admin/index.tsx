@@ -28,7 +28,7 @@ export const Route = createFileRoute("/admin/")({
 
 function SuperadminDashboard() {
 	const { t } = useTranslation();
-	const { hasModule, isSystemAdmin } = useUserData();
+	const { hasModule } = useUserData();
 
 	const { data: stats, isPending } = useAuthenticatedConvexQuery(
 		api.functions.admin.getStats,
@@ -41,16 +41,15 @@ function SuperadminDashboard() {
 	const canUsers = hasModule("users");
 	const canAnalytics = hasModule("analytics");
 	const canInlineEdit = hasModule("inline_edit");
-	const canAdminManagement = isSystemAdmin;
 
 	return (
-		<div className="flex flex-1 flex-col gap-4 p-4 pt-6">
-			<div className="flex items-center justify-between">
+		<div className="flex flex-1 flex-col gap-6 p-4 md:p-8 pt-6 max-w-[1600px] mx-auto w-full">
+			<div className="flex items-center justify-between mb-2">
 				<div>
-					<h1 className="text-3xl font-bold tracking-tight">
+					<h1 className="text-3xl md:text-4xl font-bold tracking-tight text-gradient">
 						{t("superadmin.dashboard.title")}
 					</h1>
-					<p className="text-muted-foreground">
+					<p className="text-muted-foreground mt-1 font-medium">
 						{t("superadmin.dashboard.welcome")}
 					</p>
 				</div>
@@ -58,22 +57,24 @@ function SuperadminDashboard() {
 
 			<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
 				{canUsers && (
-					<Card>
+					<Card className="glass-card overflow-hidden group">
 						<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
 							<CardTitle className="text-sm font-medium">
 								{t("superadmin.dashboard.stats.users")}
 							</CardTitle>
-							<Users className="h-4 w-4 text-muted-foreground" />
+							<div className="p-2 bg-[var(--google-blue-bg)] rounded-xl text-blue-600 group-hover:scale-110 transition-transform">
+								<Users className="h-4 w-4" />
+							</div>
 						</CardHeader>
 						<CardContent>
-							<div className="text-2xl font-bold">
+							<div className="text-3xl font-bold">
 								{isPending ? (
 									<Skeleton className="h-8 w-16" />
 								) : (
 									(stats?.users.total ?? 0)
 								)}
 							</div>
-							<p className="text-xs text-muted-foreground">
+							<p className="text-xs text-muted-foreground mt-1">
 								{t("superadmin.dashboard.stats.totalUsers")}
 							</p>
 						</CardContent>
@@ -81,22 +82,24 @@ function SuperadminDashboard() {
 				)}
 
 				{canPosts && (
-					<Card>
+					<Card className="glass-card overflow-hidden group">
 						<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
 							<CardTitle className="text-sm font-medium">
 								{t("superadmin.dashboard.stats.posts", "Actualités")}
 							</CardTitle>
-							<Newspaper className="h-4 w-4 text-muted-foreground" />
+							<div className="p-2 bg-[var(--google-red-bg)] rounded-xl text-red-600 group-hover:scale-110 transition-transform">
+								<Newspaper className="h-4 w-4" />
+							</div>
 						</CardHeader>
 						<CardContent>
-							<div className="text-2xl font-bold">
+							<div className="text-3xl font-bold">
 								{isPending ? (
 									<Skeleton className="h-8 w-16" />
 								) : (
 									(stats?.posts?.published ?? 0)
 								)}
 							</div>
-							<p className="text-xs text-muted-foreground">
+							<p className="text-xs text-muted-foreground mt-1">
 								{t(
 									"superadmin.dashboard.stats.publishedPosts",
 									"Articles publiés",
@@ -107,22 +110,24 @@ function SuperadminDashboard() {
 				)}
 
 				{canServices && (
-					<Card>
+					<Card className="glass-card overflow-hidden group">
 						<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
 							<CardTitle className="text-sm font-medium">
 								{t("superadmin.dashboard.stats.services")}
 							</CardTitle>
-							<FileText className="h-4 w-4 text-muted-foreground" />
+							<div className="p-2 bg-[var(--google-green-bg)] rounded-xl text-green-600 group-hover:scale-110 transition-transform">
+								<FileText className="h-4 w-4" />
+							</div>
 						</CardHeader>
 						<CardContent>
-							<div className="text-2xl font-bold">
+							<div className="text-3xl font-bold">
 								{isPending ? (
 									<Skeleton className="h-8 w-16" />
 								) : (
 									(stats?.services.active ?? 0)
 								)}
 							</div>
-							<p className="text-xs text-muted-foreground">
+							<p className="text-xs text-muted-foreground mt-1">
 								{t("superadmin.dashboard.stats.availableServices")}
 							</p>
 						</CardContent>
@@ -130,22 +135,24 @@ function SuperadminDashboard() {
 				)}
 
 				{canAnnouncements && (
-					<Card>
+					<Card className="glass-card overflow-hidden group">
 						<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
 							<CardTitle className="text-sm font-medium">
 								{t("superadmin.dashboard.stats.announcements", "Annonces")}
 							</CardTitle>
-							<Bell className="h-4 w-4 text-muted-foreground" />
+							<div className="p-2 bg-[var(--google-yellow-bg)] rounded-xl text-yellow-600 group-hover:scale-110 transition-transform">
+								<Bell className="h-4 w-4" />
+							</div>
 						</CardHeader>
 						<CardContent>
-							<div className="text-2xl font-bold">
+							<div className="text-3xl font-bold">
 								{isPending ? (
 									<Skeleton className="h-8 w-16" />
 								) : (
 									(stats?.announcements?.active ?? 0)
 								)}
 							</div>
-							<p className="text-xs text-muted-foreground">
+							<p className="text-xs text-muted-foreground mt-1">
 								{t(
 									"superadmin.dashboard.stats.activeAnnouncements",
 									"Annonces actives",
@@ -156,29 +163,33 @@ function SuperadminDashboard() {
 				)}
 
 				{canAnalytics && (
-					<Card>
+					<Card className="glass-card overflow-hidden group">
 						<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
 							<CardTitle className="text-sm font-medium">
 								Pages les plus vues
 							</CardTitle>
-							<BarChart3 className="h-4 w-4 text-muted-foreground" />
+							<div className="p-2 bg-purple-500/10 rounded-xl text-purple-600 group-hover:scale-110 transition-transform">
+								<BarChart3 className="h-4 w-4" />
+							</div>
 						</CardHeader>
 						<CardContent>
-							<div className="text-2xl font-bold">
+							<div className="text-3xl font-bold">
 								{isPending ? (
 									<Skeleton className="h-8 w-16" />
 								) : (
 									(stats?.pageViews?.total ?? 0)
 								)}
 							</div>
-							<p className="text-xs text-muted-foreground">Vues agrégées</p>
+							<p className="text-xs text-muted-foreground mt-1">
+								Vues agrégées
+							</p>
 						</CardContent>
 					</Card>
 				)}
 			</div>
 
 			<div className="grid gap-4 md:grid-cols-2">
-				<Card>
+				<Card className="glass-card">
 					<CardHeader>
 						<CardTitle>{t("superadmin.dashboard.quickActions")}</CardTitle>
 						<CardDescription>
@@ -241,18 +252,10 @@ function SuperadminDashboard() {
 								Activer le mode édition
 							</Button>
 						)}
-						{canAdminManagement && (
-							<Button variant="outline" asChild className="justify-start">
-								<Link to="/admin/admin-management">
-									<Users className="mr-2 h-4 w-4" />
-									Gestion Admins
-								</Link>
-							</Button>
-						)}
 					</CardContent>
 				</Card>
 
-				<Card>
+				<Card className="glass-card">
 					<CardHeader>
 						<CardTitle>
 							{t("superadmin.dashboard.overview", "Aperçu")}

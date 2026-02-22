@@ -22,6 +22,7 @@ import {
 	SectionNav,
 } from "@/components/guides";
 import { CitizenCTA } from "@/components/home/CitizenCTA";
+import { EditableText } from "@/components/inline-edit/EditableText";
 import { PageHero } from "@/components/PageHero";
 import { Badge } from "@/components/ui/badge";
 import { useSectionVisibility } from "@/hooks/useSectionVisibility";
@@ -1124,20 +1125,42 @@ function VieEnFrancePage() {
 					className="mb-4 bg-primary/10 text-primary border-primary/20"
 				>
 					<BookOpen className="w-3.5 h-3.5 mr-1.5" />
-					{t("vieFrance.badge", "Guide Pratique")}
+					<EditableText
+						contentKey="vieFrance.hero.badge"
+						defaultValue={t("vieFrance.badge", "Guide Pratique")}
+						pagePath="/vie-en-france"
+						sectionId="hero"
+						as="span"
+					/>
 				</Badge>
 				<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-					{t("vieFrance.title", "Vivre en France")}{" "}
-					<span className="text-gradient">
-						{t("vieFrance.titleHighlight", "en toute sérénité")}
-					</span>
+					<EditableText
+						contentKey="vieFrance.hero.title"
+						defaultValue={t("vieFrance.title", "Vivre en France")}
+						pagePath="/vie-en-france"
+						sectionId="hero"
+						as="span"
+					/>{" "}
+					<EditableText
+						contentKey="vieFrance.hero.titleHighlight"
+						defaultValue={t("vieFrance.titleHighlight", "en toute sérénité")}
+						pagePath="/vie-en-france"
+						sectionId="hero"
+						as="span"
+						className="text-gradient"
+					/>
 				</h1>
-				<p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-					{t(
+				<EditableText
+					contentKey="vieFrance.hero.description"
+					defaultValue={t(
 						"vieFrance.subtitle",
 						"Toutes les informations essentielles pour votre installation et votre vie quotidienne en France. Le Consulat vous accompagne dans chaque étape.",
 					)}
-				</p>
+					pagePath="/vie-en-france"
+					sectionId="hero"
+					as="p"
+					className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed"
+				/>
 
 				{/* Quick Stats */}
 				<div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -1169,6 +1192,7 @@ function VieEnFrancePage() {
 						const Icon = section.icon;
 						return (
 							<button
+								type="button"
 								key={section.id}
 								onClick={() => scrollToSection(section.id)}
 								className={`shrink-0 flex items-center gap-2 px-3 py-2 rounded-full text-xs font-medium transition-all ${
@@ -1290,7 +1314,13 @@ function VieEnFrancePage() {
 				</div>
 			</section>
 
-			{!isSectionHidden("citizen-cta") && <CitizenCTA />}
+			{!isSectionHidden("citizen-cta") && (
+				<CitizenCTA
+					pagePath="/vie-en-france"
+					sectionId="citizen-cta"
+					contentKeyPrefix="vieFrance.citizenCta"
+				/>
+			)}
 		</div>
 	);
 }

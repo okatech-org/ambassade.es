@@ -32,6 +32,7 @@ import {
 	type SavoirVivreItem,
 } from "@/components/guides";
 import { CitizenCTA } from "@/components/home/CitizenCTA";
+import { EditableText } from "@/components/inline-edit/EditableText";
 import { PageHero } from "@/components/PageHero";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -1154,22 +1155,47 @@ function VenirEnFrancePage() {
 				<PageHero image="/images/heroes/hero-vie-france.png">
 					<Badge className="mb-4 bg-primary/10 text-primary border-primary/20 backdrop-blur-sm">
 						<BookOpen className="w-3.5 h-3.5 mr-1.5" />
-						{t("venirFrance.badge", "Guide d'arrivée & intégration")}
+						<EditableText
+							contentKey="venirFrance.hero.badge"
+							defaultValue={t(
+								"venirFrance.badge",
+								"Guide d'arrivée & intégration",
+							)}
+							pagePath="/venir-en-france"
+							sectionId="hero"
+							as="span"
+						/>
 					</Badge>
 
 					<h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight mb-4">
-						{t("venirFrance.heroTitle", "Venir en France")}{" "}
-						<span className="text-gradient">
-							{t("venirFrance.heroHighlight", "& s'intégrer")}
-						</span>
+						<EditableText
+							contentKey="venirFrance.hero.title"
+							defaultValue={t("venirFrance.heroTitle", "Venir en France")}
+							pagePath="/venir-en-france"
+							sectionId="hero"
+							as="span"
+						/>{" "}
+						<EditableText
+							contentKey="venirFrance.hero.titleHighlight"
+							defaultValue={t("venirFrance.heroHighlight", "& s'intégrer")}
+							pagePath="/venir-en-france"
+							sectionId="hero"
+							as="span"
+							className="text-gradient"
+						/>
 					</h1>
 
-					<p className="text-base text-muted-foreground mb-6 max-w-2xl leading-relaxed">
-						{t(
+					<EditableText
+						contentKey="venirFrance.hero.description"
+						defaultValue={t(
 							"venirFrance.heroDescription",
 							"Guide complet pour les Gabonais arrivant en France : admission, visa, démarches administratives, codes culturels et conseils pratiques pour une intégration réussie. Le Consulat Général du Gabon vous accompagne.",
 						)}
-					</p>
+						pagePath="/venir-en-france"
+						sectionId="hero"
+						as="p"
+						className="text-base text-muted-foreground mb-6 max-w-2xl leading-relaxed"
+					/>
 
 					{/* Quick nav pills */}
 					<div className="flex flex-wrap gap-2">
@@ -1198,20 +1224,40 @@ function VenirEnFrancePage() {
 								className="mb-4 bg-background/50 backdrop-blur-sm"
 							>
 								<HandHeart className="w-3.5 h-3.5 mr-1.5" />
-								{t("venirFrance.savoirVivre.badge", "Savoir-vivre")}
+								<EditableText
+									contentKey="venirFrance.savoirVivre.badge"
+									defaultValue={t(
+										"venirFrance.savoirVivre.badge",
+										"Savoir-vivre",
+									)}
+									pagePath="/venir-en-france"
+									sectionId="savoir-vivre"
+									as="span"
+								/>
 							</Badge>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-								{t(
-									"venirFrance.savoirVivre.title",
-									"Codes culturels & Conventions",
-								)}
+								<EditableText
+									contentKey="venirFrance.savoirVivre.title"
+									defaultValue={t(
+										"venirFrance.savoirVivre.title",
+										"Codes culturels & Conventions",
+									)}
+									pagePath="/venir-en-france"
+									sectionId="savoir-vivre"
+									as="span"
+								/>
 							</h2>
-							<p className="text-muted-foreground max-w-2xl mx-auto">
-								{t(
+							<EditableText
+								contentKey="venirFrance.savoirVivre.description"
+								defaultValue={t(
 									"venirFrance.savoirVivre.description",
 									"Comprendre les codes de la société française pour mieux y évoluer. Ce n'est pas renoncer à sa culture, c'est en ajouter une autre.",
 								)}
-							</p>
+								pagePath="/venir-en-france"
+								sectionId="savoir-vivre"
+								as="p"
+								className="text-muted-foreground max-w-2xl mx-auto"
+							/>
 						</div>
 
 						<SavoirVivreGrid items={tSavoirVivre} />
@@ -1224,17 +1270,40 @@ function VenirEnFrancePage() {
 						<div className="text-center mb-12">
 							<Badge variant="outline" className="mb-4">
 								<Shield className="w-3.5 h-3.5 mr-1.5" />
-								{t("venirFrance.guides.badge", "Guides complets")}
+								<EditableText
+									contentKey="venirFrance.guides.badge"
+									defaultValue={t(
+										"venirFrance.guides.badge",
+										"Guides complets",
+									)}
+									pagePath="/venir-en-france"
+									sectionId="guides"
+									as="span"
+								/>
 							</Badge>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-								{t("venirFrance.guides.title", "Vos démarches détaillées")}
+								<EditableText
+									contentKey="venirFrance.guides.title"
+									defaultValue={t(
+										"venirFrance.guides.title",
+										"Vos démarches détaillées",
+									)}
+									pagePath="/venir-en-france"
+									sectionId="guides"
+									as="span"
+								/>
 							</h2>
-							<p className="text-muted-foreground max-w-2xl mx-auto">
-								{t(
+							<EditableText
+								contentKey="venirFrance.guides.description"
+								defaultValue={t(
 									"venirFrance.guides.description",
 									"Cliquez sur chaque thème pour découvrir les informations détaillées, les procédures et nos astuces pratiques.",
 								)}
-							</p>
+								pagePath="/venir-en-france"
+								sectionId="guides"
+								as="p"
+								className="text-muted-foreground max-w-2xl mx-auto"
+							/>
 						</div>
 
 						<div className="space-y-4">
@@ -1345,7 +1414,13 @@ function VenirEnFrancePage() {
 					</div>
 				</section>
 
-				{!isSectionHidden("citizen-cta") && <CitizenCTA />}
+				{!isSectionHidden("citizen-cta") && (
+					<CitizenCTA
+						pagePath="/venir-en-france"
+						sectionId="citizen-cta"
+						contentKeyPrefix="venirFrance.citizenCta"
+					/>
+				)}
 			</div>
 		</div>
 	);

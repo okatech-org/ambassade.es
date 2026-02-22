@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
+import { useUserData } from "@/hooks/use-user-data";
 import { useInlineEdit } from "./use-inline-edit";
 
 interface EditablePostImageProps {
@@ -23,6 +24,10 @@ interface EditablePostImageProps {
 	objectPosition?: string;
 	/** Fallback element rendered when there's no image */
 	fallback?: React.ReactNode;
+	/** Page path for permission checks (e.g. "/actualites") */
+	pagePath?: string;
+	/** Section identifier for permission scoping */
+	sectionId?: string;
 }
 
 /** Step in percentage for each arrow click */
@@ -44,8 +49,20 @@ export function EditablePostImage({
 	className,
 	objectPosition,
 	fallback,
+	pagePath = "/actualites",
+	sectionId = "content",
 }: EditablePostImageProps) {
 	const { canEditImages, ready } = useInlineEdit();
+	const { hasPageAction, isAdmin } = useUserData();
+
+	// Permission check
+	const pageSlug = (pagePath.replace(/^\/+|\/+$/g, "") || "accueil").split(
+		"/",
+	)[0];
+	const requiredAction = sectionId === "hero" ? "edit_hero" : "edit_image";
+	const hasPermission =
+		!isAdmin || hasPageAction(pageSlug, requiredAction, sectionId);
+	const canEdit = canEditImages && hasPermission;
 	const fileInputRef = useRef<HTMLInputElement>(null);
 	const generateUploadUrl = useMutation(api.functions.files.generateUploadUrl);
 	const updateCoverImage = useMutation(api.functions.posts.updateCoverImage);
@@ -119,7 +136,7 @@ export function EditablePostImage({
 	const handleEdit = (e: React.MouseEvent) => {
 		e.preventDefault();
 		e.stopPropagation();
-		if (!canEditImages || !ready || isUploading) return;
+		if (!canEdit || !ready || isUploading) return;
 		fileInputRef.current?.click();
 	};
 
@@ -156,7 +173,7 @@ export function EditablePostImage({
 	};
 
 	// ── Non-edit mode ──
-	if (!canEditImages || !ready) {
+	if (!canEdit || !ready) {
 		if (!displaySrc) return fallback ?? null;
 		return (
 			<img

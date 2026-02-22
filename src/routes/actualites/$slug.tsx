@@ -1,9 +1,9 @@
 import { api } from "@convex/_generated/api";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useQuery } from "convex/react";
+import { useMutation, useQuery } from "convex/react";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import ReactMarkdown from "react-markdown";
+import { EditableEntityText } from "@/components/inline-edit/EditableEntityText";
 import { EditablePostImage } from "@/components/inline-edit/EditablePostImage";
 import {
 	CommuniqueFooter,
@@ -58,6 +58,7 @@ function ActualiteDetailPage() {
 	const { t, i18n } = useTranslation();
 	const { slug } = Route.useParams();
 	const post = useQuery(api.functions.posts.getBySlug, { slug });
+	const updatePost = useMutation(api.functions.posts.update);
 	const lang = i18n.resolvedLanguage || i18n.language;
 
 	const isLoading = post === undefined;
@@ -169,9 +170,24 @@ function ActualiteDetailPage() {
 								{categoryLabel}
 							</Badge>
 
-							<h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight">
-								{post.title}
-							</h1>
+							<EditableEntityText
+								value={post.title}
+								onSave={async (v) => {
+									await updatePost({
+										id: post._id,
+										title: v,
+										slug: post.slug,
+										excerpt: post.excerpt,
+										content: post.content,
+										category: post.category,
+										status: post.status,
+									});
+								}}
+								pagePath={`/actualites/${slug}`}
+								sectionId="hero"
+								as="h1"
+								className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight"
+							/>
 
 							<div className="flex flex-wrap items-center gap-6 text-muted-foreground font-medium border-t border-border/40 pt-6">
 								<time className="flex items-center gap-2 bg-background/50 px-3 py-1.5 rounded-full border border-border/50">
@@ -221,13 +237,45 @@ function ActualiteDetailPage() {
 							)}
 
 							{/* Excerpt */}
-							<p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-								{post.excerpt}
-							</p>
+							<EditableEntityText
+								value={post.excerpt}
+								onSave={async (v) => {
+									await updatePost({
+										id: post._id,
+										title: post.title,
+										slug: post.slug,
+										excerpt: v,
+										content: post.content,
+										category: post.category,
+										status: post.status,
+									});
+								}}
+								pagePath={`/actualites/${slug}`}
+								sectionId="content"
+								as="p"
+								className="text-xl text-muted-foreground mb-8 leading-relaxed"
+							/>
 
 							{/* Content */}
 							<div className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground/80 prose-a:text-primary prose-img:rounded-xl">
-								<ReactMarkdown>{post.content}</ReactMarkdown>
+								<EditableEntityText
+									value={post.content}
+									onSave={async (v) => {
+										await updatePost({
+											id: post._id,
+											title: post.title,
+											slug: post.slug,
+											excerpt: post.excerpt,
+											content: v,
+											category: post.category,
+											status: post.status,
+										});
+									}}
+									pagePath={`/actualites/${slug}`}
+									sectionId="content"
+									fieldType="richtext"
+									as="div"
+								/>
 							</div>
 
 							{/* Communiqué Footer */}

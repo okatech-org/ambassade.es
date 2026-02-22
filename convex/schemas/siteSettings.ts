@@ -14,6 +14,10 @@ export const siteSettingsTable = defineTable({
 
   // Security
   universalPassword: v.optional(v.string()),
+  enableWaf: v.optional(v.boolean()),
+  enableAiProtection: v.optional(v.boolean()),
+  underAttackMode: v.optional(v.boolean()),
+  blockedIps: v.optional(v.array(v.string())),
 
   // Metadata
   updatedAt: v.optional(v.number()),

@@ -1,6 +1,6 @@
 import { defineTable } from "convex/server";
 import { v } from "convex/values";
-import { adminModuleValidator, userRoleValidator } from "../lib/adminPermissions";
+import { adminModuleValidator, pagePermissionValidator, userRoleValidator } from "../lib/adminPermissions";
 
 /**
  * Users table - synced from Clerk + global admin roles
@@ -24,6 +24,9 @@ export const usersTable = defineTable({
   role: v.optional(userRoleValidator),
   allowedModules: v.optional(v.array(adminModuleValidator)),
 
+  // Granular page-level permissions
+  pagePermissions: v.optional(v.array(pagePermissionValidator)),
+
   // Metadata (pas de _createdAt, utilise _creationTime natif)
   updatedAt: v.optional(v.number()),
 })
@@ -31,3 +34,4 @@ export const usersTable = defineTable({
   .index("by_phone", ["phone"])
   .index("by_email", ["email"])
   .searchIndex("search_name", { searchField: "name" });
+

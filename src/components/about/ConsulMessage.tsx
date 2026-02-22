@@ -1,5 +1,7 @@
 import { CalendarCheck, Linkedin, Quote } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { EditableImage } from "@/components/inline-edit/EditableImage";
+import { EditableText } from "@/components/inline-edit/EditableText";
 import { Button } from "@/components/ui/button";
 
 interface ConsulMessageProps {
@@ -11,6 +13,9 @@ interface ConsulMessageProps {
 	email?: string | null;
 	linkedIn?: string | null;
 	message?: string;
+	contentKeyPrefix?: string;
+	pagePath?: string;
+	sectionId?: string;
 }
 
 export function ConsulMessage({
@@ -22,6 +27,9 @@ export function ConsulMessage({
 	email,
 	linkedIn,
 	message,
+	contentKeyPrefix,
+	pagePath,
+	sectionId = "consul",
 }: ConsulMessageProps) {
 	const { t } = useTranslation();
 	const initials = `${firstName.charAt(0)}${lastName.charAt(0)}`;
@@ -45,7 +53,16 @@ export function ConsulMessage({
 						{/* Image side (left) */}
 						<div className="relative group order-1">
 							<div className="relative h-full min-h-[320px] md:min-h-[420px] rounded-2xl overflow-hidden shadow-2xl">
-								{photoUrl ? (
+								{contentKeyPrefix && pagePath ? (
+									<EditableImage
+										contentKey={`${contentKeyPrefix}.photo`}
+										defaultValue={photoUrl || "/images/consul_general.jpg"}
+										pagePath={pagePath}
+										sectionId={sectionId}
+										alt={fullName}
+										className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+									/>
+								) : photoUrl ? (
 									<img
 										src={photoUrl}
 										alt={fullName}
@@ -61,10 +78,30 @@ export function ConsulMessage({
 								{/* Gradient overlay at bottom for name */}
 								<div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-6">
 									<h3 className="text-2xl font-bold text-white mb-1">
-										{fullName}
+										{contentKeyPrefix && pagePath ? (
+											<EditableText
+												contentKey={`${contentKeyPrefix}.name`}
+												defaultValue={fullName}
+												pagePath={pagePath}
+												sectionId={sectionId}
+												as="span"
+											/>
+										) : (
+											fullName
+										)}
 									</h3>
 									<p className="text-white/80 font-medium uppercase tracking-wider text-sm">
-										{role}
+										{contentKeyPrefix && pagePath ? (
+											<EditableText
+												contentKey={`${contentKeyPrefix}.role`}
+												defaultValue={role}
+												pagePath={pagePath}
+												sectionId={sectionId}
+												as="span"
+											/>
+										) : (
+											role
+										)}
 									</p>
 								</div>
 							</div>
@@ -84,7 +121,19 @@ export function ConsulMessage({
 								</h2>
 
 								<blockquote className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed italic font-light">
-									"{message || defaultMessage}"
+									"
+									{contentKeyPrefix && pagePath ? (
+										<EditableText
+											contentKey={`${contentKeyPrefix}.description`}
+											defaultValue={description || message || defaultMessage}
+											pagePath={pagePath}
+											sectionId={sectionId}
+											as="span"
+										/>
+									) : (
+										message || defaultMessage
+									)}
+									"
 									<footer className="mt-4 not-italic text-sm md:text-base font-semibold text-foreground">
 										— {t("leConsulat.honorific", "S.E. Monsieur")} {fullName}
 										<br />
@@ -92,7 +141,7 @@ export function ConsulMessage({
 									</footer>
 								</blockquote>
 
-								{description && (
+								{!contentKeyPrefix && description && (
 									<p className="text-sm text-muted-foreground/80 pt-6 border-t border-border/40 leading-relaxed">
 										{description}
 									</p>

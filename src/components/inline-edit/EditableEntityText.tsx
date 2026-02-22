@@ -1,31 +1,35 @@
-import { api } from "@convex/_generated/api";
-import { Pencil } from "lucide-react";
+import { Loader2, Pencil } from "lucide-react";
 import {
 	type ElementType,
 	useCallback,
 	useEffect,
-	useMemo,
 	useRef,
 	useState,
 } from "react";
+import { toast } from "sonner";
 import { useUserData } from "@/hooks/use-user-data";
-import { useConvexQuery } from "@/integrations/convex/hooks";
-import type { InlineFieldType } from "./InlineEditProvider";
 import { InlineEditToolbar } from "./InlineEditToolbar";
 import { useInlineEdit } from "./use-inline-edit";
 
-interface EditableTextProps {
-	contentKey: string;
-	defaultValue: string;
+interface EditableEntityTextProps {
+	value: string;
+	onSave: (newValue: string) => Promise<void>;
 	pagePath: string;
 	sectionId: string;
-	fieldType?: Extract<InlineFieldType, "text" | "richtext" | "link">;
+	fieldType?: "text" | "richtext";
 	as?: ElementType;
 	className?: string;
 }
 
-function RichHtmlContent({ html }: { html: string }) {
-	const contentRef = useRef<HTMLSpanElement>(null);
+function RichHtmlContent({
+	html,
+	as = "span",
+}: {
+	html: string;
+	as?: ElementType;
+}) {
+	const contentRef = useRef<HTMLElement>(null);
+	const Component = as;
 
 	useEffect(() => {
 		if (!contentRef.current) return;
@@ -34,62 +38,56 @@ function RichHtmlContent({ html }: { html: string }) {
 		}
 	}, [html]);
 
-	return <span ref={contentRef} suppressHydrationWarning />;
+	return <Component ref={contentRef} suppressHydrationWarning />;
 }
 
 /** Derive page slug from pagePath for permission checks */
 function getPageSlug(pagePath: string): string {
 	const clean = pagePath.replace(/^\/+|\/+$/g, "");
-	return clean || "accueil";
+	// "actualites/123" -> "actualites"
+	const base = clean.split("/")[0];
+	return base || "accueil";
 }
 
-export function EditableText({
-	contentKey,
-	defaultValue,
+export function EditableEntityText({
+	value,
+	onSave,
 	pagePath,
 	sectionId,
 	fieldType = "text",
 	as = "span",
 	className,
-}: EditableTextProps) {
-	const { data } = useConvexQuery(api.functions.inlineContent.getContent, {
-		contentKey,
-	});
-	const { canEditContent, pendingChanges, setPendingChange, ready } =
-		useInlineEdit();
+}: EditableEntityTextProps) {
+	const { canEditContent, ready } = useInlineEdit();
 	const { hasPageAction, isAdmin } = useUserData();
 	const [isEditing, setIsEditing] = useState(false);
+	const [isSaving, setIsSaving] = useState(false);
 
-	// Permission check: can this user edit text on this page/section?
+	// Permission check
 	const pageSlug = getPageSlug(pagePath);
 	const requiredAction = sectionId === "hero" ? "edit_hero" : "edit_text";
 	const hasPermission =
 		!isAdmin || hasPageAction(pageSlug, requiredAction, sectionId);
 	const canEdit = canEditContent && hasPermission;
-	// Use state for the ref so toolbar re-renders once the DOM node is attached
+
 	const [editNode, setEditNode] = useState<HTMLElement | null>(null);
 	const editRef = useCallback((node: HTMLElement | null) => {
 		setEditNode(node);
 	}, []);
 
-	// Resolved value: pending > convex > default
-	const value = useMemo(() => {
-		return pendingChanges[contentKey]?.value ?? data?.value ?? defaultValue;
-	}, [pendingChanges, contentKey, data?.value, defaultValue]);
-
 	const Component = as;
 
 	const handleClick = useCallback(
 		(e: React.MouseEvent) => {
-			if (!canEdit || !ready) return;
+			if (!canEdit || !ready || isSaving) return;
 			e.preventDefault();
 			e.stopPropagation();
 			setIsEditing(true);
 		},
-		[canEdit, ready],
+		[canEdit, ready, isSaving],
 	);
 
-	// Sync the editable HTML content whenever value changes.
+	// Sync content initially
 	useEffect(() => {
 		if (!isEditing || !editNode) return;
 		if (editNode.innerHTML !== value) {
@@ -97,11 +95,10 @@ export function EditableText({
 		}
 	}, [isEditing, editNode, value]);
 
-	// Focus the editable element when it mounts.
+	// Focus the editable element when it mounts
 	useEffect(() => {
 		if (isEditing && editNode) {
 			editNode.focus();
-			// Place cursor at the end
 			const range = document.createRange();
 			const sel = window.getSelection();
 			range.selectNodeContents(editNode);
@@ -111,37 +108,40 @@ export function EditableText({
 		}
 	}, [isEditing, editNode]);
 
-	const handleBlur = useCallback(
-		(e: React.FocusEvent) => {
-			// Don't close if clicking on the toolbar
-			const relatedTarget = e.relatedTarget as HTMLElement | null;
-			if (relatedTarget?.closest("[data-inline-toolbar]")) return;
-			if (!isEditing || !editNode) return;
+	const saveChanges = useCallback(
+		async (newValue: string) => {
+			if (newValue === value) {
+				setIsEditing(false);
+				return;
+			}
 
-			const newValue = editNode.innerHTML;
-			setIsEditing(false);
-			if (newValue !== value) {
-				setPendingChange({
-					contentKey,
-					pagePath,
-					sectionId,
-					fieldType,
-					value: newValue,
-					defaultValue,
-				});
+			setIsSaving(true);
+			try {
+				await onSave(newValue);
+				toast.success("Modification enregistrée");
+			} catch (error) {
+				console.error("Save error:", error);
+				toast.error("Erreur lors de l'enregistrement");
+				if (editNode) editNode.innerHTML = value; // Revert
+			} finally {
+				setIsSaving(false);
+				setIsEditing(false);
 			}
 		},
-		[
-			isEditing,
-			editNode,
-			value,
-			contentKey,
-			pagePath,
-			sectionId,
-			fieldType,
-			defaultValue,
-			setPendingChange,
-		],
+		[value, onSave, editNode],
+	);
+
+	const handleBlur = useCallback(
+		(e: React.FocusEvent) => {
+			// Don't close if clicking on the formatting toolbar
+			const relatedTarget = e.relatedTarget as HTMLElement | null;
+			if (relatedTarget?.closest("[data-inline-toolbar]")) return;
+			if (!isEditing || !editNode || isSaving) return;
+
+			const newValue = editNode.innerHTML;
+			void saveChanges(newValue);
+		},
+		[isEditing, editNode, isSaving, saveChanges],
 	);
 
 	const handleKeyDown = useCallback(
@@ -152,18 +152,23 @@ export function EditableText({
 					editNode.innerHTML = value;
 				}
 				setIsEditing(false);
+			} else if (e.key === "Enter" && fieldType === "text" && !e.shiftKey) {
+				// For simple text, Enter saves
+				e.preventDefault();
+				if (editNode) {
+					editNode.blur(); // Triggers handleBlur
+				}
 			}
 		},
-		[value, editNode],
+		[value, editNode, fieldType],
 	);
 
 	const handleReset = useCallback(() => {
 		if (editNode) {
-			editNode.innerHTML = defaultValue;
+			editNode.innerHTML = value;
 		}
-	}, [defaultValue, editNode]);
+	}, [value, editNode]);
 
-	// Not in content edit mode or no permission — render the content normally
 	if (!canEdit || !ready) {
 		return (
 			<Component className={className} suppressHydrationWarning>
@@ -175,28 +180,33 @@ export function EditableText({
 	// Edit mode active, currently editing this field
 	if (isEditing) {
 		return (
-			<>
+			<div className="relative inline-block w-full">
 				<InlineEditToolbar anchorEl={editNode} onReset={handleReset} />
 				<Component
 					ref={editRef}
-					contentEditable
+					contentEditable={!isSaving}
 					suppressContentEditableWarning
 					onBlur={handleBlur}
 					onKeyDown={handleKeyDown}
-					className={`${className ?? ""} cursor-text rounded outline outline-2 outline-primary bg-primary/5 focus:outline-primary`}
+					className={`${className ?? ""} cursor-text rounded outline outline-2 outline-emerald-500 bg-emerald-500/5 focus:outline-emerald-500 transition-colors ${isSaving ? "opacity-50 pointer-events-none" : ""}`}
 				/>
-			</>
+				{isSaving && (
+					<div className="absolute top-2 right-2 flex items-center justify-center pointer-events-none">
+						<Loader2 className="w-4 h-4 text-emerald-600 animate-spin" />
+					</div>
+				)}
+			</div>
 		);
 	}
 
-	// Edit mode active, not editing this field — show editable indicator
+	// Hover-to-edit state
 	return (
 		<Component
 			onClick={handleClick}
-			className={`${className ?? ""} cursor-pointer rounded outline outline-1 outline-dashed outline-primary/40 hover:outline-primary/80 hover:bg-primary/5 transition-colors`}
-			title="Cliquer pour éditer"
+			className={`${className ?? ""} cursor-pointer rounded outline outline-1 outline-dashed outline-emerald-500/40 hover:outline-emerald-500/80 hover:bg-emerald-500/5 transition-colors relative group/entity-edit`}
+			title="Cliquer pour éditer le contenu"
 		>
-			<Pencil className="inline-block w-3 h-3 mr-1 text-primary/50" />
+			<Pencil className="absolute -top-3 -right-3 w-5 h-5 p-1 bg-emerald-500 text-white rounded-full opacity-0 group-hover/entity-edit:opacity-100 transition-opacity shadow-sm z-10" />
 			<RichHtmlContent html={value} />
 		</Component>
 	);

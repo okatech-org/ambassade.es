@@ -1,7 +1,7 @@
 "use client";
 
 import { api } from "@convex/_generated/api";
-import { Doc } from "@convex/_generated/dataModel";
+import type { Doc } from "@convex/_generated/dataModel";
 import { useNavigate } from "@tanstack/react-router";
 import {
 	Eye,
@@ -33,6 +33,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useUserData } from "@/hooks/use-user-data";
 import { useConvexMutationQuery } from "@/integrations/convex/hooks";
 import { UserRoleDialog } from "./user-role-dialog";
 
@@ -47,6 +48,7 @@ export function UserActionsCell({ user }: UserActionsCellProps) {
 	const navigate = useNavigate();
 	const [showRoleDialog, setShowRoleDialog] = useState(false);
 	const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+	const { isSystemAdmin } = useUserData();
 	const userRole = (user as UserWithRole).role ?? "user";
 
 	const { mutate: enableUser, isPending: isEnabling } = useConvexMutationQuery(
@@ -118,7 +120,7 @@ export function UserActionsCell({ user }: UserActionsCellProps) {
 					</DropdownMenuItem>
 					<DropdownMenuItem
 						onClick={() => setShowRoleDialog(true)}
-						disabled={userRole === "system_admin"}
+						disabled={!isSystemAdmin || userRole === "system_admin"}
 						className="cursor-pointer focus:bg-muted focus:text-foreground"
 					>
 						<Shield className="mr-2 h-4 w-4" />

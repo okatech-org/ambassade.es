@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { EditableText } from "../inline-edit/EditableText";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Skeleton } from "../ui/skeleton";
@@ -378,20 +379,41 @@ export function ServicesSection() {
 						className="mb-4 bg-primary/10 text-primary border-primary/20"
 					>
 						<Sparkles className="w-3.5 h-3.5 mr-1.5" />
-						{t("services.badge", "Nos Services")}
+						<EditableText
+							contentKey="home.services.badge"
+							defaultValue={t("services.badge", "Nos Services")}
+							pagePath="/"
+							sectionId="services"
+						/>
 					</Badge>
 					<h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-						{t("services.homeTitle", "Services et démarches")}{" "}
-						<span className="text-gradient">
-							{t("services.homeTitleHighlight", "à la une")}
-						</span>
+						<EditableText
+							contentKey="home.services.title"
+							defaultValue={t("services.homeTitle", "Services et démarches")}
+							pagePath="/"
+							sectionId="services"
+							as="span"
+						/>{" "}
+						<EditableText
+							contentKey="home.services.titleHighlight"
+							defaultValue={t("services.homeTitleHighlight", "à la une")}
+							pagePath="/"
+							sectionId="services"
+							as="span"
+							className="text-gradient"
+						/>
 					</h2>
-					<p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-						{t(
+					<EditableText
+						contentKey="home.services.description"
+						defaultValue={t(
 							"services.homeDescription",
 							"Accédez rapidement à vos démarches administratives les plus courantes.",
 						)}
-					</p>
+						pagePath="/"
+						sectionId="services"
+						as="p"
+						className="text-muted-foreground text-lg max-w-2xl mx-auto"
+					/>
 				</div>
 
 				{/* ── DESKTOP: Grid layout (hidden on mobile) ── */}
@@ -543,7 +565,13 @@ export function ServicesSection() {
 						className="rounded-full border-[#1a5dab]/30 text-[#1a5dab] hover:bg-[#1a5dab]/5"
 					>
 						<Link to="/services">
-							{t("services.viewAll", "Voir tous les services")}
+							<EditableText
+								contentKey="home.services.viewAll"
+								defaultValue={t("services.viewAll", "Voir tous les services")}
+								pagePath="/"
+								sectionId="services"
+								as="span"
+							/>
 							<ArrowRight className="w-4 h-4 ml-2" />
 						</Link>
 					</Button>

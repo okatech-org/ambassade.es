@@ -1,7 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { api } from "@convex/_generated/api";
+import type { Doc } from "@convex/_generated/dataModel";
+import { useId, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { toast } from "sonner";
 import {
 	AlertDialog,
 	AlertDialogAction,
@@ -12,6 +15,8 @@ import {
 	AlertDialogHeader,
 	AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import {
 	Select,
 	SelectContent,
@@ -19,11 +24,12 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
-import { Doc } from "@convex/_generated/dataModel";
 import { useConvexMutationQuery } from "@/integrations/convex/hooks";
-import { api } from "@convex/_generated/api";
-import { toast } from "sonner";
+import {
+	ADMIN_MODULE_LABELS,
+	ADMIN_MODULES,
+	type AdminModule,
+} from "@/lib/admin-modules";
 
 interface UserRoleDialogProps {
 	user: Doc<"users">;
@@ -40,6 +46,10 @@ export function UserRoleDialog({
 	const [selectedRole, setSelectedRole] = useState<"user" | "admin">(
 		((user as any).role as "user" | "admin") || "user",
 	);
+	const [selectedModules, setSelectedModules] = useState<AdminModule[]>(
+		(user as any).allowedModules || [],
+	);
+	const moduleIdBase = useId();
 
 	const { mutate: updateRole, isPending } = useConvexMutationQuery(
 		api.functions.admin.updateUserRole,
@@ -50,19 +60,30 @@ export function UserRoleDialog({
 			? `${user.firstName} ${user.lastName}`
 			: user.email;
 
+	const toggleModule = (moduleId: AdminModule, checked: boolean) => {
+		setSelectedModules((prev) => {
+			if (checked) return Array.from(new Set([...prev, moduleId]));
+			return prev.filter((m) => m !== moduleId);
+		});
+	};
+
 	const handleConfirm = async () => {
 		try {
-			await updateRole({ userId: user._id, role: selectedRole as any });
+			await updateRole({
+				userId: user._id,
+				role: selectedRole as any,
+				allowedModules: selectedRole === "admin" ? selectedModules : undefined,
+			});
 			toast.success(t("superadmin.users.actions.editRole") + " ✓");
 			onOpenChange(false);
-		} catch (error) {
+		} catch (_error) {
 			toast.error(t("superadmin.common.error"));
 		}
 	};
 
 	return (
 		<AlertDialog open={open} onOpenChange={onOpenChange}>
-			<AlertDialogContent>
+			<AlertDialogContent className="max-h-[90vh] flex flex-col">
 				<AlertDialogHeader>
 					<AlertDialogTitle>
 						{t("superadmin.users.roleDialog.title")}
@@ -72,7 +93,7 @@ export function UserRoleDialog({
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 
-				<div className="py-4">
+				<div className="py-2 flex-1 overflow-y-auto pr-2 -mr-2">
 					<Label htmlFor="role-select" className="mb-2 block">
 						{t("superadmin.users.columns.role")}
 					</Label>
@@ -82,7 +103,7 @@ export function UserRoleDialog({
 							setSelectedRole(value as "user" | "admin")
 						}
 					>
-						<SelectTrigger id="role-select">
+						<SelectTrigger id={`${moduleIdBase}-role-select`}>
 							<SelectValue />
 						</SelectTrigger>
 						<SelectContent>
@@ -94,9 +115,45 @@ export function UserRoleDialog({
 							</SelectItem>
 						</SelectContent>
 					</Select>
+
+					{selectedRole === "admin" && (
+						<div className="mt-4 space-y-3">
+							<Label className="block">
+								{t(
+									"superadmin.users.roleDialog.modules",
+									"Permissions Modulaires",
+								)}
+							</Label>
+							<div className="grid gap-2">
+								{ADMIN_MODULES.map((moduleId) => (
+									<Label
+										key={moduleId}
+										htmlFor={`${moduleIdBase}-${moduleId}`}
+										className="flex items-start gap-3 rounded-md border border-border p-3 cursor-pointer hover:bg-muted/50 transition-colors"
+									>
+										<Checkbox
+											id={`${moduleIdBase}-${moduleId}`}
+											checked={selectedModules.includes(moduleId)}
+											onCheckedChange={(checked) =>
+												toggleModule(moduleId, Boolean(checked))
+											}
+										/>
+										<div>
+											<p className="font-medium text-sm">
+												{ADMIN_MODULE_LABELS[moduleId].name}
+											</p>
+											<p className="text-xs text-muted-foreground">
+												{ADMIN_MODULE_LABELS[moduleId].description}
+											</p>
+										</div>
+									</Label>
+								))}
+							</div>
+						</div>
+					)}
 				</div>
 
-				<AlertDialogFooter>
+				<AlertDialogFooter className="mt-4">
 					<AlertDialogCancel disabled={isPending}>
 						{t("superadmin.users.roleDialog.cancel")}
 					</AlertDialogCancel>

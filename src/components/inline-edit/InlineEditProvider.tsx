@@ -21,6 +21,7 @@ export type InlineFieldType = "text" | "richtext" | "image" | "link";
  * - "full"    — All levels active
  */
 export type EditLevel = "off" | "design" | "content" | "images" | "full";
+export type PreviewMode = "desktop" | "mobile";
 
 export interface PendingInlineChange {
 	contentKey: string;
@@ -54,6 +55,10 @@ interface InlineEditContextValue {
 	isSaving: boolean;
 	/** True once the edit-mode state has been read from storage */
 	ready: boolean;
+	/** Current preview mode (desktop or mobile) */
+	previewMode: PreviewMode;
+	/** Switch preview mode */
+	setPreviewMode: (mode: PreviewMode) => void;
 }
 
 const InlineEditContext = createContext<InlineEditContextValue | null>(null);
@@ -70,6 +75,7 @@ export function InlineEditProvider({
 	const [pendingChanges, setPendingChanges] = useState<
 		Record<string, PendingInlineChange>
 	>({});
+	const [previewMode, setPreviewModeState] = useState<PreviewMode>("desktop");
 
 	const { mutate: updateContent, isPending: isSaving } = useConvexMutationQuery(
 		api.functions.inlineContent.updateContent,
@@ -107,6 +113,10 @@ export function InlineEditProvider({
 
 	const toggleEditMode = useCallback(() => {
 		setEditLevelState((prev) => (prev === "off" ? "full" : "off"));
+	}, []);
+
+	const setPreviewMode = useCallback((mode: PreviewMode) => {
+		setPreviewModeState(mode);
 	}, []);
 
 	const setPendingChange = useCallback((change: PendingInlineChange) => {
@@ -165,6 +175,8 @@ export function InlineEditProvider({
 			saveAll,
 			isSaving,
 			ready,
+			previewMode,
+			setPreviewMode,
 		}),
 		[
 			editLevel,
@@ -180,6 +192,8 @@ export function InlineEditProvider({
 			saveAll,
 			isSaving,
 			ready,
+			previewMode,
+			setPreviewMode,
 		],
 	);
 

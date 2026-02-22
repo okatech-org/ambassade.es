@@ -26,7 +26,9 @@ function App() {
 			{!isSectionHidden("news") && <NewsSection />}
 
 			{/* Inscription Consulaire CTA */}
-			{!isSectionHidden("cta") && <CitizenCTA />}
+			{!isSectionHidden("cta") && (
+				<CitizenCTA contentKeyPrefix="home.cta" pagePath="/" sectionId="cta" />
+			)}
 		</div>
 	);
 }

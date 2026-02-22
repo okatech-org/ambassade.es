@@ -116,7 +116,13 @@ function LeConsulatPage() {
 						>
 							<Badge className="mb-4 bg-primary/10 text-primary border-primary/20 backdrop-blur-sm">
 								<Building2 className="w-3.5 h-3.5 mr-1.5" />
-								{t("leConsulat.badge", "Institution Officielle")}
+								<EditableText
+									contentKey="consulat.hero.badge"
+									defaultValue={t("leConsulat.badge", "Institution Officielle")}
+									pagePath="/le-consulat"
+									sectionId="hero"
+									as="span"
+								/>
 							</Badge>
 
 							<EditableText
@@ -151,7 +157,16 @@ function LeConsulatPage() {
 								>
 									<a href="/services">
 										<FileText className="w-4 h-4 mr-2" />
-										{t("leConsulat.discoverServices", "Découvrir nos services")}
+										<EditableText
+											contentKey="consulat.hero.cta1"
+											defaultValue={t(
+												"leConsulat.discoverServices",
+												"Découvrir nos services",
+											)}
+											pagePath="/le-consulat"
+											sectionId="hero"
+											as="span"
+										/>
 									</a>
 								</Button>
 								<Button
@@ -162,7 +177,16 @@ function LeConsulatPage() {
 								>
 									<a href="/contact">
 										<MapPin className="w-4 h-4 mr-2" />
-										{t("leConsulat.contactUs", "Nous rendre visite")}
+										<EditableText
+											contentKey="consulat.hero.cta2"
+											defaultValue={t(
+												"leConsulat.contactUs",
+												"Nous rendre visite",
+											)}
+											pagePath="/le-consulat"
+											sectionId="hero"
+											as="span"
+										/>
 									</a>
 								</Button>
 							</div>
@@ -188,6 +212,9 @@ function LeConsulatPage() {
 							photoUrl={"/images/consul_general.jpg"}
 							email={consulGeneral?.email ?? "contact@consulatdugabon.fr"}
 							linkedIn={consulGeneral?.linkedIn}
+							contentKeyPrefix="consulat.consul"
+							pagePath="/le-consulat"
+							sectionId="consul"
 						/>
 					</EditableSection>
 
@@ -200,7 +227,16 @@ function LeConsulatPage() {
 										variant="outline"
 										className="mb-4 bg-background/50 backdrop-blur-sm"
 									>
-										{t("leConsulat.missionsBadge", "Ce que nous faisons")}
+										<EditableText
+											contentKey="consulat.missions.badge"
+											defaultValue={t(
+												"leConsulat.missionsBadge",
+												"Ce que nous faisons",
+											)}
+											pagePath="/le-consulat"
+											sectionId="missions"
+											as="span"
+										/>
 									</Badge>
 									<EditableText
 										contentKey="consulat.missions.title"
@@ -224,11 +260,11 @@ function LeConsulatPage() {
 								</div>
 
 								<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-									{missions.map((mission, index) => {
+									{missions.map((mission) => {
 										const Icon = mission.icon;
 										return (
 											<div
-												key={index}
+												key={mission.title}
 												className="group glass-card rounded-2xl p-5 md:p-8 hover:-translate-y-2 transition-all duration-300"
 											>
 												<div className="flex items-center gap-4 mb-6">
@@ -257,17 +293,36 @@ function LeConsulatPage() {
 								<div className="max-w-6xl mx-auto">
 									<div className="text-center mb-12">
 										<Badge variant="outline" className="mb-4">
-											{t("leConsulat.teamBadge", "Notre équipe")}
+											<EditableText
+												contentKey="consulat.team.badge"
+												defaultValue={t("leConsulat.teamBadge", "Notre équipe")}
+												pagePath="/le-consulat"
+												sectionId="team"
+												as="span"
+											/>
 										</Badge>
-										<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-											{t("leConsulat.teamTitle", "Les membres de notre équipe")}
-										</h2>
-										<p className="text-muted-foreground max-w-2xl mx-auto">
-											{t(
+										<EditableText
+											contentKey="consulat.team.title"
+											defaultValue={t(
+												"leConsulat.teamTitle",
+												"Les membres de notre équipe",
+											)}
+											pagePath="/le-consulat"
+											sectionId="team"
+											as="h2"
+											className="text-3xl md:text-4xl font-bold text-foreground mb-4"
+										/>
+										<EditableText
+											contentKey="consulat.team.subtitle"
+											defaultValue={t(
 												"leConsulat.teamSubtitle",
 												"Des professionnels dévoués à votre service",
 											)}
-										</p>
+											pagePath="/le-consulat"
+											sectionId="team"
+											as="p"
+											className="text-muted-foreground max-w-2xl mx-auto"
+										/>
 									</div>
 
 									<div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -290,7 +345,11 @@ function LeConsulatPage() {
 					</EditableSection>
 
 					<EditableSection sectionId="cta" label="Appel à l'action">
-						<CitizenCTA />
+						<CitizenCTA
+							pagePath="/le-consulat"
+							sectionId="cta"
+							contentKeyPrefix="consulat.cta"
+						/>
 					</EditableSection>
 				</SortableSectionList>
 			</div>

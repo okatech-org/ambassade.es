@@ -1,404 +1,489 @@
-"use client"
+"use client";
 
-import { createFileRoute, useNavigate } from '@tanstack/react-router'
-import { useTranslation } from 'react-i18next'
-import { useForm } from '@tanstack/react-form'
-import { useConvexMutationQuery } from '@/integrations/convex/hooks'
-import { api } from '@convex/_generated/api'
-import { toast } from 'sonner'
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
+import { useForm } from "@tanstack/react-form";
+import { useConvexMutationQuery } from "@/integrations/convex/hooks";
+import { api } from "@convex/_generated/api";
+import { toast } from "sonner";
 
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
+import { Button } from "@/components/ui/button";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-import { ServiceCategory } from '@convex/lib/validators'
-import { ArrowLeft, Plus, Trash2 } from 'lucide-react'
-import { useState } from 'react'
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
+import {
+	Field,
+	FieldError,
+	FieldGroup,
+	FieldLabel,
+} from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/components/ui/select";
+import { ServiceCategory } from "@convex/lib/validators";
+import { ArrowLeft, Plus, Trash2 } from "lucide-react";
+import { useState } from "react";
 
-export const Route = createFileRoute('/admin/services/new')({
-  component: NewServicePage,
-})
+export const Route = createFileRoute("/admin/services/new")({
+	component: NewServicePage,
+});
 
 interface RequiredDocument {
-  type: string
-  label: string
-  required: boolean
+	type: string;
+	label: string;
+	required: boolean;
 }
 
 function NewServicePage() {
-  const { t } = useTranslation()
-  const navigate = useNavigate()
-  const [documents, setDocuments] = useState<RequiredDocument[]>([])
-  
-  const { mutateAsync: createService, isPending } = useConvexMutationQuery(
-    api.functions.services.create
-  )
+	const { t } = useTranslation();
+	const navigate = useNavigate();
+	const [documents, setDocuments] = useState<RequiredDocument[]>([]);
 
-  const form = useForm({
-    defaultValues: {
-      slug: "",
-      nameFr: "",
-      nameEn: "",
-      descriptionFr: "",
-      descriptionEn: "",
-      category: ServiceCategory.Other as string,
-      icon: "",
-      formSchema: "{}",
-    },
-    onSubmit: async ({ value }) => {
-      if (!value.nameFr || value.nameFr.length < 3) {
-        toast.error(t("superadmin.organizations.form.error.nameLength"))
-        return
-      }
-      if (!value.slug || value.slug.length < 2) {
-        toast.error(t("superadmin.organizations.form.error.slugLength"))
-        return
-      }
-      if (!value.descriptionFr) {
-        toast.error(t("superadmin.services.form.description") + " (FR) " + t("superadmin.organizations.form.error.required"))
-        return
-      }
-      
-      let parsedSchema = undefined
-      try {
-        parsedSchema = value.formSchema ? JSON.parse(value.formSchema) : undefined
-      } catch (e) {
-        toast.error("Format JSON invalide pour le schéma")
-        return
-      }
+	const { mutateAsync: createService, isPending } = useConvexMutationQuery(
+		api.functions.services.create,
+	);
 
-      try {
-        await createService({
-          slug: value.slug,
-          // code: value.slug.toUpperCase(), // Removed as not in schema
-          title: value.nameFr,
-          titleEn: value.nameEn || undefined,
-          description: value.descriptionFr,
-          descriptionEn: value.descriptionEn || undefined,
-          category: value.category as string,
-          icon: value.icon || undefined,
-          formSchema: parsedSchema,
-          requiredDocuments: documents,
-          requirements: documents.map((d) => d.label), // Legacy support
-          delay: "7 jours", // Default
-          isOnline: true,
-          isActive: true,
-        })
-        toast.success(t("superadmin.services.form.success"))
-        navigate({ to: "/admin/services" })
-      } catch (error: any) {
-        const errorKey = error.message?.startsWith("errors.") ? error.message : null
-        toast.error(errorKey ? t(errorKey) : t("superadmin.common.error"))
-      }
-    },
-  })
+	const form = useForm({
+		defaultValues: {
+			slug: "",
+			nameFr: "",
+			nameEn: "",
+			descriptionFr: "",
+			descriptionEn: "",
+			category: ServiceCategory.Other as string,
+			icon: "",
+			formSchema: "{}",
+		},
+		onSubmit: async ({ value }) => {
+			if (!value.nameFr || value.nameFr.length < 3) {
+				toast.error(t("superadmin.organizations.form.error.nameLength"));
+				return;
+			}
+			if (!value.slug || value.slug.length < 2) {
+				toast.error(t("superadmin.organizations.form.error.slugLength"));
+				return;
+			}
+			if (!value.descriptionFr) {
+				toast.error(
+					t("superadmin.services.form.description") +
+						" (FR) " +
+						t("superadmin.organizations.form.error.required"),
+				);
+				return;
+			}
 
+			let parsedSchema = undefined;
+			try {
+				parsedSchema = value.formSchema
+					? JSON.parse(value.formSchema)
+					: undefined;
+			} catch (e) {
+				toast.error("Format JSON invalide pour le schéma");
+				return;
+			}
 
-  const handleNameChange = (name: string) => {
-    form.setFieldValue("nameFr", name)
-    const slug = name
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, "")
-    form.setFieldValue("slug", slug)
-  }
+			try {
+				await createService({
+					slug: value.slug,
+					// code: value.slug.toUpperCase(), // Removed as not in schema
+					title: value.nameFr,
+					titleEn: value.nameEn || undefined,
+					description: value.descriptionFr,
+					descriptionEn: value.descriptionEn || undefined,
+					category: value.category as string,
+					icon: value.icon || undefined,
+					formSchema: parsedSchema,
+					requiredDocuments: documents,
+					requirements: documents.map((d) => d.label), // Legacy support
+					delay: "7 jours", // Default
+					isOnline: true,
+					isActive: true,
+				});
+				toast.success(t("superadmin.services.form.success"));
+				navigate({ to: "/admin/services" });
+			} catch (error: any) {
+				const errorKey = error.message?.startsWith("errors.")
+					? error.message
+					: null;
+				toast.error(errorKey ? t(errorKey) : t("superadmin.common.error"));
+			}
+		},
+	});
 
-  const addDocument = () => {
-    setDocuments([...documents, { type: "document", label: "", required: true }])
-  }
+	const handleNameChange = (name: string) => {
+		form.setFieldValue("nameFr", name);
+		const slug = name
+			.toLowerCase()
+			.normalize("NFD")
+			.replace(/[\u0300-\u036f]/g, "")
+			.replace(/[^a-z0-9]+/g, "-")
+			.replace(/^-|-$/g, "");
+		form.setFieldValue("slug", slug);
+	};
 
-  const updateDocument = (index: number, field: keyof RequiredDocument, value: string | boolean) => {
-    const newDocs = [...documents]
-    // @ts-ignore
-    newDocs[index] = { ...newDocs[index], [field]: value }
-    setDocuments(newDocs)
-  }
+	const addDocument = () => {
+		setDocuments([
+			...documents,
+			{ type: "document", label: "", required: true },
+		]);
+	};
 
-  const removeDocument = (index: number) => {
-    setDocuments(documents.filter((_, i) => i !== index))
-  }
+	const updateDocument = (
+		index: number,
+		field: keyof RequiredDocument,
+		value: string | boolean,
+	) => {
+		const newDocs = [...documents];
+		// @ts-ignore
+		newDocs[index] = { ...newDocs[index], [field]: value };
+		setDocuments(newDocs);
+	};
 
-  return (
-    <div className="flex flex-1 flex-col gap-4 p-4 pt-6">
-      <div className="flex items-center gap-4">
-        <Button variant="ghost" size="sm" onClick={() => navigate({ to: "/admin/services" })}>
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          {t("superadmin.common.back")}
-        </Button>
-      </div>
+	const removeDocument = (index: number) => {
+		setDocuments(documents.filter((_, i) => i !== index));
+	};
 
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">
-            {t("superadmin.services.form.create")}
-          </h1>
-          <p className="text-muted-foreground">
-            {t("superadmin.services.description")}
-          </p>
-        </div>
-      </div>
+	return (
+		<div className="flex flex-1 flex-col gap-4 p-4 pt-6">
+			<div className="flex items-center gap-4">
+				<Button
+					variant="ghost"
+					size="sm"
+					onClick={() => navigate({ to: "/admin/services" })}
+				>
+					<ArrowLeft className="mr-2 h-4 w-4" />
+					{t("superadmin.common.back")}
+				</Button>
+			</div>
 
-      <Card className="max-w-2xl">
-        <CardHeader>
-          <CardTitle>{t("superadmin.services.form.create")}</CardTitle>
-          <CardDescription>
-            {t("superadmin.services.description")}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form
-            id="service-form"
-            onSubmit={(e) => {
-              e.preventDefault()
-              form.handleSubmit()
-            }}
-          >
-            <FieldGroup>
-              {/* Name FR */}
-              <form.Field
-                name="nameFr"
-                children={(field) => {
-                  const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
-                  return (
-                    <Field data-invalid={isInvalid}>
-                      <FieldLabel htmlFor={field.name}>
-                        {t("superadmin.services.form.name")} (FR)
-                      </FieldLabel>
-                      <Input
-                        id={field.name}
-                        name={field.name}
-                        value={field.state.value}
-                        onBlur={field.handleBlur}
-                        onChange={(e) => handleNameChange(e.target.value)}
-                        placeholder={t("superadmin.organizations.form.namePlaceholder")}
-                        autoComplete="off"
-                      />
-                      {isInvalid && <FieldError errors={field.state.meta.errors} />}
-                    </Field>
-                  )
-                }}
-              />
+			<div className="flex items-center justify-between">
+				<div>
+					<h1 className="text-3xl font-bold tracking-tight">
+						{t("superadmin.services.form.create")}
+					</h1>
+					<p className="text-muted-foreground">
+						{t("superadmin.services.description")}
+					</p>
+				</div>
+			</div>
 
-              {/* Name EN */}
-              <form.Field
-                name="nameEn"
-                children={(field) => (
-                    <Field>
-                      <FieldLabel htmlFor={field.name}>
-                        {t("superadmin.services.form.name")} (EN)
-                      </FieldLabel>
-                      <Input
-                        id={field.name}
-                        name={field.name}
-                        value={field.state.value}
-                        onBlur={field.handleBlur}
-                        onChange={(e) => field.handleChange(e.target.value)}
-                        placeholder="ex. Passport application"
-                        autoComplete="off"
-                      />
-                    </Field>
-                )}
-              />
+			<Card className="max-w-2xl">
+				<CardHeader>
+					<CardTitle>{t("superadmin.services.form.create")}</CardTitle>
+					<CardDescription>
+						{t("superadmin.services.description")}
+					</CardDescription>
+				</CardHeader>
+				<CardContent>
+					<form
+						id="service-form"
+						onSubmit={(e) => {
+							e.preventDefault();
+							form.handleSubmit();
+						}}
+					>
+						<FieldGroup>
+							{/* Name FR */}
+							<form.Field
+								name="nameFr"
+								children={(field) => {
+									const isInvalid =
+										field.state.meta.isTouched && !field.state.meta.isValid;
+									return (
+										<Field data-invalid={isInvalid}>
+											<FieldLabel htmlFor={field.name}>
+												{t("superadmin.services.form.name")} (FR)
+											</FieldLabel>
+											<Input
+												id={field.name}
+												name={field.name}
+												value={field.state.value}
+												onBlur={field.handleBlur}
+												onChange={(e) => handleNameChange(e.target.value)}
+												placeholder={t(
+													"superadmin.organizations.form.namePlaceholder",
+												)}
+												autoComplete="off"
+											/>
+											{isInvalid && (
+												<FieldError errors={field.state.meta.errors} />
+											)}
+										</Field>
+									);
+								}}
+							/>
 
-              {/* Slug */}
-              <form.Field
-                name="slug"
-                children={(field) => {
-                  const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
-                  return (
-                    <Field data-invalid={isInvalid}>
-                      <FieldLabel htmlFor={field.name}>
-                        {t("superadmin.services.form.slug")}
-                      </FieldLabel>
-                      <Input
-                        id={field.name}
-                        name={field.name}
-                        value={field.state.value}
-                        onBlur={field.handleBlur}
-                        onChange={(e) => field.handleChange(e.target.value)}
-                        placeholder="demande-passeport"
-                        autoComplete="off"
-                      />
-                      <p className="text-xs text-muted-foreground">
-                        {t("superadmin.organizations.form.slugHelp")}
-                      </p>
-                      {isInvalid && <FieldError errors={field.state.meta.errors} />}
-                    </Field>
-                  )
-                }}
-              />
+							{/* Name EN */}
+							<form.Field
+								name="nameEn"
+								children={(field) => (
+									<Field>
+										<FieldLabel htmlFor={field.name}>
+											{t("superadmin.services.form.name")} (EN)
+										</FieldLabel>
+										<Input
+											id={field.name}
+											name={field.name}
+											value={field.state.value}
+											onBlur={field.handleBlur}
+											onChange={(e) => field.handleChange(e.target.value)}
+											placeholder="ex. Passport application"
+											autoComplete="off"
+										/>
+									</Field>
+								)}
+							/>
 
-              {/* Category */}
-              <form.Field
-                name="category"
-                children={(field) => (
-                  <Field>
-                    <FieldLabel>{t("superadmin.services.form.category")}</FieldLabel>
-                    <Select
-                      value={field.state.value}
-                      onValueChange={(value) => field.handleChange(value)}
-                    >
-                      <SelectTrigger>
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="identity">{t("superadmin.services.categories.passport")}</SelectItem>
-                        <SelectItem value="visa">{t("superadmin.services.categories.visa")}</SelectItem>
-                        <SelectItem value="civil_status">{t("superadmin.services.categories.civil_status")}</SelectItem>
-                        <SelectItem value="registration">{t("superadmin.services.categories.registration")}</SelectItem>
-                        <SelectItem value="certification">{t("superadmin.services.categories.legalization")}</SelectItem>
-                        <SelectItem value="assistance">{t("superadmin.services.categories.emergency")}</SelectItem>
-                        <SelectItem value="other">{t("superadmin.services.categories.other")}</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </Field>
-                )}
-              />
+							{/* Slug */}
+							<form.Field
+								name="slug"
+								children={(field) => {
+									const isInvalid =
+										field.state.meta.isTouched && !field.state.meta.isValid;
+									return (
+										<Field data-invalid={isInvalid}>
+											<FieldLabel htmlFor={field.name}>
+												{t("superadmin.services.form.slug")}
+											</FieldLabel>
+											<Input
+												id={field.name}
+												name={field.name}
+												value={field.state.value}
+												onBlur={field.handleBlur}
+												onChange={(e) => field.handleChange(e.target.value)}
+												placeholder="demande-passeport"
+												autoComplete="off"
+											/>
+											<p className="text-xs text-muted-foreground">
+												{t("superadmin.organizations.form.slugHelp")}
+											</p>
+											{isInvalid && (
+												<FieldError errors={field.state.meta.errors} />
+											)}
+										</Field>
+									);
+								}}
+							/>
 
-              {/* Description FR */}
-              <form.Field
-                name="descriptionFr"
-                children={(field) => {
-                  const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
-                  return (
-                    <Field data-invalid={isInvalid}>
-                      <FieldLabel htmlFor={field.name}>
-                        {t("superadmin.services.form.description")} (FR) - <span className="text-xs font-normal text-muted-foreground">Supporte le Markdown (gras, liens, listes...)</span>
-                      </FieldLabel>
-                      <Textarea
-                        id={field.name}
-                        name={field.name}
-                        value={field.state.value}
-                        onBlur={field.handleBlur}
-                        onChange={(e) => field.handleChange(e.target.value)}
-                        rows={3}
-                        placeholder={t("superadmin.services.form.description")}
-                      />
-                      {isInvalid && <FieldError errors={field.state.meta.errors} />}
-                    </Field>
-                  )
-                }}
-              />
+							{/* Category */}
+							<form.Field
+								name="category"
+								children={(field) => (
+									<Field>
+										<FieldLabel>
+											{t("superadmin.services.form.category")}
+										</FieldLabel>
+										<Select
+											value={field.state.value}
+											onValueChange={(value) => field.handleChange(value)}
+										>
+											<SelectTrigger>
+												<SelectValue />
+											</SelectTrigger>
+											<SelectContent>
+												<SelectItem value="identity">
+													{t("superadmin.services.categories.passport")}
+												</SelectItem>
+												<SelectItem value="visa">
+													{t("superadmin.services.categories.visa")}
+												</SelectItem>
+												<SelectItem value="civil_status">
+													{t("superadmin.services.categories.civil_status")}
+												</SelectItem>
+												<SelectItem value="registration">
+													{t("superadmin.services.categories.registration")}
+												</SelectItem>
+												<SelectItem value="certification">
+													{t("superadmin.services.categories.legalization")}
+												</SelectItem>
+												<SelectItem value="assistance">
+													{t("superadmin.services.categories.emergency")}
+												</SelectItem>
+												<SelectItem value="other">
+													{t("superadmin.services.categories.other")}
+												</SelectItem>
+											</SelectContent>
+										</Select>
+									</Field>
+								)}
+							/>
 
-              {/* Description EN */}
-              <form.Field
-                name="descriptionEn"
-                children={(field) => (
-                    <Field>
-                      <FieldLabel htmlFor={field.name}>
-                        {t("superadmin.services.form.description")} (EN)
-                      </FieldLabel>
-                      <Textarea
-                        id={field.name}
-                        name={field.name}
-                        value={field.state.value}
-                        onBlur={field.handleBlur}
-                        onChange={(e) => field.handleChange(e.target.value)}
-                        rows={3}
-                        placeholder={t("superadmin.services.form.description")}
-                      />
-                    </Field>
-                )}
-              />
-              
-              {/* Extra Components */}
-              <div className="grid grid-cols-2 gap-4">
-                 <form.Field
-                    name="icon"
-                    children={(field) => (
-                       <Field>
-                          <FieldLabel>{t("superadmin.services.form.icon")}</FieldLabel>
-                          <Input value={field.state.value} onChange={e => field.handleChange(e.target.value)} />
-                       </Field>
-                    )}
-                 />
-                 <div />
-              </div>
+							{/* Description FR */}
+							<form.Field
+								name="descriptionFr"
+								children={(field) => {
+									const isInvalid =
+										field.state.meta.isTouched && !field.state.meta.isValid;
+									return (
+										<Field data-invalid={isInvalid}>
+											<FieldLabel htmlFor={field.name}>
+												{t("superadmin.services.form.description")} (FR) -{" "}
+												<span className="text-xs font-normal text-muted-foreground">
+													Supporte le Markdown (gras, liens, listes...)
+												</span>
+											</FieldLabel>
+											<Textarea
+												id={field.name}
+												name={field.name}
+												value={field.state.value}
+												onBlur={field.handleBlur}
+												onChange={(e) => field.handleChange(e.target.value)}
+												rows={3}
+												placeholder={t("superadmin.services.form.description")}
+											/>
+											{isInvalid && (
+												<FieldError errors={field.state.meta.errors} />
+											)}
+										</Field>
+									);
+								}}
+							/>
 
-              <form.Field
-                name="formSchema"
-                children={(field) => (
-                   <Field>
-                      <FieldLabel>{t("superadmin.services.form.schema")}</FieldLabel>
-                      <Textarea 
-                        value={field.state.value} 
-                        onChange={e => field.handleChange(e.target.value)} 
-                        className="font-mono text-xs"
-                        rows={5}
-                      />
-                   </Field>
-                )}
-              />
+							{/* Description EN */}
+							<form.Field
+								name="descriptionEn"
+								children={(field) => (
+									<Field>
+										<FieldLabel htmlFor={field.name}>
+											{t("superadmin.services.form.description")} (EN)
+										</FieldLabel>
+										<Textarea
+											id={field.name}
+											name={field.name}
+											value={field.state.value}
+											onBlur={field.handleBlur}
+											onChange={(e) => field.handleChange(e.target.value)}
+											rows={3}
+											placeholder={t("superadmin.services.form.description")}
+										/>
+									</Field>
+								)}
+							/>
 
-              {/* Required Documents */}
-              <div className="pt-4">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-medium">{t("superadmin.services.form.requiredDocuments")}</h3>
-                  <Button type="button" variant="outline" size="sm" onClick={addDocument}>
-                    <Plus className="mr-2 h-4 w-4" />
-                    {t("superadmin.services.form.addDocument")}
-                  </Button>
-                </div>
-                
-                {documents.length === 0 ? (
-                  <p className="text-sm text-muted-foreground text-center py-4 border rounded-md">
-                    {t("superadmin.services.form.noDocuments")}
-                  </p>
-                ) : (
-                  <div className="space-y-3">
-                    {documents.map((doc, index) => (
-                      <div key={index} className="flex gap-2 items-start p-3 border rounded-md">
-                        <div className="flex-1 grid gap-2">
-                          <Input
-                            placeholder={t("superadmin.services.form.documentName")}
-                            value={doc.label}
-                            onChange={(e) => updateDocument(index, "label", e.target.value)}
-                          />
-                          <Input
-                            placeholder="Type (ex: pdf, image)"
-                            value={doc.type}
-                            onChange={(e) => updateDocument(index, "type", e.target.value)}
-                          />
-                        </div>
-                        <Button
-                          type="button"
-                          variant="ghost"
-                          size="icon"
-                          onClick={() => removeDocument(index)}
-                        >
-                          <Trash2 className="h-4 w-4 text-destructive" />
-                        </Button>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </FieldGroup>
-          </form>
-        </CardContent>
-        <CardFooter className="flex justify-between">
-          <Button
-            type="button"
-            variant="outline"
-            onClick={() => navigate({ to: "/admin/services" })}
-          >
-            {t("superadmin.services.form.cancel")}
-          </Button>
-          <Button type="submit" form="service-form" disabled={isPending}>
-            {isPending ? t("superadmin.organizations.form.saving") : t("superadmin.services.form.save")}
-          </Button>
-        </CardFooter>
-      </Card>
-    </div>
-  )
+							{/* Extra Components */}
+							<div className="grid grid-cols-2 gap-4">
+								<form.Field
+									name="icon"
+									children={(field) => (
+										<Field>
+											<FieldLabel>
+												{t("superadmin.services.form.icon")}
+											</FieldLabel>
+											<Input
+												value={field.state.value}
+												onChange={(e) => field.handleChange(e.target.value)}
+											/>
+										</Field>
+									)}
+								/>
+								<div />
+							</div>
+
+							<form.Field
+								name="formSchema"
+								children={(field) => (
+									<Field>
+										<FieldLabel>
+											{t("superadmin.services.form.schema")}
+										</FieldLabel>
+										<Textarea
+											value={field.state.value}
+											onChange={(e) => field.handleChange(e.target.value)}
+											className="font-mono text-xs"
+											rows={5}
+										/>
+									</Field>
+								)}
+							/>
+
+							{/* Required Documents */}
+							<div className="pt-4">
+								<div className="flex items-center justify-between mb-3">
+									<h3 className="font-medium">
+										{t("superadmin.services.form.requiredDocuments")}
+									</h3>
+									<Button
+										type="button"
+										variant="outline"
+										size="sm"
+										onClick={addDocument}
+									>
+										<Plus className="mr-2 h-4 w-4" />
+										{t("superadmin.services.form.addDocument")}
+									</Button>
+								</div>
+
+								{documents.length === 0 ? (
+									<p className="text-sm text-muted-foreground text-center py-4 border rounded-md">
+										{t("superadmin.services.form.noDocuments")}
+									</p>
+								) : (
+									<div className="space-y-3">
+										{documents.map((doc, index) => (
+											<div
+												key={index}
+												className="flex gap-2 items-start p-3 border rounded-md"
+											>
+												<div className="flex-1 grid gap-2">
+													<Input
+														placeholder={t(
+															"superadmin.services.form.documentName",
+														)}
+														value={doc.label}
+														onChange={(e) =>
+															updateDocument(index, "label", e.target.value)
+														}
+													/>
+													<Input
+														placeholder="Type (ex: pdf, image)"
+														value={doc.type}
+														onChange={(e) =>
+															updateDocument(index, "type", e.target.value)
+														}
+													/>
+												</div>
+												<Button
+													type="button"
+													variant="ghost"
+													size="icon"
+													onClick={() => removeDocument(index)}
+												>
+													<Trash2 className="h-4 w-4 text-destructive" />
+												</Button>
+											</div>
+										))}
+									</div>
+								)}
+							</div>
+						</FieldGroup>
+					</form>
+				</CardContent>
+				<CardFooter className="flex justify-between">
+					<Button
+						type="button"
+						variant="outline"
+						onClick={() => navigate({ to: "/admin/services" })}
+					>
+						{t("superadmin.services.form.cancel")}
+					</Button>
+					<Button type="submit" form="service-form" disabled={isPending}>
+						{isPending
+							? t("superadmin.organizations.form.saving")
+							: t("superadmin.services.form.save")}
+					</Button>
+				</CardFooter>
+			</Card>
+		</div>
+	);
 }

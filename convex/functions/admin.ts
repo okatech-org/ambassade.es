@@ -5,7 +5,7 @@ import {
   moduleQuery,
   systemAdminMutation,
 } from "../lib/customFunctions";
-import { adminModuleValidator } from "../lib/adminPermissions";
+import { adminModuleValidator, pagePermissionValidator } from "../lib/adminPermissions";
 import { error, ErrorCode } from "../lib/errors";
 import { getUserRole } from "../lib/auth";
 import { logAudit } from "../lib/audit";
@@ -267,5 +267,97 @@ export const deleteUser = moduleMutation("users")({
       targetId: args.userId,
       details: { email: target.email, name: target.name },
     });
+  },
+});
+
+// ── Create user (system_admin only) ──────────────────────────────────────────
+
+/**
+ * System-admin: create a managed user (placeholder until Clerk login).
+ */
+export const createManagedUser = systemAdminMutation({
+  args: {
+    email: v.string(),
+    name: v.string(),
+    role: v.union(v.literal("user"), v.literal("admin")),
+    poste: v.optional(v.string()),
+    allowedModules: v.optional(v.array(adminModuleValidator)),
+    pagePermissions: v.optional(v.array(pagePermissionValidator)),
+  },
+  handler: async (ctx, args) => {
+    const email = args.email.trim().toLowerCase();
+
+    // Check for existing user
+    const existing = await ctx.db
+      .query("users")
+      .withIndex("by_email", (q) => q.eq("email", email))
+      .unique();
+    if (existing) {
+      throw error(ErrorCode.PROFILE_ALREADY_EXISTS, `Un utilisateur avec l'email ${email} existe déjà.`);
+    }
+
+    const userId = await ctx.db.insert("users", {
+      externalId: `managed_${email}`,
+      email,
+      name: args.name.trim(),
+      isActive: true,
+      role: args.role,
+      poste: args.poste?.trim() || undefined,
+      allowedModules: args.role === "admin" ? args.allowedModules ?? [] : undefined,
+      pagePermissions: args.role === "admin" ? args.pagePermissions : undefined,
+      updatedAt: Date.now(),
+    });
+
+    await logAudit(ctx, {
+      userId: ctx.user._id,
+      userName: ctx.user.name,
+      action: "create_managed_user",
+      targetType: "user",
+      targetId: userId,
+      details: { email, name: args.name, role: args.role },
+    });
+
+    return userId;
+  },
+});
+
+// ── Update page permissions (system_admin only) ──────────────────────────────
+
+/**
+ * System-admin: update granular page permissions for a user.
+ */
+export const updateUserPagePermissions = systemAdminMutation({
+  args: {
+    userId: v.id("users"),
+    pagePermissions: v.array(pagePermissionValidator),
+  },
+  handler: async (ctx, args) => {
+    const target = await ctx.db.get(args.userId);
+    if (!target) throw error(ErrorCode.USER_NOT_FOUND);
+    if (getUserRole(target) === "system_admin") {
+      throw error(
+        ErrorCode.INSUFFICIENT_PERMISSIONS,
+        "Les permissions du system admin ne peuvent pas être modifiées.",
+      );
+    }
+
+    await ctx.db.patch(args.userId, {
+      pagePermissions: args.pagePermissions,
+      updatedAt: Date.now(),
+    });
+
+    await logAudit(ctx, {
+      userId: ctx.user._id,
+      userName: ctx.user.name,
+      action: "update_user_page_permissions",
+      targetType: "user",
+      targetId: args.userId,
+      details: {
+        email: target.email,
+        pagePermissions: args.pagePermissions,
+      },
+    });
+
+    return true;
   },
 });

@@ -4,7 +4,9 @@ import { v } from "convex/values";
 export const sectionVisibilityTable = defineTable({
   pagePath: v.string(),
   sectionId: v.string(),
-  hidden: v.boolean(),
+  hidden: v.optional(v.boolean()), // Legacy/global visibility
+  hiddenDesktop: v.optional(v.boolean()),
+  hiddenMobile: v.optional(v.boolean()),
   lastEditedBy: v.optional(v.id("users")),
   lastEditedAt: v.optional(v.number()),
 })

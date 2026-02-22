@@ -1,6 +1,6 @@
 import { api } from "@convex/_generated/api";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useQuery } from "convex/react";
+import { useMutation, useQuery } from "convex/react";
 import {
 	ArrowRight,
 	Calendar,
@@ -14,8 +14,10 @@ import {
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { CitizenCTA } from "@/components/home/CitizenCTA";
+import { EditableEntityText } from "@/components/inline-edit/EditableEntityText";
 import { EditablePostImage } from "@/components/inline-edit/EditablePostImage";
 import { EditableSection } from "@/components/inline-edit/EditableSection";
+import { EditableText } from "@/components/inline-edit/EditableText";
 import { SortableSectionList } from "@/components/inline-edit/SortableSectionList";
 import { PageHero } from "@/components/PageHero";
 import { Badge } from "@/components/ui/badge";
@@ -101,6 +103,7 @@ function ActualitesPage() {
 	const { t, i18n } = useTranslation();
 	const lang = i18n.language;
 	const [activeFilter, setActiveFilter] = useState("all");
+	const updatePost = useMutation(api.functions.posts.update);
 	const posts = useQuery(api.functions.posts.list, {
 		paginationOpts: { numItems: 20, cursor: null },
 	});
@@ -134,19 +137,42 @@ function ActualitesPage() {
 							className="mb-4 bg-primary/10 text-primary border-primary/20 backdrop-blur-sm"
 						>
 							<Newspaper className="w-3.5 h-3.5 mr-1.5" />
-							{t("news.badge", "Espace Presse")}
+							<EditableText
+								contentKey="actualites.hero.badge"
+								defaultValue={t("news.badge", "Espace Presse")}
+								pagePath="/actualites"
+								sectionId="hero"
+								as="span"
+							/>
 						</Badge>
 						<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-							{t("news.pageTitle", "Actualités")}{" "}
-							<span className="text-gradient">&</span>{" "}
-							{t("news.pageTitleHighlight", "Événements")}
+							<EditableText
+								contentKey="actualites.hero.title"
+								defaultValue={t("news.pageTitle", "Actualités")}
+								pagePath="/actualites"
+								sectionId="hero"
+								as="span"
+							/>{" "}
+							<EditableText
+								contentKey="actualites.hero.titleHighlight"
+								defaultValue={t("news.pageTitleHighlight", "Événements")}
+								pagePath="/actualites"
+								sectionId="hero"
+								as="span"
+								className="text-gradient"
+							/>
 						</h1>
-						<p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-							{t(
+						<EditableText
+							contentKey="actualites.hero.description"
+							defaultValue={t(
 								"news.pageDescription",
 								"Retrouvez les dernières actualités, communiqués et événements du Consulat Général du Gabon en France.",
 							)}
-						</p>
+							pagePath="/actualites"
+							sectionId="hero"
+							as="p"
+							className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+						/>
 
 						{/* Quick stats */}
 						{!isLoading && posts.page.length > 0 && (
@@ -186,10 +212,18 @@ function ActualitesPage() {
 									const Icon = filter.icon;
 									const isActive = activeFilter === filter.key;
 									const count = postCounts?.[filter.key] || 0;
-									const label = t(
-										`newsPage.filters.${filter.key}`,
-										filter.key === "all" ? "All" : filter.key,
-									);
+									const label =
+										filter.key === "all" ? (
+											<EditableText
+												contentKey="actualites.filters.all"
+												defaultValue={t("newsPage.filters.all", "Tous")}
+												pagePath="/actualites"
+												sectionId="filters"
+												as="span"
+											/>
+										) : (
+											t(`newsPage.filters.${filter.key}`, filter.key)
+										);
 									return (
 										<button
 											type="button"
@@ -249,12 +283,23 @@ function ActualitesPage() {
 										<Newspaper className="w-10 h-10 text-primary/40" />
 									</div>
 									<h3 className="text-xl font-bold mb-3 text-foreground">
-										{activeFilter === "all"
-											? t("news.empty", "Aucune actualité pour le moment.")
-											: t(
-													"newsPage.noFilterResults",
-													`Aucun ${categoryColors[activeFilter] ? t(`news.categories.${activeFilter}`) : "article"} pour le moment.`,
+										{activeFilter === "all" ? (
+											<EditableText
+												contentKey="actualites.content.noResults"
+												defaultValue={t(
+													"news.empty",
+													"Aucune actualité pour le moment.",
 												)}
+												pagePath="/actualites"
+												sectionId="content"
+												as="span"
+											/>
+										) : (
+											t(
+												"newsPage.noFilterResults",
+												`Aucun ${categoryColors[activeFilter] ? t(`news.categories.${activeFilter}`) : "article"} pour le moment.`,
+											)
+										)}
 									</h3>
 									<p className="text-muted-foreground mb-8 max-w-md mx-auto">
 										{t(
@@ -341,12 +386,42 @@ function ActualitesPage() {
 														</div>
 													</div>
 													<div className="p-6">
-														<h2 className="font-bold text-xl text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-3">
-															{post.title}
-														</h2>
-														<p className="text-muted-foreground line-clamp-3 mb-4 text-sm leading-relaxed">
-															{post.excerpt}
-														</p>
+														<EditableEntityText
+															value={post.title}
+															onSave={async (v) => {
+																await updatePost({
+																	id: post._id,
+																	title: v,
+																	slug: post.slug,
+																	excerpt: post.excerpt,
+																	content: post.content,
+																	category: post.category,
+																	status: post.status,
+																});
+															}}
+															pagePath={`/actualites/${post.slug}`}
+															sectionId="content"
+															as="h2"
+															className="font-bold text-xl text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-3"
+														/>
+														<EditableEntityText
+															value={post.excerpt}
+															onSave={async (v) => {
+																await updatePost({
+																	id: post._id,
+																	title: post.title,
+																	slug: post.slug,
+																	excerpt: v,
+																	content: post.content,
+																	category: post.category,
+																	status: post.status,
+																});
+															}}
+															pagePath={`/actualites/${post.slug}`}
+															sectionId="content"
+															as="p"
+															className="text-muted-foreground line-clamp-3 mb-4 text-sm leading-relaxed"
+														/>
 														<div className="flex items-center justify-between pt-4 border-t border-border/30">
 															<div className="flex items-center text-xs text-muted-foreground font-medium">
 																<Calendar className="w-3.5 h-3.5 mr-1.5 text-primary" />
@@ -379,14 +454,25 @@ function ActualitesPage() {
 							<div className="glass-panel p-10 md:p-16 rounded-3xl border-primary/20 shadow-2xl shadow-primary/5">
 								<Megaphone className="w-12 h-12 text-primary mx-auto mb-6" />
 								<h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-									{t("news.cta.title", "Restez informé")}
+									<EditableText
+										contentKey="actualites.cta.title"
+										defaultValue={t("news.cta.title", "Restez informé")}
+										pagePath="/actualites"
+										sectionId="cta"
+										as="span"
+									/>
 								</h2>
-								<p className="text-muted-foreground mb-10 text-lg max-w-2xl mx-auto leading-relaxed">
-									{t(
+								<EditableText
+									contentKey="actualites.cta.description"
+									defaultValue={t(
 										"news.cta.description",
 										"Suivez-nous sur nos réseaux sociaux et consultez régulièrement cette page pour ne rien manquer des actualités du Consulat.",
 									)}
-								</p>
+									pagePath="/actualites"
+									sectionId="cta"
+									as="p"
+									className="text-muted-foreground mb-10 text-lg max-w-2xl mx-auto leading-relaxed"
+								/>
 								<div className="flex flex-wrap justify-center gap-6">
 									<Button
 										size="lg"
@@ -395,7 +481,13 @@ function ActualitesPage() {
 									>
 										<Link to="/contact">
 											<MapPin className="w-5 h-5 mr-2" />
-											{t("news.cta.contact", "Nous contacter")}
+											<EditableText
+												contentKey="actualites.cta.button"
+												defaultValue={t("news.cta.contact", "Nous contacter")}
+												pagePath="/actualites"
+												sectionId="cta"
+												as="span"
+											/>
 										</Link>
 									</Button>
 									<Button
@@ -416,7 +508,11 @@ function ActualitesPage() {
 				</EditableSection>
 
 				<EditableSection sectionId="citizen-cta" label="Appel citoyen">
-					<CitizenCTA />
+					<CitizenCTA
+						pagePath="/actualites"
+						sectionId="citizen-cta"
+						contentKeyPrefix="actualites.citizenCta"
+					/>
 				</EditableSection>
 			</SortableSectionList>
 		</div>

@@ -43,6 +43,10 @@ export const getSettings = systemAdminQuery({
       siteName: settings?.siteName ?? "Consulat.ga",
       adminEmail: settings?.adminEmail ?? "contact@consulatdugabon.fr",
       hasUniversalPassword: !!settings?.universalPassword,
+      enableWaf: settings?.enableWaf ?? false,
+      enableAiProtection: settings?.enableAiProtection ?? false,
+      underAttackMode: settings?.underAttackMode ?? false,
+      blockedIps: settings?.blockedIps ?? [],
       updatedAt: settings?.updatedAt ?? null,
     };
   },
@@ -102,6 +106,44 @@ export const setUniversalPassword = systemAdminMutation({
       targetType: "settings",
       targetId: settings._id,
       details: {},
+    });
+
+    return true;
+  },
+});
+
+/**
+ * System admin: update advanced network and AI security.
+ */
+export const updateSecurityConfig = systemAdminMutation({
+  args: {
+    enableWaf: v.optional(v.boolean()),
+    enableAiProtection: v.optional(v.boolean()),
+    underAttackMode: v.optional(v.boolean()),
+    blockedIps: v.optional(v.array(v.string())),
+  },
+  handler: async (ctx, args) => {
+    const settings = await getOrCreateSettings(ctx);
+
+    const patch: Record<string, unknown> = { updatedAt: Date.now(), updatedBy: ctx.user._id };
+    if (args.enableWaf !== undefined) patch.enableWaf = args.enableWaf;
+    if (args.enableAiProtection !== undefined) patch.enableAiProtection = args.enableAiProtection;
+    if (args.underAttackMode !== undefined) patch.underAttackMode = args.underAttackMode;
+    if (args.blockedIps !== undefined) patch.blockedIps = args.blockedIps;
+
+    await ctx.db.patch(settings._id, patch);
+
+    await logAudit(ctx, {
+      userId: ctx.user._id,
+      userName: ctx.user.name,
+      action: "update_security_config",
+      targetType: "settings",
+      targetId: settings._id,
+      details: {
+        waf: args.enableWaf,
+        ai: args.enableAiProtection,
+        underAttack: args.underAttackMode,
+      },
     });
 
     return true;

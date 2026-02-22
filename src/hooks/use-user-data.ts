@@ -1,11 +1,16 @@
 import { useConvexAuth } from "convex/react";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useImpersonation } from "@/components/admin/ImpersonationProvider";
 import {
 	useConvexMutationQuery,
 	useConvexQuery,
 } from "@/integrations/convex/hooks";
 import type { AdminModule } from "@/lib/admin-modules";
 import { api } from "../../convex/_generated/api";
+import type {
+	PageAction,
+	PagePermission,
+} from "../../convex/lib/adminPermissions";
 
 export function useUserData() {
 	const { isAuthenticated, isLoading } = useConvexAuth();
@@ -16,6 +21,9 @@ export function useUserData() {
 		isPending: ensurePending,
 		error: ensureError,
 	} = useConvexMutationQuery(api.functions.users.ensureUser);
+
+	// Impersonation overlay
+	const { isImpersonating, impersonatedUser } = useImpersonation();
 
 	useEffect(() => {
 		if (!isAuthenticated) {
@@ -37,7 +45,7 @@ export function useUserData() {
 	}, [isAuthenticated, ensureUser]);
 
 	const {
-		data: userData,
+		data: realUserData,
 		isPending: userPending,
 		error,
 	} = useConvexQuery(
@@ -45,21 +53,55 @@ export function useUserData() {
 		isAuthenticated && ensureCompleted ? {} : "skip",
 	);
 
-	const role = userData?.role ?? "user";
-	const allowedModules = userData?.allowedModules ?? [];
+	// Real user values (always based on the actual logged-in user)
+	const realRole = realUserData?.role ?? "user";
+	const realIsSystemAdmin = realRole === "system_admin";
+	const realIsAdmin = realRole === "admin" || realIsSystemAdmin;
+
+	// Effective values: use impersonated data when active, else real data
+	const effectiveData =
+		isImpersonating && impersonatedUser ? impersonatedUser : realUserData;
+
+	const role = effectiveData?.role ?? "user";
+	const allowedModules = (effectiveData?.allowedModules ?? []) as AdminModule[];
+	const pagePermissions =
+		(effectiveData?.pagePermissions as PagePermission[] | undefined) ?? [];
 	const isSystemAdmin = role === "system_admin";
 	const isAdmin = role === "admin" || isSystemAdmin;
 	const hasModule = (moduleId: AdminModule) =>
 		isSystemAdmin || allowedModules.includes(moduleId);
 
+	/** Check if user can perform a specific action on a page/section */
+	const hasPageAction = useCallback(
+		(pageSlug: string, action: PageAction, sectionId?: string): boolean => {
+			if (isSystemAdmin) return true;
+			if (!pagePermissions.length) return false;
+			const perm = pagePermissions.find((p) => p.pageSlug === pageSlug);
+			if (!perm) return false;
+			if (!perm.actions.includes(action)) return false;
+			if (sectionId && perm.sections && perm.sections.length > 0) {
+				return perm.sections.includes(sectionId);
+			}
+			return true;
+		},
+		[isSystemAdmin, pagePermissions],
+	);
+
 	return {
-		userData,
+		userData: effectiveData,
+		realUserData, // always the real logged-in user
 		role,
 		allowedModules,
+		pagePermissions,
 		isSystemAdmin,
 		isAdmin,
+		// For admin route access check, always use real user
+		realIsAdmin,
+		realIsSystemAdmin,
 		isSuperAdmin: isSystemAdmin, // backward-compat
+		isImpersonating,
 		hasModule,
+		hasPageAction,
 		isPending:
 			isLoading ||
 			(isAuthenticated && !ensureCompleted) ||

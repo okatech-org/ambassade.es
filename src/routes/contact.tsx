@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Info, Mail, MapPin, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { CitizenCTA } from "@/components/home/CitizenCTA";
+import { EditableText } from "@/components/inline-edit/EditableText";
 import { PageHero } from "@/components/PageHero";
 import { Badge } from "@/components/ui/badge";
 import { useSectionVisibility } from "@/hooks/useSectionVisibility";
@@ -23,20 +24,42 @@ function ContactPage() {
 						variant="secondary"
 						className="mb-4 bg-primary/10 text-primary border-primary/20 backdrop-blur-sm"
 					>
-						{t("header.nav.contact", "Contact")}
+						<EditableText
+							contentKey="contact.hero.badge"
+							defaultValue={t("header.nav.contact", "Contact")}
+							pagePath="/contact"
+							sectionId="hero"
+							as="span"
+						/>
 					</Badge>
 					<h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
-						{t("contact.title", "Nous")}{" "}
-						<span className="text-gradient hover:animate-shimmer bg-[length:200%_auto]">
-							{t("contact.titleHighlight", "contacter")}
-						</span>
+						<EditableText
+							contentKey="contact.hero.title"
+							defaultValue={t("contact.title", "Nous")}
+							pagePath="/contact"
+							sectionId="hero"
+							as="span"
+						/>{" "}
+						<EditableText
+							contentKey="contact.hero.titleHighlight"
+							defaultValue={t("contact.titleHighlight", "contacter")}
+							pagePath="/contact"
+							sectionId="hero"
+							as="span"
+							className="text-gradient hover:animate-shimmer bg-[length:200%_auto]"
+						/>
 					</h1>
-					<p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
-						{t(
+					<EditableText
+						contentKey="contact.hero.description"
+						defaultValue={t(
 							"contact.subtitle",
 							"Retrouvez toutes les informations pour nous joindre et vous rendre au Consulat.",
 						)}
-					</p>
+						pagePath="/contact"
+						sectionId="hero"
+						as="p"
+						className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed"
+					/>
 				</PageHero>
 			)}
 
@@ -66,12 +89,22 @@ function ContactPage() {
 													<MapPin className="w-5 h-5 text-primary" />
 												</div>
 												<div>
-													<p className="text-foreground font-medium">
-														26 bis Avenue Raphaël
-													</p>
-													<p className="text-muted-foreground">
-														75016 Paris, France
-													</p>
+													<EditableText
+														contentKey="contact.info.address1"
+														defaultValue="26 bis Avenue Raphaël"
+														pagePath="/contact"
+														sectionId="info"
+														as="p"
+														className="text-foreground font-medium"
+													/>
+													<EditableText
+														contentKey="contact.info.address2"
+														defaultValue="75016 Paris, France"
+														pagePath="/contact"
+														sectionId="info"
+														as="p"
+														className="text-muted-foreground"
+													/>
 												</div>
 											</div>
 											<div className="flex items-start gap-3 group">
@@ -88,13 +121,25 @@ function ContactPage() {
 																href="tel:+33142996862"
 																className="text-foreground font-medium hover:text-primary transition-colors"
 															>
-																01 42 99 68 62
+																<EditableText
+																	contentKey="contact.info.phoneStandard1"
+																	defaultValue="01 42 99 68 62"
+																	pagePath="/contact"
+																	sectionId="info"
+																	as="span"
+																/>
 															</a>
 															<a
 																href="tel:+33751025292"
 																className="text-foreground font-medium hover:text-primary transition-colors"
 															>
-																07 51 02 52 92
+																<EditableText
+																	contentKey="contact.info.phoneStandard2"
+																	defaultValue="07 51 02 52 92"
+																	pagePath="/contact"
+																	sectionId="info"
+																	as="span"
+																/>
 															</a>
 														</div>
 													</div>
@@ -107,13 +152,25 @@ function ContactPage() {
 																href="tel:+33759485895"
 																className="text-foreground font-medium hover:text-primary transition-colors"
 															>
-																07 59 48 58 95
+																<EditableText
+																	contentKey="contact.info.phoneEtatCivil1"
+																	defaultValue="07 59 48 58 95"
+																	pagePath="/contact"
+																	sectionId="info"
+																	as="span"
+																/>
 															</a>
 															<a
 																href="tel:+33759302637"
 																className="text-foreground font-medium hover:text-primary transition-colors"
 															>
-																07 59 30 26 37
+																<EditableText
+																	contentKey="contact.info.phoneEtatCivil2"
+																	defaultValue="07 59 30 26 37"
+																	pagePath="/contact"
+																	sectionId="info"
+																	as="span"
+																/>
 															</a>
 														</div>
 													</div>
@@ -125,7 +182,13 @@ function ContactPage() {
 															href="tel:+33744239584"
 															className="text-red-600 dark:text-red-400 font-bold hover:text-red-700 dark:hover:text-red-300 transition-colors"
 														>
-															07 44 23 95 84
+															<EditableText
+																contentKey="contact.info.phoneUrgence"
+																defaultValue="07 44 23 95 84"
+																pagePath="/contact"
+																sectionId="info"
+																as="span"
+															/>
 														</a>
 													</div>
 												</div>
@@ -138,7 +201,13 @@ function ContactPage() {
 													href="mailto:contact@consulatdugabon.fr"
 													className="text-foreground hover:text-primary transition-colors font-medium break-all underline decoration-border hover:decoration-primary underline-offset-4"
 												>
-													contact@consulatdugabon.fr
+													<EditableText
+														contentKey="contact.info.email"
+														defaultValue="contact@consulatdugabon.fr"
+														pagePath="/contact"
+														sectionId="info"
+														as="span"
+													/>
 												</a>
 											</div>
 										</div>
@@ -151,9 +220,17 @@ function ContactPage() {
 										<div className="space-y-3 text-sm">
 											<div className="p-3 rounded-xl bg-muted/30 border border-border/40">
 												<div className="flex justify-between items-center mb-1">
-													<span className="text-muted-foreground">
-														{t("contact.weekdays", "Lundi - Vendredi")}
-													</span>
+													<EditableText
+														contentKey="contact.horaires.jours"
+														defaultValue={t(
+															"contact.weekdays",
+															"Lundi - Vendredi",
+														)}
+														pagePath="/contact"
+														sectionId="horaires"
+														as="span"
+														className="text-muted-foreground"
+													/>
 													<Badge
 														variant="outline"
 														className="bg-primary/5 text-primary border-primary/20"
@@ -161,15 +238,31 @@ function ContactPage() {
 														{t("contact.deposit", "Dépôt")}
 													</Badge>
 												</div>
-												<p className="font-bold text-lg text-foreground">
-													{t("contact.depositHoursValue", "9h00 - 15h00")}
-												</p>
+												<EditableText
+													contentKey="contact.horaires.depot"
+													defaultValue={t(
+														"contact.depositHoursValue",
+														"9h00 - 15h00",
+													)}
+													pagePath="/contact"
+													sectionId="horaires"
+													as="p"
+													className="font-bold text-lg text-foreground"
+												/>
 											</div>
 											<div className="p-3 rounded-xl bg-muted/30 border border-border/40">
 												<div className="flex justify-between items-center mb-1">
-													<span className="text-muted-foreground">
-														{t("contact.weekdays", "Lundi - Vendredi")}
-													</span>
+													<EditableText
+														contentKey="contact.horaires.jours"
+														defaultValue={t(
+															"contact.weekdays",
+															"Lundi - Vendredi",
+														)}
+														pagePath="/contact"
+														sectionId="horaires"
+														as="span"
+														className="text-muted-foreground"
+													/>
 													<Badge
 														variant="outline"
 														className="bg-primary/5 text-primary border-primary/20"
@@ -177,18 +270,30 @@ function ContactPage() {
 														{t("contact.pickup", "Retrait")}
 													</Badge>
 												</div>
-												<p className="font-bold text-lg text-foreground">
-													{t("contact.pickupHoursValue", "15h00 - 16h30")}
-												</p>
+												<EditableText
+													contentKey="contact.horaires.retrait"
+													defaultValue={t(
+														"contact.pickupHoursValue",
+														"15h00 - 16h30",
+													)}
+													pagePath="/contact"
+													sectionId="horaires"
+													as="p"
+													className="font-bold text-lg text-foreground"
+												/>
 											</div>
 											<div className="flex items-start gap-2 mt-4 text-xs text-muted-foreground bg-accent/5 p-3 rounded-lg border border-accent/10">
 												<Info className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-												<span>
-													{t(
+												<EditableText
+													contentKey="contact.horaires.fermeture"
+													defaultValue={t(
 														"contact.closedHolidays",
 														"Fermé les jours fériés chômés au Gabon et en France.",
 													)}
-												</span>
+													pagePath="/contact"
+													sectionId="horaires"
+													as="span"
+												/>
 											</div>
 										</div>
 									</div>
@@ -226,15 +331,25 @@ function ContactPage() {
 											M9
 										</div>
 										<div>
-											<p className="font-bold text-foreground">
-												{t("contact.metro", "Métro Ligne 9")}
-											</p>
-											<p className="text-xs text-muted-foreground">
-												{t(
+											<EditableText
+												contentKey="contact.transport.metro"
+												defaultValue={t("contact.metro", "Métro Ligne 9")}
+												pagePath="/contact"
+												sectionId="transport"
+												as="p"
+												className="font-bold text-foreground"
+											/>
+											<EditableText
+												contentKey="contact.transport.metroStop"
+												defaultValue={t(
 													"contact.metroStop",
 													"Arrêt Ranelagh (5 min à pied)",
 												)}
-											</p>
+												pagePath="/contact"
+												sectionId="transport"
+												as="p"
+												className="text-xs text-muted-foreground"
+											/>
 										</div>
 									</div>
 									<div className="flex items-center gap-4 p-3 rounded-xl bg-background/50 border border-border/50">
@@ -242,10 +357,22 @@ function ContactPage() {
 											BUS
 										</div>
 										<div>
-											<p className="font-bold text-foreground">Bus 22, 52</p>
-											<p className="text-xs text-muted-foreground">
-												{t("contact.busStop", "Arrêt Ranelagh")}
-											</p>
+											<EditableText
+												contentKey="contact.transport.bus"
+												defaultValue="Bus 22, 52"
+												pagePath="/contact"
+												sectionId="transport"
+												as="p"
+												className="font-bold text-foreground"
+											/>
+											<EditableText
+												contentKey="contact.transport.busStop"
+												defaultValue={t("contact.busStop", "Arrêt Ranelagh")}
+												pagePath="/contact"
+												sectionId="transport"
+												as="p"
+												className="text-xs text-muted-foreground"
+											/>
 										</div>
 									</div>
 									<div className="flex items-center gap-4 p-3 rounded-xl bg-background/50 border border-border/50">
@@ -253,15 +380,25 @@ function ContactPage() {
 											P
 										</div>
 										<div>
-											<p className="font-bold text-foreground">
-												{t("contact.parking", "Stationnement")}
-											</p>
-											<p className="text-xs text-muted-foreground">
-												{t(
+											<EditableText
+												contentKey="contact.transport.parking"
+												defaultValue={t("contact.parking", "Stationnement")}
+												pagePath="/contact"
+												sectionId="transport"
+												as="p"
+												className="font-bold text-foreground"
+											/>
+											<EditableText
+												contentKey="contact.transport.parkingDesc"
+												defaultValue={t(
 													"contact.parkingDesc",
 													"Parking payant sur voie publique",
 												)}
-											</p>
+												pagePath="/contact"
+												sectionId="transport"
+												as="p"
+												className="text-xs text-muted-foreground"
+											/>
 										</div>
 									</div>
 								</div>
@@ -271,7 +408,9 @@ function ContactPage() {
 				</div>
 			</div>
 
-			{!isSectionHidden("citizen-cta") && <CitizenCTA />}
+			{!isSectionHidden("citizen-cta") && (
+				<CitizenCTA pagePath="/contact" sectionId="citizen-cta" />
+			)}
 		</div>
 	);
 }

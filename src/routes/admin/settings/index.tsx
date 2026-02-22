@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery } from "convex/react";
 import {
 	Bell,
+	Bot,
 	Check,
 	Eye,
 	EyeOff,
@@ -11,15 +12,21 @@ import {
 	KeyRound,
 	Loader2,
 	Mail,
+	Radar,
 	Save,
+	ServerCrash,
 	Settings2,
 	Shield,
 	ShieldAlert,
+	ShieldBan,
 	ShieldCheck,
 	Trash2,
+	X,
 } from "lucide-react";
 import { useEffect, useId, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { toast } from "sonner";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -31,6 +38,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
+import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const Route = createFileRoute("/admin/settings/")({
@@ -41,18 +49,18 @@ function SettingsPage() {
 	const { t } = useTranslation();
 
 	return (
-		<div className="flex flex-1 flex-col gap-6 p-4 md:p-6 pt-6">
+		<div className="flex flex-1 flex-col gap-6 p-4 md:p-8 pt-6 max-w-[1600px] mx-auto w-full">
 			{/* Page Header */}
-			<div>
+			<div className="flex items-center justify-between mb-2">
 				<div className="flex items-center gap-3 mb-1">
-					<div className="p-2.5 rounded-xl bg-primary/10">
-						<Settings2 className="w-6 h-6 text-primary" />
+					<div className="p-2.5 rounded-xl bg-primary/10 text-primary">
+						<Settings2 className="w-6 h-6" />
 					</div>
 					<div>
-						<h1 className="text-2xl md:text-3xl font-bold tracking-tight">
+						<h1 className="text-3xl md:text-4xl font-bold tracking-tight text-gradient">
 							{t("superadmin.settings.title")}
 						</h1>
-						<p className="text-sm text-muted-foreground">
+						<p className="text-sm text-muted-foreground mt-1 font-medium">
 							{t("superadmin.settings.description")}
 						</p>
 					</div>
@@ -60,16 +68,25 @@ function SettingsPage() {
 			</div>
 
 			<Tabs defaultValue="general" className="space-y-6">
-				<TabsList className="h-12 p-1 w-full md:w-auto">
-					<TabsTrigger value="general" className="gap-2 px-4 h-10">
+				<TabsList className="h-12 p-1 w-full md:w-auto glass-card border-none bg-muted/50 rounded-xl">
+					<TabsTrigger
+						value="general"
+						className="gap-2 px-4 h-10 data-[state=active]:bg-background data-[state=active]:shadow-sm rounded-lg transition-all"
+					>
 						<Globe className="w-4 h-4" />
 						{t("superadmin.settings.tabs.general")}
 					</TabsTrigger>
-					<TabsTrigger value="notifications" className="gap-2 px-4 h-10">
+					<TabsTrigger
+						value="notifications"
+						className="gap-2 px-4 h-10 data-[state=active]:bg-background data-[state=active]:shadow-sm rounded-lg transition-all"
+					>
 						<Bell className="w-4 h-4" />
 						{t("superadmin.settings.tabs.notifications")}
 					</TabsTrigger>
-					<TabsTrigger value="security" className="gap-2 px-4 h-10">
+					<TabsTrigger
+						value="security"
+						className="gap-2 px-4 h-10 data-[state=active]:bg-background data-[state=active]:shadow-sm rounded-lg transition-all"
+					>
 						<Shield className="w-4 h-4" />
 						{t("superadmin.settings.tabs.security")}
 					</TabsTrigger>
@@ -87,6 +104,7 @@ function SettingsPage() {
 
 				{/* ─── Security Tab ──────────────────────────────── */}
 				<TabsContent value="security" className="space-y-6">
+					<NetworkSecurityPanel />
 					<UniversalPasswordTab />
 				</TabsContent>
 			</Tabs>
@@ -140,7 +158,7 @@ function GeneralSettingsTab() {
 	return (
 		<div className="grid gap-6 lg:grid-cols-2">
 			{/* Site Name Card */}
-			<Card>
+			<Card className="glass-card">
 				<CardHeader>
 					<div className="flex items-center gap-2">
 						<div className="p-1.5 rounded-lg bg-blue-500/10">
@@ -170,7 +188,7 @@ function GeneralSettingsTab() {
 			</Card>
 
 			{/* Admin Email Card */}
-			<Card>
+			<Card className="glass-card">
 				<CardHeader>
 					<div className="flex items-center gap-2">
 						<div className="p-1.5 rounded-lg bg-violet-500/10">
@@ -296,7 +314,7 @@ function NotificationsTab() {
 			{/* Notification Cards */}
 			<div className="grid gap-4">
 				{Object.entries(prefs).map(([key, pref]) => (
-					<Card key={key}>
+					<Card key={key} className="glass-card">
 						<CardContent className="flex items-center gap-4 py-4 px-5">
 							<span className="text-2xl shrink-0">{pref.icon}</span>
 							<div className="flex-1 min-w-0">
@@ -368,6 +386,261 @@ function NotificationsTab() {
 					</span>
 				)}
 			</div>
+		</div>
+	);
+}
+
+// ─── Network Security Panel ──────────────────────────────────────────────────
+
+function NetworkSecurityPanel() {
+	const settings = useQuery(api.functions.siteSettings.getSettings);
+	const updateSecurity = useMutation(
+		api.functions.siteSettings.updateSecurityConfig,
+	);
+
+	const [enableWaf, setEnableWaf] = useState(false);
+	const [enableAiProtection, setEnableAiProtection] = useState(false);
+	const [underAttackMode, setUnderAttackMode] = useState(false);
+	const [blockedIps, setBlockedIps] = useState<string[]>([]);
+	const [newIp, setNewIp] = useState("");
+	const [isSaving, setIsSaving] = useState(false);
+
+	useEffect(() => {
+		if (settings) {
+			setEnableWaf(settings.enableWaf ?? false);
+			setEnableAiProtection(settings.enableAiProtection ?? false);
+			setUnderAttackMode(settings.underAttackMode ?? false);
+			setBlockedIps(settings.blockedIps ?? []);
+		}
+	}, [settings]);
+
+	const handleSave = async (overrides?: {
+		enableWaf?: boolean;
+		enableAiProtection?: boolean;
+		underAttackMode?: boolean;
+		blockedIps?: string[];
+	}) => {
+		setIsSaving(true);
+		try {
+			await updateSecurity({
+				enableWaf,
+				enableAiProtection,
+				underAttackMode,
+				blockedIps,
+				...overrides,
+			});
+			toast.success("Paramètres de sécurité mis à jour");
+		} catch (_error) {
+			toast.error("Erreur lors de la mise à jour");
+		} finally {
+			setIsSaving(false);
+		}
+	};
+
+	const handleAddIp = () => {
+		if (!newIp.trim() || blockedIps.includes(newIp.trim())) return;
+		const updatedIps = [...blockedIps, newIp.trim()];
+		setBlockedIps(updatedIps);
+		setNewIp("");
+		handleSave({ blockedIps: updatedIps });
+	};
+
+	const handleRemoveIp = (ipToRemove: string) => {
+		const updatedIps = blockedIps.filter((ip) => ip !== ipToRemove);
+		setBlockedIps(updatedIps);
+		handleSave({ blockedIps: updatedIps });
+	};
+
+	if (!settings) return null;
+
+	return (
+		<div className="grid gap-6 lg:grid-cols-2 lg:col-span-2">
+			<Card className="glass-card shadow-sm border-primary/10">
+				<CardHeader className="pb-4">
+					<div className="flex items-center gap-2">
+						<div className="p-1.5 rounded-lg bg-indigo-500/10 text-indigo-500">
+							<ShieldBan className="w-5 h-5" />
+						</div>
+						<div>
+							<CardTitle className="text-base text-indigo-950 dark:text-indigo-100">
+								Moteur de Protection (WAF & IA)
+							</CardTitle>
+							<CardDescription className="text-xs">
+								Sécurisez le trafic entrant contre les menaces
+							</CardDescription>
+						</div>
+					</div>
+				</CardHeader>
+				<CardContent className="space-y-6">
+					<div className="flex flex-col gap-4">
+						{/* WAF Toggle */}
+						<div className="flex items-center justify-between rounded-lg border p-4 hover:bg-muted/50 transition-colors">
+							<div className="space-y-0.5">
+								<div className="flex items-center gap-2">
+									<Label className="text-sm font-medium">
+										Pare-feu Applicatif (WAF)
+									</Label>
+									<Badge
+										variant="outline"
+										className="text-[10px] h-4 leading-4 px-1"
+									>
+										Standard
+									</Badge>
+								</div>
+								<p className="text-xs text-muted-foreground w-[90%] leading-relaxed">
+									Analyse les requêtes HTTP et bloque les injections SQL, XSS,
+									et exploits communs.
+								</p>
+							</div>
+							<Switch
+								checked={enableWaf}
+								onCheckedChange={(checked) => {
+									setEnableWaf(checked);
+									handleSave({ enableWaf: checked });
+								}}
+								disabled={isSaving}
+							/>
+						</div>
+
+						{/* AI Protection Toggle */}
+						<div className="flex items-center justify-between rounded-lg border p-4 hover:bg-muted/50 transition-colors">
+							<div className="space-y-0.5">
+								<div className="flex items-center gap-2">
+									<Label className="text-sm font-medium">
+										Protection IA Google
+									</Label>
+									<Badge className="bg-blue-500/10 text-blue-600 hover:bg-blue-500/20 text-[10px] h-4 leading-4 px-1 border-none shadow-none">
+										Cloud Armor
+									</Badge>
+								</div>
+								<p className="text-xs text-muted-foreground w-[90%] leading-relaxed">
+									Utilise le machine learning pour identifier et bloquer le
+									trafic botnet, le scraping massif et les anomalies.
+								</p>
+							</div>
+							<div className="flex items-center gap-3">
+								<Bot
+									className={`w-5 h-5 transition-colors ${
+										enableAiProtection ? "text-blue-500" : "text-muted/30"
+									}`}
+								/>
+								<Switch
+									checked={enableAiProtection}
+									onCheckedChange={(checked) => {
+										setEnableAiProtection(checked);
+										handleSave({ enableAiProtection: checked });
+									}}
+									disabled={isSaving}
+								/>
+							</div>
+						</div>
+
+						{/* Under Attack Mode Toggle */}
+						<div className="flex items-center justify-between rounded-lg border-rose-500/20 bg-rose-500/5 p-4 hover:bg-rose-500/10 transition-colors mt-2">
+							<div className="space-y-0.5">
+								<div className="flex items-center gap-2">
+									<Label className="text-sm font-bold text-rose-600 dark:text-rose-400">
+										Mode Under Attack
+									</Label>
+									<Badge
+										variant="destructive"
+										className="text-[10px] h-4 leading-4 px-1 flex gap-1 items-center"
+									>
+										<ServerCrash className="w-2.5 h-2.5" />
+										DDoS
+									</Badge>
+								</div>
+								<p className="text-xs text-rose-600/70 dark:text-rose-400/70 w-[90%] leading-relaxed font-medium">
+									Active une vérification CAPTCHA/JS challenge sévère pour TOUS
+									les visiteurs. À n'utiliser qu'en cas d'attaque par déni de
+									service.
+								</p>
+							</div>
+							<Switch
+								checked={underAttackMode}
+								onCheckedChange={(checked) => {
+									setUnderAttackMode(checked);
+									handleSave({ underAttackMode: checked });
+								}}
+								disabled={isSaving}
+								className="data-[state=checked]:bg-rose-500"
+							/>
+						</div>
+					</div>
+				</CardContent>
+			</Card>
+
+			<Card className="glass-card shadow-sm border-primary/10">
+				<CardHeader className="pb-4">
+					<div className="flex items-center gap-2">
+						<div className="p-1.5 rounded-lg bg-orange-500/10 text-orange-500">
+							<Radar className="w-5 h-5" />
+						</div>
+						<div>
+							<CardTitle className="text-base text-orange-950 dark:text-orange-100">
+								Filtrage & Liste Noire (IP)
+							</CardTitle>
+							<CardDescription className="text-xs">
+								Bloquez explicitement l'accès à certaines adresses
+							</CardDescription>
+						</div>
+					</div>
+				</CardHeader>
+				<CardContent className="space-y-4">
+					<div className="flex gap-2">
+						<Input
+							placeholder="Adresse IP (ex: 192.168.1.1)"
+							value={newIp}
+							onChange={(e) => setNewIp(e.target.value)}
+							onKeyDown={(e) => {
+								if (e.key === "Enter") {
+									e.preventDefault();
+									handleAddIp();
+								}
+							}}
+							className="h-9 text-sm"
+							disabled={isSaving}
+						/>
+						<Button
+							size="sm"
+							onClick={handleAddIp}
+							disabled={!newIp.trim() || isSaving}
+							className="h-9 px-4 shrink-0"
+						>
+							Bloquer
+						</Button>
+					</div>
+
+					<div className="rounded-md border bg-muted/20 h-[220px] overflow-y-auto">
+						{blockedIps.length === 0 ? (
+							<div className="h-full flex flex-col items-center justify-center text-muted-foreground gap-2">
+								<ShieldCheck className="w-8 h-8 opacity-20" />
+								<p className="text-xs">Aucune adresse IP bloquée</p>
+							</div>
+						) : (
+							<ul className="divide-y divide-border/50">
+								{blockedIps.map((ip) => (
+									<li
+										key={ip}
+										className="flex items-center justify-between p-3 hover:bg-muted/50 transition-colors group"
+									>
+										<span className="text-sm font-mono">{ip}</span>
+										<Button
+											variant="ghost"
+											size="icon"
+											onClick={() => handleRemoveIp(ip)}
+											disabled={isSaving}
+											className="h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground hover:text-destructive hover:bg-destructive/10"
+										>
+											<X className="h-3 w-3" />
+										</Button>
+									</li>
+								))}
+							</ul>
+						)}
+					</div>
+				</CardContent>
+			</Card>
 		</div>
 	);
 }
@@ -497,7 +770,7 @@ function UniversalPasswordTab() {
 			</Card>
 
 			{/* Password Form — 2 cols */}
-			<Card className="lg:col-span-2">
+			<Card className="lg:col-span-2 glass-card">
 				<CardHeader>
 					<div className="flex items-center gap-2">
 						<div className="p-1.5 rounded-lg bg-primary/10">

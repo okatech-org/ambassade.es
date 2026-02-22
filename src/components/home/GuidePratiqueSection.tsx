@@ -1,273 +1,366 @@
-import { useRef, useState, useEffect } from 'react'
-import { Link } from '@tanstack/react-router'
-import { useTranslation } from 'react-i18next'
+import { Link } from "@tanstack/react-router";
 import {
-  GraduationCap,
-  Heart,
-  Home,
-  Briefcase,
-  Scale,
-  Baby,
-  ArrowRight,
-  BookOpen,
-  CheckCircle2,
-} from 'lucide-react'
-import { Badge } from '../ui/badge'
-import { Button } from '../ui/button'
+	ArrowRight,
+	Baby,
+	BookOpen,
+	Briefcase,
+	CheckCircle2,
+	GraduationCap,
+	Heart,
+	Home,
+	Scale,
+} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { EditableText } from "../inline-edit/EditableText";
+import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
 
 const guides = [
-  {
-    icon: Home,
-    titleKey: 'guidePratique.logement.title',
-    descKey: 'guidePratique.logement.desc',
-    defaultTitle: 'Logement',
-    defaultDesc:
-      'Trouver un logement, aides au logement (APL/ALS), droits des locataires et démarches administratives.',
-    color: 'text-[#1a5dab]',
-    bg: 'bg-[#1a5dab]/10',
-    border: 'border-[#1a5dab]/20',
-    tag: 'Vie quotidienne',
-    anchor: 'logement',
-    featureKeys: ['guidePratique.features.logement1', 'guidePratique.features.logement2', 'guidePratique.features.logement3'],
-    featureDefaults: ['Recherche de logement', 'APL / ALS', 'Garantie Visale'],
-    image: '/images/guide-logement.png',
-  },
-  {
-    icon: Heart,
-    titleKey: 'guidePratique.sante.title',
-    descKey: 'guidePratique.sante.desc',
-    defaultTitle: 'Santé & Protection sociale',
-    defaultDesc:
-      'Inscription à la Sécurité sociale, mutuelle, accès aux soins et droits à la couverture maladie.',
-    color: 'text-[#ea4335]',
-    bg: 'bg-[#ea4335]/10',
-    border: 'border-[#ea4335]/20',
-    tag: 'Santé',
-    anchor: 'sante',
-    featureKeys: ['guidePratique.features.sante1', 'guidePratique.features.sante2', 'guidePratique.features.sante3'],
-    featureDefaults: ['Sécurité sociale', 'Mutuelle', 'CMU-C / ACS'],
-    image: '/images/guide-sante.png',
-  },
-  {
-    icon: GraduationCap,
-    titleKey: 'guidePratique.education.title',
-    descKey: 'guidePratique.education.desc',
-    defaultTitle: 'Éducation & Formation',
-    defaultDesc:
-      "Inscription scolaire, bourses d'études, reconnaissance des diplômes gabonais et formation professionnelle.",
-    color: 'text-[#34a853]',
-    bg: 'bg-[#34a853]/10',
-    border: 'border-[#34a853]/20',
-    tag: 'Éducation',
-    anchor: 'education',
-    featureKeys: ['guidePratique.features.education1', 'guidePratique.features.education2', 'guidePratique.features.education3'],
-    featureDefaults: ['Inscription scolaire', 'Bourses CROUS', 'Équivalence diplômes'],
-    image: '/images/guide-education.png',
-  },
-  {
-    icon: Briefcase,
-    titleKey: 'guidePratique.emploi.title',
-    descKey: 'guidePratique.emploi.desc',
-    defaultTitle: 'Emploi & Entrepreneuriat',
-    defaultDesc:
-      "Recherche d'emploi, création d'entreprise, titre de séjour autorisant le travail et aides à l'emploi.",
-    color: 'text-[#f9ab00]',
-    bg: 'bg-[#f9ab00]/10',
-    border: 'border-[#f9ab00]/20',
-    tag: 'Emploi',
-    anchor: 'emploi',
-    featureKeys: ['guidePratique.features.emploi1', 'guidePratique.features.emploi2', 'guidePratique.features.emploi3'],
-    featureDefaults: ['Pôle Emploi', 'Auto-entrepreneur', 'Titre de travail'],
-    image: '/images/guide-emploi.png',
-  },
-  {
-    icon: Scale,
-    titleKey: 'guidePratique.droits.title',
-    descKey: 'guidePratique.droits.desc',
-    defaultTitle: 'Droits & Titre de séjour',
-    defaultDesc:
-      'Renouvellement de titre de séjour, regroupement familial, naturalisation et aide juridique gratuite.',
-    color: 'text-[#1a73e8]',
-    bg: 'bg-[#1a73e8]/10',
-    border: 'border-[#1a73e8]/20',
-    tag: 'Juridique',
-    anchor: 'droits',
-    featureKeys: ['guidePratique.features.droits1', 'guidePratique.features.droits2', 'guidePratique.features.droits3'],
-    featureDefaults: ['Titre de séjour', 'Regroupement familial', 'Naturalisation'],
-    image: '/images/guide-droits.png',
-  },
-  {
-    icon: Baby,
-    titleKey: 'guidePratique.famille.title',
-    descKey: 'guidePratique.famille.desc',
-    defaultTitle: 'Famille & Enfants',
-    defaultDesc:
-      "Déclaration de naissance, allocations familiales, garde d'enfants et transcription d'actes d'état civil.",
-    color: 'text-[#d93025]',
-    bg: 'bg-[#d93025]/10',
-    border: 'border-[#d93025]/20',
-    tag: 'Famille',
-    anchor: 'famille',
-    featureKeys: ['guidePratique.features.famille1', 'guidePratique.features.famille2', 'guidePratique.features.famille3'],
-    featureDefaults: ['Naissance', 'Allocations CAF', 'Garde enfants'],
-    image: '/images/guide-famille.png',
-  },
-]
+	{
+		icon: Home,
+		titleKey: "guidePratique.logement.title",
+		descKey: "guidePratique.logement.desc",
+		defaultTitle: "Logement",
+		defaultDesc:
+			"Trouver un logement, aides au logement (APL/ALS), droits des locataires et démarches administratives.",
+		color: "text-[#1a5dab]",
+		bg: "bg-[#1a5dab]/10",
+		border: "border-[#1a5dab]/20",
+		tag: "Vie quotidienne",
+		anchor: "logement",
+		featureKeys: [
+			"guidePratique.features.logement1",
+			"guidePratique.features.logement2",
+			"guidePratique.features.logement3",
+		],
+		featureDefaults: ["Recherche de logement", "APL / ALS", "Garantie Visale"],
+		image: "/images/guide-logement.png",
+	},
+	{
+		icon: Heart,
+		titleKey: "guidePratique.sante.title",
+		descKey: "guidePratique.sante.desc",
+		defaultTitle: "Santé & Protection sociale",
+		defaultDesc:
+			"Inscription à la Sécurité sociale, mutuelle, accès aux soins et droits à la couverture maladie.",
+		color: "text-[#ea4335]",
+		bg: "bg-[#ea4335]/10",
+		border: "border-[#ea4335]/20",
+		tag: "Santé",
+		anchor: "sante",
+		featureKeys: [
+			"guidePratique.features.sante1",
+			"guidePratique.features.sante2",
+			"guidePratique.features.sante3",
+		],
+		featureDefaults: ["Sécurité sociale", "Mutuelle", "CMU-C / ACS"],
+		image: "/images/guide-sante.png",
+	},
+	{
+		icon: GraduationCap,
+		titleKey: "guidePratique.education.title",
+		descKey: "guidePratique.education.desc",
+		defaultTitle: "Éducation & Formation",
+		defaultDesc:
+			"Inscription scolaire, bourses d'études, reconnaissance des diplômes gabonais et formation professionnelle.",
+		color: "text-[#34a853]",
+		bg: "bg-[#34a853]/10",
+		border: "border-[#34a853]/20",
+		tag: "Éducation",
+		anchor: "education",
+		featureKeys: [
+			"guidePratique.features.education1",
+			"guidePratique.features.education2",
+			"guidePratique.features.education3",
+		],
+		featureDefaults: [
+			"Inscription scolaire",
+			"Bourses CROUS",
+			"Équivalence diplômes",
+		],
+		image: "/images/guide-education.png",
+	},
+	{
+		icon: Briefcase,
+		titleKey: "guidePratique.emploi.title",
+		descKey: "guidePratique.emploi.desc",
+		defaultTitle: "Emploi & Entrepreneuriat",
+		defaultDesc:
+			"Recherche d'emploi, création d'entreprise, titre de séjour autorisant le travail et aides à l'emploi.",
+		color: "text-[#f9ab00]",
+		bg: "bg-[#f9ab00]/10",
+		border: "border-[#f9ab00]/20",
+		tag: "Emploi",
+		anchor: "emploi",
+		featureKeys: [
+			"guidePratique.features.emploi1",
+			"guidePratique.features.emploi2",
+			"guidePratique.features.emploi3",
+		],
+		featureDefaults: ["Pôle Emploi", "Auto-entrepreneur", "Titre de travail"],
+		image: "/images/guide-emploi.png",
+	},
+	{
+		icon: Scale,
+		titleKey: "guidePratique.droits.title",
+		descKey: "guidePratique.droits.desc",
+		defaultTitle: "Droits & Titre de séjour",
+		defaultDesc:
+			"Renouvellement de titre de séjour, regroupement familial, naturalisation et aide juridique gratuite.",
+		color: "text-[#1a73e8]",
+		bg: "bg-[#1a73e8]/10",
+		border: "border-[#1a73e8]/20",
+		tag: "Juridique",
+		anchor: "droits",
+		featureKeys: [
+			"guidePratique.features.droits1",
+			"guidePratique.features.droits2",
+			"guidePratique.features.droits3",
+		],
+		featureDefaults: [
+			"Titre de séjour",
+			"Regroupement familial",
+			"Naturalisation",
+		],
+		image: "/images/guide-droits.png",
+	},
+	{
+		icon: Baby,
+		titleKey: "guidePratique.famille.title",
+		descKey: "guidePratique.famille.desc",
+		defaultTitle: "Famille & Enfants",
+		defaultDesc:
+			"Déclaration de naissance, allocations familiales, garde d'enfants et transcription d'actes d'état civil.",
+		color: "text-[#d93025]",
+		bg: "bg-[#d93025]/10",
+		border: "border-[#d93025]/20",
+		tag: "Famille",
+		anchor: "famille",
+		featureKeys: [
+			"guidePratique.features.famille1",
+			"guidePratique.features.famille2",
+			"guidePratique.features.famille3",
+		],
+		featureDefaults: ["Naissance", "Allocations CAF", "Garde enfants"],
+		image: "/images/guide-famille.png",
+	},
+];
 
-function GuideCard({ guide, t }: { guide: typeof guides[0]; t: any }) {
-  return (
-    <Link
-      to="/vie-en-france"
-      hash={guide.anchor}
-      className="block group h-full"
-    >
-      <div className="h-full glass-card rounded-2xl overflow-hidden hover:-translate-y-2 transition-all duration-300 flex flex-col shadow-sm hover:shadow-xl hover:shadow-primary/5 ring-1 ring-border/50">
-        {/* Image Header */}
-        <div className="h-48 relative overflow-hidden bg-muted">
-          <img 
-            src={guide.image} 
-            alt={guide.defaultTitle} 
-            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
-          
-          <div className={`absolute top-4 left-4 p-2.5 rounded-xl backdrop-blur-md bg-background/80 shadow-sm ${guide.color}`}>
-            <guide.icon className="w-5 h-5" />
-          </div>
+function GuideCard({ guide, t }: { guide: (typeof guides)[0]; t: any }) {
+	return (
+		<Link
+			to="/vie-en-france"
+			hash={guide.anchor}
+			className="block group h-full"
+		>
+			<div className="h-full glass-card rounded-2xl overflow-hidden hover:-translate-y-2 transition-all duration-300 flex flex-col shadow-sm hover:shadow-xl hover:shadow-primary/5 ring-1 ring-border/50">
+				{/* Image Header */}
+				<div className="h-48 relative overflow-hidden bg-muted">
+					<img
+						src={guide.image}
+						alt={guide.defaultTitle}
+						className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+					/>
+					<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
 
-          <div className="absolute bottom-4 left-4 right-4">
-            <Badge
-              variant="outline"
-              className="text-xs font-semibold border-white/20 text-white bg-white/10 backdrop-blur-md"
-            >
-              {t(`guidePratique.tags.${guide.tag}`, guide.tag)}
-            </Badge>
-          </div>
-        </div>
+					<div
+						className={`absolute top-4 left-4 p-2.5 rounded-xl backdrop-blur-md bg-background/80 shadow-sm ${guide.color}`}
+					>
+						<guide.icon className="w-5 h-5" />
+					</div>
 
-        <div className="p-6 flex flex-col flex-1">
-          <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-            {t(guide.titleKey, guide.defaultTitle)}
-          </h3>
-          <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
-            {t(guide.descKey, guide.defaultDesc)}
-          </p>
-          <div className="space-y-2.5 pt-4 border-t border-border/40 mt-auto">
-            {guide.featureKeys.map((key, i) => (
-              <div key={key} className="flex items-center gap-2.5 text-sm text-foreground/80">
-                <CheckCircle2 className={`w-4 h-4 ${guide.color} shrink-0`} />
-                <span className="font-medium">{t(key, guide.featureDefaults[i])}</span>
-              </div>
-            ))}
-          </div>
-          <div className="mt-6 pt-2 flex items-center text-primary font-semibold text-sm">
-            {t('guidePratique.readMore', 'Consulter le guide')}
-            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-          </div>
-        </div>
-      </div>
-    </Link>
-  )
+					<div className="absolute bottom-4 left-4 right-4">
+						<Badge
+							variant="outline"
+							className="text-xs font-semibold border-white/20 text-white bg-white/10 backdrop-blur-md"
+						>
+							{t(`guidePratique.tags.${guide.tag}`, guide.tag)}
+						</Badge>
+					</div>
+				</div>
+
+				<div className="p-6 flex flex-col flex-1">
+					<h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+						{t(guide.titleKey, guide.defaultTitle)}
+					</h3>
+					<p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
+						{t(guide.descKey, guide.defaultDesc)}
+					</p>
+					<div className="space-y-2.5 pt-4 border-t border-border/40 mt-auto">
+						{guide.featureKeys.map((key, i) => (
+							<div
+								key={key}
+								className="flex items-center gap-2.5 text-sm text-foreground/80"
+							>
+								<CheckCircle2 className={`w-4 h-4 ${guide.color} shrink-0`} />
+								<span className="font-medium">
+									{t(key, guide.featureDefaults[i])}
+								</span>
+							</div>
+						))}
+					</div>
+					<div className="mt-6 pt-2 flex items-center text-primary font-semibold text-sm">
+						{t("guidePratique.readMore", "Consulter le guide")}
+						<ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+					</div>
+				</div>
+			</div>
+		</Link>
+	);
 }
 
 export function GuidePratiqueSection() {
-  const { t } = useTranslation()
-  const scrollRef = useRef<HTMLDivElement>(null)
-  const [activeCard, setActiveCard] = useState(0)
+	const { t } = useTranslation();
+	const scrollRef = useRef<HTMLDivElement>(null);
+	const [activeCard, setActiveCard] = useState(0);
 
-  useEffect(() => {
-    const el = scrollRef.current
-    if (!el) return
-    const handleScroll = () => {
-      const scrollLeft = el.scrollLeft
-      const cardWidth = el.firstElementChild?.getBoundingClientRect().width || 1
-      const idx = Math.round(scrollLeft / cardWidth)
-      setActiveCard(Math.min(idx, guides.length - 1))
-    }
-    el.addEventListener('scroll', handleScroll, { passive: true })
-    return () => el.removeEventListener('scroll', handleScroll)
-  }, [])
+	useEffect(() => {
+		const el = scrollRef.current;
+		if (!el) return;
+		const handleScroll = () => {
+			const scrollLeft = el.scrollLeft;
+			const cardWidth =
+				el.firstElementChild?.getBoundingClientRect().width || 1;
+			const idx = Math.round(scrollLeft / cardWidth);
+			setActiveCard(Math.min(idx, guides.length - 1));
+		};
+		el.addEventListener("scroll", handleScroll, { passive: true });
+		return () => el.removeEventListener("scroll", handleScroll);
+	}, []);
 
-  const scrollToCard = (index: number) => {
-    const el = scrollRef.current
-    if (!el) return
-    const cardWidth = el.firstElementChild?.getBoundingClientRect().width || 0
-    el.scrollTo({ left: cardWidth * index, behavior: 'smooth' })
-  }
+	const scrollToCard = (index: number) => {
+		const el = scrollRef.current;
+		if (!el) return;
+		const cardWidth = el.firstElementChild?.getBoundingClientRect().width || 0;
+		el.scrollTo({ left: cardWidth * index, behavior: "smooth" });
+	};
 
-  return (
-    <section className="py-12 md:py-24 px-4 md:px-6 glass-section">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-primary/20">
-            <BookOpen className="w-3.5 h-3.5 mr-1.5" />
-            {t('guidePratique.badge', 'Vie en France')}
-          </Badge>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            {t('guidePratique.titlePart1', 'Un Écosystème Complet en')}{' '}
-            <span className="text-gradient">
-              {t('guidePratique.titleHighlight', '6 Rubriques Essentielles')}
-            </span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            {t(
-              'guidePratique.description',
-              "Chaque rubrique vous accompagne pas à pas dans votre vie quotidienne en France."
-            )}
-          </p>
-        </div>
+	return (
+		<section className="py-12 md:py-24 px-4 md:px-6 glass-section">
+			<div className="max-w-7xl mx-auto">
+				{/* Section Header */}
+				<div className="text-center mb-16">
+					<Badge
+						variant="secondary"
+						className="mb-4 bg-primary/10 text-primary border-primary/20"
+					>
+						<BookOpen className="w-3.5 h-3.5 mr-1.5" />
+						<EditableText
+							contentKey="home.guide.badge"
+							defaultValue={t("guidePratique.badge", "Vie en France")}
+							pagePath="/"
+							sectionId="guide"
+						/>
+					</Badge>
+					<h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+						<EditableText
+							contentKey="home.guide.title"
+							defaultValue={t(
+								"guidePratique.titlePart1",
+								"Un Écosystème Complet en",
+							)}
+							pagePath="/"
+							sectionId="guide"
+							as="span"
+						/>{" "}
+						<EditableText
+							contentKey="home.guide.titleHighlight"
+							defaultValue={t(
+								"guidePratique.titleHighlight",
+								"6 Rubriques Essentielles",
+							)}
+							pagePath="/"
+							sectionId="guide"
+							as="span"
+							className="text-gradient"
+						/>
+					</h2>
+					<EditableText
+						contentKey="home.guide.description"
+						defaultValue={t(
+							"guidePratique.description",
+							"Chaque rubrique vous accompagne pas à pas dans votre vie quotidienne en France.",
+						)}
+						pagePath="/"
+						sectionId="guide"
+						as="p"
+						className="text-muted-foreground text-lg max-w-2xl mx-auto"
+					/>
+				</div>
 
-        {/* ── DESKTOP: Grid layout ── */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {guides.map((guide) => (
-            <GuideCard key={guide.titleKey} guide={guide} t={t} />
-          ))}
-        </div>
+				{/* ── DESKTOP: Grid layout ── */}
+				<div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+					{guides.map((guide) => (
+						<GuideCard key={guide.titleKey} guide={guide} t={t} />
+					))}
+				</div>
 
-        {/* ── MOBILE: Horizontal scroll carousel ── */}
-        <div className="md:hidden">
-          <div
-            ref={scrollRef}
-            className="flex gap-4 overflow-x-auto snap-x snap-mandatory pt-2 pb-4 scrollbar-hide"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', paddingLeft: 'calc((100vw - 85vw) / 2)', paddingRight: 'calc((100vw - 85vw) / 2)' }}
-          >
-            {guides.map((guide) => (
-              <div key={guide.titleKey} className="snap-center shrink-0 w-[85vw]">
-                <GuideCard guide={guide} t={t} />
-              </div>
-            ))}
-          </div>
+				{/* ── MOBILE: Horizontal scroll carousel ── */}
+				<div className="md:hidden">
+					<div
+						ref={scrollRef}
+						className="flex gap-4 overflow-x-auto snap-x snap-mandatory pt-2 pb-4 scrollbar-hide"
+						style={{
+							scrollbarWidth: "none",
+							msOverflowStyle: "none",
+							paddingLeft: "calc((100vw - 85vw) / 2)",
+							paddingRight: "calc((100vw - 85vw) / 2)",
+						}}
+					>
+						{guides.map((guide) => (
+							<div
+								key={guide.titleKey}
+								className="snap-center shrink-0 w-[85vw]"
+							>
+								<GuideCard guide={guide} t={t} />
+							</div>
+						))}
+					</div>
 
-          {/* Dot indicators */}
-          <div className="flex justify-center gap-2 mt-4">
-            {guides.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => scrollToCard(i)}
-                className={`rounded-full transition-all duration-300 ${
-                  activeCard === i
-                    ? 'w-6 h-2.5 bg-primary'
-                    : 'w-2.5 h-2.5 bg-muted-foreground/30'
-                }`}
-                aria-label={`Guide ${i + 1}`}
-              />
-            ))}
-          </div>
-        </div>
+					{/* Dot indicators */}
+					<div className="flex justify-center gap-2 mt-4">
+						{guides.map((_, i) => (
+							<button
+								key={i}
+								onClick={() => scrollToCard(i)}
+								className={`rounded-full transition-all duration-300 ${
+									activeCard === i
+										? "w-6 h-2.5 bg-primary"
+										: "w-2.5 h-2.5 bg-muted-foreground/30"
+								}`}
+								aria-label={`Guide ${i + 1}`}
+							/>
+						))}
+					</div>
+				</div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-12">
-          <Button asChild variant="outline" size="lg" className="rounded-full border-[#1a5dab]/30 text-[#1a5dab] hover:bg-[#1a5dab]/5">
-            <Link to="/vie-en-france">
-              {t('guidePratique.viewAll', 'Consulter le guide complet')}
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
-          </Button>
-        </div>
-      </div>
-    </section>
-  )
+				{/* Bottom CTA */}
+				<div className="text-center mt-12">
+					<Button
+						asChild
+						variant="outline"
+						size="lg"
+						className="rounded-full border-[#1a5dab]/30 text-[#1a5dab] hover:bg-[#1a5dab]/5"
+					>
+						<Link to="/vie-en-france">
+							<EditableText
+								contentKey="home.guide.viewAll"
+								defaultValue={t(
+									"guidePratique.viewAll",
+									"Consulter le guide complet",
+								)}
+								pagePath="/"
+								sectionId="guide"
+								as="span"
+							/>
+							<ArrowRight className="w-4 h-4 ml-2" />
+						</Link>
+					</Button>
+				</div>
+			</div>
+		</section>
+	);
 }
 
-export default GuidePratiqueSection
+export default GuidePratiqueSection;

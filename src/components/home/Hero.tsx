@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Bot, Sparkles } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { EditableImage } from "@/components/inline-edit/EditableImage";
 import { EditableText } from "@/components/inline-edit/EditableText";
@@ -78,7 +78,13 @@ export function Hero() {
 									rel="noopener noreferrer"
 								>
 									<Sparkles className="w-5 h-5 mr-2" />
-									{t("hero.cta", "Découvrir Consulat.ga")}
+									<EditableText
+										contentKey="home.hero.cta1"
+										defaultValue={t("hero.cta", "Découvrir Consulat.ga")}
+										pagePath="/"
+										sectionId="hero"
+										as="span"
+									/>
 									<ArrowRight className="w-4 h-4 ml-2" />
 								</a>
 							</Button>
@@ -90,7 +96,13 @@ export function Hero() {
 							>
 								<Link to="/services">
 									<Bot className="w-5 h-5 mr-2" />
-									{t("hero.services", "Voir nos services")}
+									<EditableText
+										contentKey="home.hero.cta2"
+										defaultValue={t("hero.services", "Voir nos services")}
+										pagePath="/"
+										sectionId="hero"
+										as="span"
+									/>
 								</Link>
 							</Button>
 						</div>

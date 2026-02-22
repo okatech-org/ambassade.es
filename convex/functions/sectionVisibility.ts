@@ -24,6 +24,7 @@ export const toggleSectionVisibility = moduleMutation("inline_edit")({
     pagePath: v.string(),
     sectionId: v.string(),
     hidden: v.boolean(),
+    device: v.optional(v.union(v.literal("desktop"), v.literal("mobile"))),
   },
   handler: async (ctx, args) => {
     const now = Date.now();
@@ -35,19 +36,26 @@ export const toggleSectionVisibility = moduleMutation("inline_edit")({
       )
       .unique();
 
+    const updatePayload: Record<string, any> = {
+      lastEditedBy: ctx.user._id,
+      lastEditedAt: now,
+    };
+
+    if (args.device === "desktop") {
+      updatePayload.hiddenDesktop = args.hidden;
+    } else if (args.device === "mobile") {
+      updatePayload.hiddenMobile = args.hidden;
+    } else {
+      updatePayload.hidden = args.hidden;
+    }
+
     if (existing) {
-      await ctx.db.patch(existing._id, {
-        hidden: args.hidden,
-        lastEditedBy: ctx.user._id,
-        lastEditedAt: now,
-      });
+      await ctx.db.patch(existing._id, updatePayload);
     } else {
       await ctx.db.insert("sectionVisibility", {
         pagePath: args.pagePath,
         sectionId: args.sectionId,
-        hidden: args.hidden,
-        lastEditedBy: ctx.user._id,
-        lastEditedAt: now,
+        ...updatePayload,
       });
     }
 
@@ -61,6 +69,7 @@ export const toggleSectionVisibility = moduleMutation("inline_edit")({
         pagePath: args.pagePath,
         sectionId: args.sectionId,
         hidden: args.hidden,
+        device: args.device,
       },
     });
 
