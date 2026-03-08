@@ -18,14 +18,14 @@ steps:
       - '--build-arg'
       - 'VITE_SENTRY_DSN=${_VITE_SENTRY_DSN}'
       - '-t'
-      - 'gcr.io/${PROJECT_ID}/consulatdugabon:latest'
+      - 'gcr.io/${PROJECT_ID}/ambassadegabon-es:latest'
       - '.'
 
   # Step 2 — Push to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'gcr.io/${PROJECT_ID}/consulatdugabon:latest'
+      - 'gcr.io/${PROJECT_ID}/ambassadegabon-es:latest'
 
   # Step 3 — Deploy to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -33,9 +33,9 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'consulatdugabon'
+      - 'ambassadegabon-es'
       - '--image'
-      - 'gcr.io/${PROJECT_ID}/consulatdugabon:latest'
+      - 'gcr.io/${PROJECT_ID}/ambassadegabon-es:latest'
       - '--platform'
       - 'managed'
       - '--region'
@@ -63,7 +63,7 @@ substitutions:
   _VITE_SENTRY_DSN: ''
 
 images:
-  - 'gcr.io/${PROJECT_ID}/consulatdugabon:latest'
+  - 'gcr.io/${PROJECT_ID}/ambassadegabon-es:latest'
 
 options:
   logging: CLOUD_LOGGING_ONLY

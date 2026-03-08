@@ -1,13 +1,13 @@
 {
   "hosting": {
-    "target": "consulatdugabon",
+    "target": "ambassadegabon-es",
     "public": "public",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
         "run": {
-          "serviceId": "consulatdugabon",
+          "serviceId": "ambassadegabon-es",
           "region": "europe-west1"
         }
       }

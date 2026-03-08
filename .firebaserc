@@ -5,8 +5,8 @@
   "targets": {
     "digitalium-ga": {
       "hosting": {
-        "consulatdugabon": [
-          "consulatdugabon"
+        "ambassadegabon-es": [
+          "ambassadegabon-es"
         ]
       }
     }
