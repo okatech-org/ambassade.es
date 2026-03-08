@@ -1,9 +1,9 @@
 {
 	"hero": {
 		"badge": "Nouveau — Propulsé par l'Intelligence Artificielle",
-		"title": "Le Consulat passe à <span class='text-[#EAB308]'>l'ère de l'IA</span>",
+		"title": "L'Ambassade passe à <span class='text-[#EAB308] whitespace-nowrap'>l'ère de l'IA</span>",
 		"titleHighlight": "l'ère de l'IA",
-		"subtitle": "Consulat.ga — Votre consulat, réinventé",
+		"subtitle": "Consulat.ga — Votre Ambassade, réinventée",
 		"description": "Plus besoin d'attendre au téléphone. Grâce à l'intelligence artificielle, obtenez des réponses instantanées, suivez vos démarches en temps réel et accédez à tous les services consulaires 24h/24 depuis votre smartphone.",
 		"cta": "Découvrir Consulat.ga",
 		"services": "Voir nos services",
@@ -14,18 +14,18 @@
 			"servicesDesc": "Démarches en ligne",
 			"inscription": "Inscription",
 			"inscriptionDesc": "Registre consulaire",
-			"consulat": "Le Consulat",
+			"consulat": "L'Ambassade",
 			"consulatDesc": "Missions & équipe"
 		},
 		"contact": "Nous Contacter",
 		"emergencyLabel": "Urgence consulaire 24h/24",
-		"mobileTitle": "Le Consulat Général",
+		"mobileTitle": "L'Ambassade du Gabon",
 		"mobileTitleHighlight": "passe à l'ère de l'IA"
 	},
 	"statsBar": {
 		"diaspora": {
 			"value": "30 000+",
-			"label": "Gabonais en France"
+			"label": "Gabonais en Espagne"
 		},
 		"services": {
 			"value": "9",
@@ -41,12 +41,12 @@
 		}
 	},
 	"guidePratique": {
-		"badge": "Vie en France",
-		"title": "Guide Pratique pour les Gabonais en France",
-		"description": "Informations essentielles pour faciliter votre installation et votre vie quotidienne en France. Le consulat vous accompagne dans toutes vos démarches.",
+		"badge": "Vie en Espagne",
+		"title": "Guide Pratique pour les Gabonais en Espagne",
+		"description": "Informations essentielles pour faciliter votre installation et votre vie quotidienne en Espagne. L'Ambassade vous accompagne dans toutes vos démarches.",
 		"readMore": "En savoir plus",
 		"cta": "Besoin d'aide pour une démarche spécifique ? Notre équipe consulaire est à votre disposition.",
-		"contactUs": "Contacter le consulat",
+		"contactUs": "Contacter l'Ambassade",
 		"logement": {
 			"title": "Logement",
 			"desc": "Trouver un logement, aides au logement (APL/ALS), droits des locataires et démarches administratives."
@@ -339,8 +339,8 @@
 	"integration": {
 		"badge": "Guide d'intégration",
 		"heroTitle": "S'intégrer et",
-		"heroHighlight": "réussir en France",
-		"heroDescription": "Guide complet pour les Gabonais résidant en France : vos droits, vos démarches, les codes culturels et les astuces pratiques pour une intégration réussie. Le Consulat Général du Gabon vous accompagne.",
+		"heroHighlight": "réussir en Espagne",
+		"heroDescription": "Guide complet pour les Gabonais résidant en Espagne : vos droits, vos démarches, les codes culturels et les astuces pratiques pour une intégration réussie. L'Ambassade du Gabon vous accompagne.",
 		"savoirVivre": {
 			"badge": "Savoir-vivre",
 			"title": "Codes culturels & Conventions",
@@ -362,8 +362,8 @@
 			"description": "Enregistrez ces numéros dans votre téléphone. Ils peuvent sauver des vies."
 		},
 		"cta": {
-			"title": "Le Consulat est à vos côtés",
-			"description": "Que vous soyez nouvellement arrivé ou installé depuis longtemps, le Consulat Général du Gabon en France est votre relais. N'hésitez pas à nous solliciter pour toute question.",
+			"title": "L'Ambassade est à vos côtés",
+			"description": "Que vous soyez nouvellement arrivé ou installé depuis longtemps, l'Ambassade du Gabon en Espagne est votre relais. N'hésitez pas à nous solliciter pour toute question.",
 			"contact": "Nous rendre visite"
 		}
 	},
@@ -429,8 +429,8 @@
 	},
 	"footer": {
 		"brand": {
-			"line1": "CONSULAT GÉNÉRAL",
-			"line2": "Du Gabon en France",
+			"line1": "AMBASSADE DU GABON",
+			"line2": "Au Royaume d'Espagne",
 			"motto": "Union - Travail - Justice"
 		},
 		"services": "Services",
@@ -458,7 +458,7 @@
 			"accessibility": "Accessibilité",
 			"sitemap": "Plan du Site"
 		},
-		"copyright": "© {{year}} Consulat.ga — Tous droits réservés"
+		"copyright": "© {{year}} Ambassade du Gabon en Espagne — Tous droits réservés"
 	},
 	"common": {
 		"notFound": {
@@ -509,9 +509,9 @@
 			"mySpace": "Mon Espace",
 			"signIn": "Se connecter",
 			"signUp": "S'inscrire",
-			"consulat": "Consulat Général",
-			"venirFrance": "Venir en France",
-			"vieFrance": "Vivre en France",
+			"consulat": "L'Ambassade",
+			"venirFrance": "Venir en Espagne",
+			"vieFrance": "Vivre en Espagne",
 			"retourGabon": "Retour au Gabon",
 			"nousContacter": "Nous Contacter"
 		},
@@ -528,8 +528,8 @@
 		"signIn": "Se connecter",
 		"signUp": "S'inscrire",
 		"brand": {
-			"line1": "CONSULAT GÉNÉRAL",
-			"line2": "Du Gabon en France",
+			"line1": "AMBASSADE DU GABON",
+			"line2": "Au Royaume d'Espagne",
 			"motto": "Union - Travail - Justice"
 		}
 	},
@@ -1971,12 +1971,12 @@
 	},
 	"vieFrance": {
 		"badge": "Guide pratique",
-		"title": "Vivre en France",
+		"title": "Vivre en Espagne",
 		"titleHighlight": "en toute sérénité",
-		"heroTitle": "Vivre en France",
+		"heroTitle": "Vivre en Espagne",
 		"heroHighlight": "au quotidien",
-		"heroDescription": "Guide complet pour les Gabonais résidant en France : logement, santé, éducation, emploi, droits de séjour et vie de famille. Toutes les informations pratiques pour votre quotidien.",
-		"subtitle": "Toutes les informations essentielles pour votre installation et votre vie quotidienne en France. Le Consulat vous accompagne dans chaque étape.",
+		"heroDescription": "Guide complet pour les Gabonais résidant en Espagne : logement, santé, éducation, emploi, droits de séjour et vie de famille. Toutes les informations pratiques pour votre quotidien.",
+		"subtitle": "Toutes les informations essentielles pour votre installation et votre vie quotidienne en Espagne. L'Ambassade vous accompagne dans chaque étape.",
 		"emergency": {
 			"title": "Numéros d'urgence",
 			"subtitle": "À conserver dans votre téléphone",
@@ -1995,13 +1995,13 @@
 	},
 	"venirFrance": {
 		"badge": "Guide d'arrivée & intégration",
-		"heroTitle": "Venir en France",
+		"heroTitle": "Venir en Espagne",
 		"heroHighlight": "& s'intégrer",
-		"heroDescription": "Guide complet pour les Gabonais arrivant en France : admission, visa, démarches administratives, codes culturels et conseils pratiques pour une intégration réussie. Le Consulat Général du Gabon vous accompagne.",
+		"heroDescription": "Guide complet pour les Gabonais arrivant en Espagne : admission, visa, démarches administratives, codes culturels et conseils pratiques pour une intégration réussie. L'Ambassade du Gabon vous accompagne.",
 		"savoirVivre": {
 			"badge": "Savoir-vivre",
 			"title": "Codes culturels & Conventions",
-			"description": "Comprendre les codes de la société française pour mieux y évoluer. Ce n'est pas renoncer à sa culture, c'est en ajouter une autre."
+			"description": "Comprendre les codes de la société espagnole pour mieux y évoluer. Ce n'est pas renoncer à sa culture, c'est en ajouter une autre."
 		},
 		"guides": {
 			"badge": "Guides complets",
@@ -2019,16 +2019,16 @@
 			"description": "Enregistrez ces numéros dans votre téléphone. Ils peuvent sauver des vies."
 		},
 		"cta": {
-			"title": "Le Consulat est à vos côtés",
-			"description": "Que vous soyez sur le point de partir ou nouvellement arrivé, le Consulat Général du Gabon en France est votre relais. N'hésitez pas à nous solliciter pour toute question.",
-			"vieFrance": "Guide de la vie en France"
+			"title": "L'Ambassade est à vos côtés",
+			"description": "Que vous soyez sur le point de partir ou nouvellement arrivé, l'Ambassade du Gabon en Espagne est votre relais. N'hésitez pas à nous solliciter pour toute question.",
+			"vieFrance": "Guide de la vie en Espagne"
 		}
 	},
 	"retourGabon": {
 		"badge": "Guide de retour",
 		"heroTitle": "Retour au Gabon",
 		"heroHighlight": "— Bien préparer",
-		"heroDescription": "Guide complet pour les Gabonais rentrant au pays : démarches consulaires, déménagement, réinstallation, emploi, OQTF, aides et maintien de vos droits acquis en France.",
+		"heroDescription": "Guide complet pour les Gabonais rentrant au pays : démarches consulaires, déménagement, réinstallation, emploi, Orden de Expulsión, aides et maintien de vos droits acquis en Espagne.",
 		"steps": {
 			"badge": "Étapes du retour",
 			"title": "Préparez chaque étape",
@@ -2051,7 +2051,7 @@
 		}
 	},
 	"locations": {
-		"consulateTitle": "Consulat Général du Gabon",
+		"consulateTitle": "Ambassade du Gabon en Espagne",
 		"standardLabel": "Standard:",
 		"emergenciesLabel": "Urgences:",
 		"metroLabel": "Métro:",
@@ -2067,8 +2067,8 @@
 		"titleHighlight": "Trouver"
 	},
 	"contactModal": {
-		"title": "Contactez le Consulat",
-		"description": "Consulat Général du Gabon en France — Toutes les coordonnées",
+		"title": "Contactez l'Ambassade",
+		"description": "Ambassade du Gabon en Espagne — Toutes les coordonnées",
 		"phones": "Téléphones",
 		"civilStatus": "État Civil",
 		"emergencies24": "Urgences 24h/24",
@@ -2078,7 +2078,7 @@
 		"pickup": "Retrait",
 		"depositHours": "9h00 - 15h00",
 		"pickupHours": "15h00 - 16h30",
-		"closedHolidays": "Fermé les jours fériés chômés au Gabon et en France.",
+		"closedHolidays": "Fermé les jours fériés chômés au Gabon et en Espagne.",
 		"access": "Accès",
 		"walkTime": "5 min à pied",
 		"busLines": "Lignes 22, 52",

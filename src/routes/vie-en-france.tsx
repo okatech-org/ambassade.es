@@ -29,21 +29,21 @@ import { useSectionVisibility } from "@/hooks/useSectionVisibility";
 import i18n from "@/integrations/i18n/i18n";
 
 export const Route = createFileRoute("/vie-en-france")({
-	component: VieEnFrancePage,
+	component: VieEnSpainPage,
 	head: () => {
 		const isEn = (i18n.resolvedLanguage || i18n.language).startsWith("en");
 		return {
 			meta: [
 				{
 					title: isEn
-						? "Living in France — Practical Guide | General Consulate of Gabon"
-						: "Vie en France — Guide Pratique | Consulat Général du Gabon",
+						? "Living in Spain — Practical Guide | Embassy of Gabon in Spain"
+						: "Vie en Espagne — Guide Pratique | Ambassade du Gabon en Espagne",
 				},
 				{
 					name: "description",
 					content: isEn
-						? "Comprehensive guide for Gabonese nationals in France: housing, health, education, employment, residency rights, family and daily-life procedures."
-						: "Guide complet pour les Gabonais en France : logement, santé, éducation, emploi, droits de séjour et famille. Toutes les informations pratiques pour votre vie quotidienne.",
+						? "Comprehensive guide for Gabonese nationals in Spain: housing, health, education, employment, residency rights, family and daily-life procedures."
+						: "Guide complet pour les Gabonais en Espagne : logement, santé, éducation, emploi, droits de séjour et famille. Toutes les informations pratiques pour votre vie quotidienne.",
 				},
 			],
 		};
@@ -62,22 +62,22 @@ const guideSections: GuideSection[] = [
 		gradientTo: "to-blue-600/10",
 		image: "/images/guide-logement.png",
 		intro:
-			"Trouver un logement en France peut être un défi, surtout sans garant ou historique locatif. Ce guide vous accompagne pas à pas dans la recherche, les aides financières et vos droits en tant que locataire.",
+			"Trouver un logement en Espagne peut être un défi, surtout sans garant ou historique locatif. Ce guide vous accompagne pas à pas dans la recherche, les aides financières et vos droits en tant que locataire.",
 		items: [
 			{
 				title: "Recherche de logement",
 				detail:
-					"Sites incontournables : LeBonCoin, SeLoger, PAP, Jinka, Bien'ici. Pour les logements sociaux (HLM), déposez une demande sur demande-logement-social.gouv.fr (numéro unique régional). Délai d'attente variable : de 6 mois en province à plusieurs années en Île-de-France. Résidences CROUS : réservées aux étudiants boursiers (inscription via MesServices.étudiant.gouv.fr).",
+					"Sites incontournables : LeBonCoin, SeLoger, PAP, Jinka, Bien'ici. Pour les logements sociaux (HLM), déposez une demande sur vivienda.gob.es (numéro unique régional). Délai d'attente variable : de 6 mois en province à plusieurs années en Île-de-Spain. Résidences Becas MEC : réservées aux étudiants boursiers (inscription via becaseducacion.gob.es).",
 			},
 			{
 				title: "Garantie locative (Visale)",
 				detail:
-					"Le dispositif Visale (gratuit, géré par Action Logement) se porte garant pour vous auprès du propriétaire. Ouvert aux moins de 30 ans, aux salariés en mobilité, et aux titulaires d'un bail mobilité. L'inscription se fait en ligne sur visale.fr en quelques minutes. C'est la solution n°1 pour les Gabonais sans garant en France.",
+					"Le dispositif Visale (gratuit, géré par Action Logement) se porte garant pour vous auprès du propriétaire. Ouvert aux moins de 30 ans, aux salariés en mobilité, et aux titulaires d'un bail mobilité. L'inscription se fait en ligne sur idealista.com en quelques minutes. C'est la solution n°1 pour les Gabonais sans garant en Espagne.",
 			},
 			{
 				title: "Aides au logement (APL / ALS)",
 				detail:
-					"L'APL (Aide Personnalisée au Logement) ou l'ALS (Allocation de Logement Sociale) sont versées par la CAF. Le montant dépend de vos revenus, du loyer et de la zone géographique. Simulez vos droits sur caf.fr. La demande se fait en ligne dès l'entrée dans le logement. Délai de versement : environ 2 mois (rétroactif au 1er mois).",
+					"L'APL (Aide Personnalisée au Logement) ou l'ALS (Allocation de Logement Sociale) sont versées par la CAF. Le montant dépend de vos revenus, du loyer et de la zone géographique. Simulez vos droits sur servicios-sociales.es. La demande se fait en ligne dès l'entrée dans le logement. Délai de versement : environ 2 mois (rétroactif au 1er mois).",
 			},
 			{
 				title: "Droits des locataires",
@@ -97,7 +97,7 @@ const guideSections: GuideSection[] = [
 		],
 		tips: [
 			"Le dispositif Visale (gratuit, via Action Logement) remplace le garant physique — solution idéale pour les Gabonais",
-			"Ouvrez un compte bancaire français rapidement — c'est indispensable pour le prélèvement du loyer",
+			"Ouvrez un compte bancaire espagnol rapidement — c'est indispensable pour le prélèvement du loyer",
 			"Souscrivez une assurance habitation AVANT d'emménager — le propriétaire l'exigera",
 			"Conservez tous vos échanges écrits avec le propriétaire (emails, courriers recommandés)",
 			"Prenez des photos détaillées le jour de l'état des lieux d'entrée",
@@ -105,17 +105,17 @@ const guideSections: GuideSection[] = [
 		links: [
 			{
 				label: "CAF — Simulateur APL",
-				url: "https://www.caf.fr",
+				url: "https://www.mdsocialesa2030.gob.es/derechos-sociales/vivienda",
 				description: "Calculez vos droits aux aides au logement",
 			},
 			{
 				label: "Visale",
-				url: "https://www.visale.fr",
+				url: "https://www.idealista.com",
 				description: "Garantie locative gratuite",
 			},
 			{
 				label: "Demande logement social",
-				url: "https://www.demande-logement-social.gouv.fr",
+				url: "https://www.mdsocialesa2030.gob.es/derechos-sociales/vivienda/vivienda-social",
 				description: "Demande de logement HLM",
 			},
 		],
@@ -130,17 +130,17 @@ const guideSections: GuideSection[] = [
 		gradientTo: "to-red-600/10",
 		image: "/images/guide-sante.png",
 		intro:
-			"La France dispose d'un système de santé universel parmi les meilleurs au monde. En tant que résident, vous avez droit à la couverture maladie. Voici comment en bénéficier et naviguer dans le système de soins.",
+			"L'Espagne dispose d'un système de santé universel parmi les meilleurs au monde. En tant que résident, vous avez droit à la couverture maladie. Voici comment en bénéficier et naviguer dans le système de soins.",
 		items: [
 			{
-				title: "Inscription à la Sécurité sociale",
+				title: "Inscription à la Seguridad Social",
 				detail:
-					"Dès votre arrivée, inscrivez-vous à la CPAM (Caisse Primaire d'Assurance Maladie) via ameli.fr. Si vous travaillez, votre employeur lance la procédure automatiquement. Sinon, la PUMA (Protection Universelle Maladie) vous couvre après 3 mois de résidence stable et régulière. Vous recevrez votre carte Vitale en 2 à 4 semaines (une attestation provisoire est disponible en attendant).",
+					"Dès votre arrivée, inscrivez-vous à la CPAM (Caisse Primaire d'Assurance Maladie) via seg-social.es. Si vous travaillez, votre employeur lance la procédure automatiquement. Sinon, la PUMA (Protection Universelle Maladie) vous couvre après 3 mois de résidence stable et régulière. Vous recevrez votre carte Vitale en 2 à 4 semaines (une attestation provisoire est disponible en attendant).",
 			},
 			{
 				title: "Complémentaire santé solidaire (CSS)",
 				detail:
-					"Ex CMU-C, la CSS est une mutuelle gratuite ou à faible coût pour les revenus modestes (plafond : environ 9 700 €/an pour une personne seule). Elle couvre : ticket modérateur, lunettes (jusqu'à 200 €), soins dentaires, prothèses auditives. Demande sur ameli.fr ou en CPAM. Décision sous 2 mois.",
+					"Ex CMU-C, la CSS est une mutuelle gratuite ou à faible coût pour les revenus modestes (plafond : environ 9 700 €/an pour une personne seule). Elle couvre : ticket modérateur, lunettes (jusqu'à 200 €), soins dentaires, prothèses auditives. Demande sur seg-social.es ou en CPAM. Décision sous 2 mois.",
 			},
 			{
 				title: "Médecin traitant",
@@ -173,22 +173,22 @@ const guideSections: GuideSection[] = [
 		links: [
 			{
 				label: "Ameli.fr",
-				url: "https://www.ameli.fr",
-				description: "Site officiel de la Sécurité sociale",
+				url: "https://www.seg-social.es",
+				description: "Site officiel de la Seguridad Social",
 			},
 			{
 				label: "Doctolib",
-				url: "https://www.doctolib.fr",
+				url: "https://www.topdoctors.es",
 				description: "Prise de rendez-vous médical en ligne",
 			},
 			{
 				label: "CSS",
-				url: "https://www.complementaire-sante-solidaire.gouv.fr",
+				url: "https://www.sanidad.gob.es/ciudadanos/prestaciones",
 				description: "Mutuelle gratuite sous conditions",
 			},
 			{
 				label: "Mon soutien psy",
-				url: "https://www.ameli.fr/assure/remboursements/rembourse/consultations/mon-soutien-psy",
+				url: "https://www.sanidad.gob.es/ciudadanos/saludMental",
 				description: "8 séances psy gratuites par an",
 			},
 		],
@@ -203,7 +203,7 @@ const guideSections: GuideSection[] = [
 		gradientTo: "to-green-600/10",
 		image: "/images/guide-education.png",
 		intro:
-			"Le système éducatif français est accessible à tous les enfants résidant en France, quelle que soit la nationalité ou la situation administrative des parents. Pour les adultes, de nombreuses formations et dispositifs d'accompagnement existent.",
+			"Le système éducatif espagnol est accessible à tous les enfants résidant en Espagne, quelle que soit la nationalité ou la situation administrative des parents. Pour les adultes, de nombreuses formations et dispositifs d'accompagnement existent.",
 		items: [
 			{
 				title: "Scolarisation des enfants",
@@ -211,19 +211,19 @@ const guideSections: GuideSection[] = [
 					"L'instruction est obligatoire de 3 à 16 ans. Inscrivez votre enfant à la mairie de votre domicile, puis contactez l'école. L'inscription ne peut être refusée pour motif de nationalité ou de situation administrative des parents.",
 			},
 			{
-				title: "Inscription à l'université (Parcoursup / Campus France)",
+				title: "Inscription à l'université (Parcoursup / UNEDasiss)",
 				detail:
-					"Les bacheliers résidant en France utilisent Parcoursup (parcoursup.fr) pour candidater. Les étudiants venant du Gabon passent par Campus France (campusfrance.org/fr). Les frais d'inscription varient de 170€ à 601€ selon le niveau.",
+					"Les bacheliers résidant en Espagne utilisent Parcoursup (universidades.gob.es) pour candidater. Les étudiants venant du Gabon passent par UNEDasiss (unedasiss.uned.es). Les frais d'inscription varient de 170€ à 601€ selon le niveau.",
 			},
 			{
 				title: "Bourses et aides financières",
 				detail:
-					"Le CROUS attribue des bourses sur critères sociaux (BCS) aux étudiants. Les étudiants gabonais peuvent aussi solliciter des bourses de l'État gabonais via l'ANBG. Le montant varie selon l'échelon (0 bis à 7).",
+					"Le Becas MEC attribue des bourses sur critères sociaux (BCS) aux étudiants. Les étudiants gabonais peuvent aussi solliciter des bourses de l'État gabonais via l'ANBG. Le montant varie selon l'échelon (0 bis à 7).",
 			},
 			{
 				title: "Équivalence des diplômes",
 				detail:
-					"La France ne délivre pas d'équivalence automatique des diplômes étrangers. Demandez une attestation de comparabilité au centre ENIC-NARIC (france-education-international.fr). Délai : environ 4 mois.",
+					"L'Espagne ne délivre pas d'équivalence automatique des diplômes étrangers. Demandez une attestation de comparabilité au centre ENIC-NARIC (france-education-international.fr). Délai : environ 4 mois.",
 			},
 			{
 				title: "Validation des Acquis de l'Expérience (VAE)",
@@ -232,25 +232,25 @@ const guideSections: GuideSection[] = [
 			},
 		],
 		tips: [
-			"Les cours de français (FLE) sont souvent gratuits dans les associations et les mairies",
-			"La carte d'étudiant donne accès à de nombreuses réductions (transport, culture, restauration CROUS)",
+			"Les cours de espagnol (FLE) sont souvent gratuits dans les associations et les mairies",
+			"La carte d'étudiant donne accès à de nombreuses réductions (transport, culture, restauration Becas MEC)",
 			"Les bibliothèques municipales sont gratuites et offrent accès à internet, presse et formations en ligne",
-			"Le dispositif OFII propose 400h de cours de français gratuits pour les primo-arrivants",
+			"Le dispositif Oficina de Extranjería propose 400h de cours de espagnol gratuits pour les primo-arrivants",
 		],
 		links: [
 			{
 				label: "Parcoursup",
-				url: "https://www.parcoursup.fr",
+				url: "https://www.universidades.gob.es",
 				description: "Plateforme d'admission post-bac",
 			},
 			{
-				label: "Campus France",
-				url: "https://www.campusfrance.org/fr",
-				description: "Études en France pour les étudiants internationaux",
+				label: "UNEDasiss",
+				url: "https://www.uned.es/universidad/inicio/en/unedasiss.html",
+				description: "Études en Espagne pour les étudiants internationaux",
 			},
 			{
 				label: "ENIC-NARIC",
-				url: "https://www.france-education-international.fr",
+				url: "https://www.educacionyfp.gob.es/contenidos/estudiantes/titulos-equivalencias.html",
 				description: "Reconnaissance des diplômes étrangers",
 			},
 		],
@@ -265,7 +265,7 @@ const guideSections: GuideSection[] = [
 		gradientTo: "to-orange-600/10",
 		image: "/images/guide-emploi.png",
 		intro:
-			"Travailler en France nécessite un titre de séjour autorisant le travail. Voici les étapes clés pour accéder au marché de l'emploi ou créer votre propre activité.",
+			"Travailler en Espagne nécessite un titre de séjour autorisant le travail. Voici les étapes clés pour accéder au marché de l'emploi ou créer votre propre activité.",
 		items: [
 			{
 				title: "Autorisation de travail",
@@ -273,19 +273,19 @@ const guideSections: GuideSection[] = [
 					'Votre titre de séjour doit mentionner l\'autorisation de travailler. Les cartes de séjour "salarié", "vie privée et familiale" et "étudiant" (20h/semaine max) permettent de travailler. Vérifiez la mention sur votre titre.',
 			},
 			{
-				title: "France Travail (ex Pôle Emploi)",
+				title: "SEPE (ex SEPE (Servicio Público de Empleo Estatal))",
 				detail:
-					"Inscrivez-vous sur francetravail.fr dès que vous êtes en recherche d'emploi. Vous bénéficierez d'un accompagnement personnalisé, d'offres d'emploi ciblées et potentiellement d'indemnités (ARE) si vous avez cotisé.",
+					"Inscrivez-vous sur sepe.es dès que vous êtes en recherche d'emploi. Vous bénéficierez d'un accompagnement personnalisé, d'offres d'emploi ciblées et potentiellement d'indemnités (ARE) si vous avez cotisé.",
 			},
 			{
 				title: "Création d'auto-entreprise",
 				detail:
-					"Créez votre auto-entreprise en ligne sur autoentrepreneur.urssaf.fr. Formalités simplifiées, régime fiscal avantageux. Plafond de CA : 77 700€ (services) ou 188 700€ (commerce). Vous pouvez cumuler emploi salarié et auto-entreprise.",
+					"Créez votre auto-entreprise en ligne sur seg-social.es/autonomos. Formalités simplifiées, régime fiscal avantageux. Plafond de CA : 77 700€ (services) ou 188 700€ (commerce). Vous pouvez cumuler emploi salarié et auto-entreprise.",
 			},
 			{
 				title: "Aide ACRE",
 				detail:
-					"L'Aide à la Création ou Reprise d'Entreprise (ACRE) exonère partiellement de charges sociales pendant la première année. Conditions : être demandeur d'emploi, bénéficiaire RSA/ASS, ou avoir moins de 26 ans.",
+					"L'Aide à la Création ou Reprise d'Entreprise (ACRE) exonère partiellement de charges sociales pendant la première année. Conditions : être demandeur d'emploi, bénéficiaire Ingreso Mínimo Vital (IMV)/ASS, ou avoir moins de 26 ans.",
 			},
 			{
 				title: "Chambre de commerce (CCI)",
@@ -297,22 +297,22 @@ const guideSections: GuideSection[] = [
 			"L'aide ACRE exonère de charges sociales la première année de création d'entreprise",
 			"Les missions locales accompagnent gratuitement les 16-25 ans dans l'emploi",
 			'Attention au travail non déclaré ("au noir") : c\'est illégal et vous prive de toute protection sociale',
-			"Le site 1jeune1solution.gouv.fr recense les offres adaptées aux jeunes",
+			"Le site garantiajuvenil.gob.es recense les offres adaptées aux jeunes",
 		],
 		links: [
 			{
-				label: "France Travail",
-				url: "https://www.francetravail.fr",
+				label: "SEPE",
+				url: "https://www.sepe.es",
 				description: "Recherche d'emploi et accompagnement",
 			},
 			{
 				label: "Auto-entrepreneur",
-				url: "https://autoentrepreneur.urssaf.fr",
+				url: "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/TrabajadoresCuentaPropia",
 				description: "Création d'auto-entreprise",
 			},
 			{
 				label: "1jeune1solution",
-				url: "https://www.1jeune1solution.gouv.fr",
+				url: "https://www.garantiajuvenil.gob.es",
 				description: "Emploi, formation et aides pour les jeunes",
 			},
 		],
@@ -327,52 +327,52 @@ const guideSections: GuideSection[] = [
 		gradientTo: "to-purple-600/10",
 		image: "/images/guide-droits.png",
 		intro:
-			"Comprendre vos droits et les démarches liées à votre titre de séjour est essentiel pour vivre sereinement en France. Le non-respect des délais peut entraîner des situations complexes.",
+			"Comprendre vos droits et les démarches liées à votre titre de séjour est essentiel pour vivre sereinement en Espagne. Le non-respect des délais peut entraîner des situations complexes.",
 		items: [
 			{
 				title: "Titre de séjour",
 				detail:
-					"Le VLS-TS (Visa Long Séjour valant Titre de Séjour) doit être validé en ligne sur administration-etrangers-en-france.interieur.gouv.fr dans les 3 mois suivant votre arrivée. Le renouvellement se fait 2 mois avant expiration sur la même plateforme.",
+					"Le VLS-TS (Visa Long Séjour valant Titre de Séjour) doit être validé en ligne sur sede.administracionespublicas.gob.es dans les 3 mois suivant votre arrivée. Le renouvellement se fait 2 mois avant expiration sur la même plateforme.",
 			},
 			{
 				title: "Le récépissé — Attention",
 				detail:
-					"⚠️ Le récépissé de première demande de carte de séjour ne permet PAS de quitter la France et d'y revenir. Seul le titre de séjour définitif ou le VLS-TS validé le permet. Le récépissé de renouvellement, en revanche, fait office de titre de séjour provisoire pendant l'instruction de votre dossier.",
+					"⚠️ Le récépissé de première demande de carte de séjour ne permet PAS de quitter l'Espagne et d'y revenir. Seul le titre de séjour définitif ou le VLS-TS validé le permet. Le récépissé de renouvellement, en revanche, fait office de titre de séjour provisoire pendant l'instruction de votre dossier.",
 			},
 			{
 				title: "Carte de séjour pluriannuelle",
 				detail:
-					"Après un premier titre d'un an, vous pouvez obtenir une carte pluriannuelle (2 à 4 ans). Les conditions varient selon le motif : salarié, vie privée et familiale, étudiant, passeport talent. Demande en préfecture ou en ligne.",
+					"Après un premier titre d'un an, vous pouvez obtenir une carte pluriannuelle (2 à 4 ans). Les conditions varient selon le motif : salarié, vie privée et familiale, étudiant, passeport talent. Demande en Oficina de Extranjería ou en ligne.",
 			},
 			{
 				title: "Changement d'adresse — Obligation légale",
 				detail:
-					"Tout étranger titulaire d'un titre de séjour doit signaler son changement d'adresse dans les 3 mois. Procédure en ligne sur le portail ANEF ou en préfecture. Documents requis : titre de séjour + nouveau justificatif de domicile. Le non-respect de cette obligation peut entraîner une amende et des complications pour le renouvellement de votre titre.",
+					"Tout étranger titulaire d'un titre de séjour doit signaler son changement d'adresse dans les 3 mois. Procédure en ligne sur la plateforme Mercurio ou en Oficina de Extranjería. Documents requis : titre de séjour + nouveau justificatif de domicile. Le non-respect de cette obligation peut entraîner une amende et des complications pour le renouvellement de votre titre.",
 			},
 			{
 				title: "Régularisation administrative",
 				detail:
-					"Plusieurs voies de régularisation existent : admission exceptionnelle au séjour (circulaire Valls 2012), régularisation par le travail (promesse d'embauche ou contrat), motif familial (parent d'enfant français, conjoint de Français), raisons médicales, ou protection internationale (OFPRA). Dossier à déposer en préfecture avec preuves d'ancienneté de séjour et d'insertion.",
+					"Plusieurs voies de régularisation existent : admission exceptionnelle au séjour (circulaire Valls 2012), régularisation par le travail (promesse d'embauche ou contrat), motif familial (parent d'enfant espagnol, conjoint de Espagnol), raisons médicales, ou protection internationale (OFPRA). Dossier à déposer en Oficina de Extranjería avec preuves d'ancienneté de séjour et d'insertion.",
 			},
 			{
 				title: "Document de circulation pour mineur (DCM)",
 				detail:
-					"Les mineurs étrangers résidant en France, dont les parents sont en situation régulière ou dont l'un des parents est français, peuvent obtenir un DCM à la préfecture. Validité : 5 ans, renouvelable jusqu'aux 18 ans de l'enfant. Ce document permet au mineur de voyager à l'étranger et de revenir en France sans visa. Documents : acte de naissance, passeport de l'enfant, titre de séjour des parents, certificat de scolarité, photos d'identité. ⚠️ À 18 ans, le jeune doit obligatoirement demander un titre de séjour propre (mention 'étudiant' ou 'vie privée et familiale' selon sa situation).",
+					"Les mineurs étrangers résidant en Espagne, dont les parents sont en situation régulière ou dont l'un des parents est espagnol, peuvent obtenir un DCM à la Oficina de Extranjería. Validité : 5 ans, renouvelable jusqu'aux 18 ans de l'enfant. Ce document permet au mineur de voyager à l'étranger et de revenir en Espagne sans visa. Documents : acte de naissance, passeport de l'enfant, titre de séjour des parents, certificat de scolarité, photos d'identité. ⚠️ À 18 ans, le jeune doit obligatoirement demander un titre de séjour propre (mention 'étudiant' ou 'vie privée et familiale' selon sa situation).",
 			},
 			{
 				title: "Binationaux (Franco-Gabonais)",
 				detail:
-					"Le Gabon ne reconnaît pas officiellement la double nationalité (sauf exceptions), mais en pratique de nombreux Gabonais possèdent les deux nationalités. Un visa est obligatoire pour entrer au Gabon avec un passeport français — il s'obtient au Consulat Général du Gabon à Paris (26 bis avenue Raphaël, 75016). Délai : 3 jours ouvrés. La présence physique est requise, pas de visa express. Documents : passeport français, acte de naissance gabonais, photos, formulaire de visa, justificatif du motif du voyage. Conseil : entrez en France avec le passeport français, au Gabon avec le passeport gabonais.",
+					"Le Gabon ne reconnaît pas officiellement la double nationalité (sauf exceptions), mais en pratique de nombreux Gabonais possèdent les deux nationalités. Un visa est obligatoire pour entrer au Gabon avec un passeport espagnol — il s'obtient au Ambassade du Gabon en Espagne à Paris (26 bis avenue Raphaël, 75016). Délai : 3 jours ouvrés. La présence physique est requise, pas de visa express. Documents : passeport espagnol, acte de naissance gabonais, photos, formulaire de visa, justificatif du motif du voyage. Conseil : entrez en Espagne avec le passeport espagnol, au Gabon avec le passeport gabonais.",
 			},
 			{
 				title: "Regroupement familial",
 				detail:
-					"Vous pouvez faire venir votre conjoint et enfants mineurs si vous résidez régulièrement en France depuis au moins 18 mois, disposez de revenus stables (au moins le SMIC) et d'un logement adapté. Demande auprès de l'OFII.",
+					"Vous pouvez faire venir votre conjoint et enfants mineurs si vous résidez régulièrement en Espagne depuis au moins 18 mois, disposez de revenus stables (au moins le SMIC) et d'un logement adapté. Demande auprès de l'Oficina de Extranjería.",
 			},
 			{
 				title: "Naturalisation",
 				detail:
-					"Après 5 ans de résidence régulière (réduit à 2 ans pour les diplômés de l'enseignement supérieur français), vous pouvez demander la naturalisation. Conditions : maîtrise du français (B1 oral), connaissance de l'histoire et des valeurs, casier vierge.",
+					"Après 5 ans de résidence régulière (réduit à 2 ans pour les diplômés de l'enseignement supérieur espagnol), vous pouvez demander la naturalisation. Conditions : maîtrise du espagnol (B1 oral), connaissance de l'histoire et des valeurs, casier vierge.",
 			},
 			{
 				title: "Aide juridictionnelle",
@@ -382,37 +382,37 @@ const guideSections: GuideSection[] = [
 		],
 		tips: [
 			"Gardez toujours une copie numérique de vos documents (passeport, titre de séjour, bail) dans un cloud sécurisé",
-			"Ne laissez jamais votre titre de séjour expirer — même en cas de retard de la préfecture, conservez votre récépissé",
-			"Les associations comme la CIMADE, le GISTI ou la Ligue des droits de l'Homme peuvent vous aider gratuitement",
+			"Ne laissez jamais votre titre de séjour expirer — même en cas de retard de la Oficina de Extranjería, conservez votre récépissé",
+			"Les associations comme la CEAR (ONG de ayuda), le GISTI ou la Ligue des droits de l'Homme peuvent vous aider gratuitement",
 			"En cas de contrôle d'identité, vous devez présenter votre titre de séjour ou récépissé",
 			"Tout changement d'adresse doit être signalé dans les 3 mois — l'oubli peut coûter cher",
 			"Les binationaux doivent toujours voyager avec le passeport du pays dans lequel ils entrent",
-			"Un récépissé de première demande ne permet PAS de quitter la France — seul le titre définitif ou le VLS-TS validé le permet",
+			"Un récépissé de première demande ne permet PAS de quitter l'Espagne — seul le titre définitif ou le VLS-TS validé le permet",
 		],
 		links: [
 			{
-				label: "ANEF - Étrangers en France",
-				url: "https://administration-etrangers-en-france.interieur.gouv.fr",
+				label: "Mercurio - Étrangers en Espagne",
+				url: "https://sede.administracionespublicas.gob.es/icpplus",
 				description: "Démarches de titre de séjour en ligne",
 			},
 			{
-				label: "Défenseur des droits",
-				url: "https://www.defenseurdesdroits.fr",
+				label: "Defensor del Pueblo",
+				url: "https://www.defensordelpueblo.es",
 				description: "Recours gratuit en cas de discrimination",
 			},
 			{
-				label: "CIMADE",
-				url: "https://www.lacimade.org",
+				label: "CEAR (ONG de ayuda)",
+				url: "https://www.cear.es",
 				description: "Accompagnement juridique gratuit",
 			},
 			{
-				label: "Consulat du Gabon",
-				url: "https://consulat.ga",
+				label: "Ambassade du Gabon",
+				url: "https://ambassade.ga",
 				description: "Visa pour le Gabon — 26 bis av. Raphaël, Paris 16e",
 			},
 			{
 				label: "Service-public.fr — DCME",
-				url: "https://www.service-public.fr/particuliers/vosdroits/F2710",
+				url: "https://www.inclusion.gob.es/web/migraciones/extranjeros",
 				description: "Document de circulation pour mineur",
 			},
 		],
@@ -427,22 +427,22 @@ const guideSections: GuideSection[] = [
 		gradientTo: "to-pink-600/10",
 		image: "/images/guide-famille.png",
 		intro:
-			"La France offre un système de prestations familiales parmi les plus généreux au monde. En tant que parent résidant en France, vous avez droit à de nombreuses aides et services pour votre famille.",
+			"L'Espagne offre un système de prestations familiales parmi les plus généreux au monde. En tant que parent résidant en Espagne, vous avez droit à de nombreuses aides et services pour votre famille.",
 		items: [
 			{
 				title: "Déclaration de naissance",
 				detail:
-					"Toute naissance sur le sol français doit être déclarée en mairie dans les 5 jours. Présentez le certificat d'accouchement de l'hôpital, vos pièces d'identité et votre livret de famille. N'oubliez pas de faire transcrire l'acte au consulat.",
+					"Toute naissance sur le sol espagnol doit être déclarée en mairie dans les 5 jours. Présentez le certificat d'accouchement de l'hôpital, vos pièces d'identité et votre livret de famille. N'oubliez pas de faire transcrire l'acte à l'Ambassade.",
 			},
 			{
-				title: "Transcription au consulat",
+				title: "Transcription à l'Ambassade",
 				detail:
-					"L'acte de naissance français doit être transcrit au registre d'état civil gabonais via le consulat. C'est indispensable pour que votre enfant obtienne la nationalité gabonaise et un passeport gabonais. Délai : environ 3 mois.",
+					"L'acte de naissance espagnol doit être transcrit au registre d'état civil gabonais via l'Ambassade. C'est indispensable pour que votre enfant obtienne la nationalité gabonaise et un passeport gabonais. Délai : environ 3 mois.",
 			},
 			{
 				title: "Allocations familiales (CAF)",
 				detail:
-					"Dès le 2e enfant à charge, vous percevez les allocations familiales (sans condition de ressources). La prime à la naissance (1 003,95€) est versée au 7e mois de grossesse sous condition de ressources. Inscrivez-vous sur caf.fr.",
+					"Dès le 2e enfant à charge, vous percevez les allocations familiales (sans condition de ressources). La prime à la naissance (1 003,95€) est versée au 7e mois de grossesse sous condition de ressources. Inscrivez-vous sur servicios-sociales.es.",
 			},
 			{
 				title: "PAJE — Prestation d'accueil du jeune enfant",
@@ -456,25 +456,25 @@ const guideSections: GuideSection[] = [
 			},
 		],
 		tips: [
-			"Déclarez la naissance en mairie ET au consulat pour que votre enfant ait la double nationalité",
-			"Inscrivez-vous à la CAF dès votre arrivée en France, même sans enfant — d'autres aides existent (APL, prime d'activité)",
+			"Déclarez la naissance en mairie ET à l'Ambassade pour que votre enfant ait la double nationalité",
+			"Inscrivez-vous à la CAF dès votre arrivée en Espagne, même sans enfant — d'autres aides existent (APL, prime d'activité)",
 			"Les centres de PMI offrent un suivi gratuit pour les enfants de 0 à 6 ans",
 			"Le congé paternité est de 28 jours (dont 7 obligatoires) depuis 2021",
 		],
 		links: [
 			{
 				label: "CAF",
-				url: "https://www.caf.fr",
+				url: "https://www.mdsocialesa2030.gob.es/derechos-sociales/vivienda",
 				description: "Allocations familiales et aides sociales",
 			},
 			{
 				label: "Mon-enfant.fr",
-				url: "https://www.mon-enfant.fr",
+				url: "https://www.mdsocialesa2030.gob.es/derechos-sociales/familias",
 				description: "Trouver un mode de garde près de chez vous",
 			},
 			{
 				label: "Service-public.fr — Famille",
-				url: "https://www.service-public.fr/particuliers/vosdroits/N156",
+				url: "https://www.mdsocialesa2030.gob.es/derechos-sociales/familias/Paginas/index.aspx",
 				description: "Droits et démarches familiales",
 			},
 		],
@@ -488,17 +488,17 @@ const guideSections: GuideSection[] = [
 		gradientFrom: "from-teal-500/5",
 		gradientTo: "to-teal-600/10",
 		intro:
-			"Tout résident en France est soumis à l'obligation de déclarer ses revenus, même en l'absence de revenus. Comprendre le système fiscal français est essentiel pour éviter les pénalités et accéder aux aides.",
+			"Tout résident en Espagne est soumis à l'obligation de déclarer ses revenus, même en l'absence de revenus. Comprendre le système fiscal espagnol est essentiel pour éviter les pénalités et accéder aux aides.",
 		items: [
 			{
 				title: "Déclaration annuelle de revenus",
 				detail:
-					"Chaque année entre avril et juin, déclarez vos revenus sur impots.gouv.fr. C'est OBLIGATOIRE même si vous n'avez pas de revenus ou si vous êtes étudiant. Créez votre espace en ligne avec votre numéro fiscal (obtenu lors de la première déclaration papier au centre des impôts de votre domicile). L'avis d'imposition ou de NON-imposition est un document essentiel pour : APL, logement social, renouvellement de titre de séjour, CSS.",
+					"Chaque année entre avril et juin, déclarez vos revenus sur agenciatributaria.gob.es. C'est OBLIGATOIRE même si vous n'avez pas de revenus ou si vous êtes étudiant. Créez votre espace en ligne avec votre numéro fiscal (obtenu lors de la première déclaration papier au centre des impôts de votre domicile). L'avis d'imposition ou de NON-imposition est un document essentiel pour : APL, logement social, renouvellement de titre de séjour, CSS.",
 			},
 			{
 				title: "Prélèvement à la source",
 				detail:
-					"Depuis 2019, l'impôt sur le revenu est prélevé directement sur votre salaire par l'employeur. Le taux est personnalisé en fonction de votre déclaration. Si vous n'êtes pas imposable, le taux est de 0%. Vous pouvez modifier votre taux en cours d'année sur impots.gouv.fr (mariage, naissance, changement de revenus).",
+					"Depuis 2019, l'impôt sur le revenu est prélevé directement sur votre salaire par l'employeur. Le taux est personnalisé en fonction de votre déclaration. Si vous n'êtes pas imposable, le taux est de 0%. Vous pouvez modifier votre taux en cours d'année sur agenciatributaria.gob.es (mariage, naissance, changement de revenus).",
 			},
 			{
 				title: "Taxe d'habitation et taxe foncière",
@@ -506,9 +506,9 @@ const guideSections: GuideSection[] = [
 					"La taxe d'habitation sur les résidences principales a été supprimée pour tous depuis 2023. La taxe foncière concerne uniquement les propriétaires. Si vous êtes locataire, aucune taxe foncière ne vous sera demandée. La contribution à l'audiovisuel public (redevance TV) a également été supprimée.",
 			},
 			{
-				title: "Convention fiscale France-Gabon",
+				title: "Convention fiscale Spain-Gabon",
 				detail:
-					"La convention fiscale entre la France et le Gabon évite la double imposition. Si vous percevez des revenus au Gabon tout en résidant en France, ces revenus doivent être déclarés en France mais un crédit d'impôt peut s'appliquer. Consultez un conseiller fiscal ou le centre des impôts pour votre situation particulière.",
+					"La convention fiscale entre l'Espagne et le Gabon évite la double imposition. Si vous percevez des revenus au Gabon tout en résidant en Espagne, ces revenus doivent être déclarés en Espagne mais un crédit d'impôt peut s'appliquer. Consultez un conseiller fiscal ou le centre des impôts pour votre situation particulière.",
 			},
 		],
 		tips: [
@@ -519,13 +519,13 @@ const guideSections: GuideSection[] = [
 		],
 		links: [
 			{
-				label: "Impots.gouv.fr",
-				url: "https://www.impots.gouv.fr",
+				label: "Agencia Tributaria",
+				url: "https://www.agenciatributaria.gob.es",
 				description: "Déclaration de revenus en ligne",
 			},
 			{
 				label: "Simulateur d'impôt",
-				url: "https://www.impots.gouv.fr/simulateurs",
+				url: "https://www.agenciatributaria.gob.es/AEAT.sede/Inicio/Procedimientos_Simuladores.shtml",
 				description: "Estimez votre impôt sur le revenu",
 			},
 		],
@@ -539,17 +539,17 @@ const guideSections: GuideSection[] = [
 		gradientFrom: "from-amber-500/5",
 		gradientTo: "to-amber-600/10",
 		intro:
-			"La loi française protège contre toute forme de discrimination. En tant que Gabonais en France, connaître vos droits et les recours disponibles est essentiel pour vivre dignement.",
+			"La loi espagnole protège contre toute forme de discrimination. En tant que Gabonais en Espagne, connaître vos droits et les recours disponibles est essentiel pour vivre dignement.",
 		items: [
 			{
 				title: "Qu'est-ce qu'une discrimination ?",
 				detail:
-					"La loi française reconnaît 25 critères de discrimination interdits, incluant : l'origine, le nom de famille, l'apparence physique, la couleur de peau, la nationalité, la religion, le sexe, l'orientation sexuelle. La discrimination peut se manifester au travail, dans le logement, dans les services publics ou dans les lieux de loisirs.",
+					"La loi espagnole reconnaît 25 critères de discrimination interdits, incluant : l'origine, le nom de famille, l'apparence physique, la couleur de peau, la nationalité, la religion, le sexe, l'orientation sexuelle. La discrimination peut se manifester au travail, dans le logement, dans les services publics ou dans les lieux de loisirs.",
 			},
 			{
 				title: "Discrimination au logement",
 				detail:
-					"Il est illégal pour un propriétaire de refuser un locataire en raison de son origine, de son nom ou de sa couleur de peau. Si vous suspectez une discrimination, constituez un dossier de preuves (emails, SMS, témoignages). Contactez SOS Racisme (01 40 35 36 55) ou le Défenseur des droits (09 69 39 00 00, gratuit).",
+					"Il est illégal pour un propriétaire de refuser un locataire en raison de son origine, de son nom ou de sa couleur de peau. Si vous suspectez une discrimination, constituez un dossier de preuves (emails, SMS, témoignages). Contactez SOS Racisme (01 40 35 36 55) ou le Defensor del Pueblo (09 69 39 00 00, gratuit).",
 			},
 			{
 				title: "Discrimination au travail",
@@ -559,34 +559,34 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Contrôles d'identité : vos droits",
 				detail:
-					"Lors d'un contrôle d'identité, vous devez présenter votre titre de séjour ou récépissé. Un contrôle au faciès (basé uniquement sur l'apparence) est illégal. Si vous estimez être victime d'un contrôle discriminatoire : notez le lieu, l'heure, le numéro d'équipage, et saisissez l'IGPN (inspection générale de la police) ou le Défenseur des droits.",
+					"Lors d'un contrôle d'identité, vous devez présenter votre titre de séjour ou récépissé. Un contrôle au faciès (basé uniquement sur l'apparence) est illégal. Si vous estimez être victime d'un contrôle discriminatoire : notez le lieu, l'heure, le numéro d'équipage, et saisissez l'IGPN (inspection générale de la police) ou le Defensor del Pueblo.",
 			},
 			{
 				title: "Recours disponibles",
 				detail:
-					"1) Défenseur des droits (defenseurdesdroits.fr) — gratuit, indépendant, saisine en ligne. 2) Dépôt de plainte au commissariat ou directement au procureur de la République. 3) Associations spécialisées : SOS Racisme, LICRA, MRAP, LDH. 4) Aide juridictionnelle si revenus modestes. La discrimination est punie de 3 ans de prison et 45 000 € d'amende.",
+					"1) Defensor del Pueblo (defenseurdesdroits.fr) — gratuit, indépendant, saisine en ligne. 2) Dépôt de plainte au commissariat ou directement au procureur de la République. 3) Associations spécialisées : SOS Racisme, LICRA, MRAP, LDH. 4) Aide juridictionnelle si revenus modestes. La discrimination est punie de 3 ans de prison et 45 000 € d'amende.",
 			},
 		],
 		tips: [
 			"Conservez toujours des preuves écrites (emails, SMS, captures d'appels) en cas de discrimination",
-			"Le Défenseur des droits est gratuit et peut être saisi en ligne — 99% des dossiers sont traités",
+			"Le Defensor del Pueblo est gratuit et peut être saisi en ligne — 99% des dossiers sont traités",
 			"En cas d'agression raciste, déposez plainte immédiatement et consultez un médecin pour certificat",
-			"Contactez le consulat si vous avez besoin d'accompagnement dans vos démarches",
+			"Contactez l'Ambassade si vous avez besoin d'accompagnement dans vos démarches",
 		],
 		links: [
 			{
-				label: "Défenseur des droits",
-				url: "https://www.defenseurdesdroits.fr",
+				label: "Defensor del Pueblo",
+				url: "https://www.defensordelpueblo.es",
 				description: "Recours gratuit contre les discriminations",
 			},
 			{
 				label: "SOS Racisme",
-				url: "https://sos-racisme.org",
+				url: "https://www.sosracismo.eu",
 				description: "Assistance juridique contre le racisme",
 			},
 			{
 				label: "LICRA",
-				url: "https://www.licra.org",
+				url: "https://www.movimientocontralaintolerancia.com",
 				description: "Ligue internationale contre le racisme",
 			},
 		],
@@ -604,7 +604,7 @@ const guideSectionsEn: GuideSection[] = [
 		gradientTo: "to-blue-600/10",
 		image: "/images/guide-logement.png",
 		intro:
-			"Finding accommodation in France can be difficult at first. This section helps you secure housing, benefits and legal protections.",
+			"Finding accommodation in Spain can be difficult at first. This section helps you secure housing, benefits and legal protections.",
 		items: [
 			{
 				title: "Where to search",
@@ -634,7 +634,7 @@ const guideSectionsEn: GuideSection[] = [
 		],
 		tips: [
 			"Use Visale early if you do not have a guarantor",
-			"Open a French bank account before signing your lease",
+			"Open a Spanish bank account before signing your lease",
 			"Take mandatory home insurance before moving in",
 			"Keep written communication with your landlord",
 			"Photograph every room on move-in day",
@@ -642,17 +642,17 @@ const guideSectionsEn: GuideSection[] = [
 		links: [
 			{
 				label: "CAF — Simulateur APL",
-				url: "https://www.caf.fr",
+				url: "https://www.mdsocialesa2030.gob.es/derechos-sociales/vivienda",
 				description: "Estimate housing benefit eligibility",
 			},
 			{
 				label: "Visale",
-				url: "https://www.visale.fr",
+				url: "https://www.idealista.com",
 				description: "Free rental guarantee",
 			},
 			{
 				label: "Demande logement social",
-				url: "https://www.demande-logement-social.gouv.fr",
+				url: "https://www.mdsocialesa2030.gob.es/derechos-sociales/vivienda/vivienda-social",
 				description: "Apply for social housing",
 			},
 		],
@@ -667,12 +667,12 @@ const guideSectionsEn: GuideSection[] = [
 		gradientTo: "to-red-600/10",
 		image: "/images/guide-sante.png",
 		intro:
-			"France provides broad healthcare access. As a resident, you can enroll in the public system and complete your coverage with a complementary plan.",
+			"Spain provides broad healthcare access. As a resident, you can enroll in the public system and complete your coverage with a complementary plan.",
 		items: [
 			{
 				title: "Social security registration",
 				detail:
-					"Register with CPAM through ameli.fr. Your employer may initiate this process if you are employed.",
+					"Register with CPAM through seg-social.es. Your employer may initiate this process if you are employed.",
 			},
 			{
 				title: "Complementary health plan (CSS)",
@@ -705,22 +705,22 @@ const guideSectionsEn: GuideSection[] = [
 		links: [
 			{
 				label: "Ameli.fr",
-				url: "https://www.ameli.fr",
+				url: "https://www.seg-social.es",
 				description: "Official health insurance portal",
 			},
 			{
 				label: "Doctolib",
-				url: "https://www.doctolib.fr",
+				url: "https://www.topdoctors.es",
 				description: "Online medical appointment booking",
 			},
 			{
 				label: "CSS",
-				url: "https://www.complementaire-sante-solidaire.gouv.fr",
+				url: "https://www.sanidad.gob.es/ciudadanos/prestaciones",
 				description: "Complementary health coverage",
 			},
 			{
 				label: "Mon soutien psy",
-				url: "https://www.ameli.fr/assure/remboursements/rembourse/consultations/mon-soutien-psy",
+				url: "https://www.sanidad.gob.es/ciudadanos/saludMental",
 				description: "Psychological support scheme",
 			},
 		],
@@ -735,7 +735,7 @@ const guideSectionsEn: GuideSection[] = [
 		gradientTo: "to-green-600/10",
 		image: "/images/guide-education.png",
 		intro:
-			"Children and adults can access strong education and training pathways in France, with dedicated support for international students.",
+			"Children and adults can access strong education and training pathways in Spain, with dedicated support for international students.",
 		items: [
 			{
 				title: "Schooling for children",
@@ -745,12 +745,12 @@ const guideSectionsEn: GuideSection[] = [
 			{
 				title: "Higher education admission",
 				detail:
-					"Apply through Parcoursup (in France) or Campus France pathways depending on your profile.",
+					"Apply through Parcoursup (in Spain) or UNEDasiss pathways depending on your profile.",
 			},
 			{
 				title: "Scholarships and grants",
 				detail:
-					"CROUS and other support schemes may be available based on social and academic criteria.",
+					"Becas MEC and other support schemes may be available based on social and academic criteria.",
 			},
 			{
 				title: "Diploma recognition",
@@ -764,7 +764,7 @@ const guideSectionsEn: GuideSection[] = [
 			},
 		],
 		tips: [
-			"Free or low-cost French classes are widely available",
+			"Free or low-cost Spanish classes are widely available",
 			"Student cards unlock transport and cultural discounts",
 			"Public libraries provide free resources and internet access",
 			"Use official portals for applications and deadlines",
@@ -772,17 +772,17 @@ const guideSectionsEn: GuideSection[] = [
 		links: [
 			{
 				label: "Parcoursup",
-				url: "https://www.parcoursup.fr",
+				url: "https://www.universidades.gob.es",
 				description: "Higher education application platform",
 			},
 			{
-				label: "Campus France",
-				url: "https://www.campusfrance.org/fr",
-				description: "Study in France information",
+				label: "UNEDasiss",
+				url: "https://www.uned.es/universidad/inicio/en/unedasiss.html",
+				description: "Study in Spain information",
 			},
 			{
 				label: "ENIC-NARIC",
-				url: "https://www.france-education-international.fr",
+				url: "https://www.educacionyfp.gob.es/contenidos/estudiantes/titulos-equivalencias.html",
 				description: "Foreign diploma recognition",
 			},
 		],
@@ -797,7 +797,7 @@ const guideSectionsEn: GuideSection[] = [
 		gradientTo: "to-orange-600/10",
 		image: "/images/guide-emploi.png",
 		intro:
-			"Working in France requires the right residence status. You can pursue employment, self-employment or supported business creation.",
+			"Working in Spain requires the right residence status. You can pursue employment, self-employment or supported business creation.",
 		items: [
 			{
 				title: "Work authorization",
@@ -805,7 +805,7 @@ const guideSectionsEn: GuideSection[] = [
 					"Check your permit wording carefully to confirm your right to work and any hour limitations.",
 			},
 			{
-				title: "France Travail support",
+				title: "SEPE support",
 				detail:
 					"Register for job-search support, training and potential compensation based on your contribution history.",
 			},
@@ -833,18 +833,18 @@ const guideSectionsEn: GuideSection[] = [
 		],
 		links: [
 			{
-				label: "France Travail",
-				url: "https://www.francetravail.fr",
+				label: "SEPE",
+				url: "https://www.sepe.es",
 				description: "Jobs and employment support",
 			},
 			{
 				label: "Auto-entrepreneur",
-				url: "https://autoentrepreneur.urssaf.fr",
+				url: "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/TrabajadoresCuentaPropia",
 				description: "Micro-business registration",
 			},
 			{
 				label: "1jeune1solution",
-				url: "https://www.1jeune1solution.gouv.fr",
+				url: "https://www.garantiajuvenil.gob.es",
 				description: "Youth jobs and training offers",
 			},
 		],
@@ -859,12 +859,12 @@ const guideSectionsEn: GuideSection[] = [
 		gradientTo: "to-purple-600/10",
 		image: "/images/guide-droits.png",
 		intro:
-			"Understanding your rights and residence obligations is essential for long-term stability and legal security in France.",
+			"Understanding your rights and residence obligations is essential for long-term stability and legal security in Spain.",
 		items: [
 			{
 				title: "Residence permit validity",
 				detail:
-					"Validate and renew permits on time through official ANEF/prefecture channels.",
+					"Validate and renew permits on time through official Mercurio/prefecture channels.",
 			},
 			{
 				title: "Receipt limitations",
@@ -901,28 +901,28 @@ const guideSectionsEn: GuideSection[] = [
 		],
 		links: [
 			{
-				label: "ANEF - Étrangers en France",
-				url: "https://administration-etrangers-en-france.interieur.gouv.fr",
+				label: "Mercurio - Étrangers en Espagne",
+				url: "https://sede.administracionespublicas.gob.es/icpplus",
 				description: "Residence procedures online",
 			},
 			{
-				label: "Défenseur des droits",
-				url: "https://www.defenseurdesdroits.fr",
+				label: "Defensor del Pueblo",
+				url: "https://www.defensordelpueblo.es",
 				description: "Independent rights and discrimination body",
 			},
 			{
-				label: "CIMADE",
-				url: "https://www.lacimade.org",
+				label: "CEAR (ONG de ayuda)",
+				url: "https://www.cear.es",
 				description: "Free legal support",
 			},
 			{
-				label: "Consulat du Gabon",
-				url: "https://consulat.ga",
-				description: "Gabonese consular support in France",
+				label: "Ambassade du Gabon",
+				url: "https://ambassade.ga",
+				description: "Gabonese consular support in Spain",
 			},
 			{
 				label: "Service-public.fr — DCME",
-				url: "https://www.service-public.fr/particuliers/vosdroits/F2710",
+				url: "https://www.inclusion.gob.es/web/migraciones/extranjeros",
 				description: "Travel document for minors",
 			},
 		],
@@ -937,7 +937,7 @@ const guideSectionsEn: GuideSection[] = [
 		gradientTo: "to-pink-600/10",
 		image: "/images/guide-famille.png",
 		intro:
-			"Families can access substantial support in France through child benefits, health services and civil registration pathways.",
+			"Families can access substantial support in Spain through child benefits, health services and civil registration pathways.",
 		items: [
 			{
 				title: "Birth registration",
@@ -961,7 +961,7 @@ const guideSectionsEn: GuideSection[] = [
 			},
 		],
 		tips: [
-			"Complete both French and consular registration for children",
+			"Complete both Spanish and consular registration for children",
 			"Open your CAF account early to avoid delays",
 			"Use PMI services for preventive care for young children",
 			"Keep family documents updated and accessible",
@@ -969,17 +969,17 @@ const guideSectionsEn: GuideSection[] = [
 		links: [
 			{
 				label: "CAF",
-				url: "https://www.caf.fr",
+				url: "https://www.mdsocialesa2030.gob.es/derechos-sociales/vivienda",
 				description: "Family benefits and social support",
 			},
 			{
 				label: "Mon-enfant.fr",
-				url: "https://www.mon-enfant.fr",
+				url: "https://www.mdsocialesa2030.gob.es/derechos-sociales/familias",
 				description: "Find childcare options",
 			},
 			{
 				label: "Service-public.fr — Famille",
-				url: "https://www.service-public.fr/particuliers/vosdroits/N156",
+				url: "https://www.mdsocialesa2030.gob.es/derechos-sociales/familias/Paginas/index.aspx",
 				description: "Family rights and procedures",
 			},
 		],
@@ -993,12 +993,12 @@ const guideSectionsEn: GuideSection[] = [
 		gradientFrom: "from-teal-500/5",
 		gradientTo: "to-teal-600/10",
 		intro:
-			"Tax filing is a key annual obligation in France and is often required for housing, social aid and residence renewals.",
+			"Tax filing is a key annual obligation in Spain and is often required for housing, social aid and residence renewals.",
 		items: [
 			{
 				title: "Annual tax declaration",
 				detail:
-					"File returns each year through impots.gouv.fr. Even low-income situations may still require declaration.",
+					"File returns each year through agenciatributaria.gob.es. Even low-income situations may still require declaration.",
 			},
 			{
 				title: "Withholding tax system",
@@ -1011,7 +1011,7 @@ const guideSectionsEn: GuideSection[] = [
 					"Primary-residence housing tax has largely been removed, but property owners may still owe other taxes.",
 			},
 			{
-				title: "France-Gabon tax convention",
+				title: "Spain-Gabon tax convention",
 				detail:
 					"The bilateral convention helps avoid double taxation for eligible cross-border income situations.",
 			},
@@ -1024,13 +1024,13 @@ const guideSectionsEn: GuideSection[] = [
 		],
 		links: [
 			{
-				label: "Impots.gouv.fr",
-				url: "https://www.impots.gouv.fr",
+				label: "Agencia Tributaria",
+				url: "https://www.agenciatributaria.gob.es",
 				description: "Official tax portal",
 			},
 			{
 				label: "Simulateur d'impôt",
-				url: "https://www.impots.gouv.fr/simulateurs",
+				url: "https://www.agenciatributaria.gob.es/AEAT.sede/Inicio/Procedimientos_Simuladores.shtml",
 				description: "Income tax simulation tools",
 			},
 		],
@@ -1044,7 +1044,7 @@ const guideSectionsEn: GuideSection[] = [
 		gradientFrom: "from-amber-500/5",
 		gradientTo: "to-amber-600/10",
 		intro:
-			"French law prohibits discrimination in housing, work and public services. Knowing your remedies helps protect your rights.",
+			"Spanish law prohibits discrimination in housing, work and public services. Knowing your remedies helps protect your rights.",
 		items: [
 			{
 				title: "What counts as discrimination",
@@ -1080,18 +1080,18 @@ const guideSectionsEn: GuideSection[] = [
 		],
 		links: [
 			{
-				label: "Défenseur des droits",
-				url: "https://www.defenseurdesdroits.fr",
+				label: "Defensor del Pueblo",
+				url: "https://www.defensordelpueblo.es",
 				description: "Free anti-discrimination remedy",
 			},
 			{
 				label: "SOS Racisme",
-				url: "https://sos-racisme.org",
+				url: "https://www.sosracismo.eu",
 				description: "Legal assistance against racism",
 			},
 			{
 				label: "LICRA",
-				url: "https://www.licra.org",
+				url: "https://www.movimientocontralaintolerancia.com",
 				description: "Anti-racism advocacy organization",
 			},
 		],
@@ -1100,7 +1100,7 @@ const guideSectionsEn: GuideSection[] = [
 
 // ─── Page ────────────────────────────────────────────────────────────────────
 
-function VieEnFrancePage() {
+function VieEnSpainPage() {
 	const { t, i18n } = useTranslation();
 	const { isSectionHidden } = useSectionVisibility("/vie-en-france");
 	const lang = i18n.resolvedLanguage || i18n.language;
@@ -1126,8 +1126,8 @@ function VieEnFrancePage() {
 				>
 					<BookOpen className="w-3.5 h-3.5 mr-1.5" />
 					<EditableText
-						contentKey="vieFrance.hero.badge"
-						defaultValue={t("vieFrance.badge", "Guide Pratique")}
+						contentKey="vieSpain.hero.badge"
+						defaultValue={t("vieSpain.badge", "Guide Pratique")}
 						pagePath="/vie-en-france"
 						sectionId="hero"
 						as="span"
@@ -1135,15 +1135,15 @@ function VieEnFrancePage() {
 				</Badge>
 				<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
 					<EditableText
-						contentKey="vieFrance.hero.title"
-						defaultValue={t("vieFrance.title", "Vivre en France")}
+						contentKey="vieSpain.hero.title"
+						defaultValue={t("vieSpain.title", "Vivre en Espagne")}
 						pagePath="/vie-en-france"
 						sectionId="hero"
 						as="span"
 					/>{" "}
 					<EditableText
-						contentKey="vieFrance.hero.titleHighlight"
-						defaultValue={t("vieFrance.titleHighlight", "en toute sérénité")}
+						contentKey="vieSpain.hero.titleHighlight"
+						defaultValue={t("vieSpain.titleHighlight", "en toute sérénité")}
 						pagePath="/vie-en-france"
 						sectionId="hero"
 						as="span"
@@ -1151,10 +1151,10 @@ function VieEnFrancePage() {
 					/>
 				</h1>
 				<EditableText
-					contentKey="vieFrance.hero.description"
+					contentKey="vieSpain.hero.description"
 					defaultValue={t(
-						"vieFrance.subtitle",
-						"Toutes les informations essentielles pour votre installation et votre vie quotidienne en France. Le Consulat vous accompagne dans chaque étape.",
+						"vieSpain.subtitle",
+						"Toutes les informations essentielles pour votre installation et votre vie quotidienne en Espagne. L'Ambassade vous accompagne dans chaque étape.",
 					)}
 					pagePath="/vie-en-france"
 					sectionId="hero"
@@ -1167,19 +1167,19 @@ function VieEnFrancePage() {
 					<div className="flex items-center gap-2 text-foreground/80">
 						<BookOpen className="w-5 h-5 text-primary" />
 						<span className="font-medium">
-							{t("vieFrance.stats.themes", "6 rubriques thématiques")}
+							{t("vieSpain.stats.themes", "6 rubriques thématiques")}
 						</span>
 					</div>
 					<div className="flex items-center gap-2 text-foreground/80">
 						<CheckCircle2 className="w-5 h-5 text-emerald-500" />
 						<span className="font-medium">
-							{t("vieFrance.stats.procedures", "50+ démarches détaillées")}
+							{t("vieSpain.stats.procedures", "50+ démarches détaillées")}
 						</span>
 					</div>
 					<div className="flex items-center gap-2 text-foreground/80">
 						<ExternalLink className="w-5 h-5 text-blue-500" />
 						<span className="font-medium">
-							{t("vieFrance.stats.links", "Liens officiels vérifiés")}
+							{t("vieSpain.stats.links", "Liens officiels vérifiés")}
 						</span>
 					</div>
 				</div>
@@ -1243,11 +1243,11 @@ function VieEnFrancePage() {
 								</div>
 								<div>
 									<h3 className="text-lg font-bold text-foreground">
-										{t("vieFrance.emergency.title", "Numéros d'urgence")}
+										{t("vieSpain.emergency.title", "Numéros d'urgence")}
 									</h3>
 									<p className="text-sm text-muted-foreground">
 										{t(
-											"vieFrance.emergency.subtitle",
+											"vieSpain.emergency.subtitle",
 											"À conserver dans votre téléphone",
 										)}
 									</p>
@@ -1259,36 +1259,36 @@ function VieEnFrancePage() {
 									{
 										number: "15",
 										label: t(
-											"vieFrance.emergency.samu",
+											"vieSpain.emergency.samu",
 											"SAMU — Urgences médicales",
 										),
 									},
 									{
 										number: "17",
-										label: t("vieFrance.emergency.police", "Police — Secours"),
+										label: t("vieSpain.emergency.police", "Police — Secours"),
 									},
 									{
 										number: "18",
-										label: t("vieFrance.emergency.pompiers", "Pompiers"),
+										label: t("vieSpain.emergency.pompiers", "Pompiers"),
 									},
 									{
 										number: "112",
 										label: t(
-											"vieFrance.emergency.european",
+											"vieSpain.emergency.european",
 											"Numéro européen d'urgence",
 										),
 									},
 									{
 										number: "114",
 										label: t(
-											"vieFrance.emergency.sms",
+											"vieSpain.emergency.sms",
 											"Urgences par SMS (sourds/malentendants)",
 										),
 									},
 									{
-										number: "07 44 23 95 84",
+										number: "+34 91 XXX XX XX",
 										label: t(
-											"vieFrance.emergency.consulat",
+											"vieSpain.emergency.consulat",
 											"Urgence consulaire Gabon 24h/24",
 										),
 									},
@@ -1318,7 +1318,7 @@ function VieEnFrancePage() {
 				<CitizenCTA
 					pagePath="/vie-en-france"
 					sectionId="citizen-cta"
-					contentKeyPrefix="vieFrance.citizenCta"
+					contentKeyPrefix="vieSpain.citizenCta"
 				/>
 			)}
 		</div>

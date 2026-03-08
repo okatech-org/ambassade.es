@@ -39,14 +39,14 @@ export const Route = createFileRoute("/retour-au-gabon")({
 			meta: [
 				{
 					title: isEn
-						? "Returning to Gabon — Complete Guide | General Consulate of Gabon"
-						: "Retour au Gabon — Guide Complet | Consulat Général du Gabon",
+						? "Returning to Gabon — Complete Guide | Embassy of Gabon in Spain"
+						: "Retour au Gabon — Guide Complet | Ambassade du Gabon en Espagne",
 				},
 				{
 					name: "description",
 					content: isEn
-						? "Complete guide to prepare your return to Gabon: consular procedures, moving logistics, resettlement, employment, OQTF support and continuity of acquired rights."
-						: "Guide complet pour préparer votre retour au Gabon : démarches consulaires, déménagement, réinstallation, emploi, OQTF, aides et maintien de vos droits acquis en France.",
+						? "Complete guide to prepare your return to Gabon: consular procedures, moving logistics, resettlement, employment, Orden de Expulsión support and continuity of acquired rights."
+						: "Guide complet pour préparer votre retour au Gabon : démarches consulaires, déménagement, réinstallation, emploi, Orden de Expulsión, aides et maintien de vos droits acquis en Espagne.",
 				},
 			],
 		};
@@ -68,10 +68,10 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Démarches consulaires",
 				detail:
-					"Rendez-vous au Consulat Général du Gabon pour : renouveler votre passeport gabonais (si périmé), obtenir un certificat de nationalité, faire transcrire les actes d'état civil (naissances, mariages en France), et signaler votre retour définitif. Prévoyez un délai de 2 à 4 semaines pour chaque procédure.",
+					"Rendez-vous au Ambassade du Gabon en Espagne pour : renouveler votre passeport gabonais (si périmé), obtenir un certificat de nationalité, faire transcrire les actes d'état civil (naissances, mariages en Espagne), et signaler votre retour définitif. Prévoyez un délai de 2 à 4 semaines pour chaque procédure.",
 			},
 			{
-				title: "Clôture des engagements en France",
+				title: "Clôture des engagements en Espagne",
 				detail:
 					"Résiliez vos contrats : bail (préavis 1 à 3 mois selon le type de location), assurance habitation, abonnements (EDF/GDF, téléphone, internet, Netflix, etc.). Faites votre dernière déclaration d'impôts et demandez un quitus fiscal si vous êtes entrepreneur. Informez La Poste pour le suivi de courrier (6 mois de réexpédition, 26,90 €).",
 			},
@@ -83,40 +83,40 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Documents à rassembler",
 				detail:
-					"Préparez et conservez des copies numériques de : passeports (anciens et actuels), actes d'état civil (naissance, mariage, divorce), diplômes (avec apostille ou légalisation), contrats de travail et bulletins de salaire, relevés de retraite (lassuranceretraite.fr), attestations France Travail, permis de conduire international, carte Vitale et attestations CPAM.",
+					"Préparez et conservez des copies numériques de : passeports (anciens et actuels), actes d'état civil (naissance, mariage, divorce), diplômes (avec apostille ou légalisation), contrats de travail et bulletins de salaire, relevés de retraite (seg-social.es), attestations SEPE, permis de conduire international, carte Vitale et attestations CPAM.",
 			},
 			{
 				title: "Permis de conduire",
 				detail:
-					"Si vous avez un permis français, demandez un permis de conduire international à la préfecture (gratuit, valable 3 ans, demande sur ants.gouv.fr). Au Gabon, vous devrez échanger votre permis français contre un permis gabonais dans les 12 mois suivant votre installation. Conservez une copie du permis français.",
+					"Si vous avez un permis espagnol, demandez un permis de conduire international à la Oficina de Extranjería (gratuit, valable 3 ans, demande sur sede.dgt.gob.es). Au Gabon, vous devrez échanger votre permis espagnol contre un permis gabonais dans les 12 mois suivant votre installation. Conservez une copie du permis espagnol.",
 			},
 			{
 				title: "Comptes bancaires et finances",
 				detail:
-					"NE FERMEZ PAS immédiatement votre compte bancaire français — conservez-le au moins 6 mois après le retour pour : les virements de droits résiduels (retraite, chômage), les prélèvements en cours, et les transferts d'argent. Ouvrez un compte au Gabon (BGFI, Orabank, UGB) avant ou dès votre arrivée. Comparez les frais de transfert : Wise, WorldRemit, Orange Money.",
+					"NE FERMEZ PAS immédiatement votre compte bancaire espagnol — conservez-le au moins 6 mois après le retour pour : les virements de droits résiduels (retraite, chômage), les prélèvements en cours, et les transferts d'argent. Ouvrez un compte au Gabon (BGFI, Orabank, UGB) avant ou dès votre arrivée. Comparez les frais de transfert : Wise, WorldRemit, Orange Money.",
 			},
 		],
 		tips: [
 			"Commencez les démarches 6 à 12 mois avant le retour prévu",
-			"Faites apostiller vos diplômes français au tribunal judiciaire — c'est indispensable pour leur reconnaissance au Gabon",
+			"Faites apostiller vos diplômes espagnol au tribunal judiciaire — c'est indispensable pour leur reconnaissance au Gabon",
 			"Conservez votre numéro de sécurité sociale et vos identifiants Ameli.fr — ils peuvent être utiles pour les droits acquis",
-			"Informez la CAF, la CPAM et France Travail de votre départ définitif pour éviter les trop-perçus",
+			"Informez la CAF, la CPAM et SEPE de votre départ définitif pour éviter les trop-perçus",
 			"Créez un dossier numérique (Google Drive, Dropbox) avec TOUS vos documents scannés",
 		],
 		links: [
 			{
 				label: "ANTS",
-				url: "https://ants.gouv.fr",
+				url: "https://sede.dgt.gob.es",
 				description: "Permis de conduire international en ligne",
 			},
 			{
 				label: "L'Assurance Retraite",
-				url: "https://www.lassuranceretraite.fr",
+				url: "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/Jubilacion",
 				description: "Relevé de carrière et droits à la retraite",
 			},
 			{
 				label: "La Poste — Réexpédition",
-				url: "https://www.laposte.fr/outils/reexpedition-courrier",
+				url: "https://www.correos.es/es/es/atencion-al-cliente/reenvio-de-correspondencia",
 				description: "Réexpédition du courrier après le départ",
 			},
 		],
@@ -139,7 +139,7 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Fret aérien (rapide mais coûteux)",
 				detail:
-					"Le fret aérien est adapté aux petits volumes urgents (documents, vêtements, objets de valeur). Délai : 3 à 7 jours. Coût : environ 5 à 10 €/kg. Transporteurs : Air France Cargo, DHL, FedEx. N'envoyez pas de liquides ni de batteries lithium par avion.",
+					"Le fret aérien est adapté aux petits volumes urgents (documents, vêtements, objets de valeur). Délai : 3 à 7 jours. Coût : environ 5 à 10 €/kg. Transporteurs : Air Spain Cargo, DHL, FedEx. N'envoyez pas de liquides ni de batteries lithium par avion.",
 			},
 			{
 				title: "Franchise douanière",
@@ -149,7 +149,7 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Véhicule",
 				detail:
-					"L'importation d'un véhicule au Gabon est soumise à des droits de douane (20 à 30% de la valeur) et à une restriction d'âge (véhicules de moins de 5 ans en général). Faites le calcul complet : droits de douane + transport maritime + assurance + mise en conformité. Il est souvent plus avantageux de vendre en France et d'acheter sur place.",
+					"L'importation d'un véhicule au Gabon est soumise à des droits de douane (20 à 30% de la valeur) et à une restriction d'âge (véhicules de moins de 5 ans en général). Faites le calcul complet : droits de douane + transport maritime + assurance + mise en conformité. Il est souvent plus avantageux de vendre en Espagne et d'acheter sur place.",
 			},
 			{
 				title: "Inventaire détaillé",
@@ -180,7 +180,7 @@ const guideSections: GuideSection[] = [
 		iconBg: "bg-green-500/10",
 		image: "/images/guide-logement.png",
 		intro:
-			"Se réinstaller au Gabon après plusieurs années en France nécessite une période d'adaptation. Voici comment faciliter votre transition dans tous les aspects du quotidien.",
+			"Se réinstaller au Gabon après plusieurs années en Espagne nécessite une période d'adaptation. Voici comment faciliter votre transition dans tous les aspects du quotidien.",
 		items: [
 			{
 				title: "Logement à Libreville",
@@ -190,7 +190,7 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Scolarisation des enfants",
 				detail:
-					"Inscrivez vos enfants dans les établissements gabonais (publics gratuits, privés payants) ou dans le réseau AEFE si vous souhaitez continuer le cursus français. L'inscription au lycée Blaise Pascal de Libreville se fait en ligne via l'AEFE — anticipez les délais (dossier dès mars pour la rentrée de septembre). Frais de scolarité AEFE : environ 2 000 000 à 3 500 000 FCFA/an.",
+					"Inscrivez vos enfants dans les établissements gabonais (publics gratuits, privés payants) ou dans le réseau AEFE si vous souhaitez continuer le cursus espagnol. L'inscription au lycée Blaise Pascal de Libreville se fait en ligne via l'AEFE — anticipez les délais (dossier dès mars pour la rentrée de septembre). Frais de scolarité AEFE : environ 2 000 000 à 3 500 000 FCFA/an.",
 			},
 			{
 				title: "Vie quotidienne et adaptation",
@@ -200,7 +200,7 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Banque et finances",
 				detail:
-					"Ouvrez un compte bancaire local (BGFI Bank, Orabank, UGB). Documents : pièce d'identité, justificatif de domicile, photo. Conservez votre compte français pour les transferts et le maintien de vos droits. Mobile money (Airtel Money, Mobicash) est très utilisé au quotidien. Le coût de la vie à Libreville peut être étonnamment élevé pour certains produits importés.",
+					"Ouvrez un compte bancaire local (BGFI Bank, Orabank, UGB). Documents : pièce d'identité, justificatif de domicile, photo. Conservez votre compte espagnol pour les transferts et le maintien de vos droits. Mobile money (Airtel Money, Mobicash) est très utilisé au quotidien. Le coût de la vie à Libreville peut être étonnamment élevé pour certains produits importés.",
 			},
 			{
 				title: "Télécommunications",
@@ -210,7 +210,7 @@ const guideSections: GuideSection[] = [
 		],
 		tips: [
 			"Visitez les quartiers et le logement en personne avant de signer un bail",
-			"Gardez votre compte bancaire français ouvert pour faciliter les transferts pendant au moins 6 mois",
+			"Gardez votre compte bancaire espagnol ouvert pour faciliter les transferts pendant au moins 6 mois",
 			"Inscrivez-vous au registre des Gabonais de retour auprès du ministère des Affaires étrangères",
 			"Rejoignez les associations de Gabonais de retour pour bénéficier de conseils et d'un réseau de solidarité",
 			"Prévoyez un budget de transition pour 3 à 6 mois — le retour a un coût",
@@ -219,7 +219,7 @@ const guideSections: GuideSection[] = [
 			{
 				label: "Lycée Blaise Pascal",
 				url: "https://lfbp-libreville.net",
-				description: "Lycée français de Libreville (AEFE)",
+				description: "Lycée espagnol de Libreville (AEFE)",
 			},
 			{
 				label: "BGFI Bank",
@@ -236,12 +236,12 @@ const guideSections: GuideSection[] = [
 		iconBg: "bg-purple-500/10",
 		image: "/images/guide-emploi.png",
 		intro:
-			"Votre expérience et vos compétences acquises en France sont un atout majeur sur le marché gabonais. Voici comment valoriser votre parcours et saisir les opportunités.",
+			"Votre expérience et vos compétences acquises en Espagne sont un atout majeur sur le marché gabonais. Voici comment valoriser votre parcours et saisir les opportunités.",
 		items: [
 			{
 				title: "Marché de l'emploi au Gabon",
 				detail:
-					"Secteurs porteurs : pétrole & mines (Total, Perenco, Comilog), BTP (infrastructure publique), nouvelles technologies (e-commerce, fintech), finance & banque, santé, éducation, hôtellerie/tourisme, économie verte. Les profils formés en France sont recherchés pour leur expertise technique et leur bilinguisme. Consultez les offres : ONE (Office National de l'Emploi), Emploi.ga, LinkedIn, Bayt Gabon.",
+					"Secteurs porteurs : pétrole & mines (Total, Perenco, Comilog), BTP (infrastructure publique), nouvelles technologies (e-commerce, fintech), finance & banque, santé, éducation, hôtellerie/tourisme, économie verte. Les profils formés en Espagne sont recherchés pour leur expertise technique et leur bilinguisme. Consultez les offres : ONE (Office National de l'Emploi), Emploi.ga, LinkedIn, Bayt Gabon.",
 			},
 			{
 				title: "Entrepreneuriat — Création d'entreprise",
@@ -251,7 +251,7 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Reconnaissance des diplômes",
 				detail:
-					"Vos diplômes français doivent être légalisés pour être reconnus au Gabon. Procédure : 1) Apostille au tribunal judiciaire français (gratuit, mais délai de 2 à 4 semaines). 2) Légalisation au ministère gabonais de l'Éducation Nationale. Prévoyez 1 à 3 mois de délai total. ⚠️ Faites cette démarche AVANT votre départ de France.",
+					"Vos diplômes espagnol doivent être légalisés pour être reconnus au Gabon. Procédure : 1) Apostille au tribunal judiciaire espagnol (gratuit, mais délai de 2 à 4 semaines). 2) Légalisation au ministère gabonais de l'Éducation Nationale. Prévoyez 1 à 3 mois de délai total. ⚠️ Faites cette démarche AVANT votre départ d'Espagne.",
 			},
 			{
 				title: "Réseaux professionnels",
@@ -266,9 +266,9 @@ const guideSections: GuideSection[] = [
 		],
 		tips: [
 			"Faites reconnaître vos diplômes AVANT votre retour — les délais sont longs au Gabon",
-			"Le bilinguisme français-anglais est un atout majeur dans les entreprises internationales au Gabon",
+			"Le bilinguisme espagnol-anglais est un atout majeur dans les entreprises internationales au Gabon",
 			"Renseignez-vous sur les exonérations fiscales pour les entreprises nouvellement créées auprès de l'ANPI",
-			"Consultez Business France pour les opportunités d'affaires France-Gabon",
+			"Consultez Business Spain pour les opportunités d'affaires Spain-Gabon",
 			"Le réseau personnel est crucial — activez vos contacts avant même d'arriver",
 		],
 		links: [
@@ -283,9 +283,9 @@ const guideSections: GuideSection[] = [
 				description: "Office National de l'Emploi",
 			},
 			{
-				label: "Business France",
+				label: "Business Spain",
 				url: "https://www.businessfrance.fr",
-				description: "Opportunités d'affaires France-Gabon",
+				description: "Opportunités d'affaires Spain-Gabon",
 			},
 		],
 	},
@@ -296,56 +296,56 @@ const guideSections: GuideSection[] = [
 		color: "text-teal-600 dark:text-teal-400",
 		iconBg: "bg-teal-500/10",
 		intro:
-			"Quitter la France ne signifie pas perdre tous vos droits. Certains droits sociaux, de retraite et de protection sont maintenus ou transférables. Anticipez les démarches.",
+			"Quitter l'Espagne ne signifie pas perdre tous vos droits. Certains droits sociaux, de retraite et de protection sont maintenus ou transférables. Anticipez les démarches.",
 		items: [
 			{
-				title: "Retraite française",
+				title: "Retraite espagnole",
 				detail:
-					"Vos trimestres cotisés en France sont acquis DÉFINITIVEMENT. La convention bilatérale France-Gabon permet de cumuler les périodes travaillées dans les deux pays pour le calcul de votre retraite. Demandez un relevé de carrière sur lassuranceretraite.fr AVANT votre départ. Vous pourrez percevoir votre retraite française depuis le Gabon par virement bancaire.",
+					"Vos trimestres cotisés en Espagne sont acquis DÉFINITIVEMENT. La convention bilatérale Spain-Gabon permet de cumuler les périodes travaillées dans les deux pays pour le calcul de votre retraite. Demandez un relevé de carrière sur seg-social.es AVANT votre départ. Vous pourrez percevoir votre retraite espagnole depuis le Gabon par virement bancaire.",
 			},
 			{
 				title: "Droits à l'assurance chômage",
 				detail:
-					"En cas de retour définitif, vous perdez vos droits à l'allocation chômage française. Cependant, si vous revenez en France ultérieurement, vos droits résiduels peuvent être réactivés sous conditions (dans les 3 ans suivant votre dernier pointage). Renseignez-vous auprès de France Travail AVANT de partir. Demandez une attestation de droits.",
+					"En cas de retour définitif, vous perdez vos droits à l'allocation chômage espagnole. Cependant, si vous revenez en Espagne ultérieurement, vos droits résiduels peuvent être réactivés sous conditions (dans les 3 ans suivant votre dernier pointage). Renseignez-vous auprès de SEPE AVANT de partir. Demandez une attestation de droits.",
 			},
 			{
 				title: "Sécurité sociale (CFE)",
 				detail:
-					"La Caisse des Français de l'Étranger (CFE) permet de conserver une couverture maladie française depuis le Gabon. Adhésion volontaire, cotisations selon vos revenus (à partir de 100 €/mois). Alternative locale : la CNAMGS (Caisse Nationale d'Assurance Maladie et de Garantie Sociale) au Gabon. ⚠️ La CFE est surtout utile si vous prévoyez des soins en France ou un retour ultérieur.",
+					"La Caisse des Espagnol de l'Étranger (CFE) permet de conserver une couverture maladie espagnole depuis le Gabon. Adhésion volontaire, cotisations selon vos revenus (à partir de 100 €/mois). Alternative locale : la CNAMGS (Caisse Nationale d'Assurance Maladie et de Garantie Sociale) au Gabon. ⚠️ La CFE est surtout utile si vous prévoyez des soins en Espagne ou un retour ultérieur.",
 			},
 			{
 				title: "Fiscalité du départ",
 				detail:
-					"L'année de votre départ, vous faites DEUX déclarations d'impôts : une au titre de résident (du 1er janvier à la date de départ) et une au titre de non-résident (du départ au 31 décembre). Vous restez imposable en France sur vos revenus de SOURCE française uniquement (revenus locatifs, retraite française). Convention fiscale France-Gabon : évite la double imposition.",
+					"L'année de votre départ, vous faites DEUX déclarations d'impôts : une au titre de résident (du 1er janvier à la date de départ) et une au titre de non-résident (du départ au 31 décembre). Vous restez imposable en Espagne sur vos revenus de SOURCE espagnole uniquement (revenus locatifs, retraite espagnole). Convention fiscale Spain-Gabon : évite la double imposition.",
 			},
 			{
 				title: "Droits civiques et consulaires",
 				detail:
-					"En tant que Gabonais au Gabon, vous retrouvez vos pleins droits civiques gabonais. Si vous êtes binational franco-gabonais, vous pouvez voter aux élections françaises depuis le Gabon (inscription sur les listes consulaires au consulat de France à Libreville). Inscrivez-vous au consulat de France à Libreville pour maintenir votre protection consulaire française.",
+					"En tant que Gabonais au Gabon, vous retrouvez vos pleins droits civiques gabonais. Si vous êtes binational franco-gabonais, vous pouvez voter aux élections espagnoles depuis le Gabon (inscription sur les listes consulaires à l'Ambassade d'Espagne à Libreville). Inscrivez-vous à l'Ambassade d'Espagne à Libreville pour maintenir votre protection consulaire espagnole.",
 			},
 		],
 		tips: [
-			"Demandez votre relevé de carrière retraite AVANT de quitter la France",
-			"La convention France-Gabon évite la double imposition — renseignez-vous sur les modalités",
-			"Conservez votre numéro de sécurité sociale français — il reste actif à vie",
-			"Inscrivez-vous au consulat de France à Libreville si vous êtes binational",
+			"Demandez votre relevé de carrière retraite AVANT de quitter l'Espagne",
+			"La convention Spain-Gabon évite la double imposition — renseignez-vous sur les modalités",
+			"Conservez votre numéro de sécurité sociale espagnol — il reste actif à vie",
+			"Inscrivez-vous à l'Ambassade d'Espagne à Libreville si vous êtes binational",
 			"Conservez vos bulletins de salaire et attestations — ils sont irremplaçables",
 		],
 		links: [
 			{
 				label: "L'Assurance Retraite",
-				url: "https://www.lassuranceretraite.fr",
+				url: "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/Jubilacion",
 				description: "Relevé de carrière et droits retraite",
 			},
 			{
 				label: "CFE",
-				url: "https://www.cfe.fr",
-				description: "Caisse des Français de l'Étranger — couverture maladie",
+				url: "https://www.seg-social.es/wps/portal/wss/internet/InformacionUtil/44539/45958",
+				description: "Caisse des Espagnol de l'Étranger — couverture maladie",
 			},
 			{
-				label: "Impots.gouv.fr",
-				url: "https://www.impots.gouv.fr",
-				description: "Déclaration de revenus et départ de France",
+				label: "Agencia Tributaria",
+				url: "https://www.agenciatributaria.gob.es",
+				description: "Déclaration de revenus et départ d'Espagne",
 			},
 		],
 	},
@@ -356,17 +356,17 @@ const guideSections: GuideSection[] = [
 		color: "text-red-600 dark:text-red-400",
 		iconBg: "bg-red-500/10",
 		intro:
-			"La transition sanitaire est un aspect important du retour. Le système de santé gabonais est en développement et présente des différences importantes avec le système français.",
+			"La transition sanitaire est un aspect important du retour. Le système de santé gabonais est en développement et présente des différences importantes avec le système espagnol.",
 		items: [
 			{
 				title: "Système de santé gabonais",
 				detail:
-					"Le CHU de Libreville est le principal hôpital public. Les cliniques privées (El Rapha, Chambrier, La Peyrie) offrent des soins de meilleure qualité mais à des tarifs plus élevés. Pour les soins spécialisés non disponibles au Gabon, une évacuation sanitaire vers la France ou le Maroc peut être nécessaire. L'inscription à la CNAMGS est obligatoire pour bénéficier de la couverture maladie nationale.",
+					"Le CHU de Libreville est le principal hôpital public. Les cliniques privées (El Rapha, Chambrier, La Peyrie) offrent des soins de meilleure qualité mais à des tarifs plus élevés. Pour les soins spécialisés non disponibles au Gabon, une évacuation sanitaire vers l'Espagne ou le Maroc peut être nécessaire. L'inscription à la CNAMGS est obligatoire pour bénéficier de la couverture maladie nationale.",
 			},
 			{
 				title: "Couverture santé",
 				detail:
-					"Options : la CNAMGS (couverture nationale, obligatoire pour les salariés), la CFE (maintien de la couverture française, volontaire), ou une assurance santé internationale privée (Allianz, AXA, BUPA). Pour les premiers mois, cumulez la CFE et la CNAMGS pour une couverture optimale. Prévoyez un budget santé conséquent les premiers mois.",
+					"Options : la CNAMGS (couverture nationale, obligatoire pour les salariés), la CFE (maintien de la couverture espagnole, volontaire), ou une assurance santé internationale privée (Allianz, AXA, BUPA). Pour les premiers mois, cumulez la CFE et la CNAMGS pour une couverture optimale. Prévoyez un budget santé conséquent les premiers mois.",
 			},
 			{
 				title: "Vaccinations",
@@ -376,17 +376,16 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Médicaments et traitements",
 				detail:
-					"Certains médicaments disponibles en France ne le sont pas au Gabon. Emportez un stock de 3 à 6 mois pour les traitements chroniques. Demandez des prescriptions en DCI (nom générique international) pour faciliter les équivalences. Les pharmacies de Libreville sont bien approvisionnées pour les médicaments courants.",
+					"Certains médicaments disponibles en Espagne ne le sont pas au Gabon. Emportez un stock de 3 à 6 mois pour les traitements chroniques. Demandez des prescriptions en DCI (nom générique international) pour faciliter les équivalences. Les pharmacies de Libreville sont bien approvisionnées pour les médicaments courants.",
 			},
 			{
 				title: "Bien-être et adaptation psychologique",
-				detail:
-					'Le retour au pays peut générer un "choc culturel inversé" : décalage avec les habitudes locales, nostalgie de la France, difficulté à retrouver ses repères. Ce phénomène est normal et temporaire (3 à 6 mois). Ne restez pas isolé — rejoignez les communautés de retournants. Si nécessaire, consultez un professionnel de santé mentale.',
+				detail: `Le retour au pays peut générer un "choc culturel inversé" : décalage avec les habitudes locales, nostalgie de l'Espagne, difficulté à retrouver ses repères. Ce phénomène est normal et temporaire (3 à 6 mois). Ne restez pas isolé — rejoignez les communautés de retournants. Si nécessaire, consultez un professionnel de santé mentale.`,
 			},
 		],
 		tips: [
 			"Souscrivez une assurance santé internationale pour les premiers mois — la transition prend du temps",
-			"Emportez vos ordonnances françaises traduites en DCI pour faciliter les équivalences",
+			"Emportez vos ordonnances espagnoles traduites en DCI pour faciliter les équivalences",
 			"Vérifiez votre carnet de vaccination AVANT le départ — la fièvre jaune est obligatoire",
 			"Constituez un stock de médicaments pour 3 à 6 mois pour vos traitements chroniques",
 		],
@@ -398,8 +397,8 @@ const guideSections: GuideSection[] = [
 			},
 			{
 				label: "CFE",
-				url: "https://www.cfe.fr",
-				description: "Maintien de la couverture maladie française",
+				url: "https://www.seg-social.es/wps/portal/wss/internet/InformacionUtil/44539/45958",
+				description: "Maintien de la couverture maladie espagnole",
 			},
 			{
 				label: "Institut Pasteur — Vaccins",
@@ -411,65 +410,65 @@ const guideSections: GuideSection[] = [
 	{
 		id: "oqtf-retour",
 		icon: AlertOctagon,
-		title: "OQTF & Retour contraint",
+		title: "Orden de Expulsión & Retour contraint",
 		color: "text-rose-600 dark:text-rose-400",
 		iconBg: "bg-rose-500/10",
 
 		intro:
-			"Si vous êtes sous OQTF (Obligation de Quitter le Territoire Français), le consulat vous accompagne dans cette épreuve. Connaître vos droits et préparer votre retour dignement est essentiel.",
+			"Si vous êtes sous Orden de Expulsión (Obligation de Quitter le Territoire Espagnol), l'Ambassade vous accompagne dans cette épreuve. Connaître vos droits et préparer votre retour dignement est essentiel.",
 		items: [
 			{
 				title: "Comprendre votre situation",
 				detail:
-					"Une OQTF ne signifie pas que votre vie s'arrête. C'est une décision administrative qui peut être contestée. Deux cas de figure : 1) Retour volontaire dans le délai de 30 jours — vous conservez le droit de revenir en France ultérieurement avec un nouveau visa. 2) Retour forcé après expiration du délai — une interdiction de retour (IRTF) de 1 à 3 ans peut être prononcée. ⚠️ Le retour volontaire est TOUJOURS préférable au retour forcé.",
+					"Une Orden de Expulsión ne signifie pas que votre vie s'arrête. C'est une décision administrative qui peut être contestée. Deux cas de figure : 1) Retour volontaire dans le délai de 30 jours — vous conservez le droit de revenir en Espagne ultérieurement avec un nouveau visa. 2) Retour forcé après expiration du délai — une interdiction de retour (IRTF) de 1 à 3 ans peut être prononcée. ⚠️ Le retour volontaire est TOUJOURS préférable au retour forcé.",
 			},
 			{
 				title: "Vos droits avant le départ",
 				detail:
-					"Même sous OQTF, vous conservez des droits fondamentaux : le droit de contester la décision (recours au tribunal administratif), le droit à la protection consulaire (contactez le consulat), le droit aux soins médicaux urgents, le droit de scolariser vos enfants jusqu'au départ effectif. Aucune administration ne peut vous refuser ces droits.",
+					"Même sous Orden de Expulsión, vous conservez des droits fondamentaux : le droit de contester la décision (recours au Tribunal Contencioso-Administrativo), le droit à la protection consulaire (contactez l'Ambassade), le droit aux soins médicaux urgents, le droit de scolariser vos enfants jusqu'au départ effectif. Aucune administration ne peut vous refuser ces droits.",
 			},
 			{
-				title: "Rôle du Consulat Général",
+				title: "Rôle du Ambassade",
 				detail:
-					"Le consulat peut : 1) Vous orienter vers un avocat spécialisé en droit des étrangers. 2) Vous aider à constituer votre dossier de régularisation le cas échéant. 3) Délivrer un laissez-passer consulaire pour le retour. 4) Vous mettre en contact avec les services d'aide au retour de l'OFII. 5) Faciliter votre réinstallation au Gabon via le réseau consulaire. Le consulat ne peut PAS s'opposer juridiquement à l'OQTF.",
+					"L'Ambassade peut : 1) Vous orienter vers un avocat spécialisé en droit des étrangers. 2) Vous aider à constituer votre dossier de régularisation le cas échéant. 3) Délivrer un laissez-passer consulaire pour le retour. 4) Vous mettre en contact avec les services d'aide au retour de l'Oficina de Extranjería. 5) Faciliter votre réinstallation au Gabon via le réseau consulaire. L'Ambassade ne peut PAS s'opposer juridiquement à l'Orden de Expulsión.",
 			},
 			{
-				title: "Aide au retour volontaire (OFII)",
+				title: "Aide au retour volontaire (Oficina de Extranjería)",
 				detail:
-					"L'OFII propose une aide financière au retour volontaire : billet d'avion pris en charge, allocation de réinstallation (jusqu'à 1 000 € par adulte, 500 € par enfant), aide à la création d'entreprise au Gabon (jusqu'à 5 000 €), accompagnement social et administratif. Conditions : accepter le retour volontaire, ne pas avoir bénéficié d'une aide au retour dans les 5 dernières années.",
+					"L'Oficina de Extranjería propose une aide financière au retour volontaire : billet d'avion pris en charge, allocation de réinstallation (jusqu'à 1 000 € par adulte, 500 € par enfant), aide à la création d'entreprise au Gabon (jusqu'à 5 000 €), accompagnement social et administratif. Conditions : accepter le retour volontaire, ne pas avoir bénéficié d'une aide au retour dans les 5 dernières années.",
 			},
 			{
 				title: "Préparer le retour contraint",
 				detail:
-					"Si le retour est inévitable : 1) Sécurisez vos économies (transférez sur un compte au Gabon). 2) Récupérez votre dossier médical et vos ordonnances. 3) Faites apostiller vos diplômes et transcrire vos actes d'état civil au consulat. 4) Informez votre famille au Gabon. 5) Emportez tous vos documents originaux (passeport, diplômes, bulletins de salaire, relevé de carrière retraite). 6) Contactez les associations de retournants au Gabon.",
+					"Si le retour est inévitable : 1) Sécurisez vos économies (transférez sur un compte au Gabon). 2) Récupérez votre dossier médical et vos ordonnances. 3) Faites apostiller vos diplômes et transcrire vos actes d'état civil à l'Ambassade. 4) Informez votre famille au Gabon. 5) Emportez tous vos documents originaux (passeport, diplômes, bulletins de salaire, relevé de carrière retraite). 6) Contactez les associations de retournants au Gabon.",
 			},
 			{
 				title: "Vie après le retour — Rebondir",
 				detail:
-					"Un retour sous OQTF n'est pas une fin. Votre expérience en France (études, travail, compétences linguistiques) est un atout au Gabon. Les secteurs numériques, éducatifs et de services valorisent les profils internationaux. L'ANPI accompagne les Gabonais de la diaspora dans la création d'entreprise. Des programmes d'aide à la réinsertion existent via l'OFII et les associations locales.",
+					"Un retour sous Orden de Expulsión n'est pas une fin. Votre expérience en Espagne (études, travail, compétences linguistiques) est un atout au Gabon. Les secteurs numériques, éducatifs et de services valorisent les profils internationaux. L'ANPI accompagne les Gabonais de la diaspora dans la création d'entreprise. Des programmes d'aide à la réinsertion existent via l'Oficina de Extranjería et les associations locales.",
 			},
 			{
-				title: "Revenir en France après une OQTF",
+				title: "Revenir en Espagne après une Orden de Expulsión",
 				detail:
-					"Le retour volontaire dans le délai préserve votre droit de redemander un visa. Si une IRTF a été prononcée, vous devez attendre la fin de la période d'interdiction (1 à 3 ans). Après l'expiration de l'IRTF, vous pouvez déposer une nouvelle demande de visa au consulat de France à Libreville. Un dossier solide (motif de voyage, ressources, garanties de retour) augmentera vos chances.",
+					"Le retour volontaire dans le délai préserve votre droit de redemander un visa. Si une IRTF a été prononcée, vous devez attendre la fin de la période d'interdiction (1 à 3 ans). Après l'expiration de l'IRTF, vous pouvez déposer une nouvelle demande de visa à l'Ambassade d'Espagne à Libreville. Un dossier solide (motif de voyage, ressources, garanties de retour) augmentera vos chances.",
 			},
 		],
 		tips: [
 			"Le retour VOLONTAIRE dans le délai de 30 jours est TOUJOURS préférable — il préserve vos droits futurs",
-			"Contactez le consulat DÈS la réception de l'OQTF pour un accompagnement",
-			"L'aide de l'OFII peut atteindre 5 000 € pour un projet de création d'entreprise au Gabon",
-			"Conservez TOUS vos documents français — ils sont votre capital pour la suite au Gabon",
+			"Contactez l'Ambassade DÈS la réception de l'Orden de Expulsión pour un accompagnement",
+			"L'aide de l'Oficina de Extranjería peut atteindre 5 000 € pour un projet de création d'entreprise au Gabon",
+			"Conservez TOUS vos documents espagnol — ils sont votre capital pour la suite au Gabon",
 			"Ne restez pas isolé — les associations de retournants offrent un soutien moral et pratique",
 		],
 		links: [
 			{
-				label: "OFII — Retour",
-				url: "https://www.ofii.fr/procedure/retourner-dans-son-pays",
+				label: "Programa de Retorno Voluntario",
+				url: "https://extranjeros.inclusion.gob.es/es/Retorno_voluntario",
 				description: "Programme d'aide au retour volontaire",
 			},
 			{
-				label: "CIMADE",
-				url: "https://www.lacimade.org",
+				label: "CEAR (ONG de ayuda)",
+				url: "https://www.cear.es",
 				description: "Accompagnement juridique gratuit",
 			},
 			{
@@ -478,8 +477,8 @@ const guideSections: GuideSection[] = [
 				description: "Aide à la création d'entreprise au Gabon",
 			},
 			{
-				label: "Défenseur des droits",
-				url: "https://www.defenseurdesdroits.fr",
+				label: "Defensor del Pueblo",
+				url: "https://www.defensordelpueblo.es",
 				description: "Recours en cas de litige avec l'administration",
 			},
 		],
@@ -491,9 +490,9 @@ const guideSections: GuideSection[] = [
 const aides: { icon: typeof HandCoins; title: string; detail: string }[] = [
 	{
 		icon: HandCoins,
-		title: "Aide au retour volontaire (OFII)",
+		title: "Aide au retour volontaire (Oficina de Extranjería)",
 		detail:
-			"L'OFII propose une aide financière au retour volontaire incluant : billet d'avion, allocation de réinstallation (jusqu'à 1 000€/adulte), aide à la création d'entreprise (jusqu'à 5 000€), et accompagnement social et administratif.",
+			"L'Oficina de Extranjería propose une aide financière au retour volontaire incluant : billet d'avion, allocation de réinstallation (jusqu'à 1 000€/adulte), aide à la création d'entreprise (jusqu'à 5 000€), et accompagnement social et administratif.",
 	},
 	{
 		icon: GraduationCap,
@@ -516,19 +515,19 @@ const erreurs: ErreurItem[] = [
 			"Faites apostiller tous vos diplômes au tribunal judiciaire AVANT votre départ. C'est gratuit mais les délais sont de 2 à 4 semaines.",
 	},
 	{
-		erreur: "Ne pas informer les administrations françaises",
+		erreur: "Ne pas informer les administrations espagnoles",
 		conseil:
-			"Prévenez la CAF, la CPAM, France Travail et les impôts de votre départ définitif. Vous éviterez les trop-perçus et les pénalités.",
+			"Prévenez la CAF, la CPAM, SEPE et les impôts de votre départ définitif. Vous éviterez les trop-perçus et les pénalités.",
 	},
 	{
-		erreur: "Fermer son compte bancaire français trop tôt",
+		erreur: "Fermer son compte bancaire espagnol trop tôt",
 		conseil:
 			"Gardez votre compte ouvert pendant au moins 6 mois après le retour pour les virements en cours et les droits résiduels (retraite, chômage).",
 	},
 	{
 		erreur: "Ne pas transcrire les actes d'état civil",
 		conseil:
-			"Les naissances et mariages en France doivent être transcrits au consulat AVANT le retour. Les démarches sont plus complexes depuis le Gabon.",
+			"Les naissances et mariages en Espagne doivent être transcrits à l'Ambassade AVANT le retour. Les démarches sont plus complexes depuis le Gabon.",
 	},
 	{
 		erreur: "Sous-estimer les frais de réinstallation",
@@ -543,28 +542,28 @@ const erreurs: ErreurItem[] = [
 	{
 		erreur: "Ne pas prendre de stock de médicaments",
 		conseil:
-			"Certains médicaments disponibles en France sont introuvables au Gabon. Emportez un stock de 3 à 6 mois pour vos traitements chroniques.",
+			"Certains médicaments disponibles en Espagne sont introuvables au Gabon. Emportez un stock de 3 à 6 mois pour vos traitements chroniques.",
 	},
 ];
 
 const numerosUtiles: NumeroUtile[] = [
 	{
-		label: "Consul Général du Gabon à Paris",
-		number: "26 bis av. Raphaël, 75016",
+		label: "Ambassadeur du Gabon à Madrid",
+		number: "C. de Silva, 2, 28013 Madrid",
 		color: "bg-emerald-500/10 text-emerald-600",
 	},
 	{
-		label: "Email Consulat du Gabon",
-		number: "contact@consulatdugabon.fr",
+		label: "Email Ambassade du Gabon",
+		number: "contact@ambassadegabon.es",
 		color: "bg-emerald-500/10 text-emerald-600",
 	},
 	{
 		label: "Urgence consulaire Gabon",
-		number: "07 44 23 95 84",
+		number: "+34 91 XXX XX XX",
 		color: "bg-green-500/10 text-green-600",
 	},
 	{
-		label: "OFII (Aide au retour)",
+		label: "Oficina de Extranjería (Aide au retour)",
 		number: "01 53 69 53 70",
 		color: "bg-blue-500/10 text-blue-600",
 	},
@@ -584,7 +583,7 @@ const numerosUtiles: NumeroUtile[] = [
 		color: "bg-indigo-500/10 text-indigo-600",
 	},
 	{
-		label: "Ambassade de France à Libreville",
+		label: "Ambassade d'Espagne à Libreville",
 		number: "+241 01 79 70 00",
 		color: "bg-red-500/10 text-red-600",
 	},
@@ -612,14 +611,14 @@ const guideSectionsEn: GuideSection[] = [
 					"Update passports, civil records and essential consular files before departure to avoid delays after arrival.",
 			},
 			{
-				title: "Closing obligations in France",
+				title: "Closing obligations in Spain",
 				detail:
 					"Terminate housing and utility contracts, notify institutions, and keep proof of closure for every account.",
 			},
 			{
 				title: "Medical record transfer",
 				detail:
-					"Request complete medical history, prescriptions and key reports before leaving France.",
+					"Request complete medical history, prescriptions and key reports before leaving Spain.",
 			},
 			{
 				title: "Core document pack",
@@ -629,29 +628,29 @@ const guideSectionsEn: GuideSection[] = [
 			{
 				title: "Banking transition",
 				detail:
-					"Keep your French account active for a transition period while opening local banking services in Gabon.",
+					"Keep your Spanish account active for a transition period while opening local banking services in Gabon.",
 			},
 		],
 		tips: [
 			"Start preparations at least 6 months before departure",
 			"Digitize all documents and keep cloud backups",
-			"Inform CAF, CPAM, France Travail and tax authorities",
-			"Do not close your French bank account immediately",
+			"Inform CAF, CPAM, SEPE and tax authorities",
+			"Do not close your Spanish bank account immediately",
 		],
 		links: [
 			{
 				label: "ANTS",
-				url: "https://ants.gouv.fr",
-				description: "French administrative procedures (license and identity)",
+				url: "https://sede.dgt.gob.es",
+				description: "Spanish administrative procedures (license and identity)",
 			},
 			{
 				label: "L'Assurance Retraite",
-				url: "https://www.lassuranceretraite.fr",
+				url: "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/Jubilacion",
 				description: "Career statement and pension rights",
 			},
 			{
 				label: "La Poste — Réexpédition",
-				url: "https://www.laposte.fr/outils/reexpedition-courrier",
+				url: "https://www.correos.es/es/es/atencion-al-cliente/reenvio-de-correspondencia",
 				description: "Mail forwarding service",
 			},
 		],
@@ -751,7 +750,7 @@ const guideSectionsEn: GuideSection[] = [
 			{
 				label: "Lycée Blaise Pascal",
 				url: "https://lfbp-libreville.net",
-				description: "French school network in Libreville",
+				description: "Spanish school network in Libreville",
 			},
 			{
 				label: "BGFI Bank",
@@ -768,7 +767,7 @@ const guideSectionsEn: GuideSection[] = [
 		iconBg: "bg-purple-500/10",
 		image: "/images/guide-emploi.png",
 		intro:
-			"Skills acquired in France can be a strong advantage on the Gabonese market when positioned correctly.",
+			"Skills acquired in Spain can be a strong advantage on the Gabonese market when positioned correctly.",
 		items: [
 			{
 				title: "Job market overview",
@@ -797,7 +796,7 @@ const guideSectionsEn: GuideSection[] = [
 			},
 		],
 		tips: [
-			"Prepare credential recognition before leaving France",
+			"Prepare credential recognition before leaving Spain",
 			"Map your target sectors and contacts in advance",
 			"Use ANPI and chamber resources for structured support",
 			"Activate professional networks before arrival",
@@ -814,9 +813,9 @@ const guideSectionsEn: GuideSection[] = [
 				description: "National employment office",
 			},
 			{
-				label: "Business France",
+				label: "Business Spain",
 				url: "https://www.businessfrance.fr",
-				description: "France-Gabon business opportunities",
+				description: "Spain-Gabon business opportunities",
 			},
 		],
 	},
@@ -827,10 +826,10 @@ const guideSectionsEn: GuideSection[] = [
 		color: "text-teal-600 dark:text-teal-400",
 		iconBg: "bg-teal-500/10",
 		intro:
-			"Leaving France does not erase all rights. Retirement, taxation and healthcare continuity require proactive steps.",
+			"Leaving Spain does not erase all rights. Retirement, taxation and healthcare continuity require proactive steps.",
 		items: [
 			{
-				title: "French pension rights",
+				title: "Spanish pension rights",
 				detail:
 					"Contributed periods remain acquired. Request updated career records before departure.",
 			},
@@ -859,22 +858,22 @@ const guideSectionsEn: GuideSection[] = [
 			"Request pension records before departure",
 			"Keep salary and employment certificates safely archived",
 			"Clarify cross-border tax status early",
-			"Maintain access credentials for key French portals",
+			"Maintain access credentials for key Spanish portals",
 		],
 		links: [
 			{
 				label: "L'Assurance Retraite",
-				url: "https://www.lassuranceretraite.fr",
+				url: "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/Jubilacion",
 				description: "Pension rights and records",
 			},
 			{
 				label: "CFE",
-				url: "https://www.cfe.fr",
+				url: "https://www.seg-social.es/wps/portal/wss/internet/InformacionUtil/44539/45958",
 				description: "Healthcare continuity abroad",
 			},
 			{
-				label: "Impots.gouv.fr",
-				url: "https://www.impots.gouv.fr",
+				label: "Agencia Tributaria",
+				url: "https://www.agenciatributaria.gob.es",
 				description: "Tax declarations and departure guidance",
 			},
 		],
@@ -886,7 +885,7 @@ const guideSectionsEn: GuideSection[] = [
 		color: "text-red-600 dark:text-red-400",
 		iconBg: "bg-red-500/10",
 		intro:
-			"Healthcare organization differs from France. Prepare coverage, medications and preventive care before returning.",
+			"Healthcare organization differs from Spain. Prepare coverage, medications and preventive care before returning.",
 		items: [
 			{
 				title: "Healthcare system overview",
@@ -928,8 +927,8 @@ const guideSectionsEn: GuideSection[] = [
 			},
 			{
 				label: "CFE",
-				url: "https://www.cfe.fr",
-				description: "French coverage continuity abroad",
+				url: "https://www.seg-social.es/wps/portal/wss/internet/InformacionUtil/44539/45958",
+				description: "Spanish coverage continuity abroad",
 			},
 			{
 				label: "Institut Pasteur — Vaccins",
@@ -941,11 +940,11 @@ const guideSectionsEn: GuideSection[] = [
 	{
 		id: "oqtf-retour",
 		icon: AlertOctagon,
-		title: "OQTF & Forced Return",
+		title: "Orden de Expulsión & Forced Return",
 		color: "text-rose-600 dark:text-rose-400",
 		iconBg: "bg-rose-500/10",
 		intro:
-			"If you face an OQTF, act quickly. Legal timelines and return choices strongly affect your long-term options.",
+			"If you face an Orden de Expulsión, act quickly. Legal timelines and return choices strongly affect your long-term options.",
 		items: [
 			{
 				title: "Understanding your case",
@@ -955,17 +954,17 @@ const guideSectionsEn: GuideSection[] = [
 			{
 				title: "Rights before departure",
 				detail:
-					"Even with OQTF, core rights remain, including legal challenge and consular support.",
+					"Even with Orden de Expulsión, core rights remain, including legal challenge and consular support.",
 			},
 			{
-				title: "Role of the Consulate",
+				title: "Role of the Embassy",
 				detail:
-					"The consulate can orient you, help organize documents and coordinate return assistance channels.",
+					"The Embassy can orient you, help organize documents and coordinate return assistance channels.",
 			},
 			{
-				title: "OFII voluntary return aid",
+				title: "Oficina de Extranjería voluntary return aid",
 				detail:
-					"OFII may support travel, reintegration and project-based assistance under eligibility rules.",
+					"Oficina de Extranjería may support travel, reintegration and project-based assistance under eligibility rules.",
 			},
 			{
 				title: "Rebuilding after return",
@@ -975,19 +974,19 @@ const guideSectionsEn: GuideSection[] = [
 		],
 		tips: [
 			"Voluntary return is generally less damaging for future mobility",
-			"Contact legal counsel and the consulate immediately",
+			"Contact legal counsel and the Embassy immediately",
 			"Preserve all documents related to your stay and appeals",
 			"Use reintegration programs to structure your next steps",
 		],
 		links: [
 			{
-				label: "OFII — Retour",
-				url: "https://www.ofii.fr/procedure/retourner-dans-son-pays",
+				label: "Programa de Retorno Voluntario",
+				url: "https://extranjeros.inclusion.gob.es/es/Retorno_voluntario",
 				description: "Voluntary return assistance",
 			},
 			{
-				label: "CIMADE",
-				url: "https://www.lacimade.org",
+				label: "CEAR (ONG de ayuda)",
+				url: "https://www.cear.es",
 				description: "Free legal support",
 			},
 			{
@@ -996,8 +995,8 @@ const guideSectionsEn: GuideSection[] = [
 				description: "Entrepreneurship support in Gabon",
 			},
 			{
-				label: "Défenseur des droits",
-				url: "https://www.defenseurdesdroits.fr",
+				label: "Defensor del Pueblo",
+				url: "https://www.defensordelpueblo.es",
 				description: "Rights defense and complaints",
 			},
 		],
@@ -1007,9 +1006,9 @@ const guideSectionsEn: GuideSection[] = [
 const aidesEn: { icon: typeof HandCoins; title: string; detail: string }[] = [
 	{
 		icon: HandCoins,
-		title: "OFII voluntary return aid",
+		title: "Oficina de Extranjería voluntary return aid",
 		detail:
-			"Depending on eligibility, OFII may provide travel support, reintegration allowance and project assistance.",
+			"Depending on eligibility, Oficina de Extranjería may provide travel support, reintegration allowance and project assistance.",
 	},
 	{
 		icon: GraduationCap,
@@ -1031,12 +1030,12 @@ const erreursEn: ErreurItem[] = [
 		conseil: "Complete recognition steps before departure whenever possible.",
 	},
 	{
-		erreur: "Not notifying French administrations",
+		erreur: "Not notifying Spanish administrations",
 		conseil:
-			"Inform CAF, CPAM, France Travail and tax services to avoid overpayments and penalties.",
+			"Inform CAF, CPAM, SEPE and tax services to avoid overpayments and penalties.",
 	},
 	{
-		erreur: "Closing your French bank account too early",
+		erreur: "Closing your Spanish bank account too early",
 		conseil:
 			"Keep it active during transition for pending payments and rights settlements.",
 	},
@@ -1064,22 +1063,22 @@ const erreursEn: ErreurItem[] = [
 
 const numerosUtilesEn: NumeroUtile[] = [
 	{
-		label: "Consul General of Gabon in Paris",
-		number: "26 bis av. Raphaël, 75016",
+		label: "Consul General of Gabon in Madrid",
+		number: "C. de Silva, 2, 28013 Madrid",
 		color: "bg-emerald-500/10 text-emerald-600",
 	},
 	{
-		label: "Gabon Consulate Email",
-		number: "contact@consulatdugabon.fr",
+		label: "Gabon Embassy Email",
+		number: "contact@ambassadegabon.es",
 		color: "bg-emerald-500/10 text-emerald-600",
 	},
 	{
 		label: "Gabon Consular Emergency",
-		number: "07 44 23 95 84",
+		number: "+34 91 XXX XX XX",
 		color: "bg-green-500/10 text-green-600",
 	},
 	{
-		label: "OFII (Return aid)",
+		label: "Oficina de Extranjería (Return aid)",
 		number: "01 53 69 53 70",
 		color: "bg-blue-500/10 text-blue-600",
 	},
@@ -1099,7 +1098,7 @@ const numerosUtilesEn: NumeroUtile[] = [
 		color: "bg-indigo-500/10 text-indigo-600",
 	},
 	{
-		label: "French Embassy in Libreville",
+		label: "Spanish Embassy in Libreville",
 		number: "+241 01 79 70 00",
 		color: "bg-red-500/10 text-red-600",
 	},
@@ -1160,7 +1159,7 @@ function RetourAuGabonPage() {
 						contentKey="retourGabon.hero.description"
 						defaultValue={t(
 							"retourGabon.heroDescription",
-							"Guide complet pour les Gabonais rentrant au pays : démarches consulaires, déménagement, réinstallation, emploi, OQTF, aides et maintien de vos droits acquis en France.",
+							"Guide complet pour les Gabonais rentrant au pays : démarches consulaires, déménagement, réinstallation, emploi, Orden de Expulsión, aides et maintien de vos droits acquis en Espagne.",
 						)}
 						pagePath="/retour-au-gabon"
 						sectionId="hero"

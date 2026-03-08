@@ -55,7 +55,7 @@ export default function Header() {
 		"layout.header.topbar.email",
 		"/",
 		"header_topbar",
-		"contact@consulatdugabon.fr",
+		"contact@ambassadegabon.es",
 	);
 	const hoursContent = useInlineContent(
 		"layout.header.topbar.hours",
@@ -78,7 +78,7 @@ export default function Header() {
 			contentKey: "layout.header.nav.home",
 		},
 		{
-			label: t("header.nav.consulat", "Consulat Général"),
+			label: t("header.nav.consulat", "L'Ambassade"),
 			href: "/le-consulat",
 			icon: Building2,
 			contentKey: "layout.header.nav.consulat",
@@ -96,13 +96,13 @@ export default function Header() {
 			contentKey: "layout.header.nav.news",
 		},
 		{
-			label: t("header.nav.venirFrance", "Venir en France"),
+			label: t("header.nav.venirFrance", "Venir en Espagne"),
 			href: "/venir-en-france",
 			icon: Plane,
 			contentKey: "layout.header.nav.venirFrance",
 		},
 		{
-			label: t("header.nav.vieFrance", "Vivre en France"),
+			label: t("header.nav.vieFrance", "Vivre en Espagne"),
 			href: "/vie-en-france",
 			icon: BookOpen,
 			contentKey: "layout.header.nav.vieFrance",
@@ -213,13 +213,13 @@ export default function Header() {
 								defaultValue="/sceau_gabon.png"
 								pagePath="/"
 								sectionId="header"
-								alt="Logo Consulat Gabon"
+								alt="Logo Ambassade Gabon"
 								className="h-[5rem] sm:h-[6rem] w-auto relative -mb-7 sm:-mb-8 -mt-[0.25cm] sm:-mt-[0.25cm] origin-top"
 							/>
 							<div>
 								<EditableText
 									contentKey="layout.header.brand.line1"
-									defaultValue={t("header.brand.line1", "CONSULAT GÉNÉRAL")}
+									defaultValue={t("header.brand.line1", "AMBASSADE DU GABON")}
 									pagePath="/"
 									sectionId="header"
 									as="div"
@@ -227,7 +227,7 @@ export default function Header() {
 								/>
 								<EditableText
 									contentKey="layout.header.brand.line2"
-									defaultValue={t("header.brand.line2", "Du Gabon en France")}
+									defaultValue={t("header.brand.line2", "Au Royaume d'Espagne")}
 									pagePath="/"
 									sectionId="header"
 									as="div"
@@ -314,13 +314,13 @@ export default function Header() {
 							defaultValue="/sceau_gabon.png"
 							pagePath="/"
 							sectionId="header_mobile"
-							alt="Logo Consulat Gabon"
+							alt="Logo Ambassade Gabon"
 							className="h-20 w-auto"
 						/>
 						<div>
 							<EditableText
 								contentKey="layout.header.mobile.brand.line1"
-								defaultValue={t("header.brand.line1", "CONSULAT GÉNÉRAL")}
+								defaultValue={t("header.brand.line1", "AMBASSADE DU GABON")}
 								pagePath="/"
 								sectionId="header_mobile"
 								as="div"
@@ -328,7 +328,7 @@ export default function Header() {
 							/>
 							<EditableText
 								contentKey="layout.header.mobile.brand.line2"
-								defaultValue={t("header.brand.line2", "Du Gabon en France")}
+								defaultValue={t("header.brand.line2", "Au Royaume d'Espagne")}
 								pagePath="/"
 								sectionId="header_mobile"
 								as="div"

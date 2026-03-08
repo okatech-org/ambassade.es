@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VieEnFranceRouteImport } from './routes/vie-en-france'
 import { Route as VenirEnFranceRouteImport } from './routes/venir-en-france'
+import { Route as VenirEnEspagneRouteImport } from './routes/venir-en-espagne'
 import { Route as RetourAuGabonRouteImport } from './routes/retour-au-gabon'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as LeConsulatRouteImport } from './routes/le-consulat'
@@ -51,6 +52,11 @@ const VieEnFranceRoute = VieEnFranceRouteImport.update({
 const VenirEnFranceRoute = VenirEnFranceRouteImport.update({
   id: '/venir-en-france',
   path: '/venir-en-france',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VenirEnEspagneRoute = VenirEnEspagneRouteImport.update({
+  id: '/venir-en-espagne',
+  path: '/venir-en-espagne',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RetourAuGabonRoute = RetourAuGabonRouteImport.update({
@@ -221,6 +227,7 @@ export interface FileRoutesByFullPath {
   '/le-consulat': typeof LeConsulatRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/retour-au-gabon': typeof RetourAuGabonRoute
+  '/venir-en-espagne': typeof VenirEnEspagneRoute
   '/venir-en-france': typeof VenirEnFranceRoute
   '/vie-en-france': typeof VieEnFranceRoute
   '/actualites/$slug': typeof ActualitesSlugRoute
@@ -255,6 +262,7 @@ export interface FileRoutesByTo {
   '/le-consulat': typeof LeConsulatRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/retour-au-gabon': typeof RetourAuGabonRoute
+  '/venir-en-espagne': typeof VenirEnEspagneRoute
   '/venir-en-france': typeof VenirEnFranceRoute
   '/vie-en-france': typeof VieEnFranceRoute
   '/actualites/$slug': typeof ActualitesSlugRoute
@@ -291,6 +299,7 @@ export interface FileRoutesById {
   '/le-consulat': typeof LeConsulatRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/retour-au-gabon': typeof RetourAuGabonRoute
+  '/venir-en-espagne': typeof VenirEnEspagneRoute
   '/venir-en-france': typeof VenirEnFranceRoute
   '/vie-en-france': typeof VieEnFranceRoute
   '/actualites/$slug': typeof ActualitesSlugRoute
@@ -328,6 +337,7 @@ export interface FileRouteTypes {
     | '/le-consulat'
     | '/mentions-legales'
     | '/retour-au-gabon'
+    | '/venir-en-espagne'
     | '/venir-en-france'
     | '/vie-en-france'
     | '/actualites/$slug'
@@ -362,6 +372,7 @@ export interface FileRouteTypes {
     | '/le-consulat'
     | '/mentions-legales'
     | '/retour-au-gabon'
+    | '/venir-en-espagne'
     | '/venir-en-france'
     | '/vie-en-france'
     | '/actualites/$slug'
@@ -397,6 +408,7 @@ export interface FileRouteTypes {
     | '/le-consulat'
     | '/mentions-legales'
     | '/retour-au-gabon'
+    | '/venir-en-espagne'
     | '/venir-en-france'
     | '/vie-en-france'
     | '/actualites/$slug'
@@ -433,6 +445,7 @@ export interface RootRouteChildren {
   LeConsulatRoute: typeof LeConsulatRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
   RetourAuGabonRoute: typeof RetourAuGabonRoute
+  VenirEnEspagneRoute: typeof VenirEnEspagneRoute
   VenirEnFranceRoute: typeof VenirEnFranceRoute
   VieEnFranceRoute: typeof VieEnFranceRoute
   ActualitesSlugRoute: typeof ActualitesSlugRoute
@@ -455,6 +468,13 @@ declare module '@tanstack/react-router' {
       path: '/venir-en-france'
       fullPath: '/venir-en-france'
       preLoaderRoute: typeof VenirEnFranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/venir-en-espagne': {
+      id: '/venir-en-espagne'
+      path: '/venir-en-espagne'
+      fullPath: '/venir-en-espagne'
+      preLoaderRoute: typeof VenirEnEspagneRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/retour-au-gabon': {
@@ -732,6 +752,7 @@ const rootRouteChildren: RootRouteChildren = {
   LeConsulatRoute: LeConsulatRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
   RetourAuGabonRoute: RetourAuGabonRoute,
+  VenirEnEspagneRoute: VenirEnEspagneRoute,
   VenirEnFranceRoute: VenirEnFranceRoute,
   VieEnFranceRoute: VieEnFranceRoute,
   ActualitesSlugRoute: ActualitesSlugRoute,

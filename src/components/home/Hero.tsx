@@ -57,12 +57,12 @@ export function Hero() {
 							contentKey="home.hero.title"
 							defaultValue={t(
 								"hero.title",
-								"Le Consulat passe à l'ère de l'IA",
+								"Bienvenue à l'Ambassade du Gabon en Espagne",
 							)}
 							pagePath="/"
 							sectionId="hero"
 							as="h1"
-							className="hidden sm:block text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-[0.7cm] tracking-tight drop-shadow-lg"
+							className="hidden sm:block text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-[0.7cm] tracking-tight drop-shadow-lg lg:whitespace-nowrap"
 						/>
 
 						{/* CTA Buttons — Google Style */}
@@ -94,7 +94,7 @@ export function Hero() {
 								size="lg"
 								className="h-14 px-8 rounded-full text-base shadow-lg shadow-[#1a5dab]/30 bg-[#1a5dab] hover:bg-[#174ea6] text-white transition-all font-semibold"
 							>
-								<Link to="/services">
+								<Link to="/le-consulat">
 									<Bot className="w-5 h-5 mr-2" />
 									<EditableText
 										contentKey="home.hero.cta2"
