@@ -1108,18 +1108,17 @@ function VieEnSpainPage() {
 	const tSections = isEn ? guideSectionsEn : guideSections;
 	const [activeSection, setActiveSection] = useState(tSections[0].id);
 
-	const scrollToSection = (id: string) => {
+	const selectSection = (id: string) => {
 		setActiveSection(id);
-		const element = document.getElementById(id);
-		if (element) {
-			element.scrollIntoView({ behavior: "smooth", block: "start" });
-		}
 	};
+
+	// Find the active section data
+	const activeSectionData = tSections.find((s) => s.id === activeSection);
 
 	return (
 		<div className="min-h-screen bg-background">
 			{/* Hero Section */}
-			<PageHero image="/images/heroes/hero-vie-france.png">
+			<PageHero image="/images/heroes/hero-vie-espagne.png">
 				<Badge
 					variant="secondary"
 					className="mb-4 bg-primary/10 text-primary border-primary/20"
@@ -1194,7 +1193,7 @@ function VieEnSpainPage() {
 							<button
 								type="button"
 								key={section.id}
-								onClick={() => scrollToSection(section.id)}
+								onClick={() => selectSection(section.id)}
 								className={`shrink-0 flex items-center gap-2 px-3 py-2 rounded-full text-xs font-medium transition-all ${
 									activeSection === section.id
 										? "bg-primary/10 text-primary border border-primary/20"
@@ -1218,15 +1217,20 @@ function VieEnSpainPage() {
 							<SectionNav
 								sections={tSections}
 								activeSection={activeSection}
-								onSelect={scrollToSection}
+								onSelect={selectSection}
 							/>
 						</div>
 
-						{/* Content */}
-						<div className="flex-1 space-y-8">
-							{tSections.map((section) => (
-								<GuideSectionCard key={section.id} section={section} />
-							))}
+						{/* Content — only active section with slide animation */}
+						<div className="flex-1 overflow-hidden">
+							{activeSectionData && (
+								<div
+									key={activeSectionData.id}
+									className="animate-slide-in-right"
+								>
+									<GuideSectionCard section={activeSectionData} />
+								</div>
+							)}
 						</div>
 					</div>
 				</div>
@@ -1234,7 +1238,7 @@ function VieEnSpainPage() {
 
 			{/* Emergency Numbers Card */}
 			<section className="py-12 px-6">
-				<div className="max-w-4xl mx-auto">
+				<div className="max-w-7xl mx-auto">
 					<div className="glass-card border-red-500/20 bg-red-500/5 rounded-2xl overflow-hidden">
 						<div className="p-6 md:p-8">
 							<div className="flex items-center gap-3 mb-6">
@@ -1254,7 +1258,7 @@ function VieEnSpainPage() {
 								</div>
 							</div>
 
-							<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+							<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
 								{[
 									{
 										number: "112",

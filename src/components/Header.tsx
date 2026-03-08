@@ -79,7 +79,7 @@ export default function Header() {
 		},
 		{
 			label: t("header.nav.consulat", "L'Ambassade"),
-			href: "/le-consulat",
+			href: "/ambassade",
 			icon: Building2,
 			contentKey: "layout.header.nav.consulat",
 		},

@@ -15,6 +15,7 @@ import {
 	Stethoscope,
 	Users,
 } from "lucide-react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
 	type ErreurItem,
@@ -23,6 +24,7 @@ import {
 	GuideSectionCard,
 	NumerosUtilesGrid,
 	type NumeroUtile,
+	SectionNav,
 } from "@/components/guides";
 import { CitizenCTA } from "@/components/home/CitizenCTA";
 import { EditableText } from "@/components/inline-edit/EditableText";
@@ -547,50 +549,79 @@ const erreurs: ErreurItem[] = [
 ];
 
 const numerosUtiles: NumeroUtile[] = [
+	// ── Espagne ──
 	{
-		label: "Ambassadeur du Gabon à Madrid",
+		label: "Ambassade du Gabon à Madrid",
 		number: "C. de Silva, 2, 28013 Madrid",
-		color: "bg-emerald-500/10 text-emerald-600",
+		color: "bg-blue-500/10 text-blue-600",
+		category: "espagne",
+		type: "address",
+		description: "Siège de l'Ambassade",
 	},
 	{
 		label: "Email Ambassade du Gabon",
 		number: "contact@ambassadegabon.es",
-		color: "bg-emerald-500/10 text-emerald-600",
+		color: "bg-blue-500/10 text-blue-600",
+		category: "espagne",
+		type: "email",
+		description: "Lun-Ven 9h00-16h00",
 	},
 	{
 		label: "Urgence consulaire Gabon",
 		number: "+34 91 XXX XX XX",
-		color: "bg-green-500/10 text-green-600",
+		color: "bg-red-500/10 text-red-600",
+		category: "espagne",
+		type: "phone",
+		description: "24h/24 — Urgences uniquement",
 	},
 	{
-		label: "Oficina de Extranjería (Aide au retour)",
+		label: "Oficina de Extranjería",
 		number: "+34 900 150 000",
 		color: "bg-blue-500/10 text-blue-600",
+		category: "espagne",
+		type: "phone",
+		description: "Aide au retour volontaire",
 	},
+	// ── Gabon ──
 	{
 		label: "Douanes du Gabon",
 		number: "+241 01 72 13 26",
-		color: "bg-orange-500/10 text-orange-600",
+		color: "bg-emerald-500/10 text-emerald-600",
+		category: "gabon",
+		type: "phone",
+		description: "Direction Générale des Douanes",
 	},
 	{
 		label: "ANPI Gabon",
 		number: "+241 01 79 52 52",
-		color: "bg-purple-500/10 text-purple-600",
+		color: "bg-emerald-500/10 text-emerald-600",
+		category: "gabon",
+		type: "phone",
+		description: "Promotion des investissements",
 	},
 	{
 		label: "ONE (Emploi Gabon)",
 		number: "+241 01 76 01 11",
-		color: "bg-indigo-500/10 text-indigo-600",
+		color: "bg-emerald-500/10 text-emerald-600",
+		category: "gabon",
+		type: "phone",
+		description: "Office National de l'Emploi",
 	},
 	{
 		label: "Ambassade d'Espagne à Libreville",
 		number: "+241 01 79 70 00",
-		color: "bg-red-500/10 text-red-600",
+		color: "bg-emerald-500/10 text-emerald-600",
+		category: "gabon",
+		type: "phone",
+		description: "Protection consulaire espagnole",
 	},
 	{
 		label: "CNAMGS (Santé Gabon)",
 		number: "+241 01 76 26 52",
-		color: "bg-pink-500/10 text-pink-600",
+		color: "bg-emerald-500/10 text-emerald-600",
+		category: "gabon",
+		type: "phone",
+		description: "Assurance maladie nationale",
 	},
 ];
 
@@ -1062,50 +1093,79 @@ const erreursEn: ErreurItem[] = [
 ];
 
 const numerosUtilesEn: NumeroUtile[] = [
+	// ── Spain ──
 	{
-		label: "Consul General of Gabon in Madrid",
+		label: "Embassy of Gabon in Madrid",
 		number: "C. de Silva, 2, 28013 Madrid",
-		color: "bg-emerald-500/10 text-emerald-600",
+		color: "bg-blue-500/10 text-blue-600",
+		category: "espagne",
+		type: "address",
+		description: "Embassy headquarters",
 	},
 	{
 		label: "Gabon Embassy Email",
 		number: "contact@ambassadegabon.es",
-		color: "bg-emerald-500/10 text-emerald-600",
+		color: "bg-blue-500/10 text-blue-600",
+		category: "espagne",
+		type: "email",
+		description: "Mon-Fri 9am-4pm",
 	},
 	{
 		label: "Gabon Consular Emergency",
 		number: "+34 91 XXX XX XX",
-		color: "bg-green-500/10 text-green-600",
+		color: "bg-red-500/10 text-red-600",
+		category: "espagne",
+		type: "phone",
+		description: "24/7 — Emergencies only",
 	},
 	{
-		label: "Oficina de Extranjería (Return aid)",
+		label: "Oficina de Extranjería",
 		number: "+34 900 150 000",
 		color: "bg-blue-500/10 text-blue-600",
+		category: "espagne",
+		type: "phone",
+		description: "Voluntary return assistance",
 	},
+	// ── Gabon ──
 	{
 		label: "Gabon Customs",
 		number: "+241 01 72 13 26",
-		color: "bg-orange-500/10 text-orange-600",
+		color: "bg-emerald-500/10 text-emerald-600",
+		category: "gabon",
+		type: "phone",
+		description: "General Directorate of Customs",
 	},
 	{
 		label: "ANPI Gabon",
 		number: "+241 01 79 52 52",
-		color: "bg-purple-500/10 text-purple-600",
+		color: "bg-emerald-500/10 text-emerald-600",
+		category: "gabon",
+		type: "phone",
+		description: "Investment promotion agency",
 	},
 	{
 		label: "ONE (Employment Gabon)",
 		number: "+241 01 76 01 11",
-		color: "bg-indigo-500/10 text-indigo-600",
+		color: "bg-emerald-500/10 text-emerald-600",
+		category: "gabon",
+		type: "phone",
+		description: "National Employment Office",
 	},
 	{
 		label: "Spanish Embassy in Libreville",
 		number: "+241 01 79 70 00",
-		color: "bg-red-500/10 text-red-600",
+		color: "bg-emerald-500/10 text-emerald-600",
+		category: "gabon",
+		type: "phone",
+		description: "Spanish consular protection",
 	},
 	{
 		label: "CNAMGS (Health Gabon)",
 		number: "+241 01 76 26 52",
-		color: "bg-pink-500/10 text-pink-600",
+		color: "bg-emerald-500/10 text-emerald-600",
+		category: "gabon",
+		type: "phone",
+		description: "National health insurance",
 	},
 ];
 
@@ -1120,12 +1180,19 @@ function RetourAuGabonPage() {
 	const tErreurs = isEn ? erreursEn : erreurs;
 	const tNumeros = isEn ? numerosUtilesEn : numerosUtiles;
 	const tAides = isEn ? aidesEn : aides;
+	const [activeSection, setActiveSection] = useState(tSections[0].id);
+
+	const selectSection = (id: string) => {
+		setActiveSection(id);
+	};
+
+	const activeSectionData = tSections.find((s) => s.id === activeSection);
 
 	return (
 		<div className="min-h-screen bg-background flex flex-col">
 			<div className="flex-1">
-				{/* ── Hero ────────────────────────────────────────────────────────── */}
-				<PageHero image="/images/heroes/hero-consulat.png">
+				{/* ── Hero ──────────────────────────────────────────────────────── */}
+				<PageHero image="/images/heroes/hero-retour-gabon.png">
 					<Badge className="mb-4 bg-primary/10 text-primary border-primary/20 backdrop-blur-sm">
 						<BookOpen className="w-3.5 h-3.5 mr-1.5" />
 						<EditableText
@@ -1166,70 +1233,56 @@ function RetourAuGabonPage() {
 						as="p"
 						className="text-base text-muted-foreground mb-6 max-w-2xl leading-relaxed"
 					/>
+				</PageHero>
 
-					<div className="flex flex-wrap gap-2">
-						{tSections.map((s) => {
-							const SIcon = s.icon;
+				{/* Mobile Section Navigation */}
+				<div className="lg:hidden sticky top-16 z-40 bg-background/80 backdrop-blur-md border-b border-border/50 px-4 py-3">
+					<div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
+						{tSections.map((section) => {
+							const Icon = section.icon;
 							return (
-								<a
-									key={s.id}
-									href={`#${s.id}`}
-									className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 backdrop-blur-sm hover:bg-primary/10 hover:border-primary/30 transition-all text-xs font-medium text-foreground hover:text-primary"
+								<button
+									type="button"
+									key={section.id}
+									onClick={() => selectSection(section.id)}
+									className={`shrink-0 flex items-center gap-2 px-3 py-2 rounded-full text-xs font-medium transition-all ${
+										activeSection === section.id
+											? "bg-primary/10 text-primary border border-primary/20"
+											: "bg-muted/50 text-muted-foreground border border-transparent"
+									}`}
 								>
-									<SIcon className={`w-4 h-4 ${s.color}`} />
-									{s.title}
-								</a>
+									<Icon className="w-3.5 h-3.5" />
+									{section.title}
+								</button>
 							);
 						})}
 					</div>
-				</PageHero>
+				</div>
 
-				{/* ── Guides thématiques ──────────────────────────────────────────── */}
-				<section className="py-16 px-6 bg-background">
-					<div className="max-w-4xl mx-auto">
-						<div className="text-center mb-12">
-							<Badge variant="outline" className="mb-4">
-								<FileText className="w-3.5 h-3.5 mr-1.5" />
-								<EditableText
-									contentKey="retourGabon.steps.badge"
-									defaultValue={t(
-										"retourGabon.steps.badge",
-										"Étapes du retour",
-									)}
-									pagePath="/retour-au-gabon"
-									sectionId="steps"
-									as="span"
+				{/* ── Guides thématiques — Sidebar + Slide ──────────────────────── */}
+				<section className="py-8 md:py-12 px-6">
+					<div className="max-w-7xl mx-auto">
+						<div className="flex gap-8">
+							{/* Sidebar Navigation (Desktop) */}
+							<div className="w-64 shrink-0 hidden lg:block">
+								<SectionNav
+									sections={tSections}
+									activeSection={activeSection}
+									onSelect={selectSection}
 								/>
-							</Badge>
-							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-								<EditableText
-									contentKey="retourGabon.steps.title"
-									defaultValue={t(
-										"retourGabon.steps.title",
-										"Préparez chaque étape",
-									)}
-									pagePath="/retour-au-gabon"
-									sectionId="steps"
-									as="span"
-								/>
-							</h2>
-							<EditableText
-								contentKey="retourGabon.steps.description"
-								defaultValue={t(
-									"retourGabon.steps.description",
-									"Du premier jour de préparation à votre réinstallation, chaque étape est détaillée avec des conseils pratiques et des liens utiles.",
+							</div>
+
+							{/* Content — only active section with slide animation */}
+							<div className="flex-1 overflow-hidden">
+								{activeSectionData && (
+									<div
+										key={activeSectionData.id}
+										className="animate-slide-in-right"
+									>
+										<GuideSectionCard section={activeSectionData} />
+									</div>
 								)}
-								pagePath="/retour-au-gabon"
-								sectionId="steps"
-								as="p"
-								className="text-muted-foreground max-w-2xl mx-auto"
-							/>
-						</div>
-
-						<div className="space-y-8">
-							{tSections.map((section) => (
-								<GuideSectionCard key={section.id} section={section} />
-							))}
+							</div>
 						</div>
 					</div>
 				</section>

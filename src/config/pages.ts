@@ -458,11 +458,11 @@ export const PAGE_REGISTRY: Record<string, PageDef> = {
 			FOOTER_SECTION,
 		],
 	},
-	"le-consulat": {
-		slug: "le-consulat",
+	ambassade: {
+		slug: "ambassade",
 		title: "Consulat Général",
 		description: "Présentation du Consulat, équipe et missions",
-		publicPath: "/le-consulat",
+		publicPath: "/ambassade",
 		icon: Building2,
 		color: "violet",
 		hasHero: true,

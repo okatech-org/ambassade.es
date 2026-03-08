@@ -1,45 +1,48 @@
-import type { LucideIcon } from 'lucide-react'
+import type { LucideIcon } from "lucide-react";
 
 export interface GuideItem {
-  title: string
-  detail: string
+	title: string;
+	detail: string;
 }
 
 export interface UsefulLink {
-  label: string
-  url: string
-  description: string
+	label: string;
+	url: string;
+	description: string;
 }
 
 export interface GuideSection {
-  id: string
-  icon: LucideIcon
-  title: string
-  color: string
-  iconBg: string
-  gradientFrom?: string
-  gradientTo?: string
-  intro: string
-  /** Optional illustration image for this section */
-  image?: string
-  items: GuideItem[]
-  tips: string[]
-  links?: UsefulLink[]
+	id: string;
+	icon: LucideIcon;
+	title: string;
+	color: string;
+	iconBg: string;
+	gradientFrom?: string;
+	gradientTo?: string;
+	intro: string;
+	/** Optional illustration image for this section */
+	image?: string;
+	items: GuideItem[];
+	tips: string[];
+	links?: UsefulLink[];
 }
 
 export interface SavoirVivreItem {
-  icon: LucideIcon
-  title: string
-  description: string
+	icon: LucideIcon;
+	title: string;
+	description: string;
 }
 
 export interface ErreurItem {
-  erreur: string
-  conseil: string
+	erreur: string;
+	conseil: string;
 }
 
 export interface NumeroUtile {
-  label: string
-  number: string
-  color: string
+	label: string;
+	number: string;
+	color: string;
+	category: "espagne" | "gabon";
+	type: "phone" | "email" | "address";
+	description?: string;
 }

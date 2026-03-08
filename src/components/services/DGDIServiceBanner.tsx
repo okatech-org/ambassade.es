@@ -1,18 +1,11 @@
-import {
-	ChevronDown,
-	Clock,
-	ExternalLink,
-	Info,
-	Mail,
-	MapPin,
-	Phone,
-} from "lucide-react";
+import { ChevronDown, ExternalLink, Globe, Info, Monitor } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 
 /**
  * Compact sidebar version of the DGDI Passeports & Visas info panel.
+ * Adapted for Spain: services are handled online via the DGDI platform.
  * Collapses on mobile to show only titles + CTA.
  */
 export function DGDIServiceBanner() {
@@ -45,7 +38,7 @@ export function DGDIServiceBanner() {
 							<p className="text-xs text-amber-950 font-medium mt-1.5 leading-snug">
 								{t(
 									"dgdi.subtitle",
-									"Service sous l'autorité de la DGDI sur le territoire français",
+									"Service en ligne sous l'autorité de la DGDI",
 								)}
 							</p>
 						</div>
@@ -58,7 +51,7 @@ export function DGDIServiceBanner() {
 					>
 						{expanded
 							? t("dgdi.hideDetails", "Masquer les détails")
-							: t("dgdi.showDetails", "Voir contact & horaires")}
+							: t("dgdi.showDetails", "Voir les détails")}
 						<ChevronDown
 							className={`w-3.5 h-3.5 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
 						/>
@@ -66,58 +59,41 @@ export function DGDIServiceBanner() {
 
 					{/* Collapsible details — hidden on mobile by default, always visible on desktop */}
 					<div className={`${expanded ? "block" : "hidden"} lg:block`}>
-						{/* Contact Spécifique */}
+						{/* Démarches en ligne */}
 						<div className="mb-5">
 							<h4 className="text-[10px] font-semibold uppercase tracking-wider text-amber-800/70 mb-3 flex items-center gap-1.5">
 								<span className="w-0.5 h-3.5 rounded-full inline-block bg-amber-700" />
-								{t("dgdi.specificContact", "Contact Spécifique")}
+								{t("dgdi.onlineServices", "Démarches en ligne")}
 							</h4>
 
 							<div className="space-y-2.5">
-								{/* Address */}
+								{/* Online platform */}
 								<div className="flex items-start gap-2.5">
 									<div className="flex items-center justify-center w-7 h-7 rounded-lg bg-amber-700/10 border border-amber-600/15 shrink-0">
-										<MapPin className="w-3 h-3 text-amber-800" />
+										<Monitor className="w-3 h-3 text-amber-800" />
 									</div>
 									<div>
 										<p className="text-amber-950 text-xs font-medium leading-relaxed">
-											26 bis Avenue Raphaël
-										</p>
-										<p className="text-amber-800/60 text-[11px]">
-											75016 Paris (
-											{t("dgdi.dedicatedEntrance", "Entrée dédiée")})
-										</p>
-									</div>
-								</div>
-
-								{/* Phone */}
-								<div className="flex items-center gap-2.5">
-									<div className="flex items-center justify-center w-7 h-7 rounded-lg bg-amber-700/10 border border-amber-600/15 shrink-0">
-										<Phone className="w-3 h-3 text-amber-800" />
-									</div>
-									<div className="min-w-0">
-										<a
-											href="tel:+33608032029"
-											className="text-amber-950 text-xs font-medium hover:text-amber-700 transition-colors"
-										>
-											+33 6 08 03 20 29
-										</a>
-										<p className="text-amber-800/50 text-[10px]">
-											({t("dgdi.smsOnly", "SMS uniquement")})
+											{t(
+												"dgdi.onlinePlatformDesc",
+												"Toutes les démarches de passeport et visa se font en ligne sur la plateforme DGDI.",
+											)}
 										</p>
 									</div>
 								</div>
 
-								{/* Email */}
+								{/* Website */}
 								<div className="flex items-center gap-2.5">
 									<div className="flex items-center justify-center w-7 h-7 rounded-lg bg-amber-700/10 border border-amber-600/15 shrink-0">
-										<Mail className="w-3 h-3 text-amber-800" />
+										<Globe className="w-3 h-3 text-amber-800" />
 									</div>
 									<a
-										href="mailto:aedgdi.fr@gmail.com"
+										href="https://www.dgdi.ga/"
+										target="_blank"
+										rel="noopener noreferrer"
 										className="text-amber-800 text-xs font-medium underline underline-offset-2 decoration-amber-600/30 hover:decoration-amber-700/80 transition-all truncate"
 									>
-										aedgdi.fr@gmail.com
+										www.dgdi.ga
 									</a>
 								</div>
 							</div>
@@ -126,72 +102,42 @@ export function DGDIServiceBanner() {
 						{/* Separator */}
 						<div className="border-t border-amber-600/20 mb-5" />
 
-						{/* Horaires Spécifiques */}
+						{/* Informations */}
 						<div className="mb-5">
 							<h4 className="text-[10px] font-semibold uppercase tracking-wider text-amber-800/70 mb-3 flex items-center gap-1.5">
 								<span className="w-0.5 h-3.5 rounded-full inline-block bg-amber-700" />
-								{t("dgdi.specificHours", "Horaires Spécifiques")}
+								{t("dgdi.importantInfo", "Informations importantes")}
 							</h4>
 
 							<div className="space-y-2.5">
-								<div className="dgdi-schedule-card flex items-center justify-between rounded-xl border border-amber-600/20 bg-amber-100/40 px-3 py-2.5 hover:border-amber-600/40 transition-all duration-300">
-									<div>
-										<p className="text-amber-800/60 text-[10px] font-medium mb-0.5 flex items-center gap-1">
-											<Clock className="w-2.5 h-2.5" />
-											{t("dgdi.passportSchedule", "Passeports (Lun-Jeu)")}
-										</p>
-										<p className="text-amber-950 text-sm font-bold tracking-tight">
-											9h00 – 12h00
-										</p>
-									</div>
-									<span className="text-[9px] font-semibold uppercase tracking-wider text-amber-800 bg-amber-600/10 px-2 py-1 rounded-full border border-amber-600/25">
-										{t("dgdi.morning", "Matin")}
-									</span>
+								<div className="dgdi-schedule-card flex items-center gap-3 rounded-xl border border-amber-600/20 bg-amber-100/40 px-3 py-2.5">
+									<div className="text-sm">💻</div>
+									<p className="text-amber-950 text-xs font-medium leading-relaxed">
+										{t(
+											"dgdi.noPhysicalOffice",
+											"Pas de guichet physique en Espagne — démarches 100% en ligne",
+										)}
+									</p>
 								</div>
 
-								<div className="dgdi-schedule-card flex items-center justify-between rounded-xl border border-amber-600/20 bg-amber-100/40 px-3 py-2.5 hover:border-amber-600/40 transition-all duration-300">
-									<div>
-										<p className="text-amber-800/60 text-[10px] font-medium mb-0.5 flex items-center gap-1">
-											<Clock className="w-2.5 h-2.5" />
-											{t("dgdi.passportPickup", "Retrait Passeport (Vendredi)")}
-										</p>
-										<p className="text-amber-950 text-sm font-bold tracking-tight">
-											9h00 – 12h00
-										</p>
-									</div>
-									<span className="text-[9px] font-semibold uppercase tracking-wider text-amber-800 bg-amber-600/10 px-2 py-1 rounded-full border border-amber-600/25">
-										{t("dgdi.morning", "Matin")}
-									</span>
+								<div className="dgdi-schedule-card flex items-center gap-3 rounded-xl border border-amber-600/20 bg-amber-100/40 px-3 py-2.5">
+									<div className="text-sm">📄</div>
+									<p className="text-amber-950 text-xs font-medium leading-relaxed">
+										{t(
+											"dgdi.docsRequired",
+											"Documents requis : passeport actuel, acte de naissance, photos d'identité",
+										)}
+									</p>
 								</div>
 
-								<div className="dgdi-schedule-card flex items-center justify-between rounded-xl border border-amber-600/20 bg-amber-100/40 px-3 py-2.5 hover:border-amber-600/40 transition-all duration-300">
-									<div>
-										<p className="text-amber-800/60 text-[10px] font-medium mb-0.5 flex items-center gap-1">
-											<Clock className="w-2.5 h-2.5" />
-											{t("dgdi.visaSchedule", "Visas (Lun-Jeu)")}
-										</p>
-										<p className="text-amber-950 text-sm font-bold tracking-tight">
-											9h00 – 12h00
-										</p>
-									</div>
-									<span className="text-[9px] font-semibold uppercase tracking-wider text-amber-800 bg-amber-600/10 px-2 py-1 rounded-full border border-amber-600/25">
-										{t("dgdi.morning", "Matin")}
-									</span>
-								</div>
-
-								<div className="dgdi-schedule-card flex items-center justify-between rounded-xl border border-amber-600/20 bg-amber-100/40 px-3 py-2.5 hover:border-amber-600/40 transition-all duration-300">
-									<div>
-										<p className="text-amber-800/60 text-[10px] font-medium mb-0.5 flex items-center gap-1">
-											<Clock className="w-2.5 h-2.5" />
-											{t("dgdi.visaPickup", "Retrait Visa (selon type)")}
-										</p>
-										<p className="text-amber-950 text-sm font-bold tracking-tight">
-											15h00
-										</p>
-									</div>
-									<span className="text-[9px] font-semibold uppercase tracking-wider text-amber-800 bg-amber-600/10 px-2 py-1 rounded-full border border-amber-600/25">
-										{t("dgdi.afternoon", "Après-midi")}
-									</span>
+								<div className="dgdi-schedule-card flex items-center gap-3 rounded-xl border border-amber-600/20 bg-amber-100/40 px-3 py-2.5">
+									<div className="text-sm">⏱️</div>
+									<p className="text-amber-950 text-xs font-medium leading-relaxed">
+										{t(
+											"dgdi.processingTime",
+											"Délai de traitement variable selon le type de demande",
+										)}
+									</p>
 								</div>
 							</div>
 						</div>
@@ -204,11 +150,11 @@ export function DGDIServiceBanner() {
 						asChild
 					>
 						<a
-							href="https://www.ae.dgdifrance.fr/"
+							href="https://www.dgdi.ga/"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							{t("dgdi.bookAppointment", "Prendre Rendez-vous DGDI")}
+							{t("dgdi.bookAppointment", "Accéder à la plateforme DGDI")}
 							<ExternalLink className="w-3.5 h-3.5" />
 						</a>
 					</Button>

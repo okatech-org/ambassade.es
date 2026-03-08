@@ -45,7 +45,7 @@ const EN_SERVICE_COPY: Record<string, LocalizedFields> = {
 	"carte-consulaire": {
 		title: "Consular Card",
 		description:
-			"Identification document for Gabonese nationals residing in France. Mandatory for any Gabonese citizen living on French territory.",
+			"Identification document for Gabonese nationals residing in Spain. Mandatory for any Gabonese citizen living in the Kingdom of Spain.",
 		requirements: [
 			"1 copy of the birth certificate (issued within the last 6 months)",
 			"1 copy of a valid passport",

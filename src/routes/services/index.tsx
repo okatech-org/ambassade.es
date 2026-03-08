@@ -194,7 +194,7 @@ function ServicesPage() {
 		<div className="min-h-screen bg-background">
 			{/* Hero Section */}
 			{!isSectionHidden("hero") && (
-				<PageHero image="/images/Consult_general.jpeg">
+				<PageHero image="/images/heroes/hero-services.png">
 					<Badge
 						variant="secondary"
 						className="mb-2 lg:mb-4 bg-primary/10 text-primary border-primary/20 backdrop-blur-sm text-[10px] lg:text-xs"
@@ -429,7 +429,7 @@ function ServicesPage() {
 										{/* DGDI Service Cards — Passeport & Visa */}
 										{!search.query && selectedCategories.length === 0 && (
 											<a
-												href="https://www.ae.dgdifrance.fr/"
+												href="https://www.dgdi.ga/"
 												target="_blank"
 												rel="noopener noreferrer"
 												className="group hidden lg:block col-span-full"
@@ -444,14 +444,14 @@ function ServicesPage() {
 																{t("services.dgdi.title", "Passeport & Visa")}
 															</h3>
 															<Badge className="text-[10px] bg-amber-600/10 text-amber-800 border-amber-600/25 border mt-1">
-																DGDI
+																DGDI — En ligne
 															</Badge>
 														</div>
 													</div>
 													<p className="text-sm text-amber-800/70 leading-relaxed flex-1">
 														{t(
 															"services.dgdi.description",
-															"Établissement, dépôt et retrait de passeports et visas. Services assurés par la DGDI (Délégation Générale à la Documentation et à l'Immigration) sur le territoire français.",
+															"Établissement, dépôt et retrait de passeports et visas. Démarches effectuées en ligne sur la plateforme de la DGDI (Délégation Générale à la Documentation et à l'Immigration).",
 														)}
 													</p>
 													<span className="inline-flex items-center gap-2 text-sm font-semibold text-amber-800 group-hover:text-amber-900 transition-colors whitespace-nowrap shrink-0">

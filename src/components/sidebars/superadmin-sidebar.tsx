@@ -79,7 +79,7 @@ export function SuperadminSidebar({
 		},
 		{
 			title: t("header.nav.consulat", "Le Consulat"),
-			url: "/admin/pages/le-consulat",
+			url: "/admin/pages/ambassade",
 			icon: Building2,
 		},
 		{

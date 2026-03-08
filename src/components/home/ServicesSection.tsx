@@ -108,7 +108,7 @@ function BentoServiceCard({
 								<span className="text-gradient">
 									{t(
 										"services.carteConsulaire.titleHighlight",
-										"gabonaise en France",
+										"gabonaise en Espagne",
 									)}
 								</span>
 							</h3>
@@ -154,7 +154,7 @@ function BentoServiceCard({
 								<span>
 									{t(
 										"services.carteConsulaire.doc4",
-										"Une copie de la carte résident",
+										"Une copie du NIE ou de la tarjeta de residencia",
 									)}{" "}
 									<span className="text-muted-foreground italic">
 										{t("services.carteConsulaire.doc4Note", "(Facultatif)")}
@@ -184,7 +184,7 @@ function BentoServiceCard({
 							<br />
 							{t(
 								"services.carteConsulaire.desc2",
-								"Elle facilite toutes vos démarches administratives et consulaires sur le territoire français.",
+								"Elle facilite toutes vos démarches administratives et consulaires au Royaume d'Espagne.",
 							)}
 						</p>
 

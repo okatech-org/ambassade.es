@@ -43,26 +43,26 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 				},
 				{
 					title: isEn
-						? "General Consulate of Gabon in France - Official Website"
-						: "Consulat Général du Gabon en France - Site Officiel",
+						? "Embassy of Gabon in Spain - Official Website"
+						: "Ambassade du Gabon en Espagne - Site Officiel",
 				},
 				{
 					name: "description",
 					content: isEn
-						? "Official information website of the General Consulate of Gabon in France. Find consular procedures, news and practical information."
-						: "Site officiel d'information du Consulat Général du Gabon en France. Retrouvez toutes les démarches consulaires, actualités, et informations pratiques.",
+						? "Official information website of the Embassy of Gabon in Spain. Find consular procedures, news and practical information."
+						: "Site officiel d'information de l'Ambassade du Gabon en Espagne. Retrouvez toutes les démarches consulaires, actualités, et informations pratiques.",
 				},
 				{
 					property: "og:title",
 					content: isEn
-						? "General Consulate of Gabon in France"
-						: "Consulat Général du Gabon en France",
+						? "Embassy of Gabon in Spain"
+						: "Ambassade du Gabon en Espagne",
 				},
 				{
 					property: "og:description",
 					content: isEn
-						? "Official information website of the General Consulate of Gabon in France."
-						: "Site officiel d'information du Consulat Général du Gabon en France.",
+						? "Official information website of the Embassy of Gabon in Spain."
+						: "Site officiel d'information de l'Ambassade du Gabon en Espagne.",
 				},
 				{
 					property: "og:type",

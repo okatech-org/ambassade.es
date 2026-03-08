@@ -16,6 +16,8 @@ interface ConsulMessageProps {
 	contentKeyPrefix?: string;
 	pagePath?: string;
 	sectionId?: string;
+	sectionTitle?: string;
+	honorifique?: string;
 }
 
 export function ConsulMessage({
@@ -30,6 +32,8 @@ export function ConsulMessage({
 	contentKeyPrefix,
 	pagePath,
 	sectionId = "consul",
+	sectionTitle,
+	honorifique,
 }: ConsulMessageProps) {
 	const { t } = useTranslation();
 	const initials = `${firstName.charAt(0)}${lastName.charAt(0)}`;
@@ -117,7 +121,8 @@ export function ConsulMessage({
 
 							<div className="relative z-10 space-y-6">
 								<h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-									{t("leConsulat.consulMessageTitle", "Mot du Consul Général")}
+									{sectionTitle ||
+										t("leConsulat.consulMessageTitle", "Mot de l'Ambassadeur")}
 								</h2>
 
 								<blockquote className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed italic font-light">
@@ -135,7 +140,8 @@ export function ConsulMessage({
 									)}
 									"
 									<footer className="mt-4 not-italic text-sm md:text-base font-semibold text-foreground">
-										— {t("leConsulat.honorific", "S.E. Monsieur")} {fullName}
+										— {honorifique || t("leConsulat.honorific", "S.E. Madame")}{" "}
+										{fullName}
 										<br />
 										{role}
 									</footer>
@@ -157,7 +163,7 @@ export function ConsulMessage({
 											asChild
 										>
 											<a
-												href={`mailto:${email}?subject=${t("leConsulat.audienceSubject", "Demande d'audience auprès de S.E. Monsieur")} ${encodeURIComponent(fullName)}`}
+												href={`mailto:${email}?subject=${honorifique ? `Demande d'audience auprès de ${honorifique}` : t("leConsulat.audienceSubject", "Demande d'audience auprès de S.E. Madame")} ${encodeURIComponent(fullName)}`}
 											>
 												<CalendarCheck className="h-3.5 w-3.5" />
 												{t("leConsulat.audienceRequest", "Demande d'audience")}

@@ -198,7 +198,7 @@ export function NewsSection() {
 						contentKey="home.news.description"
 						defaultValue={t(
 							"news.description",
-							"Communiqués officiels, événements communautaires et informations pratiques du consulat.",
+							"Communiqués officiels, événements communautaires et informations pratiques de l'ambassade.",
 						)}
 						pagePath="/"
 						sectionId="news"

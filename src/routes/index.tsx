@@ -19,7 +19,7 @@ function App() {
 			{/* Services Section — Priority content */}
 			{!isSectionHidden("services") && <ServicesSection />}
 
-			{/* Guide Pratique — Vie en France */}
+			{/* Guide Pratique — Vie en Espagne */}
 			{!isSectionHidden("guide") && <GuidePratiqueSection />}
 
 			{/* Latest News */}

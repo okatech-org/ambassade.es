@@ -278,7 +278,7 @@
 		"dgdiSubtitle": "These services are not managed by the General Consulate. They fall exclusively under the DGDI External Office in Paris.",
 		"dgdi": {
 			"title": "Passport & Visa",
-			"description": "Issuance, submission and collection of passports and visas. Services provided by the DGDI (General Delegation for Documentation and Immigration) on French territory.",
+			"description": "Issuance, submission and collection of passports and visas. Procedures handled online via the DGDI platform (General Delegation for Documentation and Immigration).",
 			"cta": "Start the process"
 		},
 		"cost": "Cost",
@@ -317,7 +317,7 @@
 			"doc4Note": "(Optional)",
 			"cta": "Apply for Consular Card",
 			"desc1": "The consular card certifies your registration in the registry of Gabonese nationals abroad.",
-			"desc2": "It facilitates all your administrative and consular procedures on French territory.",
+			"desc2": "It facilitates all your administrative and consular procedures in the Kingdom of Spain.",
 			"feat1": "Official recognition",
 			"feat2": "Simplified procedures",
 			"feat3": "3-year validity"
@@ -2161,7 +2161,7 @@
 	"dgdi": {
 		"passportService": "Passport Service",
 		"visaService": "Visa Service",
-		"subtitle": "Service under the authority of the DGDI on French territory",
+		"subtitle": "Online service under the authority of the DGDI",
 		"hideDetails": "Hide details",
 		"showDetails": "View contact & hours",
 		"specificContact": "Specific Contact",

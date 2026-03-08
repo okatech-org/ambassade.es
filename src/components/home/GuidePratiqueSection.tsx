@@ -23,7 +23,7 @@ const guides = [
 		descKey: "guidePratique.logement.desc",
 		defaultTitle: "Logement",
 		defaultDesc:
-			"Trouver un logement, aides au logement (APL/ALS), droits des locataires et démarches administratives.",
+			"Trouver un logement, aides au logement, droits des locataires et démarches administratives en Espagne.",
 		color: "text-[#1a5dab]",
 		bg: "bg-[#1a5dab]/10",
 		border: "border-[#1a5dab]/20",
@@ -34,7 +34,11 @@ const guides = [
 			"guidePratique.features.logement2",
 			"guidePratique.features.logement3",
 		],
-		featureDefaults: ["Recherche de logement", "APL / ALS", "Garantie Visale"],
+		featureDefaults: [
+			"Recherche de logement",
+			"Ayudas de vivienda",
+			"Contrat de location",
+		],
 		image: "/images/guide-logement.png",
 	},
 	{
@@ -43,7 +47,7 @@ const guides = [
 		descKey: "guidePratique.sante.desc",
 		defaultTitle: "Santé & Protection sociale",
 		defaultDesc:
-			"Inscription à la Sécurité sociale, mutuelle, accès aux soins et droits à la couverture maladie.",
+			"Inscription à la Seguridad Social, tarjeta sanitaria, accès aux soins et couverture maladie en Espagne.",
 		color: "text-[#ea4335]",
 		bg: "bg-[#ea4335]/10",
 		border: "border-[#ea4335]/20",
@@ -54,7 +58,11 @@ const guides = [
 			"guidePratique.features.sante2",
 			"guidePratique.features.sante3",
 		],
-		featureDefaults: ["Sécurité sociale", "Mutuelle", "CMU-C / ACS"],
+		featureDefaults: [
+			"Seguridad Social",
+			"Tarjeta sanitaria",
+			"Asistencia sanitaria",
+		],
 		image: "/images/guide-sante.png",
 	},
 	{
@@ -63,7 +71,7 @@ const guides = [
 		descKey: "guidePratique.education.desc",
 		defaultTitle: "Éducation & Formation",
 		defaultDesc:
-			"Inscription scolaire, bourses d'études, reconnaissance des diplômes gabonais et formation professionnelle.",
+			"Inscription scolaire, bourses d'études, homologation des diplômes gabonais et formation professionnelle en Espagne.",
 		color: "text-[#34a853]",
 		bg: "bg-[#34a853]/10",
 		border: "border-[#34a853]/20",
@@ -76,8 +84,8 @@ const guides = [
 		],
 		featureDefaults: [
 			"Inscription scolaire",
-			"Bourses CROUS",
-			"Équivalence diplômes",
+			"Becas MEC / universitarias",
+			"Homologación de títulos",
 		],
 		image: "/images/guide-education.png",
 	},
@@ -87,7 +95,7 @@ const guides = [
 		descKey: "guidePratique.emploi.desc",
 		defaultTitle: "Emploi & Entrepreneuriat",
 		defaultDesc:
-			"Recherche d'emploi, création d'entreprise, titre de séjour autorisant le travail et aides à l'emploi.",
+			"Recherche d'emploi, création d'entreprise, autorisation de travail et aides à l'emploi en Espagne.",
 		color: "text-[#f9ab00]",
 		bg: "bg-[#f9ab00]/10",
 		border: "border-[#f9ab00]/20",
@@ -98,7 +106,7 @@ const guides = [
 			"guidePratique.features.emploi2",
 			"guidePratique.features.emploi3",
 		],
-		featureDefaults: ["Pôle Emploi", "Auto-entrepreneur", "Titre de travail"],
+		featureDefaults: ["SEPE (emploi)", "Autónomo", "Permiso de trabajo"],
 		image: "/images/guide-emploi.png",
 	},
 	{
@@ -107,7 +115,7 @@ const guides = [
 		descKey: "guidePratique.droits.desc",
 		defaultTitle: "Droits & Titre de séjour",
 		defaultDesc:
-			"Renouvellement de titre de séjour, regroupement familial, naturalisation et aide juridique gratuite.",
+			"Renouvellement du permis de séjour, regroupement familial, nationalité espagnole et aide juridique.",
 		color: "text-[#1a73e8]",
 		bg: "bg-[#1a73e8]/10",
 		border: "border-[#1a73e8]/20",
@@ -119,9 +127,9 @@ const guides = [
 			"guidePratique.features.droits3",
 		],
 		featureDefaults: [
-			"Titre de séjour",
-			"Regroupement familial",
-			"Naturalisation",
+			"Permiso de residencia",
+			"Reagrupación familiar",
+			"Nacionalidad española",
 		],
 		image: "/images/guide-droits.png",
 	},
@@ -131,7 +139,7 @@ const guides = [
 		descKey: "guidePratique.famille.desc",
 		defaultTitle: "Famille & Enfants",
 		defaultDesc:
-			"Déclaration de naissance, allocations familiales, garde d'enfants et transcription d'actes d'état civil.",
+			"Déclaration de naissance, prestations familiales, garde d'enfants et transcription d'actes d'état civil.",
 		color: "text-[#d93025]",
 		bg: "bg-[#d93025]/10",
 		border: "border-[#d93025]/20",
@@ -142,7 +150,7 @@ const guides = [
 			"guidePratique.features.famille2",
 			"guidePratique.features.famille3",
 		],
-		featureDefaults: ["Naissance", "Allocations CAF", "Garde enfants"],
+		featureDefaults: ["Naissance", "Prestaciones familiares", "Garde enfants"],
 		image: "/images/guide-famille.png",
 	},
 ];
@@ -248,7 +256,7 @@ export function GuidePratiqueSection() {
 						<BookOpen className="w-3.5 h-3.5 mr-1.5" />
 						<EditableText
 							contentKey="home.guide.badge"
-							defaultValue={t("guidePratique.badge", "Vie en France")}
+							defaultValue={t("guidePratique.badge", "Vie en Espagne")}
 							pagePath="/"
 							sectionId="guide"
 						/>
@@ -280,7 +288,7 @@ export function GuidePratiqueSection() {
 						contentKey="home.guide.description"
 						defaultValue={t(
 							"guidePratique.description",
-							"Chaque rubrique vous accompagne pas à pas dans votre vie quotidienne en France.",
+							"Chaque rubrique vous accompagne pas à pas dans votre vie quotidienne en Espagne.",
 						)}
 						pagePath="/"
 						sectionId="guide"

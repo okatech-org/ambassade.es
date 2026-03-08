@@ -396,6 +396,22 @@
   60%  { transform: scale(1); }
 }
 
+/* Horizontal slide-in from right for guide sections */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInFromRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 .animate-heartbeat {
   animation: blob-morph 8s ease-in-out infinite, heartbeat-pulse 2.4s ease-in-out infinite;
 }

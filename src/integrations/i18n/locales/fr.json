@@ -24,7 +24,7 @@
 	},
 	"statsBar": {
 		"diaspora": {
-			"value": "30 000+",
+			"value": "3 000+",
 			"label": "Gabonais en Espagne"
 		},
 		"services": {
@@ -49,27 +49,27 @@
 		"contactUs": "Contacter l'Ambassade",
 		"logement": {
 			"title": "Logement",
-			"desc": "Trouver un logement, aides au logement (APL/ALS), droits des locataires et démarches administratives."
+			"desc": "Trouver un logement, aides au logement, droits des locataires et démarches administratives en Espagne."
 		},
 		"sante": {
 			"title": "Santé & Protection sociale",
-			"desc": "Inscription à la Sécurité sociale, mutuelle, accès aux soins et droits à la couverture maladie."
+			"desc": "Inscription à la Seguridad Social, tarjeta sanitaria, accès aux soins et couverture maladie en Espagne."
 		},
 		"education": {
 			"title": "Éducation & Formation",
-			"desc": "Inscription scolaire, bourses d'études, reconnaissance des diplômes gabonais et formation professionnelle."
+			"desc": "Inscription scolaire, bourses d'études, homologation des diplômes gabonais et formation professionnelle en Espagne."
 		},
 		"emploi": {
 			"title": "Emploi & Entrepreneuriat",
-			"desc": "Recherche d'emploi, création d'entreprise, titre de séjour autorisant le travail et aides à l'emploi."
+			"desc": "Recherche d'emploi, création d'entreprise, autorisation de travail et aides à l'emploi en Espagne."
 		},
 		"droits": {
 			"title": "Droits & Titre de séjour",
-			"desc": "Renouvellement de titre de séjour, regroupement familial, naturalisation et aide juridique gratuite."
+			"desc": "Renouvellement du permis de séjour, regroupement familial, nationalité espagnole et aide juridique."
 		},
 		"famille": {
 			"title": "Famille & Enfants",
-			"desc": "Déclaration de naissance, allocations familiales, garde d'enfants et transcription d'actes d'état civil."
+			"desc": "Déclaration de naissance, prestations familiales, garde d'enfants et transcription d'actes d'état civil."
 		},
 		"tags": {
 			"Vie quotidienne": "Vie quotidienne",
@@ -84,22 +84,22 @@
 		"viewAll": "Consulter le guide complet",
 		"features": {
 			"logement1": "Recherche de logement",
-			"logement2": "APL / ALS",
-			"logement3": "Garantie Visale",
-			"sante1": "Sécurité sociale",
-			"sante2": "Mutuelle",
-			"sante3": "CMU-C / ACS",
+			"logement2": "Ayudas de vivienda",
+			"logement3": "Contrat de location",
+			"sante1": "Seguridad Social",
+			"sante2": "Tarjeta sanitaria",
+			"sante3": "Asistencia sanitaria",
 			"education1": "Inscription scolaire",
-			"education2": "Bourses CROUS",
-			"education3": "Équivalence diplômes",
-			"emploi1": "Pôle Emploi",
-			"emploi2": "Auto-entrepreneur",
-			"emploi3": "Titre de travail",
-			"droits1": "Titre de séjour",
-			"droits2": "Regroupement familial",
-			"droits3": "Naturalisation",
+			"education2": "Becas MEC / universitarias",
+			"education3": "Homologación de títulos",
+			"emploi1": "SEPE (emploi)",
+			"emploi2": "Autónomo",
+			"emploi3": "Permiso de trabajo",
+			"droits1": "Permiso de residencia",
+			"droits2": "Reagrupación familiar",
+			"droits3": "Nacionalidad española",
 			"famille1": "Naissance",
-			"famille2": "Allocations CAF",
+			"famille2": "Prestaciones familiares",
 			"famille3": "Garde enfants"
 		}
 	},
@@ -111,35 +111,35 @@
 		"description": "Trouvez rapidement les réponses à vos questions sur les démarches consulaires.",
 		"viewAll": "Voir toutes les questions",
 		"contactTitle": "Vous n'avez pas trouvé votre réponse ?",
-		"contactDescription": "Contactez le Consulat Général du Gabon pour toute demande d'information.",
+		"contactDescription": "Contactez l'Ambassade du Gabon en Espagne pour toute demande d'information.",
 		"items": {
 			"inscription": {
 				"question": "Comment m'inscrire au registre consulaire ?",
-				"answer": "L'inscription se fait en ligne sur consulat.ga ou en personne au consulat. Munissez-vous de votre passeport valide, d'un justificatif de domicile en France de moins de 3 mois, et de 2 photos d'identité. La procédure est gratuite et vous donne accès à la protection consulaire."
+				"answer": "L'inscription se fait en ligne sur consulat.ga ou en personne à l'ambassade. Munissez-vous de votre passeport valide, d'un justificatif de domicile en Espagne de moins de 3 mois, et de 2 photos d'identité. La procédure est gratuite et vous donne accès à la protection consulaire."
 			},
 			"passeport": {
 				"question": "Quels documents pour renouveler mon passeport ?",
-				"answer": "Pour le renouvellement de passeport, vous devez fournir : l'ancien passeport (même expiré), une copie de votre acte de naissance, 2 photos d'identité conformes, un justificatif de domicile récent, et le formulaire de demande rempli. Un rendez-vous à l'antenne DGDI est nécessaire pour la prise d'empreintes."
+				"answer": "Pour le renouvellement de passeport, vous devez fournir : l'ancien passeport (même expiré), une copie de votre acte de naissance, 2 photos d'identité conformes, un justificatif de domicile récent, et le formulaire de demande rempli. Un rendez-vous à l'ambassade est nécessaire pour la prise d'empreintes."
 			},
 			"etatCivil": {
-				"question": "Comment transcrire un acte de naissance français au Gabon ?",
-				"answer": "La transcription d'un acte de naissance permet de le faire reconnaître au Gabon. Présentez au consulat : la copie intégrale de l'acte de naissance français, les pièces d'identité des parents, le livret de famille le cas échéant. Le délai moyen est de 2 à 4 semaines."
+				"question": "Comment transcrire un acte de naissance espagnol au Gabon ?",
+				"answer": "La transcription d'un acte de naissance permet de le faire reconnaître au Gabon. Présentez à l'ambassade : la copie intégrale de l'acte de naissance espagnol, les pièces d'identité des parents, le livret de famille le cas échéant. Le délai moyen est de 2 à 4 semaines."
 			},
 			"urgence": {
 				"question": "Que faire en cas d'urgence consulaire ?",
-				"answer": "En cas d'urgence (accident grave, décès, arrestation, catastrophe naturelle), contactez immédiatement le numéro d'urgence consulaire au 07 44 23 95 84, disponible 24h/24. Le consulat peut intervenir pour vous assister, rapatrier un corps, ou faciliter les contacts avec les autorités françaises."
+				"answer": "En cas d'urgence (accident grave, décès, arrestation, catastrophe naturelle), contactez immédiatement le numéro d'urgence consulaire de l'ambassade, disponible 24h/24. L'ambassade peut intervenir pour vous assister, rapatrier un corps, ou faciliter les contacts avec les autorités espagnoles."
 			},
 			"rdv": {
-				"question": "Faut-il prendre rendez-vous pour venir au consulat ?",
+				"question": "Faut-il prendre rendez-vous pour venir à l'ambassade ?",
 				"answer": "Un rendez-vous est fortement recommandé pour les démarches de passeport et visa. Pour les autres services (légalisation, état civil, inscription consulaire), vous pouvez vous présenter aux heures d'ouverture du lundi au vendredi de 9h à 16h. Prenez rendez-vous en ligne sur consulat.ga pour un service plus rapide."
 			},
 			"vote": {
-				"question": "Comment voter depuis la France ?",
-				"answer": "Pour participer aux élections gabonaises depuis la France, vous devez être inscrit au registre consulaire et sur la liste électorale consulaire. Lors des élections, le consulat organise des bureaux de vote. Présentez-vous avec votre carte consulaire et une pièce d'identité valide le jour du scrutin."
+				"question": "Comment voter depuis l'Espagne ?",
+				"answer": "Pour participer aux élections gabonaises depuis l'Espagne, vous devez être inscrit au registre consulaire et sur la liste électorale consulaire. Lors des élections, l'ambassade organise des bureaux de vote. Présentez-vous avec votre carte consulaire et une pièce d'identité valide le jour du scrutin."
 			},
 			"regularisation": {
-				"question": "Comment régulariser ma situation en France ?",
-				"answer": "Plusieurs voies de régularisation existent : admission exceptionnelle au séjour (circulaire Valls 2012), régularisation par le travail, motif familial, raisons médicales. Le dossier se dépose en préfecture ou en ligne sur le portail ANEF. Consultez un avocat spécialisé."
+				"question": "Comment régulariser ma situation en Espagne ?",
+				"answer": "Plusieurs voies de régularisation existent : arraigo social, arraigo laboral, arraigo familiar, raisons humanitaires ou protection internationale. Le dossier se dépose auprès de l'Oficina de Extranjería. Consultez un avocat spécialisé en droit des étrangers."
 			},
 			"frontiere": {
 				"question": "Quels documents présenter à la frontière ?",
@@ -147,15 +147,15 @@
 			},
 			"carteSejour": {
 				"question": "Comment renouveler ma carte de séjour ?",
-				"answer": "Le renouvellement se fait 2 à 4 mois avant l'expiration, en ligne sur le portail ANEF ou en préfecture. Un récépissé vous est remis en attendant le nouveau titre."
+				"answer": "Le renouvellement se fait 2 à 4 mois avant l'expiration, auprès de l'Oficina de Extranjería ou en ligne sur le portail du gouvernement espagnol. Un resguardo vous est remis en attendant le nouveau titre."
 			},
 			"oqtf": {
-				"question": "Qu'est-ce qu'une OQTF et que faire si j'en reçois une ?",
-				"answer": "L'OQTF est une décision administrative enjoignant à quitter la France. NE JAMAIS l'ignorer. Recours gracieux (30 jours) ou contentieux devant le tribunal administratif. Le recours est suspensif. Contactez immédiatement un avocat et le consulat."
+				"question": "Qu'est-ce qu'une orden de expulsión et que faire si j'en reçois une ?",
+				"answer": "L'orden de expulsión est une décision administrative enjoignant à quitter l'Espagne. NE JAMAIS l'ignorer. Un recours est possible devant le Juzgado de lo Contencioso-Administrativo. Contactez immédiatement un avocat et l'ambassade."
 			},
 			"perteDocuments": {
 				"question": "J'ai perdu mon passeport/titre de séjour, que faire ?",
-				"answer": "Déclaration au commissariat, puis contactez le consulat (passeport) ou la préfecture/ANEF (titre de séjour). Conservez toujours des copies numériques de vos documents."
+				"answer": "Faites une déclaration (denuncia) au commissariat de police, puis contactez l'ambassade (passeport) ou l'Oficina de Extranjería (titre de séjour). Conservez toujours des copies numériques de vos documents."
 			},
 			"travailEtudiant": {
 				"question": "Je suis étudiant, combien d'heures puis-je travailler ?",
@@ -171,7 +171,7 @@
 			},
 			"changementStatut": {
 				"question": "Comment passer du statut étudiant au statut salarié ?",
-				"answer": "Emploi en lien avec le diplôme, rémunération ≥ 1,5x SMIC (1x pour métiers en tension). L'employeur demande l'autorisation de travail, puis changement de statut en préfecture. Délai : 2 à 4 mois."
+				"answer": "Emploi en lien avec le diplôme, rémunération conforme au salaire minimum espagnol. L'employeur sollicite l'autorisation de travail, puis changement de statut auprès de l'Oficina de Extranjería. Délai : 2 à 4 mois."
 			},
 			"aps": {
 				"question": "Qu'est-ce que l'APS et comment en bénéficier ?",
@@ -240,13 +240,13 @@
 			"eligibleBeneficiaries": "Bénéficiaires éligibles",
 			"citizens": "Citoyens gabonais",
 			"residents": "Étrangers résidents",
-			"eligibleAudience": "Ressortissants gabonais en France",
+			"eligibleAudience": "Ressortissants gabonais en Espagne",
 			"requiredDocuments": "Documents requis",
 			"downloadForm": "Télécharger le formulaire",
 			"createRequest": "Faire la demande",
 			"makeRequest": "Faire la démarche",
 			"noteLabel": "Note",
-			"reservedAudience": "Réservé aux ressortissants gabonais résidant en France (séjour > 3 mois)",
+			"reservedAudience": "Réservé aux ressortissants gabonais résidant en Espagne (séjour > 3 mois)",
 			"importantInfo": "Informations importantes",
 			"infoPoints": {
 				"docs": "Les documents doivent être originaux ou copies certifiées conformes",
@@ -262,16 +262,16 @@
 		"empty": "Aucun service disponible pour le moment.",
 		"carteConsulaire": {
 			"title": "Votre pièce d'identité",
-			"titleHighlight": "gabonaise en France",
+			"titleHighlight": "gabonaise en Espagne",
 			"badge": "✨ Nouvelle Carte Consulaire",
 			"doc1": "Une copie d'acte de naissance",
 			"doc2": "Une copie du passeport",
 			"doc3": "Un justificatif de domicile",
-			"doc4": "Une copie de la carte résident",
+			"doc4": "Une copie du NIE ou de la tarjeta de residencia",
 			"doc4Note": "(Facultatif)",
 			"cta": "Demande de Carte Consulaire",
 			"desc1": "La carte consulaire atteste de votre inscription au registre des Gabonais de l'étranger.",
-			"desc2": "Elle facilite toutes vos démarches administratives et consulaires sur le territoire français.",
+			"desc2": "Elle facilite toutes vos démarches administratives et consulaires au Royaume d'Espagne.",
 			"feat1": "Reconnaissance officielle",
 			"feat2": "Démarches simplifiées",
 			"feat3": "Validité 3 ans"
@@ -279,16 +279,16 @@
 		"viewAll": "Voir Tous les Services",
 		"passportVisaWarning": {
 			"title": "Information Importante",
-			"message": "Les services Passeport et Visa sont de l'autorité de l'Antenne DGDI. Veuillez noter que ce n'est pas le Consulat Général qui établit les Passeports et les Visas en France."
+			"message": "Les services Passeport et Visa sont de l'autorité de l'Antenne DGDI. Veuillez noter que ce n'est pas l'Ambassade qui établit les Passeports et les Visas en Espagne."
 		},
-		"dgdiNotice": "Ce service est géré par l'Antenne DGDI et non par le Consulat Général.",
+		"dgdiNotice": "Ce service est géré par l'Antenne DGDI et non par l'Ambassade.",
 		"dgdiApply": "Faire ma demande",
 		"dgdiBadge": "Antenne DGDI — À ne pas confondre",
 		"dgdiTitle": "Passeports & Visas : Services de l'Antenne DGDI",
-		"dgdiSubtitle": "Ces services ne sont pas gérés par le Consulat Général. Ils relèvent exclusivement de l'Antenne extérieure de la DGDI à Paris.",
+		"dgdiSubtitle": "Ces services ne sont pas gérés par l'Ambassade. Ils relèvent exclusivement de l'Antenne DGDI.",
 		"dgdi": {
 			"title": "Passeport & Visa",
-			"description": "Établissement, dépôt et retrait de passeports et visas. Services assurés par la DGDI (Délégation Générale à la Documentation et à l'Immigration) sur le territoire français.",
+			"description": "Établissement, dépôt et retrait de passeports et visas. Démarches effectuées en ligne sur la plateforme de la DGDI (Délégation Générale à la Documentation et à l'Immigration).",
 			"cta": "Faire la démarche"
 		},
 		"cost": "Coût",
@@ -323,9 +323,9 @@
 		"noteImportante": "Note importante",
 		"crossLinks": {
 			"integration": "Guide d'intégration",
-			"integrationDesc": "Conseils pratiques pour vivre en France",
-			"vieFrance": "Vie en France",
-			"vieFranceDesc": "Démarches préfectorales et administratives"
+			"integrationDesc": "Conseils pratiques pour vivre en Espagne",
+			"vieFrance": "Vie en Espagne",
+			"vieFranceDesc": "Démarches administratives en Espagne"
 		}
 	},
 	"consulates": {
@@ -2110,7 +2110,7 @@
 	"dgdi": {
 		"passportService": "Service Passeport",
 		"visaService": "Service Visa",
-		"subtitle": "Service sous l'autorité de la DGDI sur le territoire français",
+		"subtitle": "Service en ligne sous l'autorité de la DGDI",
 		"hideDetails": "Masquer les détails",
 		"showDetails": "Voir contact & horaires",
 		"specificContact": "Contact Spécifique",

@@ -13,11 +13,11 @@ import { Route as VieEnEspagneRouteImport } from './routes/vie-en-espagne'
 import { Route as VenirEnEspagneRouteImport } from './routes/venir-en-espagne'
 import { Route as RetourAuGabonRouteImport } from './routes/retour-au-gabon'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
-import { Route as LeConsulatRouteImport } from './routes/le-consulat'
 import { Route as IntegrationRouteImport } from './routes/integration'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
+import { Route as AmbassadeRouteImport } from './routes/ambassade'
 import { Route as AccessibiliteRouteImport } from './routes/accessibilite'
 import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as IndexRouteImport } from './routes/index'
@@ -63,11 +63,6 @@ const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
   path: '/mentions-legales',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LeConsulatRoute = LeConsulatRouteImport.update({
-  id: '/le-consulat',
-  path: '/le-consulat',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IntegrationRoute = IntegrationRouteImport.update({
   id: '/integration',
   path: '/integration',
@@ -86,6 +81,11 @@ const ContactRoute = ContactRouteImport.update({
 const ConfidentialiteRoute = ConfidentialiteRouteImport.update({
   id: '/confidentialite',
   path: '/confidentialite',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmbassadeRoute = AmbassadeRouteImport.update({
+  id: '/ambassade',
+  path: '/ambassade',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AccessibiliteRoute = AccessibiliteRouteImport.update({
@@ -214,11 +214,11 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteRouteWithChildren
   '/accessibilite': typeof AccessibiliteRoute
+  '/ambassade': typeof AmbassadeRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/integration': typeof IntegrationRoute
-  '/le-consulat': typeof LeConsulatRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/retour-au-gabon': typeof RetourAuGabonRoute
   '/venir-en-espagne': typeof VenirEnEspagneRoute
@@ -248,11 +248,11 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/accessibilite': typeof AccessibiliteRoute
+  '/ambassade': typeof AmbassadeRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/integration': typeof IntegrationRoute
-  '/le-consulat': typeof LeConsulatRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/retour-au-gabon': typeof RetourAuGabonRoute
   '/venir-en-espagne': typeof VenirEnEspagneRoute
@@ -284,11 +284,11 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteRouteWithChildren
   '/accessibilite': typeof AccessibiliteRoute
+  '/ambassade': typeof AmbassadeRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/integration': typeof IntegrationRoute
-  '/le-consulat': typeof LeConsulatRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/retour-au-gabon': typeof RetourAuGabonRoute
   '/venir-en-espagne': typeof VenirEnEspagneRoute
@@ -321,11 +321,11 @@ export interface FileRouteTypes {
     | '/'
     | '/admin'
     | '/accessibilite'
+    | '/ambassade'
     | '/confidentialite'
     | '/contact'
     | '/faq'
     | '/integration'
-    | '/le-consulat'
     | '/mentions-legales'
     | '/retour-au-gabon'
     | '/venir-en-espagne'
@@ -355,11 +355,11 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/accessibilite'
+    | '/ambassade'
     | '/confidentialite'
     | '/contact'
     | '/faq'
     | '/integration'
-    | '/le-consulat'
     | '/mentions-legales'
     | '/retour-au-gabon'
     | '/venir-en-espagne'
@@ -390,11 +390,11 @@ export interface FileRouteTypes {
     | '/'
     | '/admin'
     | '/accessibilite'
+    | '/ambassade'
     | '/confidentialite'
     | '/contact'
     | '/faq'
     | '/integration'
-    | '/le-consulat'
     | '/mentions-legales'
     | '/retour-au-gabon'
     | '/venir-en-espagne'
@@ -426,11 +426,11 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRouteRoute: typeof AdminRouteRouteWithChildren
   AccessibiliteRoute: typeof AccessibiliteRoute
+  AmbassadeRoute: typeof AmbassadeRoute
   ConfidentialiteRoute: typeof ConfidentialiteRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
   IntegrationRoute: typeof IntegrationRoute
-  LeConsulatRoute: typeof LeConsulatRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
   RetourAuGabonRoute: typeof RetourAuGabonRoute
   VenirEnEspagneRoute: typeof VenirEnEspagneRoute
@@ -471,13 +471,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MentionsLegalesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/le-consulat': {
-      id: '/le-consulat'
-      path: '/le-consulat'
-      fullPath: '/le-consulat'
-      preLoaderRoute: typeof LeConsulatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/integration': {
       id: '/integration'
       path: '/integration'
@@ -504,6 +497,13 @@ declare module '@tanstack/react-router' {
       path: '/confidentialite'
       fullPath: '/confidentialite'
       preLoaderRoute: typeof ConfidentialiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ambassade': {
+      id: '/ambassade'
+      path: '/ambassade'
+      fullPath: '/ambassade'
+      preLoaderRoute: typeof AmbassadeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/accessibilite': {
@@ -725,11 +725,11 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRouteRoute: AdminRouteRouteWithChildren,
   AccessibiliteRoute: AccessibiliteRoute,
+  AmbassadeRoute: AmbassadeRoute,
   ConfidentialiteRoute: ConfidentialiteRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
   IntegrationRoute: IntegrationRoute,
-  LeConsulatRoute: LeConsulatRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
   RetourAuGabonRoute: RetourAuGabonRoute,
   VenirEnEspagneRoute: VenirEnEspagneRoute,

@@ -21,10 +21,10 @@ export function Hero() {
 			<div className="absolute inset-0 z-0">
 				<EditableImage
 					contentKey="home.hero.backgroundImage"
-					defaultValue="/images/IMG_2415.PNG"
+					defaultValue="/images/IMG_2415_hd.jpg"
 					pagePath="/"
 					sectionId="hero"
-					alt="Consulat de l'ère IA"
+					alt="Ambassade du Gabon en Espagne"
 					className="w-full h-full object-cover object-[center_calc(60%-3cm)] sm:object-[center_60%]"
 				/>
 				{/* Subtle bottom gradient for text readability */}
@@ -45,7 +45,7 @@ export function Hero() {
 							contentKey="home.hero.mobileTitle"
 							defaultValue={t(
 								"hero.mobileTitle",
-								"Le Consulat Général passe à l'ère de l'IA",
+								"L'Ambassade du Gabon en Espagne",
 							)}
 							pagePath="/"
 							sectionId="hero"
@@ -94,7 +94,7 @@ export function Hero() {
 								size="lg"
 								className="h-14 px-8 rounded-full text-base shadow-lg shadow-[#1a5dab]/30 bg-[#1a5dab] hover:bg-[#174ea6] text-white transition-all font-semibold"
 							>
-								<Link to="/le-consulat">
+								<Link to="/ambassade">
 									<Bot className="w-5 h-5 mr-2" />
 									<EditableText
 										contentKey="home.hero.cta2"
