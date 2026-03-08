@@ -430,7 +430,7 @@
 	"footer": {
 		"brand": {
 			"line1": "GENERAL CONSULATE",
-			"line2": "Of Gabon in France",
+			"line2": "To the Kingdom of Spain",
 			"motto": "Union - Work - Justice"
 		},
 		"services": "Services",
@@ -491,6 +491,7 @@
 		"country": "Gabonese Republic",
 		"language": {
 			"fr": "French",
+			"es": "Español",
 			"en": "English"
 		},
 		"mySpace": "My Space",
@@ -498,7 +499,7 @@
 		"signUp": "Sign Up",
 		"brand": {
 			"line1": "GENERAL CONSULATE",
-			"line2": "Of Gabon in France",
+			"line2": "To the Kingdom of Spain",
 			"motto": "Union - Work - Justice"
 		}
 	},

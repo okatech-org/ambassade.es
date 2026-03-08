@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
+import { EditableImage } from "@/components/inline-edit/EditableImage";
 import { EditableText } from "@/components/inline-edit/EditableText";
 import { ModeToggle } from "./mode-toggle";
 
@@ -28,14 +29,17 @@ export default function Footer() {
 
 	return (
 		<footer className="border-t border-border bg-card/50">
-			<div className="max-w-7xl mx-auto px-6 py-12">
+			<div className="mx-auto px-3 py-12">
 				<div className="flex flex-col md:flex-row items-start justify-between gap-8">
 					{/* Brand */}
 					<Link to="/" className="flex items-center gap-3">
-						<img
-							src="/sceau_gabon.png"
-							alt="Logo Consulat Gabon"
-							className="h-20 w-auto"
+						<EditableImage
+							contentKey="layout.footer.logo"
+							defaultValue="/sceau_gabon.png"
+							pagePath="/"
+							sectionId="footer"
+							alt="Logo Ambassade Gabon"
+							className="h-[5rem] sm:h-[6rem] w-auto relative -mb-7 sm:-mb-8 -mt-[0.25cm] sm:-mt-[0.25cm] origin-top"
 						/>
 						<div>
 							<EditableText
@@ -44,7 +48,7 @@ export default function Footer() {
 								pagePath="/"
 								sectionId="footer"
 								as="div"
-								className="font-extrabold text-base md:text-lg text-foreground leading-tight tracking-wide uppercase"
+								className="font-extrabold text-sm sm:text-base md:text-lg text-foreground leading-tight tracking-wide uppercase"
 							/>
 							<EditableText
 								contentKey="layout.footer.brand.line2"
@@ -52,7 +56,7 @@ export default function Footer() {
 								pagePath="/"
 								sectionId="footer"
 								as="div"
-								className="font-medium text-foreground/90 leading-snug text-[0.85rem] tracking-[0.185em]"
+								className="font-bold text-foreground/90 leading-snug text-[0.60rem] sm:text-[0.78rem] tracking-[0.185em]"
 							/>
 							<EditableText
 								contentKey="layout.footer.brand.motto"
@@ -63,7 +67,7 @@ export default function Footer() {
 								pagePath="/"
 								sectionId="footer"
 								as="div"
-								className="text-xs text-muted-foreground italic leading-snug"
+								className="text-[0.65rem] sm:text-xs text-muted-foreground italic leading-snug"
 							/>
 						</div>
 					</Link>
@@ -125,7 +129,7 @@ export default function Footer() {
 
 			{/* Bottom Bar */}
 			<div className="border-t border-border">
-				<div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+				<div className="mx-auto px-3 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
 					<p className="text-xs text-muted-foreground">
 						{t(
 							"footer.copyright",

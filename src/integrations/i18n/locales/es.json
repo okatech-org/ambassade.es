@@ -1,0 +1,2129 @@
+{
+	"hero": {
+		"badge": "Nuevo — Impulsado por la Inteligencia Artificial",
+		"title": "La Embajada entra en <span class='text-[#EAB308] whitespace-nowrap'>la era de la IA</span>",
+		"titleHighlight": "la era de la IA",
+		"subtitle": "Consulat.ga — Su Embajada, reinventada",
+		"description": "Ya no necesita esperar al teléfono. Gracias a la inteligencia artificial, obtenga respuestas instantáneas, siga sus trámites en tiempo real y acceda a todos los servicios consulares las 24 horas desde su smartphone.",
+		"cta": "Descubrir Consulat.ga",
+		"services": "Ver nuestros servicios",
+		"quickAccess": {
+			"news": "Noticias",
+			"newsDesc": "Comunicados oficiales",
+			"services": "Servicios",
+			"servicesDesc": "Trámites en línea",
+			"inscription": "Inscripción",
+			"inscriptionDesc": "Registro consular",
+			"consulat": "La Embajada",
+			"consulatDesc": "Misiones y equipo"
+		},
+		"contact": "Contactarnos",
+		"emergencyLabel": "Emergencia consular 24h/24",
+		"mobileTitle": "La Embajada de Gabón",
+		"mobileTitleHighlight": "entra en la era de la IA"
+	},
+	"statsBar": {
+		"diaspora": {
+			"value": "3 000+",
+			"label": "Gaboneses en España"
+		},
+		"services": {
+			"value": "9",
+			"label": "Categorías de servicios"
+		},
+		"protection": {
+			"value": "24/7",
+			"label": "Asistencia consular"
+		},
+		"horaires": {
+			"value": "Lun-Vie",
+			"label": "9h00 - 16h00"
+		}
+	},
+	"guidePratique": {
+		"badge": "Vida en España",
+		"title": "Guía Práctica para Gaboneses en España",
+		"description": "Información esencial para facilitar su instalación y su vida cotidiana en España. La Embajada le acompaña en todos sus trámites.",
+		"readMore": "Saber más",
+		"cta": "¿Necesita ayuda para un trámite específico? Nuestro equipo consular está a su disposición.",
+		"contactUs": "Contactar la Embajada",
+		"logement": {
+			"title": "Vivienda",
+			"desc": "Encontrar vivienda, ayudas de vivienda, derechos de los inquilinos y trámites administrativos en España."
+		},
+		"sante": {
+			"title": "Salud y Protección social",
+			"desc": "Inscripción en la Seguridad Social, tarjeta sanitaria, acceso a la atención médica y cobertura sanitaria en España."
+		},
+		"education": {
+			"title": "Educación y Formación",
+			"desc": "Inscripción escolar, becas de estudio, homologación de diplomas gaboneses y formación profesional en España."
+		},
+		"emploi": {
+			"title": "Empleo y Emprendimiento",
+			"desc": "Búsqueda de empleo, creación de empresa, autorización de trabajo y ayudas al empleo en España."
+		},
+		"droits": {
+			"title": "Derechos y Permiso de residencia",
+			"desc": "Renovación del permiso de residencia, reagrupación familiar, nacionalidad española y asistencia jurídica."
+		},
+		"famille": {
+			"title": "Familia e Hijos",
+			"desc": "Declaración de nacimiento, prestaciones familiares, cuidado de niños y transcripción de actas de estado civil."
+		},
+		"tags": {
+			"Vie quotidienne": "Vida cotidiana",
+			"Santé": "Salud",
+			"Éducation": "Educación",
+			"Emploi": "Empleo",
+			"Juridique": "Jurídico",
+			"Famille": "Familia"
+		},
+		"titlePart1": "Un Ecosistema Completo en",
+		"titleHighlight": "6 Secciones Esenciales",
+		"viewAll": "Consultar la guía completa",
+		"features": {
+			"logement1": "Búsqueda de vivienda",
+			"logement2": "Ayudas de vivienda",
+			"logement3": "Contrato de alquiler",
+			"sante1": "Seguridad Social",
+			"sante2": "Tarjeta sanitaria",
+			"sante3": "Asistencia sanitaria",
+			"education1": "Inscripción escolar",
+			"education2": "Becas MEC / universitarias",
+			"education3": "Homologación de títulos",
+			"emploi1": "SEPE (empleo)",
+			"emploi2": "Autónomo",
+			"emploi3": "Permiso de trabajo",
+			"droits1": "Permiso de residencia",
+			"droits2": "Reagrupación familiar",
+			"droits3": "Nacionalidad española",
+			"famille1": "Nacimiento",
+			"famille2": "Prestaciones familiares",
+			"famille3": "Cuidado de niños"
+		}
+	},
+	"faq": {
+		"badge": "Preguntas frecuentes",
+		"title": "Preguntas más frecuentes",
+		"titlePart1": "Preguntas más",
+		"titleHighlight": "Frecuentes",
+		"description": "Encuentre rápidamente las respuestas a sus preguntas sobre los trámites consulares.",
+		"viewAll": "Ver todas las preguntas",
+		"contactTitle": "¿No encontró su respuesta?",
+		"contactDescription": "Contacte la Embajada de Gabón en España para cualquier solicitud de información.",
+		"items": {
+			"inscription": {
+				"question": "¿Cómo inscribirme en el registro consular?",
+				"answer": "La inscripción se realiza en línea en consulat.ga o en persona en la embajada. Lleve su pasaporte vigente, un justificante de domicilio en España de menos de 3 meses y 2 fotos de identidad. El procedimiento es gratuito y le da acceso a la protección consular."
+			},
+			"passeport": {
+				"question": "¿Qué documentos necesito para renovar mi pasaporte?",
+				"answer": "Para la renovación del pasaporte, debe presentar: el antiguo pasaporte (incluso caducado), una copia de su acta de nacimiento, 2 fotos de identidad conformes, un justificante de domicilio reciente y el formulario de solicitud completado. Es necesaria una cita en la embajada para la toma de huellas."
+			},
+			"etatCivil": {
+				"question": "¿Cómo transcribir un acta de nacimiento española en Gabón?",
+				"answer": "La transcripción de un acta de nacimiento permite su reconocimiento en Gabón. Presente en la embajada: la copia integral del acta de nacimiento española, los documentos de identidad de los padres y el libro de familia si corresponde. El plazo medio es de 2 a 4 semanas."
+			},
+			"urgence": {
+				"question": "¿Qué hacer en caso de emergencia consular?",
+				"answer": "En caso de emergencia (accidente grave, fallecimiento, detención, catástrofe natural), contacte inmediatamente el número de emergencia consular de la embajada, disponible 24h/24. La embajada puede intervenir para asistirle, repatriar un cuerpo o facilitar los contactos con las autoridades españolas."
+			},
+			"rdv": {
+				"question": "¿Es necesario pedir cita para ir a la embajada?",
+				"answer": "Se recomienda encarecidamente pedir cita para trámites de pasaporte y visado. Para otros servicios (legalización, estado civil, inscripción consular), puede presentarse en horario de apertura de lunes a viernes de 9h a 16h. Pida cita en línea en consulat.ga para un servicio más rápido."
+			},
+			"vote": {
+				"question": "¿Cómo votar desde España?",
+				"answer": "Para participar en las elecciones gabonesas desde España, debe estar inscrito en el registro consular y en la lista electoral consular. Durante las elecciones, la embajada organiza mesas de votación. Preséntese con su tarjeta consular y un documento de identidad vigente el día de la votación."
+			},
+			"regularisation": {
+				"question": "¿Cómo regularizar mi situación en España?",
+				"answer": "Existen varias vías de regularización: arraigo social, arraigo laboral, arraigo familiar, razones humanitarias o protección internacional. El expediente se presenta ante la Oficina de Extranjería. Consulte a un abogado especializado en derecho de extranjería."
+			},
+			"frontiere": {
+				"question": "¿Qué documentos presentar en la frontera?",
+				"answer": "Pasaporte vigente, visado, certificado de alojamiento, billete de vuelta (estancia corta), seguro de viaje (mín. 30.000 €). Recursos: mín. 120 €/día (hotel) o 32,50 €/día (alojamiento particular)."
+			},
+			"carteSejour": {
+				"question": "¿Cómo renovar mi tarjeta de residencia?",
+				"answer": "La renovación se realiza de 2 a 4 meses antes del vencimiento, ante la Oficina de Extranjería o en línea en el portal del gobierno español. Se le entrega un resguardo mientras se espera el nuevo título."
+			},
+			"oqtf": {
+				"question": "¿Qué es una orden de expulsión y qué hacer si la recibo?",
+				"answer": "La orden de expulsión es una decisión administrativa que ordena abandonar España. NUNCA la ignore. Es posible un recurso ante el Juzgado de lo Contencioso-Administrativo. Contacte inmediatamente a un abogado y a la embajada."
+			},
+			"perteDocuments": {
+				"question": "He perdido mi pasaporte/tarjeta de residencia, ¿qué hacer?",
+				"answer": "Presente una denuncia en la comisaría de policía, luego contacte la embajada (pasaporte) o la Oficina de Extranjería (tarjeta de residencia). Conserve siempre copias digitales de sus documentos."
+			},
+			"travailEtudiant": {
+				"question": "Soy estudiante, ¿cuántas horas puedo trabajar?",
+				"answer": "964 horas al año (aproximadamente 20h/semana, es decir, el 60% de la jornada legal). No se necesita autorización adicional — su título de estudiante le autoriza."
+			},
+			"visaBinational": {
+				"question": "Soy binacional, ¿necesito visado para Gabón?",
+				"answer": "No con un pasaporte gabonés vigente. Solo con pasaporte francés, se necesita un e-Visa (evisa.dgdi.ga). El consulado puede ayudarle a obtener el pasaporte gabonés."
+			},
+			"arrestation": {
+				"question": "¿Qué hacer en caso de detención?",
+				"answer": "Mantenga la calma. Derechos: conocer el motivo, guardar silencio, tener un abogado, avisar a un familiar, contactar el consulado (Convención de Viena, art. 36). Detención: 24h máx. (prorrogable 1 vez). No firme nada sin comprender."
+			},
+			"changementStatut": {
+				"question": "¿Cómo pasar de estudiante a trabajador?",
+				"answer": "Empleo relacionado con el diploma, remuneración conforme al salario mínimo español. El empleador solicita la autorización de trabajo, luego cambio de estatus ante la Oficina de Extranjería. Plazo: 2 a 4 meses."
+			},
+			"aps": {
+				"question": "¿Qué es el APS y cómo beneficiarse?",
+				"answer": "El APS es un título de 12 meses (no renovable) para titulados de Máster. Permite buscar empleo o crear una empresa relacionada con el diploma. Solicitud antes del vencimiento del título de estudiante."
+			}
+		},
+		"categories": {
+			"consulat": "Consulado",
+			"prefecture": "Oficina de Extranjería",
+			"enligne": "En línea",
+			"urgent": "Urgente"
+		}
+	},
+	"services": {
+		"badge": "Nuestros Servicios",
+		"title": "Servicios Consulares",
+		"pageTitle": "Servicios Consulares",
+		"pageTitleHighlight": "Servicios",
+		"description": "Descubra el conjunto de servicios ofrecidos por las representaciones consulares de la República Gabonesa en el extranjero.",
+		"pageDescription": "Descubra el conjunto de servicios ofrecidos por las representaciones consulares de la República Gabonesa en el extranjero.",
+		"notFound": "Servicio no encontrado",
+		"notFoundDesc": "El servicio solicitado no existe o ha sido eliminado.",
+		"backToServices": "Volver a los servicios",
+		"descriptionTitle": "Descripción",
+		"requiredDocuments": "Documentos requeridos",
+		"documentsDesc": "Los siguientes documentos son necesarios.",
+		"practicalInfo": "Información práctica",
+		"delay": "Plazo medio",
+		"knowMore": "Saber más",
+		"free": "Gratuito",
+		"filters": "Filtros",
+		"clearAll": "Borrar todo",
+		"clear": "Borrar",
+		"searchPlaceholder": "Buscar un servicio...",
+		"days_one": "día",
+		"days_other": "días",
+		"serviceCount": "servicio",
+		"servicesCount": "servicios",
+		"loading": "Cargando...",
+		"noResults": "Ningún servicio encontrado",
+		"noResultsDesc": "No encontramos ningún servicio que corresponda a sus criterios. Intente modificar sus filtros o su búsqueda.",
+		"viewAllServices": "Ver todos los servicios",
+		"audience": "Audiencia",
+		"requestAudience": "Solicitud de Audiencia",
+		"categories": "Categorías",
+		"categoriesMap": {
+			"identity": "Identidad",
+			"passport": "Pasaporte",
+			"visa": "Visado",
+			"civil_status": "Estado Civil",
+			"registration": "Inscripción Consular",
+			"certification": "Certificación y Legalización",
+			"legalization": "Legalización",
+			"transcript": "Transcripción",
+			"travel_document": "Documento de Viaje",
+			"assistance": "Asistencia Consular",
+			"emergency": "Asistencia de Urgencia",
+			"other": "Otro",
+			"Identité": "Identidad",
+			"État Civil": "Estado Civil",
+			"Immatriculation": "Registro",
+			"Visa": "Visado",
+			"Documents": "Documentos"
+		},
+		"modal": {
+			"eligibleBeneficiaries": "Beneficiarios elegibles",
+			"citizens": "Ciudadanos gaboneses",
+			"residents": "Extranjeros residentes",
+			"eligibleAudience": "Nacionales gaboneses en España",
+			"requiredDocuments": "Documentos requeridos",
+			"downloadForm": "Descargar el formulario",
+			"createRequest": "Realizar la solicitud",
+			"makeRequest": "Realizar el trámite",
+			"noteLabel": "Nota",
+			"reservedAudience": "Reservado a nacionales gaboneses residentes en España (estancia > 3 meses)",
+			"importantInfo": "Información importante",
+			"infoPoints": {
+				"docs": "Los documentos deben ser originales o copias certificadas",
+				"delay": "El plazo de tramitación es indicativo y puede variar según el consulado",
+				"identity": "Preséntese con un documento de identidad vigente"
+			},
+			"formDownloaded": "Formulario descargado",
+			"formDownloadedDesc": "Formulario de solicitud para {{serviceName}}"
+		},
+		"homeTitle": "Servicios y trámites",
+		"homeTitleHighlight": "destacados",
+		"homeDescription": "Acceda rápidamente a sus trámites administrativos más habituales.",
+		"empty": "Ningún servicio disponible por el momento.",
+		"carteConsulaire": {
+			"title": "Su documento de identidad",
+			"titleHighlight": "gabonés en España",
+			"badge": "✨ Nueva Tarjeta Consular",
+			"doc1": "Una copia del acta de nacimiento",
+			"doc2": "Una copia del pasaporte",
+			"doc3": "Un justificante de domicilio",
+			"doc4": "Una copia del NIE o de la tarjeta de residencia",
+			"doc4Note": "(Opcional)",
+			"cta": "Solicitud de Tarjeta Consular",
+			"desc1": "La tarjeta consular acredita su inscripción en el registro de gaboneses en el extranjero.",
+			"desc2": "Facilita todos sus trámites administrativos y consulares en el Reino de España.",
+			"feat1": "Reconocimiento oficial",
+			"feat2": "Trámites simplificados",
+			"feat3": "Validez 3 años"
+		},
+		"viewAll": "Ver Todos los Servicios",
+		"passportVisaWarning": {
+			"title": "Información Importante",
+			"message": "Los servicios de Pasaporte y Visado son competencia de la Antena DGDI. Tenga en cuenta que no es la Embajada la que emite los Pasaportes y Visados en España."
+		},
+		"dgdiNotice": "Este servicio es gestionado por la Antena DGDI y no por la Embajada.",
+		"dgdiApply": "Realizar mi solicitud",
+		"dgdiBadge": "Antena DGDI — No confundir",
+		"dgdiTitle": "Pasaportes y Visados: Servicios de la Antena DGDI",
+		"dgdiSubtitle": "Estos servicios no son gestionados por la Embajada. Son competencia exclusiva de la Antena DGDI.",
+		"dgdi": {
+			"title": "Pasaporte y Visado",
+			"description": "Emisión, depósito y recogida de pasaportes y visados. Trámites realizados en línea en la plataforma de la DGDI (Delegación General de Documentación e Inmigración).",
+			"cta": "Realizar el trámite"
+		},
+		"cost": "Coste",
+		"passport": {
+			"title": "Pasaporte",
+			"description": "Solicitud, renovación y seguimiento de su pasaporte gabonés. Procedimiento simplificado y seguro."
+		},
+		"visa": {
+			"title": "Visado",
+			"description": "Solicitudes de visado para Gabón. Visado turístico, negocios, trabajo y otras categorías."
+		},
+		"civilStatus": {
+			"title": "Estado Civil",
+			"description": "Actas de nacimiento, matrimonio, defunción. Transcripción y legalización de documentos."
+		},
+		"registration": {
+			"title": "Inscripción Consular",
+			"description": "Inscríbase en el registro de gaboneses en el extranjero. Manténgase informado y protegido."
+		},
+		"legalization": {
+			"title": "Legalización",
+			"description": "Autenticación y legalización de sus documentos oficiales para uso internacional."
+		},
+		"emergency": {
+			"title": "Asistencia de Urgencia",
+			"description": "Ayuda consular en caso de urgencia: pérdida de documentos, dificultades en el extranjero."
+		},
+		"urgentBadge": "Urgente",
+		"validity": "Validez",
+		"contactConsulate": "Contactar el consulado",
+		"viewFiche": "Ver la ficha",
+		"noteImportante": "Nota importante",
+		"crossLinks": {
+			"integration": "Guía de integración",
+			"integrationDesc": "Consejos prácticos para vivir en España",
+			"vieFrance": "Vida en España",
+			"vieFranceDesc": "Trámites administrativos en España"
+		}
+	},
+	"consulates": {
+		"badge": "Nuestras Representaciones",
+		"title": "Consulados de Gabón en el Mundo",
+		"description": "Encuentre el consulado gabonés más cercano para realizar sus trámites administrativos.",
+		"headquarters": "Sede Principal",
+		"viewDetails": "Ver detalles",
+		"viewAll": "Ver Todos los Consulados"
+	},
+	"integration": {
+		"badge": "Guía de integración",
+		"heroTitle": "Integrarse y",
+		"heroHighlight": "tener éxito en España",
+		"heroDescription": "Guía completa para los gaboneses residentes en España: sus derechos, sus trámites, los códigos culturales y los consejos prácticos para una integración exitosa. La Embajada de Gabón le acompaña.",
+		"savoirVivre": {
+			"badge": "Convivencia",
+			"title": "Códigos culturales y Convenciones",
+			"description": "Comprender los códigos de la sociedad española para desenvolverse mejor. No es renunciar a su cultura, es añadir otra."
+		},
+		"guides": {
+			"badge": "Guías completas",
+			"title": "Sus trámites detallados",
+			"description": "Haga clic en cada tema para descubrir la información detallada, los procedimientos y nuestros consejos prácticos."
+		},
+		"erreurs": {
+			"badge": "Información imprescindible",
+			"title": "Errores comunes a evitar",
+			"description": "Estos olvidos pueden tener consecuencias serias. Tómelos en serio para proteger sus derechos."
+		},
+		"numeros": {
+			"badge": "Números esenciales",
+			"title": "Números útiles a conservar",
+			"description": "Guarde estos números en su teléfono. Pueden salvar vidas."
+		},
+		"cta": {
+			"title": "La Embajada está a su lado",
+			"description": "Ya sea recién llegado o establecido desde hace tiempo, la Embajada de Gabón en España es su enlace. No dude en contactarnos para cualquier pregunta.",
+			"contact": "Visitarnos"
+		}
+	},
+	"citizenCta": {
+		"badge": "Aplicación Consulat.ga",
+		"titlePart1": "Su consulado,",
+		"titleHighlight": "en su bolsillo",
+		"description": "Sus trámites consulares simplificados: asistente IA, seguimiento en tiempo real, sin desplazamientos.",
+		"cta": "Crear mi cuenta gratuita",
+		"ctaSecondary": "Descubrir la app",
+		"advantages": {
+			"noWait": {
+				"title": "Sin más esperas telefónicas",
+				"desc": "Haga sus preguntas en línea, respuestas inmediatas."
+			},
+			"digital": {
+				"title": "Trámites 100% digitalizados",
+				"desc": "Desde la solicitud hasta el seguimiento, todo se hace en línea."
+			},
+			"fast": {
+				"title": "Respuestas rápidas a sus preguntas",
+				"desc": "Asistente IA disponible para todas sus preguntas."
+			},
+			"available": {
+				"title": "Disponible 24h/24, 7d/7",
+				"desc": "Acceso en cualquier momento, todas las zonas horarias."
+			}
+		},
+		"trust": {
+			"fast": "Inscripción en 2 minutos",
+			"online": "100% en móvil",
+			"secure": "Seguro y confidencial"
+		},
+		"title": "Cree su Cuenta de Ciudadano Gabonés",
+		"createAccount": "Crear mi cuenta",
+		"existingAccount": "Ya tengo una cuenta",
+		"benefits": {
+			"tracking": {
+				"title": "Seguimiento en tiempo real",
+				"description": "Siga el avance de sus solicitudes en cualquier momento"
+			},
+			"documents": {
+				"title": "Documentos digitales",
+				"description": "Acceda a sus documentos oficiales en línea"
+			},
+			"payment": {
+				"title": "Pago seguro",
+				"description": "Pague sus tasas consulares con total seguridad"
+			},
+			"appointments": {
+				"title": "Citas simplificadas",
+				"description": "Reserve sus horarios en pocos clics"
+			}
+		},
+		"stats": {
+			"citizens": "Ciudadanos inscritos",
+			"consulates": "Consulados conectados",
+			"satisfaction": "Satisfacción",
+			"availability": "Disponibilidad"
+		},
+		"testimonial": "Gracias a Consulat.ga, pude renovar mi pasaporte desde Londres sin tener que desplazarme. ¡Servicio rápido y eficaz!",
+		"testimonialAuthor": "Marie N., Londres"
+	},
+	"footer": {
+		"brand": {
+			"line1": "EMBAJADA DE GABÓN",
+			"line2": "En el Reino de España",
+			"motto": "Unión - Trabajo - Justicia"
+		},
+		"services": "Servicios",
+		"resources": "Recursos",
+		"newsletter": {
+			"title": "Manténgase Informado",
+			"description": "Suscríbase a nuestro boletín para recibir las últimas noticias consulares.",
+			"placeholder": "Su email",
+			"subscribe": "Suscribirse"
+		},
+		"links": {
+			"passport": "Pasaporte",
+			"visa": "Visado",
+			"civilStatus": "Estado Civil",
+			"registration": "Inscripción Consular",
+			"legalization": "Legalización",
+			"appointment": "Pedir Cita",
+			"faq": "FAQ",
+			"fees": "Servicios Consulares",
+			"forms": "Formularios",
+			"news": "Noticias",
+			"directory": "Directorio de Consulados",
+			"legal": "Aviso Legal",
+			"privacy": "Política de Privacidad",
+			"accessibility": "Accesibilidad",
+			"sitemap": "Mapa del Sitio"
+		},
+		"copyright": "© {{year}} Embajada de Gabón en España — Todos los derechos reservados"
+	},
+	"common": {
+		"notFound": {
+			"title": "404",
+			"heading": "Página no encontrada",
+			"description": "Lo sentimos, la página que busca no existe o ha sido movida.",
+			"backHome": "Volver al inicio"
+		},
+		"step": "Paso",
+		"profile": "Mi Perfil",
+		"requests": "Mis Solicitudes",
+		"documents": "Mis Documentos",
+		"appointments": "Mis Citas",
+		"dashboard": "Panel de control",
+		"menu": "Menú",
+		"actions": "Acciones",
+		"noResults": "Ningún resultado encontrado.",
+		"cancel": "Cancelar",
+		"save": "Guardar",
+		"saved": "Cambios guardados",
+		"back": "Volver",
+		"previous": "Anterior",
+		"next": "Siguiente",
+		"edit": "Modificar",
+		"delete": "Eliminar",
+		"confirm": "Confirmar",
+		"firstName": "Nombre",
+		"lastName": "Apellido",
+		"postalCode": "Código postal",
+		"home": "Inicio",
+		"sections": "Secciones"
+	},
+	"header": {
+		"hours": "Lun-Vie: 9h00-16h00",
+		"nav": {
+			"home": "Inicio",
+			"news": "Noticias",
+			"integration": "Integración",
+			"consulates": "Consulados",
+			"faq": "FAQ",
+			"contact": "Contacto",
+			"services": "Servicios",
+			"profile": "Mi Perfil",
+			"requests": "Mis Solicitudes",
+			"documents": "Mis Documentos",
+			"appointments": "Mis Citas",
+			"dashboard": "Panel de control",
+			"mySpace": "Mi Espacio",
+			"signIn": "Iniciar sesión",
+			"signUp": "Registrarse",
+			"consulat": "La Embajada",
+			"venirFrance": "Venir a España",
+			"vieFrance": "Vivir en España",
+			"retourGabon": "Regreso a Gabón",
+			"nousContacter": "Contactarnos"
+		},
+		"appointment": "Cita",
+		"bookAppointment": "Pedir Cita",
+		"openMenu": "Abrir el menú",
+		"closeMenu": "Cerrar el menú",
+		"country": "República Gabonesa",
+		"language": {
+			"fr": "Français",
+			"es": "Español",
+			"en": "English"
+		},
+		"mySpace": "Mi Espacio",
+		"signIn": "Iniciar sesión",
+		"signUp": "Registrarse",
+		"brand": {
+			"line1": "EMBAJADA DE GABÓN",
+			"line2": "En el Reino de España",
+			"motto": "Unión - Trabajo - Justicia"
+		}
+	},
+	"mySpace": {
+		"title": "Mi Espacio Consular",
+		"syncing": "Sincronización de su cuenta..."
+	},
+	"errors": {
+		"auth": {
+			"noAuthentication": "Autenticación requerida",
+			"pleaseSignIn": "Por favor, inicie sesión para acceder a su espacio.",
+			"welcomeBack": "Bienvenido de nuevo",
+			"accessAccount": "Acceda a su cuenta de servicios consulares",
+			"createAccount": "Crear una cuenta",
+			"joinPlatform": "Únase a la plataforma de servicios consulares"
+		},
+		"appointments": {
+			"notFound": "Cita no encontrada",
+			"slotNotAvailable": "Este horario no está disponible",
+			"cannotReschedule": "Imposible reprogramar esta cita"
+		},
+		"users": {
+			"notFound": "Usuario no encontrado"
+		},
+		"admin": {
+			"cannotDemoteSelf": "No puede degradar su propia cuenta",
+			"cannotDisableSelf": "No puede desactivar su propia cuenta"
+		},
+		"orgs": {
+			"notFound": "Organización no encontrada",
+			"slugExists": "Este slug de organización ya existe",
+			"memberAlreadyExists": "Este usuario ya es miembro de esta organización",
+			"memberNotFound": "Este usuario no es miembro de esta organización",
+			"cannotRemoveSelf": "No puede retirarse de la organización"
+		},
+		"services": {
+			"notFound": "Servicio no encontrado",
+			"slugExists": "Este slug de servicio ya existe",
+			"alreadyActivated": "Este servicio ya está activado para esta organización",
+			"notAvailable": "Este servicio no está disponible actualmente"
+		},
+		"requests": {
+			"notFound": "Solicitud no encontrada",
+			"notAuthorizedToSubmit": "No está autorizado a enviar esta solicitud",
+			"notAuthorizedToCancel": "No está autorizado a cancelar esta solicitud",
+			"onlyDraftCanBeSubmitted": "Solo los borradores pueden ser enviados",
+			"onlyStaffCanAddInternalNotes": "Solo el personal puede añadir notas internas",
+			"cannotCancelProcessing": "Imposible cancelar una solicitud en curso"
+		},
+		"profile": {
+			"identity": {
+				"firstName": {
+					"min": "El nombre debe contener al menos 2 caracteres"
+				},
+				"lastName": {
+					"min": "El apellido debe contener al menos 2 caracteres"
+				},
+				"birthDate": {
+					"past": "La fecha de nacimiento debe ser en el pasado",
+					"adult": "Debe ser mayor de edad (18 años mínimo)"
+				},
+				"birthPlace": {
+					"min": "El lugar de nacimiento debe contener al menos 2 caracteres"
+				},
+				"birthCountry": {
+					"invalid": "País de nacimiento inválido"
+				},
+				"gender": {
+					"invalid": "Género inválido"
+				},
+				"nationality": {
+					"invalid": "Nacionalidad inválida"
+				},
+				"nationalityAcquisition": {
+					"invalid": "Modo de adquisición de la nacionalidad inválido"
+				}
+			},
+			"passportInfo": {
+				"number": {
+					"min": "El número de pasaporte debe contener al menos 6 caracteres"
+				},
+				"issueDate": {
+					"past": "La fecha de emisión debe ser en el pasado"
+				},
+				"expiryDate": {
+					"future": "La fecha de vencimiento debe ser en el futuro",
+					"afterIssue": "La fecha de vencimiento debe ser posterior a la fecha de emisión"
+				},
+				"issuingAuthority": {
+					"min": "La autoridad emisora debe contener al menos 2 caracteres"
+				}
+			},
+			"addresses": {
+				"street": {
+					"required": "La dirección es obligatoria"
+				},
+				"city": {
+					"required": "La ciudad es obligatoria"
+				},
+				"postalCode": {
+					"required": "El código postal es obligatorio"
+				},
+				"country": {
+					"invalid": "País inválido"
+				}
+			},
+			"contacts": {
+				"email": {
+					"invalid": "Email inválido"
+				},
+				"emergency": {
+					"firstName": {
+						"min": "El nombre debe contener al menos 2 caracteres"
+					},
+					"lastName": {
+						"min": "El apellido debe contener al menos 2 caracteres"
+					},
+					"phone": {
+						"required": "El número de teléfono es obligatorio"
+					},
+					"email": {
+						"invalid": "Email inválido"
+					},
+					"relationship": {
+						"invalid": "Parentesco inválido"
+					}
+				}
+			},
+			"family": {
+				"maritalStatus": {
+					"invalid": "Estado civil inválido"
+				},
+				"parent": {
+					"firstName": {
+						"min": "El nombre debe contener al menos 2 caracteres"
+					},
+					"lastName": {
+						"min": "El apellido debe contener al menos 2 caracteres"
+					}
+				},
+				"spouse": {
+					"firstName": {
+						"min": "El nombre debe contener al menos 2 caracteres",
+						"required": "El nombre del cónyuge es obligatorio"
+					},
+					"lastName": {
+						"min": "El apellido debe contener al menos 2 caracteres",
+						"required": "El apellido del cónyuge es obligatorio"
+					}
+				}
+			}
+		}
+	},
+	"superadmin": {
+		"nav": {
+			"dashboard": "Panel de control",
+			"users": "Usuarios",
+			"allUsers": "Todos los usuarios",
+			"organizations": "Organizaciones",
+			"allOrganizations": "Todas las organizaciones",
+			"newOrganization": "Nueva organización",
+			"services": "Servicios",
+			"commonServices": "Servicios comunes",
+			"auditLogs": "Registros de auditoría",
+			"settings": "Configuración"
+		},
+		"dashboard": {
+			"title": "Panel de control",
+			"welcome": "Bienvenido a la administración de Consulat.ga",
+			"stats": {
+				"users": "Usuarios",
+				"totalUsers": "Total de usuarios registrados",
+				"organizations": "Organizaciones",
+				"consulatesEmbassies": "Consulados y embajadas",
+				"services": "Servicios",
+				"availableServices": "Servicios disponibles",
+				"requests": "Solicitudes",
+				"pendingRequests": "En espera de tramitación"
+			},
+			"recentActivity": "Actividad reciente",
+			"recentActivityDesc": "Últimas acciones realizadas en la plataforma",
+			"quickActions": "Acciones rápidas",
+			"quickActionsDesc": "Accesos directos a tareas habituales",
+			"addUser": "Añadir un usuario",
+			"addOrg": "Añadir una organización",
+			"addService": "Añadir un servicio",
+			"viewLogs": "Ver los registros"
+		},
+		"users": {
+			"title": "Usuarios",
+			"description": "Gestionar los usuarios de la plataforma y sus roles",
+			"columns": {
+				"avatar": "Avatar",
+				"name": "Nombre",
+				"email": "Email",
+				"phone": "Teléfono",
+				"role": "Rol",
+				"residenceCountry": "País de residencia",
+				"status": "Estado",
+				"createdAt": "Creado el",
+				"actions": "Acciones"
+			},
+			"filters": {
+				"allRoles": "Todos los roles",
+				"allStatus": "Todos los estados",
+				"active": "Activo",
+				"inactive": "Inactivo",
+				"searchPlaceholder": "Buscar usuarios..."
+			},
+			"actions": {
+				"editRole": "Modificar el rol",
+				"enable": "Activar",
+				"disable": "Desactivar",
+				"viewDetails": "Ver detalles"
+			},
+			"roles": {
+				"user": "Usuario",
+				"superadmin": "Super Admin"
+			},
+			"roleDialog": {
+				"title": "Modificar el rol del usuario",
+				"description": "Seleccione un nuevo rol para {{name}}",
+				"confirm": "Confirmar",
+				"cancel": "Cancelar"
+			},
+			"noResults": "Ningún usuario encontrado",
+			"details": {
+				"infos": "Información",
+				"organizations": "Organizaciones",
+				"orgMembership": "Pertenencia a organizaciones",
+				"activity": "Actividad reciente",
+				"lastActions": "Las 10 últimas acciones",
+				"nationality": "Nacionalidad",
+				"residence": "País de residencia",
+				"registered": "Inscrito el",
+				"verified": "verificado",
+				"unverified": "no verificado",
+				"since": "Desde el",
+				"noOrg": "Ninguna organización",
+				"noActivity": "Ninguna actividad"
+			}
+		},
+		"organizations": {
+			"title": "Organizaciones",
+			"description": "Gestionar consulados, embajadas y organizaciones",
+			"columns": {
+				"logo": "Logo",
+				"name": "Nombre",
+				"slug": "Slug",
+				"type": "Tipo",
+				"address": "Dirección",
+				"contact": "Contacto",
+				"membersCount": "Miembros",
+				"status": "Estado",
+				"createdAt": "Creado el",
+				"actions": "Acciones"
+			},
+			"types": {
+				"consulate": "Consulado",
+				"embassy": "Embajada",
+				"ministry": "Ministerio",
+				"other": "Otro"
+			},
+			"filters": {
+				"allTypes": "Todos los tipos",
+				"allCountries": "Todos los países",
+				"searchPlaceholder": "Buscar organizaciones..."
+			},
+			"actions": {
+				"view": "Ver",
+				"edit": "Modificar",
+				"manageMembers": "Gestionar miembros",
+				"manageServices": "Gestionar servicios",
+				"enable": "Activar",
+				"disable": "Desactivar"
+			},
+			"form": {
+				"create": "Crear una organización",
+				"edit": "Modificar la organización",
+				"name": "Nombre",
+				"namePlaceholder": "ej. Consulado de Gabón en Madrid",
+				"slug": "Slug",
+				"slugPlaceholder": "ej. gabon-madrid",
+				"slugHelp": "Identificador URL (generado automáticamente a partir del nombre)",
+				"type": "Tipo",
+				"address": "Dirección",
+				"street": "Calle",
+				"street2": "Calle 2 (opcional)",
+				"city": "Ciudad",
+				"postalCode": "Código postal",
+				"state": "Estado/Provincia (opcional)",
+				"country": "País",
+				"contact": "Contacto",
+				"email": "Email",
+				"phone": "Teléfono",
+				"website": "Sitio web",
+				"timezone": "Zona horaria",
+				"jurisdiction": "Jurisdicción",
+				"jurisdictionPlaceholder": "Añadir un país...",
+				"logoUrl": "URL del Logo",
+				"advancedConfig": "Configuración Avanzada",
+				"appointmentDelay": "Plazo cita (horas)",
+				"maxActiveRequests": "Máx. Solicitudes Activas",
+				"typeReadonly": "El tipo de organización no se puede modificar.",
+				"save": "Guardar",
+				"saving": "Guardando...",
+				"cancel": "Cancelar",
+				"error": {
+					"nameLength": "El nombre debe contener al menos 3 caracteres",
+					"slugLength": "El slug debe contener al menos 2 caracteres",
+					"addressRequired": "La calle, la ciudad y el país son obligatorios"
+				}
+			},
+			"detail": {
+				"tabs": {
+					"details": "Detalles",
+					"members": "Miembros",
+					"services": "Servicios"
+				}
+			},
+			"tabs": {
+				"overview": "Vista general",
+				"members": "Miembros",
+				"services": "Servicios"
+			},
+			"details": "Detalles de la organización",
+			"detailsDesc": "Información adicional sobre esta organización",
+			"servicesDesc": "Servicios ofrecidos por esta organización",
+			"noResults": "Ninguna organización encontrada"
+		},
+		"members": {
+			"title": "Miembros de la organización",
+			"description": "Gestionar los miembros de esta organización",
+			"columns": {
+				"user": "Usuario",
+				"role": "Rol",
+				"joinedAt": "Incorporado el",
+				"actions": "Acciones"
+			},
+			"roles": {
+				"admin": "Administrador",
+				"agent": "Agente",
+				"viewer": "Observador"
+			},
+			"actions": {
+				"changeRole": "Modificar el rol",
+				"remove": "Retirar"
+			},
+			"addMember": "Añadir un miembro",
+			"addMemberDialog": {
+				"title": "Añadir un miembro",
+				"description": "Añadir un usuario a esta organización",
+				"searchUser": "Buscar un usuario",
+				"selectRole": "Seleccionar un rol",
+				"add": "Añadir",
+				"cancel": "Cancelar"
+			},
+			"noMembers": "Ningún miembro en esta organización"
+		},
+		"orgMembers": {
+			"title": "Miembros de la organización",
+			"description": "Gestionar los miembros de esta organización",
+			"addMember": "Añadir un miembro",
+			"addMemberDesc": "Buscar un usuario o crear una nueva cuenta para añadirlo a esta organización",
+			"removeMember": "Retirar el miembro",
+			"memberRemoved": "Miembro retirado con éxito",
+			"memberAdded": "Miembro añadido con éxito",
+			"emailRequired": "El email es obligatorio",
+			"noMembers": "Ningún miembro en esta organización",
+			"roles": {
+				"admin": "Administrador",
+				"agent": "Agente",
+				"viewer": "Observador"
+			},
+			"tabs": {
+				"existing": "Usuario existente",
+				"new": "Nuevo usuario"
+			},
+			"searchPlaceholder": "Buscar por nombre o email...",
+			"noUsersFound": "Ningún usuario encontrado",
+			"selectUser": "Seleccionar un usuario",
+			"newUser": {
+				"firstName": "Nombre",
+				"lastName": "Apellido",
+				"email": "Email",
+				"create": "Crear y añadir"
+			}
+		},
+		"services": {
+			"title": "Servicios",
+			"description": "Gestionar el catálogo global de servicios",
+			"tabs": {
+				"commonServices": "Servicios comunes",
+				"orgServices": "Servicios de organizaciones"
+			},
+			"columns": {
+				"name": "Nombre",
+				"slug": "Slug",
+				"category": "Categoría",
+				"description": "Descripción",
+				"documentsCount": "Documentos requeridos",
+				"status": "Estado",
+				"createdAt": "Creado el",
+				"actions": "Acciones"
+			},
+			"table": {
+				"fee": "Tasas",
+				"appointmentRequired": "Cita requerida"
+			},
+			"categories": {
+				"passport": "Pasaporte",
+				"visa": "Visado",
+				"civil_status": "Estado civil",
+				"registration": "Inscripción consular",
+				"legalization": "Legalización",
+				"emergency": "Urgencia",
+				"other": "Otro"
+			},
+			"status": {
+				"active": "Activo",
+				"inactive": "Inactivo"
+			},
+			"filters": {
+				"allCategories": "Todas las categorías",
+				"searchPlaceholder": "Buscar servicios..."
+			},
+			"actions": {
+				"edit": "Modificar",
+				"enable": "Activar",
+				"disable": "Desactivar",
+				"activate": "Activar"
+			},
+			"form": {
+				"create": "Crear un servicio",
+				"edit": "Modificar el servicio",
+				"name": "Nombre",
+				"slug": "Slug",
+				"category": "Categoría",
+				"description": "Descripción",
+				"requiredDocuments": "Documentos requeridos",
+				"addDocument": "Añadir un documento",
+				"documentName": "Nombre del documento",
+				"documentDescription": "Descripción (opcional)",
+				"isRequired": "Obligatorio",
+				"save": "Guardar",
+				"cancel": "Cancelar",
+				"icon": "Icono (Nombre Lucide / URL)",
+				"schema": "Esquema del formulario (JSON)",
+				"noDocuments": "Ningún documento requerido",
+				"success": "Servicio creado con éxito",
+				"updated": "Servicio actualizado"
+			},
+			"dialog": {
+				"title": "Activar un servicio",
+				"description": "Seleccione un servicio del catálogo para activar en esta organización",
+				"allActivated": "Todos los servicios ya están activados",
+				"selectPlaceholder": "Seleccionar un servicio...",
+				"feeLabel": "Tasas",
+				"currencyLabel": "Moneda",
+				"appointmentLabel": "Cita requerida",
+				"submit": "Activar",
+				"submitting": "Activando..."
+			},
+			"empty": {
+				"org": "Ningún servicio activado para esta organización"
+			},
+			"noResults": "Ningún servicio encontrado"
+		},
+		"auditLogs": {
+			"title": "Registros de auditoría",
+			"description": "Ver todas las acciones administrativas",
+			"columns": {
+				"timestamp": "Fecha y hora",
+				"user": "Usuario",
+				"action": "Acción",
+				"targetType": "Tipo de objetivo",
+				"targetId": "ID de objetivo",
+				"details": "Detalles"
+			},
+			"actions": {
+				"user_created": "Usuario creado",
+				"user_updated": "Usuario modificado",
+				"user_disabled": "Usuario desactivado",
+				"user_role_changed": "Rol modificado",
+				"org_created": "Organización creada",
+				"org_updated": "Organización modificada",
+				"org_disabled": "Organización desactivada",
+				"service_created": "Servicio creado",
+				"service_updated": "Servicio modificado",
+				"request_status_changed": "Estado de solicitud modificado"
+			},
+			"filters": {
+				"allActions": "Todas las acciones",
+				"allTargets": "Todos los objetivos",
+				"searchPlaceholder": "Buscar en los registros..."
+			},
+			"noResults": "Ningún registro de auditoría encontrado"
+		},
+		"settings": {
+			"title": "Configuración de la plataforma",
+			"description": "Gestionar la configuración global de la aplicación Consulat.ga",
+			"tabs": {
+				"general": "General",
+				"notifications": "Notificaciones",
+				"security": "Seguridad"
+			},
+			"general": {
+				"title": "Información general",
+				"description": "Detalles básicos de la configuración de la plataforma",
+				"siteName": "Nombre del sitio",
+				"adminEmail": "Email del administrador"
+			},
+			"notifications": {
+				"title": "Configuración de notificaciones",
+				"description": "Configurar las notificaciones por email y push para todo el sistema"
+			},
+			"security": {
+				"title": "Configuración de seguridad",
+				"description": "Gestionar las políticas de seguridad y los controles de acceso"
+			}
+		},
+		"types": {
+			"consulate": "Consulado",
+			"general_consulate": "Consulado General",
+			"embassy": "Embajada",
+			"ministry": "Ministerio",
+			"other": "Otro"
+		},
+		"roles": {
+			"superadmin": "Super Admin",
+			"user": "Usuario",
+			"admin": "Administrador",
+			"agent": "Agente",
+			"viewer": "Observador"
+		},
+		"common": {
+			"loading": "Cargando...",
+			"view": "Ver",
+			"error": "Se ha producido un error",
+			"retry": "Reintentar",
+			"save": "Guardar",
+			"cancel": "Cancelar",
+			"delete": "Eliminar",
+			"edit": "Modificar",
+			"create": "Crear",
+			"search": "Buscar",
+			"filter": "Filtrar",
+			"reset": "Reiniciar",
+			"noData": "No hay datos disponibles",
+			"confirmDelete": "¿Está seguro de que desea eliminar este elemento?",
+			"active": "Activo",
+			"inactive": "Inactivo",
+			"enabled": "Activado",
+			"disabled": "Desactivado",
+			"back": "Volver",
+			"comingSoon": "Próximamente",
+			"yes": "Sí",
+			"no": "No"
+		},
+		"table": {
+			"logo": "Logo",
+			"location": "Ubicación",
+			"contact": "Contacto",
+			"status": "Estado",
+			"created": "Creado el",
+			"actions": "Acciones",
+			"avatar": "Avatar",
+			"phone": "Teléfono",
+			"rowsPerPage": "Filas por página",
+			"page": "Página",
+			"of": "de",
+			"selected": "{{count}} seleccionado(s)",
+			"noResults": "Ningún resultado",
+			"columns": "Columnas",
+			"previousPage": "Página anterior",
+			"nextPage": "Página siguiente",
+			"firstPage": "Primera página",
+			"lastPage": "Última página",
+			"createdAt": "Creado el",
+			"updatedAt": "Actualizado el"
+		},
+		"countryCodes": {
+			"AD": "Andorra",
+			"AE": "Emiratos Árabes Unidos",
+			"AF": "Afganistán",
+			"AG": "Antigua y Barbuda",
+			"AI": "Anguila",
+			"AL": "Albania",
+			"AM": "Armenia",
+			"AO": "Angola",
+			"AQ": "Antártida",
+			"AR": "Argentina",
+			"AS": "Samoa Americana",
+			"AT": "Austria",
+			"AU": "Australia",
+			"AW": "Aruba",
+			"AX": "Islas Åland",
+			"BE": "Bélgica",
+			"BF": "Burkina Faso",
+			"BG": "Bulgaria",
+			"BH": "Baréin",
+			"BI": "Burundi",
+			"BJ": "Benín",
+			"BR": "Brasil",
+			"CA": "Canadá",
+			"CD": "República Democrática del Congo",
+			"CF": "República Centroafricana",
+			"CG": "República del Congo",
+			"CH": "Suiza",
+			"CI": "Costa de Marfil",
+			"CL": "Chile",
+			"CM": "Camerún",
+			"CN": "China",
+			"CO": "Colombia",
+			"CR": "Costa Rica",
+			"CU": "Cuba",
+			"DE": "Alemania",
+			"DK": "Dinamarca",
+			"DZ": "Argelia",
+			"EG": "Egipto",
+			"ES": "España",
+			"ET": "Etiopía",
+			"FI": "Finlandia",
+			"FR": "Francia",
+			"GA": "Gabón",
+			"GB": "Reino Unido",
+			"GH": "Ghana",
+			"GN": "Guinea",
+			"GR": "Grecia",
+			"IE": "Irlanda",
+			"IL": "Israel",
+			"IN": "India",
+			"IR": "Irán",
+			"IT": "Italia",
+			"JP": "Japón",
+			"KE": "Kenia",
+			"KR": "Corea del Sur",
+			"MA": "Marruecos",
+			"ML": "Malí",
+			"MX": "México",
+			"NG": "Nigeria",
+			"NL": "Países Bajos",
+			"NO": "Noruega",
+			"PL": "Polonia",
+			"PT": "Portugal",
+			"RO": "Rumanía",
+			"RU": "Rusia",
+			"SA": "Arabia Saudí",
+			"SE": "Suecia",
+			"SN": "Senegal",
+			"ZA": "Sudáfrica"
+		}
+	},
+	"dashboard": {
+		"nav": {
+			"dashboard": "Panel de control",
+			"services": "Servicios",
+			"requests": "Solicitudes",
+			"appointments": "Citas",
+			"team": "Equipo",
+			"settings": "Configuración"
+		},
+		"home": {
+			"title": "Panel de control",
+			"welcome": "Bienvenido al panel de control de {{orgName}}",
+			"description": "Este es su espacio de gestión centralizado. Use el menú lateral para gestionar sus servicios, tramitar solicitudes y configurar su organización.",
+			"stats": {
+				"pendingRequests": "Solicitudes pendientes",
+				"pendingRequestsDesc": "+0% desde el mes pasado",
+				"teamMembers": "Miembros del equipo",
+				"teamMembersDesc": "Activos en esta organización",
+				"activeServices": "Servicios Activos",
+				"activeServicesDesc": "Servicios configurados",
+				"upcomingAppointments": "Próximas citas",
+				"upcomingAppointmentsDesc": "Programadas o confirmadas"
+			}
+		},
+		"services": {
+			"title": "Servicios",
+			"description": "Configure los servicios ofrecidos por su organización",
+			"listTitle": "Catálogo de servicios",
+			"listDescription": "Active y configure los servicios que desea ofrecer",
+			"columns": {
+				"service": "Servicio",
+				"category": "Categoría",
+				"fee": "Tarifa",
+				"status": "Estado"
+			},
+			"configure": "Configurar",
+			"notConfigured": "No configurado",
+			"configureFirst": "Por favor, configure primero este servicio",
+			"statusUpdated": "Estado actualizado",
+			"updateError": "Error al actualizar",
+			"edit": {
+				"title": "Configuración del servicio",
+				"serviceInfo": "Información del servicio",
+				"notFound": "Servicio no encontrado",
+				"back": "Volver a servicios",
+				"activate": "Activar este servicio",
+				"fee": "Tarifa",
+				"currency": "Moneda",
+				"estimatedDays": "Plazo estimado (días)",
+				"requiresAppointment": "Requiere cita",
+				"instructions": "Instrucciones personalizadas",
+				"instructionsPlaceholder": "Instrucciones para los usuarios...",
+				"save": "Guardar",
+				"saving": "Guardando...",
+				"saved": "Configuración guardada",
+				"saveError": "Error al guardar"
+			}
+		},
+		"team": {
+			"title": "Equipo",
+			"description": "Gestione los miembros de su organización y sus permisos",
+			"addMember": "Añadir un miembro",
+			"cardTitle": "Miembros de la organización",
+			"cardDescription": "Lista de usuarios con acceso a este panel de control.",
+			"columns": {
+				"user": "Usuario",
+				"role": "Rol",
+				"joinedAt": "Fecha de incorporación",
+				"actions": "Acciones"
+			},
+			"actions": {
+				"changeRole": "Cambiar el rol",
+				"remove": "Retirar"
+			},
+			"confirmRemove": "¿Está seguro de que desea retirar a este miembro?",
+			"memberRemoved": "Miembro retirado",
+			"removeError": "Error al eliminar",
+			"roles": {
+				"admin": "Administrador",
+				"agent": "Agente Consular",
+				"viewer": "Observador"
+			},
+			"addDialog": {
+				"title": "Añadir un miembro",
+				"description": "Añada un usuario existente o cree una nueva cuenta para su equipo.",
+				"existingTab": "Usuario existente",
+				"newTab": "Nueva cuenta",
+				"searchLabel": "Búsqueda por email",
+				"searchPlaceholder": "ejemplo@email.com",
+				"noUsersFound": "Ningún usuario encontrado",
+				"selectUser": "Por favor seleccione un usuario",
+				"role": "Rol",
+				"firstName": "Nombre",
+				"lastName": "Apellido",
+				"email": "Email",
+				"emailRequired": "El email es obligatorio",
+				"cancel": "Cancelar",
+				"add": "Añadir el miembro",
+				"adding": "Espere...",
+				"memberAdded": "Miembro añadido con éxito",
+				"newAccountCreated": "Nueva cuenta creada y miembro añadido",
+				"addError": "Error al añadir",
+				"createError": "Error al crear"
+			},
+			"roleDialog": {
+				"title": "Cambiar el rol",
+				"description": "Cambiar el rol de {{name}}",
+				"role": "Rol",
+				"cancel": "Cancelar",
+				"save": "Guardar",
+				"saved": "Rol actualizado",
+				"error": "Error"
+			}
+		},
+		"requests": {
+			"title": "Solicitudes",
+			"description": "Gestione las solicitudes de servicios de su organización",
+			"listTitle": "Todas las solicitudes",
+			"listDescription": "Consulte y tramite las solicitudes recibidas.",
+			"filterByStatus": "Filtrar por estado",
+			"columns": {
+				"reference": "Número",
+				"service": "Servicio",
+				"requester": "Solicitante",
+				"date": "Fecha",
+				"status": "Estado",
+				"action": "Acción"
+			},
+			"loading": "Cargando...",
+			"noRequests": "Ninguna solicitud encontrada",
+			"noReference": "SIN-REF",
+			"unknownUser": "Usuario desconocido",
+			"manage": "Gestionar",
+			"statuses": {
+				"all": "Todos los estados",
+				"draft": "Borrador",
+				"submitted": "Enviado",
+				"under_review": "En revisión",
+				"processing": "En tramitación",
+				"pending_documents": "Documentos pendientes",
+				"pending_payment": "Pago pendiente",
+				"completed": "Completado",
+				"rejected": "Rechazado",
+				"cancelled": "Cancelado"
+			},
+			"detail": {
+				"title": "Solicitud {{ref}}",
+				"createdAt": "Creada el {{date}}",
+				"back": "Volver",
+				"serviceCard": {
+					"title": "Servicio solicitado",
+					"serviceName": "Nombre del servicio",
+					"unknownService": "Servicio desconocido",
+					"formData": "Datos del formulario"
+				},
+				"notesCard": {
+					"title": "Notas y comentarios",
+					"description": "Historial de intercambios sobre esta solicitud",
+					"noNotes": "Ninguna nota por el momento",
+					"internal": "Interna",
+					"agent": "Agente",
+					"addPlaceholder": "Añadir una nota...",
+					"internalNote": "Nota interna (no visible por el solicitante)",
+					"send": "Enviar",
+					"noteAdded": "Nota añadida",
+					"noteError": "Error al añadir la nota"
+				},
+				"requesterCard": {
+					"title": "Solicitante",
+					"unknown": "Usuario desconocido"
+				},
+				"statusCard": {
+					"title": "Modificar el estado",
+					"selectPlaceholder": "Seleccionar un estado",
+					"update": "Actualizar",
+					"statusUpdated": "Estado actualizado",
+					"updateError": "Error al actualizar"
+				},
+				"timelineCard": {
+					"title": "Cronología",
+					"created": "Creada",
+					"submitted": "Enviada",
+					"completed": "Completada"
+				}
+			}
+		},
+		"noAccess": {
+			"title": "Acceso no autorizado",
+			"description": "No es miembro de ninguna organización.",
+			"contact": "Contacte a un administrador para ser añadido."
+		},
+		"appointments": {
+			"title": "Citas",
+			"description": "Gestione las citas de su organización",
+			"listTitle": "Todas las citas",
+			"listDescription": "Consulte y gestione las citas programadas.",
+			"filterByStatus": "Filtrar por estado",
+			"filterByDate": "Fecha",
+			"columns": {
+				"dateTime": "Fecha y hora",
+				"user": "Usuario",
+				"service": "Servicio",
+				"status": "Estado",
+				"action": "Acción"
+			},
+			"loading": "Cargando...",
+			"noAppointments": "Ninguna cita encontrada",
+			"listView": "Lista",
+			"calendarView": "Calendario",
+			"manage": "Gestionar",
+			"confirm": "Confirmar",
+			"cancel": "Cancelar",
+			"complete": "Finalizar",
+			"noShow": "Ausente",
+			"statuses": {
+				"all": "Todos los estados",
+				"scheduled": "Programada",
+				"confirmed": "Confirmada",
+				"cancelled": "Cancelada",
+				"completed": "Completada",
+				"no_show": "Ausente"
+			},
+			"success": {
+				"confirmed": "Cita confirmada",
+				"cancelled": "Cita cancelada",
+				"completed": "Cita marcada como completada",
+				"noShow": "Cita marcada como ausente"
+			},
+			"error": {
+				"confirm": "Error al confirmar",
+				"cancel": "Error al cancelar",
+				"complete": "Error al finalizar",
+				"noShow": "Error al marcar como ausente"
+			},
+			"notFound": "Cita no encontrada",
+			"detail": {
+				"title": "Detalles de la cita",
+				"dateTime": "Fecha y hora",
+				"date": "Fecha",
+				"user": "Cliente",
+				"service": "Servicio",
+				"notes": "Notas",
+				"actions": "Acciones",
+				"actionsDescription": "Actualice el estado de esta cita"
+			}
+		},
+		"dialogs": {
+			"addMember": {
+				"title": "Añadir un miembro",
+				"description": "Añada un usuario existente o cree una nueva cuenta para su equipo.",
+				"existingUser": "Usuario existente",
+				"newAccount": "Nueva cuenta",
+				"searchByEmail": "Búsqueda por email",
+				"emailPlaceholder": "ejemplo@email.com",
+				"noUserFound": "Ningún usuario encontrado",
+				"selectUser": "Por favor seleccione un usuario",
+				"firstName": "Nombre",
+				"lastName": "Apellido",
+				"email": "Email",
+				"emailLabel": "Dirección de email",
+				"emailRequired": "El email es obligatorio",
+				"role": "Rol",
+				"roleLabel": "Rol en la organización",
+				"roles": {
+					"admin": "Administrador",
+					"agent": "Agente Consular",
+					"viewer": "Observador"
+				},
+				"cancel": "Cancelar",
+				"add": "Añadir el miembro",
+				"loading": "Espere...",
+				"successExisting": "Miembro añadido con éxito",
+				"successNew": "Nueva cuenta creada y miembro añadido"
+			},
+			"memberRole": {
+				"title": "Cambiar el rol",
+				"descriptionPrefix": "Cambiar el rol de",
+				"role": "Rol",
+				"cancel": "Cancelar",
+				"save": "Guardar",
+				"success": "Rol actualizado",
+				"error": "Error"
+			}
+		},
+		"settings": {
+			"title": "Configuración",
+			"description": "Información de su organización",
+			"notFound": "Organización no encontrada",
+			"edit": "Editar",
+			"orgProfile": "Perfil de la organización",
+			"orgProfileDescription": "Información general",
+			"name": "Nombre",
+			"type": "Tipo",
+			"descriptionLabel": "Descripción",
+			"address": "Dirección",
+			"street": "Calle",
+			"city": "Ciudad",
+			"postalCode": "Código postal",
+			"country": "País",
+			"noAddress": "Ninguna dirección configurada",
+			"contact": "Contacto",
+			"phone": "Teléfono",
+			"email": "Email",
+			"website": "Sitio web",
+			"noContact": "Ninguna información de contacto",
+			"jurisdiction": "Jurisdicción",
+			"noJurisdiction": "Ninguna jurisdicción definida",
+			"updateSuccess": "Configuración actualizada",
+			"updateError": "Error al actualizar",
+			"orgTypes": {
+				"consulate": "Consulado",
+				"consulateGeneral": "Consulado General",
+				"embassy": "Embajada",
+				"honoraryConsulate": "Consulado Honorario",
+				"ministry": "Ministerio",
+				"other": "Otro"
+			}
+		}
+	},
+	"profile": {
+		"step": {
+			"invalid": "Por favor, corrija los errores antes de continuar"
+		},
+		"errors": {
+			"title": "Campos a corregir"
+		},
+		"fields": {
+			"firstName": "Nombre",
+			"lastName": "Apellido",
+			"birthPlace": "Lugar de nacimiento",
+			"birthCountry": "País de nacimiento",
+			"gender": "Género",
+			"maritalStatus": "Estado civil",
+			"nipCode": "NIP (Si lo conoce)",
+			"email": "Email de contacto",
+			"phoneHome": "Teléfono (País de origen)",
+			"phoneAbroad": "Teléfono (Residencia)",
+			"country": "País",
+			"countryOfResidence": "País de residencia",
+			"city": "Ciudad",
+			"street": "Dirección"
+		},
+		"sections": {
+			"addressHome": "Dirección en Gabón (o país de origen)",
+			"addressAbroad": "Dirección de Residencia Actual",
+			"emergencyContacts": "Contactos de emergencia",
+			"emergencyContactsDesc": "Personas a contactar en caso de emergencia",
+			"emergencyResidence": "Contacto de emergencia (País de residencia)",
+			"emergencyHomeland": "Contacto de emergencia (Gabón)"
+		},
+		"relationship": {
+			"father": "Padre",
+			"mother": "Madre",
+			"spouse": "Cónyuge",
+			"brotherSister": "Hermano/Hermana",
+			"child": "Hijo/a",
+			"legalGuardian": "Tutor legal",
+			"other": "Otro"
+		},
+		"placeholders": {
+			"selectCountry": "Seleccionar un país",
+			"select": "Seleccionar"
+		},
+		"gender": {
+			"male": "Hombre",
+			"female": "Mujer"
+		},
+		"maritalStatus": {
+			"single": "Soltero/a",
+			"married": "Casado/a",
+			"divorced": "Divorciado/a",
+			"widowed": "Viudo/a"
+		},
+		"documents": {
+			"passport": "Pasaporte (Páginas principales)",
+			"nationalId": "Documento Nacional de Identidad",
+			"birthCertificate": "Acta de Nacimiento",
+			"residencePermit": "Permiso de Residencia / Visado",
+			"proofOfAddress": "Justificante de Domicilio",
+			"photo": "Foto de identidad"
+		},
+		"tabs": {
+			"personal": "Datos Personales",
+			"contacts": "Contactos",
+			"family": "Familia",
+			"documents": "Mis Documentos"
+		}
+	},
+	"registration": {
+		"steps": {
+			"identity": {
+				"title": "Identidad",
+				"description": "Datos personales"
+			},
+			"contacts": {
+				"title": "Contactos",
+				"description": "Datos de contacto"
+			},
+			"family": {
+				"title": "Familia",
+				"description": "Situación familiar"
+			},
+			"documents": {
+				"title": "Documentos",
+				"description": "Documentos justificativos"
+			}
+		},
+		"errors": {
+			"firstNameRequired": "El nombre es obligatorio",
+			"lastNameRequired": "El apellido es obligatorio",
+			"birthDateRequired": "La fecha de nacimiento es obligatoria",
+			"dateInvalid": "Fecha inválida",
+			"birthDateInPast": "La fecha de nacimiento debe ser en el pasado",
+			"mustBeAdult": "Debe ser mayor de edad",
+			"birthPlaceRequired": "El lugar de nacimiento es obligatorio",
+			"birthCountryRequired": "El país de nacimiento es obligatorio",
+			"genderRequired": "El género es obligatorio",
+			"nationalityRequired": "La nacionalidad es obligatoria",
+			"nationalityAcquisitionRequired": "El modo de adquisición es obligatorio",
+			"passportNumberInvalid": "Número de pasaporte inválido (mín. 6 caracteres)",
+			"issueDateRequired": "Fecha de emisión obligatoria",
+			"issueDateInPast": "La fecha de emisión debe ser en el pasado",
+			"expiryDateRequired": "Fecha de vencimiento obligatoria",
+			"expiryDateInFuture": "El pasaporte debe ser válido",
+			"expiryAfterIssue": "La fecha de vencimiento debe ser posterior a la emisión",
+			"issuingAuthorityRequired": "Autoridad emisora obligatoria",
+			"emailInvalid": "Email inválido",
+			"phoneInvalid": "Número de teléfono inválido",
+			"streetRequired": "Dirección obligatoria (mín. 5 caracteres)",
+			"cityRequired": "Ciudad obligatoria",
+			"postalCodeRequired": "Código postal obligatorio",
+			"countryRequired": "País obligatorio",
+			"maritalStatusRequired": "Estado civil obligatorio",
+			"spouseFirstNameRequired": "Nombre del cónyuge obligatorio",
+			"spouseLastNameRequired": "Apellido del cónyuge obligatorio",
+			"passportDocRequired": "El pasaporte es obligatorio",
+			"nationalIdDocRequired": "El DNI es obligatorio",
+			"photoDocRequired": "La foto de identidad es obligatoria"
+		},
+		"backToDashboard": "Volver al panel de control",
+		"labels": {
+			"consulateOrEmbassy": "Consulado / Embajada",
+			"selectPlaceholder": "Seleccionar..."
+		},
+		"jurisdiction": {
+			"title": "Jurisdicción",
+			"description": "Asegúrese de residir en la jurisdicción de este organismo. Se le pedirá una prueba de residencia."
+		},
+		"status": {
+			"dateRequested": "Fecha de solicitud:",
+			"number": "Número:",
+			"fallbackOrg": "Consulado"
+		},
+		"title": "Inscripción Consular",
+		"requestTitle": "Solicitud de inscripción",
+		"desc": "Seleccione el consulado o la embajada de su jurisdicción para inscribirse.",
+		"selectOrg": "Elegir la organización",
+		"submit": "Enviar la solicitud",
+		"success": "Solicitud enviada con éxito",
+		"missingDocs": {
+			"title": "Perfil incompleto",
+			"description": "Por favor, añada los siguientes documentos a su perfil antes de enviar su solicitud:"
+		},
+		"completeProfile": "Completar mi perfil"
+	},
+	"documents": {
+		"search": "Buscar..."
+	},
+	"zod": {
+		"required": "Obligatorio",
+		"invalid_type": "Esperado: {{expected}}, Recibido: {{received}}",
+		"invalid_literal": "Valor inválido, esperado: {{expected}}",
+		"unrecognized_keys": "Claves no reconocidas: {{keys}}",
+		"invalid_union": "Entrada inválida",
+		"invalid_union_discriminator": "Discriminador inválido. Opciones: {{options}}",
+		"invalid_enum_value": "Valor inválido. Opciones: {{options}}, Recibido: {{received}}",
+		"invalid_arguments": "Argumentos inválidos",
+		"invalid_return_type": "Tipo de retorno inválido",
+		"invalid_date": "Fecha inválida",
+		"invalid_string": {
+			"email": "Email inválido",
+			"url": "URL inválida",
+			"uuid": "UUID inválido",
+			"startsWith": "Debe comenzar por \"{{startsWith}}\"",
+			"endsWith": "Debe terminar por \"{{endsWith}}\""
+		},
+		"too_small": {
+			"string": {
+				"inclusive": "Debe contener al menos {{minimum}} carácter(es)",
+				"not_inclusive": "Debe contener más de {{minimum}} carácter(es)"
+			},
+			"number": {
+				"inclusive": "Debe ser mayor o igual a {{minimum}}",
+				"not_inclusive": "Debe ser mayor que {{minimum}}"
+			},
+			"array": {
+				"inclusive": "Debe contener al menos {{minimum}} elemento(s)",
+				"not_inclusive": "Debe contener más de {{minimum}} elemento(s)"
+			},
+			"date": {
+				"inclusive": "Debe ser posterior o igual a {{minimum}}",
+				"not_inclusive": "Debe ser posterior a {{minimum}}"
+			}
+		},
+		"too_big": {
+			"string": {
+				"inclusive": "Debe contener como máximo {{maximum}} carácter(es)",
+				"not_inclusive": "Debe contener menos de {{maximum}} carácter(es)"
+			},
+			"number": {
+				"inclusive": "Debe ser menor o igual a {{maximum}}",
+				"not_inclusive": "Debe ser menor que {{maximum}}"
+			},
+			"array": {
+				"inclusive": "Debe contener como máximo {{maximum}} elemento(s)",
+				"not_inclusive": "Debe contener menos de {{maximum}} elemento(s)"
+			},
+			"date": {
+				"inclusive": "Debe ser anterior o igual a {{maximum}}",
+				"not_inclusive": "Debe ser anterior a {{maximum}}"
+			}
+		},
+		"not_multiple_of": "Debe ser un múltiplo de {{multipleOf}}",
+		"not_finite": "Debe ser finito",
+		"custom": "Inválido"
+	},
+	"accessibilite": {
+		"title": "Accesibilidad",
+		"intro": "La Embajada de Gabón en España se compromete a hacer este sitio web accesible conforme a las normas vigentes.",
+		"conformance": {
+			"title": "Declaración de conformidad",
+			"content": "Este sitio ha sido diseñado para ser accesible al mayor número. Nos esforzamos por cumplir las recomendaciones de accesibilidad web."
+		},
+		"technologies": {
+			"title": "Tecnologías utilizadas",
+			"content": "Este sitio está construido con las siguientes tecnologías web modernas:",
+			"items": {
+				"html5": "HTML5 semántico",
+				"css3": "CSS3 con soporte de modo oscuro",
+				"react": "React con componentes accesibles",
+				"aria": "Atributos ARIA para tecnologías de asistencia"
+			}
+		},
+		"features": {
+			"title": "Funcionalidades de accesibilidad",
+			"navigation": {
+				"title": "Navegación",
+				"content": "Navegación completa con teclado, estructura jerárquica de títulos, enlaces de omisión."
+			},
+			"visual": {
+				"title": "Visualización",
+				"content": "Contrastes conformes AA, modo oscuro, textos redimensionables, diseño responsive."
+			},
+			"assistive": {
+				"title": "Tecnologías de asistencia",
+				"content": "Compatible con lectores de pantalla (NVDA, JAWS, VoiceOver), alternativas textuales para imágenes."
+			}
+		},
+		"contact": {
+			"title": "Contacto",
+			"content": "Si encuentra un problema de accesibilidad, contáctenos:",
+			"email": "Email:",
+			"phone": "Teléfono:"
+		},
+		"legal": {
+			"title": "Vías de recurso",
+			"content": "Si detecta un defecto de accesibilidad que le impide acceder a un contenido o funcionalidad del sitio, puede contactar al Defensor de los derechos."
+		}
+	},
+	"confidentialite": {
+		"title": "Política de Privacidad",
+		"intro": "La Embajada de Gabón en España se compromete a proteger la privacidad de los usuarios de este sitio.",
+		"dataCollection": {
+			"title": "Recopilación de datos",
+			"content": "Recopilamos únicamente los datos necesarios para el funcionamiento de los servicios consulares: nombre, apellido, fecha de nacimiento, nacionalidad, datos de contacto, documentos de identidad."
+		},
+		"purpose": {
+			"title": "Finalidades del tratamiento",
+			"content": "Sus datos se utilizan exclusivamente para:",
+			"items": {
+				"consular": "La tramitación de sus solicitudes consulares",
+				"communication": "La comunicación de información consular",
+				"statistics": "La elaboración de estadísticas anónimas",
+				"legal": "El cumplimiento de nuestras obligaciones legales"
+			}
+		},
+		"retention": {
+			"title": "Duración de conservación",
+			"content": "Sus datos se conservan durante el tiempo necesario para la tramitación de su solicitud, y luego se archivan conforme a las obligaciones legales aplicables."
+		},
+		"rights": {
+			"title": "Sus derechos",
+			"content": "Conforme al RGPD, usted dispone de los siguientes derechos:",
+			"items": {
+				"access": "Derecho de acceso a sus datos",
+				"rectification": "Derecho de rectificación",
+				"deletion": "Derecho de supresión",
+				"opposition": "Derecho de oposición",
+				"portability": "Derecho a la portabilidad"
+			}
+		},
+		"cookies": {
+			"title": "Cookies",
+			"content": "Este sitio utiliza cookies técnicas necesarias para su funcionamiento y cookies de medición de audiencia anónimas. No se utilizan cookies publicitarias."
+		},
+		"contact": {
+			"title": "Contacto DPO",
+			"content": "Para ejercer sus derechos o para cualquier pregunta relativa a la protección de sus datos:",
+			"email": "Email:"
+		}
+	},
+	"mentionsLegales": {
+		"title": "Aviso Legal",
+		"editor": {
+			"title": "Editor del sitio",
+			"content": "Embajada de la República Gabonesa en España",
+			"address": "C/ Francisco Alcántara, 3, 28002 Madrid, España",
+			"phone": "Teléfono:",
+			"email": "Email:"
+		},
+		"director": {
+			"title": "Director de la publicación",
+			"content": "El Embajador de la República Gabonesa en España"
+		},
+		"hosting": {
+			"title": "Alojamiento",
+			"content": "Este sitio está alojado en Firebase (Google Cloud Platform)."
+		},
+		"intellectual": {
+			"title": "Propiedad intelectual",
+			"content": "Todo el contenido de este sitio (textos, imágenes, vídeos, logos) está protegido por derechos de autor. Cualquier reproducción, incluso parcial, está sujeta a autorización previa."
+		},
+		"responsibility": {
+			"title": "Responsabilidad",
+			"content": "La Embajada se esfuerza por asegurar la exactitud de la información difundida en este sitio. Sin embargo, no podrá ser considerada responsable de errores, omisiones o resultados que pudieran obtenerse por un mal uso de esta información."
+		},
+		"links": {
+			"title": "Enlaces hipertextuales",
+			"content": "Este sitio puede contener enlaces a sitios externos. La Embajada no ejerce ningún control sobre estos sitios y declina toda responsabilidad sobre su contenido."
+		}
+	},
+	"contact": {
+		"title": "Contáctenos",
+		"subtitle": "Datos oficiales",
+		"description": "La Embajada de la República Gabonesa en España está a su disposición para todos sus trámites consulares.",
+		"address": {
+			"title": "Dirección",
+			"value": "C/ Francisco Alcántara, 3, 28002 Madrid"
+		},
+		"phone": {
+			"title": "Teléfono"
+		},
+		"email": {
+			"title": "Email"
+		},
+		"hours": {
+			"title": "Horario de apertura",
+			"weekdays": "Lunes — Viernes: 9h00 — 16h00",
+			"weekend": "Sábado — Domingo: Cerrado"
+		},
+		"emergency": {
+			"title": "Emergencia consular 24h/24",
+			"description": "En caso de emergencia fuera del horario de apertura:"
+		},
+		"form": {
+			"title": "Envíenos un mensaje",
+			"name": "Nombre completo",
+			"email": "Dirección de email",
+			"subject": "Asunto",
+			"message": "Su mensaje",
+			"submit": "Enviar",
+			"success": "¡Su mensaje ha sido enviado con éxito!",
+			"subjects": {
+				"general": "Información general",
+				"passport": "Pasaporte",
+				"visa": "Visado",
+				"civilStatus": "Estado civil",
+				"consularCard": "Tarjeta consular",
+				"other": "Otro"
+			}
+		},
+		"titleHighlight": "contactar",
+		"coordinates": "Datos de contacto",
+		"civilStatus": "Estado Civil",
+		"emergencies": "Emergencias",
+		"openingHours": "Horario de apertura",
+		"weekdays": "Lunes - Viernes",
+		"deposit": "Depósito",
+		"pickup": "Recogida",
+		"depositHoursValue": "9h00 - 15h00",
+		"pickupHoursValue": "15h00 - 16h30",
+		"closedHolidays": "Cerrado los días festivos de Gabón y España.",
+		"access": "Acceso y Transporte",
+		"metro": "Metro",
+		"metroStop": "Parada cercana",
+		"busStop": "Parada de autobús",
+		"parking": "Aparcamiento",
+		"parkingDesc": "Aparcamiento de pago en vía pública",
+		"consulateGeneral": "Embajada"
+	},
+	"leConsulat": {
+		"title": "La Embajada",
+		"badge": "Institución",
+		"subtitle": "La Embajada de la República Gabonesa en España",
+		"description": "Al servicio de la comunidad gabonesa en España. Descubra nuestras misiones, nuestra historia y nuestro compromiso.",
+		"missions": {
+			"title": "Nuestras misiones",
+			"protection": {
+				"title": "Protección consular",
+				"description": "Asistencia y protección de los nacionales gaboneses en España en todas las situaciones."
+			},
+			"administrative": {
+				"title": "Servicios administrativos",
+				"description": "Emisión de pasaportes, tarjetas consulares, actas de estado civil y otros documentos oficiales."
+			},
+			"community": {
+				"title": "Vida comunitaria",
+				"description": "Animación y acompañamiento de la diáspora gabonesa en España."
+			},
+			"cultural": {
+				"title": "Proyección cultural",
+				"description": "Promoción de la cultura gabonesa en España a través de eventos y colaboraciones."
+			},
+			"economic": {
+				"title": "Cooperación económica",
+				"description": "Facilitación de los intercambios económicos entre Gabón y España."
+			},
+			"legal": {
+				"title": "Asistencia jurídica",
+				"description": "Acompañamiento en los trámites jurídicos y notariales."
+			},
+			"social": {
+				"title": "Acción social",
+				"description": "Apoyo a los nacionales en dificultad y orientación hacia los servicios competentes."
+			}
+		}
+	},
+	"news": {
+		"badge": "Noticias y Eventos",
+		"pageTitle": "Noticias",
+		"pageTitleHighlight": "Eventos",
+		"titlePart1": "Manténgase",
+		"titlePart2": "informado",
+		"titleHighlight": "Informado",
+		"description": "Comunicados oficiales, eventos comunitarios e información práctica de la embajada.",
+		"pageDescription": "Encuentre las últimas noticias, comunicados y eventos de la Embajada de Gabón en España.",
+		"readMore": "Leer más",
+		"allNews": "Todas las noticias",
+		"viewAll": "Ver todas las noticias",
+		"empty": "Ninguna noticia por el momento.",
+		"notFound": "Artículo no encontrado",
+		"notFoundDesc": "El artículo solicitado no existe o ha sido eliminado.",
+		"backToList": "Volver a las noticias",
+		"noNews": "Ninguna noticia por el momento",
+		"noMore": "No hay más noticias",
+		"categories": {
+			"communique": "Comunicado",
+			"evenement": "Evento",
+			"actualite": "Noticia"
+		},
+		"related": {
+			"title": "Descubrir más artículos",
+			"viewAll": "Ver todas las noticias"
+		},
+		"communique": {
+			"title": "Comunicado Oficial",
+			"reference": "N°",
+			"description": "Este documento es un comunicado oficial de la Embajada de Gabón en España.",
+			"download": "Descargar el comunicado",
+			"officialDocument": "Documento oficial",
+			"officialPdf": "Comunicado oficial (PDF)",
+			"downloadShort": "Descargar"
+		},
+		"event": {
+			"until": "al",
+			"viewMap": "Ver en el mapa",
+			"book": "Reservar una plaza",
+			"freeEntry": "Entrada libre"
+		},
+		"cta": {
+			"title": "Manténgase informado",
+			"description": "Síganos en nuestras redes sociales y consulte regularmente esta página para no perderse ninguna novedad de la Embajada.",
+			"contact": "Contactarnos"
+		},
+		"readingTime": "{{count}} min de lectura"
+	},
+	"vieFrance": {
+		"badge": "Guía práctica",
+		"title": "Vivir en España",
+		"titleHighlight": "con tranquilidad",
+		"heroTitle": "Vivir en España",
+		"heroHighlight": "en el día a día",
+		"heroDescription": "Guía completa para los gaboneses residentes en España: vivienda, salud, educación, empleo, derechos de residencia y vida familiar. Toda la información práctica para su día a día.",
+		"subtitle": "Toda la información esencial para su instalación y su vida cotidiana en España. La Embajada le acompaña en cada etapa.",
+		"emergency": {
+			"title": "Números de emergencia",
+			"subtitle": "A conservar en su teléfono",
+			"samu": "Emergencias médicas",
+			"police": "Policía — Socorro",
+			"pompiers": "Bomberos",
+			"european": "Número europeo de emergencia",
+			"sms": "Emergencias por SMS (sordos/con discapacidad auditiva)",
+			"consulat": "Emergencia consular Gabón 24h/24"
+		},
+		"stats": {
+			"themes": "6 secciones temáticas",
+			"procedures": "50+ trámites detallados",
+			"links": "Enlaces oficiales verificados"
+		}
+	},
+	"venirFrance": {
+		"badge": "Guía de llegada e integración",
+		"heroTitle": "Venir a España",
+		"heroHighlight": "e integrarse",
+		"heroDescription": "Guía completa para los gaboneses que llegan a España: admisión, visado, trámites administrativos, códigos culturales y consejos prácticos para una integración exitosa. La Embajada de Gabón le acompaña.",
+		"savoirVivre": {
+			"badge": "Convivencia",
+			"title": "Códigos culturales y Convenciones",
+			"description": "Comprender los códigos de la sociedad española para desenvolverse mejor. No es renunciar a su cultura, es añadir otra."
+		},
+		"guides": {
+			"badge": "Guías completas",
+			"title": "Sus trámites detallados",
+			"description": "Haga clic en cada tema para descubrir la información detallada, los procedimientos y nuestros consejos prácticos."
+		},
+		"erreurs": {
+			"badge": "Información imprescindible",
+			"title": "Errores comunes a evitar",
+			"description": "Estos olvidos pueden tener consecuencias serias. Tómelos en serio para proteger sus derechos."
+		},
+		"numeros": {
+			"badge": "Números esenciales",
+			"title": "Números útiles a conservar",
+			"description": "Guarde estos números en su teléfono. Pueden salvar vidas."
+		},
+		"cta": {
+			"title": "La Embajada está a su lado",
+			"description": "Ya sea a punto de partir o recién llegado, la Embajada de Gabón en España es su enlace. No dude en contactarnos para cualquier pregunta.",
+			"vieFrance": "Guía de la vida en España"
+		}
+	},
+	"retourGabon": {
+		"badge": "Guía de regreso",
+		"heroTitle": "Regreso a Gabón",
+		"heroHighlight": "— Preparar bien",
+		"heroDescription": "Guía completa para los gaboneses que regresan al país: trámites consulares, mudanza, reinstalación, empleo, orden de expulsión, ayudas y conservación de sus derechos adquiridos en España.",
+		"steps": {
+			"badge": "Etapas del regreso",
+			"title": "Prepare cada etapa",
+			"description": "Desde el primer día de preparación hasta su reinstalación, cada etapa se detalla con consejos prácticos y enlaces útiles."
+		},
+		"aides": {
+			"badge": "Ayudas y Acompañamiento",
+			"title": "Ayudas para su regreso",
+			"description": "Existen varios dispositivos para facilitar su reintegración en Gabón."
+		},
+		"erreurs": {
+			"badge": "Errores a evitar",
+			"title": "No cometa estos errores",
+			"description": "Estos olvidos pueden complicar su regreso. Anticípelos para partir con tranquilidad."
+		},
+		"numeros": {
+			"badge": "Contactos esenciales",
+			"title": "Números útiles",
+			"description": "A conservar para su regreso a Gabón."
+		}
+	},
+	"locations": {
+		"consulateTitle": "Embajada de Gabón en España",
+		"standardLabel": "Centralita:",
+		"emergenciesLabel": "Emergencias:",
+		"metroLabel": "Metro:",
+		"metroValue": "Estación cercana",
+		"busLabel": "Autobús:",
+		"busValue": "Líneas cercanas",
+		"viewOnMap": "Ver en el mapa",
+		"dgdiTitle": "Antena DGDI (Pasaportes/Visados)",
+		"dgdiNote": "Para solicitudes de pasaporte y visado exclusivamente.",
+		"walkTime": "5 min a pie",
+		"badge": "Ubicación",
+		"titlePart1": "Cómo",
+		"titleHighlight": "Encontrarnos"
+	},
+	"contactModal": {
+		"title": "Contacte la Embajada",
+		"description": "Embajada de Gabón en España — Todos los datos de contacto",
+		"phones": "Teléfonos",
+		"civilStatus": "Estado Civil",
+		"emergencies24": "Emergencias 24h/24",
+		"openingHours": "Horario de apertura",
+		"monFri": "Lun - Vie",
+		"deposit": "Depósito",
+		"pickup": "Recogida",
+		"depositHours": "9h00 - 15h00",
+		"pickupHours": "15h00 - 16h30",
+		"closedHolidays": "Cerrado los días festivos de Gabón y España.",
+		"access": "Acceso",
+		"walkTime": "5 min a pie",
+		"busLines": "Líneas cercanas",
+		"busStop": "Parada cercana"
+	},
+	"newsPage": {
+		"publications": "publicaciones",
+		"pressReleases": "comunicados",
+		"events": "eventos",
+		"filters": {
+			"all": "Todo",
+			"communique": "Comunicados",
+			"actualite": "Noticias",
+			"evenement": "Eventos"
+		},
+		"noFilterResults": "Ningún artículo en esta categoría por el momento.",
+		"comeBack": "Vuelva pronto para descubrir las últimas noticias de la Embajada.",
+		"viewAllPublications": "Ver todas las publicaciones"
+	},
+	"guides": {
+		"practicalTips": "Consejos prácticos",
+		"usefulLinks": "Enlaces útiles"
+	},
+	"serviceCard": {
+		"validity": "Validez",
+		"viewDetails": "Ver la ficha",
+		"startProcess": "Realizar el trámite"
+	},
+	"dgdi": {
+		"passportService": "Servicio de Pasaportes",
+		"visaService": "Servicio de Visados",
+		"subtitle": "Servicio en línea bajo la autoridad de la DGDI",
+		"hideDetails": "Ocultar detalles",
+		"showDetails": "Ver contacto y horarios",
+		"specificContact": "Contacto Específico",
+		"dedicatedEntrance": "Entrada dedicada",
+		"smsOnly": "Solo SMS",
+		"specificHours": "Horarios Específicos",
+		"passportSchedule": "Pasaportes (Lun-Jue)",
+		"passportPickup": "Recogida Pasaporte (Viernes)",
+		"visaSchedule": "Visados (Lun-Jue)",
+		"visaPickup": "Recogida Visado (según tipo)",
+		"morning": "Mañana",
+		"afternoon": "Tarde",
+		"bookAppointment": "Pedir Cita DGDI"
+	}
+}

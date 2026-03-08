@@ -35,6 +35,7 @@ export default function Header() {
 	const [contactOpen, setContactOpen] = useState(false);
 	const languages = [
 		{ code: "fr", label: t("header.language.fr", "Français"), flag: "🇫🇷" },
+		{ code: "es", label: t("header.language.es", "Español"), flag: "🇪🇸" },
 		{ code: "en", label: t("header.language.en", "English"), flag: "🇬🇧" },
 	] as const;
 	const currentLang = (
@@ -120,7 +121,7 @@ export default function Header() {
 			<div className="fixed top-0 left-0 right-0 z-50">
 				{/* Top Bar */}
 				<div className="bg-primary text-primary-foreground text-sm">
-					<div className="max-w-7xl mx-auto px-3 py-2 flex justify-between items-center">
+					<div className="mx-auto px-3 py-2 flex justify-between items-center">
 						<div className="flex items-center gap-4 sm:gap-6">
 							{/* Mobile: Contact button on the left */}
 							<Button
@@ -205,7 +206,7 @@ export default function Header() {
 
 				{/* Main Header — Glass effect */}
 				<header className="glass border-b border-border/40 overflow-visible">
-					<div className="max-w-7xl mx-auto px-3 py-1.5 flex items-center justify-between">
+					<div className="mx-auto px-3 py-1.5 flex items-center justify-between">
 						{/* Logo */}
 						<Link to="/" className="flex items-center gap-3">
 							<EditableImage
@@ -227,11 +228,14 @@ export default function Header() {
 								/>
 								<EditableText
 									contentKey="layout.header.brand.line2"
-									defaultValue={t("header.brand.line2", "Au Royaume d'Espagne")}
+									defaultValue={t(
+										"header.brand.line2",
+										"Près le Royaume d'Espagne",
+									)}
 									pagePath="/"
 									sectionId="header"
 									as="div"
-									className="font-medium text-foreground/90 leading-snug text-[0.72rem] sm:text-[0.94rem] tracking-[0.185em]"
+									className="font-bold text-foreground/90 leading-snug text-[0.60rem] sm:text-[0.78rem] tracking-[0.185em]"
 								/>
 								<EditableText
 									contentKey="layout.header.brand.motto"
@@ -328,7 +332,10 @@ export default function Header() {
 							/>
 							<EditableText
 								contentKey="layout.header.mobile.brand.line2"
-								defaultValue={t("header.brand.line2", "Au Royaume d'Espagne")}
+								defaultValue={t(
+									"header.brand.line2",
+									"Près le Royaume d'Espagne",
+								)}
 								pagePath="/"
 								sectionId="header_mobile"
 								as="div"

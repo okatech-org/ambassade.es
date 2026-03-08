@@ -30,7 +30,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
 					<DialogDescription>
 						{t(
 							"contactModal.description",
-							"Consulat Général du Gabon en France — Toutes les coordonnées",
+							"Ambassade du Gabon en Espagne — Toutes les coordonnées",
 						)}
 					</DialogDescription>
 				</DialogHeader>

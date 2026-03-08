@@ -10,6 +10,7 @@ import {
 	CommuniqueHeader,
 } from "@/components/posts/CommuniqueHeader";
 import { EventSidebar } from "@/components/posts/EventSidebar";
+import { MarkdownRenderer } from "@/components/posts/MarkdownRenderer";
 import { RelatedPosts } from "@/components/posts/RelatedPosts";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -41,7 +42,14 @@ const categoryConfig: Record<
 };
 
 function formatDate(timestamp: number, lang: string) {
-	return new Intl.DateTimeFormat(lang.startsWith("en") ? "en-GB" : "fr-FR", {
+	const normalizedLang = lang.toLowerCase().split("-")[0];
+	const locale =
+		normalizedLang === "es"
+			? "es-ES"
+			: normalizedLang === "en"
+				? "en-GB"
+				: "fr-FR";
+	return new Intl.DateTimeFormat(locale, {
 		day: "numeric",
 		month: "long",
 		year: "numeric",
@@ -52,6 +60,45 @@ function estimateReadingTime(content: string): number {
 	const wordsPerMinute = 200;
 	const words = content.trim().split(/\s+/).length;
 	return Math.ceil(words / wordsPerMinute);
+}
+
+/**
+ * Sanitize a post title — never show raw URLs or JSON artifacts.
+ */
+function safeTitle(title: string, excerpt?: string): string {
+	if (!title || title.includes("linkedin.com") || title.startsWith("http")) {
+		if (
+			excerpt &&
+			!excerpt.includes("linkedin.com") &&
+			!excerpt.startsWith("http")
+		) {
+			const cleaned = excerpt
+				.replace(/[{}"]/g, "")
+				.replace(/,\s*"text"\s*:\s*/g, "")
+				.replace(/https?:\/\/[^\s]+/g, "")
+				.trim();
+			if (cleaned.length > 15) {
+				return cleaned.length > 100 ? `${cleaned.substring(0, 97)}…` : cleaned;
+			}
+		}
+		return "Article de l'Ambassade";
+	}
+	return title;
+}
+
+/**
+ * Sanitize an excerpt — never show raw URLs or JSON artifacts.
+ */
+function safeExcerpt(excerpt: string): string {
+	if (!excerpt) return "";
+	return excerpt
+		.replace(/https?:\/\/[^\s"']+/g, "")
+		.replace(/[{}"]/g, "")
+		.replace(/,\s*"?text"?\s*:\s*/gi, "")
+		.replace(/\\n/g, " ")
+		.replace(/^[\s,.:]+/, "")
+		.replace(/\s+/g, " ")
+		.trim();
 }
 
 function ActualiteDetailPage() {
@@ -171,7 +218,7 @@ function ActualiteDetailPage() {
 							</Badge>
 
 							<EditableEntityText
-								value={post.title}
+								value={safeTitle(post.title, post.excerpt)}
 								onSave={async (v) => {
 									await updatePost({
 										id: post._id,
@@ -238,7 +285,7 @@ function ActualiteDetailPage() {
 
 							{/* Excerpt */}
 							<EditableEntityText
-								value={post.excerpt}
+								value={safeExcerpt(post.excerpt)}
 								onSave={async (v) => {
 									await updatePost({
 										id: post._id,
@@ -257,26 +304,10 @@ function ActualiteDetailPage() {
 							/>
 
 							{/* Content */}
-							<div className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground/80 prose-a:text-primary prose-img:rounded-xl">
-								<EditableEntityText
-									value={post.content}
-									onSave={async (v) => {
-										await updatePost({
-											id: post._id,
-											title: post.title,
-											slug: post.slug,
-											excerpt: post.excerpt,
-											content: v,
-											category: post.category,
-											status: post.status,
-										});
-									}}
-									pagePath={`/actualites/${slug}`}
-									sectionId="content"
-									fieldType="richtext"
-									as="div"
-								/>
-							</div>
+							<MarkdownRenderer
+								content={post.content}
+								className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground/80 prose-a:text-primary prose-img:rounded-xl"
+							/>
 
 							{/* Communiqué Footer */}
 							{isCommunique && (

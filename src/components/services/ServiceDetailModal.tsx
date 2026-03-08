@@ -31,6 +31,7 @@ import {
 	DialogHeader,
 	DialogTitle,
 } from "@/components/ui/dialog";
+import { markdownToHtml } from "@/lib/markdown-to-html";
 import { localizeServiceForLanguage } from "@/lib/services-localization";
 
 const CATEGORY_CONFIG: Record<string, { icon: LucideIcon; color: string }> = {
@@ -207,7 +208,7 @@ export function ServiceDetailModal({
 					{/* Description */}
 					<div className="text-sm text-muted-foreground leading-relaxed prose prose-sm dark:prose-invert max-w-none">
 						<EditableEntityText
-							value={localizedService.description}
+							value={markdownToHtml(localizedService.description)}
 							onSave={async (v) => {
 								await updateService({
 									id: service._id as Id<"services">,
@@ -240,7 +241,7 @@ export function ServiceDetailModal({
 					{localizedService.content && (
 						<div className="prose prose-sm dark:prose-invert max-w-none text-sm">
 							<EditableEntityText
-								value={localizedService.content}
+								value={markdownToHtml(localizedService.content)}
 								onSave={async (v) => {
 									await updateService({
 										id: service._id as Id<"services">,

@@ -149,6 +149,9 @@ export const create = mutation({
     documentStorageId: v.optional(v.id("_storage")),
     documentName: v.optional(v.string()),
     referenceNumber: v.optional(v.string()),
+    // LinkedIn sync fields
+    linkedinPostId: v.optional(v.string()),
+    linkedinUrl: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     await requireModule(ctx, "posts");
@@ -198,6 +201,9 @@ export const update = mutation({
     documentStorageId: v.optional(v.id("_storage")),
     documentName: v.optional(v.string()),
     referenceNumber: v.optional(v.string()),
+    // LinkedIn sync fields
+    linkedinPostId: v.optional(v.string()),
+    linkedinUrl: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     await requireModule(ctx, "posts");

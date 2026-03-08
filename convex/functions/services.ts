@@ -62,8 +62,10 @@ export const update = mutation({
     id: v.id("services"),
     title: v.optional(v.string()), // FR
     titleEn: v.optional(v.string()), // EN
+    titleEs: v.optional(v.string()), // ES
     description: v.optional(v.string()), // FR
     descriptionEn: v.optional(v.string()), // EN
+    descriptionEs: v.optional(v.string()), // ES
     content: v.optional(v.string()),
     category: v.optional(serviceCategoryValidator),
     icon: v.optional(v.string()),
@@ -96,9 +98,11 @@ export const create = mutation({
   args: {
     title: v.string(), // FR
     titleEn: v.optional(v.string()), // EN
+    titleEs: v.optional(v.string()), // ES
     slug: v.string(),
     description: v.string(), // FR
     descriptionEn: v.optional(v.string()), // EN
+    descriptionEs: v.optional(v.string()), // ES
     content: v.optional(v.string()),
     category: serviceCategoryValidator,
     icon: v.optional(v.string()),

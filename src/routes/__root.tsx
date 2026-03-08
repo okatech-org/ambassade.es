@@ -69,6 +69,42 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 					content: "website",
 				},
 				{
+					property: "og:url",
+					content: "https://ambassadegabon-es.web.app/",
+				},
+				{
+					property: "og:image",
+					content: "https://ambassadegabon-es.web.app/sceau_gabon.png",
+				},
+				{
+					property: "og:image:width",
+					content: "651",
+				},
+				{
+					property: "og:image:height",
+					content: "470",
+				},
+				{
+					name: "twitter:card",
+					content: "summary_large_image",
+				},
+				{
+					name: "twitter:title",
+					content: isEn
+						? "Embassy of Gabon in Spain"
+						: "Ambassade du Gabon en Espagne",
+				},
+				{
+					name: "twitter:description",
+					content: isEn
+						? "Official information website of the Embassy of Gabon in Spain."
+						: "Site officiel d'information de l'Ambassade du Gabon en Espagne.",
+				},
+				{
+					name: "twitter:image",
+					content: "https://ambassadegabon-es.web.app/sceau_gabon.png",
+				},
+				{
 					name: "theme-color",
 					content: "#009E60", // Gabon Green
 				},

@@ -5,9 +5,11 @@ import { serviceCategoryValidator } from "../lib/validators";
 export const servicesTable = defineTable({
   title: v.string(), // FR (default)
   titleEn: v.optional(v.string()), // EN
+  titleEs: v.optional(v.string()), // ES
   slug: v.string(), 
   description: v.string(), // FR (default)
   descriptionEn: v.optional(v.string()), // EN
+  descriptionEs: v.optional(v.string()), // ES
   content: v.optional(v.string()), // Detailed content if needed
   
   category: serviceCategoryValidator, // "Identité", "Etat Civil", etc.

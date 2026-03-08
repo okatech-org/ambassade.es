@@ -16,7 +16,7 @@ export function Hero() {
 	}, []);
 
 	return (
-		<section className="relative min-h-[69vh] sm:min-h-[92vh] flex flex-col items-center justify-end overflow-hidden">
+		<section className="relative min-h-[85vh] sm:min-h-[92vh] flex flex-col items-center justify-end">
 			{/* Background Image */}
 			<div className="absolute inset-0 z-0">
 				<EditableImage
@@ -25,7 +25,7 @@ export function Hero() {
 					pagePath="/"
 					sectionId="hero"
 					alt="Ambassade du Gabon en Espagne"
-					className="w-full h-full object-cover object-[center_calc(60%-3cm)] sm:object-[center_60%]"
+					className="w-full h-full object-cover object-[center_30%] sm:object-[center_60%]"
 				/>
 				{/* Subtle bottom gradient for text readability */}
 				<div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -33,25 +33,35 @@ export function Hero() {
 
 			{/* Main Content */}
 			<div
-				className={`relative z-10 w-full max-w-6xl mx-auto px-6 pt-0 pb-12 top-[2cm] sm:top-0 transition-all duration-700 ${
+				className={`relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-0 pb-8 sm:pb-12 transition-all duration-700 ${
 					isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
 				}`}
 			>
 				<div className="flex flex-col lg:flex-row items-center lg:items-start gap-10">
 					{/* Left — Title + CTA */}
 					<div className="flex-1 text-center lg:text-left">
-						{/* Mobile title — single editable block */}
-						<EditableText
-							contentKey="home.hero.mobileTitle"
-							defaultValue={t(
-								"hero.mobileTitle",
-								"L'Ambassade du Gabon en Espagne",
-							)}
-							pagePath="/"
-							sectionId="hero"
-							as="h1"
-							className="sm:hidden text-3xl font-extrabold text-white leading-[1.1] mb-[0.7cm] tracking-tight drop-shadow-lg"
-						/>
+						{/* Mobile title — full message with highlight */}
+						<h1 className="sm:hidden text-[2.05rem] font-extrabold text-white leading-[1.15] mb-4 tracking-tight drop-shadow-lg">
+							<EditableText
+								contentKey="home.hero.mobileTitle"
+								defaultValue={t("hero.mobileTitle", "L'Ambassade du Gabon")}
+								pagePath="/"
+								sectionId="hero"
+								as="span"
+							/>
+							<br />
+							<EditableText
+								contentKey="home.hero.mobileTitleHighlight"
+								defaultValue={t(
+									"hero.mobileTitleHighlight",
+									"passe à l'ère de l'IA",
+								)}
+								pagePath="/"
+								sectionId="hero"
+								as="span"
+								className="text-[#EAB308]"
+							/>
+						</h1>
 						{/* Desktop title — single editable block */}
 						<EditableText
 							contentKey="home.hero.title"
@@ -66,11 +76,11 @@ export function Hero() {
 						/>
 
 						{/* CTA Buttons — Google Style */}
-						<div className="flex flex-wrap items-center justify-center lg:justify-end gap-4 mb-[1.5cm]">
+						<div className="flex flex-nowrap items-center justify-center lg:justify-end gap-3 sm:gap-4 mb-6 sm:mb-[1.5cm]">
 							<Button
 								asChild
 								size="lg"
-								className="h-14 px-8 rounded-full text-base shadow-lg shadow-[#EAB308]/30 bg-[#EAB308] hover:bg-[#D4A006] text-black transition-all font-semibold"
+								className="h-12 sm:h-14 px-5 sm:px-8 rounded-full text-sm sm:text-base shadow-lg shadow-[#EAB308]/30 bg-[#EAB308] hover:bg-[#D4A006] text-black transition-all font-semibold"
 							>
 								<a
 									href="https://www.consulat.ga"
@@ -92,7 +102,7 @@ export function Hero() {
 							<Button
 								asChild
 								size="lg"
-								className="h-14 px-8 rounded-full text-base shadow-lg shadow-[#1a5dab]/30 bg-[#1a5dab] hover:bg-[#174ea6] text-white transition-all font-semibold"
+								className="h-12 sm:h-14 px-5 sm:px-8 rounded-full text-sm sm:text-base shadow-lg shadow-[#1a5dab]/30 bg-[#1a5dab] hover:bg-[#174ea6] text-white transition-all font-semibold"
 							>
 								<Link to="/ambassade">
 									<Bot className="w-5 h-5 mr-2" />

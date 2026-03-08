@@ -200,7 +200,7 @@ function AmbassadePage() {
 							lastName={consulGeneral?.lastName ?? "BONGO"}
 							role={
 								consulGeneral?.role ??
-								"Ambassadeur de la République Gabonaise auprès du Royaume d'Espagne"
+								"Ambassadeur de la République Gabonaise\nPrès le Royaume d'Espagne"
 							}
 							description={
 								consulGeneral?.description ??

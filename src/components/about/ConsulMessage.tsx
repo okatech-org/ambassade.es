@@ -41,7 +41,7 @@ export function ConsulMessage({
 
 	const defaultMessage = t(
 		"leConsulat.consulMessage",
-		"Au nom de l'ensemble de l'équipe consulaire, je vous souhaite la bienvenue sur le site officiel du Consulat Général du Gabon en France. Notre mission est de vous accompagner dans toutes vos démarches administratives et de renforcer les liens entre notre communauté et notre pays. Nous sommes à votre écoute et à votre service.",
+		"Au nom de l'ensemble de l'équipe consulaire, je vous souhaite la bienvenue sur le site officiel du Ambassade du Gabon en Espagne. Notre mission est de vous accompagner dans toutes vos démarches administratives et de renforcer les liens entre notre communauté et notre pays. Nous sommes à votre écoute et à votre service.",
 	);
 
 	return (
@@ -143,7 +143,12 @@ export function ConsulMessage({
 										— {honorifique || t("leConsulat.honorific", "S.E. Madame")}{" "}
 										{fullName}
 										<br />
-										{role}
+										{role.split("\n").map((line, i) => (
+											<span key={line}>
+												{i > 0 && <br />}
+												{line}
+											</span>
+										))}
 									</footer>
 								</blockquote>
 

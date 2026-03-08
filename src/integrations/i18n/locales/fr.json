@@ -430,7 +430,7 @@
 	"footer": {
 		"brand": {
 			"line1": "AMBASSADE DU GABON",
-			"line2": "Au Royaume d'Espagne",
+			"line2": "Près le Royaume d'Espagne",
 			"motto": "Union - Travail - Justice"
 		},
 		"services": "Services",
@@ -522,6 +522,7 @@
 		"country": "République Gabonaise",
 		"language": {
 			"fr": "Français",
+			"es": "Español",
 			"en": "English"
 		},
 		"mySpace": "Mon Espace",
@@ -529,7 +530,7 @@
 		"signUp": "S'inscrire",
 		"brand": {
 			"line1": "AMBASSADE DU GABON",
-			"line2": "Au Royaume d'Espagne",
+			"line2": "Près le Royaume d'Espagne",
 			"motto": "Union - Travail - Justice"
 		}
 	},
@@ -1711,7 +1712,7 @@
 	},
 	"accessibilite": {
 		"title": "Accessibilité",
-		"intro": "Le Consulat Général du Gabon en France s'engage à rendre ce site internet accessible conformément aux normes en vigueur.",
+		"intro": "Le Ambassade du Gabon en Espagne s'engage à rendre ce site internet accessible conformément aux normes en vigueur.",
 		"conformance": {
 			"title": "Déclaration de conformité",
 			"content": "Ce site a été conçu pour être accessible au plus grand nombre. Nous nous efforçons de respecter les recommandations du RGAA (Référentiel Général d'Amélioration de l'Accessibilité)."
@@ -1754,7 +1755,7 @@
 	},
 	"confidentialite": {
 		"title": "Politique de Confidentialité",
-		"intro": "Le Consulat Général du Gabon en France s'engage à protéger la vie privée des utilisateurs de ce site.",
+		"intro": "Le Ambassade du Gabon en Espagne s'engage à protéger la vie privée des utilisateurs de ce site.",
 		"dataCollection": {
 			"title": "Collecte des données",
 			"content": "Nous collectons uniquement les données nécessaires au fonctionnement des services consulaires : nom, prénom, date de naissance, nationalité, coordonnées, documents d'identité."
@@ -1928,7 +1929,7 @@
 		"titlePart2": "informé",
 		"titleHighlight": "Informé",
 		"description": "Communiqués officiels, événements communautaires et informations pratiques du consulat.",
-		"pageDescription": "Retrouvez les dernières actualités, communiqués et événements du Consulat Général du Gabon en France.",
+		"pageDescription": "Retrouvez les dernières actualités, communiqués et événements du Ambassade du Gabon en Espagne.",
 		"readMore": "Lire la suite",
 		"allNews": "Toutes les actualités",
 		"viewAll": "Voir toutes les actualités",
@@ -1950,7 +1951,7 @@
 		"communique": {
 			"title": "Communiqué Officiel",
 			"reference": "N°",
-			"description": "Ce document est un communiqué officiel du Consulat Général du Gabon en France.",
+			"description": "Ce document est un communiqué officiel du Ambassade du Gabon en Espagne.",
 			"download": "Télécharger le communiqué",
 			"officialDocument": "Document officiel",
 			"officialPdf": "Communiqué officiel (PDF)",

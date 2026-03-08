@@ -500,7 +500,7 @@ export const PAGE_REGISTRY: Record<string, PageDef> = {
 						label: "Description",
 						fieldType: "text",
 						defaultValue:
-							"Conformément à la Convention de Vienne sur les relations consulaires, le Consulat Général du Gabon en France assure la protection et l'assistance des ressortissants gabonais, délivre les documents officiels et favorise le développement des relations entre les deux pays.",
+							"Conformément à la Convention de Vienne sur les relations consulaires, le Ambassade du Gabon en Espagne assure la protection et l'assistance des ressortissants gabonais, délivre les documents officiels et favorise le développement des relations entre les deux pays.",
 					},
 					{
 						contentKey: "consulat.hero.cta1",
@@ -1047,7 +1047,7 @@ export const PAGE_REGISTRY: Record<string, PageDef> = {
 						label: "Description",
 						fieldType: "text",
 						defaultValue:
-							"Que vous soyez sur le point de partir ou nouvellement arrivé, le Consulat Général du Gabon en France est votre relais. N'hésitez pas à nous solliciter pour toute question.",
+							"Que vous soyez sur le point de partir ou nouvellement arrivé, le Ambassade du Gabon en Espagne est votre relais. N'hésitez pas à nous solliciter pour toute question.",
 					},
 					{
 						contentKey: "venirFrance.cta.vieFrance",

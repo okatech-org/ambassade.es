@@ -28,19 +28,25 @@ import i18n from "@/integrations/i18n/i18n";
 export const Route = createFileRoute("/actualites/")({
 	component: ActualitesPage,
 	head: () => {
-		const isEn = (i18n.resolvedLanguage || i18n.language).startsWith("en");
+		const resolvedLang = (i18n.resolvedLanguage || i18n.language)
+			.split("-")[0]
+			.toLowerCase();
+		const titles: Record<string, string> = {
+			es: "Noticias y Eventos | Embajada de Gabón",
+			en: "News & Events | General Consulate of Gabon",
+			fr: "Actualités & Événements | Consulat Général du Gabon",
+		};
+		const descriptions: Record<string, string> = {
+			es: "Últimas noticias, comunicados oficiales y eventos de la Embajada de Gabón en España.",
+			en: "Latest news, official press releases and events from the General Consulate of Gabon in France.",
+			fr: "Retrouvez les dernières actualités, communiqués officiels et événements du Ambassade du Gabon en Espagne.",
+		};
 		return {
 			meta: [
-				{
-					title: isEn
-						? "News & Events | General Consulate of Gabon"
-						: "Actualités & Événements | Consulat Général du Gabon",
-				},
+				{ title: titles[resolvedLang] || titles.fr },
 				{
 					name: "description",
-					content: isEn
-						? "Latest news, official press releases and events from the General Consulate of Gabon in France."
-						: "Retrouvez les dernières actualités, communiqués officiels et événements du Consulat Général du Gabon en France.",
+					content: descriptions[resolvedLang] || descriptions.fr,
 				},
 			],
 		};
@@ -92,11 +98,58 @@ const DEFAULT_SECTION_ORDER = [
 ];
 
 function formatDate(timestamp: number, lang: string = "fr") {
-	return new Intl.DateTimeFormat(lang.startsWith("en") ? "en-GB" : "fr-FR", {
+	const normalizedLang = lang.toLowerCase().split("-")[0];
+	const locale =
+		normalizedLang === "es"
+			? "es-ES"
+			: normalizedLang === "en"
+				? "en-GB"
+				: "fr-FR";
+	return new Intl.DateTimeFormat(locale, {
 		day: "numeric",
 		month: "long",
 		year: "numeric",
 	}).format(new Date(timestamp));
+}
+
+/**
+ * Sanitize a post title — never show raw URLs or JSON artifacts.
+ */
+function safeTitle(title: string, excerpt?: string): string {
+	if (!title || title.includes("linkedin.com") || title.startsWith("http")) {
+		// Try excerpt as fallback
+		if (
+			excerpt &&
+			!excerpt.includes("linkedin.com") &&
+			!excerpt.startsWith("http")
+		) {
+			const cleaned = excerpt
+				.replace(/[{}"]/g, "")
+				.replace(/,\s*"text"\s*:\s*/g, "")
+				.replace(/https?:\/\/[^\s]+/g, "")
+				.trim();
+			if (cleaned.length > 15) {
+				return cleaned.length > 100 ? `${cleaned.substring(0, 97)}…` : cleaned;
+			}
+		}
+		return "Article de l'Ambassade";
+	}
+	return title;
+}
+
+/**
+ * Sanitize an excerpt — never show raw URLs or JSON artifacts.
+ */
+function safeExcerpt(excerpt: string): string {
+	if (!excerpt) return "";
+	return excerpt
+		.replace(/https?:\/\/[^\s"']+/g, "")
+		.replace(/[{}"]/g, "")
+		.replace(/,\s*"?text"?\s*:\s*/gi, "")
+		.replace(/\\n/g, " ")
+		.replace(/^[\s,.:]+/, "")
+		.replace(/\s+/g, " ")
+		.trim();
 }
 
 function ActualitesPage() {
@@ -166,7 +219,7 @@ function ActualitesPage() {
 							contentKey="actualites.hero.description"
 							defaultValue={t(
 								"news.pageDescription",
-								"Retrouvez les dernières actualités, communiqués et événements du Consulat Général du Gabon en France.",
+								"Retrouvez les dernières actualités, communiqués et événements du Ambassade du Gabon en Espagne.",
 							)}
 							pagePath="/actualites"
 							sectionId="hero"
@@ -387,7 +440,7 @@ function ActualitesPage() {
 													</div>
 													<div className="p-6">
 														<EditableEntityText
-															value={post.title}
+															value={safeTitle(post.title, post.excerpt)}
 															onSave={async (v) => {
 																await updatePost({
 																	id: post._id,
@@ -405,7 +458,7 @@ function ActualitesPage() {
 															className="font-bold text-xl text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-3"
 														/>
 														<EditableEntityText
-															value={post.excerpt}
+															value={safeExcerpt(post.excerpt)}
 															onSave={async (v) => {
 																await updatePost({
 																	id: post._id,

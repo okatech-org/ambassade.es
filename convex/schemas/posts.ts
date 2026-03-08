@@ -35,8 +35,13 @@ export const postsTable = defineTable({
   // Storage IDs (Future migration)
   coverImageStorageId: v.optional(v.id("_storage")),
   coverImagePosition: v.optional(v.string()), // CSS object-position e.g. "50% 30%"
+
+  // LinkedIn sync fields
+  linkedinPostId: v.optional(v.string()),  // Activity ID for deduplication
+  linkedinUrl: v.optional(v.string()),     // Direct link to LinkedIn post
 })
   .index("by_slug", ["slug"])
   .index("by_status_date", ["status", "publishedAt"])
-  .index("by_category", ["category", "status", "publishedAt"]);
+  .index("by_category", ["category", "status", "publishedAt"])
+  .index("by_linkedinPostId", ["linkedinPostId"]);
 

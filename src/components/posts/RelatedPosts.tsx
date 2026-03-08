@@ -1,110 +1,124 @@
-import { Link } from '@tanstack/react-router'
-import { useQuery } from 'convex/react'
-import { useTranslation } from 'react-i18next'
-import { Calendar, ArrowRight } from 'lucide-react'
-import { api } from '@convex/_generated/api'
-import { Badge } from '@/components/ui/badge'
+import { api } from "@convex/_generated/api";
+import { Link } from "@tanstack/react-router";
+import { useQuery } from "convex/react";
+import { Calendar, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { Badge } from "@/components/ui/badge";
 
 const categoryConfig: Record<string, { color: string }> = {
-  communique: {
-    color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300',
-  },
-  evenement: {
-    color: 'bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300',
-  },
-  actualite: {
-    color: 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300',
-  },
-}
+	communique: {
+		color: "bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300",
+	},
+	evenement: {
+		color:
+			"bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300",
+	},
+	actualite: {
+		color: "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300",
+	},
+};
 
 function formatDate(timestamp: number, lang: string) {
-  return new Intl.DateTimeFormat(lang.startsWith('en') ? 'en-GB' : 'fr-FR', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  }).format(new Date(timestamp))
+	const normalizedLang = lang.toLowerCase().split("-")[0];
+	const locale =
+		normalizedLang === "es"
+			? "es-ES"
+			: normalizedLang === "en"
+				? "en-GB"
+				: "fr-FR";
+	return new Intl.DateTimeFormat(locale, {
+		day: "numeric",
+		month: "long",
+		year: "numeric",
+	}).format(new Date(timestamp));
 }
 
 interface RelatedPostsProps {
-  currentSlug: string
-  category: string
+	currentSlug: string;
+	category: string;
 }
 
 export function RelatedPosts({ currentSlug, category }: RelatedPostsProps) {
-  const { t, i18n } = useTranslation()
-  const lang = i18n.resolvedLanguage || i18n.language
-  const posts = useQuery(api.functions.posts.getRelated, {
-    currentSlug,
-    category,
-    limit: 3,
-  })
+	const { t, i18n } = useTranslation();
+	const lang = i18n.resolvedLanguage || i18n.language;
+	const posts = useQuery(api.functions.posts.getRelated, {
+		currentSlug,
+		category,
+		limit: 3,
+	});
 
-  if (!posts || posts.length === 0) return null
+	if (!posts || posts.length === 0) return null;
 
-  return (
-    <section className="py-16 border-t">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-2xl font-bold mb-8 text-center">
-          {t('news.related.title', "Discover more articles")}
-        </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {posts.map((post) => {
-            const config = categoryConfig[post.category] || categoryConfig.actualite
-            const categoryLabel = t(`news.categories.${post.category}`, post.category)
-            
-            return (
-              <Link
-                key={post._id}
-                to="/actualites/$slug"
-                params={{ slug: post.slug }}
-                className="group glass-card rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-300 block h-full flex flex-col"
-              >
-                {/* Cover Image or Placeholder */}
-                <div className="h-44 relative bg-muted overflow-hidden">
-                    {post.coverImage ? (
-                    <img 
-                        src={post.coverImage} 
-                        alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    ) : (
-                    <div className="h-full w-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                        <Calendar className="w-12 h-12 text-primary/30" />
-                    </div>
-                    )}
-                    <div className="absolute top-3 left-3">
-                        <Badge className={`${config.color} border-0 backdrop-blur-md shadow-sm`}>
-                            {categoryLabel}
-                        </Badge>
-                    </div>
-                </div>
-                
-                <div className="p-5 flex flex-col flex-1">
-                    <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-3">
-                        {post.title}
-                    </h3>
-                    
-                    <div className="mt-auto flex items-center text-xs text-muted-foreground font-medium pt-3 border-t border-border/30">
-                        <Calendar className="w-3.5 h-3.5 mr-1.5 text-primary" />
-                        {formatDate(post.publishedAt, lang)}
-                    </div>
-                </div>
-              </Link>
-            )
-          })}
-        </div>
-        
-        <div className="text-center mt-8">
-          <Link 
-            to="/actualites"
-            className="inline-flex items-center text-primary hover:underline font-medium"
-          >
-            {t('news.related.viewAll', 'View all news')}
-            <ArrowRight className="w-4 h-4 ml-2" />
-          </Link>
-        </div>
-      </div>
-    </section>
-  )
+	return (
+		<section className="py-16 border-t">
+			<div className="max-w-6xl mx-auto px-6">
+				<h2 className="text-2xl font-bold mb-8 text-center">
+					{t("news.related.title", "Discover more articles")}
+				</h2>
+
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+					{posts.map((post) => {
+						const config =
+							categoryConfig[post.category] || categoryConfig.actualite;
+						const categoryLabel = t(
+							`news.categories.${post.category}`,
+							post.category,
+						);
+
+						return (
+							<Link
+								key={post._id}
+								to="/actualites/$slug"
+								params={{ slug: post.slug }}
+								className="group glass-card rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-300 block h-full flex flex-col"
+							>
+								{/* Cover Image or Placeholder */}
+								<div className="h-44 relative bg-muted overflow-hidden">
+									{post.coverImage ? (
+										<img
+											src={post.coverImage}
+											alt={post.title}
+											className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+										/>
+									) : (
+										<div className="h-full w-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+											<Calendar className="w-12 h-12 text-primary/30" />
+										</div>
+									)}
+									<div className="absolute top-3 left-3">
+										<Badge
+											className={`${config.color} border-0 backdrop-blur-md shadow-sm`}
+										>
+											{categoryLabel}
+										</Badge>
+									</div>
+								</div>
+
+								<div className="p-5 flex flex-col flex-1">
+									<h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-3">
+										{post.title}
+									</h3>
+
+									<div className="mt-auto flex items-center text-xs text-muted-foreground font-medium pt-3 border-t border-border/30">
+										<Calendar className="w-3.5 h-3.5 mr-1.5 text-primary" />
+										{formatDate(post.publishedAt, lang)}
+									</div>
+								</div>
+							</Link>
+						);
+					})}
+				</div>
+
+				<div className="text-center mt-8">
+					<Link
+						to="/actualites"
+						className="inline-flex items-center text-primary hover:underline font-medium"
+					>
+						{t("news.related.viewAll", "View all news")}
+						<ArrowRight className="w-4 h-4 ml-2" />
+					</Link>
+				</div>
+			</div>
+		</section>
+	);
 }

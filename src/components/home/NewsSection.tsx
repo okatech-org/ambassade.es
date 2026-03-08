@@ -10,7 +10,14 @@ import { Button } from "../ui/button";
 import { Skeleton } from "../ui/skeleton";
 
 function formatDate(timestamp: number, lang: string = "fr") {
-	return new Intl.DateTimeFormat(lang.startsWith("en") ? "en-GB" : "fr-FR", {
+	const normalizedLang = lang.toLowerCase().split("-")[0];
+	const locale =
+		normalizedLang === "es"
+			? "es-ES"
+			: normalizedLang === "en"
+				? "en-GB"
+				: "fr-FR";
+	return new Intl.DateTimeFormat(locale, {
 		day: "numeric",
 		month: "long",
 		year: "numeric",

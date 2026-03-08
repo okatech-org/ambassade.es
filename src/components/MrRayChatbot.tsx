@@ -10,7 +10,7 @@ interface ChatMessage {
 	content: string;
 }
 
-const WELCOME_MESSAGE = `Bonjour ! 👋 Je suis **Mr Ray** 🐡, votre assistant virtuel du Consulat Général du Gabon en France.
+const WELCOME_MESSAGE = `Bonjour ! 👋 Je suis **Mr Ray** 🐡, votre assistant virtuel du Ambassade du Gabon en Espagne.
 
 Je peux vous aider à :
 - 🏛️ Trouver des informations sur les **services consulaires**

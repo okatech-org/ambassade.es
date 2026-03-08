@@ -10,4 +10,11 @@ crons.daily(
   internal.crons.expiration.checkDocuments
 );
 
+// Sync LinkedIn posts weekly (Monday 6am UTC)
+crons.weekly(
+  "sync-linkedin-posts",
+  { dayOfWeek: "monday", hourUTC: 6, minuteUTC: 0 },
+  internal.crons.linkedinSync.syncLinkedInPosts
+);
+
 export default crons;

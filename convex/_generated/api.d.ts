@@ -10,10 +10,19 @@
 
 import type * as crons from "../crons.js";
 import type * as crons_expiration from "../crons/expiration.js";
+import type * as crons_extractImages from "../crons/extractImages.js";
+import type * as crons_extractImagesMutations from "../crons/extractImagesMutations.js";
+import type * as crons_linkedinSync from "../crons/linkedinSync.js";
+import type * as crons_linkedinSyncMutations from "../crons/linkedinSyncMutations.js";
+import type * as crons_reprocessMutations from "../crons/reprocessMutations.js";
+import type * as crons_reprocessPosts from "../crons/reprocessPosts.js";
+import type * as crons_setPostImages from "../crons/setPostImages.js";
+import type * as crons_setPostImagesMutations from "../crons/setPostImagesMutations.js";
 import type * as functions_admin from "../functions/admin.js";
 import type * as functions_analytics from "../functions/analytics.js";
 import type * as functions_announcements from "../functions/announcements.js";
 import type * as functions_chatbot from "../functions/chatbot.js";
+import type * as functions_cleanPostContent from "../functions/cleanPostContent.js";
 import type * as functions_files from "../functions/files.js";
 import type * as functions_inlineContent from "../functions/inlineContent.js";
 import type * as functions_migrateRoles from "../functions/migrateRoles.js";
@@ -56,10 +65,19 @@ import type {
 declare const fullApi: ApiFromModules<{
   crons: typeof crons;
   "crons/expiration": typeof crons_expiration;
+  "crons/extractImages": typeof crons_extractImages;
+  "crons/extractImagesMutations": typeof crons_extractImagesMutations;
+  "crons/linkedinSync": typeof crons_linkedinSync;
+  "crons/linkedinSyncMutations": typeof crons_linkedinSyncMutations;
+  "crons/reprocessMutations": typeof crons_reprocessMutations;
+  "crons/reprocessPosts": typeof crons_reprocessPosts;
+  "crons/setPostImages": typeof crons_setPostImages;
+  "crons/setPostImagesMutations": typeof crons_setPostImagesMutations;
   "functions/admin": typeof functions_admin;
   "functions/analytics": typeof functions_analytics;
   "functions/announcements": typeof functions_announcements;
   "functions/chatbot": typeof functions_chatbot;
+  "functions/cleanPostContent": typeof functions_cleanPostContent;
   "functions/files": typeof functions_files;
   "functions/inlineContent": typeof functions_inlineContent;
   "functions/migrateRoles": typeof functions_migrateRoles;
