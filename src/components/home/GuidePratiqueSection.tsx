@@ -150,7 +150,7 @@ const guides = [
 function GuideCard({ guide, t }: { guide: (typeof guides)[0]; t: any }) {
 	return (
 		<Link
-			to="/vie-en-france"
+			to="/vie-en-espagne"
 			hash={guide.anchor}
 			className="block group h-full"
 		>
@@ -343,7 +343,7 @@ export function GuidePratiqueSection() {
 						size="lg"
 						className="rounded-full border-[#1a5dab]/30 text-[#1a5dab] hover:bg-[#1a5dab]/5"
 					>
-						<Link to="/vie-en-france">
+						<Link to="/vie-en-espagne">
 							<EditableText
 								contentKey="home.guide.viewAll"
 								defaultValue={t(

@@ -97,13 +97,13 @@ export default function Header() {
 		},
 		{
 			label: t("header.nav.venirFrance", "Venir en Espagne"),
-			href: "/venir-en-france",
+			href: "/venir-en-espagne",
 			icon: Plane,
 			contentKey: "layout.header.nav.venirFrance",
 		},
 		{
 			label: t("header.nav.vieFrance", "Vivre en Espagne"),
-			href: "/vie-en-france",
+			href: "/vie-en-espagne",
 			icon: BookOpen,
 			contentKey: "layout.header.nav.vieFrance",
 		},

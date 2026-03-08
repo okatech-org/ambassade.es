@@ -94,12 +94,12 @@ export function SuperadminSidebar({
 		},
 		{
 			title: t("header.nav.venirFrance", "Venir en France"),
-			url: "/admin/pages/venir-en-france",
+			url: "/admin/pages/venir-en-espagne",
 			icon: Plane,
 		},
 		{
 			title: t("header.nav.vieFrance", "Vivre en France"),
-			url: "/admin/pages/vie-en-france",
+			url: "/admin/pages/vie-en-espagne",
 			icon: BookOpen,
 		},
 		{

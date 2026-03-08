@@ -73,7 +73,7 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Clôture des engagements en Espagne",
 				detail:
-					"Résiliez vos contrats : bail (préavis 1 à 3 mois selon le type de location), assurance habitation, abonnements (EDF/GDF, téléphone, internet, Netflix, etc.). Faites votre dernière déclaration d'impôts et demandez un quitus fiscal si vous êtes entrepreneur. Informez La Poste pour le suivi de courrier (6 mois de réexpédition, 26,90 €).",
+					"Résiliez vos contrats : bail (préavis selon le type de location), assurance habitation, abonnements (Iberdrola/Endesa, téléphone, internet, Netflix, etc.). Faites votre dernière déclaration d'impôts auprès de l'Agencia Tributaria et demandez un certificado de estar al corriente si vous êtes entrepreneur. Informez Correos pour le suivi de courrier (réexpédition disponible).",
 			},
 			{
 				title: "Transfert de dossier médical",
@@ -83,7 +83,7 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Documents à rassembler",
 				detail:
-					"Préparez et conservez des copies numériques de : passeports (anciens et actuels), actes d'état civil (naissance, mariage, divorce), diplômes (avec apostille ou légalisation), contrats de travail et bulletins de salaire, relevés de retraite (seg-social.es), attestations SEPE, permis de conduire international, carte Vitale et attestations CPAM.",
+					"Préparez et conservez des copies numériques de : passeports (anciens et actuels), actes d'état civil (naissance, mariage, divorce), diplômes (avec apostille), contrats de travail et bulletins de salaire (nóminas), relevés de retraite (seg-social.es), attestations SEPE, permis de conduire international, Tarjeta Sanitaria et attestations de la Seguridad Social.",
 			},
 			{
 				title: "Permis de conduire",
@@ -98,24 +98,24 @@ const guideSections: GuideSection[] = [
 		],
 		tips: [
 			"Commencez les démarches 6 à 12 mois avant le retour prévu",
-			"Faites apostiller vos diplômes espagnol au tribunal judiciaire — c'est indispensable pour leur reconnaissance au Gabon",
-			"Conservez votre numéro de sécurité sociale et vos identifiants Ameli.fr — ils peuvent être utiles pour les droits acquis",
-			"Informez la CAF, la CPAM et SEPE de votre départ définitif pour éviter les trop-perçus",
+			"Faites apostiller vos diplômes espagnols via le Ministerio de Justicia — c'est indispensable pour leur reconnaissance au Gabon",
+			"Conservez votre numéro de Seguridad Social et vos identifiants sur seg-social.es — ils peuvent être utiles pour les droits acquis",
+			"Informez les Servicios Sociales, la Seguridad Social et le SEPE de votre départ définitif pour éviter les trop-perçus",
 			"Créez un dossier numérique (Google Drive, Dropbox) avec TOUS vos documents scannés",
 		],
 		links: [
 			{
-				label: "ANTS",
+				label: "DGT",
 				url: "https://sede.dgt.gob.es",
 				description: "Permis de conduire international en ligne",
 			},
 			{
-				label: "L'Assurance Retraite",
+				label: "Seguridad Social",
 				url: "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/Jubilacion",
 				description: "Relevé de carrière et droits à la retraite",
 			},
 			{
-				label: "La Poste — Réexpédition",
+				label: "Correos — Réexpédition",
 				url: "https://www.correos.es/es/es/atencion-al-cliente/reenvio-de-correspondencia",
 				description: "Réexpédition du courrier après le départ",
 			},
@@ -134,12 +134,12 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Fret maritime (le plus économique)",
 				detail:
-					"Le fret maritime est l'option la plus rentable pour les volumes importants. Transit : 6 à 12 semaines selon le port d'arrivée (Owendo pour Libreville). Obtenez au moins 3 devis auprès de transitaires spécialisés Afrique (AGS, DTM, Bolloré Logistics). Comptez 2 000 € à 5 000 € pour un conteneur 20 pieds. Exigez une assurance transport couvrant la casse, la perte et le vol.",
+					"Le fret maritime est l'option la plus rentable pour les volumes importants. Transit : 6 à 12 semaines depuis l'Espagne vers le port d'Owendo (Libreville). Obtenez au moins 3 devis auprès de transitaires spécialisés Afrique (AGS, Bolloré Logistics, Mediterranean Shipping). Comptez 2 000 € à 5 000 € pour un conteneur 20 pieds. Exigez une assurance transport couvrant la casse, la perte et le vol.",
 			},
 			{
 				title: "Fret aérien (rapide mais coûteux)",
 				detail:
-					"Le fret aérien est adapté aux petits volumes urgents (documents, vêtements, objets de valeur). Délai : 3 à 7 jours. Coût : environ 5 à 10 €/kg. Transporteurs : Air Spain Cargo, DHL, FedEx. N'envoyez pas de liquides ni de batteries lithium par avion.",
+					"Le fret aérien est adapté aux petits volumes urgents (documents, vêtements, objets de valeur). Délai : 3 à 7 jours. Coût : environ 5 à 10 €/kg. Transporteurs : Iberia Cargo, DHL, FedEx. N'envoyez pas de liquides ni de batteries lithium par avion.",
 			},
 			{
 				title: "Franchise douanière",
@@ -190,7 +190,7 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Scolarisation des enfants",
 				detail:
-					"Inscrivez vos enfants dans les établissements gabonais (publics gratuits, privés payants) ou dans le réseau AEFE si vous souhaitez continuer le cursus espagnol. L'inscription au lycée Blaise Pascal de Libreville se fait en ligne via l'AEFE — anticipez les délais (dossier dès mars pour la rentrée de septembre). Frais de scolarité AEFE : environ 2 000 000 à 3 500 000 FCFA/an.",
+					"Inscrivez vos enfants dans les établissements gabonais (publics gratuits, privés payants) ou dans le réseau AEFE (français) si souhaité. L'inscription au lycée Blaise Pascal de Libreville se fait en ligne via l'AEFE — anticipez les délais (dossier dès mars pour la rentrée de septembre). Il existe aussi le Colegio Español de Libreville pour continuer un cursus en espagnol. Frais de scolarité AEFE : environ 2 000 000 à 3 500 000 FCFA/an.",
 			},
 			{
 				title: "Vie quotidienne et adaptation",
@@ -219,7 +219,7 @@ const guideSections: GuideSection[] = [
 			{
 				label: "Lycée Blaise Pascal",
 				url: "https://lfbp-libreville.net",
-				description: "Lycée espagnol de Libreville (AEFE)",
+				description: "Lycée français de Libreville (AEFE)",
 			},
 			{
 				label: "BGFI Bank",
@@ -251,12 +251,12 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Reconnaissance des diplômes",
 				detail:
-					"Vos diplômes espagnol doivent être légalisés pour être reconnus au Gabon. Procédure : 1) Apostille au tribunal judiciaire espagnol (gratuit, mais délai de 2 à 4 semaines). 2) Légalisation au ministère gabonais de l'Éducation Nationale. Prévoyez 1 à 3 mois de délai total. ⚠️ Faites cette démarche AVANT votre départ d'Espagne.",
+					"Vos diplômes espagnols doivent être légalisés pour être reconnus au Gabon. Procédure : 1) Apostille via le Ministerio de Justicia espagnol (délai de 2 à 4 semaines). 2) Légalisation au ministère gabonais de l'Éducation Nationale. Prévoyez 1 à 3 mois de délai total. ⚠️ Faites cette démarche AVANT votre départ d'Espagne.",
 			},
 			{
 				title: "Réseaux professionnels",
 				detail:
-					"Rejoignez la Chambre de Commerce Franco-Gabonaise, le Club des Gabonais de retour, la CGPME Gabon, et participez aux salons professionnels (PROMOTE, Forum Emploi Gabon, SIEE). Le networking est ESSENTIEL au Gabon — la recommandation personnelle est souvent plus efficace qu'une candidature en ligne.",
+					"Rejoignez la Cámara de Comercio Hispano-Gabonesa, le Club des Gabonais de retour, la CGPME Gabon, et participez aux salons professionnels (PROMOTE, Forum Emploi Gabon, SIEE). Le networking est ESSENTIEL au Gabon — la recommandation personnelle est souvent plus efficace qu'une candidature en ligne.",
 			},
 			{
 				title: "Avantages fiscaux pour les investisseurs",
@@ -266,9 +266,9 @@ const guideSections: GuideSection[] = [
 		],
 		tips: [
 			"Faites reconnaître vos diplômes AVANT votre retour — les délais sont longs au Gabon",
-			"Le bilinguisme espagnol-anglais est un atout majeur dans les entreprises internationales au Gabon",
+			"Le bilinguisme espagnol-français est un atout majeur dans les entreprises internationales au Gabon",
 			"Renseignez-vous sur les exonérations fiscales pour les entreprises nouvellement créées auprès de l'ANPI",
-			"Consultez Business Spain pour les opportunités d'affaires Spain-Gabon",
+			"Consultez l'ICEX pour les opportunités d'affaires Espagne-Gabon",
 			"Le réseau personnel est crucial — activez vos contacts avant même d'arriver",
 		],
 		links: [
@@ -283,9 +283,9 @@ const guideSections: GuideSection[] = [
 				description: "Office National de l'Emploi",
 			},
 			{
-				label: "Business Spain",
-				url: "https://www.businessfrance.fr",
-				description: "Opportunités d'affaires Spain-Gabon",
+				label: "ICEX España",
+				url: "https://www.icex.es",
+				description: "Opportunités d'affaires Espagne-Gabon",
 			},
 		],
 	},
@@ -296,12 +296,12 @@ const guideSections: GuideSection[] = [
 		color: "text-teal-600 dark:text-teal-400",
 		iconBg: "bg-teal-500/10",
 		intro:
-			"Quitter l'Espagne ne signifie pas perdre tous vos droits. Certains droits sociaux, de retraite et de protection sont maintenus ou transférables. Anticipez les démarches.",
+			"Quitter l'Espagne ne signifie pas perdre tous vos droits. Certains droits sociaux, de retraite et de protection sont maintenus ou transférables grâce aux conventions bilatérales. Anticipez les démarches.",
 		items: [
 			{
 				title: "Retraite espagnole",
 				detail:
-					"Vos trimestres cotisés en Espagne sont acquis DÉFINITIVEMENT. La convention bilatérale Spain-Gabon permet de cumuler les périodes travaillées dans les deux pays pour le calcul de votre retraite. Demandez un relevé de carrière sur seg-social.es AVANT votre départ. Vous pourrez percevoir votre retraite espagnole depuis le Gabon par virement bancaire.",
+					"Vos cotisations en Espagne sont acquises DÉFINITIVEMENT. La convention bilatérale Espagne-Gabon permet de cumuler les périodes travaillées dans les deux pays pour le calcul de votre retraite. Demandez un relevé de carrière (informe de vida laboral) sur seg-social.es AVANT votre départ. Vous pourrez percevoir votre retraite espagnole depuis le Gabon par virement bancaire.",
 			},
 			{
 				title: "Droits à l'assurance chômage",
@@ -309,38 +309,38 @@ const guideSections: GuideSection[] = [
 					"En cas de retour définitif, vous perdez vos droits à l'allocation chômage espagnole. Cependant, si vous revenez en Espagne ultérieurement, vos droits résiduels peuvent être réactivés sous conditions (dans les 3 ans suivant votre dernier pointage). Renseignez-vous auprès de SEPE AVANT de partir. Demandez une attestation de droits.",
 			},
 			{
-				title: "Sécurité sociale (CFE)",
+				title: "Sécurité sociale (Convenio Especial)",
 				detail:
-					"La Caisse des Espagnol de l'Étranger (CFE) permet de conserver une couverture maladie espagnole depuis le Gabon. Adhésion volontaire, cotisations selon vos revenus (à partir de 100 €/mois). Alternative locale : la CNAMGS (Caisse Nationale d'Assurance Maladie et de Garantie Sociale) au Gabon. ⚠️ La CFE est surtout utile si vous prévoyez des soins en Espagne ou un retour ultérieur.",
+					"Le Convenio Especial de la Seguridad Social permet de conserver une couverture maladie espagnole depuis l'étranger. Adhésion volontaire, cotisations selon vos revenus. Alternative locale : la CNAMGS (Caisse Nationale d'Assurance Maladie et de Garantie Sociale) au Gabon. ⚠️ Le Convenio Especial est surtout utile si vous prévoyez des soins en Espagne ou un retour ultérieur.",
 			},
 			{
 				title: "Fiscalité du départ",
 				detail:
-					"L'année de votre départ, vous faites DEUX déclarations d'impôts : une au titre de résident (du 1er janvier à la date de départ) et une au titre de non-résident (du départ au 31 décembre). Vous restez imposable en Espagne sur vos revenus de SOURCE espagnole uniquement (revenus locatifs, retraite espagnole). Convention fiscale Spain-Gabon : évite la double imposition.",
+					"L'année de votre départ, vous devez effectuer votre déclaration de la Renta et informer l'Agencia Tributaria de votre changement de résidence fiscale. Vous restez imposable en Espagne sur vos revenus de SOURCE espagnole uniquement (revenus locatifs, retraite espagnole). Convention fiscale Espagne-Gabon : évite la double imposition.",
 			},
 			{
 				title: "Droits civiques et consulaires",
 				detail:
-					"En tant que Gabonais au Gabon, vous retrouvez vos pleins droits civiques gabonais. Si vous êtes binational franco-gabonais, vous pouvez voter aux élections espagnoles depuis le Gabon (inscription sur les listes consulaires à l'Ambassade d'Espagne à Libreville). Inscrivez-vous à l'Ambassade d'Espagne à Libreville pour maintenir votre protection consulaire espagnole.",
+					"En tant que Gabonais au Gabon, vous retrouvez vos pleins droits civiques gabonais. Si vous avez la nationalité espagnole, vous pouvez voter aux élections espagnoles depuis le Gabon (inscription sur les listes consulaires à l'Ambassade d'Espagne à Libreville). Inscrivez-vous à l'Ambassade d'Espagne à Libreville pour maintenir votre protection consulaire espagnole.",
 			},
 		],
 		tips: [
-			"Demandez votre relevé de carrière retraite AVANT de quitter l'Espagne",
-			"La convention Spain-Gabon évite la double imposition — renseignez-vous sur les modalités",
-			"Conservez votre numéro de sécurité sociale espagnol — il reste actif à vie",
-			"Inscrivez-vous à l'Ambassade d'Espagne à Libreville si vous êtes binational",
-			"Conservez vos bulletins de salaire et attestations — ils sont irremplaçables",
+			"Demandez votre informe de vida laboral AVANT de quitter l'Espagne",
+			"La convention Espagne-Gabon évite la double imposition — renseignez-vous sur les modalités",
+			"Conservez votre numéro de Seguridad Social espagnol — il reste actif à vie",
+			"Inscrivez-vous à l'Ambassade d'Espagne à Libreville si vous avez la nationalité espagnole",
+			"Conservez vos nóminas et attestations — elles sont irremplaçables",
 		],
 		links: [
 			{
-				label: "L'Assurance Retraite",
+				label: "Seguridad Social",
 				url: "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/Jubilacion",
 				description: "Relevé de carrière et droits retraite",
 			},
 			{
-				label: "CFE",
+				label: "Convenio Especial",
 				url: "https://www.seg-social.es/wps/portal/wss/internet/InformacionUtil/44539/45958",
-				description: "Caisse des Espagnol de l'Étranger — couverture maladie",
+				description: "Couverture maladie depuis l'étranger",
 			},
 			{
 				label: "Agencia Tributaria",
@@ -366,7 +366,7 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Couverture santé",
 				detail:
-					"Options : la CNAMGS (couverture nationale, obligatoire pour les salariés), la CFE (maintien de la couverture espagnole, volontaire), ou une assurance santé internationale privée (Allianz, AXA, BUPA). Pour les premiers mois, cumulez la CFE et la CNAMGS pour une couverture optimale. Prévoyez un budget santé conséquent les premiers mois.",
+					"Options : la CNAMGS (couverture nationale, obligatoire pour les salariés), le Convenio Especial (maintien de la couverture espagnole, volontaire), ou une assurance santé internationale privée (Allianz, AXA, BUPA). Pour les premiers mois, cumulez le Convenio Especial et la CNAMGS pour une couverture optimale. Prévoyez un budget santé conséquent les premiers mois.",
 			},
 			{
 				title: "Vaccinations",
@@ -396,7 +396,7 @@ const guideSections: GuideSection[] = [
 				description: "Caisse Nationale d'Assurance Maladie du Gabon",
 			},
 			{
-				label: "CFE",
+				label: "Convenio Especial",
 				url: "https://www.seg-social.es/wps/portal/wss/internet/InformacionUtil/44539/45958",
 				description: "Maintien de la couverture maladie espagnole",
 			},
@@ -457,7 +457,7 @@ const guideSections: GuideSection[] = [
 			"Le retour VOLONTAIRE dans le délai de 30 jours est TOUJOURS préférable — il préserve vos droits futurs",
 			"Contactez l'Ambassade DÈS la réception de l'Orden de Expulsión pour un accompagnement",
 			"L'aide de l'Oficina de Extranjería peut atteindre 5 000 € pour un projet de création d'entreprise au Gabon",
-			"Conservez TOUS vos documents espagnol — ils sont votre capital pour la suite au Gabon",
+			"Conservez TOUS vos documents espagnols — ils sont votre capital pour la suite au Gabon",
 			"Ne restez pas isolé — les associations de retournants offrent un soutien moral et pratique",
 		],
 		links: [
@@ -512,12 +512,12 @@ const erreurs: ErreurItem[] = [
 	{
 		erreur: "Partir sans faire apostiller ses diplômes",
 		conseil:
-			"Faites apostiller tous vos diplômes au tribunal judiciaire AVANT votre départ. C'est gratuit mais les délais sont de 2 à 4 semaines.",
+			"Faites apostiller tous vos diplômes via le Ministerio de Justicia AVANT votre départ. Les délais sont de 2 à 4 semaines.",
 	},
 	{
 		erreur: "Ne pas informer les administrations espagnoles",
 		conseil:
-			"Prévenez la CAF, la CPAM, SEPE et les impôts de votre départ définitif. Vous éviterez les trop-perçus et les pénalités.",
+			"Prévenez la Seguridad Social, le SEPE, l'Agencia Tributaria et les Servicios Sociales de votre départ définitif. Vous éviterez les trop-perçus et les pénalités.",
 	},
 	{
 		erreur: "Fermer son compte bancaire espagnol trop tôt",
@@ -564,7 +564,7 @@ const numerosUtiles: NumeroUtile[] = [
 	},
 	{
 		label: "Oficina de Extranjería (Aide au retour)",
-		number: "01 53 69 53 70",
+		number: "+34 900 150 000",
 		color: "bg-blue-500/10 text-blue-600",
 	},
 	{
@@ -634,22 +634,22 @@ const guideSectionsEn: GuideSection[] = [
 		tips: [
 			"Start preparations at least 6 months before departure",
 			"Digitize all documents and keep cloud backups",
-			"Inform CAF, CPAM, SEPE and tax authorities",
+			"Inform Seguridad Social, SEPE and Agencia Tributaria",
 			"Do not close your Spanish bank account immediately",
 		],
 		links: [
 			{
-				label: "ANTS",
+				label: "DGT",
 				url: "https://sede.dgt.gob.es",
-				description: "Spanish administrative procedures (license and identity)",
+				description: "Spanish driving license and identity procedures",
 			},
 			{
-				label: "L'Assurance Retraite",
+				label: "Seguridad Social",
 				url: "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/Jubilacion",
 				description: "Career statement and pension rights",
 			},
 			{
-				label: "La Poste — Réexpédition",
+				label: "Correos — Forwarding",
 				url: "https://www.correos.es/es/es/atencion-al-cliente/reenvio-de-correspondencia",
 				description: "Mail forwarding service",
 			},
@@ -750,7 +750,7 @@ const guideSectionsEn: GuideSection[] = [
 			{
 				label: "Lycée Blaise Pascal",
 				url: "https://lfbp-libreville.net",
-				description: "Spanish school network in Libreville",
+				description: "French school network in Libreville (AEFE)",
 			},
 			{
 				label: "BGFI Bank",
@@ -813,8 +813,8 @@ const guideSectionsEn: GuideSection[] = [
 				description: "National employment office",
 			},
 			{
-				label: "Business Spain",
-				url: "https://www.businessfrance.fr",
+				label: "ICEX España",
+				url: "https://www.icex.es",
 				description: "Spain-Gabon business opportunities",
 			},
 		],
@@ -862,12 +862,12 @@ const guideSectionsEn: GuideSection[] = [
 		],
 		links: [
 			{
-				label: "L'Assurance Retraite",
+				label: "Seguridad Social",
 				url: "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/Jubilacion",
 				description: "Pension rights and records",
 			},
 			{
-				label: "CFE",
+				label: "Convenio Especial",
 				url: "https://www.seg-social.es/wps/portal/wss/internet/InformacionUtil/44539/45958",
 				description: "Healthcare continuity abroad",
 			},
@@ -926,7 +926,7 @@ const guideSectionsEn: GuideSection[] = [
 				description: "National health insurance in Gabon",
 			},
 			{
-				label: "CFE",
+				label: "Convenio Especial",
 				url: "https://www.seg-social.es/wps/portal/wss/internet/InformacionUtil/44539/45958",
 				description: "Spanish coverage continuity abroad",
 			},
@@ -1032,7 +1032,7 @@ const erreursEn: ErreurItem[] = [
 	{
 		erreur: "Not notifying Spanish administrations",
 		conseil:
-			"Inform CAF, CPAM, SEPE and tax services to avoid overpayments and penalties.",
+			"Inform Seguridad Social, SEPE and Agencia Tributaria to avoid overpayments and penalties.",
 	},
 	{
 		erreur: "Closing your Spanish bank account too early",
@@ -1079,7 +1079,7 @@ const numerosUtilesEn: NumeroUtile[] = [
 	},
 	{
 		label: "Oficina de Extranjería (Return aid)",
-		number: "01 53 69 53 70",
+		number: "+34 900 150 000",
 		color: "bg-blue-500/10 text-blue-600",
 	},
 	{

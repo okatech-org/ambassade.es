@@ -13,11 +13,11 @@ export default function Footer() {
 		{ label: t("header.nav.news", "Actualités"), href: "/actualites" },
 		{
 			label: t("header.nav.venirFrance", "Venir en France"),
-			href: "/venir-en-france",
+			href: "/venir-en-espagne",
 		},
 		{
 			label: t("header.nav.vieFrance", "Vivre en France"),
-			href: "/vie-en-france",
+			href: "/vie-en-espagne",
 		},
 		{
 			label: t("header.nav.retourGabon", "Retour au Gabon"),

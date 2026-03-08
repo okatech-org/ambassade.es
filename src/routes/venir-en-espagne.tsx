@@ -40,7 +40,7 @@ import { useSectionVisibility } from "@/hooks/useSectionVisibility";
 import i18n from "@/integrations/i18n/i18n";
 
 export const Route = createFileRoute("/venir-en-espagne")({
-	component: VenirEnEspagnePage,
+	component: VenirEnSpainPage,
 	head: () => {
 		const isEn = (i18n.resolvedLanguage || i18n.language).startsWith("en");
 		return {
@@ -57,7 +57,7 @@ export const Route = createFileRoute("/venir-en-espagne")({
 						: "Guide complet pour les Gabonais venant en Espagne : admission, visa, intégration, démarches administratives, codes culturels et droits de séjour.",
 				},
 			],
-		};
+		}
 	},
 });
 
@@ -71,62 +71,61 @@ const guideSections: GuideSection[] = [
 		iconBg: "bg-cyan-500/10",
 		image: "/images/guide-droits.png",
 		intro:
-			"Avant de voyager, assurez-vous de disposer de tous les documents requis à la frontière. Le visa ne garantit pas automatiquement l`entrée sur le territoire espagnol.",
+			"Avant de voyager, assurez-vous de disposer de tous les documents requis à la frontière. Le visa ne garantit pas automatiquement l'entrée sur le territoire espagnol.",
 		items: [
 			{
 				title: "Types de visas pour l'Espagne",
 				detail:
-					"Il existe deux grandes catégories. Le visa Schengen (type C) : tourisme, visite familiale, affaires — valable 90 jours sur 180 jours. Le visa national (type D) : études, travail, regroupement familial — valable plus de 90 jours. Le visa étudiant (Visado de Estudios) permet de poursuivre des études en Espagne. Le visa de travail (Visado de Trabajo) est requis pour tout emploi salarié ou non-salarié.",
+					"Il existe deux grandes catégories. Le visa de court séjour (Schengen, type C) : tourisme, visite familiale, voyage d'affaires — valable 90 jours maximum sur 180 jours. Le visa de long séjour (type D ou VLS-TS) : études, travail, regroupement familial — valable plus de 90 jours. Le VLS-TS vaut titre de séjour pendant sa durée de validité (1 an maximum). Le visa \"passeport talent\" est destiné aux diplômés, chercheurs, artistes et créateurs d'entreprise (carte pluriannuelle de 4 ans).",
 			},
 			{
 				title: "Documents obligatoires à la frontière",
 				detail:
-					"Vous devez présenter à la Policía Nacional : un passeport en cours de validité (valable au minimum 3 mois après la date de retour prévue), un visa en cours de validité, une attestation d`hébergement (attestation d'hébergement ou contrat de location OU réservation d'hôtel), un billet d'avion retour (obligatoire pour court séjour), une assurance voyage couvrant les frais médicaux (minimum 30 000 €), et des justificatifs de ressources financières.",
+					"Vous devez présenter à la Police aux Frontières (PAF) : un passeport en cours de validité (valable au minimum 3 mois après la date de retour prévue), un visa en cours de validité, une attestation d'hébergement (attestation d'accueil validée en mairie OU réservation d'hôtel), un billet d'avion retour (obligatoire pour court séjour), une assurance voyage couvrant les frais médicaux (minimum 30 000 €), et des justificatifs de ressources financières.",
 			},
 			{
-				title:
-					"Lettre d'invitation (Carta de Invitación) — Procédure détaillée",
+				title: "Attestation d'accueil — Procédure détaillée",
 				detail:
-					"Si vous êtes hébergé par un particulier en Espagne, celui-ci doit demander une Carta de Invitación auprès du commissariat de la Policía Nacional de son lieu de résidence. Documents requis pour l'hébergeant : pièce d'identité, justificatif de domicile, preuve de propriété ou contrat de location. L'attestation est soumise au paiement de taxes (tasas d'environ 80 €) et doit être envoyée en original au visiteur. Sans cette attestation, le visa court séjour peut être refusé.",
+					"Si vous êtes hébergé par un particulier en Espagne, celui-ci doit demander une attestation d'accueil en mairie. Documents requis pour l'hébergeant : pièce d'identité, justificatif de domicile, justificatif de revenus. L'attestation est payante (30 €) et doit être envoyée en original au visiteur. Sans cette attestation, le visa court séjour peut être refusé.",
 			},
 			{
 				title: "Justificatifs de ressources financières",
 				detail:
-					"Montants minimum exigés : 120 €/jour si vous êtes hébergé à l'hôtel, ou 32,50 €/jour si vous êtes hébergé par un particulier disposant d'une attestation d'hébergement. Justificatifs acceptés : relevés bancaires des 3 derniers mois, attestation de bourse, lettre de prise en charge d'un garant avec justificatifs de revenus. ⚠️ Ces montants sont vérifiés à la frontière.",
+					"Montants minimum exigés : 120 €/jour si vous êtes hébergé à l'hôtel, ou 32,50 €/jour si vous êtes hébergé par un particulier disposant d'une attestation d'accueil. Justificatifs acceptés : relevés bancaires des 3 derniers mois, attestation de bourse, lettre de prise en charge d'un garant avec justificatifs de revenus. ⚠️ Ces montants sont vérifiés à la frontière.",
 			},
 			{
 				title: "Refus d'entrée : vos droits",
 				detail:
-					"La Policía Nacional peut refuser l'entrée même avec un visa valide si les justificatifs sont insuffisants. En cas de refus : 1) Vous recevez une notification écrite motivée. 2) Vous pouvez contacter l'Ambassade du Gabon (droit garanti par la Convention de Vienne, art. 36). 3) Un recours est possible devant le Juzgado de lo Contencioso-Administrativo. 4) Vous pouvez être maintenu en zone d'attente (sala de inadmitidos). Conservez TOUS les documents remis par la Policía Nacional.",
+					"La PAF peut refuser l'entrée même avec un visa valide si les justificatifs sont insuffisants. En cas de refus : 1) Vous recevez une notification écrite motivée. 2) Vous pouvez contacter l'Ambassade du Gabon (droit garanti par la Convention de Vienne, art. 36). 3) Un recours est possible devant le Tribunal Contencioso-Administrativo dans les 48 heures. 4) Vous pouvez être maintenu en zone d'attente pendant 4 jours maximum (prolongeable par un juge). Conservez TOUS les documents remis par la PAF.",
 			},
 			{
-				title: "Premières démarches à l'arrivée (Empadronamiento et TIE)",
+				title: "Première démarche Oficina de Extranjería à l'arrivée",
 				detail:
-					"Si vous avez un visa national (type D) de plus de 6 mois, vous devez OBLIGATOIREMENT demander votre carte d'identité d'étranger (TIE) dans le mois suivant votre arrivée. Étapes : 1) Inscrivez-vous à la mairie de votre domicile (Empadronamiento). 2) Prenez rendez-vous (Cita Previa) en ligne sur la plateforme des Administraciones Públicas pour la prise d'empreintes. 3) Payez la taxe correspondante (Tasa 790 código 012, environ 16 €). 4) Présentez-vous au rendez-vous. ⚠️ Le non-respect de ce délai peut entraîner des complications pour votre séjour.",
+					"Si vous avez un VLS-TS, validez-le OBLIGATOIREMENT sur le site de l'Oficina de Extranjería dans les 3 mois suivant l'arrivée. Étapes : 1) Créez votre compte sur sede.administracionespublicas.gob.es. 2) Payez la taxe Oficina de Extranjería (200 € à 400 € selon le type de visa). 3) Passez la visite médicale obligatoire (gratuite). 4) Signez le Contrat d'Intégration Républicaine (CIR) : il comprend une formation civique (2 jours) et un test de espagnol. ⚠️ Si votre VLS-TS n'est pas validé dans les 3 mois, votre séjour devient irrégulier.",
 			},
 		],
 		tips: [
 			"Imprimez TOUS vos documents de voyage en double exemplaire — ne comptez jamais uniquement sur les versions numériques",
 			"Arrivez à la frontière avec vos justificatifs de ressources, hébergement et assurance facilement accessibles dans un seul dossier",
-			"L'Empadronamiento est votre justificatif de domicile officiel en Espagne — c'est la première étape OBLIGATOIRE avant toute autre démarche",
+			"Le CIR comprend une formation civique et linguistique OBLIGATOIRE — planifiez votre emploi du temps en conséquence",
 			"Conservez une copie de votre visa et de votre passeport dans un cloud sécurisé (Google Drive, iCloud)",
-			"Validez votre visa national (type D) dès votre arrivée — ne pas attendre le dernier moment des 3 mois",
+			"Validez votre VLS-TS dès votre arrivée — ne pas attendre le dernier moment des 3 mois",
 		],
 		links: [
 			{
-				label: "Sede Electrónica - Extranjería",
-				url: "https://sede.administracionespublicas.gob.es/procedimientos/index/categoria/34",
-				description: "Prise de rendez-vous (Cita Previa) et démarches",
+				label: "Oficina de Extranjería",
+				url: "https://extranjeros.inclusion.gob.es",
+				description: "Office Espagnol de l'Immigration et de l'Intégration",
 			},
 			{
-				label: "Visas pour l'Espagne",
-				url: "https://www.exteriores.gob.es/Consulados/libreville/es/ServiciosConsulares/Paginas/index.aspx",
-				description: "Ambassade d'Espagne au Gabon",
+				label: "Spain-Visas",
+				url: "https://www.exteriores.gob.es/Consulados/libreville/es/ServiciosConsulares/Paginas/Visados.aspx",
+				description: "Portail officiel des visas pour l'Espagne",
 			},
 			{
-				label: "Ministerio de Inclusión",
-				url: "https://www.inclusion.gob.es/",
-				description: "Informations officielles sur l'immigration",
+				label: "Mercurio",
+				url: "https://sede.administracionespublicas.gob.es/icpplus",
+				description: "Validation du VLS-TS en ligne",
 			},
 		],
 	},
@@ -138,21 +137,21 @@ const guideSections: GuideSection[] = [
 		iconBg: "bg-indigo-500/10",
 		image: "/images/guide-education.png",
 		intro:
-			"Les étudiants gabonais en Espagne bénéficient de droits spécifiques : droit au travail, carte pluriannuelle, et Autorisation Provisoire de Séjour après le diplôme. Voici tout ce qu`il faut savoir.",
+			"Les étudiants gabonais en Espagne bénéficient de droits spécifiques : droit au travail, carte pluriannuelle, et Autorisation Provisoire de Séjour après le diplôme. Voici tout ce qu'il faut savoir.",
 		items: [
 			{
-				title: "Visa étudiant et Admission (UNEDasiss)",
-				detail: `L'admission dans les universités espagnoles se fait souvent via le portail UNEDasiss pour la reconnaissance des baccalauréats étrangers, ou directement auprès de l'université (surtout pour les Masters et écoles privées). Étapes : 1) Inscription et admission par un établissement reconnu. 2) Dépôt de la demande de visa étudiant à l'Ambassade d'Espagne à Libreville avec la lettre d'admission. Le visa étudiant est valable 1 an et renouvelable.`,
+				title: "Visa étudiant et procédure UNEDasiss",
+				detail: `Le visa étudiant long séjour est obtenu via UNEDasiss (procédure "Études en Espagne"). Étapes : 1) Inscription sur le site UNEDasiss Gabon. 2) Constitution du dossier pédagogique. 3) Entretien avec un conseiller UNEDasiss. 4) Acceptation par un établissement espagnol. 5) Dépôt de la demande de visa à l'Ambassade d'Espagne à Libreville. Le VLS-TS mention "étudiant" est valable 1 an et renouvelable.`,
 			},
 			{
 				title: "Bourses et aides financières étudiantes",
 				detail:
-					"Bourses de l'État gabonais : via l'ANBG (Agence Nationale des Bourses du Gabon). Bourses espagnoles : Becas MEC (Ministère de l'Éducation) sous conditions de revenus et de réussite académique. Bourses d'excellence : Fondation Carolina, Erasmus+, bourses des Communautés Autonomes. Il n'existe pas d'équivalent au CROUS ou à la CAF en Espagne pour l'aide au logement étudiant.",
+					"Bourses de l'État gabonais : via l'ANBG (Agence Nationale des Bourses du Gabon). Bourses espagnoles : BCS (Bourse sur critères sociaux, via le Becas MEC — conditions de revenus). Bourses d'excellence : Eiffel \omain, Erasmus+, bourses régionales. Aide d'urgence : le Becas MEC peut attribuer une aide ponctuelle en cas de difficultés financières (FNAU). Aide au logement : simulez vos droits APL/ALS sur servicios-sociales.es.",
 			},
 			{
-				title: "Droit au travail étudiant (30h / semaine)",
+				title: "Droit au travail étudiant (964 h/an)",
 				detail:
-					"Avec un visa et une TIE d'étudiant valides, vous êtes autorisé à travailler jusqu'à 30 heures par semaine (emploi à temps partiel), à condition que cela n'interfère pas avec vos études. Les stages conventionnés (Prácticas) font l'objet d'accords avec l'université et peuvent être rémunérés ou non, mais doivent désormais être cotisés à la Seguridad Social.",
+					"Les étudiants étrangers sont autorisés à travailler 964 heures par an, soit 60% de la durée légale du travail (environ 20h/semaine). Aucune autorisation de travail supplémentaire n'est nécessaire. ⚠️ Le dépassement du plafond de 964h peut entraîner le non-renouvellement de votre titre de séjour. Les stages conventionnés de plus de 2 mois sont rémunérés (4,35 €/h minimum).",
 			},
 			{
 				title: "Carte pluriannuelle et ressources minimum",
@@ -160,43 +159,48 @@ const guideSections: GuideSection[] = [
 					"Après la 1ère année, vous pouvez obtenir une carte de séjour pluriannuelle (2 à 4 ans). Conditions : assiduité et progression des études, ressources suffisantes (615 €/mois minimum). Justificatifs acceptés : compte bancaire, attestation de bourse, lettre de garant. La carte pluriannuelle simplifie vos démarches et vous évite le renouvellement annuel.",
 			},
 			{
-				title: "Residencia para búsqueda de empleo (Diplômés supérieurs)",
+				title: "APS — Autorisation Provisoire de Séjour (diplômés)",
 				detail:
-					"Après l'obtention d'un diplôme de l'enseignement supérieur (Grado, Master, Doctorat) en Espagne, vous pouvez demander une autorisation de séjour pour recherche d'emploi (Residencia para búsqueda de empleo) valable 12 mois, non renouvelable. Elle permet de chercher un emploi ou créer une entreprise en lien avec le diplôme. Attention : elle n'autorise pas à travailler, il faudra changer de statut une fois l'emploi trouvé.",
+					"Base juridique : accord franco-gabonais du 5 juillet 2007. Après obtention d'un diplôme de niveau Master ou équivalent en Espagne, vous pouvez demander une APS de 9 mois, renouvelable une fois (18 mois maximum). Droits : rechercher un emploi ou créer une entreprise en lien avec le diplôme, travailler à temps plein. Demande à déposer 2 à 4 mois AVANT l'expiration de votre titre étudiant. Documents : diplôme, relevé de notes, passeport, titre de séjour en cours de validité.",
 			},
 			{
-				title: "Changement de statut (Modificación) : étudiant → salarié",
+				title: "Changement de statut : étudiant → salarié",
 				detail:
-					"Conditions : avoir terminé ses études ou être en recherche d'emploi (depuis la Residencia para búsqueda de empleo). L'employeur doit vous fournir un contrat de travail et initier la demande d'autorisation de travail auprès de la Oficina de Extranjería de la province. La demande prend souvent plusieurs mois. ⚠️ Ne travaillez pas avant l'approbation de l'autorisation de travail.",
+					"Conditions : emploi en relation avec le diplôme obtenu, rémunération ≥ 1,5x le SMIC (1x SMIC pour les métiers en tension). Procédure : 1) L'employeur dépose une demande d'autorisation de travail auprès de la DREETS. 2) Vous déposez votre demande de changement de statut en Oficina de Extranjería (cerfa n°15187). 3) Instruction : 2 à 4 mois. ⚠️ Commencez les démarches DÈS la promesse d'embauche, avant l'expiration de votre titre.",
 			},
 			{
-				title: "Logement étudiant (Colegios Mayores et Colocation)",
+				title: "Logement étudiant (Becas MEC et alternatives)",
 				detail:
-					"En Espagne, les universités disposent de 'Colegios Mayores' ou de résidences universitaires, mais ils sont souvent assez chers. La colocation (compartir piso) est le mode de logement étudiant le plus répandu (recherche via Idealista, Badi ou Fotocasa). Les garants étrangers sont rarement acceptés, on vous demandera souvent plusieurs mois de caution ou un paiement anticipé.",
+					"Le Becas MEC propose des résidences universitaires à tarif modéré (de 200€ à 500€/mois selon la ville). Inscription via becaseducacion.gob.es. Alternatives : résidences privées (Studelites, Nexity), colocation (LaCarteDesColocs), logement intergénérationnel. Le dispositif Visale remplace le garant (gratuit, inscription sur idealista.com).",
 			},
 		],
 		tips: [
-			"La Residencia para búsqueda de empleo dure 12 mois — demandez-la 60 jours AVANT ou 90 jours APRÈS l'expiration de la TIE étudiant",
-			"Respectez scrupuleusement la limite de 30 heures par semaine pour le travail étudiant",
+			"L'APS dure 9 mois (renouvelable une fois) — demandez-la AVANT l'expiration de votre titre étudiant",
+			"Respectez scrupuleusement le plafond de 964 heures — il est vérifié lors du renouvellement",
 			"Le changement de statut étudiant → salarié nécessite un contrat ou une promesse d'embauche",
 			"Conservez vos diplômes, relevés de notes et attestations — ils seront exigés pour le changement de statut",
-			"Privilégiez les 'Comedores Universitarios' (cantines universitaires) pour des repas complets à prix réduit",
+			"Inscrivez-vous au restaurant Becas MEC (3,30 € le repas) et à la bibliothèque universitaire dès la rentrée",
 		],
 		links: [
 			{
-				label: "SEPIE - Étudier en Espagne",
-				url: "http://sepie.es/internacionalizacion/study-in-spain.html",
-				description: "Portail officiel pour les étudiants internationaux",
-			},
-			{
 				label: "UNEDasiss",
-				url: "https://unedasiss.uned.es/home",
-				description: "Accès à l'université pour étudiants étrangers",
+				url: "https://www.uned.es/universidad/inicio/en/unedasiss.html",
+				description: "Études en Espagne pour les étudiants internationaux",
 			},
 			{
-				label: "Becas MEC",
-				url: "https://www.educacionfpydeportes.gob.es/servicios-al-ciudadano/catalogo/estudiantes/becas-ayudas/para-estudiar.html",
-				description: "Bourses du Ministère de l'Éducation",
+				label: "MesServices Étudiant",
+				url: "https://www.becaseducacion.gob.es",
+				description: "Bourse, logement Becas MEC et vie étudiante",
+			},
+			{
+				label: "Service-public.fr — APS",
+				url: "https://www.becaseducacion.gob.es",
+				description: "Autorisation provisoire de séjour",
+			},
+			{
+				label: "Visale",
+				url: "https://www.idealista.com",
+				description: "Garantie locative gratuite pour étudiants",
 			},
 		],
 	},
@@ -208,71 +212,71 @@ const guideSections: GuideSection[] = [
 		iconBg: "bg-sky-500/10",
 		image: "/images/guide-emploi.png",
 		intro:
-			"Toutes les démarches administratives liées à votre arrivée et votre séjour en Espagne : carte de séjour, validation visa national (type D), changement de statut, perte de documents. Anticipez chaque étape.",
+			"Toutes les démarches administratives liées à votre arrivée et votre séjour en Espagne : carte de séjour, validation VLS-TS, changement de statut, perte de documents. Anticipez chaque étape.",
 		items: [
 			{
-				title: "Première carte de séjour (TIE) — Extranjería et Police",
+				title: "Première carte de séjour — Procédure Oficina de Extranjería",
 				detail:
-					"À votre arrivée avec un visa de long séjour, vous devez demander la Tarjeta de Identidad de Extranjero (TIE). Étapes : 1) Obtenez votre Empadronamiento (mairie). 2) Prenez rendez-vous (Cita Previa) au commissariat de police ou Oficina de Extranjería. 3) Payez la taxe correspondante (Tasa 790-012, environ 16 €). 4) Déposez votre dossier (formulaire EX-17, passeport, Empadronamiento, photo) et prenez vos empreintes. ⚠️ Le 'resguardo' (récépissé) de prise d'empreintes ne permet pas toujours de voyager hors d'Espagne sans une 'Autorización de regreso'.",
+					"À votre arrivée avec un VLS-TS : 1) Validez le visa sur la plateforme Mercurio dans les 3 mois. 2) Payez la taxe Oficina de Extranjería (200 € à 400 €). 3) Passez la visite médicale obligatoire (convocation par l'Oficina de Extranjería). 4) Signez le CIR : formation civique de 2 jours + test de espagnol. Documents à préparer : passeport, formulaire cerfa n°15614, justificatif de domicile de moins de 3 mois, 3 photos d'identité conformes, timbre fiscal. ⚠️ Le récépissé de première demande NE PERMET PAS de quitter l'Espagne et d'y revenir.",
 			},
 			{
-				title: "Renouvellement de carte de séjour (Renovación)",
+				title: "Renouvellement de carte de séjour",
 				detail:
-					"Anticipez : vous pouvez déposer votre demande de renouvellement 60 jours avant l'expiration de votre TIE et jusqu'à 90 jours après (avec pénalité possible). La demande se fait en ligne via la plateforme Mercurio avec un certificat numérique (Certificado Digital). Une fois approuvée, vous devrez prendre un nouveau rendez-vous pour la prise d'empreintes de la nouvelle carte.",
+					"Anticipez : déposez votre demande 2 à 4 mois avant expiration sur la plateforme Mercurio ou en Oficina de Extranjería. Un récépissé de renouvellement sera délivré (valable 3 mois, renouvelable). Ce récépissé vous permet de continuer à travailler et à voyager. Documents : titre de séjour actuel, passeport, justificatif de domicile, justificatif d'activité (contrat de travail, certificat de scolarité), photos.",
 			},
 			{
-				title: "Residencia para búsqueda de empleo",
+				title: "APS pour diplômés (Master) — Accord franco-gabonais",
 				detail:
-					"Cette résidence de 12 mois est destinée aux diplômés de l'enseignement supérieur (Grado, Master, Doctorat). Elle permet de chercher un emploi ou créer une entreprise. Demande à déposer via la plateforme d'Extranjería, accompagnée de votre diplôme et d'une preuve d'assurance maladie.",
+					"Base juridique : accord franco-gabonais du 5 juillet 2007. L'APS est accordée pour 9 mois, renouvelable une fois (18 mois maximum) aux diplômés de niveau Master. Elle permet de chercher un emploi ou créer une entreprise en lien avec le diplôme. Demande sur la plateforme Mercurio.",
 			},
 			{
 				title: "Changement de statut : étudiant → salarié",
 				detail:
-					"Conditions : vous devez justifier de l'obtention de votre diplôme, et un employeur espagnol doit vous faire un contrat respectant les conditions légales. La procédure de 'Modificación' est initiée par l'employeur auprès de la Oficina de Extranjería. L'instruction peut prendre de 1 à 3 mois. ⚠️ Ne commencez pas à travailler avant l'accord (Resolución favorable).",
+					"Conditions : emploi en rapport avec le diplôme, rémunération ≥ 1,5x SMIC (1x SMIC pour les métiers en tension). Procédure : 1) L'employeur dépose la demande d'autorisation de travail auprès de la DREETS. 2) Vous déposez la demande de changement de statut en Oficina de Extranjería (cerfa n°15187). 3) Instruction : 2 à 4 mois. Pièces complémentaires : diplôme, contrat de travail, fiche de paie si déjà en poste.",
 			},
 			{
-				title: "Résidence des mineurs et TIE",
+				title: "Document de circulation pour mineur (DCM)",
 				detail:
-					"Si un mineur réside légalement en Espagne, il peut obtenir une TIE. Si l'enfant est né en Espagne de parents étrangers résidents, il peut acquérir la nationalité après 1 an. S'il n'est pas né en Espagne mais y réside, il peut demander un permis de résidence (Residencia de menor referenciado).",
+					"Destiné aux mineurs étrangers résidant en Espagne dont les parents sont en situation régulière ou dont l'un est espagnol. Le DCM permet à l'enfant de voyager à l'étranger et de revenir en Espagne sans visa. Validité : 5 ans, renouvelable jusqu'aux 18 ans de l'enfant. Demande en Oficina de Extranjería. ⚠️ À 18 ans, le jeune doit OBLIGATOIREMENT demander un titre de séjour propre.",
 			},
 			{
 				title: "Déclaration de perte ou vol de documents",
 				detail:
-					"En cas de perte ou vol : 1) Déposez une plainte (Denuncia) au commissariat de la Policía Nacional ou Guardia Civil. 2) Pour le passeport : rendez-vous à l'Ambassade du Gabon avec la denuncia, 2 photos et justificatifs d'identité. 3) Pour la TIE : prenez un rendez-vous (Cita Previa) au commissariat pour un duplicata (Duplicado por pérdida o robo) avec la denuncia + paiement d'une nouvelle taxe 790-012.",
+					"En cas de perte ou vol : 1) Déposez une déclaration au commissariat (récépissé de déclaration de perte/vol). 2) Pour le passeport : rendez-vous à l'Ambassade du Gabon avec le récépissé, 2 photos d'identité et justificatifs d'identité (copie du passeport, acte de naissance). 3) Pour le titre de séjour : rendez-vous en Oficina de Extranjería ou sur la plateforme Mercurio avec le récépissé + justificatif de domicile. Un duplicata sera délivré (délai : 2 à 4 semaines).",
 			},
 			{
-				title: "Changement d'adresse (Empadronamiento et TIE)",
+				title: "Changement d'adresse — Obligation légale",
 				detail:
-					"À chaque déménagement, vous devez obligatoirement mettre à jour votre Empadronamiento à la mairie dans un délai de 30 jours, puis informer le commissariat de police ou la Oficina de Extranjería de ce changement. Le non-respect de cette obligation peut compliquer vos renouvellements de séjour.",
+					"Tout étranger titulaire d'un titre de séjour doit signaler son changement d'adresse dans les 3 mois suivant le déménagement. Procédure en ligne sur la plateforme Mercurio ou en Oficina de Extranjería. Documents : titre de séjour + nouveau justificatif de domicile. ⚠️ Le non-respect de cette obligation peut entraîner une amende (jusqu'à 750 €) et compliquer le renouvellement de votre titre.",
 			},
 			{
 				title: "Inscription consulaire",
 				detail:
-					"Tout Gabonais résidant en Espagne doit s'inscrire à l'Ambassade du Gabon en Espagne. L'inscription permet : l'obtention de la carte consulaire, la transcription des actes d'état civil, le vote aux élections gabonaises, et la protection consulaire en cas de difficulté. Documents : passeport gabonais, justificatif de domicile (Empadronamiento), photos d'identité.",
+					"Tout Gabonais résidant en Espagne doit s'inscrire au Ambassade du Gabon en Espagne à Paris. L'inscription permet : l'obtention de la carte consulaire, la transcription des actes d'état civil, le vote aux élections gabonaises, et la protection consulaire en cas de difficulté. Documents : passeport gabonais, justificatif de domicile, photos d'identité.",
 			},
 		],
 		tips: [
-			"Obtenez un Certificado Digital (FNMT) dès que possible, il est essentiel pour les démarches en ligne",
-			"Conservez des copies numériques de TOUS vos documents dans un cloud sécurisé",
-			"La plateforme Mercurio est l'outil central pour renouveler en ligne",
-			"Demandez une 'Autorización de regreso' si vous devez voyager hors d'Espagne pendant un renouvellement de TIE",
+			"Anticipez toujours le renouvellement de votre titre de séjour — 2 à 4 mois avant expiration",
+			"Conservez des copies numériques de TOUS vos documents dans un cloud sécurisé (Google Drive, Dropbox)",
+			"Le plateforme Mercurio est l'outil central pour la plupart des démarches de séjour en ligne",
+			"Un récépissé de première demande NE PERMET PAS de quitter l'Espagne — seul le titre définitif ou le VLS-TS validé le permet",
 			"Inscrivez-vous à l'Ambassade dès votre arrivée pour bénéficier de la protection consulaire",
 		],
 		links: [
 			{
-				label: "Sede Electrónica (Mercurio)",
-				url: "https://sede.administracionespublicas.gob.es/mercurio/inicioMercurio.html",
-				description: "Renouvellement et démarches de séjour en ligne",
+				label: "Portail Mercurio",
+				url: "https://sede.administracionespublicas.gob.es/icpplus",
+				description: "Démarches de titre de séjour en ligne",
 			},
 			{
-				label: "Certificado Digital FNMT",
-				url: "https://www.sede.fnmt.gob.es/certificados",
-				description: "Obtention du certificat numérique pour signer en ligne",
+				label: "Oficina de Extranjería",
+				url: "https://extranjeros.inclusion.gob.es",
+				description: "Office Espagnol de l'Immigration et de l'Intégration",
 			},
 			{
-				label: "Cita Previa Extranjería",
-				url: "https://icp.administracionelectronica.gob.es/icpplus/index.html",
-				description: "Rendez-vous prise d'empreintes et autres",
+				label: "Service-public.fr",
+				url: "https://sede.administracionespublicas.gob.es/icpplus",
+				description: "Droits des étrangers en Espagne",
 			},
 		],
 	},
@@ -287,52 +291,52 @@ const guideSections: GuideSection[] = [
 			"L'Espagne dispose d'un réseau de transports en commun dense et efficace. Comprendre son fonctionnement vous fera gagner du temps et de l'argent dès votre arrivée.",
 		items: [
 			{
-				title: "Transports à Madrid, Barcelone et grandes villes",
+				title: "Transports en Île-de-Spain (Paris)",
 				detail:
-					"Le réseau de chaque ville (Metro, Bus, Cercanías/Rodalies) est très développé. À Madrid (CRTM), l'Abono Transportes Joven (moins de 26 ans) coûte 20 €/mois pour toutes les zones. À Barcelone (TMB), la T-Jove et la T-Usual offrent des tarifs très avantageux. Les tickets à l'unité (Billete Sencillo) coûtent généralement entre 1,50 € et 2,40 €.",
+					"Le réseau Metro/EMT/Renfe couvre métro, bus, RER et tramway. Le Abono Transportes Découverte (5 €) est rechargeable au mois (86,40 €/mois, zones 1-5, tout Île-de-Spain). Le forfait Imagine R (étudiants de moins de 26 ans) : environ 350 €/an (moitié prix). Les tickets à l'unité coûtent 2,15 € (carnet de 10 : 17,35 €). L'application Île-de-Spain Mobilités vous guide en temps réel.",
 			},
 			{
-				title: "Transports en région et interurbains",
+				title: "Transports en province",
 				detail:
-					"Chaque région gère son propre réseau de transport (EMT, Tussam, Tuzsa). L'Espagne possède d'excellents réseaux de bus interurbains (groupe Alsa, Avanza) qui sont souvent plus économiques que le train pour voyager entre les différentes provinces ou de l'aéroport au centre.",
+					"Chaque ville a son propre réseau (TAN à Nantes, TCL à Lyon, RTM à Marseille). Les tarifs mensuels varient de 30 € à 70 €. Des tarifs réduits existent pour les étudiants, les demandeurs d'emploi et les bénéficiaires de la CSS. Le TER (train régional) relie les villes de la même région.",
 			},
 			{
-				title: "Trains longue distance (AVE, Avlo, Ouigo, Iryo)",
+				title: "Trains longue distance (AVE, Intercités)",
 				detail:
-					"Le réseau ferroviaire espagnol est géré historiquement par Renfe (AVE, Avlo, Alvia) ainsi que par de nouveaux opérateurs à bas coûts comme Ouigo España et Iryo. Réservez tôt en ligne pour obtenir les meilleurs tarifs. Si vous avez moins de 50 ans, la carte 'Más Renfe Joven' offre des réductions allant jusqu'à 30%.",
+					"La Renfe opère les AVE (grande vitesse) et les Intercités. Réservez tôt sur sncf-connect.com pour obtenir les meilleurs tarifs. La carte Avantage Jeune (moins de 27 ans, 49 €/an) donne -30% sur tous les trajets. BlaBlaCar est une alternative économique pour les trajets entre villes.",
 			},
 			{
 				title: "Permis de conduire",
 				detail:
-					"Le permis de conduire gabonais est reconnu pendant vos 6 premiers mois en Espagne en tant que résident. Au-delà, l'absence d'accord de réciprocité (canje) nécessite souvent de repasser le permis (Code et Conduite) par l'intermédiaire de la DGT (Dirección General de Tráfico).",
+					"Le permis de conduire gabonais est reconnu pendant 1 an après votre installation en Espagne. Au-delà, vous devez l'échanger contre un permis espagnol (si convention bilatérale) ou repasser le permis. La demande d'échange se fait sur le portail ANTS (sede.dgt.gob.es). Le permis international gabonais est valide pour les courts séjours.",
 			},
 			{
 				title: "Vélo et mobilité douce",
 				detail:
-					"Les grandes villes offrent des systèmes de vélos en libre-service : BiciMAD (Madrid), Bicing (Barcelone), Valenbisi (Valence). L'abonnement annuel coûte entre 25 € et 50 €. Les trottinettes électriques (Patinetes) sont soumises à de strictes règles : port du casque souvent requis, trottoirs interdits, etc.",
+					"Les grandes villes offrent des systèmes de vélos en libre-service : Vélib' (Paris), Vélo'v (Lyon), V'Lille (Lille). Abonnement annuel : 30 € à 50 €. Les trottinettes électriques sont réglementées : interdites sur les trottoirs, vitesse max 25 km/h, port du gilet réfléchissant recommandé.",
 			},
 		],
 		tips: [
-			"Téléchargez l'application officielle des transports de votre ville (ex. CRTM Madrid) pour la recharge sans contact",
-			"Pour les jeunes, les abonnements sont extrêmement subventionnés : réclamez-les !",
-			"Voyagez toujours avec un titre valide, les contrôles et amendes sont stricts (multa de 100€)",
-			"L'Abono gratuit de Cercanías Renfe est renouvelé périodiquement (sous caution de 10€)",
+			"Téléchargez les applications Citymapper ou Google Maps pour vous orienter dans les transports",
+			"Le Abono Transportes est rentable dès 3 trajets par jour — privilégiez l'abonnement mensuel",
+			"En cas de contrôle sans titre de transport valide, l'amende est de 50 € (majorée à 180 €)",
+			"Les transports en commun sont gratuits pour les bénéficiaires du Ingreso Mínimo Vital (IMV) en Île-de-Spain",
 		],
 		links: [
 			{
-				label: "Renfe",
+				label: "Metro/EMT",
+				url: "https://www.metromadrid.es",
+				description: "Transports en commun Paris et Île-de-Spain",
+			},
+			{
+				label: "Renfe Connect",
 				url: "https://www.renfe.com",
-				description: "Réseau ferroviaire et réservation de trains",
+				description: "Réservation de billets de train",
 			},
 			{
-				label: "DGT",
-				url: "https://www.dgt.es",
-				description: "Informations sur le permis de conduire espagnol",
-			},
-			{
-				label: "Alsa (Bus longue distance)",
-				url: "https://www.alsa.es/",
-				description: "Lignes de bus économiques en Espagne",
+				label: "ANTS",
+				url: "https://sede.dgt.gob.es",
+				description: "Échange de permis de conduire étranger",
 			},
 		],
 	},
@@ -349,50 +353,50 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Ouverture de compte bancaire",
 				detail:
-					"Avec votre NIE, vous pouvez ouvrir un compte bancaire en Espagne (Cuenta Básica). Banques principales : BBVA, CaixaBank, Santander. Néo-banques très réputées : N26, Revolut, compte Nickel (souvent valides dès que vous avez un numéro d'identification). Documents requis : Passeport + TIE/NIE + justificatif de domicile (Empadronamiento).",
+					"Droit au compte : même sans titre de séjour, la Banque d'Espagne peut désigner une banque obligée de vous ouvrir un compte (droit au compte, art. L312-1 du Code monétaire). Banques traditionnelles : BNP Paribas, Société Générale, La Banque Postale (la plus accessible). Néo-banques : Nickel (ouverture en bureau de tabac, 20 €/an), Revolut, N26. Documents requis : pièce d'identité + justificatif de domicile.",
 			},
 			{
 				title: "Transferts d'argent vers le Gabon",
 				detail:
-					"Plusieurs solutions pour envoyer de l'argent au Gabon : Wise (ex-TransferWise), WorldRemit, Western Union, Remitly, Ria ou MoneyGram. Comparez toujours les frais et le taux de change réel avant d'envoyer de l'argent depuis l'Espagne.",
+					"Plusieurs solutions pour envoyer de l'argent au Gabon : Wise (ex-TransferWise) — frais les plus bas, taux de change réel. WorldRemit — retrait en cash ou sur mobile money. Western Union — réseau d'agences au Gabon, frais plus élevés. Orange Money — transfert direct sur mobile money au Gabon. Comparez toujours les frais et le taux de change avant d'envoyer.",
 			},
 			{
 				title: "Impôts et déclaration fiscale",
 				detail:
-					"La déclaration annuelle de revenus (La Renta) se fait au printemps (avril - juin) auprès de l'Agencia Tributaria (Hacienda). Si vous y êtes résident, la déclaration est souvent obligatoire (sous certaines conditions de revenus annuels) pour prouver vos revenus et garantir l'obtention ou le renouvellement de vos cartes de séjour ou l'accès aux aides.",
+					"Même sans revenus, vous devez déclarer vos revenus chaque année sur agenciatributaria.gob.es (date limite : mai-juin). La déclaration est obligatoire pour obtenir un avis d'imposition ou de non-imposition, document souvent exigé pour les aides sociales, le logement et le renouvellement du titre de séjour. Les étudiants boursiers et les salariés à faibles revenus peuvent être non-imposables.",
 			},
 			{
 				title: "Aides sociales et prestations",
 				detail:
-					"Quelques aides sont accessibles aux résidents légaux de longue durée, via l'Instituto Nacional de la Seguridad Social (INSS). On relève des aides telles que l'Ingreso Mínimo Vital (IMV) et autres 'Rentas Mínimas' versées par les autorités régionales selon vos besoins et conditions.",
+					"Les principales aides accessibles aux résidents étrangers en situation régulière : APL/ALS (aide au logement, via Servicios Sociales), Prime d'activité (pour les travailleurs à revenus modestes), Ingreso Mínimo Vital (IMV) (Revenu de Solidarité Active, après 5 ans de résidence régulière), AAH (Allocation Adulte Handicapé). Simulez vos droits sur seg-social.es.",
 			},
 			{
 				title: "Protection contre les arnaques",
 				detail:
-					"Soyez vigilant : ne communiquez jamais vos clés d'accès (phishing). La banque ne vous les demandera jamais par SMS. En cas de fraude, bloquez votre carte dans l'application, contactez votre banque et déposez immédiatement plainte (Denuncia) auprès de la Polícia Nacional.",
+					"Soyez vigilant face aux arnaques : ne communiquez jamais vos codes bancaires par téléphone ou email (phishing). La banque ne vous demandera jamais votre mot de passe. En cas de fraude, appelez immédiatement votre banque + déposez plainte en ligne sur policia.es/denuncia-electronica. Le numéro 900 102 180 (Atención al Ciudadano) est gratuit.",
 			},
 		],
 		tips: [
-			"Les néo-banques digitales sont souvent plus souples à l'ouverture pour les étrangers",
-			"Ouvrez votre compte très tôt : sans compte local, impossible de louer un logement longue durée",
-			"Déclarez vos impôts via 'Renta Web' (Agencia Tributaria) chaque année, même si vous ne devez rien",
-			"Ayez toujours une photo de votre numéro de compte (IBAN espagnol commençant par ES) sur vous",
+			"La Banque Postale est souvent la plus accessible pour les primo-arrivants",
+			"Ouvrez votre compte bancaire le plus tôt possible — c'est nécessaire pour le logement et le travail",
+			"Déclarez vos impôts même sans revenus — l'avis de non-imposition ouvre droit à de nombreuses aides",
+			"Conservez toujours une photocopie de votre RIB à portée de main",
 		],
 		links: [
 			{
-				label: "Agencia Tributaria (Hacienda)",
-				url: "https://sede.agenciatributaria.gob.es",
-				description: "Taxes et déclaration de revenus (La Renta)",
+				label: "Banque d'Espagne",
+				url: "https://www.bde.es/bde/es/secciones/servicios/Particulares_702/",
+				description: "Droit au compte bancaire",
 			},
 			{
-				label: "Seguridad Social (INSS)",
-				url: "https://www.seg-social.es/",
-				description: "Plateforme pour la sécurité sociale et aides de base",
+				label: "Agencia Tributaria",
+				url: "https://www.agenciatributaria.gob.es",
+				description: "Déclaration de revenus en ligne",
 			},
 			{
-				label: "IMV - Ingreso Mínimo Vital",
-				url: "https://imv.seg-social.es",
-				description: "Simulateur pour le revenu d'insertion vital",
+				label: "Seguridad Social",
+				url: "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores",
+				description: "Simulateur de toutes les aides sociales",
 			},
 		],
 	},
@@ -404,42 +408,43 @@ const guideSections: GuideSection[] = [
 		iconBg: "bg-rose-500/10",
 		image: "/images/guide-sante.png",
 		intro:
-			"L'Orden de Expulsión (Resolución de Expulsión) est une décision administrative grave. Il est essentiel de connaître vos droits, les recours possibles et les conséquences. NE JAMAIS ignorer une Orden de Expulsión.",
+			"L'Obligation de Quitter le Territoire Espagnol (Orden de Expulsión) est une décision administrative grave. Il est essentiel de connaître vos droits, les recours possibles et les conséquences. NE JAMAIS ignorer une Orden de Expulsión.",
 		items: [
 			{
 				title: "Qu'est-ce qu'une Orden de Expulsión ?",
 				detail:
-					"C'est une décision administrative (Ley de Extranjería, LO 4/2000) enjoignant un étranger à quitter l'Espagne. Deux types principaux : l'Expulsión avec un délai de sortie volontaire (7 à 30 jours pour quitter le territoire) ou l'Expulsión immédiate. Motifs courants : séjour irrégulier (infraction grave), antécédents pénaux, ou travail sans autorisation. L'expulsion entraîne toujours une interdiction d'entrée (Prohibición de entrada).",
+					"C'est une décision administrative (art. L611-1 du CESEDA) enjoignant un étranger à quitter l'Espagne. Deux types : Orden de Expulsión avec délai de départ volontaire (30 jours pour quitter le territoire) ou Orden de Expulsión sans délai (départ immédiat, en cas de menace à l'ordre public, risque de fuite, ou refus d'embarquement précédent). Motifs courants : séjour irrégulier, refus de renouvellement de titre, refus de demande d'asile, travail sans autorisation.",
 			},
 			{
 				title: "Conséquences d'une Orden de Expulsión non exécutée",
 				detail:
-					"Une Orden de Expulsión non exécutée peut entraîner : une interdiction de retour sur le territoire espagnol (IRTF) de 1 à 3 ans, un signalement au Système d'Information Schengen (SIS) empêchant l'entrée dans tout l'espace Schengen, un placement en Centro de Internamiento de Extranjeros (CIE) en vue d'une expulsion forcée. ⚠️ L'Orden de Expulsión ne disparaît pas si vous ne faites rien — elle reste exécutoire.",
+					"Une Orden de Expulsión non exécutée peut entraîner : une interdiction de retour sur le territoire espagnol (IRTF) de 1 à 3 ans, un signalement au Système d'Information Schengen (SIS) empêchant l'entrée dans tout l'espace Schengen, un placement en centre de rétention administrative (CRA) en vue d'une expulsion forcée. ⚠️ L'Orden de Expulsión ne disparaît pas si vous ne faites rien — elle reste exécutoire.",
 			},
 			{
-				title: "1. Recurso de Reposición (Administration)",
+				title: "1. Recours gracieux — auprès du Subdelegado del Gobierno",
 				detail:
-					"Délai : 1 mois à compter de la notification. C'est un recours optionnel déposé devant l'autorité qui a dicté la résolution (Subdelegación del Gobierno). Vous y apportez les preuves justifiant l'annulation de la décision. ⚠️ Ce recours administratif NE SUSPEND GÉNÉRALEMENT PAS l'exécution de l'expulsion, sauf si expressément demandé et accordé.",
+					"Délai : 2 mois à compter de la notification. Envoi par lettre recommandée avec accusé de réception au Subdelegado del Gobierno qui a pris la décision. Joignez tous les éléments nouveaux justifiant votre maintien sur le territoire (contrat de travail, scolarisation des enfants, attaches familiales). ⚠️ Ce recours NE SUSPEND PAS l'exécution de l'Orden de Expulsión.",
 			},
 			{
-				title: "2. Recurso de Alzada (Hiérarchique)",
+				title: "2. Recours hiérarchique — auprès du Ministro del Interior",
 				detail:
-					"Délai : 1 mois à compter de la notification. Déposé devant l'organe supérieur de celui qui a dicté l'acte, lorsque la résolution ne met pas fin à la voie administrative. ⚠️ Tout comme la Reposición, il NE SUSPEND PAS automatiquement l'ordre d'expulsion.",
+					"Délai : 2 mois à compter de la notification. Même procédure que le recours gracieux mais adressé au ministre. ⚠️ Ce recours NE SUSPEND PAS non plus l'exécution de l'Orden de Expulsión. Il peut être effectué en parallèle du recours contentieux.",
 			},
 			{
-				title: "3. Recurso Contencioso-Administrativo (Tribunal)",
+				title:
+					"3. Recours contentieux — Tribunal Contencioso-Administrativo (SEUL RECOURS SUSPENSIF)",
 				detail:
-					"Délai : 2 mois (ou parfois moins selon les cas urgents). Vous pouvez demander des mesures cautélaires (medidas cautelares) pour SUSPENDRE l'expulsion pendant la durée du procès. Ce recours se fait obligatoirement avec un avocat et un avoué (procurador). Vous avez droit à l'assistance juridique gratuite (Asistencia Jurídica Gratuita) au Turno de Oficio en cas de revenus insuffisants.",
+					"Délai : 30 jours pour une Orden de Expulsión avec délai de départ, ou 48 heures pour une Orden de Expulsión sans délai. ✅ C'est le SEUL recours qui SUSPEND l'exécution de l'Orden de Expulsión jusqu'à la décision du tribunal. L'aide juridictionnelle est accessible (prise en charge des frais d'avocat si revenus modestes). Le tribunal rend sa décision dans un délai de 6 semaines (Orden de Expulsión avec délai) ou 96 heures (Orden de Expulsión sans délai). Vous pouvez saisir un avocat spécialisé en droit des étrangers ou contacter la CEAR (ONG de ayuda)/GISTI pour un accompagnement gratuit.",
 			},
 			{
-				title: "L'assistance de l'Ambassade du Gabon",
+				title: "Saisir le Ambassadeur du Gabon",
 				detail:
-					"L'Ambassade peut : 1) S'assurer du respect de vos droits si vous êtes retenu en CIE (Centro de Internamiento de Extranjeros). 2) Vous orienter vers de l'assistance juridique. 3) Délivrer un laissez-passer consulaire si le retour est inévitable et le passeport expiré. ⚠️ L'Ambassade n'a pas le pouvoir d'annuler une décision judiciaire espagnole.",
+					"L'Ambassade peut : 1) Vous orienter vers un avocat spécialisé. 2) Vous aider à constituer votre dossier. 3) Intervenir diplomatiquement dans les cas graves (familles, mineurs, raisons humanitaires). 4) Délivrer un laissez-passer consulaire si le retour est inévitable. Documents à apporter : copie de l'Orden de Expulsión, copies des recours effectués, pièce d'identité. ⚠️ L'Ambassade NE PEUT PAS s'opposer juridiquement à une Orden de Expulsión.",
 			},
 			{
 				title: "Voies de régularisation",
 				detail:
-					"Même sous Orden de Expulsión, des voies de régularisation existent : admission exceptionnelle au séjour (arraigo social (3 ans de résidence et offre d'emploi) ou arraigo laboral (2 ans de résidence et 6 mois de travail)), régularisation par le travail (promesse d'embauche et ancienneté de séjour), motif familial (parent d'enfant espagnol ou résidant légalement, conjoint de citoyen espagnol/UE), raisons médicales (si le traitement n'est pas disponible dans le pays d'origine), protection internationale via l'OAR (Oficina de Asilo y Refugio) (risque de persécution). Dossier à déposer en Oficina de Extranjería avec toutes les preuves d'insertion.",
+					"Même sous Orden de Expulsión, des voies de régularisation existent : admission exceptionnelle au séjour (circulaire Valls 2012 — 10 ans de présence, ou 5 ans avec 8 bulletins de salaire), régularisation par le travail (promesse d'embauche et ancienneté de séjour), motif familial (parent d'enfant espagnol, conjoint de Espagnol), raisons médicales (si le traitement n'est pas disponible dans le pays d'origine), protection internationale via l'OFPRA (risque de persécution). Dossier à déposer en Oficina de Extranjería avec toutes les preuves d'insertion.",
 			},
 			{
 				title: "Prévention : comment éviter une Orden de Expulsión",
@@ -450,25 +455,25 @@ const guideSections: GuideSection[] = [
 		tips: [
 			"NE JAMAIS ignorer une Orden de Expulsión — elle ne disparaît pas si vous ne faites rien et les conséquences s'aggravent",
 			"Consultez IMMÉDIATEMENT un avocat spécialisé en droit des étrangers — le délai de recours est court",
-			"Privilégiez TOUJOURS le recours contentieux (tribunal administratif) : c'est le SEUL qui SUSPEND l'exécution",
+			"Privilégiez TOUJOURS le recours contentieux (Tribunal Contencioso-Administrativo) : c'est le SEUL qui SUSPEND l'exécution",
 			"Rassemblez tous les documents prouvant votre ancienneté de séjour et votre insertion (bulletins de salaire, bail, scolarisation des enfants)",
-			"L'Ambassade est là pour vous accompagner — n'hésitez pas à le saisir en parallèle de vos recours juridiques",
+			"L'Ambassade est là pour vous accompagner — n'hésitez pas à la saisir en parallèle de vos recours juridiques",
 		],
 		links: [
 			{
-				label: "CEAR",
-				url: "https://www.lacimade.org",
+				label: "CEAR (ONG de ayuda)",
+				url: "https://www.cear.es",
 				description: "Accompagnement juridique gratuit pour étrangers",
 			},
 			{
-				label: "Cruz Roja Española",
-				url: "https://www.gisti.org",
+				label: "GISTI",
+				url: "https://www.cruzroja.es/principal/web/provincial-madrid/refugiados-y-migrantes",
 				description: "Groupe d'information et de soutien des immigrés",
 			},
 			{
-				label: "Asistencia Jurídica Gratuita",
-				url: "https://www.mjusticia.gob.es/es/ciudadanos/tramites/asistencia-juridica-gratuita",
-				description: "Prise en charge des frais d'avocat au Turno de Oficio",
+				label: "Aide juridictionnelle",
+				url: "https://www.abogacia.es/servicios/turno-de-oficio",
+				description: "Prise en charge des frais d'avocat",
 			},
 			{
 				label: "Defensor del Pueblo",
@@ -484,45 +489,43 @@ const guideSections: GuideSection[] = [
 const savoirVivre: SavoirVivreItem[] = [
 	{
 		icon: HandHeart,
-		title: "Respect et courtoisie",
-		description:
-			'En Espagne, les formules de politesse sont très importantes. Dites "Bonjour" en entrant dans un commerce, "Merci", "S\'il vous plaît", "Excusez-moi". Le vouvoiement est la règle avec les inconnus, les aînés et en contexte professionnel.',
+		title: "Salutations et convivialité",
+		description: `En Espagne, les salutations sont chaleureuses. On se fait "dos besos" (deux bisous sur les joues) entre amis et connaissances. Le tutoiement ("tú") est très courant, même en contexte professionnel. Le vouvoiement ("usted") est réservé aux personnes âgées ou aux contextes très formels.`,
 	},
 	{
 		icon: Landmark,
-		title: "Laïcité et vivre ensemble",
+		title: "Horaires à l'espagnole",
 		description:
-			"L'Espagne est un État laïc. La liberté de culte est garantie, mais la religion relève de la sphère privée. Dans les services publics (école, mairie, hôpital), une attitude neutre est attendue.",
+			"Les horaires espagnols sont décalés : déjeuner entre 14h et 15h30, dîner entre 21h et 23h. Beaucoup de commerces ferment entre 14h et 17h. La vie sociale se déroule en soirée — il est normal de sortir à 22h. Adaptez-vous à ce rythme pour vous intégrer.",
 	},
 	{
 		icon: Scale,
 		title: "Lois et règles de vie",
 		description:
-			"Le respect des lois est non-négociable : code de la route, interdiction de fumer dans les lieux publics fermés, tri des déchets, respect du voisinage (bruit limité entre 22h et 7h).",
+			"Le respect des lois est essentiel : empadronamiento obligatoire, interdiction de fumer dans les lieux publics fermés, tri des déchets, respect du voisinage (bruit limité entre 22h et 8h dans la plupart des communautés autonomes). Les amendes sont réelles.",
 	},
 	{
 		icon: Users,
-		title: "Relations de voisinage",
-		description:
-			"Se présenter à ses voisins en emménageant est apprécié. Respectez le règlement de copropriété, les horaires de calme et les espaces communs.",
+		title: "La sobremesa et les relations sociales",
+		description: `La "sobremesa" (rester à table après le repas pour discuter) est un rituel social important. Les Espagnols sont généralement très sociables et ouverts. Participer aux fêtes locales (fiestas, ferias, verbenas) est le meilleur moyen de s'intégrer.`,
 	},
 	{
 		icon: Flag,
-		title: "Valeurs de la République",
+		title: "Constitución et communautés autonomes",
 		description:
-			"Liberté, Égalité, Fraternité : ces valeurs sont au cœur de la société espagnole. L'égalité homme-femme est un droit fondamental. Toute discrimination est punie par la loi.",
+			"L'Espagne est une monarchie constitutionnelle avec 17 communautés autonomes, chacune ayant sa propre identité culturelle et parfois sa langue (catalan, basque, galicien). Le respect de cette diversité est fondamental. L'égalité homme-femme est un droit constitutionnel.",
 	},
 	{
 		icon: HeartHandshake,
 		title: "Engagement communautaire",
 		description:
-			"Participer à la vie associative locale facilite l'intégration et crée un réseau de solidarité. Restez connecté à la communauté gabonaise tout en vous ouvrant à la diversité culturelle espagnole.",
+			"Participer à la vie associative locale (asociaciones de vecinos, activités culturelles, bénévolat) facilite l'intégration. Restez connecté à la communauté gabonaise tout en vous ouvrant à la richesse culturelle espagnole.",
 	},
 	{
 		icon: Siren,
 		title: "Coopération avec les forces de l'ordre",
 		description:
-			"En cas d'arrestation, restez calme et coopérez. Vous avez le droit de connaître le motif, de garder le silence, d`avoir un avocat, de prévenir un proche et de contacter l'Ambassade (Convention de Vienne, art. 36).",
+			"En cas de contrôle, restez calme et coopérez. En Espagne, il y a la Policía Nacional (villes), la Guardia Civil (zones rurales) et les polices autonomes (Mossos, Ertzaintza). Vous avez le droit à un avocat, un interprète, et de contacter l'Ambassade (Convention de Vienne, art. 36).",
 	},
 ];
 
@@ -530,7 +533,7 @@ const savoirVivre: SavoirVivreItem[] = [
 const erreursCourantes: ErreurItem[] = [
 	{
 		erreur: "Laisser expirer son titre de séjour",
-		conseil: "Lancez le renouvellement 2 à 4 mois avant la date d`expiration.",
+		conseil: "Lancez le renouvellement 2 à 4 mois avant la date d'expiration.",
 	},
 	{
 		erreur: "Ne pas souscrire d'assurance habitation",
@@ -545,12 +548,12 @@ const erreursCourantes: ErreurItem[] = [
 	{
 		erreur: "Ignorer la déclaration d'impôts",
 		conseil:
-			"Même sans revenus, vous devez déclarer chaque année sur impots.gouv.fr.",
+			"Même sans revenus, vous devez déclarer chaque année sur agenciatributaria.gob.es.",
 	},
 	{
 		erreur: "Ne pas transcrire les actes d'état civil",
 		conseil:
-			"Naissances et mariages en Espagne doivent être transcrits à l`Ambassade.",
+			"Naissances et mariages en Espagne doivent être transcrits à l'Ambassade.",
 	},
 	{
 		erreur: "Ignorer une Orden de Expulsión",
@@ -560,7 +563,7 @@ const erreursCourantes: ErreurItem[] = [
 	{
 		erreur: "Voyager avec un simple récépissé de première demande",
 		conseil:
-			"Seul le titre définitif ou le visa national (type D) validé permet de quitter l'Espagne et d`y revenir.",
+			"Seul le titre définitif ou le VLS-TS validé permet de quitter l'Espagne et d'y revenir.",
 	},
 	{
 		erreur: "Oublier de signaler un changement d'adresse",
@@ -576,7 +579,7 @@ const erreursCourantes: ErreurItem[] = [
 // ─── Data: Numéros utiles ───────────────────────────────────────────────────
 const numerosUtiles: NumeroUtile[] = [
 	{
-		label: "Ambassade du Gabon",
+		label: "Ambassadeur du Gabon",
 		number: "C. de Silva, 2, 28013 Madrid",
 		color: "bg-emerald-500/10 text-emerald-600",
 	},
@@ -587,42 +590,52 @@ const numerosUtiles: NumeroUtile[] = [
 	},
 	{
 		label: "Urgence consulaire Gabon",
-		number: "+34 600 000 000",
+		number: "+34 91 XXX XX XX",
 		color: "bg-green-500/10 text-green-600",
 	},
 	{
-		label: "Ambulances (Emergencias Médicas)",
-		number: "061",
+		label: "SAMU (urgences médicales)",
+		number: "15",
 		color: "bg-red-500/10 text-red-600",
 	},
 	{
-		label: "Police Nationale (Policía Nacional)",
-		number: "091",
+		label: "Policía Nacional",
+		number: "17",
 		color: "bg-blue-500/10 text-blue-600",
 	},
 	{
-		label: "Pompiers (Bomberos)",
-		number: "080",
+		label: "Bomberos",
+		number: "18",
 		color: "bg-orange-500/10 text-orange-600",
 	},
 	{
-		label: "Urgences générales",
+		label: "Urgences européennes",
 		number: "112",
 		color: "bg-purple-500/10 text-purple-600",
 	},
 	{
-		label: "Violences de genre",
-		number: "016",
+		label: "Violencia de género",
+		number: "3919",
 		color: "bg-pink-500/10 text-pink-600",
 	},
 	{
-		label: "Information administration de l'État",
-		number: "060",
+		label: "Enfance en danger",
+		number: "119",
 		color: "bg-yellow-500/10 text-yellow-600",
 	},
 	{
-		label: "Asistencia Jurídica Gratuita",
-		number: "Voir Colegio de Abogados",
+		label: "Oficina de Extranjería",
+		number: "01 53 69 53 70",
+		color: "bg-indigo-500/10 text-indigo-600",
+	},
+	{
+		label: "Oficina de Extranjería en ligne (Mercurio)",
+		number: "sede.administracionespublicas.gob.es",
+		color: "bg-cyan-500/10 text-cyan-600",
+	},
+	{
+		label: "Aide juridictionnelle",
+		number: "3039",
 		color: "bg-emerald-500/10 text-emerald-600",
 	},
 ];
@@ -631,7 +644,7 @@ const guideSectionsEn: GuideSection[] = [
 	{
 		id: "admission",
 		icon: Plane,
-		title: "Admission to Espagne",
+		title: "Admission to Spain",
 		color: "text-cyan-600 dark:text-cyan-400",
 		iconBg: "bg-cyan-500/10",
 		image: "/images/guide-droits.png",
@@ -641,7 +654,7 @@ const guideSectionsEn: GuideSection[] = [
 			{
 				title: "Visa categories",
 				detail:
-					"Short-stay visas (Schengen type C) cover tourism and family visits up to 90 days. Long-stay visas (type D / visa national) are for studies, work and family settlement.",
+					"Short-stay visas (Schengen type C) cover tourism and family visits up to 90 days. Long-stay visas (type D / VLS-TS) are for studies, work and family settlement.",
 			},
 			{
 				title: "Border control checklist",
@@ -649,37 +662,37 @@ const guideSectionsEn: GuideSection[] = [
 					"Carry a valid passport, valid visa, accommodation proof, return ticket for short stays, travel insurance and proof of financial resources.",
 			},
 			{
-				title: "Carta de Invitación (Letter of Invitation)",
+				title: "Hosting certificate",
 				detail:
-					"If hosted by a private person, an official Carta de Invitación issued by the National Police is commonly required for your visa application.",
+					"If hosted by a private person, an official hosting certificate issued by the town hall is often required for short-stay applications.",
 			},
 			{
-				title: "First Steps (Empadronamiento & TIE)",
+				title: "VLS-TS validation",
 				detail:
-					"After arrival, register at your local town hall (Empadronamiento) and apply for your foreigner identity card (TIE) at the Police or Extranjería within one month.",
+					"After arrival, validate your VLS-TS online within three months through Mercurio/Oficina de Extranjería procedures to keep your stay regular.",
 			},
 		],
 		tips: [
 			"Keep both paper and digital copies of travel documents",
 			"Organize all supporting documents in one folder for border checks",
-			"Do not delay your TIE application after arrival",
+			"Do not delay VLS-TS validation after arrival",
 			"Save emergency contacts before departure",
 		],
 		links: [
 			{
-				label: "Sede Electrónica Extranjería",
-				url: "https://sede.administracionespublicas.gob.es/procedimientos/index/categoria/34",
-				description: "Cita Previa and administrative procedures",
+				label: "Oficina de Extranjería",
+				url: "https://extranjeros.inclusion.gob.es",
+				description: "Spanish Office for Immigration and Integration",
 			},
 			{
-				label: "Visas for Spain",
-				url: "https://www.exteriores.gob.es/Consulados/libreville/es/ServiciosConsulares/Paginas/index.aspx",
-				description: "Spanish Embassy in Gabon",
+				label: "Spain-Visas",
+				url: "https://www.exteriores.gob.es/Consulados/libreville/es/ServiciosConsulares/Paginas/Visados.aspx",
+				description: "Official Spanish visa portal",
 			},
 			{
-				label: "Ministerio de Inclusión",
-				url: "https://www.inclusion.gob.es/",
-				description: "Official Spanish immigration portal",
+				label: "Mercurio",
+				url: "https://sede.administracionespublicas.gob.es/icpplus",
+				description: "Foreigners portal in Spain",
 			},
 		],
 	},
@@ -691,50 +704,55 @@ const guideSectionsEn: GuideSection[] = [
 		iconBg: "bg-indigo-500/10",
 		image: "/images/guide-education.png",
 		intro:
-			"Gabonese students in Espagne have specific rights around work, residence renewal and post-graduation transitions.",
+			"Gabonese students in Spain have specific rights around work, residence renewal and post-graduation transitions.",
 		items: [
 			{
-				title: "Student Visa and Admission",
+				title: "UNEDasiss pathway",
 				detail:
-					"Most long-stay student visas are processed through the Spanish Embassy in Libreville after securing direct university admission or via the UNEDasiss portal for degree recognition.",
+					"Most long-stay student visas are prepared through UNEDasiss, then finalized with the Spanish consular process.",
 			},
 			{
 				title: "Scholarships and aid",
 				detail:
-					"You may combine Gabonese (ANBG) or Spanish funding sources (Becas MEC or regional grants) depending on eligibility. There are fewer social housing aids compared to other European countries.",
+					"You may combine Gabonese or Spanish funding sources depending on eligibility: ANBG, Becas MEC social grants and emergency support.",
 			},
 			{
 				title: "Work during studies",
 				detail:
-					"Students can generally work up to 30 hours per week (part-time). Internship agreements (prácticas) must be registered with social security.",
+					"Students can generally work up to 964 hours per year. Exceeding this limit can affect permit renewal.",
 			},
 			{
 				title: "After graduation",
 				detail:
-					"A 12-month non-renewable job search permit (Residencia para búsqueda de empleo) allows graduates to seek employment or start a business after completing an eligible higher education degree.",
+					"APS and status-change pathways can allow graduates to seek employment or start a business after completing eligible degrees.",
 			},
 		],
 		tips: [
-			"Apply for your TIE renewal using your Digital Certificate before it expires",
-			"Ensure your work hours don't exceed the 30h/week limit",
+			"Apply for residence renewal before your current permit expires",
+			"Track your annual work hours from your first contract",
 			"Keep transcripts and degree certificates ready for status changes",
-			"Explore shared housing (Colocation/Piso Compartido)",
+			"Use Becas MEC services early (housing, meals, social support)",
 		],
 		links: [
 			{
-				label: "SEPIE - Study in Spain",
-				url: "http://sepie.es/internacionalizacion/study-in-spain.html",
-				description: "Study in Spain higher education portal",
-			},
-			{
 				label: "UNEDasiss",
-				url: "https://unedasiss.uned.es/home",
-				description: "Access to Spanish universities for foreigners",
+				url: "https://www.uned.es/universidad/inicio/en/unedasiss.html",
+				description: "Study in Spain portal",
 			},
 			{
-				label: "Becas MEC",
-				url: "https://www.educacionfpydeportes.gob.es/servicios-al-ciudadano/catalogo/estudiantes/becas-ayudas/para-estudiar.html",
-				description: "Ministry of Education scholarships",
+				label: "MesServices Étudiant",
+				url: "https://www.becaseducacion.gob.es",
+				description: "Student services (grants and housing)",
+			},
+			{
+				label: "Service-public.fr — APS",
+				url: "https://www.becaseducacion.gob.es",
+				description: "Temporary post-study permit information",
+			},
+			{
+				label: "Visale",
+				url: "https://www.idealista.com",
+				description: "Free rental guarantee for eligible profiles",
 			},
 		],
 	},
@@ -746,50 +764,50 @@ const guideSectionsEn: GuideSection[] = [
 		iconBg: "bg-sky-500/10",
 		image: "/images/guide-emploi.png",
 		intro:
-			"Your legal stay in Espagne depends on meeting key administrative deadlines and keeping your documents up to date.",
+			"Your legal stay in Spain depends on meeting key administrative deadlines and keeping your documents up to date.",
 		items: [
 			{
-				title: "First residence process (TIE)",
+				title: "First residence process",
 				detail:
-					"Register at the town hall (Empadronamiento), pay the Tasa 790-012, and get your fingerprints taken at the Extranjería or national police station for your Foreigner Identity Card.",
+					"Validate your visa on Mercurio, pay required taxes, and complete Oficina de Extranjería steps where applicable during your first months.",
 			},
 			{
-				title: "Permit renewal (Renovación)",
+				title: "Permit renewal",
 				detail:
-					"Submit renewal files up to 60 days before expiry or up to 90 days after (with possible penalty). Keep your application receipt to prove legal stay.",
+					"Submit renewal files 2 to 4 months before expiry. Keep your receipt and monitor your online case regularly.",
 			},
 			{
-				title: "Status changes (Modificación)",
+				title: "Status changes",
 				detail:
-					"Switching from student to employee requires a qualifying job offer and an employer-initiated procedure at the relevant Extranjería office.",
+					"Switching from student to employee often requires a qualifying job offer, employer procedure, and Oficina de Extranjería submission.",
 			},
 			{
 				title: "Loss or theft of documents",
 				detail:
-					"Declare loss/theft immediately to the police (Denuncia), then request replacement through the relevant authority (Embassy for passport, Extranjería/Police for TIE).",
+					"Declare loss/theft immediately, then request replacement through the relevant authority (Embassy, Oficina de Extranjería or Mercurio).",
 			},
 		],
 		tips: [
-			"Get a Digital Certificate (FNMT) to complete nearly all procedures online",
+			"Set reminders for every permit and filing deadline",
 			"Store scanned copies of all identity and residence records",
-			"Use the Sede Electrónica / Mercurio platform when available",
+			"Use Mercurio as the primary channel when available",
 			"Always keep proof of submission and receipts",
 		],
 		links: [
 			{
-				label: "Sede Electrónica (Mercurio)",
-				url: "https://sede.administracionespublicas.gob.es/mercurio/inicioMercurio.html",
-				description: "Residence procedures online renewal",
+				label: "Portail Mercurio",
+				url: "https://sede.administracionespublicas.gob.es/icpplus",
+				description: "Residence procedures online",
 			},
 			{
-				label: "Digital Certificate FNMT",
-				url: "https://www.sede.fnmt.gob.es/certificados",
-				description: "Essential tool for online identity and signing",
+				label: "Oficina de Extranjería",
+				url: "https://extranjeros.inclusion.gob.es",
+				description: "Immigration and integration steps",
 			},
 			{
-				label: "Cita Previa Extranjería",
-				url: "https://icp.administracionelectronica.gob.es/icpplus/index.html",
-				description: "Book appointments for fingerprinting and other steps",
+				label: "Service-public.fr",
+				url: "https://sede.administracionespublicas.gob.es/icpplus",
+				description: "Official guidance for foreigners in Spain",
 			},
 		],
 	},
@@ -801,50 +819,50 @@ const guideSectionsEn: GuideSection[] = [
 		iconBg: "bg-emerald-500/10",
 		image: "/images/guide-logement.png",
 		intro:
-			"Understanding transport systems early will save you time and money, especially in your first months in Espagne.",
+			"Understanding transport systems early will save you time and money, especially in your first months in Spain.",
 		items: [
 			{
-				title: "Madrid, Barcelona and major cities",
+				title: "Paris and Ile-de-Spain",
 				detail:
-					"Metro, Cercanías, tram and bus networks are extensive. Monthly passes (like Abono Transportes in Madrid or T-Jove in Barcelona) are highly subsidized for youth.",
+					"Metro, RER, tram and bus networks are extensive. Monthly passes are usually more cost-effective than single tickets for frequent travel.",
 			},
 			{
 				title: "Other cities",
 				detail:
-					"Every city has its own operator and fare system. Spain also has an excellent intercity bus network (Alsa, Avanza) that is often cheaper than trains.",
+					"Every city has its own operator and fare system. Student and low-income discounts are often available.",
 			},
 			{
 				title: "Long-distance travel",
 				detail:
-					"Book trains early on Renfe, Ouigo or Iryo for better prices. Youth discount cards like 'Más Renfe Joven' can reduce costs significantly.",
+					"Book trains early on Renfe Connect for better prices. Youth discount cards can reduce costs significantly.",
 			},
 			{
 				title: "Driving and local mobility",
 				detail:
-					"Check recognition rules for Gabonese driving licenses and exchange (canje) procedures through DGT. Otherwise, you may need to pass the Spanish test.",
+					"Check recognition rules for Gabonese driving licenses and exchange procedures through ANTS when applicable.",
 			},
 		],
 		tips: [
-			"Use official local transit apps for real-time planning and mobile tickets",
-			"Keep transport tickets valid to avoid strict fines (multas)",
+			"Use route apps (Citymapper/Google Maps) for real-time planning",
+			"Keep transport tickets or subscriptions valid to avoid fines",
 			"Compare monthly vs. pay-per-trip costs from your first week",
-			"Verify local rules for public bikes (BiciMAD, Bicing) and electric scooters",
+			"Verify local rules for bikes and electric scooters",
 		],
 		links: [
 			{
-				label: "Renfe",
+				label: "Metro/EMT",
+				url: "https://www.metromadrid.es",
+				description: "Public transport in Paris region",
+			},
+			{
+				label: "Renfe Connect",
 				url: "https://www.renfe.com",
-				description: "National railway and high-speed trains",
+				description: "Train booking platform",
 			},
 			{
-				label: "DGT",
-				url: "https://www.dgt.es",
+				label: "ANTS",
+				url: "https://sede.dgt.gob.es",
 				description: "Driving license administrative services",
-			},
-			{
-				label: "ALSA",
-				url: "https://www.alsa.es/",
-				description: "Long-distance bus network",
 			},
 		],
 	},
@@ -861,44 +879,44 @@ const guideSectionsEn: GuideSection[] = [
 			{
 				title: "Opening a bank account",
 				detail:
-					"Traditional and digital options exist (BBVA, Santander, N26, Revolut). A TIE/NIE and Empadronamiento are generally required. You have a legal right to a basic account (Cuenta Básica).",
+					"Traditional and digital options exist. If refused, you may use the legal right-to-an-account procedure through Banque d'Espagne.",
 			},
 			{
 				title: "Money transfers to Gabon",
 				detail:
-					"Compare providers like Wise, Remitly or WorldRemit carefully for fees and exchange rates before each transfer.",
+					"Compare providers carefully for fees and exchange rates before each transfer.",
 			},
 			{
-				title: "Tax obligations (La Renta)",
+				title: "Tax obligations",
 				detail:
-					"Annual tax declaration (La Renta) is handled by Agencia Tributaria. It is highly recommended to file it to access social benefits and ease residence renewals.",
+					"Annual tax declaration is required in Spain, even with low or no income in many cases.",
 			},
 			{
 				title: "Fraud prevention",
 				detail:
-					"Never share PINs or passwords by phone or SMS. In case of fraud, block cards in your app and file a police report (Denuncia).",
+					"Never share banking codes by phone or email. In case of fraud, block cards immediately and file a complaint.",
 			},
 		],
 		tips: [
-			"Open your account as soon as you secure your TIE/NIE",
-			"Keep your Spanish IBAN handy (starts with ES) for direct debits",
+			"Open your account as soon as you secure accommodation",
+			"Keep a copy of your bank details (RIB) ready for procedures",
 			"Always compare exchange-rate spread and transfer fees",
 			"Activate strong authentication in your banking app",
 		],
 		links: [
 			{
+				label: "Banque d'Espagne",
+				url: "https://www.bde.es/bde/es/secciones/servicios/Particulares_702/",
+				description: "Right-to-an-account process",
+			},
+			{
 				label: "Agencia Tributaria",
-				url: "https://sede.agenciatributaria.gob.es",
-				description: "Tax portal (Hacienda) and declarations",
+				url: "https://www.agenciatributaria.gob.es",
+				description: "Tax portal and declarations",
 			},
 			{
-				label: "Seguridad Social (INSS)",
-				url: "https://www.seg-social.es/",
-				description: "Social security and benefits info",
-			},
-			{
-				label: "Ingreso Mínimo Vital",
-				url: "https://imv.seg-social.es",
+				label: "Seguridad Social",
+				url: "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores",
 				description: "Social aid simulator",
 			},
 		],
@@ -916,45 +934,50 @@ const guideSectionsEn: GuideSection[] = [
 			{
 				title: "What an Orden de Expulsión means",
 				detail:
-					"It is a legal order to leave Spain. It generally carries a prohibition of entry (prohibición de entrada) for up to several years. You may or may not be granted a voluntary departure period.",
+					"It is an order to leave Spain, with or without a voluntary departure period, depending on your case.",
 			},
 			{
 				title: "Consequences if ignored",
 				detail:
-					"Ignoring an Orden de Expulsión can lead to forced removal, detention in a CIE (Centro de Internamiento de Extranjeros), and Schengen-wide travel bans.",
+					"Ignoring an Orden de Expulsión can lead to return bans, detention procedures and Schengen-wide consequences.",
 			},
 			{
 				title: "Appeal routes",
 				detail:
-					"You can file administrative appeals (Reposición or Alzada), but the court appeal (Recurso Contencioso-Administrativo) allows requesting 'medidas cautelares' to suspend the expulsion.",
+					"Administrative and hierarchical appeals exist, but court appeals are often the only suspensive remedy within strict deadlines.",
 			},
 			{
-				title: "Embassy support",
+				title: "Consular support",
 				detail:
-					"The Embassy can refer you to legal support, assure your rights are upheld in a CIE, and coordinate a safe return if necessary. It cannot overturn Spanish judicial orders.",
+					"The Embassy can orient you to legal support, help document your case, and coordinate return-related assistance when required.",
 			},
 		],
 		tips: [
-			"Do not wait: court deadlines (plazos) are strict and non-negotiable",
-			"Prioritize a specialized immigration lawyer (abogado de extranjería)",
-			"Organize all evidence of your integration, ties, or family in Spain",
-			"Contact the Embassy to ensure you receive consular assistance",
+			"Do not wait: legal deadlines can be very short",
+			"Prioritize specialized legal counsel in immigration law",
+			"Organize all evidence of integration and residence history",
+			"Contact the Embassy in parallel with legal steps",
 		],
 		links: [
 			{
-				label: "CEAR",
+				label: "CEAR (ONG de ayuda)",
 				url: "https://www.cear.es",
-				description: "Support for refugees and migrants",
+				description: "Free legal support for migrants",
 			},
 			{
-				label: "Free Legal Aid",
-				url: "https://www.mjusticia.gob.es/es/ciudadanos/tramites/asistencia-juridica-gratuita",
-				description: "Apply for public defenders (Turno de Oficio)",
+				label: "GISTI",
+				url: "https://www.cruzroja.es/principal/web/provincial-madrid/refugiados-y-migrantes",
+				description: "Immigration rights resources",
+			},
+			{
+				label: "Aide juridictionnelle",
+				url: "https://www.abogacia.es/servicios/turno-de-oficio",
+				description: "Legal aid information",
 			},
 			{
 				label: "Defensor del Pueblo",
 				url: "https://www.defensordelpueblo.es",
-				description: "Ombudsman for institutional disputes",
+				description: "Independent rights authority",
 			},
 		],
 	},
@@ -963,33 +986,33 @@ const guideSectionsEn: GuideSection[] = [
 const savoirVivreEn: SavoirVivreItem[] = [
 	{
 		icon: HandHeart,
-		title: "Respect and Courtesy",
+		title: "Greetings and Warmth",
 		description:
-			"Politeness is central in everyday interactions. Greeting, thanking and using respectful language matter.",
+			"Spanish greetings are warm — 'dos besos' (two cheek kisses) are common between friends. The informal 'tú' is widely used, even professionally. 'Usted' is reserved for elderly people or very formal settings.",
 	},
 	{
 		icon: Landmark,
-		title: "Secularism and Social Life",
+		title: "Spanish Schedules",
 		description:
-			"Public institutions follow secular principles and expect respectful coexistence across beliefs.",
+			"Spanish schedules are shifted: lunch is between 2–3:30 PM, dinner 9–11 PM. Many shops close between 2–5 PM. Social life happens in the evening — going out at 10 PM is perfectly normal.",
 	},
 	{
 		icon: Scale,
 		title: "Rules of Daily Life",
 		description:
-			"Traffic, smoking, waste-sorting and neighborhood rules are enforced and should be taken seriously.",
+			"Rules around empadronamiento, smoking bans, waste sorting and neighborhood noise are enforced and should be taken seriously.",
 	},
 	{
 		icon: Users,
-		title: "Neighborhood Relations",
+		title: "Sobremesa and Social Life",
 		description:
-			"Introducing yourself to neighbors and respecting quiet hours helps your integration.",
+			"'Sobremesa' (staying at the table to chat after a meal) is a cherished Spanish tradition. Joining local fiestas, ferias and verbenas is the best way to integrate.",
 	},
 	{
 		icon: Flag,
-		title: "Republican Values",
+		title: "Constitution and Autonomous Communities",
 		description:
-			"Liberty, equality and fraternity are core values. Discrimination is prohibited.",
+			"Spain is a constitutional monarchy with 17 autonomous communities, each with its own cultural identity and sometimes its own language. Discrimination is prohibited by law.",
 	},
 	{
 		icon: HeartHandshake,
@@ -1001,7 +1024,7 @@ const savoirVivreEn: SavoirVivreItem[] = [
 		icon: Siren,
 		title: "Interaction with Law Enforcement",
 		description:
-			"Stay calm and cooperate. You have legal rights, including lawyer access and consular contact.",
+			"Stay calm and cooperate. Spain has the Policía Nacional, Guardia Civil, and regional forces. You have legal rights, including lawyer access and Embassy contact.",
 	},
 ];
 
@@ -1049,7 +1072,7 @@ const erreursCourantesEn: ErreurItem[] = [
 
 const numerosUtilesEn: NumeroUtile[] = [
 	{
-		label: "Embassy of Gabon",
+		label: "Consul General of Gabon",
 		number: "C. de Silva, 2, 28013 Madrid",
 		color: "bg-emerald-500/10 text-emerald-600",
 	},
@@ -1060,49 +1083,59 @@ const numerosUtilesEn: NumeroUtile[] = [
 	},
 	{
 		label: "Gabon Consular Emergency",
-		number: "+34 600 000 000",
+		number: "+34 91 XXX XX XX",
 		color: "bg-green-500/10 text-green-600",
 	},
 	{
-		label: "Ambulances (Medical emergency)",
-		number: "061",
+		label: "SAMU (Medical emergency)",
+		number: "15",
 		color: "bg-red-500/10 text-red-600",
 	},
 	{
-		label: "National Police",
-		number: "091",
+		label: "Policía Nacional",
+		number: "17",
 		color: "bg-blue-500/10 text-blue-600",
 	},
 	{
 		label: "Fire Brigade",
-		number: "080",
+		number: "18",
 		color: "bg-orange-500/10 text-orange-600",
 	},
 	{
-		label: "General Emergency",
+		label: "European emergency",
 		number: "112",
 		color: "bg-purple-500/10 text-purple-600",
 	},
 	{
-		label: "Gender violence hotline",
-		number: "016",
+		label: "Women violence hotline",
+		number: "3919",
 		color: "bg-pink-500/10 text-pink-600",
 	},
 	{
-		label: "State administration info",
-		number: "060",
+		label: "Child protection hotline",
+		number: "119",
 		color: "bg-yellow-500/10 text-yellow-600",
 	},
 	{
-		label: "Free Legal Aid",
-		number: "Colegio de Abogados",
+		label: "Oficina de Extranjería",
+		number: "01 53 69 53 70",
+		color: "bg-indigo-500/10 text-indigo-600",
+	},
+	{
+		label: "Online Oficina de Extranjería (Mercurio)",
+		number: "sede.administracionespublicas.gob.es",
+		color: "bg-cyan-500/10 text-cyan-600",
+	},
+	{
+		label: "Legal aid",
+		number: "3039",
 		color: "bg-emerald-500/10 text-emerald-600",
 	},
 ];
 
 // ─── Main Page Component ─────────────────────────────────────────────────────
 
-function VenirEnEspagnePage() {
+function VenirEnSpainPage() {
 	const { t, i18n } = useTranslation();
 	const { isSectionHidden } = useSectionVisibility("/venir-en-espagne");
 	const lang = i18n.resolvedLanguage || i18n.language;
@@ -1116,12 +1149,15 @@ function VenirEnEspagnePage() {
 		<div className="min-h-screen bg-background flex flex-col">
 			<div className="flex-1">
 				{/* ── Hero Section ────────────────────────────────────────────────── */}
-				<PageHero image="/images/hero-venir.png">
+				<PageHero image="/images/heroes/hero-vie-france.png">
 					<Badge className="mb-4 bg-primary/10 text-primary border-primary/20 backdrop-blur-sm">
 						<BookOpen className="w-3.5 h-3.5 mr-1.5" />
 						<EditableText
-							contentKey="venirEspagne.hero.badge"
-							defaultValue={t("venirEspagne.badge", "Guide d'installation")}
+							contentKey="venirSpain.hero.badge"
+							defaultValue={t(
+								"venirSpain.badge",
+								"Guide d'arrivée & intégration",
+							)}
 							pagePath="/venir-en-espagne"
 							sectionId="hero"
 							as="span"
@@ -1130,24 +1166,15 @@ function VenirEnEspagnePage() {
 
 					<h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight mb-4">
 						<EditableText
-							contentKey="venirEspagne.hero.title"
-							defaultValue={t("venirEspagne.heroTitle", "S`installer au ")}
+							contentKey="venirSpain.hero.title"
+							defaultValue={t("venirSpain.heroTitle", "Venir en Espagne")}
 							pagePath="/venir-en-espagne"
 							sectionId="hero"
 							as="span"
-						/>
-						<br />
-						<EditableText
-							contentKey="venirEspagne.hero.subtitle"
-							defaultValue={t("venirEspagne.heroSubtitle", "Royaume d'Espagne")}
-							pagePath="/venir-en-espagne"
-							sectionId="hero"
-							as="span"
-							className="text-foreground"
 						/>{" "}
 						<EditableText
-							contentKey="venirEspagne.hero.highlight"
-							defaultValue={t("venirEspagne.heroHighlight", "& s`y intégrer")}
+							contentKey="venirSpain.hero.titleHighlight"
+							defaultValue={t("venirSpain.heroHighlight", "& s'intégrer")}
 							pagePath="/venir-en-espagne"
 							sectionId="hero"
 							as="span"
@@ -1156,10 +1183,10 @@ function VenirEnEspagnePage() {
 					</h1>
 
 					<EditableText
-						contentKey="venirEspagne.hero.description"
+						contentKey="venirSpain.hero.description"
 						defaultValue={t(
-							"venirEspagne.heroDescription",
-							"Guide complet pour les Gabonais arrivant en Espagne : admission, visa, démarches administratives, codes culturels et conseils pratiques pour une intégration réussie. L'Ambassade du Gabon vous accompagne.",
+							"venirSpain.heroDescription",
+							"Guide complet pour les Gabonais arrivant en Espagne : admission, visa, démarches administratives, codes culturels et conseils pratiques pour une intégration réussie. Le Ambassade du Gabon en Espagne vous accompagne.",
 						)}
 						pagePath="/venir-en-espagne"
 						sectionId="hero"
@@ -1170,17 +1197,17 @@ function VenirEnEspagnePage() {
 					{/* Quick nav pills */}
 					<div className="flex flex-wrap gap-2">
 						{tSections.map((s) => {
-							const SIcon = s.icon;
+							const SIcon = s.icon
 							return (
 								<a
 									key={s.id}
-									href={`#${s.id}`}
+									href={"#${s.id}"}
 									className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 backdrop-blur-sm hover:bg-primary/10 hover:border-primary/30 transition-all text-xs font-medium text-foreground hover:text-primary"
 								>
 									<SIcon className={`w-4 h-4 ${s.color}`} />
 									{s.title}
 								</a>
-							);
+							)
 						})}
 					</div>
 				</PageHero>
@@ -1195,9 +1222,9 @@ function VenirEnEspagnePage() {
 							>
 								<HandHeart className="w-3.5 h-3.5 mr-1.5" />
 								<EditableText
-									contentKey="venirEspagne.savoirVivre.badge"
+									contentKey="venirSpain.savoirVivre.badge"
 									defaultValue={t(
-										"venirEspagne.savoirVivre.badge",
+										"venirSpain.savoirVivre.badge",
 										"Savoir-vivre",
 									)}
 									pagePath="/venir-en-espagne"
@@ -1207,9 +1234,9 @@ function VenirEnEspagnePage() {
 							</Badge>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
 								<EditableText
-									contentKey="venirEspagne.savoirVivre.title"
+									contentKey="venirSpain.savoirVivre.title"
 									defaultValue={t(
-										"venirEspagne.savoirVivre.title",
+										"venirSpain.savoirVivre.title",
 										"Codes culturels & Conventions",
 									)}
 									pagePath="/venir-en-espagne"
@@ -1218,9 +1245,9 @@ function VenirEnEspagnePage() {
 								/>
 							</h2>
 							<EditableText
-								contentKey="venirEspagne.savoirVivre.description"
+								contentKey="venirSpain.savoirVivre.description"
 								defaultValue={t(
-									"venirEspagne.savoirVivre.description",
+									"venirSpain.savoirVivre.description",
 									"Comprendre les codes de la société espagnole pour mieux y évoluer. Ce n'est pas renoncer à sa culture, c'est en ajouter une autre.",
 								)}
 								pagePath="/venir-en-espagne"
@@ -1236,16 +1263,13 @@ function VenirEnEspagnePage() {
 
 				{/* ── Guides thématiques (Cards) ──────────────────────────────────── */}
 				<section className="py-16 px-6 bg-background">
-					<div className="max-w-7xl mx-auto">
+					<div className="max-w-4xl mx-auto">
 						<div className="text-center mb-12">
 							<Badge variant="outline" className="mb-4">
 								<Shield className="w-3.5 h-3.5 mr-1.5" />
 								<EditableText
-									contentKey="venirEspagne.guides.badge"
-									defaultValue={t(
-										"venirEspagne.guides.badge",
-										"Guides complets",
-									)}
+									contentKey="venirSpain.guides.badge"
+									defaultValue={t("venirSpain.guides.badge", "Guides complets")}
 									pagePath="/venir-en-espagne"
 									sectionId="guides"
 									as="span"
@@ -1253,9 +1277,9 @@ function VenirEnEspagnePage() {
 							</Badge>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
 								<EditableText
-									contentKey="venirEspagne.guides.title"
+									contentKey="venirSpain.guides.title"
 									defaultValue={t(
-										"venirEspagne.guides.title",
+										"venirSpain.guides.title",
 										"Vos démarches détaillées",
 									)}
 									pagePath="/venir-en-espagne"
@@ -1264,9 +1288,9 @@ function VenirEnEspagnePage() {
 								/>
 							</h2>
 							<EditableText
-								contentKey="venirEspagne.guides.description"
+								contentKey="venirSpain.guides.description"
 								defaultValue={t(
-									"venirEspagne.guides.description",
+									"venirSpain.guides.description",
 									"Cliquez sur chaque thème pour découvrir les informations détaillées, les procédures et nos astuces pratiques.",
 								)}
 								pagePath="/venir-en-espagne"
@@ -1276,7 +1300,7 @@ function VenirEnEspagnePage() {
 							/>
 						</div>
 
-						<div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+						<div className="space-y-4">
 							{tSections.map((section) => (
 								<GuideSectionCard key={section.id} section={section} />
 							))}
@@ -1290,14 +1314,14 @@ function VenirEnEspagnePage() {
 						<div className="text-center mb-12">
 							<Badge className="mb-4 bg-orange-500/10 text-orange-600 border-orange-200 dark:border-orange-800">
 								<AlertTriangle className="w-3.5 h-3.5 mr-1.5" />
-								{t("venirEspagne.erreurs.badge", "À savoir absolument")}
+								{t("venirSpain.erreurs.badge", "À savoir absolument")}
 							</Badge>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-								{t("venirEspagne.erreurs.title", "Erreurs courantes à éviter")}
+								{t("venirSpain.erreurs.title", "Erreurs courantes à éviter")}
 							</h2>
 							<p className="text-muted-foreground max-w-2xl mx-auto">
 								{t(
-									"venirEspagne.erreurs.description",
+									"venirSpain.erreurs.description",
 									"Ces oublis peuvent avoir des conséquences sérieuses. Prenez-les au sérieux pour protéger vos droits.",
 								)}
 							</p>
@@ -1316,14 +1340,14 @@ function VenirEnEspagnePage() {
 								className="mb-4 bg-background/50 backdrop-blur-sm"
 							>
 								<Phone className="w-3.5 h-3.5 mr-1.5" />
-								{t("venirEspagne.numeros.badge", "Numéros essentiels")}
+								{t("venirSpain.numeros.badge", "Numéros essentiels")}
 							</Badge>
 							<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-								{t("venirEspagne.numeros.title", "Numéros utiles à conserver")}
+								{t("venirSpain.numeros.title", "Numéros utiles à conserver")}
 							</h2>
 							<p className="text-muted-foreground max-w-2xl mx-auto">
 								{t(
-									"venirEspagne.numeros.description",
+									"venirSpain.numeros.description",
 									"Enregistrez ces numéros dans votre téléphone. Ils peuvent sauver des vies.",
 								)}
 							</p>
@@ -1337,10 +1361,10 @@ function VenirEnEspagnePage() {
 					<CitizenCTA
 						pagePath="/venir-en-espagne"
 						sectionId="citizen-cta"
-						contentKeyPrefix="venirEspagne.citizenCta"
+						contentKeyPrefix="venirSpain.citizenCta"
 					/>
 				)}
 			</div>
 		</div>
-	);
+	)
 }

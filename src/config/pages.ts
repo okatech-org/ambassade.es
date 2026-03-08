@@ -869,11 +869,11 @@ export const PAGE_REGISTRY: Record<string, PageDef> = {
 			FOOTER_SECTION,
 		],
 	},
-	"venir-en-france": {
-		slug: "venir-en-france",
+	"venir-en-espagne": {
+		slug: "venir-en-espagne",
 		title: "Venir en France",
 		description: "Visas et procédures d'entrée",
-		publicPath: "/venir-en-france",
+		publicPath: "/venir-en-espagne",
 		icon: Plane,
 		color: "sky",
 		hasHero: true,
@@ -1080,11 +1080,11 @@ export const PAGE_REGISTRY: Record<string, PageDef> = {
 			FOOTER_SECTION,
 		],
 	},
-	"vie-en-france": {
-		slug: "vie-en-france",
+	"vie-en-espagne": {
+		slug: "vie-en-espagne",
 		title: "Vivre en France",
 		description: "Guide pratique vie quotidienne",
-		publicPath: "/vie-en-france",
+		publicPath: "/vie-en-espagne",
 		icon: BookOpen,
 		color: "emerald",
 		hasHero: true,

@@ -28,7 +28,7 @@ import { Badge } from "@/components/ui/badge";
 import { useSectionVisibility } from "@/hooks/useSectionVisibility";
 import i18n from "@/integrations/i18n/i18n";
 
-export const Route = createFileRoute("/vie-en-france")({
+export const Route = createFileRoute("/vie-en-espagne")({
 	component: VieEnSpainPage,
 	head: () => {
 		const isEn = (i18n.resolvedLanguage || i18n.language).startsWith("en");
@@ -67,56 +67,56 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Recherche de logement",
 				detail:
-					"Sites incontournables : LeBonCoin, SeLoger, PAP, Jinka, Bien'ici. Pour les logements sociaux (HLM), déposez une demande sur vivienda.gob.es (numéro unique régional). Délai d'attente variable : de 6 mois en province à plusieurs années en Île-de-Spain. Résidences Becas MEC : réservées aux étudiants boursiers (inscription via becaseducacion.gob.es).",
+					"Sites incontournables : Idealista, Fotocasa, Pisos.com, Habitaclia, Milanuncios. Pour les logements sociaux (Vivienda de Protección Oficial — VPO), déposez une demande auprès de la Comunidad Autónoma correspondante via vivienda.gob.es. Délai d'attente variable selon la ville. Résidences universitaires : inscription via le portail de chaque université ou les Colegios Mayores.",
 			},
 			{
-				title: "Garantie locative (Visale)",
+				title: "Fianza et garantie locative",
 				detail:
-					"Le dispositif Visale (gratuit, géré par Action Logement) se porte garant pour vous auprès du propriétaire. Ouvert aux moins de 30 ans, aux salariés en mobilité, et aux titulaires d'un bail mobilité. L'inscription se fait en ligne sur idealista.com en quelques minutes. C'est la solution n°1 pour les Gabonais sans garant en Espagne.",
+					"En Espagne, le propriétaire exige une fianza (caution) équivalente à 1 mois de loyer (non meublé) ou 2 mois (meublé), déposée auprès de l'organisme régional compétent. Il peut aussi demander des garanties supplémentaires (aval bancario, mois d'avance). Pour les Gabonais sans garant, le recours à un aval bancaire ou une assurance de loyers impayés est la meilleure solution.",
 			},
 			{
-				title: "Aides au logement (APL / ALS)",
+				title: "Aides au logement",
 				detail:
-					"L'APL (Aide Personnalisée au Logement) ou l'ALS (Allocation de Logement Sociale) sont versées par la CAF. Le montant dépend de vos revenus, du loyer et de la zone géographique. Simulez vos droits sur servicios-sociales.es. La demande se fait en ligne dès l'entrée dans le logement. Délai de versement : environ 2 mois (rétroactif au 1er mois).",
+					"Le Plan Estatal de Vivienda propose des aides au loyer pour les personnes à faibles revenus, les jeunes (moins de 35 ans) et les familles nombreuses. Les Comunidades Autónomas gèrent leurs propres programmes d'aide. Renseignez-vous auprès des Servicios Sociales de votre municipalité ou sur le portail de votre communauté autonome.",
 			},
 			{
 				title: "Droits des locataires",
 				detail:
-					"Le bail d'habitation est encadré par la loi ALUR. Droits fondamentaux : le propriétaire ne peut pas vous expulser durant la trêve hivernale (1er novembre au 31 mars). Le dépôt de garantie est limité à 1 mois de loyer hors charges (non meublé) ou 2 mois (meublé). Le propriétaire doit fournir un logement décent (chauffage, eau, électricité, surface minimale). En cas de litige, saisissez la commission de conciliation gratuite ou le tribunal.",
+					"Le bail d'habitation est encadré par la Ley de Arrendamientos Urbanos (LAU). Les baux résidentiels ont une durée minimale de 5 ans (7 ans si le propriétaire est une entreprise). L'augmentation du loyer est encadrée par l'IPC (indice des prix). Le propriétaire doit fournir un logement en bon état. En cas de litige, adressez-vous aux Juntas de Arbitraje ou au tribunal.",
 			},
 			{
-				title: "Assurance habitation (obligatoire)",
+				title: "Assurance habitation (seguro del hogar)",
 				detail:
-					"L'assurance habitation est obligatoire pour tout locataire dès l'entrée dans le logement. Elle couvre les risques locatifs (incendie, dégât des eaux, etc.). Comparez les offres sur LeLynx.fr ou Assurland.com. Budget : 10€ à 30€/mois. Le propriétaire peut résilier le bail si vous ne souscrivez pas d'assurance.",
+					"L'assurance habitation n'est pas obligatoire pour les locataires en Espagne, mais fortement recommandée. Elle couvre les risques locatifs (incendie, dégât des eaux, vol). Comparez les offres sur Rastreator.com ou Acierto.com. Budget : 15€ à 40€/mois. Le propriétaire peut l'exiger dans le contrat de bail.",
 			},
 			{
-				title: "État des lieux : entrée et sortie",
+				title: "Empadronamiento (inscription municipale)",
 				detail:
-					"L'état des lieux d'entrée est un document essentiel : il décrit l'état du logement à votre arrivée. Prenez des photos de chaque pièce. Sans état des lieux, vous êtes présumé avoir reçu le logement en bon état. À la sortie, l'état des lieux de sortie est comparé : toute dégradation non signalée peut être retenue sur le dépôt de garantie.",
+					"L'empadronamiento est l'inscription au registre municipal (padrón) de votre commune. C'est une démarche essentielle dès votre installation : elle est requise pour accéder aux services de santé, scolariser les enfants et obtenir le NIE. Rendez-vous à la mairie (Ayuntamiento) avec votre contrat de bail et votre passeport.",
 			},
 		],
 		tips: [
-			"Le dispositif Visale (gratuit, via Action Logement) remplace le garant physique — solution idéale pour les Gabonais",
+			"Faites l'empadronamiento dès votre arrivée — c'est la première démarche indispensable en Espagne",
 			"Ouvrez un compte bancaire espagnol rapidement — c'est indispensable pour le prélèvement du loyer",
-			"Souscrivez une assurance habitation AVANT d'emménager — le propriétaire l'exigera",
-			"Conservez tous vos échanges écrits avec le propriétaire (emails, courriers recommandés)",
-			"Prenez des photos détaillées le jour de l'état des lieux d'entrée",
+			"Demandez un aval bancario si vous n'avez pas de garant — c'est la solution la plus acceptée",
+			"Conservez tous vos échanges écrits avec le propriétaire (emails, burofax)",
+			"Photographiez le logement à l'entrée et vérifiez l'inventaire joint au contrat",
 		],
 		links: [
 			{
-				label: "CAF — Simulateur APL",
-				url: "https://www.mdsocialesa2030.gob.es/derechos-sociales/vivienda",
-				description: "Calculez vos droits aux aides au logement",
-			},
-			{
-				label: "Visale",
+				label: "Idealista",
 				url: "https://www.idealista.com",
-				description: "Garantie locative gratuite",
+				description: "Principal portail immobilier en Espagne",
 			},
 			{
-				label: "Demande logement social",
+				label: "Plan Estatal de Vivienda",
+				url: "https://www.mdsocialesa2030.gob.es/derechos-sociales/vivienda",
+				description: "Aides au logement de l'État",
+			},
+			{
+				label: "Vivienda social (VPO)",
 				url: "https://www.mdsocialesa2030.gob.es/derechos-sociales/vivienda/vivienda-social",
-				description: "Demande de logement HLM",
+				description: "Demande de logement social",
 			},
 		],
 	},
@@ -135,61 +135,61 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Inscription à la Seguridad Social",
 				detail:
-					"Dès votre arrivée, inscrivez-vous à la CPAM (Caisse Primaire d'Assurance Maladie) via seg-social.es. Si vous travaillez, votre employeur lance la procédure automatiquement. Sinon, la PUMA (Protection Universelle Maladie) vous couvre après 3 mois de résidence stable et régulière. Vous recevrez votre carte Vitale en 2 à 4 semaines (une attestation provisoire est disponible en attendant).",
+					"Dès votre arrivée, demandez votre numéro de Seguridad Social via seg-social.es ou à la Tesorería General. Si vous travaillez, votre employeur lance la procédure automatiquement. Sinon, avec l'empadronamiento et votre NIE, vous pouvez accéder au Sistème National de Santé (SNS). Vous recevrez votre Tarjeta Sanitaria (carte de santé) en quelques semaines auprès de votre Centre de Salud.",
 			},
 			{
-				title: "Complémentaire santé solidaire (CSS)",
+				title: "Couverture santé universelle",
 				detail:
-					"Ex CMU-C, la CSS est une mutuelle gratuite ou à faible coût pour les revenus modestes (plafond : environ 9 700 €/an pour une personne seule). Elle couvre : ticket modérateur, lunettes (jusqu'à 200 €), soins dentaires, prothèses auditives. Demande sur seg-social.es ou en CPAM. Décision sous 2 mois.",
+					"Le système de santé espagnol (SNS) est universel et financé par l'impôt. Les consultations médicales, hospitalisations et urgences sont gratuites. Les médicaments sont partiellement pris en charge (40% pour les actifs, 10% pour les retraités). Pour les revenus modestes, des exonérations existent.",
 			},
 			{
-				title: "Médecin traitant",
+				title: "Médecin de famille (Médico de Cabecera)",
 				detail:
-					"Déclarez un médecin traitant auprès de la CPAM pour bénéficier du meilleur remboursement (70% au lieu de 30% sans médecin traitant). En cas de difficulté pour en trouver un, consultez les centres de santé municipaux ou les maisons de santé pluriprofessionnelles. L'application Doctolib permet de trouver des créneaux disponibles.",
+					"Inscrivez-vous à votre Centro de Salud le plus proche pour être assigné à un médecin de famille. C'est votre premier point de contact pour toute consultation. Il vous orientera vers les spécialistes si nécessaire. Pour les rendez-vous, utilisez le portail SAS/SERMAS de votre communauté autonome ou l'application SaludResponde.",
 			},
 			{
 				title: "Santé mentale et soutien psychologique",
 				detail:
-					"Le dispositif 'Mon soutien psy' permet 8 séances gratuites par an avec un psychologue conventionné (sur prescription du médecin traitant). Les Centres Médico-Psychologiques (CMP) offrent des consultations gratuites avec psychiatres et psychologues. L'isolement, le choc culturel et les difficultés administratives peuvent peser : n'hésitez pas à consulter.",
+					"Le SNS propose un accès gratuit à des psychologues et psychiatres via le médecin de famille. Les Centros de Salud Mental offrent des consultations spécialisées gratuites. L'isolement, le choc culturel et les difficultés administratives peuvent peser : n'hésitez pas à consulter. Le Téléphone de l'Espoir (717 003 717) est disponible 24h/24.",
 			},
 			{
-				title: "PMI pour enfants (0-6 ans)",
+				title: "Pediatría pour enfants",
 				detail:
-					"La Protection Maternelle et Infantile (PMI) offre des consultations entièrement gratuites pour les enfants de 0 à 6 ans : vaccinations, suivi de croissance, conseils de puériculture, dépistage précoce. Renseignez-vous auprès de votre mairie. Aucun justificatif de régularité de séjour n'est demandé.",
+					"Le système de santé espagnol assigne un pédiatre à chaque enfant de 0 à 14 ans via le Centro de Salud. Les consultations, vaccinations et suivis de croissance sont entièrement gratuits. Aucun justificatif de régularité de séjour n'est demandé pour les mineurs.",
 			},
 			{
 				title: "Urgences médicales",
 				detail:
-					"En cas d'urgence vitale : appelez le 15 (SAMU) ou le 112 (numéro européen). Les urgences hospitalières sont accessibles 24h/24 sans rendez-vous. Pour une consultation urgente non vitale : SOS Médecins (3624), maisons médicales de garde (le soir et le week-end), ou les pharmacies de garde.",
+					"En cas d'urgence vitale : appelez le 112 (numéro unique d'urgence en Espagne) ou le 061 (urgences médicales dans certaines communautés). Les urgences hospitalières (Urgencias) sont accessibles 24h/24 sans rendez-vous. Pour une consultation urgente non vitale : rendez-vous au Centro de Salud ou aux Puntos de Atención Continuada (PAC) le soir et le week-end.",
 			},
 		],
 		tips: [
-			"Conservez toujours sur vous votre carte Vitale (ou attestation provisoire)",
-			"La téléconsultation est remboursée — pratique quand on ne trouve pas de médecin",
-			"Les centres de santé municipaux proposent des consultations sans dépassement d'honoraires",
-			"Inscrivez-vous sur Doctolib pour trouver des créneaux disponibles rapidement",
-			"Le 114 permet de contacter les urgences par SMS (personnes sourdes ou en danger silencieux)",
+			"Conservez toujours sur vous votre Tarjeta Sanitaria (carte de santé)",
+			"Inscrivez-vous au Centro de Salud de votre quartier dès l'empadronamiento fait",
+			"Les Centros de Salud proposent des consultations gratuites sans dépassement d'honoraires",
+			"Utilisez le portail de votre communauté autonome pour prendre rendez-vous en ligne",
+			"Le 112 est le numéro unique d'urgence en Espagne — retenez-le absolument",
 		],
 		links: [
 			{
-				label: "Ameli.fr",
+				label: "Seguridad Social",
 				url: "https://www.seg-social.es",
 				description: "Site officiel de la Seguridad Social",
 			},
 			{
-				label: "Doctolib",
+				label: "TopDoctors",
 				url: "https://www.topdoctors.es",
-				description: "Prise de rendez-vous médical en ligne",
+				description: "Trouver un médecin spécialiste en Espagne",
 			},
 			{
-				label: "CSS",
-				url: "https://www.sanidad.gob.es/ciudadanos/prestaciones",
-				description: "Mutuelle gratuite sous conditions",
+				label: "Ministerio de Sanidad",
+				url: "https://www.sanidad.gob.es",
+				description: "Ministère de la Santé espagnol",
 			},
 			{
-				label: "Mon soutien psy",
+				label: "Salud Mental",
 				url: "https://www.sanidad.gob.es/ciudadanos/saludMental",
-				description: "8 séances psy gratuites par an",
+				description: "Soutien psychologique et santé mentale",
 			},
 		],
 	},
@@ -211,37 +211,37 @@ const guideSections: GuideSection[] = [
 					"L'instruction est obligatoire de 3 à 16 ans. Inscrivez votre enfant à la mairie de votre domicile, puis contactez l'école. L'inscription ne peut être refusée pour motif de nationalité ou de situation administrative des parents.",
 			},
 			{
-				title: "Inscription à l'université (Parcoursup / UNEDasiss)",
+				title: "Inscription à l'université (Selectividad / UNEDasiss)",
 				detail:
-					"Les bacheliers résidant en Espagne utilisent Parcoursup (universidades.gob.es) pour candidater. Les étudiants venant du Gabon passent par UNEDasiss (unedasiss.uned.es). Les frais d'inscription varient de 170€ à 601€ selon le niveau.",
+					"Les bacheliers résidant en Espagne passent la Selectividad (EvAU/EBAU) pour accéder à l'université. Les étudiants venant du Gabon passent par UNEDasiss (unedasiss.uned.es) pour l'homologation de leur baccalauréat. Les frais d'inscription varient de 700€ à 1 500€ selon la communauté autonome et la formation.",
 			},
 			{
 				title: "Bourses et aides financières",
 				detail:
-					"Le Becas MEC attribue des bourses sur critères sociaux (BCS) aux étudiants. Les étudiants gabonais peuvent aussi solliciter des bourses de l'État gabonais via l'ANBG. Le montant varie selon l'échelon (0 bis à 7).",
+					"Le Ministerio de Educación attribue des Becas MEC (bourses générales) sur critères sociaux et académiques. Les étudiants gabonais peuvent aussi solliciter des bourses de l'État gabonais via l'ANBG. Les communautés autonomes proposent également des aides complémentaires.",
 			},
 			{
-				title: "Équivalence des diplômes",
+				title: "Équivalence des diplômes (Homologación)",
 				detail:
-					"L'Espagne ne délivre pas d'équivalence automatique des diplômes étrangers. Demandez une attestation de comparabilité au centre ENIC-NARIC (france-education-international.fr). Délai : environ 4 mois.",
+					"L'Espagne exige une homologación (reconnaissance officielle) des diplômes étrangers via le Ministerio de Educación (educacionyfp.gob.es). Délai : 6 à 12 mois. Pour les diplômes universitaires, une credencial de equivalencia peut être demandée auprès de l'université d'accueil.",
 			},
 			{
-				title: "Validation des Acquis de l'Expérience (VAE)",
+				title: "Reconnaissance des acquis professionnels",
 				detail:
-					"Si vous avez au moins 1 an d'expérience, la VAE permet d'obtenir un diplôme reconnu sans retourner en cours. Renseignez-vous sur vae.centre-inffo.fr ou auprès d'un Point Relais Conseil.",
+					"Si vous avez une expérience professionnelle significative, l'Espagne propose la Acreditación de Competencias Profesionales pour obtenir un certificat de professionnalisme reconnu. Renseignez-vous auprès du SEPE ou des Comunidades Autónomas.",
 			},
 		],
 		tips: [
-			"Les cours de espagnol (FLE) sont souvent gratuits dans les associations et les mairies",
-			"La carte d'étudiant donne accès à de nombreuses réductions (transport, culture, restauration Becas MEC)",
+			"Les cours d'espagnol pour étrangers (ELE) sont souvent gratuits dans les mairies et associations",
+			"La carte d'étudiant (Carnet Joven) donne accès à de nombreuses réductions (transport, culture, loisirs)",
 			"Les bibliothèques municipales sont gratuites et offrent accès à internet, presse et formations en ligne",
-			"Le dispositif Oficina de Extranjería propose 400h de cours de espagnol gratuits pour les primo-arrivants",
+			"L'Escuela Oficial de Idiomas (EOI) propose des cours de langues à tarifs très réduits",
 		],
 		links: [
 			{
-				label: "Parcoursup",
+				label: "Universidades.gob.es",
 				url: "https://www.universidades.gob.es",
-				description: "Plateforme d'admission post-bac",
+				description: "Portail des universités espagnoles",
 			},
 			{
 				label: "UNEDasiss",
@@ -249,7 +249,7 @@ const guideSections: GuideSection[] = [
 				description: "Études en Espagne pour les étudiants internationaux",
 			},
 			{
-				label: "ENIC-NARIC",
+				label: "Homologación de títulos",
 				url: "https://www.educacionyfp.gob.es/contenidos/estudiantes/titulos-equivalencias.html",
 				description: "Reconnaissance des diplômes étrangers",
 			},
@@ -270,34 +270,34 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Autorisation de travail",
 				detail:
-					'Votre titre de séjour doit mentionner l\'autorisation de travailler. Les cartes de séjour "salarié", "vie privée et familiale" et "étudiant" (20h/semaine max) permettent de travailler. Vérifiez la mention sur votre titre.',
+					'Votre titre de séjour (tarjeta de residencia) doit mentionner l\'autorisation de travailler. Les autorisations "por cuenta ajena" (salarié), "por cuenta propia" (indépendant) et "étudiant" (20h/semaine max) permettent de travailler. Vérifiez la mention sur votre titre.',
 			},
 			{
-				title: "SEPE (ex SEPE (Servicio Público de Empleo Estatal))",
+				title: "SEPE (Servicio Público de Empleo Estatal)",
 				detail:
-					"Inscrivez-vous sur sepe.es dès que vous êtes en recherche d'emploi. Vous bénéficierez d'un accompagnement personnalisé, d'offres d'emploi ciblées et potentiellement d'indemnités (ARE) si vous avez cotisé.",
+					"Inscrivez-vous au SEPE (sepe.es) dès que vous êtes en recherche d'emploi. Vous bénéficierez d'un accompagnement personnalisé, d'offres d'emploi ciblées et potentiellement de la prestación por desempleo si vous avez cotisé suffisamment.",
 			},
 			{
-				title: "Création d'auto-entreprise",
+				title: "Travailler comme Autónomo",
 				detail:
-					"Créez votre auto-entreprise en ligne sur seg-social.es/autonomos. Formalités simplifiées, régime fiscal avantageux. Plafond de CA : 77 700€ (services) ou 188 700€ (commerce). Vous pouvez cumuler emploi salarié et auto-entreprise.",
+					"Pour devenir travailleur indépendant (autónomo), inscrivez-vous à la Seguridad Social (Régime Spécial des Travailleurs Autonomes — RETA) et à l'Agencia Tributaria. La tarifa plana permet aux nouveaux autónomos de payer une cotisation réduite de 80€/mois la première année.",
 			},
 			{
-				title: "Aide ACRE",
+				title: "Tarifa plana pour autónomos",
 				detail:
-					"L'Aide à la Création ou Reprise d'Entreprise (ACRE) exonère partiellement de charges sociales pendant la première année. Conditions : être demandeur d'emploi, bénéficiaire Ingreso Mínimo Vital (IMV)/ASS, ou avoir moins de 26 ans.",
+					"La tarifa plana est une réduction des cotisations sociales pour les nouveaux autónomos : 80€/mois la première année (au lieu de ~300€). Conditions : ne pas avoir été autónomo au cours des 2 dernières années. Inscription sur sede.seg-social.gob.es.",
 			},
 			{
-				title: "Chambre de commerce (CCI)",
+				title: "Cámaras de Comercio",
 				detail:
-					"Les CCI proposent des formations, un accompagnement à la création d'entreprise et des mises en réseau. Des dispositifs spécifiques existent pour les entrepreneurs issus de l'immigration.",
+					"Les Cámaras de Comercio proposent des formations, un accompagnement à la création d'entreprise et des mises en réseau. Des programmes spécifiques comme PICE (Plan Integral de Cualificación y Empleo) accompagnent les jeunes vers l'emploi.",
 			},
 		],
 		tips: [
-			"L'aide ACRE exonère de charges sociales la première année de création d'entreprise",
-			"Les missions locales accompagnent gratuitement les 16-25 ans dans l'emploi",
-			'Attention au travail non déclaré ("au noir") : c\'est illégal et vous prive de toute protection sociale',
-			"Le site garantiajuvenil.gob.es recense les offres adaptées aux jeunes",
+			"La tarifa plana réduit les cotisations à 80€/mois la première année pour les nouveaux autónomos",
+			"Le SEPE propose des formations gratuites pour les demandeurs d'emploi",
+			'Attention au travail non déclaré ("en negro") : c\'est illégal et vous prive de toute protection sociale',
+			"Le portail Garantía Juvenil (garantiajuvenil.gob.es) recense les offres adaptées aux jeunes de moins de 30 ans",
 		],
 		links: [
 			{
@@ -306,12 +306,12 @@ const guideSections: GuideSection[] = [
 				description: "Recherche d'emploi et accompagnement",
 			},
 			{
-				label: "Auto-entrepreneur",
+				label: "Autónomo (RETA)",
 				url: "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/TrabajadoresCuentaPropia",
-				description: "Création d'auto-entreprise",
+				description: "Inscription comme travailleur indépendant",
 			},
 			{
-				label: "1jeune1solution",
+				label: "Garantía Juvenil",
 				url: "https://www.garantiajuvenil.gob.es",
 				description: "Emploi, formation et aides pour les jeunes",
 			},
@@ -330,68 +330,68 @@ const guideSections: GuideSection[] = [
 			"Comprendre vos droits et les démarches liées à votre titre de séjour est essentiel pour vivre sereinement en Espagne. Le non-respect des délais peut entraîner des situations complexes.",
 		items: [
 			{
-				title: "Titre de séjour",
+				title: "NIE et Tarjeta de Residencia",
 				detail:
-					"Le VLS-TS (Visa Long Séjour valant Titre de Séjour) doit être validé en ligne sur sede.administracionespublicas.gob.es dans les 3 mois suivant votre arrivée. Le renouvellement se fait 2 mois avant expiration sur la même plateforme.",
+					"Le NIE (Número de Identidad de Extranjero) est votre numéro d'identification fiscale en Espagne. Demandez-le à la Oficina de Extranjería ou au consulat espagnol dès votre arrivée. La Tarjeta de Identidad de Extranjero (TIE) est votre carte de séjour physique, valider dans les 30 jours. Le renouvellement se fait 60 jours avant expiration via sede.administracionespublicas.gob.es.",
 			},
 			{
-				title: "Le récépissé — Attention",
+				title: "Le récépissé (resguardo) — Attention",
 				detail:
-					"⚠️ Le récépissé de première demande de carte de séjour ne permet PAS de quitter l'Espagne et d'y revenir. Seul le titre de séjour définitif ou le VLS-TS validé le permet. Le récépissé de renouvellement, en revanche, fait office de titre de séjour provisoire pendant l'instruction de votre dossier.",
+					"⚠️ Le resguardo (récépissé) de première demande de carte de séjour ne permet PAS de quitter l'Espagne et d'y revenir dans certains cas. Seule la TIE définitive ou un visa en cours de validité le permet. Le resguardo de renouvellement, en revanche, fait office de titre de séjour provisoire pendant l'instruction de votre dossier.",
 			},
 			{
 				title: "Carte de séjour pluriannuelle",
 				detail:
-					"Après un premier titre d'un an, vous pouvez obtenir une carte pluriannuelle (2 à 4 ans). Les conditions varient selon le motif : salarié, vie privée et familiale, étudiant, passeport talent. Demande en Oficina de Extranjería ou en ligne.",
+					"Après un premier titre d'un an, vous pouvez obtenir une carte de 2 ans, puis de 5 ans. Les conditions varient selon le motif : travail, études, regroupement familial. Demande en Oficina de Extranjería ou en ligne via sede.administracionespublicas.gob.es.",
 			},
 			{
-				title: "Changement d'adresse — Obligation légale",
+				title: "Empadronamiento — Obligation légale",
 				detail:
-					"Tout étranger titulaire d'un titre de séjour doit signaler son changement d'adresse dans les 3 mois. Procédure en ligne sur la plateforme Mercurio ou en Oficina de Extranjería. Documents requis : titre de séjour + nouveau justificatif de domicile. Le non-respect de cette obligation peut entraîner une amende et des complications pour le renouvellement de votre titre.",
+					"Tout étranger résidant en Espagne doit s'inscrire au padrón municipal (empadronamiento) dès son arrivée et signaler tout changement d'adresse. Procédure en mairie (Ayuntamiento). Documents requis : passeport + justificatif de domicile (contrat de bail ou facture). L'empadronamiento est indispensable pour accéder à la santé, la scolarité et les aides sociales.",
 			},
 			{
-				title: "Régularisation administrative",
+				title: "Régularisation administrative (Arraigo)",
 				detail:
-					"Plusieurs voies de régularisation existent : admission exceptionnelle au séjour (circulaire Valls 2012), régularisation par le travail (promesse d'embauche ou contrat), motif familial (parent d'enfant espagnol, conjoint de Espagnol), raisons médicales, ou protection internationale (OFPRA). Dossier à déposer en Oficina de Extranjería avec preuves d'ancienneté de séjour et d'insertion.",
+					"Plusieurs voies de régularisation existent en Espagne : arraigo social (3 ans de présence + contrat de travail ou insertion), arraigo laboral (2 ans + preuve de travail), arraigo familiar (parent d'enfant espagnol ou d'Espagnol). Demande de titre de séjour à l'Oficina de Extranjería. La protection internationale se demande auprès de l'OAR (Oficina de Asilo y Refugio).",
 			},
 			{
-				title: "Document de circulation pour mineur (DCM)",
+				title: "Autorisation de retour (Autorización de Regreso)",
 				detail:
-					"Les mineurs étrangers résidant en Espagne, dont les parents sont en situation régulière ou dont l'un des parents est espagnol, peuvent obtenir un DCM à la Oficina de Extranjería. Validité : 5 ans, renouvelable jusqu'aux 18 ans de l'enfant. Ce document permet au mineur de voyager à l'étranger et de revenir en Espagne sans visa. Documents : acte de naissance, passeport de l'enfant, titre de séjour des parents, certificat de scolarité, photos d'identité. ⚠️ À 18 ans, le jeune doit obligatoirement demander un titre de séjour propre (mention 'étudiant' ou 'vie privée et familiale' selon sa situation).",
+					"Si votre TIE est en cours de renouvellement, demandez une Autorización de Regreso à la Oficina de Extranjería avant de voyager. Ce document vous permet de quitter et revenir en Espagne pendant l'instruction de votre dossier. Validité : 90 jours. Documents : passeport, resguardo de renouvellement, justificatif de voyage.",
 			},
 			{
-				title: "Binationaux (Franco-Gabonais)",
+				title: "Binationaux (Hispano-Gabonais)",
 				detail:
-					"Le Gabon ne reconnaît pas officiellement la double nationalité (sauf exceptions), mais en pratique de nombreux Gabonais possèdent les deux nationalités. Un visa est obligatoire pour entrer au Gabon avec un passeport espagnol — il s'obtient au Ambassade du Gabon en Espagne à Paris (26 bis avenue Raphaël, 75016). Délai : 3 jours ouvrés. La présence physique est requise, pas de visa express. Documents : passeport espagnol, acte de naissance gabonais, photos, formulaire de visa, justificatif du motif du voyage. Conseil : entrez en Espagne avec le passeport espagnol, au Gabon avec le passeport gabonais.",
+					"Le Gabon ne reconnaît pas officiellement la double nationalité (sauf exceptions), mais en pratique de nombreux Gabonais possèdent les deux nationalités. Un visa est obligatoire pour entrer au Gabon avec un passeport espagnol — il s'obtient à l'Ambassade du Gabon en Espagne à Madrid. Conseil : entrez en Espagne avec le passeport espagnol, au Gabon avec le passeport gabonais.",
 			},
 			{
-				title: "Regroupement familial",
+				title: "Regroupement familial (Reagrupación Familiar)",
 				detail:
-					"Vous pouvez faire venir votre conjoint et enfants mineurs si vous résidez régulièrement en Espagne depuis au moins 18 mois, disposez de revenus stables (au moins le SMIC) et d'un logement adapté. Demande auprès de l'Oficina de Extranjería.",
+					"Vous pouvez faire venir votre conjoint et enfants mineurs si vous résidez régulièrement en Espagne depuis au moins 1 an, disposez de revenus stables (au moins le SMI — Salario Mínimo Interprofesional) et d'un logement adapté (rapport d'adéquation). Demande auprès de l'Oficina de Extranjería.",
 			},
 			{
-				title: "Naturalisation",
+				title: "Naturalisation (Nacionalidad)",
 				detail:
-					"Après 5 ans de résidence régulière (réduit à 2 ans pour les diplômés de l'enseignement supérieur espagnol), vous pouvez demander la naturalisation. Conditions : maîtrise du espagnol (B1 oral), connaissance de l'histoire et des valeurs, casier vierge.",
+					"Après 10 ans de résidence régulière et continue en Espagne, vous pouvez demander la nationalité espagnole (réduit à 2 ans pour les ressortissants de pays ibero-américains). Conditions : maîtrise de l'espagnol (examen DELE A2), réussite au test CCSE (connaissance de la société espagnole), casier judiciaire vierge, bonne conduite civique.",
 			},
 			{
-				title: "Aide juridictionnelle",
+				title: "Aide juridictionnelle (Justicia Gratuita)",
 				detail:
-					"Si vos revenus sont modestes, l'aide juridictionnelle prend en charge tout ou partie de vos frais d'avocat. Demande au tribunal judiciaire de votre domicile. Aussi : le défenseur des droits (defenseurdesdroits.fr) est gratuit et indépendant.",
+					"Si vos revenus sont modestes, la Justicia Gratuita prend en charge tout ou partie de vos frais d'avocat. Demande auprès du Colegio de Abogados de votre ville ou en ligne. Le Defensor del Pueblo (defensordelpueblo.es) est également gratuit et indépendant.",
 			},
 		],
 		tips: [
-			"Gardez toujours une copie numérique de vos documents (passeport, titre de séjour, bail) dans un cloud sécurisé",
-			"Ne laissez jamais votre titre de séjour expirer — même en cas de retard de la Oficina de Extranjería, conservez votre récépissé",
-			"Les associations comme la CEAR (ONG de ayuda), le GISTI ou la Ligue des droits de l'Homme peuvent vous aider gratuitement",
-			"En cas de contrôle d'identité, vous devez présenter votre titre de séjour ou récépissé",
-			"Tout changement d'adresse doit être signalé dans les 3 mois — l'oubli peut coûter cher",
+			"Gardez toujours une copie numérique de vos documents (passeport, TIE, bail) dans un cloud sécurisé",
+			"Ne laissez jamais votre titre de séjour expirer — faites le renouvellement 60 jours avant",
+			"Les associations comme CEAR, ACCEM ou Red Acoge peuvent vous aider gratuitement",
+			"En cas de contrôle d'identité, vous devez présenter votre TIE ou votre resguardo",
+			"Mettez à jour votre empadronamiento à chaque changement d'adresse",
 			"Les binationaux doivent toujours voyager avec le passeport du pays dans lequel ils entrent",
-			"Un récépissé de première demande ne permet PAS de quitter l'Espagne — seul le titre définitif ou le VLS-TS validé le permet",
+			"Demandez une Autorización de Regreso avant tout voyage si votre TIE est en renouvellement",
 		],
 		links: [
 			{
-				label: "Mercurio - Étrangers en Espagne",
+				label: "Sede Electrónica - Extranjería",
 				url: "https://sede.administracionespublicas.gob.es/icpplus",
 				description: "Démarches de titre de séjour en ligne",
 			},
@@ -401,19 +401,19 @@ const guideSections: GuideSection[] = [
 				description: "Recours gratuit en cas de discrimination",
 			},
 			{
-				label: "CEAR (ONG de ayuda)",
+				label: "CEAR",
 				url: "https://www.cear.es",
-				description: "Accompagnement juridique gratuit",
+				description: "Accompagnement juridique gratuit pour les étrangers",
 			},
 			{
 				label: "Ambassade du Gabon",
 				url: "https://ambassade.ga",
-				description: "Visa pour le Gabon — 26 bis av. Raphaël, Paris 16e",
+				description: "Services consulaires — Madrid",
 			},
 			{
-				label: "Service-public.fr — DCME",
+				label: "Extranjería - Migraciones",
 				url: "https://www.inclusion.gob.es/web/migraciones/extranjeros",
-				description: "Document de circulation pour mineur",
+				description: "Informations complètes sur les titres de séjour",
 			},
 		],
 	},
@@ -427,12 +427,12 @@ const guideSections: GuideSection[] = [
 		gradientTo: "to-pink-600/10",
 		image: "/images/guide-famille.png",
 		intro:
-			"L'Espagne offre un système de prestations familiales parmi les plus généreux au monde. En tant que parent résidant en Espagne, vous avez droit à de nombreuses aides et services pour votre famille.",
+			"L'Espagne offre un système de prestations familiales important. En tant que parent résidant en Espagne, vous avez droit à de nombreuses aides et services pour votre famille.",
 		items: [
 			{
 				title: "Déclaration de naissance",
 				detail:
-					"Toute naissance sur le sol espagnol doit être déclarée en mairie dans les 5 jours. Présentez le certificat d'accouchement de l'hôpital, vos pièces d'identité et votre livret de famille. N'oubliez pas de faire transcrire l'acte à l'Ambassade.",
+					"Toute naissance sur le sol espagnol doit être déclarée au Registro Civil dans les 72 heures. Depuis 2023, la déclaration peut se faire directement à l'hôpital. Présentez vos pièces d'identité et le certificat médical d'accouchement. N'oubliez pas de faire transcrire l'acte à l'Ambassade du Gabon.",
 			},
 			{
 				title: "Transcription à l'Ambassade",
@@ -440,40 +440,40 @@ const guideSections: GuideSection[] = [
 					"L'acte de naissance espagnol doit être transcrit au registre d'état civil gabonais via l'Ambassade. C'est indispensable pour que votre enfant obtienne la nationalité gabonaise et un passeport gabonais. Délai : environ 3 mois.",
 			},
 			{
-				title: "Allocations familiales (CAF)",
+				title: "Prestaciones familiares (Aides familiales)",
 				detail:
-					"Dès le 2e enfant à charge, vous percevez les allocations familiales (sans condition de ressources). La prime à la naissance (1 003,95€) est versée au 7e mois de grossesse sous condition de ressources. Inscrivez-vous sur servicios-sociales.es.",
+					"L'Espagne propose plusieurs aides familiales : la prestación por hijo a cargo (allocation par enfant à charge sous conditions de ressources), l'Ingreso Mínimo Vital (IMV) avec supplément par enfant, et la deducción por maternidad (déduction fiscale de 1 200€/an pour les mères actives ayant des enfants de moins de 3 ans). Inscrivez-vous auprès des Servicios Sociales de votre municipalité.",
 			},
 			{
-				title: "PAJE — Prestation d'accueil du jeune enfant",
+				title: "Prestación por nacimiento (Aide à la naissance)",
 				detail:
-					"La PAJE comprend : la prime à la naissance, l'allocation de base mensuelle, et le complément libre choix du mode de garde (CMG) pour financer crèche ou assistante maternelle. Demande auprès de la CAF.",
+					"En Espagne, le congé de paternité et de maternité est de 16 semaines chacun (rémunéré à 100%). Certaines communautés autonomes versent des aides supplémentaires à la naissance. Renseignez-vous auprès de la Seguridad Social et de votre communauté autonome.",
 			},
 			{
-				title: "Modes de garde",
+				title: "Modes de garde (Escuelas infantiles)",
 				detail:
-					"Crèche municipale (inscription en mairie dès la grossesse), assistante maternelle agréée (liste sur mon-enfant.fr), ou garde à domicile. Le CMG couvre une partie des frais. Les Relais Petite Enfance (RPE) vous informent gratuitement.",
+					"Escuela infantil publique (inscription en mairie, gratuite pour les 0-3 ans dans plusieurs communautés), guardería privée, ou garde à domicile. Le chèque guardería (déduction fiscale de jusqu'à 1 000€/an) est accessible aux mères actives. Les Servicios Sociales de votre commune vous informent gratuitement sur les options disponibles.",
 			},
 		],
 		tips: [
-			"Déclarez la naissance en mairie ET à l'Ambassade pour que votre enfant ait la double nationalité",
-			"Inscrivez-vous à la CAF dès votre arrivée en Espagne, même sans enfant — d'autres aides existent (APL, prime d'activité)",
-			"Les centres de PMI offrent un suivi gratuit pour les enfants de 0 à 6 ans",
-			"Le congé paternité est de 28 jours (dont 7 obligatoires) depuis 2021",
+			"Déclarez la naissance au Registro Civil ET à l'Ambassade pour que votre enfant ait la double nationalité",
+			"Inscrivez-vous aux Servicios Sociales de votre commune dès votre arrivée — même sans enfant, d'autres aides existent",
+			"Le pédiatre assigné au Centro de Salud offre un suivi gratuit pour les enfants de 0 à 14 ans",
+			"Le congé de paternité et de maternité est de 16 semaines chacun, rémunéré à 100%",
 		],
 		links: [
 			{
-				label: "CAF",
-				url: "https://www.mdsocialesa2030.gob.es/derechos-sociales/vivienda",
-				description: "Allocations familiales et aides sociales",
-			},
-			{
-				label: "Mon-enfant.fr",
+				label: "Servicios Sociales",
 				url: "https://www.mdsocialesa2030.gob.es/derechos-sociales/familias",
-				description: "Trouver un mode de garde près de chez vous",
+				description: "Aides familiales et services sociaux",
 			},
 			{
-				label: "Service-public.fr — Famille",
+				label: "Ingreso Mínimo Vital",
+				url: "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/65850d68-8f0a-4b04-a7e7-1607bd3e23b5",
+				description: "Revenu minimum garanti + supplément familial",
+			},
+			{
+				label: "Prestaciones familiares",
 				url: "https://www.mdsocialesa2030.gob.es/derechos-sociales/familias/Paginas/index.aspx",
 				description: "Droits et démarches familiales",
 			},
@@ -491,24 +491,24 @@ const guideSections: GuideSection[] = [
 			"Tout résident en Espagne est soumis à l'obligation de déclarer ses revenus, même en l'absence de revenus. Comprendre le système fiscal espagnol est essentiel pour éviter les pénalités et accéder aux aides.",
 		items: [
 			{
-				title: "Déclaration annuelle de revenus",
+				title: "Déclaration annuelle de revenus (Declaración de la Renta)",
 				detail:
-					"Chaque année entre avril et juin, déclarez vos revenus sur agenciatributaria.gob.es. C'est OBLIGATOIRE même si vous n'avez pas de revenus ou si vous êtes étudiant. Créez votre espace en ligne avec votre numéro fiscal (obtenu lors de la première déclaration papier au centre des impôts de votre domicile). L'avis d'imposition ou de NON-imposition est un document essentiel pour : APL, logement social, renouvellement de titre de séjour, CSS.",
+					"Chaque année entre avril et juin, déclarez vos revenus sur agenciatributaria.gob.es (Campaña de la Renta). C'est OBLIGATOIRE si vos revenus dépassent certains seuils (22 000€/an pour un seul employeur). Même en dessous, la déclaration est recommandée car vous pourriez bénéficier d'un remboursement. L'avis (certificado de IRPF) est essentiel pour de nombreuses démarches administratives.",
 			},
 			{
-				title: "Prélèvement à la source",
+				title: "Retenciones (Prélèvement à la source)",
 				detail:
-					"Depuis 2019, l'impôt sur le revenu est prélevé directement sur votre salaire par l'employeur. Le taux est personnalisé en fonction de votre déclaration. Si vous n'êtes pas imposable, le taux est de 0%. Vous pouvez modifier votre taux en cours d'année sur agenciatributaria.gob.es (mariage, naissance, changement de revenus).",
+					"En Espagne, l'impôt sur le revenu (IRPF) est prélevé directement sur votre salaire par l'employeur sous forme de retenciones. Le taux varie selon vos revenus et votre situation familiale. Lors de la déclaration annuelle, un ajustement est effectué et vous pouvez recevoir un remboursement si les retenciones étaient trop élevées.",
 			},
 			{
-				title: "Taxe d'habitation et taxe foncière",
+				title: "IBI (Impôt foncier) et autres taxes locales",
 				detail:
-					"La taxe d'habitation sur les résidences principales a été supprimée pour tous depuis 2023. La taxe foncière concerne uniquement les propriétaires. Si vous êtes locataire, aucune taxe foncière ne vous sera demandée. La contribution à l'audiovisuel public (redevance TV) a également été supprimée.",
+					"L'IBI (Impuesto sobre Bienes Inmuebles) est la taxe foncière espagnole, uniquement pour les propriétaires. Si vous êtes locataire, vous n'avez aucune taxe foncière à payer. La tasa de basuras (taxe d'enlèvement des ordures) peut être à la charge du locataire selon le contrat de bail.",
 			},
 			{
-				title: "Convention fiscale Spain-Gabon",
+				title: "Convention fiscale Espagne-Gabon",
 				detail:
-					"La convention fiscale entre l'Espagne et le Gabon évite la double imposition. Si vous percevez des revenus au Gabon tout en résidant en Espagne, ces revenus doivent être déclarés en Espagne mais un crédit d'impôt peut s'appliquer. Consultez un conseiller fiscal ou le centre des impôts pour votre situation particulière.",
+					"Si vous percevez des revenus au Gabon tout en résidant en Espagne, ces revenus doivent être déclarés en Espagne via le formulaire de double imposition. Consultez un asesor fiscal (conseiller fiscal) ou l'Agencia Tributaria pour votre situation particulière.",
 			},
 		],
 		tips: [
@@ -544,27 +544,27 @@ const guideSections: GuideSection[] = [
 			{
 				title: "Qu'est-ce qu'une discrimination ?",
 				detail:
-					"La loi espagnole reconnaît 25 critères de discrimination interdits, incluant : l'origine, le nom de famille, l'apparence physique, la couleur de peau, la nationalité, la religion, le sexe, l'orientation sexuelle. La discrimination peut se manifester au travail, dans le logement, dans les services publics ou dans les lieux de loisirs.",
+					"La Ley integral para la igualdad de trato y la no discriminación (2022) protège contre la discrimination fondée sur l'origine, la nationalité, la race, la religion, le sexe, l'orientation sexuelle, le handicap, etc. La discrimination peut se manifester au travail, dans le logement, dans les services publics ou dans les lieux de loisirs.",
 			},
 			{
 				title: "Discrimination au logement",
 				detail:
-					"Il est illégal pour un propriétaire de refuser un locataire en raison de son origine, de son nom ou de sa couleur de peau. Si vous suspectez une discrimination, constituez un dossier de preuves (emails, SMS, témoignages). Contactez SOS Racisme (01 40 35 36 55) ou le Defensor del Pueblo (09 69 39 00 00, gratuit).",
+					"Il est illégal pour un propriétaire de refuser un locataire en raison de son origine, de son nom ou de sa couleur de peau. Si vous suspectez une discrimination, constituez un dossier de preuves (emails, SMS, témoignages). Contactez SOS Racismo ou le Defensor del Pueblo.",
 			},
 			{
 				title: "Discrimination au travail",
 				detail:
-					"L'employeur ne peut pas refuser une embauche, une promotion ou un licenciement basé sur des critères discriminatoires. Le Conseil de Prud'hommes est compétent pour les litiges liés au travail. L'inspection du travail peut également être saisie. Les syndicats CFDT, CGT et FO peuvent vous accompagner gratuitement.",
+					"L'employeur ne peut pas refuser une embauche, une promotion ou un licenciement basé sur des critères discriminatoires. Le Juzgado de lo Social est compétent pour les litiges liés au travail. L'Inspección de Trabajo peut également être saisie. Les syndicats CCOO et UGT peuvent vous accompagner gratuitement.",
 			},
 			{
 				title: "Contrôles d'identité : vos droits",
 				detail:
-					"Lors d'un contrôle d'identité, vous devez présenter votre titre de séjour ou récépissé. Un contrôle au faciès (basé uniquement sur l'apparence) est illégal. Si vous estimez être victime d'un contrôle discriminatoire : notez le lieu, l'heure, le numéro d'équipage, et saisissez l'IGPN (inspection générale de la police) ou le Defensor del Pueblo.",
+					"Lors d'un contrôle d'identité, vous devez présenter votre TIE ou resguardo. Un contrôle au faciès est illégal. Si vous estimez être victime d'un contrôle discriminatoire : notez le lieu, l'heure, le numéro d'identification des agents, et saisissez le Defensor del Pueblo ou déposez une plainte auprès de l'Asuntos Internos de la police.",
 			},
 			{
 				title: "Recours disponibles",
 				detail:
-					"1) Defensor del Pueblo (defenseurdesdroits.fr) — gratuit, indépendant, saisine en ligne. 2) Dépôt de plainte au commissariat ou directement au procureur de la République. 3) Associations spécialisées : SOS Racisme, LICRA, MRAP, LDH. 4) Aide juridictionnelle si revenus modestes. La discrimination est punie de 3 ans de prison et 45 000 € d'amende.",
+					"1) Defensor del Pueblo (defensordelpueblo.es) — gratuit, indépendant, saisine en ligne. 2) Dépôt de plainte (denuncia) au commissariat ou directement auprès du Ministerio Fiscal. 3) Associations spécialisées : SOS Racismo, Movimiento contra la Intolerancia, CEAR. 4) Aide juridictionnelle gratuite (Justicia Gratuita) si revenus modestes.",
 			},
 		],
 		tips: [
@@ -1102,7 +1102,7 @@ const guideSectionsEn: GuideSection[] = [
 
 function VieEnSpainPage() {
 	const { t, i18n } = useTranslation();
-	const { isSectionHidden } = useSectionVisibility("/vie-en-france");
+	const { isSectionHidden } = useSectionVisibility("/vie-en-espagne");
 	const lang = i18n.resolvedLanguage || i18n.language;
 	const isEn = lang.startsWith("en");
 	const tSections = isEn ? guideSectionsEn : guideSections;
@@ -1128,7 +1128,7 @@ function VieEnSpainPage() {
 					<EditableText
 						contentKey="vieSpain.hero.badge"
 						defaultValue={t("vieSpain.badge", "Guide Pratique")}
-						pagePath="/vie-en-france"
+						pagePath="/vie-en-espagne"
 						sectionId="hero"
 						as="span"
 					/>
@@ -1137,14 +1137,14 @@ function VieEnSpainPage() {
 					<EditableText
 						contentKey="vieSpain.hero.title"
 						defaultValue={t("vieSpain.title", "Vivre en Espagne")}
-						pagePath="/vie-en-france"
+						pagePath="/vie-en-espagne"
 						sectionId="hero"
 						as="span"
 					/>{" "}
 					<EditableText
 						contentKey="vieSpain.hero.titleHighlight"
 						defaultValue={t("vieSpain.titleHighlight", "en toute sérénité")}
-						pagePath="/vie-en-france"
+						pagePath="/vie-en-espagne"
 						sectionId="hero"
 						as="span"
 						className="text-gradient"
@@ -1156,7 +1156,7 @@ function VieEnSpainPage() {
 						"vieSpain.subtitle",
 						"Toutes les informations essentielles pour votre installation et votre vie quotidienne en Espagne. L'Ambassade vous accompagne dans chaque étape.",
 					)}
-					pagePath="/vie-en-france"
+					pagePath="/vie-en-espagne"
 					sectionId="hero"
 					as="p"
 					className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed"
@@ -1257,32 +1257,32 @@ function VieEnSpainPage() {
 							<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 								{[
 									{
-										number: "15",
-										label: t(
-											"vieSpain.emergency.samu",
-											"SAMU — Urgences médicales",
-										),
-									},
-									{
-										number: "17",
-										label: t("vieSpain.emergency.police", "Police — Secours"),
-									},
-									{
-										number: "18",
-										label: t("vieSpain.emergency.pompiers", "Pompiers"),
-									},
-									{
 										number: "112",
 										label: t(
-											"vieSpain.emergency.european",
-											"Numéro européen d'urgence",
+											"vieSpain.emergency.samu",
+											"112 — Urgences générales (médicales, police, pompiers)",
 										),
 									},
 									{
-										number: "114",
+										number: "091",
+										label: t("vieSpain.emergency.police", "Policía Nacional"),
+									},
+									{
+										number: "080",
+										label: t("vieSpain.emergency.pompiers", "Bomberos"),
+									},
+									{
+										number: "061",
+										label: t(
+											"vieSpain.emergency.european",
+											"Urgences médicales (SAMUR/061)",
+										),
+									},
+									{
+										number: "092",
 										label: t(
 											"vieSpain.emergency.sms",
-											"Urgences par SMS (sourds/malentendants)",
+											"Policía Local / Municipal",
 										),
 									},
 									{
@@ -1316,7 +1316,7 @@ function VieEnSpainPage() {
 
 			{!isSectionHidden("citizen-cta") && (
 				<CitizenCTA
-					pagePath="/vie-en-france"
+					pagePath="/vie-en-espagne"
 					sectionId="citizen-cta"
 					contentKeyPrefix="vieSpain.citizenCta"
 				/>

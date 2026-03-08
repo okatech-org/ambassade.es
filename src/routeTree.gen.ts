@@ -9,8 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as VieEnFranceRouteImport } from './routes/vie-en-france'
-import { Route as VenirEnFranceRouteImport } from './routes/venir-en-france'
+import { Route as VieEnEspagneRouteImport } from './routes/vie-en-espagne'
 import { Route as VenirEnEspagneRouteImport } from './routes/venir-en-espagne'
 import { Route as RetourAuGabonRouteImport } from './routes/retour-au-gabon'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
@@ -44,14 +43,9 @@ import { Route as AdminTeamMemberIdEditRouteImport } from './routes/admin/team/$
 import { Route as AdminServicesServiceIdEditRouteImport } from './routes/admin/services/$serviceId_.edit'
 import { Route as AdminPostsPostIdEditRouteImport } from './routes/admin/posts/$postId.edit'
 
-const VieEnFranceRoute = VieEnFranceRouteImport.update({
-  id: '/vie-en-france',
-  path: '/vie-en-france',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const VenirEnFranceRoute = VenirEnFranceRouteImport.update({
-  id: '/venir-en-france',
-  path: '/venir-en-france',
+const VieEnEspagneRoute = VieEnEspagneRouteImport.update({
+  id: '/vie-en-espagne',
+  path: '/vie-en-espagne',
   getParentRoute: () => rootRouteImport,
 } as any)
 const VenirEnEspagneRoute = VenirEnEspagneRouteImport.update({
@@ -228,8 +222,7 @@ export interface FileRoutesByFullPath {
   '/mentions-legales': typeof MentionsLegalesRoute
   '/retour-au-gabon': typeof RetourAuGabonRoute
   '/venir-en-espagne': typeof VenirEnEspagneRoute
-  '/venir-en-france': typeof VenirEnFranceRoute
-  '/vie-en-france': typeof VieEnFranceRoute
+  '/vie-en-espagne': typeof VieEnEspagneRoute
   '/actualites/$slug': typeof ActualitesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/actualites': typeof ActualitesIndexRoute
@@ -263,8 +256,7 @@ export interface FileRoutesByTo {
   '/mentions-legales': typeof MentionsLegalesRoute
   '/retour-au-gabon': typeof RetourAuGabonRoute
   '/venir-en-espagne': typeof VenirEnEspagneRoute
-  '/venir-en-france': typeof VenirEnFranceRoute
-  '/vie-en-france': typeof VieEnFranceRoute
+  '/vie-en-espagne': typeof VieEnEspagneRoute
   '/actualites/$slug': typeof ActualitesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/actualites': typeof ActualitesIndexRoute
@@ -300,8 +292,7 @@ export interface FileRoutesById {
   '/mentions-legales': typeof MentionsLegalesRoute
   '/retour-au-gabon': typeof RetourAuGabonRoute
   '/venir-en-espagne': typeof VenirEnEspagneRoute
-  '/venir-en-france': typeof VenirEnFranceRoute
-  '/vie-en-france': typeof VieEnFranceRoute
+  '/vie-en-espagne': typeof VieEnEspagneRoute
   '/actualites/$slug': typeof ActualitesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/actualites/': typeof ActualitesIndexRoute
@@ -338,8 +329,7 @@ export interface FileRouteTypes {
     | '/mentions-legales'
     | '/retour-au-gabon'
     | '/venir-en-espagne'
-    | '/venir-en-france'
-    | '/vie-en-france'
+    | '/vie-en-espagne'
     | '/actualites/$slug'
     | '/services/$slug'
     | '/actualites'
@@ -373,8 +363,7 @@ export interface FileRouteTypes {
     | '/mentions-legales'
     | '/retour-au-gabon'
     | '/venir-en-espagne'
-    | '/venir-en-france'
-    | '/vie-en-france'
+    | '/vie-en-espagne'
     | '/actualites/$slug'
     | '/services/$slug'
     | '/actualites'
@@ -409,8 +398,7 @@ export interface FileRouteTypes {
     | '/mentions-legales'
     | '/retour-au-gabon'
     | '/venir-en-espagne'
-    | '/venir-en-france'
-    | '/vie-en-france'
+    | '/vie-en-espagne'
     | '/actualites/$slug'
     | '/services/$slug'
     | '/actualites/'
@@ -446,8 +434,7 @@ export interface RootRouteChildren {
   MentionsLegalesRoute: typeof MentionsLegalesRoute
   RetourAuGabonRoute: typeof RetourAuGabonRoute
   VenirEnEspagneRoute: typeof VenirEnEspagneRoute
-  VenirEnFranceRoute: typeof VenirEnFranceRoute
-  VieEnFranceRoute: typeof VieEnFranceRoute
+  VieEnEspagneRoute: typeof VieEnEspagneRoute
   ActualitesSlugRoute: typeof ActualitesSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   ActualitesIndexRoute: typeof ActualitesIndexRoute
@@ -456,18 +443,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/vie-en-france': {
-      id: '/vie-en-france'
-      path: '/vie-en-france'
-      fullPath: '/vie-en-france'
-      preLoaderRoute: typeof VieEnFranceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/venir-en-france': {
-      id: '/venir-en-france'
-      path: '/venir-en-france'
-      fullPath: '/venir-en-france'
-      preLoaderRoute: typeof VenirEnFranceRouteImport
+    '/vie-en-espagne': {
+      id: '/vie-en-espagne'
+      path: '/vie-en-espagne'
+      fullPath: '/vie-en-espagne'
+      preLoaderRoute: typeof VieEnEspagneRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/venir-en-espagne': {
@@ -753,8 +733,7 @@ const rootRouteChildren: RootRouteChildren = {
   MentionsLegalesRoute: MentionsLegalesRoute,
   RetourAuGabonRoute: RetourAuGabonRoute,
   VenirEnEspagneRoute: VenirEnEspagneRoute,
-  VenirEnFranceRoute: VenirEnFranceRoute,
-  VieEnFranceRoute: VieEnFranceRoute,
+  VieEnEspagneRoute: VieEnEspagneRoute,
   ActualitesSlugRoute: ActualitesSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   ActualitesIndexRoute: ActualitesIndexRoute,
