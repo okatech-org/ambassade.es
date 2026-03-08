@@ -35,6 +35,13 @@ ENV VITE_SENTRY_DSN=$VITE_SENTRY_DSN
 
 RUN npx vite build
 
+# Fix TailwindCSS v4 client/SSR CSS hash mismatch:
+# The SSR build produces a CSS with a different content-hash than the client build.
+# Copy SSR CSS into public/assets so both hashes are served.
+RUN for f in node_modules/.nitro/vite/services/ssr/assets/styles-*.css; do \
+      [ -f "$f" ] && cp "$f" .output/public/assets/ || true; \
+    done
+
 # ─────────────────────────────────────────────────────────
 # Stage 3 — Production runtime (Node 20, minimal)
 # ─────────────────────────────────────────────────────────
