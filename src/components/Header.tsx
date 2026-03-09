@@ -6,6 +6,7 @@ import {
 	Check,
 	ChevronDown,
 	FileText,
+	Handshake,
 	Home,
 	Mail,
 	Menu,
@@ -83,6 +84,12 @@ export default function Header() {
 			href: "/ambassade",
 			icon: Building2,
 			contentKey: "layout.header.nav.consulat",
+		},
+		{
+			label: t("header.nav.cooperation", "Coopération"),
+			href: "/cooperation",
+			icon: Handshake,
+			contentKey: "layout.header.nav.cooperation",
 		},
 		{
 			label: t("header.nav.services"),

@@ -15,6 +15,7 @@ import { Route as RetourAuGabonRouteImport } from './routes/retour-au-gabon'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as IntegrationRouteImport } from './routes/integration'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as CooperationRouteImport } from './routes/cooperation'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
 import { Route as AmbassadeRouteImport } from './routes/ambassade'
@@ -25,6 +26,9 @@ import { Route as ServicesIndexRouteImport } from './routes/services/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as ActualitesIndexRouteImport } from './routes/actualites/index'
 import { Route as ServicesSlugRouteImport } from './routes/services/$slug'
+import { Route as CooperationTraitesConventionsRouteImport } from './routes/cooperation_.traites-conventions'
+import { Route as CooperationOrganisationsInternationalesRouteImport } from './routes/cooperation_.organisations-internationales'
+import { Route as CooperationAxesStrategiquesRouteImport } from './routes/cooperation_.axes-strategiques'
 import { Route as ActualitesSlugRouteImport } from './routes/actualites/$slug'
 import { Route as AdminUsersIndexRouteImport } from './routes/admin/users/index'
 import { Route as AdminTeamIndexRouteImport } from './routes/admin/team/index'
@@ -71,6 +75,11 @@ const IntegrationRoute = IntegrationRouteImport.update({
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CooperationRoute = CooperationRouteImport.update({
+  id: '/cooperation',
+  path: '/cooperation',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -123,6 +132,24 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
   path: '/services/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CooperationTraitesConventionsRoute =
+  CooperationTraitesConventionsRouteImport.update({
+    id: '/cooperation_/traites-conventions',
+    path: '/cooperation/traites-conventions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CooperationOrganisationsInternationalesRoute =
+  CooperationOrganisationsInternationalesRouteImport.update({
+    id: '/cooperation_/organisations-internationales',
+    path: '/cooperation/organisations-internationales',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CooperationAxesStrategiquesRoute =
+  CooperationAxesStrategiquesRouteImport.update({
+    id: '/cooperation_/axes-strategiques',
+    path: '/cooperation/axes-strategiques',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ActualitesSlugRoute = ActualitesSlugRouteImport.update({
   id: '/actualites/$slug',
   path: '/actualites/$slug',
@@ -217,6 +244,7 @@ export interface FileRoutesByFullPath {
   '/ambassade': typeof AmbassadeRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/cooperation': typeof CooperationRoute
   '/faq': typeof FaqRoute
   '/integration': typeof IntegrationRoute
   '/mentions-legales': typeof MentionsLegalesRoute
@@ -224,6 +252,9 @@ export interface FileRoutesByFullPath {
   '/venir-en-espagne': typeof VenirEnEspagneRoute
   '/vie-en-espagne': typeof VieEnEspagneRoute
   '/actualites/$slug': typeof ActualitesSlugRoute
+  '/cooperation/axes-strategiques': typeof CooperationAxesStrategiquesRoute
+  '/cooperation/organisations-internationales': typeof CooperationOrganisationsInternationalesRoute
+  '/cooperation/traites-conventions': typeof CooperationTraitesConventionsRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/actualites': typeof ActualitesIndexRoute
   '/admin/': typeof AdminIndexRoute
@@ -251,6 +282,7 @@ export interface FileRoutesByTo {
   '/ambassade': typeof AmbassadeRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/cooperation': typeof CooperationRoute
   '/faq': typeof FaqRoute
   '/integration': typeof IntegrationRoute
   '/mentions-legales': typeof MentionsLegalesRoute
@@ -258,6 +290,9 @@ export interface FileRoutesByTo {
   '/venir-en-espagne': typeof VenirEnEspagneRoute
   '/vie-en-espagne': typeof VieEnEspagneRoute
   '/actualites/$slug': typeof ActualitesSlugRoute
+  '/cooperation/axes-strategiques': typeof CooperationAxesStrategiquesRoute
+  '/cooperation/organisations-internationales': typeof CooperationOrganisationsInternationalesRoute
+  '/cooperation/traites-conventions': typeof CooperationTraitesConventionsRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/actualites': typeof ActualitesIndexRoute
   '/admin': typeof AdminIndexRoute
@@ -287,6 +322,7 @@ export interface FileRoutesById {
   '/ambassade': typeof AmbassadeRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/cooperation': typeof CooperationRoute
   '/faq': typeof FaqRoute
   '/integration': typeof IntegrationRoute
   '/mentions-legales': typeof MentionsLegalesRoute
@@ -294,6 +330,9 @@ export interface FileRoutesById {
   '/venir-en-espagne': typeof VenirEnEspagneRoute
   '/vie-en-espagne': typeof VieEnEspagneRoute
   '/actualites/$slug': typeof ActualitesSlugRoute
+  '/cooperation_/axes-strategiques': typeof CooperationAxesStrategiquesRoute
+  '/cooperation_/organisations-internationales': typeof CooperationOrganisationsInternationalesRoute
+  '/cooperation_/traites-conventions': typeof CooperationTraitesConventionsRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/actualites/': typeof ActualitesIndexRoute
   '/admin/': typeof AdminIndexRoute
@@ -324,6 +363,7 @@ export interface FileRouteTypes {
     | '/ambassade'
     | '/confidentialite'
     | '/contact'
+    | '/cooperation'
     | '/faq'
     | '/integration'
     | '/mentions-legales'
@@ -331,6 +371,9 @@ export interface FileRouteTypes {
     | '/venir-en-espagne'
     | '/vie-en-espagne'
     | '/actualites/$slug'
+    | '/cooperation/axes-strategiques'
+    | '/cooperation/organisations-internationales'
+    | '/cooperation/traites-conventions'
     | '/services/$slug'
     | '/actualites'
     | '/admin/'
@@ -358,6 +401,7 @@ export interface FileRouteTypes {
     | '/ambassade'
     | '/confidentialite'
     | '/contact'
+    | '/cooperation'
     | '/faq'
     | '/integration'
     | '/mentions-legales'
@@ -365,6 +409,9 @@ export interface FileRouteTypes {
     | '/venir-en-espagne'
     | '/vie-en-espagne'
     | '/actualites/$slug'
+    | '/cooperation/axes-strategiques'
+    | '/cooperation/organisations-internationales'
+    | '/cooperation/traites-conventions'
     | '/services/$slug'
     | '/actualites'
     | '/admin'
@@ -393,6 +440,7 @@ export interface FileRouteTypes {
     | '/ambassade'
     | '/confidentialite'
     | '/contact'
+    | '/cooperation'
     | '/faq'
     | '/integration'
     | '/mentions-legales'
@@ -400,6 +448,9 @@ export interface FileRouteTypes {
     | '/venir-en-espagne'
     | '/vie-en-espagne'
     | '/actualites/$slug'
+    | '/cooperation_/axes-strategiques'
+    | '/cooperation_/organisations-internationales'
+    | '/cooperation_/traites-conventions'
     | '/services/$slug'
     | '/actualites/'
     | '/admin/'
@@ -429,6 +480,7 @@ export interface RootRouteChildren {
   AmbassadeRoute: typeof AmbassadeRoute
   ConfidentialiteRoute: typeof ConfidentialiteRoute
   ContactRoute: typeof ContactRoute
+  CooperationRoute: typeof CooperationRoute
   FaqRoute: typeof FaqRoute
   IntegrationRoute: typeof IntegrationRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
@@ -436,6 +488,9 @@ export interface RootRouteChildren {
   VenirEnEspagneRoute: typeof VenirEnEspagneRoute
   VieEnEspagneRoute: typeof VieEnEspagneRoute
   ActualitesSlugRoute: typeof ActualitesSlugRoute
+  CooperationAxesStrategiquesRoute: typeof CooperationAxesStrategiquesRoute
+  CooperationOrganisationsInternationalesRoute: typeof CooperationOrganisationsInternationalesRoute
+  CooperationTraitesConventionsRoute: typeof CooperationTraitesConventionsRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   ActualitesIndexRoute: typeof ActualitesIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
@@ -483,6 +538,13 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cooperation': {
+      id: '/cooperation'
+      path: '/cooperation'
+      fullPath: '/cooperation'
+      preLoaderRoute: typeof CooperationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -553,6 +615,27 @@ declare module '@tanstack/react-router' {
       path: '/services/$slug'
       fullPath: '/services/$slug'
       preLoaderRoute: typeof ServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cooperation_/traites-conventions': {
+      id: '/cooperation_/traites-conventions'
+      path: '/cooperation/traites-conventions'
+      fullPath: '/cooperation/traites-conventions'
+      preLoaderRoute: typeof CooperationTraitesConventionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cooperation_/organisations-internationales': {
+      id: '/cooperation_/organisations-internationales'
+      path: '/cooperation/organisations-internationales'
+      fullPath: '/cooperation/organisations-internationales'
+      preLoaderRoute: typeof CooperationOrganisationsInternationalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cooperation_/axes-strategiques': {
+      id: '/cooperation_/axes-strategiques'
+      path: '/cooperation/axes-strategiques'
+      fullPath: '/cooperation/axes-strategiques'
+      preLoaderRoute: typeof CooperationAxesStrategiquesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/actualites/$slug': {
@@ -728,6 +811,7 @@ const rootRouteChildren: RootRouteChildren = {
   AmbassadeRoute: AmbassadeRoute,
   ConfidentialiteRoute: ConfidentialiteRoute,
   ContactRoute: ContactRoute,
+  CooperationRoute: CooperationRoute,
   FaqRoute: FaqRoute,
   IntegrationRoute: IntegrationRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
@@ -735,6 +819,10 @@ const rootRouteChildren: RootRouteChildren = {
   VenirEnEspagneRoute: VenirEnEspagneRoute,
   VieEnEspagneRoute: VieEnEspagneRoute,
   ActualitesSlugRoute: ActualitesSlugRoute,
+  CooperationAxesStrategiquesRoute: CooperationAxesStrategiquesRoute,
+  CooperationOrganisationsInternationalesRoute:
+    CooperationOrganisationsInternationalesRoute,
+  CooperationTraitesConventionsRoute: CooperationTraitesConventionsRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   ActualitesIndexRoute: ActualitesIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,

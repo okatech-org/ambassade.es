@@ -12,6 +12,8 @@ import {
 	type LucideIcon,
 	Scroll,
 	Sparkles,
+	Volume2,
+	VolumeX,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -77,42 +79,69 @@ function BentoServiceCard({
 }) {
 	const { t } = useTranslation();
 	const Icon = config.icon;
+	const videoRef = useRef<HTMLVideoElement>(null);
+	const [isMuted, setIsMuted] = useState(true);
+
+	const toggleMute = (e: React.MouseEvent) => {
+		e.stopPropagation();
+		if (videoRef.current) {
+			videoRef.current.muted = !videoRef.current.muted;
+			setIsMuted(videoRef.current.muted);
+		}
+	};
 
 	// Special featured card for Carte Consulaire
 	if (featured && slug === "carte-consulaire") {
 		return (
 			<div
 				onClick={() => (window.location.href = `/services/${slug}`)}
-				className="group relative text-left w-full cursor-pointer rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 block md:col-span-2 md:row-span-2 border border-transparent hover:border-[var(--glass-panel-border)] hover:bg-[var(--glass-panel-bg)]"
+				className="group relative text-left w-full cursor-pointer rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 block md:col-span-2 md:row-span-2 border border-transparent hover:border-white/20"
 			>
-				{/* Background gradient — visible by default, fades on hover */}
-				<div className="absolute inset-0 bg-gradient-to-br from-[#1a5dab]/15 via-[#1a5dab]/5 to-[#34a853]/10 opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
-				<div className="absolute inset-0 bg-[#1a5dab]/5 rounded-2xl group-hover:opacity-0 transition-opacity duration-500" />
+				{/* ── Full-cover background video ── */}
+				<div className="absolute inset-0 z-0">
+					<video
+						ref={videoRef}
+						src="/videos/carte_consulaire_video.MP4"
+						autoPlay
+						loop
+						muted
+						playsInline
+						className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+					/>
+					{/* Gradient overlay for text readability */}
+					<div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent" />
+					<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
+				</div>
 
-				<div className="relative z-10 h-full flex flex-col md:min-h-[420px]">
-					{/* ── Desktop Image — absolute overlay on right (hidden on mobile) ── */}
-					<div className="hidden md:flex absolute -top-5 bottom-0 right-0 w-[70%] items-center justify-end pointer-events-none">
-						<img
-							src="/images/services/carte-consulaire.png"
-							alt="Carte Consulaire Gabonaise"
-							className="w-full h-full object-contain object-right scale-[1.125] origin-right drop-shadow-2xl group-hover:scale-[1.175] transition-transform duration-500"
-						/>
-					</div>
+				{/* Mute/Unmute toggle button */}
+				<button
+					type="button"
+					onClick={toggleMute}
+					className="absolute bottom-4 right-4 z-30 p-2.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white hover:bg-black/60 transition-all duration-200 cursor-pointer"
+					aria-label={isMuted ? "Activer le son" : "Couper le son"}
+				>
+					{isMuted ? (
+						<VolumeX className="w-5 h-5" />
+					) : (
+						<Volume2 className="w-5 h-5" />
+					)}
+				</button>
 
+				<div className="relative z-10 h-full flex flex-col min-h-[400px] md:min-h-[560px]">
 					{/* Text content */}
 					<div className="relative z-20 p-5 md:p-8 flex flex-col h-full">
 						{/* Header: Title then Badge below */}
 						<div className="flex flex-col items-start gap-1 mb-3">
-							<h3 className="text-xl md:text-3xl font-bold text-foreground leading-tight group-hover:text-primary transition-colors">
+							<h3 className="text-xl md:text-3xl font-bold text-white leading-tight drop-shadow-lg">
 								{t("services.carteConsulaire.title", "Votre pièce d'identité")}{" "}
-								<span className="text-gradient">
+								<span className="text-[#EAB308]">
 									{t(
 										"services.carteConsulaire.titleHighlight",
 										"gabonaise en Espagne",
 									)}
 								</span>
 							</h3>
-							<Badge className="bg-primary/10 text-primary border-primary/20 text-xs backdrop-blur-sm">
+							<Badge className="bg-white/15 text-white border-white/25 text-xs backdrop-blur-sm">
 								{t(
 									"services.carteConsulaire.badge",
 									"✨ Nouvelle Carte Consulaire",
@@ -120,63 +149,57 @@ function BentoServiceCard({
 							</Badge>
 						</div>
 
-						{/* ── Mobile Image — aligned right, scaled up (hidden on desktop) ── */}
-						<div className="md:hidden flex justify-end my-3 -mr-5 overflow-hidden">
-							<img
-								src="/images/services/carte-consulaire.png"
-								alt="Carte Consulaire Gabonaise"
-								className="w-[75%] object-contain drop-shadow-xl scale-[1.60] origin-right"
-							/>
-						</div>
-
-						{/* Documents required */}
-						<ul className="text-sm text-foreground/80 space-y-1.5 mb-4 max-w-sm">
-							<li className="flex items-center gap-2">
-								<span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-								{t(
-									"services.carteConsulaire.doc1",
-									"Une copie d'acte de naissance",
-								)}
-							</li>
-							<li className="flex items-center gap-2">
-								<span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-								{t("services.carteConsulaire.doc2", "Une copie du passeport")}
-							</li>
-							<li className="flex items-center gap-2">
-								<span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-								{t(
-									"services.carteConsulaire.doc3",
-									"Un justificatif de domicile",
-								)}
-							</li>
-							<li className="flex items-center gap-2">
-								<span className="w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0" />
-								<span>
-									{t(
-										"services.carteConsulaire.doc4",
-										"Une copie du NIE ou de la tarjeta de residencia",
-									)}{" "}
-									<span className="text-muted-foreground italic">
-										{t("services.carteConsulaire.doc4Note", "(Facultatif)")}
-									</span>
-								</span>
-							</li>
-						</ul>
-
 						{/* CTA Button — external link */}
 						<a
 							href="https://www.consulat.ga/"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="w-full md:w-fit text-center rounded-full text-white shadow-lg hover:shadow-xl transition-all font-semibold px-6 py-3 md:py-2.5 inline-flex items-center justify-center gap-2 text-sm mb-4 bg-[#1a5dab] hover:bg-[#174ea6]"
+							className="w-full md:w-fit text-center rounded-full text-black shadow-lg hover:shadow-xl transition-all font-semibold px-6 py-3 md:py-2.5 inline-flex items-center justify-center gap-2 text-sm mb-4 bg-[#EAB308] hover:bg-[#D4A006]"
 							onClick={(e) => e.stopPropagation()}
 						>
 							{t("services.carteConsulaire.cta", "Demande de Carte Consulaire")}
 							<ArrowRight className="w-4 h-4" />
 						</a>
 
+						{/* Spacer to push content to bottom on desktop */}
+						<div className="flex-1" />
+
+						{/* Documents required — 2-column grid */}
+						<div className="grid grid-cols-2 gap-x-4 gap-y-1.5 mb-3 text-sm text-white/90 drop-shadow">
+							<div className="flex items-center gap-2">
+								<span className="w-1.5 h-1.5 rounded-full bg-[#EAB308] shrink-0" />
+								{t(
+									"services.carteConsulaire.doc1",
+									"Une copie d'acte de naissance",
+								)}
+							</div>
+							<div className="flex items-center gap-2">
+								<span className="w-1.5 h-1.5 rounded-full bg-[#EAB308] shrink-0" />
+								{t("services.carteConsulaire.doc2", "Une copie du passeport")}
+							</div>
+							<div className="flex items-center gap-2">
+								<span className="w-1.5 h-1.5 rounded-full bg-[#EAB308] shrink-0" />
+								{t(
+									"services.carteConsulaire.doc3",
+									"Un justificatif de domicile",
+								)}
+							</div>
+							<div className="flex items-center gap-2">
+								<span className="w-1.5 h-1.5 rounded-full bg-[#EAB308]/50 shrink-0" />
+								<span>
+									{t(
+										"services.carteConsulaire.doc4",
+										"Une copie du NIE ou de la tarjeta de residencia",
+									)}{" "}
+									<span className="text-white/60 italic">
+										{t("services.carteConsulaire.doc4Note", "(Facultatif)")}
+									</span>
+								</span>
+							</div>
+						</div>
+
 						{/* Description */}
-						<p className="text-sm text-muted-foreground leading-relaxed mb-3 max-w-2xl line-clamp-2 md:mt-16">
+						<p className="text-sm text-white/70 leading-relaxed mb-3 max-w-2xl drop-shadow">
 							{t(
 								"services.carteConsulaire.desc1",
 								"La carte consulaire atteste de votre inscription au registre des Gabonais de l'étranger.",
@@ -212,7 +235,7 @@ function BentoServiceCard({
 							].map((feat) => (
 								<div
 									key={feat.label}
-									className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-foreground/80 backdrop-blur-sm bg-background/60 rounded-md px-2 py-1 md:px-2.5 md:py-1.5"
+									className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-white backdrop-blur-md bg-white/10 border border-white/20 rounded-md px-2 py-1 md:px-2.5 md:py-1.5"
 								>
 									<span>{feat.icon}</span>
 									<span className="font-medium">{feat.label}</span>

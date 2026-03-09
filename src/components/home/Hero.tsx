@@ -1,34 +1,99 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Bot, Sparkles } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { EditableImage } from "@/components/inline-edit/EditableImage";
 import { EditableText } from "@/components/inline-edit/EditableText";
 import { Button } from "../ui/button";
+
+const HERO_IMAGES = [
+	{
+		src: "/images/IMG_5748.PNG",
+		alt: "Ambassade du Gabon en Espagne",
+		objectPosition: "center 30%",
+		objectPositionSm: "center 60%",
+	},
+];
+
+const SLIDE_INTERVAL = 6000; // ms between slides
+const TRANSITION_DURATION = 1000; // ms for crossfade
 
 export function Hero() {
 	const { t } = useTranslation();
 	const [isVisible, setIsVisible] = useState(false);
+	const [currentIndex, setCurrentIndex] = useState(0);
+	const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+	// Entrance animation
 	useEffect(() => {
 		const timer = setTimeout(() => setIsVisible(true), 100);
 		return () => clearTimeout(timer);
 	}, []);
 
+	// Auto-advance carousel
+	const startAutoPlay = useCallback(() => {
+		if (timerRef.current) clearInterval(timerRef.current);
+		timerRef.current = setInterval(() => {
+			setCurrentIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+		}, SLIDE_INTERVAL);
+	}, []);
+
+	useEffect(() => {
+		startAutoPlay();
+		return () => {
+			if (timerRef.current) clearInterval(timerRef.current);
+		};
+	}, [startAutoPlay]);
+
+	const goToSlide = (index: number) => {
+		setCurrentIndex(index);
+		startAutoPlay(); // reset timer on manual navigation
+	};
+
 	return (
 		<section className="relative min-h-[85vh] sm:min-h-[92vh] flex flex-col items-center justify-end">
-			{/* Background Image */}
+			{/* Background Image Carousel */}
 			<div className="absolute inset-0 z-0">
-				<EditableImage
-					contentKey="home.hero.backgroundImage"
-					defaultValue="/images/IMG_2415_hd.jpg"
-					pagePath="/"
-					sectionId="hero"
-					alt="Ambassade du Gabon en Espagne"
-					className="w-full h-full object-cover object-[center_30%] sm:object-[center_60%]"
-				/>
-				{/* Subtle bottom gradient for text readability */}
-				<div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+				{HERO_IMAGES.map((image, index) => (
+					<img
+						key={image.src}
+						src={image.src}
+						alt={image.alt}
+						loading={index === 0 ? "eager" : "lazy"}
+						className="absolute inset-0 w-full h-full object-cover"
+						style={{
+							objectPosition:
+								typeof window !== "undefined" && window.innerWidth >= 640
+									? image.objectPositionSm
+									: image.objectPosition,
+							opacity: index === currentIndex ? 1 : 0,
+							transition: `opacity ${TRANSITION_DURATION}ms ease-in-out`,
+							zIndex: index === currentIndex ? 1 : 0,
+						}}
+					/>
+				))}
+				{/* Gradient overlay for text readability */}
+				<div className="absolute inset-0 z-[2] bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+			</div>
+
+			{/* Carousel Indicators */}
+			<div className="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+				{HERO_IMAGES.map((image, index) => (
+					<button
+						key={image.src}
+						type="button"
+						aria-label={`Aller à l'image ${index + 1}`}
+						onClick={() => goToSlide(index)}
+						className="group relative p-1"
+					>
+						<span
+							className={`block rounded-full transition-all duration-300 ${
+								index === currentIndex
+									? "w-8 h-2 bg-[#EAB308]"
+									: "w-2 h-2 bg-white/60 group-hover:bg-white/90"
+							}`}
+						/>
+					</button>
+				))}
 			</div>
 
 			{/* Main Content */}

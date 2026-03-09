@@ -11,6 +11,10 @@ export default function Footer() {
 	const navLinks = [
 		{ label: t("header.nav.home"), href: "/" },
 		{ label: t("header.nav.services", "Services"), href: "/services" },
+		{
+			label: t("header.nav.cooperation", "Coopération"),
+			href: "/cooperation",
+		},
 		{ label: t("header.nav.news", "Actualités"), href: "/actualites" },
 		{
 			label: t("header.nav.venirFrance", "Venir en France"),
