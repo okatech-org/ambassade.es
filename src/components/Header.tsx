@@ -365,24 +365,43 @@ export default function Header() {
 					</Button>
 				</div>
 
-				{/* Mobile Language Switcher */}
+				{/* Mobile Language Switcher — Single dropdown */}
 				<div className="p-4 border-b border-border">
-					<div className="flex gap-2">
-						{languages.map((lang) => (
+					<DropdownMenu>
+						<DropdownMenuTrigger asChild>
 							<Button
-								key={lang.code}
-								variant={
-									currentLang.startsWith(lang.code) ? "default" : "outline"
-								}
+								variant="outline"
 								size="sm"
-								onClick={() => changeLanguage(lang.code)}
-								className="flex-1 rounded-full"
+								className="w-full rounded-full justify-between"
 							>
-								<span className="mr-1">{lang.flag}</span>
-								{lang.label}
+								<span className="flex items-center gap-2">
+									<span>{currentLanguage.flag}</span>
+									{currentLanguage.label}
+								</span>
+								<ChevronDown className="w-4 h-4 opacity-50" />
 							</Button>
-						))}
-					</div>
+						</DropdownMenuTrigger>
+						<DropdownMenuContent
+							align="start"
+							className="w-[calc(100%-2rem)] min-w-[200px]"
+						>
+							{languages.map((lang) => (
+								<DropdownMenuItem
+									key={lang.code}
+									onClick={() => changeLanguage(lang.code)}
+									className="flex items-center justify-between cursor-pointer"
+								>
+									<span className="flex items-center gap-2">
+										<span>{lang.flag}</span>
+										{lang.label}
+									</span>
+									{currentLang.startsWith(lang.code) && (
+										<Check className="w-4 h-4 text-primary" />
+									)}
+								</DropdownMenuItem>
+							))}
+						</DropdownMenuContent>
+					</DropdownMenu>
 				</div>
 
 				{/* Sidebar Navigation */}
