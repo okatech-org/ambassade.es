@@ -10,20 +10,21 @@ interface ChatMessage {
 	content: string;
 }
 
-const WELCOME_MESSAGE = `Bonjour ! 👋 Je suis **Mr Ray** 🐡, votre assistant virtuel du Ambassade du Gabon en Espagne.
+const WELCOME_MESSAGE = `Bonjour ! 👋 Je suis **Mr Ray** 🐡, votre assistant virtuel de l'**Ambassade du Gabon en Espagne**.
 
 Je peux vous aider à :
 - 🏛️ Trouver des informations sur les **services consulaires**
-- 📋 Vous orienter vers les **bonnes démarches**
-- 🇬🇦 Répondre à vos questions sur la **vie en France**
+- 📋 Vous orienter vers les **bonnes démarches** en Espagne
+- 🇬🇦 Répondre à vos questions sur la **vie en Espagne**
+- ✈️ Informer sur les **visas pour le Gabon**, le tourisme et l'investissement
 
 Comment puis-je vous aider aujourd'hui ?`;
 
 const SUGGESTED_QUESTIONS = [
 	"Carte consulaire",
-	"Mariage au consulat",
-	"OQTF : que faire ?",
-	"Vie étudiante",
+	"NIE / Tarjeta de Residencia",
+	"Visa pour le Gabon",
+	"Vie étudiante en Espagne",
 ];
 
 /** Extract the slug from a /services/{slug} link */
@@ -289,7 +290,7 @@ export function MrRayChatbot() {
 							</div>
 							<div>
 								<h3 className="font-bold text-sm">Mr Ray 🐡</h3>
-								<p className="text-xs opacity-80">Assistant du Consulat</p>
+								<p className="text-xs opacity-80">Assistant de l'Ambassade</p>
 							</div>
 						</div>
 						<button
@@ -411,14 +412,12 @@ export function MrRayChatbot() {
 							</button>
 						</div>
 						<p className="text-[10px] text-muted-foreground/50 mt-2 text-center">
-							Propulsé par Gemini AI • Pour les démarches, utilisez{" "}
+							Propulsé par Gemini AI • Pour les démarches, contactez{" "}
 							<a
-								href="https://consulat.ga"
-								target="_blank"
-								rel="noopener noreferrer"
+								href="mailto:contact@ambassadegabon.es"
 								className="text-primary/60 hover:text-primary transition-colors"
 							>
-								CONSULAT.GA
+								l'Ambassade
 							</a>
 						</p>
 					</div>

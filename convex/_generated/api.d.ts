@@ -22,7 +22,6 @@ import type * as functions_admin from "../functions/admin.js";
 import type * as functions_analytics from "../functions/analytics.js";
 import type * as functions_announcements from "../functions/announcements.js";
 import type * as functions_chatbot from "../functions/chatbot.js";
-import type * as functions_cleanPostContent from "../functions/cleanPostContent.js";
 import type * as functions_files from "../functions/files.js";
 import type * as functions_inlineContent from "../functions/inlineContent.js";
 import type * as functions_migrateRoles from "../functions/migrateRoles.js";
@@ -77,7 +76,6 @@ declare const fullApi: ApiFromModules<{
   "functions/analytics": typeof functions_analytics;
   "functions/announcements": typeof functions_announcements;
   "functions/chatbot": typeof functions_chatbot;
-  "functions/cleanPostContent": typeof functions_cleanPostContent;
   "functions/files": typeof functions_files;
   "functions/inlineContent": typeof functions_inlineContent;
   "functions/migrateRoles": typeof functions_migrateRoles;

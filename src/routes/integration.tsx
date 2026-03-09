@@ -65,33 +65,33 @@ const guideSections: GuideSection[] = [
 		color: "text-blue-600 dark:text-blue-400",
 		iconBg: "bg-blue-500/10",
 		intro:
-			"Le logement est souvent la première étape de votre installation. Voici les clés pour comprendre le marché locatif français et accéder à vos droits.",
+			"Le logement est souvent la première étape de votre installation en Espagne. Voici les clés pour comprendre le marché locatif espagnol et accéder à vos droits.",
 		items: [
 			{
 				title: "Recherche de logement",
 				detail:
-					"Utilisez les plateformes officielles (Leboncoin, SeLoger, PAP) et les agences immobilières. Méfiez-vous des annonces trop avantageuses — ne versez jamais d'argent avant la visite et la signature du bail.",
+					"Utilisez les plateformes de référence : Idealista, Fotocasa, Pisos.com, Habitaclia. Méfiez-vous des annonces trop avantageuses — ne versez jamais d'argent avant la visite et la signature du bail (contrato de arrendamiento).",
 			},
 			{
-				title: "Dossier locatif",
+				title: "Empadronamiento (inscription au padrón)",
 				detail:
-					"Préparez : pièce d'identité, 3 derniers bulletins de salaire, contrat de travail, avis d'imposition, justificatif de domicile actuel. Un garant (ou le dispositif Visale gratuit) est souvent exigé.",
+					"C'est la PREMIÈRE démarche obligatoire en Espagne. Inscrivez-vous au padrón municipal de votre mairie (Ayuntamiento) dès votre installation. Il est nécessaire pour la santé, la scolarité, le NIE et presque toutes les démarches. Documents : passeport + contrat de location ou attestation d'hébergement.",
 			},
 			{
-				title: "Aides au logement (CAF)",
+				title: "Aides au logement",
 				detail:
-					"Vous pouvez bénéficier de l'APL (Aide Personnalisée au Logement) ou de l'ALS selon votre situation. Faites votre demande sur caf.fr dès la signature de votre bail.",
+					"Des aides existent via le Plan Estatal de Vivienda et les programmes des Comunidades Autónomas. À Madrid, consultez la Empresa Municipal de la Vivienda y Suelo (EMVS). Les jeunes de moins de 35 ans peuvent bénéficier du Bono Alquiler Joven (250€/mois).",
 			},
 			{
 				title: "Droits du locataire",
 				detail:
-					"Le propriétaire ne peut pas vous demander : photo, relevé bancaire, carte vitale. Le dépôt de garantie est plafonné à 1 mois de loyer (hors charges). La trêve hivernale protège contre les expulsions du 1er novembre au 31 mars.",
+					"La Ley de Arrendamientos Urbanos (LAU) encadre les droits des locataires. La fianza (caution) est plafonnée à 1 mois de loyer (non meublé) ou 2 mois (meublé). La durée minimale d'un bail est de 5 ans (7 ans si le propriétaire est une entreprise). Le propriétaire ne peut pas augmenter le loyer librement pendant la durée du contrat.",
 			},
 		],
 		tips: [
-			"Le dispositif Visale (gratuit, via Action Logement) remplace le garant physique",
-			"Ouvrez un compte bancaire français rapidement — c'est indispensable pour le prélèvement du loyer",
-			"Souscrivez une assurance habitation obligatoire dès l'entrée dans le logement",
+			"L'empadronamiento est GRATUIT et se fait à la mairie — ne payez JAMAIS un intermédiaire pour cette démarche",
+			"Ouvrez un compte bancaire espagnol rapidement — c'est indispensable pour le prélèvement du loyer",
+			"Souscrivez une assurance habitation (seguro del hogar) dès l'entrée dans le logement",
 		],
 	},
 	{
@@ -101,33 +101,33 @@ const guideSections: GuideSection[] = [
 		color: "text-red-600 dark:text-red-400",
 		iconBg: "bg-red-500/10",
 		intro:
-			"La France dispose d'un système de santé universel. En tant que résident, vous avez droit à la couverture maladie. Voici comment en bénéficier.",
+			"L'Espagne dispose d'un système de santé universel (SNS). En tant que résident, vous avez droit à la couverture maladie. Voici comment en bénéficier.",
 		items: [
 			{
-				title: "Inscription à la Sécurité sociale",
+				title: "Inscription à la Seguridad Social",
 				detail:
-					"Inscrivez-vous sur le site ameli.fr (CPAM) avec votre titre de séjour, justificatif de domicile et RIB. Le dispositif PUMA garantit la prise en charge des soins pour tout résident stable en France (plus de 3 mois).",
+					"Inscrivez-vous à la Seguridad Social (seg-social.es) pour obtenir votre Tarjeta Sanitaria (carte de santé). Avec l'empadronamiento et votre NIE/TIE, rendez-vous au Centro de Salud de votre quartier pour être assigné à un médecin de famille (Médico de Cabecera).",
 			},
 			{
-				title: "Complémentaire santé (Mutuelle)",
+				title: "Système National de Santé (SNS)",
 				detail:
-					"La Sécurité sociale rembourse environ 70% des frais médicaux. Une mutuelle couvre le reste. Si vos revenus sont modestes, la Complémentaire Santé Solidaire (CSS, ex-CMU-C) est gratuite ou à moins de 1€/jour.",
+					"Le SNS est gratuit pour les résidents : consultations chez le médecin de famille, spécialistes (sur orientation), urgences hospitalières. Les médicaments sont partiellement pris en charge (40% à 60% de réduction selon votre situation). La couverture est universelle, quelle que soit votre nationalité.",
 			},
 			{
-				title: "Médecin traitant",
+				title: "Médecin de famille (Médico de Cabecera)",
 				detail:
-					"Déclarez un médecin traitant auprès de votre CPAM — c'est obligatoire pour un remboursement optimal. Consultez l'annuaire-sante.ameli.fr pour trouver un médecin qui accepte de nouveaux patients.",
+					"Votre Centro de Salud vous attribuera un médecin de famille et un pédiatre pour vos enfants. C'est votre premier interlocuteur médical — il vous orientera vers les spécialistes si nécessaire. Prenez rendez-vous via l'application de votre communauté autonome ou par téléphone.",
 			},
 			{
 				title: "Urgences et numéros utiles",
 				detail:
-					"SAMU : 15 • Pompiers : 18 • Urgences européennes : 112 • SOS Médecins (consultations à domicile) • Pharmacies de garde (composez le 3237). Aux urgences hospitalières, vous serez soigné même sans carte vitale.",
+					"Numéro unique d'urgence : 112 • Urgences médicales : 061 • Aux urgences hospitalières, vous serez soigné quelle que soit votre situation administrative. Pour les gardes de nuit en pharmacie (farmacia de guardia), consultez le site de votre mairie.",
 			},
 		],
 		tips: [
-			"Conservez toujours sur vous votre carte vitale (ou attestation provisoire)",
-			"La téléconsultation est remboursée — pratique quand on ne trouve pas de médecin",
-			"Les centres de santé municipaux proposent des consultations sans dépassement d'honoraires",
+			"Conservez toujours sur vous votre Tarjeta Sanitaria (ou récépissé d'inscription)",
+			"Santé mentale : consultations gratuites aux Centros de Salud Mental, ligne d'aide Teléfono de la Esperanza (717 003 717)",
+			"Les Centros de Salud sont gratuits et proposent des consultations sans dépassement d'honoraires",
 		],
 	},
 	{
@@ -137,33 +137,33 @@ const guideSections: GuideSection[] = [
 		color: "text-green-600 dark:text-green-400",
 		iconBg: "bg-green-500/10",
 		intro:
-			"Le système éducatif français est accessible à tous les enfants résidant en France, quelle que soit la nationalité. Pour les adultes, de nombreuses formations existent.",
+			"Le système éducatif espagnol est accessible à tous les enfants résidant en Espagne, quelle que soit la nationalité. Pour les adultes, de nombreuses formations existent.",
 		items: [
 			{
 				title: "Scolarisation des enfants",
 				detail:
-					"L'instruction est obligatoire de 3 à 16 ans. Inscrivez votre enfant à la mairie de votre commune puis à l'école. Aucun document de séjour ne peut être exigé pour l'inscription scolaire d'un enfant.",
+					"L'instruction est obligatoire de 3 à 16 ans. Inscrivez votre enfant auprès de la Consejería de Educación de votre communauté autonome. Aucun document de séjour ne peut être exigé pour l'inscription scolaire d'un enfant. L'empadronamiento est cependant requis.",
 			},
 			{
 				title: "Études supérieures",
 				detail:
-					"Inscription via Parcoursup (lycéens en France) ou Campus France (depuis le Gabon). Les frais d'inscription publiques sont modérés (170€ à 380€/an). Demandez une bourse CROUS sur messervices.etudiant.gouv.fr.",
+					"Les bacheliers gabonais doivent faire homologuer leur diplôme via UNEDasiss (unedasiss.uned.es) pour s'inscrire dans une université espagnole. Les frais d'inscription publiques varient de 700€ à 2 000€/an selon la communauté autonome. Demandez une bourse Becas MEC via le Ministerio de Educación.",
 			},
 			{
-				title: "Reconnaissance des diplômes",
+				title: "Reconnaissance des diplômes (Homologación)",
 				detail:
-					"Le centre ENIC-NARIC délivre des attestations de comparabilité de vos diplômes gabonais. Cette attestation facilite la recherche d'emploi et l'inscription en formation. Coût : environ 70€.",
+					"L'homologación permet de faire reconnaître vos diplômes gabonais en Espagne. La demande se fait auprès du Ministerio de Educación. Délai : 3 à 12 mois. Pour les professions réglementées (médecin, avocat, ingénieur), une procédure spécifique est requise.",
 			},
 			{
 				title: "Formation professionnelle (adultes)",
 				detail:
-					"Le Compte Personnel de Formation (CPF) finance des formations certifiantes. Pôle Emploi / France Travail propose aussi des formations gratuites pour les demandeurs d'emploi. La VAE permet de faire reconnaître votre expérience.",
+					"Le SEPE (sepe.es) propose des formations gratuites pour les demandeurs d'emploi. Les Escuelas Oficiales de Idiomas offrent des cours de langues accessibles. Les certificados de profesionalidad valident vos compétences professionnelles.",
 			},
 		],
 		tips: [
-			"Les cours de français (FLE) sont souvent gratuits dans les associations et les mairies",
-			"La carte d'étudiant donne accès à de nombreuses réductions (transport, culture, restauration CROUS)",
-			"Les bibliothèques municipales sont gratuites et offrent accès à internet, presse et formations en ligne",
+			"Les cours d'espagnol sont souvent gratuits dans les centres d'accueil et les mairies (Centros de Participación e Integración)",
+			"La carte d'étudiant donne accès à de nombreuses réductions (abono joven transport, culture, restauration universitaire)",
+			"Les bibliothèques municipales (bibliotecas públicas) sont gratuites et offrent accès à internet et formations en ligne",
 		],
 	},
 	{
@@ -173,33 +173,33 @@ const guideSections: GuideSection[] = [
 		color: "text-orange-600 dark:text-orange-400",
 		iconBg: "bg-orange-500/10",
 		intro:
-			"Travailler en France nécessite un titre de séjour autorisant le travail. Voici les étapes clés pour accéder au marché de l'emploi ou créer votre activité.",
+			"Travailler en Espagne nécessite un titre de séjour autorisant le travail. Voici les étapes clés pour accéder au marché de l'emploi ou créer votre activité.",
 		items: [
 			{
 				title: "Autorisation de travail",
 				detail:
-					'Vérifiez que votre titre de séjour autorise le travail (mention "autorise son titulaire à travailler"). Les cartes de résident, les cartes "vie privée et familiale" et les cartes "salarié" autorisent le travail. Les visas étudiants permettent de travailler 964 heures/an.',
+					"Votre TIE (Tarjeta de Identidad de Extranjero) doit mentionner l'autorisation de travail. Les permis de résidence et travail, les autorisations de residencia y trabajo por cuenta ajena ou propia autorisent le travail. Les étudiants peuvent travailler 964 heures/an (environ 20h/semaine).",
 			},
 			{
 				title: "Recherche d'emploi",
 				detail:
-					"Inscrivez-vous à France Travail (ex-Pôle Emploi) pour bénéficier d'un accompagnement et d'indemnités si vous avez cotisé. Utilisez aussi : LinkedIn, Indeed, HelloWork, l'APEC (cadres). Le CV français est sans photo, concis (1-2 pages).",
+					"Inscrivez-vous au SEPE (Servicio Público de Empleo Estatal — sepe.es) pour bénéficier d'un accompagnement et d'indemnités si vous avez cotisé. Utilisez aussi : InfoJobs, LinkedIn, Indeed, Trabajos.com. Le CV espagnol est concis (1-2 pages) et peut inclure une photo.",
 			},
 			{
-				title: "Créer son entreprise",
+				title: "Créer son entreprise (Autónomo)",
 				detail:
-					"Le statut auto-entrepreneur (micro-entreprise) est le plus simple : inscription gratuite en ligne sur autoentrepreneur.urssaf.fr. Pour les activités plus importantes, consultez la CCI (Chambre de Commerce et d'Industrie) ou un accompagnateur BGE.",
+					"Le statut Autónomo est le plus courant pour les entrepreneurs individuels. Inscription auprès de la Seguridad Social (régime RETA). La tarifa plana réduit les cotisations à 80€/mois la première année. Pour les sociétés, consultez la Ventanilla Única Empresarial ou la Cámara de Comercio.",
 			},
 			{
 				title: "Droits des salariés",
 				detail:
-					"SMIC 2025 : environ 1 426€ net/mois. 5 semaines de congés payés. Durée légale : 35h/semaine. Vous avez droit aux mêmes protections que tout salarié français (contrat de travail obligatoire, bulletin de paie, assurance chômage).",
+					"Salario Mínimo Interprofesional (SMI) 2025 : environ 1 134€ net/mois (14 pagas). 30 jours ouvrables de congés payés. Durée légale : 40h/semaine. Vous avez droit aux mêmes protections que tout salarié espagnol (contrato de trabajo obligatoire, nómina, cotisations sociales, prestación por desempleo).",
 			},
 		],
 		tips: [
-			"L'aide ACRE exonère de charges sociales la première année de création d'entreprise",
-			"Les missions locales accompagnent gratuitement les 16-25 ans dans l'emploi",
-			'Attention au travail non déclaré ("au noir") : c\'est illégal et vous prive de toute protection sociale',
+			"La tarifa plana Autónomo réduit les cotisations à 80€/mois la première année de création d'activité",
+			"Les oficinas de empleo accompagnent gratuitement les demandeurs d'emploi — inscription obligatoire pour percevoir le paro",
+			'Attention au travail non déclaré ("en negro") : c\'est illégal et vous prive de toute protection sociale, et peut entraîner une Orden de Expulsión',
 		],
 	},
 	{
@@ -209,61 +209,61 @@ const guideSections: GuideSection[] = [
 		color: "text-purple-600 dark:text-purple-400",
 		iconBg: "bg-purple-500/10",
 		intro:
-			"Comprendre vos droits et les démarches liées à votre titre de séjour est essentiel pour vivre sereinement en France.",
+			"Comprendre vos droits et les démarches liées à votre titre de séjour est essentiel pour vivre sereinement en Espagne.",
 		items: [
 			{
-				title: "Titre de séjour",
+				title: "NIE & TIE",
 				detail:
-					"Renouvelez votre titre 2 à 4 mois avant expiration sur le site de la préfecture (ANEF). Types principaux : VLS-TS (visa long séjour valant titre), carte de séjour temporaire (1 an), carte pluriannuelle (4 ans), carte de résident (10 ans).",
+					"Le NIE (Número de Identidad de Extranjero) est votre numéro d'identification fiscale — indispensable pour travailler, ouvrir un compte bancaire, signer un bail. La TIE (Tarjeta de Identidad de Extranjero) est la carte physique de séjour. Demande à l'Oficina de Extranjería ou au commissariat (Comisaría de Policía).",
 			},
 			{
-				title: "Recours OQTF — Vos droits",
+				title: "Recours Orden de Expulsión — Vos droits",
 				detail:
-					"Si vous recevez une OQTF, ne l'ignorez JAMAIS. Trois recours existent : 1) Recours gracieux auprès du Préfet (2 mois, NE suspend PAS l'OQTF). 2) Recours hiérarchique auprès du Ministre de l'Intérieur (2 mois, NE suspend PAS l'OQTF). 3) Recours contentieux devant le Tribunal Administratif (30 jours, ou 48h si OQTF sans délai) — c'est le SEUL recours qui SUSPEND l'exécution de l'OQTF. L'aide juridictionnelle est accessible. Consultez immédiatement un avocat spécialisé.",
+					"Si vous recevez une Orden de Expulsión, ne l'ignorez JAMAIS. Deux recours existent : 1) Recurso de Reposición (recours gracieux, 1 mois, NE suspend PAS l'exécution). 2) Recurso Contencioso-Administrativo devant le Tribunal Contencioso-Administrativo — c'est le SEUL recours qui SUSPEND l'exécution de l'ordre. L'aide juridictionnelle gratuite (Justicia Gratuita) est accessible. Consultez immédiatement un avocat spécialisé en extranjería.",
 			},
 			{
-				title: "Régularisation de séjour",
+				title: "Régularisation de séjour (Arraigo)",
 				detail:
-					"Options : admission exceptionnelle (circulaire Valls 2012 — ancienneté + insertion), régularisation par le travail (contrat ou promesse d'embauche), motif familial (parent d'enfant français, conjoint de Français), raisons médicales (traitement indisponible au Gabon), protection internationale (OFPRA). Documents essentiels : passeport, justificatifs de domicile, preuves de présence en France.",
+					"Options : Arraigo social (3 ans de présence + contrat de travail ou moyens de subsistance + rapport d'intégration), Arraigo laboral (2 ans de présence + preuve de travail irrégulier de l'employeur), Arraigo familiar (parent d'un enfant espagnol ou conjoint d'un résident), Arraigo para la formación (étudiants en formation). Documents essentiels : passeport, empadronamiento, preuves de présence en Espagne.",
 			},
 			{
 				title: "Droit au travail étudiant (964 h/an)",
 				detail:
-					'Les étudiants étrangers avec un VLS-TS mention "étudiant" sont autorisés à travailler 964 heures/an (60% de la durée légale) sans autorisation supplémentaire. Pour la carte pluriannuelle étudiant : assiduité requise + ressources min. 615 €/mois. L\'APS après un Master (accord franco-gabonais du 5 juillet 2007) donne droit au travail à temps plein pendant 9 mois, renouvelable une fois (18 mois maximum).',
+					"Les étudiants étrangers avec un visa d'études sont autorisés à travailler 964 heures/an (environ 20h/semaine) sans autorisation supplémentaire. Pour la carte pluriannuelle étudiant : assiduité requise + ressources suffisantes. Après un Master, possibilité de demander une modification de statut vers un permis de travail.",
 			},
 			{
 				title: "Changement d'adresse (obligatoire)",
 				detail:
-					"Tout étranger titulaire d'un titre de séjour doit signaler son changement d'adresse dans les 3 mois sur le portail ANEF ou en préfecture. Le non-respect entraîne une amende possible et des complications au renouvellement. Documents : titre de séjour + nouveau justificatif de domicile.",
+					"Tout étranger titulaire d'un titre de séjour doit mettre à jour son empadronamiento en cas de déménagement. Des complications au renouvellement de la TIE peuvent survenir si l'adresse n'est pas à jour. Faites-le à la mairie de votre nouveau domicile.",
 			},
 			{
-				title: "Binationaux (Franco-Gabonais)",
+				title: "Binationaux (Hispano-Gabonais)",
 				detail:
-					"Le Gabon ne reconnaît pas officiellement la double nationalité, mais elle est tolérée en pratique. Un visa est obligatoire pour entrer au Gabon avec un passeport français — il s'obtient uniquement au Consulat Général du Gabon à Paris (26 bis avenue Raphaël, 75016), délai 3 jours ouvrés, présence physique requise. Conseil : entrez en France avec le passeport français, au Gabon avec le passeport gabonais.",
+					"Le Gabon ne reconnaît pas officiellement la double nationalité, mais elle est tolérée en pratique. Un visa est obligatoire pour entrer au Gabon avec un passeport espagnol — il s'obtient auprès de l'Ambassade du Gabon à Madrid (Calle de la Silva, 2 — 28013 Madrid). Conseil : entrez en Espagne avec le passeport espagnol, au Gabon avec le passeport gabonais.",
 			},
 			{
-				title: "Regroupement familial",
+				title: "Regroupement familial (Reagrupación Familiar)",
 				detail:
-					"Vous pouvez faire venir votre conjoint et vos enfants mineurs si vous résidez légalement en France depuis au moins 18 mois, disposez de ressources stables et d'un logement adapté. Dossier à déposer auprès de l'OFII.",
+					"Vous pouvez faire venir votre conjoint et vos enfants mineurs si vous résidez légalement en Espagne depuis au moins 1 an, disposez de ressources stables et d'un logement adapté. Dossier à déposer auprès de l'Oficina de Extranjería.",
 			},
 			{
-				title: "Naturalisation française",
+				title: "Naturalisation espagnole",
 				detail:
-					"Possible après 5 ans de résidence régulière en France (réduit dans certains cas). Conditions : maîtrise du français (niveau B1), connaissance des droits et devoirs, insertion professionnelle, absence de condamnation pénale.",
+					"Possible après 10 ans de résidence régulière en Espagne (réduit à 2 ans pour les ressortissants de pays ibéro-américains, mais 10 ans pour les Gabonais). Conditions : examen DELE A2 (espagnol) + examen CCSE (connaissances constitutionnelles et socioculturelles), absence de casier judiciaire.",
 			},
 			{
-				title: "Aide juridique",
+				title: "Aide juridique (Justicia Gratuita)",
 				detail:
-					"L'aide juridictionnelle prend en charge vos frais d'avocat si vos revenus sont modestes. Les Maisons de Justice et du Droit offrent des consultations juridiques gratuites. Contactez aussi le Défenseur des droits (discrimination, droits fondamentaux). Numéro : 3039.",
+					"L'aide juridictionnelle gratuite (Justicia Gratuita) prend en charge vos frais d'avocat si vos revenus sont modestes. Demande via le Turno de Oficio (Colegio de Abogados). Le Defensor del Pueblo (defensordelpueblo.es) intervient en cas de discrimination ou de violation des droits fondamentaux.",
 			},
 		],
 		tips: [
-			"Gardez toujours une copie numérique de vos documents (passeport, titre de séjour, bail) dans un cloud sécurisé",
-			"Ne laissez jamais votre titre de séjour expirer — même en cas de retard de la préfecture, conservez votre récépissé",
-			"Les associations comme la CIMADE, le GISTI ou la Ligue des droits de l'Homme peuvent vous aider gratuitement",
-			"Ne jamais ignorer une OQTF — privilégiez le recours contentieux (tribunal administratif), c'est le SEUL suspensif",
+			"Gardez toujours une copie numérique de vos documents (passeport, TIE, bail) dans un cloud sécurisé",
+			"Ne laissez jamais votre TIE expirer — lancez le renouvellement 60 jours avant l'expiration via sede.administracionespublicas.gob.es",
+			"Les associations comme CEAR, SOS Racismo ou la Red Acoge peuvent vous aider gratuitement",
+			"Ne jamais ignorer une Orden de Expulsión — le Recurso Contencioso-Administrativo est le SEUL recours suspensif",
 			"Les étudiants doivent respecter le plafond de 964h/an sous peine de refus de renouvellement",
-			"Un récépissé de première demande ne permet PAS de quitter la France — seul le titre définitif le permet",
+			"Un récépissé de première demande de TIE ne permet PAS toujours de voyager — demandez une Autorización de Regreso si nécessaire",
 		],
 	},
 	{
@@ -273,33 +273,33 @@ const guideSections: GuideSection[] = [
 		color: "text-pink-600 dark:text-pink-400",
 		iconBg: "bg-pink-500/10",
 		intro:
-			"La France offre un soutien important aux familles. Voici les démarches essentielles et les aides auxquelles vous avez droit.",
+			"L'Espagne offre un soutien important aux familles. Voici les démarches essentielles et les aides auxquelles vous avez droit.",
 		items: [
 			{
 				title: "Déclaration de naissance",
 				detail:
-					"Déclarez la naissance à la mairie du lieu d'accouchement dans les 5 jours. Puis faites transcrire l'acte au Consulat du Gabon pour que votre enfant soit reconnu comme gabonais. Apportez : acte de naissance français, passeports des parents, livret de famille.",
+					"Déclarez la naissance au Registro Civil dans les 72 heures. Puis faites transcrire l'acte à l'Ambassade du Gabon pour que votre enfant soit reconnu comme gabonais. Apportez : acte de naissance espagnol (certificado literal), passeports des parents, Libro de Familia.",
 			},
 			{
-				title: "Allocations familiales (CAF)",
+				title: "Prestations familiales (Seguridad Social)",
 				detail:
-					"Dès le 2ème enfant, vous recevez les allocations familiales automatiquement. La prime à la naissance (PAJE) aide dès la grossesse. L'allocation de rentrée scolaire (ARS) est versée en août pour les enfants de 6 à 18 ans. Inscrivez-vous sur caf.fr.",
+					"L'Ingreso Mínimo Vital (IMV) aide les foyers à faibles revenus. La prestación por nacimiento y cuidado de menor accorde 16 semaines de congé rémunéré à 100% pour chaque parent. La déduction par maternité (1 200€/an) est disponible pour les mères actives. Demandes sur seg-social.es.",
 			},
 			{
 				title: "Garde d'enfants",
 				detail:
-					"Modes de garde : crèche municipale (inscription dès la grossesse à la mairie), assistante maternelle agréée, micro-crèche. Le complément de libre choix du mode de garde (CMG) aide à financer les frais de garde.",
+					"Modes de garde : Escuelas Infantiles (crèches publiques, inscription auprès de la Comunidad Autónoma), guarderías privées. Le cheque guardería exonère fiscalement les frais de crèche. L'inscription se fait généralement en mars-avril pour la rentrée de septembre.",
 			},
 			{
 				title: "Mariage & État civil",
 				detail:
-					"Un mariage contracté en France doit être transcrit au Consulat pour être reconnu au Gabon. Pour un mariage mixte (gabonais-français), le consulat délivre le certificat de capacité à mariage. Anticipez les délais (2-3 mois).",
+					"Un mariage contracté en Espagne (mairie ou Registro Civil) doit être transcrit à l'Ambassade du Gabon pour être reconnu au Gabon. Pour un mariage mixte (gabonais-espagnol), l'Ambassade délivre le certificat de coutume et de célibat. Anticipez les délais (2-3 mois).",
 			},
 		],
 		tips: [
-			"La PMI (Protection Maternelle et Infantile) offre des consultations gratuites pour les enfants de 0 à 6 ans",
-			"Le livret de famille français est un document officiel — demandez-le à la mairie lors du mariage ou de la naissance du premier enfant",
-			"L'assurance scolaire est quasi-obligatoire et coûte environ 10€/an",
+			"Les Centros de Salud offrent un suivi gratuit pour les femmes enceintes et les enfants de 0 à 14 ans (Programa del Niño Sano)",
+			"Le Libro de Familia espagnol est un document officiel — demandez-le au Registro Civil lors du mariage ou de la naissance du premier enfant",
+			"L'assurance scolaire est recommandée pour les activités extrascolaires",
 		],
 	},
 ];
@@ -418,74 +418,108 @@ const erreursCourantes: ErreurItem[] = [
 
 const numerosUtiles: NumeroUtile[] = [
 	{
-		label: "Consul Général du Gabon",
-		number: "26 bis av. Raphaël, 75016",
+		label: "Ambassade du Gabon à Madrid",
+		number: "C. de la Silva, 2, 28013 Madrid",
 		color: "bg-emerald-500/10 text-emerald-600",
+		category: "espagne",
+		type: "address",
+		description: "Siège de l'Ambassade",
 	},
 	{
-		label: "Email Consulat",
-		number: "contact@consulatdugabon.fr",
+		label: "Email Ambassade",
+		number: "contact@ambassadegabon.es",
 		color: "bg-emerald-500/10 text-emerald-600",
+		category: "espagne",
+		type: "email",
+		description: "Lun-Ven 9h00-16h00",
 	},
 	{
-		label: "Urgence consulaire Gabon",
-		number: "07 44 23 95 84",
-		color: "bg-green-500/10 text-green-600",
-	},
-	{
-		label: "SAMU (urgences médicales)",
-		number: "15",
-		color: "bg-red-500/10 text-red-600",
-	},
-	{
-		label: "Police / Gendarmerie",
-		number: "17",
-		color: "bg-blue-500/10 text-blue-600",
-	},
-	{
-		label: "Pompiers",
-		number: "18",
-		color: "bg-orange-500/10 text-orange-600",
-	},
-	{
-		label: "Urgences européennes",
+		label: "Urgences (numéro unique)",
 		number: "112",
-		color: "bg-purple-500/10 text-purple-600",
+		color: "bg-red-500/10 text-red-600",
+		category: "espagne",
+		type: "phone",
+		description: "Ambulance, pompiers, police",
 	},
 	{
-		label: "Violences femmes info",
-		number: "3919",
+		label: "Urgences médicales",
+		number: "061",
+		color: "bg-red-500/10 text-red-600",
+		category: "espagne",
+		type: "phone",
+		description: "SAMUR / Urgencias sanitarias",
+	},
+	{
+		label: "Policía Nacional",
+		number: "091",
+		color: "bg-blue-500/10 text-blue-600",
+		category: "espagne",
+		type: "phone",
+		description: "Villes & agglomérations",
+	},
+	{
+		label: "Guardia Civil",
+		number: "062",
+		color: "bg-blue-500/10 text-blue-600",
+		category: "espagne",
+		type: "phone",
+		description: "Zones rurales & routes",
+	},
+	{
+		label: "Violences de genre",
+		number: "016",
 		color: "bg-pink-500/10 text-pink-600",
+		category: "espagne",
+		type: "phone",
+		description: "24h/24, confidentiel",
 	},
 	{
 		label: "Enfance en danger",
-		number: "119",
+		number: "116 111",
 		color: "bg-yellow-500/10 text-yellow-600",
+		category: "espagne",
+		type: "phone",
+		description: "Ligne européenne",
 	},
 	{
-		label: "Droit au logement",
-		number: "0 806 000 113",
+		label: "Teléfono de la Esperanza",
+		number: "717 003 717",
 		color: "bg-teal-500/10 text-teal-600",
+		category: "espagne",
+		type: "phone",
+		description: "Aide psychologique 24h/24",
 	},
 	{
-		label: "OFII",
-		number: "01 53 69 53 70",
+		label: "Oficina de Extranjería",
+		number: "+34 900 150 000",
 		color: "bg-indigo-500/10 text-indigo-600",
+		category: "espagne",
+		type: "phone",
+		description: "Information extranjería",
 	},
 	{
-		label: "Préfecture en ligne (ANEF)",
-		number: "anef.interieur.gouv.fr",
+		label: "Seguridad Social (sede)",
+		number: "seg-social.es",
 		color: "bg-cyan-500/10 text-cyan-600",
+		category: "espagne",
+		type: "phone",
+		description: "Démarches en ligne",
 	},
 	{
-		label: "Aide juridictionnelle",
-		number: "3039",
+		label: "Defensor del Pueblo",
+		number: "900 101 025",
 		color: "bg-emerald-500/10 text-emerald-600",
+		category: "espagne",
+		type: "phone",
+		description: "Recours droits fondamentaux",
 	},
 	{
-		label: "OFPRA (Asile)",
-		number: "01 58 68 10 10",
+		label: "Agencia Tributaria",
+		number: "agenciatributaria.gob.es",
 		color: "bg-slate-500/10 text-slate-600",
+		category: "espagne",
+		type: "phone",
+		description: "Impôts et fiscalité",
 	},
 ];
 
@@ -846,74 +880,108 @@ const erreursCourantesEn: ErreurItem[] = [
 
 const numerosUtilesEn: NumeroUtile[] = [
 	{
-		label: "Consul General of Gabon",
-		number: "26 bis av. Raphaël, 75016",
+		label: "Embassy of Gabon in Madrid",
+		number: "C. de la Silva, 2, 28013 Madrid",
 		color: "bg-emerald-500/10 text-emerald-600",
+		category: "espagne",
+		type: "address",
+		description: "Embassy headquarters",
 	},
 	{
-		label: "Consulate Email",
-		number: "contact@consulatdugabon.fr",
+		label: "Embassy Email",
+		number: "contact@ambassadegabon.es",
 		color: "bg-emerald-500/10 text-emerald-600",
+		category: "espagne",
+		type: "email",
+		description: "Mon-Fri 9am-4pm",
 	},
 	{
-		label: "Gabon Consular Emergency",
-		number: "07 44 23 95 84",
-		color: "bg-green-500/10 text-green-600",
-	},
-	{
-		label: "SAMU (Medical emergency)",
-		number: "15",
-		color: "bg-red-500/10 text-red-600",
-	},
-	{
-		label: "Police / Gendarmerie",
-		number: "17",
-		color: "bg-blue-500/10 text-blue-600",
-	},
-	{
-		label: "Fire Brigade",
-		number: "18",
-		color: "bg-orange-500/10 text-orange-600",
-	},
-	{
-		label: "European emergency",
+		label: "Emergency (all services)",
 		number: "112",
-		color: "bg-purple-500/10 text-purple-600",
+		color: "bg-red-500/10 text-red-600",
+		category: "espagne",
+		type: "phone",
+		description: "Ambulance, fire, police",
 	},
 	{
-		label: "Women violence hotline",
-		number: "3919",
+		label: "Medical emergency",
+		number: "061",
+		color: "bg-red-500/10 text-red-600",
+		category: "espagne",
+		type: "phone",
+		description: "SAMUR / Health emergencies",
+	},
+	{
+		label: "Policía Nacional",
+		number: "091",
+		color: "bg-blue-500/10 text-blue-600",
+		category: "espagne",
+		type: "phone",
+		description: "Urban areas",
+	},
+	{
+		label: "Guardia Civil",
+		number: "062",
+		color: "bg-blue-500/10 text-blue-600",
+		category: "espagne",
+		type: "phone",
+		description: "Rural areas & roads",
+	},
+	{
+		label: "Gender violence hotline",
+		number: "016",
 		color: "bg-pink-500/10 text-pink-600",
+		category: "espagne",
+		type: "phone",
+		description: "24/7, confidential",
 	},
 	{
 		label: "Child protection hotline",
-		number: "119",
+		number: "116 111",
 		color: "bg-yellow-500/10 text-yellow-600",
+		category: "espagne",
+		type: "phone",
+		description: "European helpline",
 	},
 	{
-		label: "Housing rights hotline",
-		number: "0 806 000 113",
+		label: "Teléfono de la Esperanza",
+		number: "717 003 717",
 		color: "bg-teal-500/10 text-teal-600",
+		category: "espagne",
+		type: "phone",
+		description: "Mental health support 24/7",
 	},
 	{
-		label: "OFII",
-		number: "01 53 69 53 70",
+		label: "Oficina de Extranjería",
+		number: "+34 900 150 000",
 		color: "bg-indigo-500/10 text-indigo-600",
+		category: "espagne",
+		type: "phone",
+		description: "Immigration information",
 	},
 	{
-		label: "Online prefecture (ANEF)",
-		number: "anef.interieur.gouv.fr",
+		label: "Seguridad Social (portal)",
+		number: "seg-social.es",
 		color: "bg-cyan-500/10 text-cyan-600",
+		category: "espagne",
+		type: "phone",
+		description: "Online procedures",
 	},
 	{
-		label: "Legal aid",
-		number: "3039",
+		label: "Defensor del Pueblo",
+		number: "900 101 025",
 		color: "bg-emerald-500/10 text-emerald-600",
+		category: "espagne",
+		type: "phone",
+		description: "Fundamental rights appeals",
 	},
 	{
-		label: "OFPRA (Asylum)",
-		number: "01 58 68 10 10",
+		label: "Agencia Tributaria",
+		number: "agenciatributaria.gob.es",
 		color: "bg-slate-500/10 text-slate-600",
+		category: "espagne",
+		type: "phone",
+		description: "Tax and fiscal matters",
 	},
 ];
 
