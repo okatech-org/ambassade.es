@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import {
 	AlertTriangle,
 	ArrowRight,
@@ -15,11 +15,9 @@ import {
 	Home,
 	Landmark,
 	Lightbulb,
-	MapPin,
 	Phone,
 	Scale,
 	Shield,
-	ShieldCheck,
 	Siren,
 	Users,
 } from "lucide-react";
@@ -36,7 +34,6 @@ import {
 import { CitizenCTA } from "@/components/home/CitizenCTA";
 import { PageHero } from "@/components/PageHero";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/integration")({
 	component: IntegrationPage,
@@ -1030,9 +1027,9 @@ function GuideSectionAccordion({ section }: { section: GuideSection }) {
 					<div className="px-6 md:px-8 pb-8 space-y-6 pt-0">
 						{/* Detailed items */}
 						<div className="space-y-4">
-							{section.items.map((item, idx) => (
+							{section.items.map((item) => (
 								<div
-									key={idx}
+									key={item.title}
 									className="flex gap-4 p-4 rounded-xl bg-muted/40 hover:bg-muted/60 transition-colors"
 								>
 									<CheckCircle2
@@ -1059,9 +1056,9 @@ function GuideSectionAccordion({ section }: { section: GuideSection }) {
 								</h4>
 							</div>
 							<ul className="space-y-2">
-								{section.tips.map((tip, idx) => (
+								{section.tips.map((tip) => (
 									<li
-										key={idx}
+										key={tip}
 										className="flex gap-3 text-sm text-muted-foreground"
 									>
 										<ArrowRight className="w-4 h-4 text-primary shrink-0 mt-0.5" />
