@@ -1,20 +1,26 @@
 {
   "hosting": {
     "target": "ambassadegabon-es",
-    "public": "public",
+    "public": ".output/public",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
-        "run": {
-          "serviceId": "ambassadegabon-es",
-          "region": "europe-west1"
-        }
+        "destination": "/index.html"
       }
     ],
     "headers": [
       {
-        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|ico|woff2|woff|ttf)",
+        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|ico|woff2|woff|ttf|mp4|MP4)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(js|css)",
         "headers": [
           {
             "key": "Cache-Control",
