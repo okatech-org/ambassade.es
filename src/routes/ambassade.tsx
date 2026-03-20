@@ -313,7 +313,30 @@ function AmbassadePage() {
 								</div>
 
 								<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-									{missions.map((mission) => {
+									{missions.slice(0, 3).map((mission) => {
+										const Icon = mission.icon;
+										return (
+											<div
+												key={mission.title}
+												className="group glass-card rounded-2xl p-5 md:p-8 hover:-translate-y-2 transition-all duration-300"
+											>
+												<div className="flex items-center gap-4 mb-6">
+													<div className="p-3.5 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+														<Icon className="w-6 h-6 text-primary" />
+													</div>
+													<h3 className="text-xl font-bold text-foreground">
+														{mission.title}
+													</h3>
+												</div>
+												<p className="text-muted-foreground leading-relaxed">
+													{mission.description}
+												</p>
+											</div>
+										);
+									})}
+								</div>
+								<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+									{missions.slice(3).map((mission) => {
 										const Icon = mission.icon;
 										return (
 											<div
@@ -343,7 +366,7 @@ function AmbassadePage() {
 					<EditableSection sectionId="team" label="Section Équipe">
 						{otherMembers.length > 0 && (
 							<section className="py-12 md:py-16 px-4 md:px-6">
-								<div className="max-w-6xl mx-auto">
+								<div className="max-w-7xl mx-auto">
 									<div className="text-center mb-12">
 										<Badge variant="outline" className="mb-4">
 											<EditableText
@@ -372,7 +395,7 @@ function AmbassadePage() {
 										/>
 									</div>
 
-									<div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+									<div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
 										{otherMembers.map((member) => (
 											<TeamMemberCard
 												key={member._id}

@@ -251,11 +251,11 @@ function AdminAnalyticsPage() {
 								</div>
 								<Badge
 									variant="secondary"
-									className="font-mono text-xs min-w-[3rem] justify-center"
+									className="font-mono text-xs min-w-12 justify-center"
 								>
 									{section.percent}%
 								</Badge>
-								<span className="text-xs text-muted-foreground min-w-[3rem] text-right">
+								<span className="text-xs text-muted-foreground min-w-12 text-right">
 									{section.count}
 								</span>
 							</div>
@@ -371,7 +371,7 @@ function AdminAnalyticsPage() {
 												style={{ width: `${(row.viewCount / maxTop) * 100}%` }}
 											/>
 										</div>
-										<span className="text-xs font-mono text-muted-foreground min-w-[2.5rem] text-right">
+										<span className="text-xs font-mono text-muted-foreground min-w-10 text-right">
 											{row.viewCount}
 										</span>
 									</div>
@@ -429,7 +429,7 @@ function AdminAnalyticsPage() {
 											{page.growth > 0 ? "+" : ""}
 											{page.growth}%
 										</Badge>
-										<span className="text-xs text-muted-foreground font-mono min-w-[2rem] text-right">
+										<span className="text-xs text-muted-foreground font-mono min-w-8 text-right">
 											{page.recentViews}
 										</span>
 									</div>
@@ -442,7 +442,7 @@ function AdminAnalyticsPage() {
 
 			{/* ─── Recommendations ─────────────────────────────────────── */}
 			{recommendations.length > 0 && (
-				<Card className="border-primary/20 bg-primary/[0.02]">
+				<Card className="border-primary/20 bg-primary/2">
 					<CardHeader>
 						<CardTitle className="text-base flex items-center gap-2">
 							<Lightbulb className="w-4 h-4 text-primary" />
