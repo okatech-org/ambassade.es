@@ -161,7 +161,7 @@ function AmbassadePage() {
 									size="lg"
 									className="rounded-xl h-12 px-8 shadow-lg shadow-primary/20"
 								>
-									<a href="/services">
+									<a href="/services" title="Découvrir nos services">
 										<FileText className="w-4 h-4 mr-2" />
 										<EditableText
 											contentKey="consulat.hero.cta1"
@@ -178,7 +178,7 @@ function AmbassadePage() {
 									variant="outline"
 									className="rounded-xl h-12 px-8 bg-background/50 hover:bg-accent/10"
 								>
-									<a href="/contact">
+									<a href="/contact" title="Nous rendre visite">
 										<MapPin className="w-4 h-4 mr-2" />
 										<EditableText
 											contentKey="consulat.hero.cta2"

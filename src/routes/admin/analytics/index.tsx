@@ -455,9 +455,9 @@ function AdminAnalyticsPage() {
 					</CardHeader>
 					<CardContent>
 						<div className="grid gap-4 md:grid-cols-2">
-							{recommendations.map((rec, i) => (
+							{recommendations.map((rec) => (
 								<div
-									key={`rec-${i}`}
+									key={rec.title}
 									className="flex items-start gap-3 rounded-lg border bg-background p-4"
 								>
 									<span className="text-2xl shrink-0">
