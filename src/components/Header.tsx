@@ -57,7 +57,7 @@ export default function Header() {
 		"layout.header.topbar.email",
 		"/",
 		"header_topbar",
-		"contact@ambassadegabon.es",
+		"ambassadegabon.madrid@gmail.com",
 	);
 	const hoursContent = useInlineContent(
 		"layout.header.topbar.hours",
@@ -222,7 +222,7 @@ export default function Header() {
 								pagePath="/"
 								sectionId="header"
 								alt="Logo Ambassade Gabon"
-								className="h-[5rem] sm:h-[6rem] w-auto relative -mb-7 sm:-mb-8 -mt-[0.25cm] sm:-mt-[0.25cm] origin-top"
+								className="h-20 sm:h-24 w-auto relative -mb-7 sm:-mb-8 -mt-[0.25cm] sm:-mt-[0.25cm] origin-top"
 							/>
 							<div>
 								<EditableText

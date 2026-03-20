@@ -560,7 +560,7 @@ const numerosUtiles: NumeroUtile[] = [
 	},
 	{
 		label: "Email Ambassade du Gabon",
-		number: "contact@ambassadegabon.es",
+		number: "ambassadegabon.madrid@gmail.com",
 		color: "bg-blue-500/10 text-blue-600",
 		category: "espagne",
 		type: "email",
@@ -1104,7 +1104,7 @@ const numerosUtilesEn: NumeroUtile[] = [
 	},
 	{
 		label: "Gabon Embassy Email",
-		number: "contact@ambassadegabon.es",
+		number: "ambassadegabon.madrid@gmail.com",
 		color: "bg-blue-500/10 text-blue-600",
 		category: "espagne",
 		type: "email",
@@ -1330,7 +1330,7 @@ function RetourAuGabonPage() {
 						</div>
 
 						<div className="grid md:grid-cols-3 gap-8">
-							{tAides.map((aide, idx) => {
+							{tAides.map((aide) => {
 								const Icon = aide.icon;
 								return (
 									<div

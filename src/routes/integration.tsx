@@ -424,7 +424,7 @@ const numerosUtiles: NumeroUtile[] = [
 	},
 	{
 		label: "Email Ambassade",
-		number: "contact@ambassadegabon.es",
+		number: "ambassadegabon.madrid@gmail.com",
 		color: "bg-emerald-500/10 text-emerald-600",
 		category: "espagne",
 		type: "email",
@@ -886,7 +886,7 @@ const numerosUtilesEn: NumeroUtile[] = [
 	},
 	{
 		label: "Embassy Email",
-		number: "contact@ambassadegabon.es",
+		number: "ambassadegabon.madrid@gmail.com",
 		color: "bg-emerald-500/10 text-emerald-600",
 		category: "espagne",
 		type: "email",

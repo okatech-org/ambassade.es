@@ -129,7 +129,7 @@ export function MrRayChatbot() {
 				{
 					role: "model",
 					content:
-						"Désolé, une erreur s'est produite. Veuillez réessayer ou contacter le consulat par email à **contact@ambassadegabon.es**.",
+						"Désolé, une erreur s'est produite. Veuillez réessayer ou contacter le consulat par email à **ambassadegabon.madrid@gmail.com**.",
 				},
 			]);
 		} finally {
@@ -283,7 +283,7 @@ export function MrRayChatbot() {
 					}}
 				>
 					{/* Header */}
-					<div className="flex items-center justify-between px-5 py-4 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shrink-0">
+					<div className="flex items-center justify-between px-5 py-4 bg-linear-to-r from-primary to-primary/80 text-primary-foreground shrink-0">
 						<div className="flex items-center gap-3">
 							<div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
 								<Bot className="w-5 h-5" />
@@ -414,7 +414,7 @@ export function MrRayChatbot() {
 						<p className="text-[10px] text-muted-foreground/50 mt-2 text-center">
 							Propulsé par Gemini AI • Pour les démarches, contactez{" "}
 							<a
-								href="mailto:contact@ambassadegabon.es"
+								href="mailto:ambassadegabon.madrid@gmail.com"
 								className="text-primary/60 hover:text-primary transition-colors"
 							>
 								l'Ambassade

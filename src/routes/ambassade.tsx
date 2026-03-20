@@ -41,19 +41,19 @@ function AmbassadePage() {
 			icon: Globe,
 			title: "Relations bilatérales",
 			description:
-				"Développement et renforcement des relations diplomatiques, économiques, culturelles et scientifiques entre le Gabon et le Royaume d'Espagne. Promotion de la coopération bilatérale et de la diplomatie économique.",
+				"Développement et renforcement des relations diplomatiques, économiques, culturelles et scientifiques entre le Gabon et le Royaume d'Espagne. Relations diplomatiques établies depuis 1964 avec plus de 12 accords bilatéraux en vigueur.",
 		},
 		{
 			icon: FileText,
 			title: "Documents officiels",
 			description:
-				"Délivrance de passeports, visas, titres de voyage et documents de circulation. Légalisation et certification de documents administratifs officiels pour les ressortissants et visiteurs.",
+				"Délivrance de visas (consulaire, touristique, affaires, visite familiale, diplomatique, express), titres de voyage et documents de circulation. Légalisation et certification de documents administratifs officiels.",
 		},
 		{
 			icon: Users,
 			title: "État Civil",
 			description:
-				"Fonctions d'Officier d'État Civil : enregistrement des naissances, célébration de mariages, déclaration de décès et transcription d'actes. Service de l'état civil pour la communauté gabonaise en Espagne.",
+				"Fonctions d'Officier d'État Civil : transcription de naissances, célébration de mariages, déclaration de décès et transcription d'actes. Service de l'état civil pour la communauté gabonaise en Espagne.",
 		},
 		{
 			icon: Gavel,
@@ -65,13 +65,13 @@ function AmbassadePage() {
 			icon: Plane,
 			title: "Assistance d'urgence",
 			description:
-				"Secours et assistance aux ressortissants gabonais en difficulté : aide aux détenus, victimes d'accidents ou de catastrophes, organisation de rapatriements et aide d'urgence.",
+				"Secours et assistance aux ressortissants gabonais en difficulté : aide aux détenus, victimes d'accidents ou de catastrophes, organisation de rapatriements et aide d'urgence. Missions consulaires de soutien moral, administratif et humanitaire.",
 		},
 		{
 			icon: Handshake,
 			title: "Représentation internationale",
 			description:
-				"Représentation du Gabon auprès des organisations internationales basées à Madrid, notamment l'Organisation Mondiale du Tourisme (OMT). Promotion du Gabon lors d'événements internationaux comme FITUR.",
+				"Représentation du Gabon auprès des organisations internationales basées à Madrid, notamment l'Organisation Mondiale du Tourisme (OMT/ONU Tourisme). Promotion du Gabon lors d'événements internationaux comme FITUR.",
 		},
 	];
 
@@ -80,19 +80,19 @@ function AmbassadePage() {
 			icon: Target,
 			title: "Notre Mission",
 			description:
-				"Représenter la République Gabonaise auprès du Royaume d'Espagne, protéger les intérêts de l'État et assurer le bien-être de la communauté gabonaise résidant sur le territoire espagnol.",
+				"Représenter la République Gabonaise auprès du Royaume d'Espagne, protéger les intérêts de l'État et assurer le bien-être de la communauté gabonaise résidant sur le territoire espagnol. Renforcer la coopération bilatérale dans les domaines économique, culturel, militaire et touristique.",
 		},
 		{
 			icon: Eye,
 			title: "Notre Vision",
 			description:
-				"Faire de l'Ambassade un pôle d'excellence diplomatique, un pont entre le Gabon et l'Espagne, et un espace de service moderne et accessible pour tous les compatriotes gabonais.",
+				"Faire de l'Ambassade un pôle d'excellence diplomatique, un pont entre le Gabon et l'Espagne, et un espace de service moderne et accessible. Promouvoir le Gabon comme destination d'investissement et de tourisme auprès du public espagnol et de la communauté internationale.",
 		},
 		{
 			icon: Heart,
 			title: "Nos Valeurs",
 			description:
-				"Union, Travail, Justice — les valeurs fondatrices de la République Gabonaise guident notre action quotidienne au service des citoyens et dans la promotion de notre pays à l'étranger.",
+				"Union, Travail, Justice — les valeurs fondatrices de la République Gabonaise guident notre action quotidienne au service des citoyens et dans la promotion de notre pays à l'étranger. Intégrité, proximité et efficacité dans chaque interaction.",
 		},
 	];
 
@@ -148,7 +148,7 @@ function AmbassadePage() {
 
 							<EditableText
 								contentKey="consulat.hero.description"
-								defaultValue="L'Ambassade de la République Gabonaise auprès du Royaume d'Espagne, sous la direction de S.E. Madame Allegra Pamela Bongo, assure la représentation diplomatique du Gabon, la protection des ressortissants gabonais et le renforcement des relations bilatérales entre les deux nations."
+								defaultValue="L'Ambassade de la République Gabonaise auprès du Royaume d'Espagne et Représentation Permanente auprès d'ONU Tourisme, sous la direction de S.E. Madame Allegra Pamela Bongo, assure la représentation diplomatique du Gabon, la protection des ressortissants gabonais et le renforcement des relations bilatérales. Depuis 1964, le Gabon et l'Espagne entretiennent des relations diplomatiques solides dans les domaines politique, économique, culturel et militaire."
 								pagePath="/ambassade"
 								sectionId="hero"
 								as="p"
@@ -200,7 +200,7 @@ function AmbassadePage() {
 							lastName={consulGeneral?.lastName ?? "BONGO"}
 							role={
 								consulGeneral?.role ??
-								"Ambassadeur de la République Gabonaise\nPrès le Royaume d'Espagne"
+							"Ambassadeur de la République Gabonaise\nPrès le Royaume d'Espagne\nReprésentante Permanente auprès d'ONU Tourisme"
 							}
 							description={
 								consulGeneral?.description ??

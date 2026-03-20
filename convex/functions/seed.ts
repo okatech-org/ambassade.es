@@ -737,6 +737,62 @@ Présentez-vous à l'**Ambassade du Gabon en Espagne** muni des pièces requises
       await ctx.db.insert("announcements", a);
     }
 
-    return `Seeded ${services.length} services, ${posts.length} posts, ${announcements.length} announcements`;
+    // ==========================================
+    // TEAM MEMBERS
+    // ==========================================
+    const existingTeamMembers = await ctx.db.query("teamMembers").take(1);
+    if (existingTeamMembers.length > 0) {
+      const all = await ctx.db.query("teamMembers").collect();
+      for (const m of all) {
+        await ctx.db.delete(m._id);
+      }
+    }
+
+    const teamMembers = [
+      {
+        firstName: "Allegra Pamela",
+        lastName: "BONGO",
+        role: "Ambassadeur Extraordinaire et Plénipotentiaire",
+        description:
+          "Diplomate de carrière, S.E. Madame Allegra Pamela Bongo a présenté ses lettres de créance à Sa Majesté le Roi Felipe VI le 8 janvier 2025. Ancienne Première Conseillère à la Délégation permanente du Gabon auprès de l'UNESCO à Paris, puis Représentante adjointe et Conseillère aux Affaires étrangères.",
+        email: "ambassadegabon.madrid@gmail.com",
+        order: 1,
+        isConsulGeneral: true,
+        isActive: true,
+      },
+      {
+        firstName: "Franck Elvis",
+        lastName: "OGNAGNA OCKOGHO",
+        role: "Premier Conseiller",
+        email: "ognagnaf@yahoo.fr",
+        order: 2,
+        isConsulGeneral: false,
+        isActive: true,
+      },
+      {
+        firstName: "Mélanie",
+        lastName: "EKIBA",
+        role: "Conseiller, Chargée des Affaires Consulaires et de la Chancellerie",
+        email: "chancellerie.es@gmail.com",
+        order: 3,
+        isConsulGeneral: false,
+        isActive: true,
+      },
+      {
+        firstName: "Chrisalline",
+        lastName: "MOUYAPOU NGOUBOU",
+        role: "Conseiller chargé des Affaires Économiques et Commerciales",
+        email: "chrisalline.mouyapou@gouv.ga",
+        order: 4,
+        isConsulGeneral: false,
+        isActive: true,
+      },
+    ];
+
+    for (const m of teamMembers) {
+      await ctx.db.insert("teamMembers", m);
+    }
+
+    return `Seeded ${services.length} services, ${posts.length} posts, ${announcements.length} announcements, ${teamMembers.length} team members`;
   },
 });

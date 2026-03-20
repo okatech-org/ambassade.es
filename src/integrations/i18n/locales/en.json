@@ -429,7 +429,7 @@
 	},
 	"footer": {
 		"brand": {
-			"line1": "GENERAL CONSULATE",
+			"line1": "EMBASSY OF GABON",
 			"line2": "To the Kingdom of Spain",
 			"motto": "Union - Work - Justice"
 		},
@@ -458,7 +458,14 @@
 			"accessibility": "Accessibility",
 			"sitemap": "Sitemap"
 		},
-		"copyright": "© {{year}} Consulat.ga — All rights reserved"
+		"copyright": "© {{year}} Embassy of Gabon in Spain — All rights reserved"
+	},
+	"ambassade": {
+		"pageTitle": "Embassy",
+		"heroTitle": "The Embassy of Gabon serving its citizens in Spain",
+		"sectionMissions": "Our Missions",
+		"sectionTeam": "The Embassy Team",
+		"sectionVision": "Mission, Vision & Values"
 	},
 	"header": {
 		"hours": "Mon-Fri: 9:00 AM - 4:00 PM",
@@ -478,7 +485,7 @@
 			"mySpace": "My Space",
 			"signIn": "Sign In",
 			"signUp": "Sign Up",
-			"consulat": "General Consulate",
+			"consulat": "The Embassy",
 			"venirFrance": "Coming to France",
 			"vieFrance": "Living in France",
 			"retourGabon": "Return to Gabon",
@@ -498,7 +505,7 @@
 		"signIn": "Sign In",
 		"signUp": "Sign Up",
 		"brand": {
-			"line1": "GENERAL CONSULATE",
+			"line1": "EMBASSY OF GABON",
 			"line2": "To the Kingdom of Spain",
 			"motto": "Union - Work - Justice"
 		}
@@ -2122,16 +2129,30 @@
 		"title": "Contact the Embassy",
 		"description": "Embassy of Gabon to the Kingdom of Spain — All contact details",
 		"phones": "Phone Numbers",
+		"mainLine": "Main Line",
+		"chancellery": "Chancellery",
+		"chancelleryContact": "Mrs EKIBA",
+		"firstCounselor": "First Counselor",
+		"firstCounselorContact": "Mr OGNAGNA OCKOGHO",
+		"economicAffairs": "Economic Affairs",
+		"economicAffairsContact": "Mrs MOUYAPOU NGOUBOU",
+		"emailLabel": "Email",
 		"civilStatus": "Civil Status",
 		"emergencies24": "Emergencies 24/7",
 		"openingHours": "Opening Hours",
 		"monFri": "Mon - Fri",
+		"reception": "Reception",
+		"receptionHours": "9:00 AM - 4:00 PM",
+		"consular": "Consular",
+		"consularHours": "9:30 AM - 1:30 PM",
 		"deposit": "Drop-off",
 		"pickup": "Pick-up",
 		"depositHours": "9:00 AM - 3:00 PM",
 		"pickupHours": "3:00 PM - 4:30 PM",
-		"closedHolidays": "Closed on public holidays in Gabon and France.",
+		"closedHolidays": "Closed on public holidays in Gabon and Spain.",
 		"access": "Access",
+		"metroLine": "Line 10",
+		"metroLines": "L6 / L8 / L10",
 		"walkTime": "5 min walk",
 		"busLines": "Lines 22, 52",
 		"busStop": "Ranelagh stop"
