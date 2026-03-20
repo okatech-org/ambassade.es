@@ -81,13 +81,12 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
 								>
 									+34 633 293 914
 								</a>
-								<span className="text-[10px] text-muted-foreground">
-									{t("contactModal.chancelleryContact", "Mme EKIBA")}
-								</span>
 							</div>
+						</div>
+						<div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
 							<div className="p-2.5 rounded-lg bg-muted/30 border border-border/40">
 								<span className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide block mb-0.5">
-									{t("contactModal.firstCounselor", "Premier Conseiller")}
+									{t("contactModal.firstCounsellor", "Premier Conseiller")}
 								</span>
 								<a
 									href="tel:+34614539402"
@@ -95,13 +94,10 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
 								>
 									+34 614 539 402
 								</a>
-								<span className="text-[10px] text-muted-foreground">
-									{t("contactModal.firstCounselorContact", "M. OGNAGNA OCKOGHO")}
-								</span>
 							</div>
 							<div className="p-2.5 rounded-lg bg-muted/30 border border-border/40">
 								<span className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide block mb-0.5">
-									{t("contactModal.economicAffairs", "Affaires Économiques")}
+									{t("contactModal.economicAffairs", "Aff. Économiques")}
 								</span>
 								<a
 									href="tel:+34602621384"
@@ -109,9 +105,6 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
 								>
 									+34 602 621 384
 								</a>
-								<span className="text-[10px] text-muted-foreground">
-									{t("contactModal.economicAffairsContact", "Mme MOUYAPOU NGOUBOU")}
-								</span>
 							</div>
 						</div>
 						<div className="p-2.5 rounded-lg bg-muted/30 border border-border/40">
@@ -124,27 +117,37 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
 						</div>
 					</div>
 
-					{/* Emails */}
+					{/* Email */}
 					<div className="space-y-2">
 						<div className="flex items-center gap-2 mb-1">
 							<Mail className="w-4 h-4 text-primary" />
 							<span className="text-sm font-semibold text-foreground">
-								{t("contactModal.emailLabel", "Email")}
+								{t("contactModal.emails", "Emails")}
 							</span>
 						</div>
-						<div className="flex flex-col gap-1.5">
-							<a
-								href="mailto:ambassadegabon.madrid@gmail.com"
-								className="text-sm font-medium text-foreground hover:text-primary transition-colors underline decoration-border hover:decoration-primary underline-offset-4"
-							>
-								ambassadegabon.madrid@gmail.com
-							</a>
-							<a
-								href="mailto:chancellerie.es@gmail.com"
-								className="text-sm font-medium text-foreground hover:text-primary transition-colors underline decoration-border hover:decoration-primary underline-offset-4"
-							>
-								chancellerie.es@gmail.com
-							</a>
+						<div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+							<div className="p-2.5 rounded-lg bg-muted/30 border border-border/40">
+								<span className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide block mb-0.5">
+									{t("contactModal.generalEmail", "Email général")}
+								</span>
+								<a
+									href="mailto:ambassadegabon.madrid@gmail.com"
+									className="text-sm font-medium text-foreground hover:text-primary transition-colors block break-all"
+								>
+									ambassadegabon.madrid@gmail.com
+								</a>
+							</div>
+							<div className="p-2.5 rounded-lg bg-muted/30 border border-border/40">
+								<span className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide block mb-0.5">
+									{t("contactModal.chancellery", "Chancellerie")}
+								</span>
+								<a
+									href="mailto:chancellerie.es@gmail.com"
+									className="text-sm font-medium text-foreground hover:text-primary transition-colors block break-all"
+								>
+									chancellerie.es@gmail.com
+								</a>
+							</div>
 						</div>
 					</div>
 

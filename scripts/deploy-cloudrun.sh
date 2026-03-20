@@ -21,10 +21,10 @@ fi
 echo "📦 Loading environment from $ENV_FILE..."
 
 # Parse the .env file (ignore comments and empty lines)
-VITE_CONVEX_URL=$(grep '^VITE_CONVEX_URL=' "$ENV_FILE" | cut -d'=' -f2-)
-VITE_CLERK_PUBLISHABLE_KEY=$(grep '^VITE_CLERK_PUBLISHABLE_KEY=' "$ENV_FILE" | cut -d'=' -f2-)
-CLERK_SECRET_KEY=$(grep '^CLERK_SECRET_KEY=' "$ENV_FILE" | cut -d'=' -f2-)
-CONVEX_DEPLOYMENT=$(grep '^CONVEX_DEPLOYMENT=' "$ENV_FILE" | cut -d'=' -f2-)
+VITE_CONVEX_URL=$(grep '^VITE_CONVEX_URL=' "$ENV_FILE" | cut -d'=' -f2- || echo "")
+VITE_CLERK_PUBLISHABLE_KEY=$(grep '^VITE_CLERK_PUBLISHABLE_KEY=' "$ENV_FILE" | cut -d'=' -f2- || echo "")
+CLERK_SECRET_KEY=$(grep '^CLERK_SECRET_KEY=' "$ENV_FILE" | cut -d'=' -f2- || echo "")
+CONVEX_DEPLOYMENT=$(grep '^CONVEX_DEPLOYMENT=' "$ENV_FILE" | cut -d'=' -f2- || echo "")
 VITE_SENTRY_DSN=$(grep '^VITE_SENTRY_DSN=' "$ENV_FILE" | cut -d'=' -f2- || echo "")
 
 # ── Deploy via Cloud Build ───────────────────────

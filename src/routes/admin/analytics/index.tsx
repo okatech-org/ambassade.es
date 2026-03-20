@@ -15,7 +15,7 @@ import {
 	TrendingUp,
 	Zap,
 } from "lucide-react";
-import { useMemo } from "react";
+
 import { Badge } from "@/components/ui/badge";
 import {
 	Card,

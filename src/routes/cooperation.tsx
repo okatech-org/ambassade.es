@@ -42,45 +42,80 @@ export const Route = createFileRoute("/cooperation")({
 function CooperationPage() {
 	const accords = [
 		{
-			year: "1968",
-			title: "Établissement des relations diplomatiques",
-			description:
-				"Le Gabon et l'Espagne établissent officiellement leurs relations diplomatiques, marquant le début d'une coopération bilatérale entre les deux nations.",
-			type: "Relations diplomatiques",
-		},
-		{
-			year: "1977",
+			year: "1976",
 			title: "Accord de coopération culturelle et technique",
 			description:
-				"Accord-cadre de coopération culturelle, scientifique et technique entre la République Gabonaise et le Royaume d'Espagne, couvrant les échanges éducatifs et la formation professionnelle.",
+				"Premier accord-cadre de coopération culturelle, scientifique et technique entre la République Gabonaise et le Royaume d'Espagne, signé à Madrid le 29 octobre 1976.",
 			type: "Culture & Éducation",
+		},
+		{
+			year: "1979",
+			title: "Accord de suppression des visas diplomatiques et de service",
+			description:
+				"Accord de suppression réciproque des visas pour les titulaires de passeports diplomatiques et de service entre le Gabon et l'Espagne, signé à Libreville le 19 février 1979.",
+			type: "Diplomatie",
+		},
+		{
+			year: "1995",
+			title: "Accord de coopération touristique",
+			description:
+				"Accord de coopération en matière de tourisme entre le Gabon et l'Espagne, signé à Madrid le 8 mars 1995. Promotion mutuelle du tourisme et échanges dans le secteur hôtelier.",
+			type: "Tourisme",
+		},
+		{
+			year: "2003",
+			title: "Convention de non double imposition",
+			description:
+				"Convention entre la République Gabonaise et le Royaume d'Espagne tendant à éviter la double imposition et à prévenir l'évasion fiscale, signée à Madrid le 1er décembre 2003.",
+			type: "Fiscalité",
 		},
 		{
 			year: "2006",
 			title: "Accord de promotion et protection réciproque des investissements",
 			description:
-				"Accord bilatéral visant à encourager et protéger les investissements mutuels entre le Gabon et l'Espagne, avec garantie contre les expropriations et liberté de transfert des capitaux.",
+				"Accord bilatéral visant à encourager et protéger les investissements mutuels, signé à Libreville le 22 février 2006. Garantie contre les expropriations et liberté de transfert des capitaux.",
 			type: "Économie",
 		},
 		{
-			year: "2008",
-			title: "Mémorandum d'entente sur la coopération énergétique",
+			year: "2006",
+			title: "Convention de transfèrement de personnes condamnées",
 			description:
-				"Mémorandum d'entente pour la coopération dans les domaines de l'énergie, des hydrocarbures et des énergies renouvelables.",
-			type: "Énergie",
+				"Convention permettant le transfèrement de personnes condamnées entre le Gabon et l'Espagne, signée à Madrid le 20 novembre 2006.",
+			type: "Justice",
+		},
+		{
+			year: "2006",
+			title: "Convention d'entraide judiciaire en matière pénale",
+			description:
+				"Convention d'entraide judiciaire en matière pénale entre le Gabon et l'Espagne, signée à Madrid le 20 novembre 2006.",
+			type: "Justice",
+		},
+		{
+			year: "2006",
+			title: "Convention d'extradition",
+			description:
+				"Convention d'extradition entre la République Gabonaise et le Royaume d'Espagne, signée à Madrid le 20 novembre 2006.",
+			type: "Justice",
+		},
+		{
+			year: "2010",
+			title: "Arrangement technique de coopération en matière de défense",
+			description:
+				"Arrangement technique entre le Ministère de la Défense nationale du Gabon et le Ministère de la Défense du Royaume d'Espagne relatif à la coopération militaire et de défense, signé à Madrid le 25 mars 2010.",
+			type: "Défense",
 		},
 		{
 			year: "2014",
-			title: "Accord de coopération en matière de sécurité et de défense",
+			title: "Mémorandum de coopération entre les Affaires étrangères",
 			description:
-				"Accord-cadre de coopération en matière de défense et de sécurité, incluant la formation militaire, l'échange de renseignements et la sécurité maritime dans le Golfe de Guinée.",
-			type: "Défense & Sécurité",
+				"Mémorandum de coopération entre le MAEC du Gabon et le MAEC du Royaume d'Espagne, signé le 24 janvier 2014. Renforcement des échanges diplomatiques et de la formation des diplomates.",
+			type: "Diplomatie",
 		},
 		{
 			year: "2024",
 			title: "Nouvelle ère de coopération — 5e République du Gabon",
 			description:
-				"Sous l'impulsion du Président de la Transition, le Général Brice Clotaire Oligui Nguema, le Gabon et l'Espagne ouvrent un nouveau chapitre de leur coopération bilatérale, axé sur le développement durable, la diversification économique et le renforcement de l'État de droit.",
+				"Sous l'impulsion du Président de la Transition, le Général Brice Clotaire Oligui Nguema, le Gabon et l'Espagne ouvrent un nouveau chapitre de leur coopération bilatérale, axé sur le développement durable et la diversification économique.",
 			type: "Transition & Renouveau",
 		},
 	]
@@ -90,12 +125,12 @@ function CooperationPage() {
 			icon: TrendingUp,
 			title: "Coopération économique & commerciale",
 			description:
-				"Promotion des échanges commerciaux, soutien aux investissements espagnols au Gabon (hydrocarbures, mines, infrastructures) et gabonais en Espagne. Diversification de l'économie gabonaise à travers des partenariats stratégiques avec des entreprises espagnoles.",
+				"Entre 2015 et 2024, les exportations espagnoles vers le Gabon s'élèvent à environ 46,3 millions USD, tandis que les importations depuis le Gabon atteignent 226,3 millions USD, principalement en hydrocarbures, bois et agro-alimentaire. La Stratégie Espagne-Afrique 2025-2028 et le Sommet Afrique-Espagne prévu à Madrid en juillet 2025 ouvrent de nouvelles perspectives.",
 			highlights: [
-				"Échanges commerciaux bilatéraux",
-				"Investissements directs étrangers",
-				"Partenariats public-privé",
-				"Secteurs : pétrole, bois, mines, tourisme",
+				"Hydrocarbures, bois, agro-alimentaire",
+				"Machines et biens d'équipement",
+				"Stratégie Espagne-Afrique 2025-2028",
+				"Sommet Afrique-Espagne — Madrid, juillet 2025",
 			],
 		},
 		{
@@ -126,12 +161,12 @@ function CooperationPage() {
 			icon: Shield,
 			title: "Coopération sécuritaire & défense",
 			description:
-				"Coopération en matière de sécurité maritime dans le Golfe de Guinée, lutte contre la piraterie, formation des forces de sécurité gabonaises, échange de renseignements et coopération judiciaire.",
+				"Encadrée par l'arrangement technique de 2010, la coopération défense inclut la formation sur le Casa (avion de transport militaire), la fourniture d'une vedette Rodman pour la Marine nationale gabonaise, et le renforcement de la sécurité maritime dans le Golfe de Guinée.",
 			highlights: [
+				"Formation sur le Casa — transport militaire",
+				"Vedette Rodman pour la Marine nationale",
 				"Sécurité maritime — Golfe de Guinée",
-				"Formation militaire et policière",
-				"Lutte contre la criminalité transfrontalière",
-				"Coopération judiciaire",
+				"Coopération judiciaire (conventions 2006)",
 			],
 		},
 		{
@@ -589,23 +624,23 @@ function CooperationPage() {
 								<div className="grid grid-cols-2 md:grid-cols-4 gap-6">
 									{[
 										{
-											value: "56+",
+											value: "48+",
 											label: "Années de relations diplomatiques",
 											icon: Handshake,
 										},
 										{
-											value: "6",
-											label: "Accords bilatéraux majeurs",
+											value: "12+",
+											label: "Accords bilatéraux signés",
 											icon: FileText,
 										},
 										{
-											value: "500+",
-											label: "Gabonais en Espagne",
+											value: "226M$",
+											label: "Importations ES depuis GA (2015-2024)",
 											icon: Users,
 										},
 										{
-											value: "30+",
-											label: "Entreprises espagnoles au Gabon",
+											value: "46M$",
+											label: "Exportations ES vers GA (2015-2024)",
 											icon: Building2,
 										},
 									].map((stat) => {

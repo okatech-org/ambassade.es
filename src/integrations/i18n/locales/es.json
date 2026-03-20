@@ -297,24 +297,24 @@
 			"description": "Solicitud, renovación y seguimiento de su pasaporte gabonés. Procedimiento simplificado y seguro."
 		},
 		"visa": {
-			"title": "Visado",
-			"description": "Solicitudes de visado para Gabón. Visado turístico, negocios, trabajo y otras categorías."
+			"title": "Visado para Gabón",
+			"description": "6 tipos de visados: consular, turístico, negocios, visita familiar, diplomático y exprés. Tarifas: 100€ (normal), 150€ (exprés). Plazo: 4-5 días laborables (normal), 2 días (exprés)."
 		},
 		"civilStatus": {
 			"title": "Estado Civil",
-			"description": "Actas de nacimiento, matrimonio, defunción. Transcripción y legalización de documentos."
+			"description": "Transcripción de nacimiento, defunción, celebración de matrimonio. Documentos requeridos: acta española, documentos de identidad de los padres, formulario de solicitud."
 		},
 		"registration": {
 			"title": "Inscripción Consular",
-			"description": "Inscríbase en el registro de gaboneses en el extranjero. Manténgase informado y protegido."
+			"description": "Inscripción en el registro de gaboneses en el extranjero. Documentos: formulario, pasaporte, certificado de nacionalidad, justificante de residencia, justificante profesional, 2 fotos."
 		},
 		"legalization": {
-			"title": "Legalización",
-			"description": "Autenticación y legalización de sus documentos oficiales para uso internacional."
+			"title": "Legalización de documentos",
+			"description": "Legalización y certificación de documentos oficiales. Firmantes habilitados: el Embajador y los agentes diplomáticos acreditados."
 		},
 		"emergency": {
 			"title": "Asistencia de Urgencia",
-			"description": "Ayuda consular en caso de urgencia: pérdida de documentos, dificultades en el extranjero."
+			"description": "Ayuda consular en caso de urgencia: pérdida de documentos, dificultades en el extranjero, asistencia a detenidos y víctimas."
 		},
 		"urgentBadge": "Urgente",
 		"validity": "Validez",
@@ -459,13 +459,6 @@
 			"sitemap": "Mapa del Sitio"
 		},
 		"copyright": "© {{year}} Embajada de Gabón en España — Todos los derechos reservados"
-	},
-	"ambassade": {
-		"pageTitle": "Embajada",
-		"heroTitle": "La Embajada de Gabón al servicio de sus ciudadanos en España",
-		"sectionMissions": "Nuestras Misiones",
-		"sectionTeam": "El equipo de la Embajada",
-		"sectionVision": "Misión, Visión y Valores"
 	},
 	"common": {
 		"notFound": {
@@ -1835,10 +1828,10 @@
 	"contact": {
 		"title": "Contáctenos",
 		"subtitle": "Datos oficiales",
-		"description": "La Embajada de la República Gabonesa en España está a su disposición para todos sus trámites consulares.",
+		"description": "La Embajada de la República Gabonesa cerca del Reino de España está a su disposición para todos sus trámites consulares y diplomáticos.",
 		"address": {
 			"title": "Dirección",
-			"value": "C/ Francisco Alcántara, 3, 28002 Madrid"
+			"value": "Calle de Orense, Nº 68, 2º Dcha, 28020 Madrid"
 		},
 		"phone": {
 			"title": "Teléfono"
@@ -1874,37 +1867,38 @@
 		},
 		"titleHighlight": "contactar",
 		"coordinates": "Datos de contacto",
+		"chancellery": "Cancillería",
 		"civilStatus": "Estado Civil",
 		"emergencies": "Emergencias",
 		"openingHours": "Horario de apertura",
 		"weekdays": "Lunes - Viernes",
-		"deposit": "Depósito",
-		"pickup": "Recogida",
-		"depositHoursValue": "9h00 - 15h00",
-		"pickupHoursValue": "15h00 - 16h30",
-		"closedHolidays": "Cerrado los días festivos de Gabón y España.",
+		"deposit": "Recepción",
+		"pickup": "Consular",
+		"depositHoursValue": "9h00 - 16h00",
+		"pickupHoursValue": "9h30 - 13h30",
+		"closedHolidays": "Cerrado los días festivos de Gabón y España. Se recomienda cita previa.",
 		"access": "Acceso y Transporte",
-		"metro": "Metro",
-		"metroStop": "Parada cercana",
-		"busStop": "Parada de autobús",
+		"metro": "Metro Santiago Bernabéu",
+		"metroStop": "Línea 10 (5 min a pie)",
+		"busStop": "Nuevos Ministerios",
 		"parking": "Aparcamiento",
-		"parkingDesc": "Aparcamiento de pago en vía pública",
-		"consulateGeneral": "Embajada"
+		"parkingDesc": "Aparcamiento de pago en vía pública — Zona SER",
+		"consulateGeneral": "Embajada de Gabón en España"
 	},
 	"leConsulat": {
 		"title": "La Embajada",
 		"badge": "Institución",
-		"subtitle": "La Embajada de la República Gabonesa en España",
-		"description": "Al servicio de la comunidad gabonesa en España. Descubra nuestras misiones, nuestra historia y nuestro compromiso.",
+		"subtitle": "Embajada de la República Gabonesa cerca del Reino de España y Representación Permanente de Gabón ante la ONU Turismo",
+		"description": "Al servicio de la comunidad gabonesa en España. Representación diplomática, protección consular y fortalecimiento de las relaciones bilaterales entre Gabón y España.",
 		"missions": {
 			"title": "Nuestras misiones",
 			"protection": {
 				"title": "Protección consular",
-				"description": "Asistencia y protección de los nacionales gaboneses en España en todas las situaciones."
+				"description": "Asistencia y protección de los nacionales gaboneses en España: detenidos, víctimas de accidentes, repatriaciones."
 			},
 			"administrative": {
-				"title": "Servicios administrativos",
-				"description": "Emisión de pasaportes, tarjetas consulares, actas de estado civil y otros documentos oficiales."
+				"title": "Servicios consulares",
+				"description": "Visados, legalización de documentos, inscripción consular, transcripción de actas de estado civil y certificados."
 			},
 			"community": {
 				"title": "Vida comunitaria",
@@ -1916,15 +1910,15 @@
 			},
 			"economic": {
 				"title": "Cooperación económica",
-				"description": "Facilitación de los intercambios económicos entre Gabón y España."
+				"description": "Facilitación de los intercambios económicos entre Gabón y España. Diplomacia económica y promoción de inversiones."
 			},
 			"legal": {
-				"title": "Asistencia jurídica",
-				"description": "Acompañamiento en los trámites jurídicos y notariales."
+				"title": "Actos notariales y jurídicos",
+				"description": "Funciones notariales, poderes, certificados de vida, legalizaciones de firmas y documentos."
 			},
 			"social": {
-				"title": "Acción social",
-				"description": "Apoyo a los nacionales en dificultad y orientación hacia los servicios competentes."
+				"title": "Representación internacional",
+				"description": "Representación de Gabón ante la Organización Mundial del Turismo (OMT) con sede en Madrid y promoción en eventos como FITUR."
 			}
 		}
 	},
@@ -2079,13 +2073,12 @@
 		"description": "Embajada de Gabón cerca del Reino de España — Todos los datos de contacto",
 		"phones": "Teléfonos",
 		"mainLine": "Línea principal",
+		"secondLine": "Línea secundaria",
 		"chancellery": "Cancillería",
-		"chancelleryContact": "Sra. EKIBA",
-		"firstCounselor": "Primer Consejero",
-		"firstCounselorContact": "Sr. OGNAGNA OCKOGHO",
+		"firstCounsellor": "Primer Consejero",
 		"economicAffairs": "Asuntos Económicos",
-		"economicAffairsContact": "Sra. MOUYAPOU NGOUBOU",
-		"emailLabel": "Email",
+		"emails": "Correos electrónicos",
+		"generalEmail": "Email general",
 		"civilStatus": "Estado Civil",
 		"emergencies24": "Emergencias 24h/24",
 		"openingHours": "Horario de apertura",
@@ -2094,17 +2087,11 @@
 		"receptionHours": "9h00 - 16h00",
 		"consular": "Consular",
 		"consularHours": "9h30 - 13h30",
-		"deposit": "Depósito",
-		"pickup": "Recogida",
-		"depositHours": "9h00 - 15h00",
-		"pickupHours": "15h00 - 16h30",
-		"closedHolidays": "Cerrado los días festivos de Gabón y España.",
+		"closedHolidays": "Cerrado los días festivos de Gabón y España. Se recomienda cita previa.",
 		"access": "Acceso",
 		"metroLine": "Línea 10",
 		"metroLines": "L6 / L8 / L10",
-		"walkTime": "5 min a pie",
-		"busLines": "Líneas cercanas",
-		"busStop": "Parada cercana"
+		"walkTime": "5 min a pie"
 	},
 	"newsPage": {
 		"publications": "publicaciones",

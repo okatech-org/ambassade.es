@@ -308,7 +308,7 @@
 		"empty": "No services available at this time.",
 		"carteConsulaire": {
 			"title": "Your Gabonese ID",
-			"titleHighlight": "in France",
+			"titleHighlight": "in Spain",
 			"badge": "✨ New Consular Card",
 			"doc1": "A copy of the birth certificate",
 			"doc2": "A copy of the passport",
@@ -328,24 +328,24 @@
 			"description": "Application, renewal and tracking of your Gabonese passport. Simplified and secure process."
 		},
 		"visa": {
-			"title": "Visa",
-			"description": "Visa applications for Gabon. Tourist, business, work and other categories."
+			"title": "Visa for Gabon",
+			"description": "6 visa types: consular, tourist, business, family visit, diplomatic and express. Fees: €100 (standard), €150 (express). Processing: 4-5 business days (standard), 2 days (express)."
 		},
 		"civilStatus": {
 			"title": "Civil Status",
-			"description": "Birth, marriage, death certificates. Transcription and legalization of documents."
+			"description": "Birth transcription, death, marriage celebration. Required documents: Spanish certificate, parents' ID, application form."
 		},
 		"registration": {
 			"title": "Consular Registration",
-			"description": "Register in the registry of Gabonese nationals abroad. Stay informed and protected."
+			"description": "Registration in the registry of Gabonese nationals abroad. Documents: form, passport, nationality certificate, proof of residence, professional certificate, 2 photos."
 		},
 		"legalization": {
-			"title": "Legalization",
-			"description": "Authentication and legalization of your official documents for international use."
+			"title": "Document Legalization",
+			"description": "Legalization and certification of official documents. Authorized signatories: the Ambassador and accredited diplomatic agents."
 		},
 		"emergency": {
 			"title": "Emergency Assistance",
-			"description": "Consular assistance in emergencies: lost documents, difficulties abroad."
+			"description": "Consular assistance in emergencies: lost documents, difficulties abroad, assistance to detainees and victims."
 		},
 		"urgentBadge": "Urgent",
 		"validity": "Validity",
@@ -354,7 +354,7 @@
 		"noteImportante": "Important note",
 		"crossLinks": {
 			"integration": "Integration guide",
-			"integrationDesc": "Practical tips for living in France",
+			"integrationDesc": "Practical tips for living in Spain",
 			"vieFrance": "Life in France",
 			"vieFranceDesc": "Prefecture and administrative procedures"
 		}
@@ -429,7 +429,7 @@
 	},
 	"footer": {
 		"brand": {
-			"line1": "EMBASSY OF GABON",
+			"line1": "GENERAL CONSULATE",
 			"line2": "To the Kingdom of Spain",
 			"motto": "Union - Work - Justice"
 		},
@@ -458,14 +458,7 @@
 			"accessibility": "Accessibility",
 			"sitemap": "Sitemap"
 		},
-		"copyright": "© {{year}} Embassy of Gabon in Spain — All rights reserved"
-	},
-	"ambassade": {
-		"pageTitle": "Embassy",
-		"heroTitle": "The Embassy of Gabon serving its citizens in Spain",
-		"sectionMissions": "Our Missions",
-		"sectionTeam": "The Embassy Team",
-		"sectionVision": "Mission, Vision & Values"
+		"copyright": "© {{year}} Consulat.ga — All rights reserved"
 	},
 	"header": {
 		"hours": "Mon-Fri: 9:00 AM - 4:00 PM",
@@ -485,7 +478,7 @@
 			"mySpace": "My Space",
 			"signIn": "Sign In",
 			"signUp": "Sign Up",
-			"consulat": "The Embassy",
+			"consulat": "General Consulate",
 			"venirFrance": "Coming to France",
 			"vieFrance": "Living in France",
 			"retourGabon": "Return to Gabon",
@@ -505,7 +498,7 @@
 		"signIn": "Sign In",
 		"signUp": "Sign Up",
 		"brand": {
-			"line1": "EMBASSY OF GABON",
+			"line1": "GENERAL CONSULATE",
 			"line2": "To the Kingdom of Spain",
 			"motto": "Union - Work - Justice"
 		}
@@ -1833,12 +1826,12 @@
 		}
 	},
 	"contact": {
-		"title": "Contact Us",
+		"title": "Contact",
 		"subtitle": "Official Contact Information",
-		"description": "The General Consulate of the Gabonese Republic in France is at your service for all your consular procedures.",
+		"description": "The Embassy of the Gabonese Republic to the Kingdom of Spain is at your service for all your consular and diplomatic procedures.",
 		"address": {
 			"title": "Address",
-			"value": "26 bis avenue Raphaël, 75016 Paris"
+			"value": "Calle de Orense, Nº 68, 2º Dcha, 28020 Madrid"
 		},
 		"phone": {
 			"title": "Phone"
@@ -1848,7 +1841,7 @@
 		},
 		"hours": {
 			"title": "Opening Hours",
-			"weekdays": "Monday — Friday: 9:30 AM — 3:00 PM",
+			"weekdays": "Monday — Friday: 9:00 AM — 4:00 PM",
 			"weekend": "Saturday — Sunday: Closed"
 		},
 		"emergency": {
@@ -1874,40 +1867,41 @@
 		},
 		"titleHighlight": "us",
 		"coordinates": "Contact Details",
+		"chancellery": "Chancellery",
 		"civilStatus": "Civil Status",
 		"emergencies": "Emergencies",
 		"openingHours": "Opening Hours",
 		"weekdays": "Monday - Friday",
-		"deposit": "Drop-off",
-		"pickup": "Pick-up",
-		"depositHoursValue": "9:00 AM - 3:00 PM",
-		"pickupHoursValue": "3:00 PM - 4:30 PM",
-		"closedHolidays": "Closed on public holidays in Gabon and France.",
+		"deposit": "Reception",
+		"pickup": "Consular",
+		"depositHoursValue": "9:00 AM - 4:00 PM",
+		"pickupHoursValue": "9:30 AM - 1:30 PM",
+		"closedHolidays": "Closed on public holidays in Gabon and Spain. Appointment recommended.",
 		"access": "Access & Transport",
-		"metro": "Metro Line 9",
-		"metroStop": "Ranelagh stop (5 min walk)",
-		"busStop": "Ranelagh stop",
+		"metro": "Metro Santiago Bernabéu",
+		"metroStop": "Line 10 (5 min walk)",
+		"busStop": "Nuevos Ministerios",
 		"parking": "Parking",
-		"parkingDesc": "Paid street parking",
-		"consulateGeneral": "General Consulate"
+		"parkingDesc": "Paid street parking — SER Zone",
+		"consulateGeneral": "Embassy of Gabon in Spain"
 	},
 	"leConsulat": {
-		"title": "The Consulate",
+		"title": "The Embassy",
 		"badge": "Official Institution",
-		"subtitle": "The General Consulate of the Gabonese Republic in France",
-		"description": "Serving the Gabonese community in France for over 50 years. Discover our missions, our history and our commitment.",
+		"subtitle": "Embassy of the Gabonese Republic to the Kingdom of Spain and Permanent Representation of Gabon to UN Tourism",
+		"description": "Serving the Gabonese community in Spain. Diplomatic representation, consular protection and strengthening bilateral relations between Gabon and Spain.",
 		"heroTitle": "Our mission is to",
 		"heroHighlight": "support you",
-		"heroDescription": "In accordance with the Vienna Convention on Consular Relations, the General Consulate of Gabon in France ensures the protection and assistance of Gabonese nationals, issues official documents and fosters the development of relations between the two countries.",
+		"heroDescription": "In accordance with the Vienna Convention on Diplomatic Relations, the Embassy of Gabon in Spain ensures the diplomatic representation of Gabon, the protection of Gabonese nationals and the strengthening of bilateral relations between the two nations.",
 		"discoverServices": "Discover our services",
 		"contactUs": "Visit us",
-		"consulMessageTitle": "A Word from the Consul General",
-		"consulMessage": "On behalf of the entire consular team, I welcome you to the official website of the General Consulate of Gabon in France. Our mission is to assist you in all your administrative procedures and to strengthen the bonds between our community and our country. We are at your service.",
-		"honorific": "H.E. Mr.",
+		"consulMessageTitle": "A Word from the Ambassador",
+		"consulMessage": "On behalf of the entire embassy team, I welcome you to the official website of the Embassy of Gabon in Spain. Our mission is to assist you in all your consular and diplomatic procedures and to strengthen the bonds between our community and our country. We are at your service.",
+		"honorific": "H.E. Mrs.",
 		"audienceRequest": "Request an Audience",
-		"audienceSubject": "Request for an audience with H.E. Mr.",
-		"consulRole": "Consul General of Gabon in France",
-		"consulDescription": "A career diplomat, the Consul General ensures the protection and assistance of Gabonese nationals in France. He oversees the strengthening of bilateral relations between Gabon and France and the modernisation of consular services.",
+		"audienceSubject": "Request for an audience with H.E. Mrs.",
+		"consulRole": "Ambassador of Gabon to the Kingdom of Spain",
+		"consulDescription": "A career diplomat, H.E. Mrs. Allegra Pamela Bongo presented her credentials to His Majesty King Felipe VI on 8 January 2025. Former First Counsellor at the Permanent Delegation of Gabon to UNESCO in Paris, she brings a wealth of diplomatic experience to strengthen relations between Gabon and Spain.",
 		"missionsBadge": "What we do",
 		"missionsTitle": "Our Missions",
 		"missionsSubtitle": "Consular functions as defined by the Vienna Convention of 1963",
@@ -1915,59 +1909,59 @@
 			"title": "Our Missions",
 			"0": {
 				"title": "Protection of Nationals",
-				"description": "Protecting the interests of the Gabonese State and its nationals in France, in accordance with the Vienna Convention of 1963 (art. 5). Assisting detainees, accident victims, and providing support in case of death or repatriation."
+				"description": "Protecting the interests of the Gabonese State and its nationals in Spain, in accordance with the Vienna Convention of 1961. Assisting detainees, accident victims, and providing support in case of death or repatriation."
 			},
 			"1": {
-				"title": "International Relations",
-				"description": "Developing trade, economic, cultural and scientific relations between Gabon and France. Promoting bilateral cooperation and economic diplomacy."
+				"title": "Bilateral Relations",
+				"description": "Developing trade, economic, cultural and scientific relations between Gabon and Spain. Promoting bilateral cooperation and economic diplomacy."
 			},
 			"2": {
-				"title": "Official Documents",
-				"description": "Issuing passports, visas, travel documents and laissez-passer documents. Legalisation and certification of official administrative documents for nationals and visitors."
+				"title": "Consular Services",
+				"description": "Visas, document legalisation, consular registration, transcription of civil status certificates. Processing and certification of official documents."
 			},
 			"3": {
 				"title": "Civil Status",
-				"description": "Civil Registrar functions: registration of births, celebration of marriages, declaration of deaths and transcription of certificates. Civil status services for the Gabonese community."
+				"description": "Civil Registrar functions: registration of births, celebration of marriages, declaration of deaths and transcription of certificates. Civil status services for the Gabonese community in Spain."
 			},
 			"4": {
 				"title": "Notarial & Administrative Acts",
-				"description": "Notarial functions for authenticated deeds, powers of attorney, certificates of life, legalisation of signatures and documents. Drafting and certification of administrative acts."
+				"description": "Notarial functions for authenticated deeds, powers of attorney, certificates of life, legalisation of signatures and documents."
 			},
 			"5": {
 				"title": "Emergency Assistance",
 				"description": "Relief and assistance to Gabonese nationals in distress: help for detainees, accident or disaster victims, organisation of repatriations and emergency aid."
 			},
 			"6": {
-				"title": "Judicial Functions",
-				"description": "Transmission of judicial and extrajudicial documents, execution of letters rogatory under international conventions. Facilitating legal proceedings between France and Gabon."
+				"title": "International Representation",
+				"description": "Representing Gabon at the World Tourism Organization (UNWTO) based in Madrid and promoting Gabon at international events such as FITUR."
 			},
 			"protection": {
 				"title": "Consular Protection",
-				"description": "Assistance and protection of Gabonese nationals in France in all situations."
+				"description": "Assistance and protection of Gabonese nationals in Spain: detainees, accident victims, repatriations."
 			},
 			"administrative": {
-				"title": "Administrative Services",
-				"description": "Issuance of passports, consular cards, civil status certificates and other official documents."
+				"title": "Consular Services",
+				"description": "Visas, document legalisation, consular registration, transcription of civil status certificates."
 			},
 			"community": {
 				"title": "Community Life",
-				"description": "Support and guidance for the Gabonese diaspora in France."
+				"description": "Support and guidance for the Gabonese diaspora in Spain."
 			},
 			"cultural": {
 				"title": "Cultural Outreach",
-				"description": "Promoting Gabonese culture in France through events and partnerships."
+				"description": "Promoting Gabonese culture in Spain through events and partnerships."
 			},
 			"economic": {
 				"title": "Economic Cooperation",
-				"description": "Facilitating economic exchanges between Gabon and France."
+				"description": "Facilitating economic exchanges between Gabon and Spain. Economic diplomacy and investment promotion."
 			},
 			"legal": {
-				"title": "Legal Assistance",
-				"description": "Support with legal and notarial procedures."
+				"title": "Notarial & Legal Acts",
+				"description": "Notarial functions, powers of attorney, certificates of life, legalisation of signatures and documents."
 			},
 			"social": {
-				"title": "Social Action",
-				"description": "Support for nationals in difficulty and referral to relevant services."
+				"title": "International Representation",
+				"description": "Representing Gabon at the World Tourism Organization (UNWTO) based in Madrid and at events such as FITUR."
 			}
 		},
 		"teamBadge": "Our Team",
@@ -2129,14 +2123,13 @@
 		"title": "Contact the Embassy",
 		"description": "Embassy of Gabon to the Kingdom of Spain — All contact details",
 		"phones": "Phone Numbers",
-		"mainLine": "Main Line",
+		"mainLine": "Main line",
+		"secondLine": "Secondary line",
 		"chancellery": "Chancellery",
-		"chancelleryContact": "Mrs EKIBA",
-		"firstCounselor": "First Counselor",
-		"firstCounselorContact": "Mr OGNAGNA OCKOGHO",
+		"firstCounsellor": "First Counsellor",
 		"economicAffairs": "Economic Affairs",
-		"economicAffairsContact": "Mrs MOUYAPOU NGOUBOU",
-		"emailLabel": "Email",
+		"emails": "Emails",
+		"generalEmail": "General email",
 		"civilStatus": "Civil Status",
 		"emergencies24": "Emergencies 24/7",
 		"openingHours": "Opening Hours",
@@ -2145,17 +2138,11 @@
 		"receptionHours": "9:00 AM - 4:00 PM",
 		"consular": "Consular",
 		"consularHours": "9:30 AM - 1:30 PM",
-		"deposit": "Drop-off",
-		"pickup": "Pick-up",
-		"depositHours": "9:00 AM - 3:00 PM",
-		"pickupHours": "3:00 PM - 4:30 PM",
-		"closedHolidays": "Closed on public holidays in Gabon and Spain.",
+		"closedHolidays": "Closed on public holidays in Gabon and Spain. Appointment recommended.",
 		"access": "Access",
 		"metroLine": "Line 10",
 		"metroLines": "L6 / L8 / L10",
-		"walkTime": "5 min walk",
-		"busLines": "Lines 22, 52",
-		"busStop": "Ranelagh stop"
+		"walkTime": "5 min walk"
 	},
 	"newsPage": {
 		"publications": "publications",

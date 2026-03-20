@@ -115,15 +115,15 @@
 		"items": {
 			"inscription": {
 				"question": "Comment m'inscrire au registre consulaire ?",
-				"answer": "L'inscription se fait en ligne sur consulat.ga ou en personne à l'ambassade. Munissez-vous de votre passeport valide, d'un justificatif de domicile en Espagne de moins de 3 mois, et de 2 photos d'identité. La procédure est gratuite et vous donne accès à la protection consulaire."
+				"answer": "L'inscription se fait en ligne sur consulat.ga ou en personne à l'ambassade (Calle de Orense, Nº 68, 2º Dcha, 28020 Madrid). Documents requis : formulaire d'inscription, passeport en cours de validité, certificat de nationalité gabonaise, justificatif de résidence en Espagne, justificatif professionnel et 2 photos d'identité. L'inscription vous donne accès à la protection consulaire, facilite vos démarches administratives et vous permet de participer aux élections."
 			},
 			"passeport": {
 				"question": "Quels documents pour renouveler mon passeport ?",
-				"answer": "Pour le renouvellement de passeport, vous devez fournir : l'ancien passeport (même expiré), une copie de votre acte de naissance, 2 photos d'identité conformes, un justificatif de domicile récent, et le formulaire de demande rempli. Un rendez-vous à l'ambassade est nécessaire pour la prise d'empreintes."
+				"answer": "L'Ambassade ne délivre pas de passeports à Madrid. Pour le renouvellement, vous devez vous adresser à l'Ambassade du Gabon à Paris ou directement à la DGDI (Délégation Générale à la Documentation et à l'Immigration) à Libreville. L'Ambassade de Madrid peut vous aider dans l'orientation et la constitution du dossier."
 			},
 			"etatCivil": {
 				"question": "Comment transcrire un acte de naissance espagnol au Gabon ?",
-				"answer": "La transcription d'un acte de naissance permet de le faire reconnaître au Gabon. Présentez à l'ambassade : la copie intégrale de l'acte de naissance espagnol, les pièces d'identité des parents, le livret de famille le cas échéant. Le délai moyen est de 2 à 4 semaines."
+				"answer": "La transcription d'un acte de naissance permet de le faire reconnaître au Gabon. Présentez à l'ambassade : la copie intégrale de l'acte de naissance espagnol, les pièces d'identité des parents (passeport ou carte d'identité), et le formulaire de demande de transcription. Contactez la chancellerie au +34 633 293 914 ou chancellerie.es@gmail.com."
 			},
 			"urgence": {
 				"question": "Que faire en cas d'urgence consulaire ?",
@@ -297,24 +297,24 @@
 			"description": "Demande, renouvellement et suivi de votre passeport gabonais. Procédure simplifiée et sécurisée."
 		},
 		"visa": {
-			"title": "Visa",
-			"description": "Demandes de visa pour le Gabon. Visa touristique, affaires, travail et autres catégories."
+			"title": "Visa pour le Gabon",
+			"description": "6 types de visas : consulaire, touristique, affaires, visite familiale, diplomatique et express. Tarifs : 100€ (normal), 150€ (express). Délai : 4-5 jours ouvrables (normal), 2 jours (express)."
 		},
 		"civilStatus": {
 			"title": "État Civil",
-			"description": "Actes de naissance, mariage, décès. Transcription et légalisation des documents."
+			"description": "Transcription de naissance, décès, célébration de mariage. Documents requis : acte espagnol, pièces d'identité des parents, formulaire de demande."
 		},
 		"registration": {
 			"title": "Inscription Consulaire",
-			"description": "Inscrivez-vous au registre des Gabonais de l'étranger. Restez informé et protégé."
+			"description": "Inscription au registre des Gabonais de l'étranger. Documents : formulaire, passeport, certificat de nationalité, justificatif de résidence, justificatif professionnel, 2 photos."
 		},
 		"legalization": {
-			"title": "Légalisation",
-			"description": "Authentification et légalisation de vos documents officiels pour usage international."
+			"title": "Légalisation de documents",
+			"description": "Légalisation et certification de documents officiels. Signataires habilités : l'Ambassadeur et les agents diplomatiques accrédités."
 		},
 		"emergency": {
 			"title": "Assistance d'Urgence",
-			"description": "Aide consulaire en cas d'urgence : perte de documents, difficultés à l'étranger."
+			"description": "Aide consulaire en cas d'urgence : perte de documents, difficultés à l'étranger, assistance aux détenus et victimes."
 		},
 		"urgentBadge": "Urgent",
 		"validity": "Validité",
@@ -459,13 +459,6 @@
 			"sitemap": "Plan du Site"
 		},
 		"copyright": "© {{year}} Ambassade du Gabon en Espagne — Tous droits réservés"
-	},
-	"ambassade": {
-		"pageTitle": "Ambassade",
-		"heroTitle": "L'Ambassade du Gabon au service de ses citoyens en Espagne",
-		"sectionMissions": "Nos Missions",
-		"sectionTeam": "L'équipe de l'Ambassade",
-		"sectionVision": "Mission, Vision & Valeurs"
 	},
 	"common": {
 		"notFound": {
@@ -1833,12 +1826,12 @@
 		}
 	},
 	"contact": {
-		"title": "Contactez-nous",
+		"title": "Nous",
 		"subtitle": "Coordonnées officielles",
-		"description": "Le Consulat Général de la République Gabonaise en France est à votre disposition pour toutes vos démarches consulaires.",
+		"description": "L'Ambassade de la République Gabonaise près le Royaume d'Espagne est à votre disposition pour toutes vos démarches consulaires et diplomatiques.",
 		"address": {
 			"title": "Adresse",
-			"value": "26 bis avenue Raphaël, 75016 Paris"
+			"value": "Calle de Orense, Nº 68, 2º Dcha, 28020 Madrid"
 		},
 		"phone": {
 			"title": "Téléphone"
@@ -1848,7 +1841,7 @@
 		},
 		"hours": {
 			"title": "Horaires d'ouverture",
-			"weekdays": "Lundi — Vendredi : 9h30 — 15h00",
+			"weekdays": "Lundi — Vendredi : 9h00 — 16h00",
 			"weekend": "Samedi — Dimanche : Fermé"
 		},
 		"emergency": {
@@ -1874,57 +1867,58 @@
 		},
 		"titleHighlight": "contacter",
 		"coordinates": "Coordonnées",
+		"chancellery": "Chancellerie",
 		"civilStatus": "État Civil",
 		"emergencies": "Urgences",
 		"openingHours": "Horaires d'ouverture",
 		"weekdays": "Lundi - Vendredi",
-		"deposit": "Dépôt",
-		"pickup": "Retrait",
-		"depositHoursValue": "9h00 - 15h00",
-		"pickupHoursValue": "15h00 - 16h30",
-		"closedHolidays": "Fermé les jours fériés chômés au Gabon et en France.",
+		"deposit": "Accueil",
+		"pickup": "Consulaire",
+		"depositHoursValue": "9h00 - 16h00",
+		"pickupHoursValue": "9h30 - 13h30",
+		"closedHolidays": "Fermé les jours fériés chômés au Gabon et en Espagne. Cita previa recommandée.",
 		"access": "Accès & Transport",
-		"metro": "Métro Ligne 9",
-		"metroStop": "Arrêt Ranelagh (5 min à pied)",
-		"busStop": "Arrêt Ranelagh",
+		"metro": "Metro Santiago Bernabéu",
+		"metroStop": "Línea 10 (5 min à pied)",
+		"busStop": "Nuevos Ministerios",
 		"parking": "Stationnement",
-		"parkingDesc": "Parking payant sur voie publique",
-		"consulateGeneral": "Consulat Général"
+		"parkingDesc": "Parking payant sur voie publique — Zone SER",
+		"consulateGeneral": "Ambassade du Gabon en Espagne"
 	},
 	"leConsulat": {
-		"title": "Le Consulat",
+		"title": "L'Ambassade",
 		"badge": "Institution",
-		"subtitle": "Le Consulat Général de la République Gabonaise en France",
-		"description": "Au service de la communauté gabonaise en France depuis plus de 50 ans. Découvrez nos missions, notre histoire et notre engagement.",
+		"subtitle": "Ambassade de la République Gabonaise près le Royaume d'Espagne et Représentation Permanente du Gabon auprès de l'ONU Tourisme",
+		"description": "Au service de la communauté gabonaise en Espagne. Représentation diplomatique, protection consulaire et renforcement des relations bilatérales entre le Gabon et l'Espagne.",
 		"missions": {
 			"title": "Nos missions",
 			"protection": {
 				"title": "Protection consulaire",
-				"description": "Assistance et protection des ressortissants gabonais en France dans toutes les situations."
+				"description": "Assistance et protection des ressortissants gabonais en Espagne dans toutes les situations : détenus, victimes d'accidents, rapatriements."
 			},
 			"administrative": {
-				"title": "Services administratifs",
-				"description": "Délivrance de passeports, cartes consulaires, actes d'état civil et autres documents officiels."
+				"title": "Services consulaires",
+				"description": "Visas, légalisation de documents, inscription consulaire, transcription d'actes d'état civil et certificats."
 			},
 			"community": {
 				"title": "Vie communautaire",
-				"description": "Animation et accompagnement de la diaspora gabonaise en France."
+				"description": "Animation et accompagnement de la diaspora gabonaise en Espagne."
 			},
 			"cultural": {
 				"title": "Rayonnement culturel",
-				"description": "Promotion de la culture gabonaise en France à travers des événements et des partenariats."
+				"description": "Promotion de la culture gabonaise en Espagne à travers des événements et des partenariats."
 			},
 			"economic": {
 				"title": "Coopération économique",
-				"description": "Facilitation des échanges économiques entre le Gabon et la France."
+				"description": "Facilitation des échanges économiques entre le Gabon et l'Espagne. Diplomatie économique et promotion des investissements."
 			},
 			"legal": {
-				"title": "Assistance juridique",
-				"description": "Accompagnement dans les démarches juridiques et notariales."
+				"title": "Actes notariés & juridiques",
+				"description": "Fonctions notariales, procurations, certificats de vie, légalisations de signatures et de documents."
 			},
 			"social": {
-				"title": "Action sociale",
-				"description": "Soutien aux ressortissants en difficulté et orientation vers les services compétents."
+				"title": "Représentation internationale",
+				"description": "Représentation du Gabon auprès de l'Organisation Mondiale du Tourisme (OMT) basée à Madrid et promotion lors d'événements comme FITUR."
 			}
 		}
 	},
@@ -2080,12 +2074,10 @@
 		"phones": "Téléphones",
 		"mainLine": "Ligne principale",
 		"chancellery": "Chancellerie",
-		"chancelleryContact": "Mme EKIBA",
-		"firstCounselor": "Premier Conseiller",
-		"firstCounselorContact": "M. OGNAGNA OCKOGHO",
-		"economicAffairs": "Affaires Économiques",
-		"economicAffairsContact": "Mme MOUYAPOU NGOUBOU",
-		"emailLabel": "Email",
+		"firstCounsellor": "Premier Conseiller",
+		"economicAffairs": "Aff. Économiques",
+		"emails": "Emails",
+		"generalEmail": "Email général",
 		"civilStatus": "État Civil",
 		"emergencies24": "Urgences 24h/24",
 		"openingHours": "Horaires d'ouverture",
@@ -2094,17 +2086,11 @@
 		"receptionHours": "9h00 - 16h00",
 		"consular": "Consulaire",
 		"consularHours": "9h30 - 13h30",
-		"deposit": "Dépôt",
-		"pickup": "Retrait",
-		"depositHours": "9h00 - 15h00",
-		"pickupHours": "15h00 - 16h30",
-		"closedHolidays": "Fermé les jours fériés chômés au Gabon et en Espagne.",
+		"closedHolidays": "Fermé les jours fériés chômés au Gabon et en Espagne. Cita previa recommandée.",
 		"access": "Accès",
 		"metroLine": "Línea 10",
 		"metroLines": "L6 / L8 / L10",
-		"walkTime": "5 min à pied",
-		"busLines": "Lignes 22, 52",
-		"busStop": "Arrêt Ranelagh"
+		"walkTime": "5 min à pied"
 	},
 	"newsPage": {
 		"publications": "publications",

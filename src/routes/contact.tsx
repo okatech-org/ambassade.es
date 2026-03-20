@@ -67,14 +67,14 @@ function ContactPage() {
 				<div className="grid lg:grid-cols-3 gap-8">
 					{/* Contact Info Column */}
 					<div className="lg:col-span-2 space-y-8">
-						{/* Consulat General */}
+						{/* Ambassade du Gabon en Espagne */}
 						<div className="glass-card rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300">
 							<div className="p-6 md:p-8 bg-primary/5 border-b border-border/40">
 								<h2 className="flex items-center gap-4 text-2xl font-bold text-foreground">
 									<span className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shadow-sm">
 										<Info className="w-6 h-6" />
 									</span>
-									{t("contact.consulateGeneral", "Consulat Général")}
+									{t("contact.consulateGeneral", "Ambassade du Gabon en Espagne")}
 								</h2>
 							</div>
 							<div className="p-6 md:p-8 space-y-8">
@@ -91,7 +91,7 @@ function ContactPage() {
 												<div>
 													<EditableText
 														contentKey="contact.info.address1"
-														defaultValue="26 bis Avenue Raphaël"
+														defaultValue="Calle de Orense, Nº 68, 2º Dcha"
 														pagePath="/contact"
 														sectionId="info"
 														as="p"
@@ -99,7 +99,7 @@ function ContactPage() {
 													/>
 													<EditableText
 														contentKey="contact.info.address2"
-														defaultValue="75016 Paris, France"
+														defaultValue="28020 Madrid, España"
 														pagePath="/contact"
 														sectionId="info"
 														as="p"
@@ -114,82 +114,68 @@ function ContactPage() {
 												<div className="space-y-3 w-full">
 													<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 p-2 rounded-lg hover:bg-muted/40 transition-colors -ml-2 border border-transparent hover:border-border/30">
 														<span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-															Standard
-														</span>
-														<div className="flex flex-col items-end gap-1">
-															<a
-																href="tel:+33142996862"
-																className="text-foreground font-medium hover:text-primary transition-colors"
-															>
-																<EditableText
-																	contentKey="contact.info.phoneStandard1"
-																	defaultValue="01 42 99 68 62"
-																	pagePath="/contact"
-																	sectionId="info"
-																	as="span"
-																/>
-															</a>
-															<a
-																href="tel:+33751025292"
-																className="text-foreground font-medium hover:text-primary transition-colors"
-															>
-																<EditableText
-																	contentKey="contact.info.phoneStandard2"
-																	defaultValue="07 51 02 52 92"
-																	pagePath="/contact"
-																	sectionId="info"
-																	as="span"
-																/>
-															</a>
-														</div>
-													</div>
-													<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 p-2 rounded-lg hover:bg-muted/40 transition-colors -ml-2 border border-transparent hover:border-border/30">
-														<span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-															{t("contact.civilStatus", "État Civil")}
-														</span>
-														<div className="flex flex-col items-end gap-1">
-															<a
-																href="tel:+33759485895"
-																className="text-foreground font-medium hover:text-primary transition-colors"
-															>
-																<EditableText
-																	contentKey="contact.info.phoneEtatCivil1"
-																	defaultValue="07 59 48 58 95"
-																	pagePath="/contact"
-																	sectionId="info"
-																	as="span"
-																/>
-															</a>
-															<a
-																href="tel:+33759302637"
-																className="text-foreground font-medium hover:text-primary transition-colors"
-															>
-																<EditableText
-																	contentKey="contact.info.phoneEtatCivil2"
-																	defaultValue="07 59 30 26 37"
-																	pagePath="/contact"
-																	sectionId="info"
-																	as="span"
-																/>
-															</a>
-														</div>
-													</div>
-													<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 p-2 rounded-lg bg-red-500/5 border border-red-500/10 -ml-2">
-														<span className="text-xs font-bold text-red-500 uppercase tracking-wide">
-															{t("contact.emergencies", "Urgences")}
+															{t("contactModal.mainLine", "Ligne principale")}
 														</span>
 														<a
-															href="tel:+33744239584"
-															className="text-red-600 dark:text-red-400 font-bold hover:text-red-700 dark:hover:text-red-300 transition-colors"
+															href="tel:+34914138211"
+															className="text-foreground font-medium hover:text-primary transition-colors"
 														>
 															<EditableText
-																contentKey="contact.info.phoneUrgence"
-																defaultValue="07 44 23 95 84"
+																contentKey="contact.info.phoneStandard1"
+																defaultValue="+34 914 138 211"
 																pagePath="/contact"
 																sectionId="info"
 																as="span"
 															/>
 														</a>
+													</div>
+													<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 p-2 rounded-lg hover:bg-muted/40 transition-colors -ml-2 border border-transparent hover:border-border/30">
+														<span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+															{t("contactModal.secondLine", "Ligne secondaire")}
+														</span>
+														<a
+															href="tel:+34914138294"
+															className="text-foreground font-medium hover:text-primary transition-colors"
+														>
+															<EditableText
+																contentKey="contact.info.phoneStandard2"
+																defaultValue="+34 914 138 294"
+																pagePath="/contact"
+																sectionId="info"
+																as="span"
+															/>
+														</a>
+													</div>
+													<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 p-2 rounded-lg hover:bg-muted/40 transition-colors -ml-2 border border-transparent hover:border-border/30">
+														<span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+															{t("contact.chancellery", "Chancellerie")}
+														</span>
+														<a
+															href="tel:+34633293914"
+															className="text-foreground font-medium hover:text-primary transition-colors"
+														>
+															<EditableText
+																contentKey="contact.info.phoneChancellerie"
+																defaultValue="+34 633 293 914"
+																pagePath="/contact"
+																sectionId="info"
+																as="span"
+															/>
+														</a>
+													</div>
+													<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 p-2 rounded-lg hover:bg-muted/40 transition-colors -ml-2 border border-transparent hover:border-border/30">
+														<span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+															Fax
+														</span>
+														<span className="text-foreground font-medium">
+															<EditableText
+																contentKey="contact.info.fax"
+																defaultValue="+34 914 131 153"
+																pagePath="/contact"
+																sectionId="info"
+																as="span"
+															/>
+														</span>
 													</div>
 												</div>
 											</div>
@@ -197,18 +183,32 @@ function ContactPage() {
 												<div className="p-2 rounded-lg bg-muted/50 group-hover:bg-primary/10 transition-colors">
 													<Mail className="w-5 h-5 text-primary" />
 												</div>
-												<a
-													href="mailto:contact@consulatdugabon.fr"
-													className="text-foreground hover:text-primary transition-colors font-medium break-all underline decoration-border hover:decoration-primary underline-offset-4"
-												>
-													<EditableText
-														contentKey="contact.info.email"
-														defaultValue="contact@consulatdugabon.fr"
-														pagePath="/contact"
-														sectionId="info"
-														as="span"
-													/>
-												</a>
+												<div className="space-y-1">
+													<a
+														href="mailto:ambassadegabon.madrid@gmail.com"
+														className="text-foreground hover:text-primary transition-colors font-medium break-all underline decoration-border hover:decoration-primary underline-offset-4 block"
+													>
+														<EditableText
+															contentKey="contact.info.email"
+															defaultValue="ambassadegabon.madrid@gmail.com"
+															pagePath="/contact"
+															sectionId="info"
+															as="span"
+														/>
+													</a>
+													<a
+														href="mailto:chancellerie.es@gmail.com"
+														className="text-muted-foreground hover:text-primary transition-colors text-sm break-all underline decoration-border hover:decoration-primary underline-offset-4 block"
+													>
+														<EditableText
+															contentKey="contact.info.emailChancellerie"
+															defaultValue="chancellerie.es@gmail.com"
+															pagePath="/contact"
+															sectionId="info"
+															as="span"
+														/>
+													</a>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -235,15 +235,12 @@ function ContactPage() {
 														variant="outline"
 														className="bg-primary/5 text-primary border-primary/20"
 													>
-														{t("contact.deposit", "Dépôt")}
+														{t("contactModal.reception", "Accueil")}
 													</Badge>
 												</div>
 												<EditableText
 													contentKey="contact.horaires.depot"
-													defaultValue={t(
-														"contact.depositHoursValue",
-														"9h00 - 15h00",
-													)}
+													defaultValue="9h00 - 16h00"
 													pagePath="/contact"
 													sectionId="horaires"
 													as="p"
@@ -253,7 +250,7 @@ function ContactPage() {
 											<div className="p-3 rounded-xl bg-muted/30 border border-border/40">
 												<div className="flex justify-between items-center mb-1">
 													<EditableText
-														contentKey="contact.horaires.jours"
+														contentKey="contact.horaires.jours2"
 														defaultValue={t(
 															"contact.weekdays",
 															"Lundi - Vendredi",
@@ -267,15 +264,12 @@ function ContactPage() {
 														variant="outline"
 														className="bg-primary/5 text-primary border-primary/20"
 													>
-														{t("contact.pickup", "Retrait")}
+														{t("contactModal.consular", "Consulaire")}
 													</Badge>
 												</div>
 												<EditableText
 													contentKey="contact.horaires.retrait"
-													defaultValue={t(
-														"contact.pickupHoursValue",
-														"15h00 - 16h30",
-													)}
+													defaultValue="9h30 - 13h30"
 													pagePath="/contact"
 													sectionId="horaires"
 													as="p"
@@ -288,7 +282,7 @@ function ContactPage() {
 													contentKey="contact.horaires.fermeture"
 													defaultValue={t(
 														"contact.closedHolidays",
-														"Fermé les jours fériés chômés au Gabon et en France.",
+														"Fermé les jours fériés chômés au Gabon et en Espagne. Cita previa recommandée.",
 													)}
 													pagePath="/contact"
 													sectionId="horaires"
@@ -314,7 +308,8 @@ function ContactPage() {
 							<div className="p-6 space-y-6">
 								<div className="aspect-square w-full rounded-2xl bg-muted overflow-hidden relative shadow-inner ring-1 ring-black/5 dark:ring-white/10">
 									<iframe
-										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.356238676231!2d2.266209376435383!3d48.85143397133145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e67aaf7b7e2311%3A0x6b6e4e3e3e3e3e3e!2s26%20Bis%20Av.%20Rapha%C3%ABl%2C%2075016%20Paris!5e0!3m2!1sfr!2sfr!4v1706100000000!5m2!1sfr!2sfr"
+										title="Ambassade du Gabon — Calle de Orense 68, Madrid"
+										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.!2d-3.6919!3d40.4528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCalle%20de%20Orense%2068%2C%2028020%20Madrid!5e0!3m2!1ses!2ses!4v1706100000000!5m2!1ses!2ses"
 										width="100%"
 										height="100%"
 										style={{ border: 0 }}
@@ -327,13 +322,13 @@ function ContactPage() {
 
 								<div className="space-y-4">
 									<div className="flex items-center gap-4 p-3 rounded-xl bg-background/50 border border-border/50">
-										<div className="w-10 h-10 rounded-lg bg-[#62C462] text-white flex items-center justify-center font-bold text-sm shadow-sm shrink-0">
-											M9
+										<div className="w-10 h-10 rounded-lg bg-[#0078C1] text-white flex items-center justify-center font-bold text-sm shadow-sm shrink-0">
+											M
 										</div>
 										<div>
 											<EditableText
 												contentKey="contact.transport.metro"
-												defaultValue={t("contact.metro", "Métro Ligne 9")}
+												defaultValue="Metro Santiago Bernabéu"
 												pagePath="/contact"
 												sectionId="transport"
 												as="p"
@@ -341,10 +336,7 @@ function ContactPage() {
 											/>
 											<EditableText
 												contentKey="contact.transport.metroStop"
-												defaultValue={t(
-													"contact.metroStop",
-													"Arrêt Ranelagh (5 min à pied)",
-												)}
+												defaultValue="Línea 10 (5 min à pied)"
 												pagePath="/contact"
 												sectionId="transport"
 												as="p"
@@ -353,21 +345,21 @@ function ContactPage() {
 										</div>
 									</div>
 									<div className="flex items-center gap-4 p-3 rounded-xl bg-background/50 border border-border/50">
-										<div className="w-10 h-10 rounded-lg bg-[#0088CE] text-white flex items-center justify-center font-bold text-sm shadow-sm shrink-0">
-											BUS
+										<div className="w-10 h-10 rounded-lg bg-[#0078C1] text-white flex items-center justify-center font-bold text-sm shadow-sm shrink-0">
+											M
 										</div>
 										<div>
 											<EditableText
-												contentKey="contact.transport.bus"
-												defaultValue="Bus 22, 52"
+												contentKey="contact.transport.metro2"
+												defaultValue="Metro Nuevos Ministerios"
 												pagePath="/contact"
 												sectionId="transport"
 												as="p"
 												className="font-bold text-foreground"
 											/>
 											<EditableText
-												contentKey="contact.transport.busStop"
-												defaultValue={t("contact.busStop", "Arrêt Ranelagh")}
+												contentKey="contact.transport.metro2Stop"
+												defaultValue="L6 / L8 / L10"
 												pagePath="/contact"
 												sectionId="transport"
 												as="p"
@@ -390,10 +382,7 @@ function ContactPage() {
 											/>
 											<EditableText
 												contentKey="contact.transport.parkingDesc"
-												defaultValue={t(
-													"contact.parkingDesc",
-													"Parking payant sur voie publique",
-												)}
+												defaultValue="Parking payant sur voie publique — Zone SER"
 												pagePath="/contact"
 												sectionId="transport"
 												as="p"
